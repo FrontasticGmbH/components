@@ -1,0 +1,41 @@
+{
+    "tasticType": "frontastic/examples/simple-button",
+    "name": "DocExample Simple Button",
+    "category": "Documentation Examples",
+    "icon": "info",
+    "schema": [
+        {
+            "name": "Button Configuration",
+            "fields": [
+                 {
+                    "label": "Label",
+                    "field": "label",
+                    "translatable": false,
+                    "type": "string",
+                    "default": "Click me"
+                },
+                {
+                    "label": "Color Scheme",
+                    "field": "colorScheme",
+                    "type": "enum",
+                    "default": "primary",
+                    "values": [
+                        {
+                            "name": "Primary",
+                            "value": "primary"
+                        },
+                        {
+                            "name": "Secondary",
+                            "value": "secondary"
+                        },
+                        {
+                            "name": "Neutral",
+                            "value": "neutral"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

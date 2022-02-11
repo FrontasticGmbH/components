@@ -1,0 +1,41 @@
+{
+    "tasticType": "frontastic/boostwind/products/slider",
+    "name": "Boostwind Product Slider",
+    "icon": "menu",
+    "category": "Products",
+    "schema": [
+        {
+            "name": "Configuration",
+            "fields": [
+                {
+                    "label": "title",
+                    "field": "title",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "label": "products",
+                    "field": "data",
+                    "type": "stream",
+                    "streamType": "frontastic/product-list",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "name": "CTA",
+            "fields": [
+                {
+                    "label": "label",
+                    "field": "ctaLabel",
+                    "type": "string"
+                },
+                {
+                    "label": "link",
+                    "field": "ctaLink",
+                    "type": "reference"
+                }
+            ]
+        }
+    ]
+}

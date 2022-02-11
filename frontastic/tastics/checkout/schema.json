@@ -1,0 +1,7 @@
+{
+    "tasticType": "frontastic/boostwind/checkout",
+    "name": "Boostwind Checkout",
+    "icon": "wrap_text",
+    "category": "Checkout",
+    "schema": []
+}

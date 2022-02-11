@@ -1,0 +1,13 @@
+{
+    "myCart": "My Cart",
+    "paymentMethods": "Payment methods",
+    "subtotal": "Subtotal",
+    "totalAmount": "Total amount",
+    "totalSum": "Total sum",
+    "enterVouchers": "You can enter voucher codes in the last step of the order process.",
+    "checkout": "Checkout",
+    "shippingCosts": "Shipping costs",
+    "freeShipping": "Free",
+    "inclVat": "incl.VAT",
+    "remove": "Remove"    
+}

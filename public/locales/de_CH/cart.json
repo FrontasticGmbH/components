@@ -1,0 +1,13 @@
+{
+    "myCart": "Warenkorb",
+    "paymentMethods": "Bezahlarten",
+    "subtotal": "Zwischensumme",
+    "totalAmount": "Gesamtbetrag",
+    "totalSum": "Gesamtsumme",
+    "enterVouchers": "Gutscheincodes können Sie im letzten Schritt der Bestellung eingeben.",
+    "checkout": "Zur Kasse",
+    "shippingCosts": "Versandkosten",
+    "freeShipping": "Kostenlos",
+    "inclVat": "inkl. Mwst",
+    "remove": "Entfernen"
+}

@@ -1,0 +1,20 @@
+{
+    "tasticType": "frontastic/boostwind/products/details",
+    "name": "Boostwind Product Details",
+    "icon": "card_giftcard",
+    "category": "Products",
+    "schema": [
+        {
+            "name": "Configuration",
+            "fields": [
+                {
+                    "label": "product",
+                    "field": "data",
+                    "type": "stream",
+                    "streamType": "frontastic/product",
+                    "required": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+.markdownText {
+  font-size: 16px;
+}
+.markdownText > * {
+  margin: 0;
+  line-height: 1em;
+}
+
+.markdownText h1 {
+  font-size: 3em;
+  font-weight: bold;
+  color: #1c202c;
+}
+
+.markdownText h2 {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: #1c202c;
+}
+
+.markdownText h3 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #1c202c;
+}
+
+.markdownText h4 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4a5568;
+}
+
+.markdownText h5 {
+  font-size: 1.3em;
+  color: #4a5568;
+}
+
+.markdownText p {
+  font-size: 1em;
+  color: #4a5568;
+}

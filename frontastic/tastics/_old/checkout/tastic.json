@@ -1,0 +1,7 @@
+{
+    "tasticType": "frontastic/boost/checkout",
+    "name": "Checkout",
+    "icon": "wrap_text",
+    "category": "Nextjs Boost",
+    "schema": []
+}

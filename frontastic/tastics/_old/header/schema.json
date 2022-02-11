@@ -1,0 +1,63 @@
+{
+    "tasticType": "frontastic/boost/header",
+    "name": "Header",
+    "icon": "menu",
+    "category": "Header & Footer",
+    "schema": [
+        {
+            "name": "Menu",
+            "fields": [
+                {
+                    "type": "description",
+                    "text": "Choose a few top categories to be displayed on top of the navigation. Selecting a top category will allow the consumer to navigate to its tree."
+                },
+                {
+                    "label": "Top categories",
+                    "field": "topCategories",
+                    "type": "group",
+                    "itemLabelField": "name",
+                    "fields": [
+                        {
+                            "label": "Name",
+                            "field": "name",
+                            "translatable": true,
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "label": "Navigation tree",
+                            "field": "tree",
+                            "type": "tree"
+                        },
+                        {
+                            "label": "Link",
+                            "field": "reference",
+                            "required": true,
+                            "type": "reference"
+                        },
+                        {
+                            "label": "Mobile nav background",
+                            "field": "mobileNavBackgroundImage",
+                            "type": "media"
+                        },
+                        {
+                            "type": "description",
+                            "text": "Ratio-Setting will currently not be used."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Logo",
+            "fields": [
+                {
+                    "label": "Logo",
+                    "field": "logo",
+                    "type": "media",
+                    "required": false
+                }
+            ]
+        }
+    ]
+}

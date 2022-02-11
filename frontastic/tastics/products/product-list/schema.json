@@ -1,0 +1,20 @@
+{
+    "tasticType": "frontastic/boostwind/products/product-list",
+    "name": "Boostwind Product List",
+    "icon": "list",
+    "category": "Products",
+    "schema": [
+        {
+            "name": "Configuration",
+            "fields": [
+                {
+                    "label": "products",
+                    "field": "data",
+                    "type": "stream",
+                    "streamType": "frontastic/product-list",
+                    "required": true
+                }
+            ]
+        }
+    ]
+}

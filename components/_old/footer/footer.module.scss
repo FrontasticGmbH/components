@@ -1,0 +1,33 @@
+.footerBase {
+  background-color: $default-gray-800;
+  padding: 16px 16px 17px 15px;
+  display: flex;
+  align-items: center;
+}
+.copyright {
+  color: $white;
+  margin-right: 52px;
+  @include text-xs-bold;
+}
+.legalLinks {
+  display: flex;
+  align-items: flex-start;
+}
+.label {
+  color: $default-gray-400;
+  text-align: center;
+  margin-right: 16px;
+  @include text-xs-regular;
+}
+.labelTwo {
+  color: $default-gray-400;
+  text-align: center;
+  margin-right: 15px;
+  @include text-xs-regular;
+}
+.labelThree {
+  width: 27px;
+  color: $default-gray-400;
+  text-align: center;
+  @include text-xs-regular;
+}

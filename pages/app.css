@@ -1,0 +1,28 @@
+.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-width: 1px;
+  --border-opacity: 1;
+  border-color: #cbd5e0;
+  border-color: rgba(203, 213, 224, var(--border-opacity));
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  --text-opacity: 1;
+  color: #4a5568;
+  color: rgba(74, 85, 104, var(--text-opacity));
+  line-height: 1.25;
+}
+
+.form-input.border-red-600 {
+  border-color: rgba(220, 38, 38);
+}
+
+.btn:disabled {
+  background-color: rgba(156, 163, 175);
+}
+
+body {
+  color: #2d3748;
+}

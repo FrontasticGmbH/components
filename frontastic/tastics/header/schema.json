@@ -1,0 +1,75 @@
+{
+    "tasticType": "frontastic/boostwind/header",
+    "name": "Boostwind Header",
+    "icon": "menu",
+    "category": "Header & Footer",
+    "schema": [
+        {
+            "name": "Menu",
+            "fields": [
+                {
+                    "label": "Tagline",
+                    "field": "tagline",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "label": "Logo",
+                    "field": "logo",
+                    "type": "media",
+                    "required": true
+                },
+                {
+                    "label": "links",
+                    "field": "links",
+                    "type": "group",
+                    "itemLabelField": "name",
+                    "fields": [
+                        {
+                            "label": "Name",
+                            "field": "name",
+                            "translatable": true,
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "label": "Link",
+                            "field": "reference",
+                            "required": true,
+                            "type": "reference"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Links",
+            "fields": [
+                {
+                    "label": "Logo Link",
+                    "field": "logoLink",
+                    "type": "reference",
+                    "required": true
+                },
+                {
+                    "label": "Search Link",
+                    "field": "searchLink",
+                    "type": "reference",
+                    "required": true
+                },
+                {
+                    "label": "Account Link",
+                    "field": "accountLink",
+                    "type": "reference",
+                    "required": true
+                },
+                {
+                    "label": "Cart Link",
+                    "field": "cartLink",
+                    "type": "reference",
+                    "required": true
+                }
+            ]
+        }
+    ]
+}

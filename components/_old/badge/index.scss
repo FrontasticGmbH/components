@@ -1,0 +1,18 @@
+.badge-wrapper {
+    @apply flex relative;
+
+    min-height: 52px;
+    width: max-content;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .badge-count {
+        @apply bg-primary-600 text-white w-4 h-4 rounded-full flex justify-center absolute;
+
+        right: -6px;
+        top: 8px;
+        align-items: center;
+    }
+}

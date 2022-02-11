@@ -1,0 +1,174 @@
+{
+    "tasticType": "frontastic/boostwind/footer",
+    "name": "Boostwind Footer",
+    "icon": "menu",
+    "category": "Header & Footer",
+    "schema": [
+        {
+            "name": "Nav Column 1",
+            "fields": [
+                {
+                    "type": "description",
+                    "text": "ideally 3-6 links"
+                },
+                {
+                    "label": "Header",
+                    "field": "headerCol1",
+                    "translatable": true,
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "label": "Links",
+                    "field": "linksCol1",
+                    "type": "group",
+                    "itemLabelField": "name",
+                    "fields": [
+                        {
+                            "label": "Name",
+                            "field": "name",
+                            "translatable": true,
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "label": "Link",
+                            "field": "reference",
+                            "required": true,
+                            "type": "reference"
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            "name": "Nav Column 2",
+            "fields": [
+                {
+                    "type": "description",
+                    "text": "ideally 3-6 links"
+                },
+                {
+                    "label": "Header",
+                    "field": "headerCol2",
+                    "translatable": true,
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "label": "Links",
+                    "field": "linksCol2",
+                    "type": "group",
+                    "itemLabelField": "name",
+                    "fields": [
+                        {
+                            "label": "Name",
+                            "field": "name",
+                            "translatable": true,
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "label": "Link",
+                            "field": "reference",
+                            "required": true,
+                            "type": "reference"
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            "name": "Nav Column 3",
+            "fields": [
+                {
+                    "type": "description",
+                    "text": "ideally 3-6 links"
+                },
+                {
+                    "label": "Header",
+                    "field": "headerCol3",
+                    "translatable": true,
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "label": "Links",
+                    "field": "linksCol3",
+                    "type": "group",
+                    "itemLabelField": "name",
+                    "fields": [
+                        {
+                            "label": "Name",
+                            "field": "name",
+                            "translatable": true,
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "label": "Link",
+                            "field": "reference",
+                            "required": true,
+                            "type": "reference"
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            "name": "Nav Column 4",
+            "fields": [
+                {
+                    "type": "description",
+                    "text": "ideally 3-6 links"
+                },
+                {
+                    "label": "Header",
+                    "field": "headerCol4",
+                    "translatable": true,
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "label": "Links",
+                    "field": "linksCol4",
+                    "type": "group",
+                    "itemLabelField": "name",
+                    "fields": [
+                        {
+                            "label": "Name",
+                            "field": "name",
+                            "translatable": true,
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "label": "Link",
+                            "field": "reference",
+                            "required": true,
+                            "type": "reference"
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            "name": "Copyright",
+            "fields": [
+                {
+                    "label": "Copyright",
+                    "field": "copyright",
+                    "translatable": false,
+                    "required": false,
+                    "type": "string"
+                }
+
+            ]
+        }
+
+    ]
+}

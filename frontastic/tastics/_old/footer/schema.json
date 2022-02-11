@@ -1,0 +1,8 @@
+{
+    "tasticType": "frontastic/boost/footer",
+    "name": "Footer",
+    "icon": "menu",
+    "category": "Header & Footer",
+    "schema": [
+    ]
+}
