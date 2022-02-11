@@ -1,8 +1,8 @@
 import { CurrencyHelpers } from "helpers/CurrencyHelpers"
 import { StringHelpers } from "helpers/StringHelpers"
-import { Cart } from "../../../../../types/cart/Cart"
-import { LineItem } from "../../../../../types/cart/LineItem"
-import { ShippingMethod } from "../../../../../types/cart/ShippingMethod"
+import { Cart } from "../../../../types/cart/Cart"
+import { LineItem } from "../../../../types/cart/LineItem"
+import { ShippingMethod } from "../../../../types/cart/ShippingMethod"
 
 
 interface Props {

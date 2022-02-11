@@ -1,5 +1,5 @@
 import { StringHelpers } from './StringHelpers';
-import { Money } from '../../../types/product/Money';
+import { Money } from '../../types/product/Money';
 
 export class CurrencyHelpers {
   private static formatNumberForCurrency = function (costInCents: number) {

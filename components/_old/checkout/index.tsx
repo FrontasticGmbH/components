@@ -4,7 +4,7 @@ import { EmptyState, DefaultLoader } from 'components';
 
 import CheckoutLayout from './layout';
 import { paymentMethods } from './mock';
-import { ShippingMethod } from '../../../../types/cart/ShippingMethod'
+import { ShippingMethod } from '../../../types/cart/ShippingMethod'
 
 export const Checkout: React.FC = () => {
   const { data, shippingMethods } = useCart();

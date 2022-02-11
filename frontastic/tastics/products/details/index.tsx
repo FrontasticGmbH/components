@@ -1,6 +1,6 @@
 import { useState } from 'react';
-// import { Product } from '../../../../../../types/product/Product';
-import { Variant } from '../../../../../../types/product/Variant';
+// import { Product } from '../../../../../types/product/Product';
+import { Variant } from '../../../../../types/product/Variant';
 // import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useCart } from 'frontastic';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/boostwind/products/product-details';

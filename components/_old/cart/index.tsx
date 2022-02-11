@@ -9,7 +9,7 @@ import { EmptyState, Summary } from 'components';
 import Product from './product';
 import PaymentMethods from './payment-methods';
 
-import { LineItem } from '../../../../types/cart/LineItem';
+import { LineItem } from '../../../types/cart/LineItem';
 
 export const Cart: React.FC = () => {
   const router = useRouter();
