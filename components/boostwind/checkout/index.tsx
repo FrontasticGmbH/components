@@ -7,6 +7,7 @@ import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
 import { useRouter } from 'next/router';
 import { useCart } from 'frontastic';
+import { Address } from '../../../../types/account/Address';
 
 const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
     { name: "firstName", inputAutoComplete: "given-name", label: "First Name", containerClassNames: "col-span-6 sm:col-span-6" },
@@ -17,7 +18,8 @@ const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
     //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
     //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
     //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
-    { name: "streetAddress", inputAutoComplete: "cc-name", label: "Address" },
+    { name: "streetName", inputAutoComplete: "cc-name", label: "Street Name", containerClassNames: "col-span-full sm:col-span-10" },
+    { name: "streetNumber", inputAutoComplete: "cc-name", label: "Street No.", containerClassNames: "col-span-full sm:col-span-2" },
     { name: "city", inputAutoComplete: "address-level2", label: "City", containerClassNames: "col-span-full sm:col-span-4" },
     { name: "region", inputAutoComplete: "address-level1", label: "State / Province", containerClassNames: "col-span-full sm:col-span-4" },
     { name: "postalCode", inputAutoComplete: "postal-code", label: "Postal code", containerClassNames: "col-span-full sm:col-span-4" }
@@ -28,7 +30,14 @@ interface Props {
 }
 
 const Checkout = ({ }: Props) => {
-    const { data, removeItem, shippingMethods, orderCart } = useCart();
+    const {
+        data,
+        removeItem,
+        shippingMethods,
+        setShippingMethod,
+        updateCart,
+        orderCart
+    } = useCart();
     const router = useRouter();
     const [checkoutData, setCheckoutData] = useState({
         firstName: "",
@@ -39,7 +48,8 @@ const Checkout = ({ }: Props) => {
         //cardNumber: "",
         //expirationDate: "",
         //cvc: "",
-        streetAddress: "",
+        streetName: "",
+        streetNumber: "",
         city: "",
         region: "",
         postalCode: "",
@@ -67,7 +77,17 @@ const Checkout = ({ }: Props) => {
     const submitForm = async () => {
         // TODO
         // validate shipping address
-        // update cart
+        let shippingAddress: Address = { addressId: "", ...checkoutData };
+        //TODO: IMPLEMENT BILLING
+        let billingAddress: Address = checkoutData.sameAsShipping ? shippingAddress : shippingAddress;
+        // await updateCart({ 
+        //     account: {
+        //         email: checkoutData.emailAddress 
+        //     },
+        //     billing: billingAddress,
+        //     shipping: shippingAddress
+        //     });
+        // await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
         // orderCart();
     }
 
