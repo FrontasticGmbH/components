@@ -22,7 +22,11 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             <div className="flex items-center justify-between">
                 <dt className="text-sm text-gray-600">Subtotal</dt>
                 <dd className="text-sm font-medium text-gray-900">{CurrencyHelpers.formatForCurrency(cart.lineItems.reduce((prev, current) =>
-                    prev + (current.price * current.count), 0))}</dd>
+                    CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)), {
+                    fractionDigits: cart.lineItems[0].price.fractionDigits,
+                    centAmount: 0,
+                    currencyCode: cart.lineItems[0].price.currencyCode
+                }))}</dd>
             </div>
             <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                 <dt className="flex items-center text-sm text-gray-600">
@@ -32,7 +36,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
                         <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
                     </a>
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">{CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0].price)}</dd>
+                <dd className="text-sm font-medium text-gray-900">{CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0].price || {})}</dd>
             </div>
 
             {/*<div className="border-t border-gray-200 pt-4 flex items-center justify-between">
@@ -55,11 +59,16 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
                     </a>
                 </dt>
                 <dd className="text-sm font-medium text-gray-900">{CurrencyHelpers.formatForCurrency(cart.lineItems.reduce((prev, current) =>
-                    prev + (current.totalPrice - (current.price * current.count)), 0))}</dd>
+                    CurrencyHelpers.addCurrency(prev,
+                        CurrencyHelpers.subtractCurrency(current.totalPrice, CurrencyHelpers.multiplyCurrency(current.price, current.count))), {
+                    fractionDigits: cart.lineItems[0].price.fractionDigits,
+                    centAmount: 0,
+                    currencyCode: cart.lineItems[0].price.currencyCode
+                }))}</dd>
             </div>
             <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                 <dt className="text-base font-medium text-gray-900">Order total</dt>
-                <dd className="text-base font-medium text-gray-900">{CurrencyHelpers.formatForCurrency(cart.sum + shippingMethod?.rates?.[0].price || 0)}</dd>
+                <dd className="text-base font-medium text-gray-900">{CurrencyHelpers.formatForCurrency(CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0].price || {}))}</dd>
             </div>
         </dl>
 

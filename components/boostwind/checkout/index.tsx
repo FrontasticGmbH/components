@@ -144,7 +144,8 @@ const Checkout = ({ }: Props) => {
 
                 <Form
                     formInputData={inputData}
-                    submitText={`Pay ${CurrencyHelpers.formatForCurrency(data.sum + shippingMethods.data?.[0]?.rates?.[0].price || 0)}`}
+                    submitText={`Pay ${CurrencyHelpers.formatForCurrency(
+                        CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}))}`}
                     updateFormInput={updateFormInput}
                     updateFormCheckbox={updateFormCheckbox}
                     submitForm={submitForm}

@@ -1,6 +1,5 @@
 import { useCart } from 'frontastic';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';

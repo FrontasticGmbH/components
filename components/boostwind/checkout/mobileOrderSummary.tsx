@@ -105,7 +105,11 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                             <div className="flex justify-between">
                                 <dt>Subtotal</dt>
                                 <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(cart.lineItems.reduce((prev, current) =>
-                                    prev + (current.price * current.count), 0))}</dd>
+                                    CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)), {
+                                    fractionDigits: cart.lineItems[0].price.fractionDigits,
+                                    centAmount: 0,
+                                    currencyCode: cart.lineItems[0].price.currencyCode
+                                }))}</dd>
                             </div>
                             <div className="flex justify-between">
                                 <dt className="flex">
@@ -115,7 +119,11 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                                                 </span>*/}
                                 </dt>
                                 <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(cart.lineItems.reduce((prev, current) =>
-                                    prev + (current.totalPrice - (current.price * current.count)), 0))}</dd>
+                                    CurrencyHelpers.addCurrency(prev, CurrencyHelpers.subtractCurrency(current.totalPrice, CurrencyHelpers.multiplyCurrency(current.price, current.count))), {
+                                    fractionDigits: cart.lineItems[0].price.fractionDigits,
+                                    centAmount: 0,
+                                    currencyCode: cart.lineItems[0].price.currencyCode
+                                }))}</dd>
                             </div>
                             {/*<div className="flex justify-between">
                                 <dt>Taxes</dt>
@@ -123,14 +131,14 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                                                 </div>*/}
                             <div className="flex justify-between">
                                 <dt>Shipping</dt>
-                                <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price)}</dd>
+                                <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price || {})}</dd>
                             </div>
                         </dl>
                     </Disclosure.Panel>
 
                     <p className="flex items-center justify-between text-sm font-medium text-gray-900 border-t border-gray-200 pt-6 mt-6">
                         <span className="text-base">Total</span>
-                        <span className="text-base">{CurrencyHelpers.formatForCurrency(cart.sum + selectedShipping?.rates?.[0].price || 0)}</span>
+                        <span className="text-base">{CurrencyHelpers.formatForCurrency(CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0].price || {}))}</span>
                     </p>
                 </>
             )}

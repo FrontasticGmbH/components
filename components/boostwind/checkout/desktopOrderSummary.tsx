@@ -1,9 +1,7 @@
-import { CurrencyHelpers } from "helpers/CurrencyHelpers"
-import { StringHelpers } from "helpers/StringHelpers"
-import { Cart } from "../../../../types/cart/Cart"
-import { LineItem } from "../../../../types/cart/LineItem"
-import { ShippingMethod } from "../../../../types/cart/ShippingMethod"
-
+import { CurrencyHelpers } from "helpers/CurrencyHelpers";
+import { StringHelpers } from "helpers/StringHelpers";
+import { Cart } from "../../../../types/cart/Cart";
+import { ShippingMethod } from "../../../../types/cart/ShippingMethod";
 
 interface Props {
     readonly cart: Cart,
@@ -96,7 +94,11 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
                 <div className="flex justify-between">
                     <dt>Subtotal</dt>
                     <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(cart.lineItems.reduce((prev, current) =>
-                        prev + (current.price * current.count), 0))}</dd>
+                        CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)), {
+                        fractionDigits: cart.lineItems[0].price.fractionDigits,
+                        centAmount: 0,
+                        currencyCode: cart.lineItems[0].price.currencyCode
+                    }))}</dd>
                 </div>
                 <div className="flex justify-between">
                     <dt className="flex">
@@ -106,7 +108,11 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
                     </span>*/}
                     </dt>
                     <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(cart.lineItems.reduce((prev, current) =>
-                        prev + (current.totalPrice - (current.price * current.count)), 0))}</dd>
+                        CurrencyHelpers.addCurrency(prev, CurrencyHelpers.subtractCurrency(current.totalPrice, CurrencyHelpers.multiplyCurrency(current.price, current.count))), {
+                        fractionDigits: cart.lineItems[0].price.fractionDigits,
+                        centAmount: 0,
+                        currencyCode: cart.lineItems[0].price.currencyCode
+                    }))}</dd>
                 </div>
                 {/*<div className="flex justify-between">
                     <dt>Taxes</dt>
@@ -114,11 +120,11 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
                 </div>*/}
                 <div className="flex justify-between">
                     <dt>Shipping</dt>
-                    <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price)}</dd>
+                    <dd className="text-gray-900">{CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price || {})}</dd>
                 </div>
                 <div className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
                     <dt className="text-base">Total</dt>
-                    <dd className="text-base">{CurrencyHelpers.formatForCurrency(cart.sum + selectedShipping?.rates?.[0].price || 0)}</dd>
+                    <dd className="text-base">{CurrencyHelpers.formatForCurrency(CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0].price || {}))}</dd>
                 </div>
             </dl>
         </div>
