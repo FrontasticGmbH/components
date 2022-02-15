@@ -25,14 +25,14 @@ const Form = ({ formInputData, submitText, updateFormInput, updateFormCheckbox, 
                 onChange={updateFormInput}
             />)}
         </div>
-        {/*TODO: refactor below for reuse */}
-        <FormCheckbox
+        {/*TODO: refactor below for reuse, add extra fields for billing address on unchecked */}
+        {/*<FormCheckbox
             checked={data["sameAsShipping"] as boolean}
             onChange={updateFormCheckbox}
             name="sameAsShipping"
             label="Billing address is the same as shipping address"
             inverseLabel={true}
-        />
+        />*/}
         <FormButton buttonText={submitText} onClick={submitForm} />
 
         <p className="flex justify-center text-sm font-medium text-gray-500 mt-6">

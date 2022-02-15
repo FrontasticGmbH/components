@@ -21,7 +21,7 @@ const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
     { name: "streetName", inputAutoComplete: "cc-name", label: "Street Name", containerClassNames: "col-span-full sm:col-span-10" },
     { name: "streetNumber", inputAutoComplete: "cc-name", label: "Street No.", containerClassNames: "col-span-full sm:col-span-2" },
     { name: "city", inputAutoComplete: "address-level2", label: "City", containerClassNames: "col-span-full sm:col-span-4" },
-    { name: "region", inputAutoComplete: "address-level1", label: "State / Province", containerClassNames: "col-span-full sm:col-span-4" },
+    { name: "country", inputAutoComplete: "address-level1", label: "Country", containerClassNames: "col-span-full sm:col-span-4" },
     { name: "postalCode", inputAutoComplete: "postal-code", label: "Postal code", containerClassNames: "col-span-full sm:col-span-4" }
 ];
 
@@ -43,7 +43,7 @@ const Checkout = ({ }: Props) => {
         firstName: "",
         lastName: "",
         emailAddress: "",
-        //TODO: uncomment below for card payments
+        //TODO: uncomment all below for card payments
         //nameOnCard: "",
         //cardNumber: "",
         //expirationDate: "",
@@ -51,9 +51,9 @@ const Checkout = ({ }: Props) => {
         streetName: "",
         streetNumber: "",
         city: "",
-        region: "",
+        country: "",
         postalCode: "",
-        sameAsShipping: true
+        // sameAsShipping: true
     });
 
     const updateFormInput = (propName: string, newValue: string) => {
@@ -78,17 +78,21 @@ const Checkout = ({ }: Props) => {
         // TODO
         // validate shipping address
         let shippingAddress: Address = { addressId: "", ...checkoutData };
-        //TODO: IMPLEMENT BILLING
-        let billingAddress: Address = checkoutData.sameAsShipping ? shippingAddress : shippingAddress;
-        // await updateCart({ 
-        //     account: {
-        //         email: checkoutData.emailAddress 
-        //     },
-        //     billing: billingAddress,
-        //     shipping: shippingAddress
+        //@ts-ignore
+        delete shippingAddress.emailAddress
+        // try {
+        //     await updateCart({
+        //         account: {
+        //             email: checkoutData.emailAddress
+        //         },
+        //         shipping: shippingAddress
         //     });
-        // await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
-        // orderCart();
+        //     await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
+        //     orderCart();
+        // }
+        // catch (error) {
+        //     console.error(`Error placing order: ${error}`)
+        // }
     }
 
 
