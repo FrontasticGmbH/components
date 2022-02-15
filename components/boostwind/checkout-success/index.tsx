@@ -1,10 +1,12 @@
 import { variants } from "components/mockData";
+import { useRouter } from "next/router";
 
 interface Props {
 
 }
 
 const CheckoutSuccess = ({ }: Props) => {
+    const router = useRouter();
 
     return <main className="relative lg:min-h-full">
         <div className="h-80 overflow-hidden lg:absolute lg:w-1/2 lg:h-full lg:pr-4 xl:pr-12">
@@ -18,7 +20,7 @@ const CheckoutSuccess = ({ }: Props) => {
         <div>
             <div className="max-w-2xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:py-32 lg:grid lg:grid-cols-2 lg:gap-x-8 xl:gap-x-24">
                 <div className="lg:col-start-2">
-                    <h1 className="text-sm font-medium text-indigo-600">Payment successful</h1>
+                    {/*<h1 className="text-sm font-medium text-indigo-600">Payment successful</h1>*/}
                     <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                         Thanks for ordering
                     </p>
@@ -27,10 +29,10 @@ const CheckoutSuccess = ({ }: Props) => {
                         very soon!
                     </p>
 
-                    <dl className="mt-16 text-sm font-medium">
+                    {/*<dl className="mt-16 text-sm font-medium">
                         <dt className="text-gray-900">Tracking number</dt>
                         <dd className="mt-2 text-indigo-600">51547878755545848512</dd>
-                    </dl>
+</dl>*/}
 
                     {/*<ul
                         role="list"
@@ -55,7 +57,7 @@ const CheckoutSuccess = ({ }: Props) => {
                         ))}
                         </ul>*/}
 
-                    <dl className="text-sm font-medium text-gray-500 space-y-6 border-t border-gray-200 pt-6">
+                    {/*<dl className="text-sm font-medium text-gray-500 space-y-6 border-t border-gray-200 pt-6">
                         <div className="flex justify-between">
                             <dt>Subtotal</dt>
                             <dd className="text-gray-900">$72.00</dd>
@@ -75,9 +77,9 @@ const CheckoutSuccess = ({ }: Props) => {
                             <dt className="text-base">Total</dt>
                             <dd className="text-base">$86.40</dd>
                         </div>
-                    </dl>
+                    </dl>*/}
 
-                    <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
+                    {/*<dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
                         <div>
                             <dt className="font-medium text-gray-900">Shipping Address</dt>
                             <dd className="mt-2">
@@ -114,12 +116,14 @@ const CheckoutSuccess = ({ }: Props) => {
                                 </div>
                             </dd>
                         </div>
-                    </dl>
+                </dl>*/}
 
                     <div className="mt-16 border-t border-gray-200 py-6 text-right">
-                        <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                        <p
+                            className="text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
+                            onClick={() => router.push("/")}>
                             Continue Shopping<span aria-hidden="true"> &rarr;</span>
-                        </a>
+                        </p>
                     </div>
                 </div>
             </div>

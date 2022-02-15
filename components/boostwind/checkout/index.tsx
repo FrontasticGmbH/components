@@ -21,7 +21,6 @@ const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
     { name: "streetName", inputAutoComplete: "cc-name", label: "Street Name", containerClassNames: "col-span-full sm:col-span-10" },
     { name: "streetNumber", inputAutoComplete: "cc-name", label: "Street No.", containerClassNames: "col-span-full sm:col-span-2" },
     { name: "city", inputAutoComplete: "address-level2", label: "City", containerClassNames: "col-span-full sm:col-span-4" },
-    { name: "country", inputAutoComplete: "address-level1", label: "Country", containerClassNames: "col-span-full sm:col-span-4" },
     { name: "postalCode", inputAutoComplete: "postal-code", label: "Postal code", containerClassNames: "col-span-full sm:col-span-4" }
 ];
 
@@ -51,18 +50,12 @@ const Checkout = ({ }: Props) => {
         streetName: "",
         streetNumber: "",
         city: "",
-        country: "",
         postalCode: "",
+        country: "",
         // sameAsShipping: true
     });
 
     const updateFormInput = (propName: string, newValue: string) => {
-        let newData = { ...checkoutData };
-        newData[propName] = newValue;
-        setCheckoutData(newData);
-    }
-
-    const updateFormCheckbox = (propName: string, newValue: boolean) => {
         let newData = { ...checkoutData };
         newData[propName] = newValue;
         setCheckoutData(newData);
@@ -74,25 +67,28 @@ const Checkout = ({ }: Props) => {
 
     const removeLineItem = (lineItemId: string) => removeItem(lineItemId);
 
+    const isValid = () => !!checkoutData.firstName && !!checkoutData.lastName && !!checkoutData.emailAddress && !!checkoutData.streetName
+        && !!checkoutData.streetNumber && !!checkoutData.city && !!checkoutData.postalCode && !!checkoutData.country
+
     const submitForm = async () => {
         // TODO
         // validate shipping address
         let shippingAddress: Address = { addressId: "", ...checkoutData };
-        //@ts-ignore
-        delete shippingAddress.emailAddress
-        // try {
-        //     await updateCart({
-        //         account: {
-        //             email: checkoutData.emailAddress
-        //         },
-        //         shipping: shippingAddress
-        //     });
-        //     await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
-        //     orderCart();
-        // }
-        // catch (error) {
-        //     console.error(`Error placing order: ${error}`)
-        // }
+        await updateCart({
+            account: {
+                email: checkoutData.emailAddress
+            },
+            shipping: shippingAddress
+        });
+        await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
+        await orderCart();
+        //TODO: figure out logic here
+        if (false) {
+            console.error('Error ordering cart');
+        }
+        else {
+            router.push('/checkout-success');
+        }
     }
 
 
@@ -171,9 +167,9 @@ const Checkout = ({ }: Props) => {
                     submitText={`Pay ${CurrencyHelpers.formatForCurrency(
                         CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}))}`}
                     updateFormInput={updateFormInput}
-                    updateFormCheckbox={updateFormCheckbox}
                     submitForm={submitForm}
                     data={checkoutData}
+                    isFormValid={isValid()}
                 />
             </div>
         </section>

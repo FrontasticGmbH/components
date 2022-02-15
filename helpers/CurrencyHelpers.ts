@@ -36,11 +36,11 @@ export class CurrencyHelpers {
         : CurrencyHelpers.formatMoneyCurrency(costInCents);
 
   static addCurrency: (value1: Money, value2: Money) => Money = (value1: Money, value2: Money) => {
-    if (value1.fractionDigits !== value2.fractionDigits) {
+    if (value1.fractionDigits !== value2.fractionDigits && value1.fractionDigits && value2.fractionDigits) {
       console.warn(`Money with different fraction codes passed to addCurrency, value returned will be innacurate. `
         + `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`);
     }
-    if (value1.currencyCode !== value2.currencyCode) {
+    if (value1.currencyCode !== value2.currencyCode && value1.currencyCode && value2.currencyCode) {
       console.warn(`Money with different currency codes passed to addCurrency, value returned will be innacurate. `
         + `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`);
     }
