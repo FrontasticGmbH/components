@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { SWRConfig } from 'swr';
-
 import { addItem } from '../actions/add-cart-item';
 import { removeItem } from '../actions/remove-cart-item';
 import { updateCart, setShippingMethod, CartDetails } from '../actions/update-cart';
@@ -14,7 +13,7 @@ import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
 
-export interface UseCart {
+interface UseCart {
   data?: Cart,
   addItem: (variant: Variant, quantity: number) => Promise<void>,
   updateCart: (payload: CartDetails) => Promise<void>,
@@ -25,21 +24,29 @@ export interface UseCart {
   orderCart: () => Promise<void>
 }
 
-const initialState: any = {
-  frontasticUrl: null,
-  frontasticKey: null,
-  useCart: {},
+interface FrontasticState {
+  useCart: UseCart
+}
+
+const initialState: FrontasticState = {
+  useCart: {
+    data: undefined,
+    addItem: undefined,
+    updateCart: undefined,
+    setShippingMethod: undefined,
+    removeItem: undefined,
+    updateItem: undefined,
+    shippingMethods: undefined,
+    orderCart: undefined
+  },
 };
-const FrontasticContext = React.createContext(initialState);
+
+const FrontasticContext = React.createContext<FrontasticState>(initialState);
 
 export const fetcher = (url: string) => frontasticFetcher({ url, method: 'GET' });
 
-export const FrontasticProvider: React.FC<{
-  children?: React.ReactNode;
-  frontasticUrl: string;
-  frontasticKey: string;
-}> = ({ children, frontasticUrl, frontasticKey }) => {
-  const cart: { useCart: UseCart } = {
+export const FrontasticProvider: React.FC = ({ children }) => {
+  const state: FrontasticState = {
     useCart: {
       ...cartItems(),
       addItem,
@@ -51,10 +58,11 @@ export const FrontasticProvider: React.FC<{
       orderCart
     },
   }
+
   return (
     <SWRConfig value={{ fetcher: fetchApiHub }}>
       <FrontasticContext.Provider
-        value={cart}
+        value={state}
       >
         {children}
       </FrontasticContext.Provider>
@@ -62,7 +70,7 @@ export const FrontasticProvider: React.FC<{
   );
 };
 
-export const useCart: () => UseCart = () => {
+export const useCart = () => {
   const context = React.useContext(FrontasticContext);
 
   if (!context) throw new Error('Expected to be wrapped in FrontasticProvider');

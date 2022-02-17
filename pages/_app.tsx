@@ -9,7 +9,7 @@ import './app.css';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (
-    <FrontasticProvider frontasticUrl="https://swiss-demo.frontastic.io/frontastic" frontasticKey="API_KEY">
+    <FrontasticProvider>
       <Component {...pageProps} />
     </FrontasticProvider>
   );
