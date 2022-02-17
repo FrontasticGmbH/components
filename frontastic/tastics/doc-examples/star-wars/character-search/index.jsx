@@ -36,5 +36,5 @@ const StarWarsCharacterSearchTastic = ({ data }) => {
     </div>
   );
 };
-6;
+
 export default StarWarsCharacterSearchTastic;
