@@ -1,0 +1,20 @@
+{
+  "tasticType": "frontastic/examples/star-wars/character-search",
+  "name": "StarWars character search",
+  "category": "Documentation Examples",
+  "icon": "info",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
+        {
+          "label": "characters",
+          "field": "data",
+          "type": "stream",
+          "streamType": "example/star-wars-character-search",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

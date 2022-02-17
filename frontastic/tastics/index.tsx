@@ -10,6 +10,7 @@ import ProductSlider from './products/slider';
 // import Markdown from './content/markdown';
 // Doc Examples
 import SimpleButton from './doc-examples/simple-button';
+import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
 
 export const tastics = {
   'frontastic/boostwind/checkout': Checkout,
@@ -21,5 +22,6 @@ export const tastics = {
   'frontastic/boostwind/products/product-list': ProductList,
   'frontastic/boostwind/products/slider': ProductSlider,
   'frontastic/examples/simple-button': SimpleButton,
+  'frontastic/examples/star-wars/character-search': StarWarsCharacterSearch,
   default: NotFound,
 };
