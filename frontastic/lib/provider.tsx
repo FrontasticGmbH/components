@@ -13,10 +13,6 @@ import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
 
-
-interface FrontasticState {
-  useCart: UseCart
-}
 interface UseCart {
   data?: Cart,
   addItem: (variant: Variant, quantity: number) => Promise<void>,
@@ -26,6 +22,10 @@ interface UseCart {
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>,
   shippingMethods: { data?: ShippingMethod[] },
   orderCart: () => Promise<void>
+}
+
+interface FrontasticState {
+  useCart: UseCart
 }
 
 const initialState: FrontasticState = {
