@@ -6,8 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "dev:ts": "concurrently -n NEXT,TS -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "build": "next build",
     "start": "next start",
+    "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
     "fix": "next lint --fix --ext .js --ext .jsx --ext tsx -c ../../../integration/eslint.config.json starters/frontend/nextjs/components/ starters/frontend/nextjs/components/frontastic/"
   },
@@ -42,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "autoprefixer": "^10.4.2",
+    "concurrently": "^7.0.0",
     "eslint": "^8.4.1",
     "eslint-config-next": "^12.0.7",
     "eslint-config-prettier": "^8.3.0",
