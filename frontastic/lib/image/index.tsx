@@ -28,17 +28,16 @@ export default function Image({
   //width getter
   const getImageWidth = () => {
     //return the original width
-    return width;
+    return +(width ?? media.width);
   };
 
   //height getter
   const getImageHeight = () => {
     //if ratio is not supplied return the original height
-    if (!ratio) return baseHeight;
+    if (!ratio) return +(baseHeight ?? media.height);
     //Use the crop ratio to calculate the height
     const [nominator, denominator] = ratio.split(':') as [string, string];
-    const height = +width * (+denominator / +nominator);
-    return height;
+    return getImageWidth() * (+denominator / +nominator);
   };
 
   //layout fill doesn't make use of width and height

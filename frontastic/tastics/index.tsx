@@ -4,6 +4,8 @@ import Header from './header';
 import Cart from './cart';
 import Checkout from './checkout';
 import CheckoutSuccess from './checkout-success';
+import Markdown from './content/markdown';
+import Tile from './content/tile';
 import ProductDetails from './products/details';
 import ProductList from './products/product-list';
 import ProductSlider from './products/slider';
@@ -18,6 +20,8 @@ export const tastics = {
   'frontastic/boostwind/cart': Cart,
   'frontastic/boostwind/footer': Footer,
   'frontastic/boostwind/header': Header,
+  'frontastic/boostwind/content/markdown': Markdown,
+  'frontastic/boostwind/content/tile': Tile,
   'frontastic/boostwind/products/details': ProductDetails,
   'frontastic/boostwind/products/product-list': ProductList,
   'frontastic/boostwind/products/slider': ProductSlider,

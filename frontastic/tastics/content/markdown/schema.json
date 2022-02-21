@@ -1,0 +1,20 @@
+{
+  "tasticType": "frontastic/boostwind/content/markdown",
+  "name": "Boostwind Markdown",
+  "icon": "wrap_text",
+  "category": "Content",
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Content",
+          "field": "markdown",
+          "type": "text",
+          "translatable": true,
+          "required": true
+        }
+      ]
+    }
+  ]
+}
