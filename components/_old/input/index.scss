@@ -1,7 +1,0 @@
-.form-input {
-    @apply appearance-none border border-neutral-400 rounded w-full py-2 px-4 text-neutral-700 leading-tight;
-
-    &:focus {
-        @apply outline-none shadow-outline;
-    }
-}
