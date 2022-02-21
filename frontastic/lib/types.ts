@@ -1,6 +1,6 @@
 type ViewData = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\ViewData';
-  stream: DataSources | null;
+  dataSources: DataSources | null;
 };
 export type DataSources = {
   [key: string]: Record<string, unknown>;
@@ -105,7 +105,7 @@ export type TasticRegistry = {
   [key: string]: React.ElementType;
 };
 // this is weird. need to think more about this *marcel
-export type TasticWrapper = {
+export type TasticWrapperProps = {
   dataSources: DataSources | null;
   tastics: TasticRegistry;
   data: TasticData;

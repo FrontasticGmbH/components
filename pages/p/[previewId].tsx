@@ -48,8 +48,8 @@ export default function Preview({ data }: PreviewProps) {
 }
 
 export const getServerSideProps: GetStaticProps = async ({ params, locale }) => {
-  const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, 'API_KEY_GOES_HERE');
-  const data = await frontastic.getPreview(params.previewId, locale);
+  const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
+  const data = await frontastic.getPreview(params.previewId.toString(), locale);
 
   return {
     props: {
