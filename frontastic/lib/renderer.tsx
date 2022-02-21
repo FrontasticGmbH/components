@@ -22,8 +22,8 @@ export function FrontasticRenderer({
   return (
     <div>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {head.layoutElements.map((layoutElement: LayoutElementType) => (
-          <LayoutElement size={layoutElement.configuration.size} key={layoutElement.layoutElementId}>
+        {head.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+          <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t) => (
               <TasticWrapper
                 tastics={tastics}
@@ -36,8 +36,8 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {main.layoutElements.map((layoutElement: LayoutElementType) => (
-          <LayoutElement size={layoutElement.configuration.size} key={layoutElement.layoutElementId}>
+        {main.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+          <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
               <TasticWrapper
                 tastics={tastics}
@@ -50,8 +50,8 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {footer.layoutElements.map((layoutElement: LayoutElementType) => (
-          <LayoutElement size={layoutElement.configuration.size} key={layoutElement.layoutElementId}>
+        {footer.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+          <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
               <TasticWrapper
                 tastics={tastics}

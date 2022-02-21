@@ -56,8 +56,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18599,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18599,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "2",
@@ -99,8 +103,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }                
             },
             {
                 "id": "3",
@@ -142,8 +150,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "4",
@@ -185,8 +197,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "5",
@@ -229,8 +245,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "6",
@@ -272,8 +292,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "7",
@@ -316,8 +340,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "8",
@@ -359,8 +387,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "9",
@@ -403,8 +435,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "10",
@@ -446,8 +482,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "11",
@@ -489,8 +529,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "12",
@@ -532,8 +576,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "13",
@@ -576,8 +624,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "14",
@@ -619,8 +671,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "15",
@@ -663,8 +719,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "16",
@@ -706,8 +766,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "17",
@@ -749,8 +813,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "18",
@@ -792,8 +860,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "19",
@@ -835,8 +907,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "20",
@@ -878,8 +954,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "21",
@@ -921,8 +1001,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "22",
@@ -964,8 +1048,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "23",
@@ -1007,8 +1095,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "24",
@@ -1050,8 +1142,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "25",
@@ -1093,8 +1189,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             }
         ],
         "_url": "/p/05a9e149-0596-4a3d-aed2-c52949eac45b"
@@ -1151,8 +1251,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 16650,
-                "discountedPrice": 14940
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/a9eea3e9-4615-41f7-8d83-5238a923b6b0"
@@ -1215,8 +1319,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 145000,
-                "discountedPrice": 130500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/fc4e2b50-6ec6-4018-806d-b34fb54556d7"
@@ -1275,8 +1383,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -1318,8 +1430,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -1361,8 +1477,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -1404,8 +1524,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -1447,8 +1571,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -1490,8 +1618,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -1533,8 +1665,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -1576,8 +1712,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 13900,
-                "discountedPrice": 12510
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/c05dee38-6054-4ca4-a91a-4a1d581fa179"
@@ -1636,8 +1776,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -1679,8 +1823,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -1722,8 +1870,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -1765,8 +1917,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -1809,8 +1965,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -1852,8 +2012,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -1896,8 +2060,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -1939,8 +2107,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -1982,8 +2154,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -2025,8 +2201,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -2068,8 +2248,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -2111,8 +2295,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -2154,8 +2342,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 38900,
-                "discountedPrice": 35010
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/e35519db-1c34-4642-aff8-49ca072b5264"
@@ -2214,8 +2406,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -2257,8 +2453,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -2300,8 +2500,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -2343,8 +2547,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -2387,8 +2595,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -2430,8 +2642,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -2474,8 +2690,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -2517,8 +2737,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -2561,8 +2785,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -2604,8 +2832,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -2648,8 +2880,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -2691,8 +2927,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -2735,8 +2975,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "14",
@@ -2778,8 +3022,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "15",
@@ -2822,8 +3070,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "16",
@@ -2865,8 +3117,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "17",
@@ -2908,8 +3164,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "18",
@@ -2951,8 +3211,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "19",
@@ -2994,8 +3258,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "20",
@@ -3037,8 +3305,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "21",
@@ -3080,8 +3352,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "22",
@@ -3123,8 +3399,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "23",
@@ -3166,8 +3446,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "24",
@@ -3209,8 +3493,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "25",
@@ -3252,8 +3540,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27500,
-                "discountedPrice": 24750
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/4984bfa2-d47d-483e-906a-1aa28fbb96d4"
@@ -3312,8 +3604,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -3355,8 +3651,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -3398,8 +3698,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -3442,8 +3746,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -3486,8 +3794,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -3530,8 +3842,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -3573,8 +3889,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -3616,8 +3936,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -3659,8 +3983,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -3702,8 +4030,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -3745,8 +4077,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -3788,8 +4124,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -3831,8 +4171,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 31900,
-                "discountedPrice": 28710
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/79568202-7381-4c78-976b-379c25090cd9"
@@ -3891,8 +4235,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -3934,8 +4282,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -3977,8 +4329,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -4020,8 +4376,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -4063,8 +4423,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -4106,8 +4470,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -4149,8 +4517,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -4192,8 +4564,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -4235,8 +4611,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -4278,8 +4658,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -4321,8 +4705,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -4364,8 +4752,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -4407,8 +4799,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "14",
@@ -4450,8 +4846,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "15",
@@ -4493,8 +4893,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "16",
@@ -4536,8 +4940,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "17",
@@ -4579,8 +4987,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "18",
@@ -4622,8 +5034,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "19",
@@ -4665,8 +5081,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "20",
@@ -4708,8 +5128,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "21",
@@ -4751,8 +5175,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "22",
@@ -4794,8 +5222,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "23",
@@ -4837,8 +5269,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "24",
@@ -4880,8 +5316,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "25",
@@ -4923,8 +5363,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26700,
-                "discountedPrice": 24030
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/aae59a92-f94c-45b2-8e44-4441dc00cb84"
@@ -4980,8 +5424,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 14900,
-                "discountedPrice": 13410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/5c3718ac-88c3-43ac-9066-fe0f096a3c81"
@@ -5041,8 +5489,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 6500,
-                "discountedPrice": 5850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/4d1c5585-1be8-472f-b41b-219c656c9377"
@@ -5101,8 +5553,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -5145,8 +5601,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -5189,8 +5649,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -5233,8 +5697,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -5277,8 +5745,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -5320,8 +5792,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -5363,8 +5839,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -5406,8 +5886,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 10900,
-                "discountedPrice": 9810
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/3a7b081a-5fc6-4ea7-8d0c-440968cac05b"
@@ -5466,8 +5950,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -5509,8 +5997,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -5552,8 +6044,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -5595,8 +6091,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -5638,8 +6138,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -5681,8 +6185,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -5724,8 +6232,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -5767,8 +6279,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -5810,8 +6326,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -5853,8 +6373,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -5896,8 +6420,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -5939,8 +6467,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -5982,8 +6514,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 27000,
-                "discountedPrice": 24300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/a59eee16-8159-4540-9ca7-3df2d8418580"
@@ -6039,8 +6575,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -6082,8 +6622,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -6125,8 +6669,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -6168,8 +6716,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -6211,8 +6763,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -6255,8 +6811,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -6298,8 +6858,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -6341,8 +6905,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 9800,
-                "discountedPrice": 8820
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/76a5e010-4c5c-4ab2-b3d9-5791a0c77bbb"
@@ -6398,8 +6966,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -6441,8 +7013,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -6485,8 +7061,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -6528,8 +7108,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -6571,8 +7155,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -6614,8 +7202,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -6658,8 +7250,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -6701,8 +7297,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -6744,8 +7344,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -6787,8 +7391,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -6831,8 +7439,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -6874,8 +7486,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -6917,8 +7533,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "14",
@@ -6960,8 +7580,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "15",
@@ -7003,8 +7627,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "16",
@@ -7046,8 +7674,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "17",
@@ -7089,8 +7721,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "18",
@@ -7132,8 +7768,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "19",
@@ -7175,8 +7815,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "20",
@@ -7218,8 +7862,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "21",
@@ -7261,8 +7909,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "22",
@@ -7304,8 +7956,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "23",
@@ -7347,8 +8003,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "24",
@@ -7390,8 +8050,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "25",
@@ -7433,8 +8097,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 5000,
-                "discountedPrice": 4500
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/588ce3c6-71ee-4f95-9d45-6bdab7979e40"
@@ -7491,8 +8159,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 8800,
-                "discountedPrice": 7920
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/d93365a5-060e-4495-b1d7-81f8d5d40c61"
@@ -7551,8 +8223,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -7594,8 +8270,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -7637,8 +8317,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -7680,8 +8364,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -7723,8 +8411,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -7766,8 +8458,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -7809,8 +8505,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -7852,8 +8552,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -7895,8 +8599,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -7938,8 +8646,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -7982,8 +8694,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -8025,8 +8741,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -8069,8 +8789,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "14",
@@ -8112,8 +8836,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "15",
@@ -8155,8 +8883,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "16",
@@ -8198,8 +8930,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "17",
@@ -8241,8 +8977,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "18",
@@ -8284,8 +9024,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "19",
@@ -8327,8 +9071,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "20",
@@ -8370,8 +9118,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "21",
@@ -8413,8 +9165,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "22",
@@ -8456,8 +9212,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "23",
@@ -8499,8 +9259,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "24",
@@ -8542,8 +9306,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "25",
@@ -8585,8 +9353,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 33000,
-                "discountedPrice": 29700
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/f807645f-e3d6-479a-a57a-4f62a7e6ec0c"
@@ -8642,8 +9414,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -8685,8 +9461,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -8728,8 +9508,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -8771,8 +9555,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -8814,8 +9602,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -8857,8 +9649,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -8900,8 +9696,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -8943,8 +9743,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -8986,8 +9790,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -9030,8 +9838,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -9074,8 +9886,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -9117,8 +9933,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -9160,8 +9980,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 35900,
-                "discountedPrice": 32310
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/aa197fc8-1b7f-4d0c-909b-496106bedce7"
@@ -9220,8 +10044,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -9263,8 +10091,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -9306,8 +10138,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -9349,8 +10185,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -9392,8 +10232,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -9435,8 +10279,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -9479,8 +10327,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -9522,8 +10374,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -9565,8 +10421,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -9608,8 +10468,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -9651,8 +10515,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -9694,8 +10562,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -9737,8 +10609,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 34900,
-                "discountedPrice": 31410
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/5239fe72-d6db-4e6d-8fb9-5e0dbbfc783a"
@@ -9794,8 +10670,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -9837,8 +10717,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -9880,8 +10764,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -9923,8 +10811,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -9966,8 +10858,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -10009,8 +10905,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -10052,8 +10952,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -10095,8 +10999,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -10138,8 +11046,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -10181,8 +11093,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -10224,8 +11140,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -10267,8 +11187,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -10310,8 +11234,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "14",
@@ -10353,8 +11281,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "15",
@@ -10397,8 +11329,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "16",
@@ -10440,8 +11376,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "17",
@@ -10483,8 +11423,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "18",
@@ -10526,8 +11470,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "19",
@@ -10570,8 +11518,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "20",
@@ -10613,8 +11565,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "21",
@@ -10656,8 +11612,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "22",
@@ -10699,8 +11659,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "23",
@@ -10743,8 +11707,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "24",
@@ -10786,8 +11754,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "25",
@@ -10829,8 +11801,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 2400,
-                "discountedPrice": 2160
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/d06d47d9-ab00-4d2b-8461-e126192aa615"
@@ -10886,8 +11862,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -10929,8 +11909,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -10972,8 +11956,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -11015,8 +12003,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -11059,8 +12051,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -11102,8 +12098,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -11146,8 +12146,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -11189,8 +12193,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 8600,
-                "discountedPrice": 7740
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/f3d9c787-fb5f-458e-8776-9e20faedb94c"
@@ -11249,8 +12257,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -11293,8 +12305,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -11337,8 +12353,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -11380,8 +12400,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -11423,8 +12447,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -11466,8 +12494,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -11509,8 +12541,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -11552,8 +12588,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 17000,
-                "discountedPrice": 15300
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/e2a7871f-b8fb-4874-ba0b-62433ec28881"
@@ -11609,8 +12649,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -11652,8 +12696,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -11695,8 +12743,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -11738,8 +12790,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -11781,8 +12837,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -11824,8 +12884,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -11867,8 +12931,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -11910,8 +12978,12 @@ export const products: Product[] = [
                     },
                     "season": "A15"
                 },
-                "price": 13200,
-                "discountedPrice": 11880
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/2f0c0cc2-39c6-4c5b-ac6b-cd18c2304aa1"
@@ -11970,8 +13042,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "2",
@@ -12013,8 +13089,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "3",
@@ -12057,8 +13137,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "4",
@@ -12101,8 +13185,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "5",
@@ -12145,8 +13233,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "6",
@@ -12189,8 +13281,12 @@ export const products: Product[] = [
                     "season": "s15",
                     "isOnStock": true
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "7",
@@ -12232,8 +13328,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             },
             {
                 "id": "8",
@@ -12275,8 +13375,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 18500,
-                "discountedPrice": 16650
+                "price": {
+                    "centAmount": 18500,
+                },
+                "discountedPrice": {
+                    "centAmount": 16650,
+                }
             }
         ],
         "_url": "/p/af8f00e7-adc9-45ca-81d7-4b0b8801a10e"
@@ -12333,8 +13437,12 @@ export const products: Product[] = [
                     "season": "A15",
                     "isOnStock": true
                 },
-                "price": 8500,
-                "discountedPrice": 7650
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/5d4f7fbb-310e-47df-9c7e-6ef42a6e85be"
@@ -12393,8 +13501,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "2",
@@ -12436,8 +13548,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "3",
@@ -12479,8 +13595,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "4",
@@ -12522,8 +13642,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "5",
@@ -12565,8 +13689,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "6",
@@ -12608,8 +13736,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "7",
@@ -12651,8 +13783,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "8",
@@ -12694,8 +13830,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "9",
@@ -12737,8 +13877,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "10",
@@ -12780,8 +13924,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "11",
@@ -12823,8 +13971,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "12",
@@ -12866,8 +14018,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "13",
@@ -12909,8 +14065,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "14",
@@ -12952,8 +14112,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "15",
@@ -12995,8 +14159,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "16",
@@ -13038,8 +14206,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             },
             {
                 "id": "17",
@@ -13081,8 +14253,12 @@ export const products: Product[] = [
                     },
                     "season": "s15"
                 },
-                "price": 26500,
-                "discountedPrice": 23850
+                "price": {
+                    "centAmount": 16650,
+                },
+                "discountedPrice": {
+                    "centAmount": 14940,
+                }
             }
         ],
         "_url": "/p/9db89af1-29c8-4c4f-a877-7d94b2be5f54"
@@ -13103,9 +14279,11 @@ export const getMockCart: (numberOfLineitems?: number) => Cart = (numberOfLineit
             count: 1,
             price: product.variants[0].price,
             variant: product.variants[0],
-            totalPrice: product.variants[0].price
+            totalPrice: {
+                centAmount: product.variants[0].price.centAmount
+            }
         }))
     };
-    cart.sum = cart.lineItems.reduce((prev, current) => prev + current.totalPrice, 0);
+    cart.sum.centAmount = cart.lineItems.reduce((prev, current) => prev + current.totalPrice.centAmount, 0);
     return cart;
 }

@@ -21,7 +21,7 @@ export default function Slug({ data }: SlugProps) {
 }
 
 export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query }) => {
-  const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, 'API_KEY_GOES_HERE');
+  const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
   const data = await frontastic.getRouteData(params, locale, query);
 
   if ('target' in data) {

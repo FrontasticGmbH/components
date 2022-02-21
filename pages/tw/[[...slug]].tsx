@@ -1,10 +1,10 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 import { createClient } from 'frontastic';
-import { FrontasticRenderer } from 'frontastic/lib/renderer-old';
+import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { tailwindComponents as components } from 'frontastic/components';
+import { tastics } from 'frontastic/tastics';
 
 import styles from './../slug.module.css';
 
@@ -17,11 +17,11 @@ export default function Slug({ data }: SlugProps) {
     return null;
   }
 
-  return <FrontasticRenderer data={data} components={components} wrapperClassName={styles.gridWrapper} />;
+  return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
 export const getServerSideProps: GetStaticProps = async ({ params, locale }) => {
-  const frontastic = createClient('https://english-demo.frontastic.io', 'API_KEY_GOES_HERE');
+  const frontastic = createClient('https://english-demo.frontastic.io', process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
   const { data } = await frontastic.getRouteDataOld(params);
 
   return {

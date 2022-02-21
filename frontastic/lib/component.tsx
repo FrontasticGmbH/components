@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { TasticWrapper } from './types';
+import { TasticWrapperProps } from './types';
 import { injectDataSources } from './utils/inject-data-sources';
 
-export function TasticWrapper(props: TasticWrapper) {
+export function TasticWrapper(props: TasticWrapperProps) {
   const { tastics, data, dataSources, highlight = false } = props;
   const TasticToRender: React.ElementType = tastics[data.tasticType] || tastics['default'];
 
