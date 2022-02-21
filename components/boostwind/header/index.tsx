@@ -413,7 +413,7 @@ const Header: React.FC<Props> = ({
               <ReferenceLink target={logoLink} className="flex">
                 <span className="sr-only">Catwalk</span>
                 <div className="w-[117px]">
-                  <Image media={logo.media} width={117} height={28} className="h-8 w-auto" alt="Logo" />
+                  <Image media={logo.media} className="h-8 w-auto" alt="Logo" />
                 </div>
               </ReferenceLink>
 

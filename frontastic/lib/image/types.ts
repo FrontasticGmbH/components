@@ -10,12 +10,11 @@ export type FrontasticImage = {
     mediaId?: string;
     file: string;
     name: string;
+    width: number;
+    height: number;
   };
   ratio?: string;
   gravity?: Gravity;
 };
 
-export type NextFrontasticImage = FrontasticImage &
-  Required<Pick<NextImageProps, 'width'>> &
-  Partial<Pick<NextImageProps, 'src'>> &
-  Omit<NextImageProps, 'width' | 'src'>;
+export type NextFrontasticImage = FrontasticImage & Partial<Pick<NextImageProps, 'src'>> & Omit<NextImageProps, 'src'>;
