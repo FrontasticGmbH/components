@@ -15,8 +15,6 @@ export default function Slug({ data }: SlugProps) {
   if (!data) {
     return null;
   }
-  console.log('renderer is here');
-
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import * as CSS from "csstype";
 import { TasticWrapper } from './component';
 import { Grid } from './grid';
 import { Cell as LayoutElement } from './cell';
@@ -16,13 +15,10 @@ export function FrontasticRenderer({
   gridClassName?: string;
   wrapperClassName?: string;
 }) {
-  console.log('data', data);
-  const { head, main, footer } = data.page.sections;
-
   return (
     <div>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {head.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+        {data?.page?.sections?.head?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t) => (
               <TasticWrapper
@@ -36,7 +32,7 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {main.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+        {data?.page?.sections?.main.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
               <TasticWrapper
@@ -50,7 +46,7 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {footer.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+        {data?.page?.sections?.footer.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
               <TasticWrapper
