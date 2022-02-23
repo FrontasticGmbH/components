@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/checkout-success",
-    "name": "Boostwind Checkout Success",
+    "tasticType": "frontastic/checkout-success",
+    "name": "Checkout Success",
     "icon": "menu",
     "category": "Checkout",
     "schema": []

@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/footer",
-    "name": "Boostwind Footer",
+    "tasticType": "frontastic/footer",
+    "name": "Footer",
     "icon": "menu",
     "category": "Header & Footer",
     "schema": [
@@ -39,7 +39,6 @@
                         }
                     ]
                 }
-
             ]
         },
         {
@@ -77,7 +76,6 @@
                         }
                     ]
                 }
-
             ]
         },
         {
@@ -115,7 +113,6 @@
                         }
                     ]
                 }
-
             ]
         },
         {
@@ -153,7 +150,6 @@
                         }
                     ]
                 }
-
             ]
         },
         {
@@ -166,9 +162,7 @@
                     "required": false,
                     "type": "string"
                 }
-
             ]
         }
-
     ]
 }

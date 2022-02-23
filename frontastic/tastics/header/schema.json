@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/header",
-    "name": "Boostwind Header",
+    "tasticType": "frontastic/header",
+    "name": "Header",
     "icon": "menu",
     "category": "Header & Footer",
     "schema": [

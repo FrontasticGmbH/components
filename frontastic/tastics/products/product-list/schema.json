@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/products/product-list",
-    "name": "Boostwind Product List",
+    "tasticType": "frontastic/products/product-list",
+    "name": "Product List",
     "icon": "list",
     "category": "Products",
     "schema": [
