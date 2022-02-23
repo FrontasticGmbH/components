@@ -22,9 +22,4 @@
     -->
     <import file="${integration_dir}/project-libraries-components.xml" />
 
-    <!-- More ?
-    <import file="${integration_dir}/build-commons/modules/checkstyle.xml" />
-    <import file="${integration_dir}/build-commons/modules/pdepend.xml" />
-    <import file="${integration_dir}/build-commons/modules/phpmd.xml" />
-    -->
 </project>
