@@ -1,7 +1,7 @@
 import React from 'react';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { ReferenceLink, Reference } from 'helpers/Reference';
-import { Product } from '../../../../../types/product/Product';
+import { Product } from '../../../../types/product/Product';
 
 interface Props {
   products: Product[];

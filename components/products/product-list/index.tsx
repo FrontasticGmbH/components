@@ -1,6 +1,6 @@
 import React from 'react';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
-import { Product } from '../../../../../types/product/Product';
+import { Product } from '../../../../types/product/Product';
 
 interface Props {
   products: Product[];

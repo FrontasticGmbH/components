@@ -1,7 +1,7 @@
 import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
 import { CurrencyHelpers } from "helpers/CurrencyHelpers";
-import { Cart } from '../../../../types/cart/Cart';
-import { ShippingMethod } from '../../../../types/cart/ShippingMethod';
+import { Cart } from '../../../types/cart/Cart';
+import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 
 interface Props {
     readonly cart: Cart,
