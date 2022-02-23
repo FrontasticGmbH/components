@@ -1,7 +1,7 @@
 {
     "tasticType": "frontastic/ui/checkout",
-    "name": "Checkout",
+    "name": "Frontastic UI checkout",
     "icon": "wrap_text",
-    "category": "Frontastic UI checkout",
+    "category": "Checkout",
     "schema": []
 }

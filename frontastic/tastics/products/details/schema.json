@@ -1,8 +1,8 @@
 {
     "tasticType": "frontastic/ui/products/details",
-    "name": "Product details",
+    "name": "Frontastic UI product details",
     "icon": "card_giftcard",
-    "category": "Frontastic UI products",
+    "category": "Products",
     "schema": [
         {
             "name": "Configuration",

@@ -1,8 +1,8 @@
 {
     "tasticType": "frontastic/ui/header",
-    "name": "Header",
+    "name": "Frontastic UI header",
     "icon": "menu",
-    "category": "Frontastic UI header and footer",
+    "category": "Header and footer",
     "schema": [
         {
             "name": "Menu",

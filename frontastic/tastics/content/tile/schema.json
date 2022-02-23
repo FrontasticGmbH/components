@@ -1,8 +1,8 @@
 {
   "tasticType": "frontastic/ui/content/tile",
-  "name": "Tile",
+  "name": "Frontastic UI tile",
   "icon": "image",
-  "category": "Frontastic UI content",
+  "category": "Content",
   "schema": [
     {
       "name": "Image",
