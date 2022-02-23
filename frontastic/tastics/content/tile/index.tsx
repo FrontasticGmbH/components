@@ -1,5 +1,5 @@
 import React from 'react';
-import Tile from 'components/boostwind/content/tile';
+import Tile from 'components/content/tile';
 
 const TileTastic = ({ data }) => {
   return (

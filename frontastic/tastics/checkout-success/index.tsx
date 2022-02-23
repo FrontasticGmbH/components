@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckoutSuccess from 'components/boostwind/checkout-success';
+import CheckoutSuccess from 'components/checkout-success';
 
 const CheckoutSuccessTastic = () => {
     return <CheckoutSuccess />

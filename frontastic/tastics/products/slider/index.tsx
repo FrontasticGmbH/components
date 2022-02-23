@@ -1,4 +1,4 @@
-import ProductSlider from 'components/boostwind/products/slider';
+import ProductSlider from 'components/products/slider';
 
 function ProductSliderTastic({ data }) {
   const { items } = data.data.dataSource;

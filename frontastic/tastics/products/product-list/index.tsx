@@ -1,4 +1,4 @@
-import ProductList from 'components/boostwind/products/product-list';
+import ProductList from 'components/products/product-list';
 
 function ProductListTastic({ data }) {
   const { items } = data.data.dataSource;
