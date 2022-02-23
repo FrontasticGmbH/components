@@ -8,6 +8,7 @@
     "dev": "concurrently -n NEXT,TSC -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "build": "next build",
     "start": "next start",
+    "test": "next build",
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
     "fix": "next lint --fix --ext .js --ext .jsx --ext tsx -c ../../../integration/eslint.config.json starters/frontend/nextjs/components/ starters/frontend/nextjs/components/frontastic/"
