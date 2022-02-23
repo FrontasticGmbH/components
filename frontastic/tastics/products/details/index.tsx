@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Variant } from '../../../../../types/product/Variant';
 // import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useCart } from 'frontastic';
-import ProductDetails, { UIProduct, UIColor, UISize } from 'components/products/product-details';
+import ProductDetails, { UIProduct, UIColor, UISize } from 'components/frontastic-ui/products/product-details';
 
 function ProductDetailsTastic({ data }) {
   const [currentVariantIdx, setCurrentVariantIdx] = useState(0);

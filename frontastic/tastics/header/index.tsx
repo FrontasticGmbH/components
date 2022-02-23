@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from 'components/header';
+import Header from 'components/frontastic-ui/header';
 import { useCart } from '../../lib/provider';
 
 const HeaderTastic = ({ data }) => {

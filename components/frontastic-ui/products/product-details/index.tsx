@@ -4,7 +4,7 @@ import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
-import { Variant } from '../../../../types/product/Variant';
+import { Variant } from '../../../../../types/product/Variant';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

@@ -1,5 +1,5 @@
 import React from 'react';
-import Tile from 'components/content/tile';
+import Tile from 'components/frontastic-ui/content/tile';
 
 const TileTastic = ({ data }) => {
   return (

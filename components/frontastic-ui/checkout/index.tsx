@@ -7,7 +7,7 @@ import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
 import { useRouter } from 'next/router';
 import { useCart } from 'frontastic';
-import { Address } from '../../../types/account/Address';
+import { Address } from '../../../../types/account/Address';
 
 const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
     { name: "firstName", inputAutoComplete: "given-name", label: "First Name", containerClassNames: "col-span-6 sm:col-span-6" },
