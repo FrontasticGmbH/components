@@ -1,8 +1,8 @@
 {
-    "tasticType": "frontastic/slider",
-    "name": "Product Slider",
+    "tasticType": "frontastic/ui/slider",
+    "name": "Product slider",
     "icon": "menu",
-    "category": "Products",
+    "category": "Frontastic UI products",
     "schema": [
         {
             "name": "Configuration",

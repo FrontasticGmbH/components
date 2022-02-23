@@ -1,15 +1,15 @@
 {
-    "tasticType": "frontastic/footer",
+    "tasticType": "frontastic/ui/footer",
     "name": "Footer",
     "icon": "menu",
-    "category": "Header & Footer",
+    "category": "Frontastic UI header and footer",
     "schema": [
         {
-            "name": "Nav Column 1",
+            "name": "Nav column 1",
             "fields": [
                 {
                     "type": "description",
-                    "text": "ideally 3-6 links"
+                    "text": "Ideally 3-6 links"
                 },
                 {
                     "label": "Header",
@@ -42,11 +42,11 @@
             ]
         },
         {
-            "name": "Nav Column 2",
+            "name": "Nav column 2",
             "fields": [
                 {
                     "type": "description",
-                    "text": "ideally 3-6 links"
+                    "text": "Ideally 3-6 links"
                 },
                 {
                     "label": "Header",
@@ -79,11 +79,11 @@
             ]
         },
         {
-            "name": "Nav Column 3",
+            "name": "Nav column 3",
             "fields": [
                 {
                     "type": "description",
-                    "text": "ideally 3-6 links"
+                    "text": "Ideally 3-6 links"
                 },
                 {
                     "label": "Header",
@@ -116,11 +116,11 @@
             ]
         },
         {
-            "name": "Nav Column 4",
+            "name": "Nav column 4",
             "fields": [
                 {
                     "type": "description",
-                    "text": "ideally 3-6 links"
+                    "text": "Ideally 3-6 links"
                 },
                 {
                     "label": "Header",

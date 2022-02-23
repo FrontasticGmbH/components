@@ -1,8 +1,8 @@
 {
-    "tasticType": "frontastic/products/product-list",
-    "name": "Product List",
+    "tasticType": "frontastic/ui/products/product-list",
+    "name": "Product list",
     "icon": "list",
-    "category": "Products",
+    "category": "Frontastic UI products",
     "schema": [
         {
             "name": "Configuration",
