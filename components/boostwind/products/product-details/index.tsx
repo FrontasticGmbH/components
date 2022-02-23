@@ -67,54 +67,56 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
           {/* Image gallery */}
-          <Tab.Group as="div" className="flex flex-col-reverse">
-            {/* Image selector */}
-            <div className="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
-              <Tab.List className="grid grid-cols-4 gap-6">
-                {product.images.map((image) => (
-                  <Tab
-                    key={image.id}
-                    className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
-                  >
-                    {({ selected }) => (
-                      <>
-                        <span className="sr-only">{image.alt}</span>
-                        <span className="absolute inset-0 rounded-md overflow-hidden">
-                          <Image
-                            loader={({ src }) => src}
-                            layout="fill"
-                            src={image.src}
-                            alt=""
-                            className="w-full h-full object-center object-cover"
+          <Tab.Group>
+            <div className="flex flex-col-reverse">
+              {/* Image selector */}
+              <div className="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
+                <Tab.List className="grid grid-cols-4 gap-6">
+                  {product.images.map((image) => (
+                    <Tab
+                      key={image.id}
+                      className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                    >
+                      {({ selected }) => (
+                        <>
+                          <span className="sr-only">{image.alt}</span>
+                          <span className="absolute inset-0 rounded-md overflow-hidden">
+                              <Image
+                                loader={({ src }) => src}
+                                layout="fill"
+                                src={image.src}
+                                alt=""
+                                className="w-full h-full object-center object-cover"
+                              />
+                            </span>
+                          <span
+                            className={classNames(
+                              selected ? 'ring-indigo-500' : 'ring-transparent',
+                              'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none',
+                            )}
+                            aria-hidden="true"
                           />
-                        </span>
-                        <span
-                          className={classNames(
-                            selected ? 'ring-indigo-500' : 'ring-transparent',
-                            'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none',
-                          )}
-                          aria-hidden="true"
-                        />
-                      </>
-                    )}
-                  </Tab>
-                ))}
-              </Tab.List>
-            </div>
+                        </>
+                      )}
+                    </Tab>
+                  ))}
+                </Tab.List>
+              </div>
 
-            <Tab.Panels className="w-full aspect-w-1 aspect-h-1">
-              {product.images.map((image) => (
-                <Tab.Panel key={image.id}>
-                  <Image
-                    loader={({ src }) => src}
-                    layout="fill"
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-center object-cover sm:rounded-lg"
-                  />
-                </Tab.Panel>
-              ))}
-            </Tab.Panels>
+              <Tab.Panels className="w-full aspect-w-1 aspect-h-1">
+                {product.images.map((image) => (
+                  <Tab.Panel key={image.id}>
+                    <Image
+                      loader={({ src }) => src}
+                      layout="fill"
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-center object-cover sm:rounded-lg"
+                    />
+                  </Tab.Panel>
+                ))}
+              </Tab.Panels>
+            </div>
           </Tab.Group>
 
           {/* Product info */}
@@ -156,8 +158,10 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                           )
                         }
                       >
-                        <RadioGroup.Label as="p" className="sr-only">
-                          {color.name}
+                        <RadioGroup.Label>
+                          <p className="sr-only">
+                            {color.name}
+                          </p>
                         </RadioGroup.Label>
                         <span
                           aria-hidden="true"
@@ -198,7 +202,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                           )
                         }
                       >
-                        <RadioGroup.Label as="p">{size.label}</RadioGroup.Label>
+                        <RadioGroup.Label><p>{size.label}</p></RadioGroup.Label>
                       </RadioGroup.Option>
                     ))}
                   </div>
@@ -231,40 +235,44 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
 
               <div className="border-t divide-y divide-gray-200">
                 {product.details.map((detail) => (
-                  <Disclosure as="div" key={detail.name}>
-                    {({ open }) => (
-                      <>
-                        <h3>
-                          <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
-                            <span
-                              className={classNames(open ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-medium')}
-                            >
-                              {detail.name}
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              {open ? (
-                                <MinusSmIcon
-                                  className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
-                                  aria-hidden="true"
-                                />
-                              ) : (
-                                <PlusSmIcon
-                                  className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                                  aria-hidden="true"
-                                />
-                              )}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
-                          <ul role="list">
-                            {detail.items.map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                        </Disclosure.Panel>
-                      </>
-                    )}
+                  <Disclosure key={detail.name}>
+                    <div>
+                      {({ open }) => (
+                        <>
+                          <h3>
+                            <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
+                                <span
+                                  className={classNames(open ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-medium')}
+                                >
+                                  {detail.name}
+                                </span>
+                              <span className="ml-6 flex items-center">
+                                  {open ? (
+                                    <MinusSmIcon
+                                      className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                                      aria-hidden="true"
+                                    />
+                                  ) : (
+                                    <PlusSmIcon
+                                      className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                </span>
+                            </Disclosure.Button>
+                          </h3>
+                          <Disclosure.Panel>
+                            <div className="pb-6 prose prose-sm">
+                              <ul role="list">
+                                {detail.items.map((item) => (
+                                  <li key={item}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </div>
                   </Disclosure>
                 ))}
               </div>
