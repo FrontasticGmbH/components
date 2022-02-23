@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Project libraries: components nextjs" basedir="./" default="test">
+
+    <property name="frontastic_basedir" value="${basedir}/../../.." />
+    <property name="integration_dir" value="${basedir}/../../../paas/integration" />
+
+    <!--
+        Include local project properties.
+    -->
+    <property file="${basedir}/environment.local" />
+    <property file="${basedir}/../environment.local" />
+    <property file="${basedir}/environment" />
+    <property file="${basedir}/../environment" />
+
+    <!--
+        Import main target defintions (extension points)
+    -->
+    <import file="${integration_dir}/main.xml" />
+
+    <!--
+        Enable used modules
+    -->
+    <import file="${integration_dir}/nextjs.xml" />
+
+    <!-- More ?
+    <import file="${integration_dir}/build-commons/modules/checkstyle.xml" />
+    <import file="${integration_dir}/build-commons/modules/pdepend.xml" />
+    <import file="${integration_dir}/build-commons/modules/phpmd.xml" />
+    -->
+</project>
