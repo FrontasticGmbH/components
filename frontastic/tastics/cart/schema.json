@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/cart",
-    "name": "Boostwind Cart",
+    "tasticType": "frontastic/ui/cart",
+    "name": "Frontastic UI cart",
     "icon": "wrap_text",
     "category": "Cart",
     "schema": []

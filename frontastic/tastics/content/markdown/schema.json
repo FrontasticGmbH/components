@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/boostwind/content/markdown",
-  "name": "Boostwind Markdown",
+  "tasticType": "frontastic/ui/content/markdown",
+  "name": "Frontastic UI markdown",
   "icon": "wrap_text",
   "category": "Content",
   "schema": [

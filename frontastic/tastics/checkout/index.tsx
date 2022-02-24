@@ -1,5 +1,5 @@
 import React from 'react';
-import Checkout from 'components/boostwind/checkout';
+import Checkout from 'components/frontastic-ui/checkout';
 
 const CheckoutTastic = () => {
   return <Checkout />

@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/products/slider",
-    "name": "Boostwind Product Slider",
+    "tasticType": "frontastic/ui/products/slider",
+    "name": "Frontastic UI product slider",
     "icon": "menu",
     "category": "Products",
     "schema": [

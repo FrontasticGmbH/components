@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from 'components/boostwind/footer';
+import Footer from 'components/frontastic-ui/footer';
 
 const FooterTastic = ({ data }) => {
   const columns = [

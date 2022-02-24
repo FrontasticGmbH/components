@@ -1,6 +1,6 @@
 {
-    "tasticType": "frontastic/boostwind/products/details",
-    "name": "Boostwind Product Details",
+    "tasticType": "frontastic/ui/products/details",
+    "name": "Frontastic UI product details",
     "icon": "card_giftcard",
     "category": "Products",
     "schema": [

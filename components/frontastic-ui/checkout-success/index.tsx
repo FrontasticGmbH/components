@@ -1,4 +1,3 @@
-import { variants } from "components/mockData";
 import { useRouter } from "next/router";
 
 interface Props {

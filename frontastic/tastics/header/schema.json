@@ -1,8 +1,8 @@
 {
-    "tasticType": "frontastic/boostwind/header",
-    "name": "Boostwind Header",
+    "tasticType": "frontastic/ui/header",
+    "name": "Frontastic UI header",
     "icon": "menu",
-    "category": "Header & Footer",
+    "category": "Header and footer",
     "schema": [
         {
             "name": "Menu",
@@ -46,25 +46,25 @@
             "name": "Links",
             "fields": [
                 {
-                    "label": "Logo Link",
+                    "label": "Logo link",
                     "field": "logoLink",
                     "type": "reference",
                     "required": true
                 },
                 {
-                    "label": "Search Link",
+                    "label": "Search link",
                     "field": "searchLink",
                     "type": "reference",
                     "required": true
                 },
                 {
-                    "label": "Account Link",
+                    "label": "Account link",
                     "field": "accountLink",
                     "type": "reference",
                     "required": true
                 },
                 {
-                    "label": "Cart Link",
+                    "label": "Cart link",
                     "field": "cartLink",
                     "type": "reference",
                     "required": true

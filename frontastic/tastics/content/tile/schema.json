@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/boostwind/content/tile",
-  "name": "Boostwind Tile",
+  "tasticType": "frontastic/ui/content/tile",
+  "name": "Frontastic UI tile",
   "icon": "image",
   "category": "Content",
   "schema": [
