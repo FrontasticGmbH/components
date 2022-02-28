@@ -4,12 +4,13 @@ import { Variant } from '../../../../../types/product/Variant';
 // import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useCart } from 'frontastic';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/frontastic-ui/products/product-details';
+import { Product } from '../../../../../types/product/Product';
 
 function ProductDetailsTastic({ data }) {
   const [currentVariantIdx, setCurrentVariantIdx] = useState(0);
   const { addItem } = useCart();
 
-  const { product } = data;
+  const { product }: { product: Product } = data;
   const variant = product.variants[currentVariantIdx];
 
   if (!product || !variant) return null;
@@ -62,7 +63,7 @@ function ProductDetailsTastic({ data }) {
     sizes,
 
     description: `
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in purus iaculis, bibendum felis quis, gravida ipsum. Nulla faucibus nisl sed libero tempor sodales. Aenean ut iaculis nulla. Curabitur turpis leo, pretium sit amet condimentum id, dignissim a turpis. Praesent pharetra tortor id ipsum molestie egestas. Integer accumsan nibh nibh, quis fringilla libero fringilla et. Ut vestibulum, ex at lacinia vestibulum, erat ligula pharetra lectus, quis porttitor libero tortor ac leo.</p>
+      <p>${variant.attributes.description || ""}</p>
     `,
 
     details: [
@@ -76,6 +77,7 @@ function ProductDetailsTastic({ data }) {
       },
     ],
   };
+  console.log(variant)
 
   const handleAddToCart = () => {
     addItem(variant, 1);

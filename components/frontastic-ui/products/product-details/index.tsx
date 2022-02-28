@@ -5,6 +5,7 @@ import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
+import { Money } from '../../../../../types/product/Money';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -20,7 +21,7 @@ interface Props {
 export type UIProduct = {
   name: string;
   variants: Variant[];
-  price: number;
+  price: Money;
   images: UIImage[];
   colors: UIColor[];
   sizes: UISize[];
@@ -81,14 +82,14 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                         <>
                           <span className="sr-only">{image.alt}</span>
                           <span className="absolute inset-0 rounded-md overflow-hidden">
-                              <Image
-                                loader={({ src }) => src}
-                                layout="fill"
-                                src={image.src}
-                                alt=""
-                                className="w-full h-full object-center object-cover"
-                              />
-                            </span>
+                            <Image
+                              loader={({ src }) => src}
+                              layout="fill"
+                              src={image.src}
+                              alt=""
+                              className="w-full h-full object-center object-cover"
+                            />
+                          </span>
                           <span
                             className={classNames(
                               selected ? 'ring-indigo-500' : 'ring-transparent',
@@ -241,24 +242,24 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                         <>
                           <h3>
                             <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
-                                <span
-                                  className={classNames(open ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-medium')}
-                                >
-                                  {detail.name}
-                                </span>
+                              <span
+                                className={classNames(open ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-medium')}
+                              >
+                                {detail.name}
+                              </span>
                               <span className="ml-6 flex items-center">
-                                  {open ? (
-                                    <MinusSmIcon
-                                      className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
-                                      aria-hidden="true"
-                                    />
-                                  ) : (
-                                    <PlusSmIcon
-                                      className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                                      aria-hidden="true"
-                                    />
-                                  )}
-                                </span>
+                                {open ? (
+                                  <MinusSmIcon
+                                    className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                                    aria-hidden="true"
+                                  />
+                                ) : (
+                                  <PlusSmIcon
+                                    className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                                    aria-hidden="true"
+                                  />
+                                )}
+                              </span>
                             </Disclosure.Button>
                           </h3>
                           <Disclosure.Panel>
