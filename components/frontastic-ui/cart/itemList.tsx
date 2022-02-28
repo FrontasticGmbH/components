@@ -16,7 +16,7 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
             Items in your shopping cart
         </h2>
 
-        <ul role="list" className="border-t border-b border-gray-200 divide-y divide-gray-200">
+        <ul role="list" className="border-b border-gray-200 divide-y divide-gray-200">
             {cart.lineItems.map((lineItem, i) => (
                 <li key={i} className="flex py-6 sm:py-10">
                     <div className="flex-shrink-0">
