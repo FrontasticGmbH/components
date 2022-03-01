@@ -29,7 +29,8 @@ export default function Preview({ data }: PreviewProps) {
   useEffect(() => {
     if (data?.previewId && !notifier.current) {
       notifier.current = new Notifier(
-        { previewId: data.previewId, isDebug: true },
+        // @TODO: Read customer name from context
+        { previewId: data.previewId, customer: 'demo' },
         {
           Refresh: handleRefresh,
           Highlight: handleHighlight,
