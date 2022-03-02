@@ -10,7 +10,7 @@
     "start": "next start",
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
-    "fix": "next lint --fix --ext .js --ext .jsx --ext tsx -c ../../../integration/eslint.config.json starters/frontend/nextjs/components/ starters/frontend/nextjs/components/frontastic/"
+    "fix": "next lint --fix --ext .js --ext .jsx --ext tsx"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
