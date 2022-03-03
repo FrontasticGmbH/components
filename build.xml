@@ -2,7 +2,7 @@
 <project name="Project libraries: components nextjs" basedir="./" default="test">
 
     <property name="frontastic_basedir" value="${basedir}/../../.." />
-    <property name="integration_dir" value="${basedir}/../../../paas/integration" />
+    <property name="integration_dir" value="${frontastic_basedir}/paas/integration" />
 
     <!--
         Include local project properties.
