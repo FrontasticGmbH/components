@@ -28,9 +28,9 @@ const Cart = ({ }: Props) => {
     }
 
     return <main className="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
+        <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-xl">Shopping Cart</h1>
 
-        <form className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
+        <form className="lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
             <ItemList cart={data} editItemQuantity={editItemQuantity} goToProductPage={goToProductPage} removeItem={(lineItemId: string) => removeItem(lineItemId)} />
             <OrderSummary cart={data} shippingMethod={shippingMethods.data?.[0]} onCheckout={onCheckout} />
         </form>
