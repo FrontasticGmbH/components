@@ -20,6 +20,6 @@
     <!--
         Enable used modules
     -->
-    <import file="${integration_dir}/project-libraries-components.xml" />
+    <import file="${integration_dir}/project-libraries.xml" />
 
 </project>
