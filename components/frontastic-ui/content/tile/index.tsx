@@ -21,13 +21,13 @@ const Tile: React.FC<Props> = ({ image, header, text, ctaLabel, ctaReference }) 
         <Image media={image.media} layout="fill" className="object-top object-cover" alt={header} />
       </div>
 
-      <div className="absolute left-10 top-1/2 -translate-y-1/2 flex flex-col text-start max-w-[30%]">
-        <h2 className="text-3xl font-extrabold tracking-tight text-black sm:text-5xl whitespace-pre-line">{header}</h2>
-        <Markdown className="mt-3 text-lg text-gray-400 pl-2" text={text} />
+      <div className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 flex flex-col text-start max-w-[30%]">
+        <h2 className="text-md md:text-2xl lg:text-5xl font-extrabold tracking-tight text-black whitespace-pre-line">{header}</h2>
+        <Markdown className="mt-3 text-sm md:text-lg text-gray-400 lg:pl-2" text={text} />
         {showCta && (
           <ReferenceLink
             target={ctaReference}
-            className="mt-8 w-full block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
+            className="hidden sm:block mt-2 md:mt-8 py-1 md:py-3 px-4 md:px-8 w-full block bg-white border border-transparent rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
           >
             {ctaLabel}
           </ReferenceLink>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
-import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
+import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
@@ -214,17 +214,9 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                 <button
                   type="button"
                   onClick={() => onAddToCart(variant, 1)}
-                  className="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+                  className="w-full flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                 >
                   Add to bag
-                </button>
-
-                <button
-                  type="button"
-                  className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                >
-                  <HeartIcon className="h-6 w-6 flex-shrink-0" aria-hidden="true" />
-                  <span className="sr-only">Add to favorites</span>
                 </button>
               </div>
             </form>
