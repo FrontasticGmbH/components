@@ -435,12 +435,16 @@ const Header: React.FC<Props> = ({
                         className="flex-shrink-0 h-6 w-6 text-[#25304D] group-hover:text-[#192038]"
                         aria-hidden="true"
                       />
-                      <span className="absolute top-0 -right-[5px] w-4 h-4 rounded-full bg-[#CE3E72] hover:bg-[#B22C5D]">
-                        <span className="flex items-center justify-center text-[14px] font-small text-white group-hover:text-white">
-                          {cartItemCount}
-                        </span>
-                      </span>
-                      <span className="sr-only">items in cart, view bag</span>
+                      {cartItemCount > 0 && (
+                        <>
+                          <span className="absolute top-0 -right-[5px] w-4 h-4 rounded-full bg-[#CE3E72] hover:bg-[#B22C5D]">
+                            <span className="flex items-center justify-center text-[14px] font-small text-white group-hover:text-white">
+                              {cartItemCount}
+                            </span>
+                          </span>
+                          <span className="sr-only">items in cart, view bag</span>
+                        </>
+                      )}
                     </ReferenceLink>
                   </div>
                 </div>
