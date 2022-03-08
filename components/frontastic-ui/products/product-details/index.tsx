@@ -197,7 +197,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                           classNames(
                             active ? 'ring-2 ring-offset-2 ring-indigo-500' : '',
                             checked
-                              ? 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700'
+                              ? 'bg-[#CE3E72] border-transparent text-white hover:bg-[#B22C5D]'
                               : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50',
                             'border rounded-md py-3 px-3 flex items-center justify-center text-sm cursor-pointer font-medium uppercase sm:flex-1',
                           )
@@ -214,7 +214,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                 <button
                   type="button"
                   onClick={() => onAddToCart(variant, 1)}
-                  className="w-full flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                  className="w-full flex-1 bg-[#CE3E72] border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:bg-[#B22C5D]"
                 >
                   Add to bag
                 </button>
