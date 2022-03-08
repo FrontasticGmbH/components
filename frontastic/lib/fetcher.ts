@@ -1,7 +1,5 @@
 import { handleFetchResponse } from './utils';
 
-import { getCookie, setCookies } from 'cookies-next';
-
 export type Fetcher<T = any, B = any> = (options: FetcherOptions<B>) => T | Promise<T>;
 
 export type FetcherOptions<Body = any> = {
@@ -36,12 +34,14 @@ const fetcher: Fetcher = async ({ url = '', method = 'POST', body, variables, qu
         Accept: 'application/json',
         ...frontasticSessionHeaders,
       },
-    }).then((response): Response => {
-      if (response.ok && response.headers.has('Frontastic-Session')) {
-        setCookies('frontastic-session', response.headers.get('Frontastic-Session'));
-      }
-      return response;
-    }),
+    }).then(
+      (response): Response => {
+        if (response.ok && response.headers.has('Frontastic-Session')) {
+          setCookies('frontastic-session', response.headers.get('Frontastic-Session'));
+        }
+        return response;
+      },
+    ),
   );
 };
 

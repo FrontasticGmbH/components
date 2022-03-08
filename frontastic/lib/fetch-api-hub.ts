@@ -2,7 +2,6 @@ import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
 
 import { IncomingMessage, ServerResponse } from 'http';
-import { getConstructorTypeOfClassLikeDeclaration } from 'tsutils';
 
 function resolveApiHubUrl(): string {
   // TODO: Error checks!
