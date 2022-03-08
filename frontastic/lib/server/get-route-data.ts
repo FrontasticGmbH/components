@@ -1,5 +1,7 @@
 import fetcher from '../fetcher';
 import { FrontasticRoute, PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
+import { fetchApiHub, fetchApiHubServerSide } from '../fetch-api-hub';
+import { IncomingMessage, ServerResponse } from 'http';
 
 type UrlParams = {
   slug?: Array<string>;
@@ -37,22 +39,35 @@ export const getRouteData = (url: string, key: string) => async (
   urlParams: UrlParams,
   locale: string,
   query: QueryParams,
-): Promise<RedirectResponse|PageDataResponse> => {
+  nextJsReq: IncomingMessage,
+  nextJsRes: ServerResponse,
+): Promise<RedirectResponse | PageDataResponse> => {
   // Remove slug from query since it's not needed as part of the query.
   delete query.slug;
 
   const slug = urlParams.slug?.join('/') || '';
   const endpointQuery = [`path=/${slug !== 'index' ? slug : ''}`, `locale=${locale}`, ...encodeQueryParams(query)];
-  const endpoint = `${url}/page?${endpointQuery.join('&')}`;
+  const endpoint = `/page?${endpointQuery.join('&')}`;
 
-  const data: RedirectResponse|PageDataResponse = await fetcher({ url: endpoint, method: 'GET', token: key });
+  const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(endpoint, {
+    req: nextJsReq,
+    res: nextJsRes,
+  })) as RedirectResponse | PageDataResponse;
 
   return data;
 };
 
-export const getPreview = (url: string, key: string) => async (previewId: string, locale: string): Promise<PagePreviewDataResponse> => {
-  const endpoint = `${url}/preview?previewId=${previewId}&locale=${locale}`;
+export const getPreview = (url: string, key: string) => async (
+  previewId: string,
+  locale: string,
+  nextJsReq: IncomingMessage,
+  nextJsRes: ServerResponse,
+): Promise<PagePreviewDataResponse> => {
+  const endpoint = `/preview?previewId=${previewId}&locale=${locale}`;
 
-  const data: PagePreviewDataResponse = await fetcher({ url: endpoint, method: 'GET', token: key });
+  const data: PagePreviewDataResponse = (await fetchApiHubServerSide(endpoint, {
+    req: nextJsReq,
+    res: nextJsRes,
+  })) as PagePreviewDataResponse;
   return data;
 };

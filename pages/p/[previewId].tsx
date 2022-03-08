@@ -13,12 +13,12 @@ type PreviewProps = {
 
 export default function Preview({ data }: PreviewProps) {
   const [currentHighlight, setCurrentHighlight] = useState(null);
-  const notifier = useRef(null)
+  const notifier = useRef(null);
 
   const handleRefresh = () => {
     // Do a proper refresh and no full reload
-    window.location = window.location
-  }
+    window.location = window.location;
+  };
   const handleHighlight = ({ item }) => {
     if (currentHighlight !== item) {
       setCurrentHighlight(item);
@@ -34,8 +34,8 @@ export default function Preview({ data }: PreviewProps) {
         {
           Refresh: handleRefresh,
           Highlight: handleHighlight,
-          EndHighlight: handleEndHighlight
-        }
+          EndHighlight: handleEndHighlight,
+        },
       );
       notifier.current.connect();
     }
@@ -48,9 +48,9 @@ export default function Preview({ data }: PreviewProps) {
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
-export const getServerSideProps: GetStaticProps = async ({ params, locale }) => {
+export const getServerSideProps: GetStaticProps = async ({ params, locale, req, res }) => {
   const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
-  const data = await frontastic.getPreview(params.previewId.toString(), locale);
+  const data = await frontastic.getPreview(params.previewId.toString(), locale, req, res);
 
   return {
     props: {

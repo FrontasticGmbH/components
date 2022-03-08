@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps, Redirect } from 'next';
 import { createClient } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -20,9 +20,9 @@ export default function Slug({ data }: SlugProps) {
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
-export const getServerSideProps: GetStaticProps = async ({ params, locale }) => {
+export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {
   const frontastic = createClient('https://english-demo.frontastic.io', process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
-  const { data } = await frontastic.getRouteDataOld(params);
+  const data = await frontastic.getRouteData(params, locale, query, req, res);
 
   return {
     props: {
