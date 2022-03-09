@@ -19,9 +19,9 @@ export default function Slug({ data }: SlugProps) {
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
-export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query }) => {
+export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {
   const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
-  const data = await frontastic.getRouteData(params, locale, query);
+  const data = await frontastic.getRouteData(params, locale, query, req, res);
 
   if (data) {
     if (data instanceof FrontasticError && data.statusCode == 404) {

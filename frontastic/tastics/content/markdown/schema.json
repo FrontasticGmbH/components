@@ -10,7 +10,7 @@
         {
           "label": "Content",
           "field": "markdown",
-          "type": "text",
+          "type": "markdown",
           "translatable": true,
           "required": true
         }

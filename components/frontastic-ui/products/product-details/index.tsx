@@ -65,7 +65,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
 
   return (
     <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-2xl mx-auto md:py-4 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
           {/* Image gallery */}
           <Tab.Group>
@@ -92,7 +92,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                           </span>
                           <span
                             className={classNames(
-                              selected ? 'ring-indigo-500' : 'ring-transparent',
+                              selected ? 'ring-[#CE3E72]' : 'ring-transparent',
                               'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none',
                             )}
                             aria-hidden="true"
@@ -112,7 +112,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                       layout="fill"
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-center object-cover sm:rounded-lg"
+                      className="w-full object-center object-cover sm:rounded-lg"
                     />
                   </Tab.Panel>
                 ))}
@@ -126,7 +126,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
 
             <div className="mt-3">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl text-gray-900">{CurrencyHelpers.formatForCurrency(product.price)}</p>
+              <p className="text-3xl text-gray-900 text-[#CE3E72]">{CurrencyHelpers.formatForCurrency(product.price)}</p>
             </div>
 
             <div className="mt-6">
@@ -181,9 +181,6 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
               <div className="mt-8">
                 <div className="flex items-center justify-between">
                   <h2 className="text-sm font-medium text-gray-900">Size</h2>
-                  <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                    See sizing chart
-                  </a>
                 </div>
 
                 <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-2">
@@ -197,7 +194,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                           classNames(
                             active ? 'ring-2 ring-offset-2 ring-indigo-500' : '',
                             checked
-                              ? 'bg-indigo-600 border-transparent text-white hover:bg-indigo-700'
+                              ? 'bg-[#CE3E72] border-transparent text-white hover:bg-[#B22C5D]'
                               : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50',
                             'border rounded-md py-3 px-3 flex items-center justify-center text-sm cursor-pointer font-medium uppercase sm:flex-1',
                           )
@@ -214,7 +211,7 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                 <button
                   type="button"
                   onClick={() => onAddToCart(variant, 1)}
-                  className="w-full flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                  className="w-full flex-1 bg-[#CE3E72] border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:bg-[#B22C5D]"
                 >
                   Add to bag
                 </button>

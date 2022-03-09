@@ -1,9 +1,8 @@
-import { getRouteData, getRouteDataOld, getPreview } from './lib/server/get-route-data';
+import { getRouteData, getPreview } from './lib/server/get-route-data';
 
 function createClient(frontasticUrl: string, frontasticKey: string) {
   return {
     getRouteData: getRouteData(frontasticUrl, frontasticKey),
-    getRouteDataOld: getRouteDataOld(frontasticUrl, frontasticKey),
     getPreview: getPreview(frontasticUrl, frontasticKey),
   };
 }
