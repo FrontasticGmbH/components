@@ -6,7 +6,6 @@ import { updateCart, setShippingMethod, CartDetails } from '../actions/update-ca
 import { orderCart } from '../actions/order-cart';
 import { cartItems } from '../actions/cart-items';
 import { shippingMethods } from '../actions/shipping-methods';
-import frontasticFetcher from './fetcher';
 import { fetchApiHub } from './fetch-api-hub';
 import { updateItem } from 'frontastic/actions/update-cart-item';
 import { ShippingMethod } from '../../../types/cart/ShippingMethod';
@@ -14,18 +13,18 @@ import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
 
 interface UseCart {
-  data?: Cart,
-  addItem: (variant: Variant, quantity: number) => Promise<void>,
-  updateCart: (payload: CartDetails) => Promise<void>,
-  setShippingMethod: (shippingMethodId: string) => Promise<void>,
-  removeItem: (lineItemId: string) => Promise<void>,
-  updateItem: (lineItemId: string, newQuantity: number) => Promise<void>,
-  shippingMethods: { data?: ShippingMethod[] },
-  orderCart: () => Promise<void>
+  data?: Cart;
+  addItem: (variant: Variant, quantity: number) => Promise<void>;
+  updateCart: (payload: CartDetails) => Promise<void>;
+  setShippingMethod: (shippingMethodId: string) => Promise<void>;
+  removeItem: (lineItemId: string) => Promise<void>;
+  updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;
+  shippingMethods: { data?: ShippingMethod[] };
+  orderCart: () => Promise<void>;
 }
 
 interface FrontasticState {
-  useCart: UseCart
+  useCart: UseCart;
 }
 
 const initialState: FrontasticState = {
@@ -37,13 +36,11 @@ const initialState: FrontasticState = {
     removeItem: undefined,
     updateItem: undefined,
     shippingMethods: undefined,
-    orderCart: undefined
+    orderCart: undefined,
   },
 };
 
 const FrontasticContext = React.createContext<FrontasticState>(initialState);
-
-export const fetcher = (url: string) => frontasticFetcher({ url, method: 'GET' });
 
 export const FrontasticProvider: React.FC = ({ children }) => {
   const state: FrontasticState = {
@@ -55,17 +52,13 @@ export const FrontasticProvider: React.FC = ({ children }) => {
       removeItem,
       updateItem,
       shippingMethods: shippingMethods(),
-      orderCart
+      orderCart,
     },
-  }
+  };
 
   return (
     <SWRConfig value={{ fetcher: fetchApiHub }}>
-      <FrontasticContext.Provider
-        value={state}
-      >
-        {children}
-      </FrontasticContext.Provider>
+      <FrontasticContext.Provider value={state}>{children}</FrontasticContext.Provider>
     </SWRConfig>
   );
 };
