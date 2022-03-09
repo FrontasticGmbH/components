@@ -438,7 +438,7 @@ const Header: React.FC<Props> = ({
                       {cartItemCount > 0 && (
                         <>
                           <span className="absolute top-0 -right-[5px] w-4 h-4 rounded-full bg-[#CE3E72] hover:bg-[#B22C5D]">
-                            <span className="flex items-center justify-center text-[14px] font-small text-white group-hover:text-white">
+                            <span className="w-full h-full flex items-center justify-center text-[12px] font-small text-white group-hover:text-white">
                               {cartItemCount}
                             </span>
                           </span>

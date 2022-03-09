@@ -51,14 +51,14 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
                             <button
                                 type="button"
                                 onClick={editCartItem}
-                                className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]">
                                 Edit
                             </button>
                             <div className="flex border-l border-gray-300 pl-4">
                                 <button
                                     type="button"
                                     onClick={(e) => removeCartItem(lineItem.lineItemId)}
-                                    className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
                                 >
                                     Remove
                                 </button>

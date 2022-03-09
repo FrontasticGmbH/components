@@ -18,8 +18,8 @@ const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
     //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
     //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
     //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
-    { name: "streetName", inputAutoComplete: "cc-name", label: "Street Name", containerClassNames: "col-span-full sm:col-span-10" },
-    { name: "streetNumber", inputAutoComplete: "cc-name", label: "Street No.", containerClassNames: "col-span-full sm:col-span-2" },
+    { name: "streetName", inputAutoComplete: "cc-name", label: "Street Name", containerClassNames: "col-span-full sm:col-span-9" },
+    { name: "streetNumber", inputAutoComplete: "cc-name", label: "Street No.", containerClassNames: "col-span-full sm:col-span-3" },
     { name: "city", inputAutoComplete: "address-level2", label: "City", containerClassNames: "col-span-full sm:col-span-4" },
     { name: "postalCode", inputAutoComplete: "postal-code", label: "Postal code", containerClassNames: "col-span-full sm:col-span-4" }
 ];
