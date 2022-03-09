@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps, Redirect } from 'next';
 import { createClient, FrontasticRenderer, Notifier } from 'frontastic';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
@@ -48,7 +48,7 @@ export default function Preview({ data }: PreviewProps) {
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
-export const getServerSideProps: GetStaticProps = async ({ params, locale, req, res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params, locale, req, res }) => {
   const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
   const data = await frontastic.getPreview(params.previewId.toString(), locale, req, res);
 

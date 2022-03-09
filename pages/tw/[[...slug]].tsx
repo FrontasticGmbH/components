@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps, GetStaticProps, Redirect } from 'next';
+import { GetServerSideProps, Redirect } from 'next';
 import { createClient } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';

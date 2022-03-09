@@ -1,6 +1,5 @@
-import fetcher from '../fetcher';
-import { FrontasticRoute, PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
-import { fetchApiHub, fetchApiHubServerSide } from '../fetch-api-hub';
+import { PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
+import { fetchApiHubServerSide } from '../fetch-api-hub';
 import { IncomingMessage, ServerResponse } from 'http';
 
 type UrlParams = {
@@ -25,14 +24,6 @@ const encodeSingleQueryParam = (key: string, value: string | string[] | undefine
 
 const encodeQueryParams = (query: QueryParams): string[] => {
   return Object.entries(query).flatMap(([key, value]) => encodeSingleQueryParam(key, value));
-};
-
-export const getRouteDataOld: any = (url: string, key: string) => async (urlParams: UrlParams, locale: string) => {
-  const slug = urlParams.slug?.join('/') || '';
-  const endpoint = `${url}/${slug !== 'index' ? slug : ''}`;
-
-  const data: FrontasticRoute = await fetcher({ url: endpoint, method: 'GET', token: key });
-  return { data };
 };
 
 export const getRouteData = (url: string, key: string) => async (
