@@ -21,12 +21,7 @@ export function FrontasticRenderer({
         {data?.page?.sections?.head?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t) => (
-              <TasticWrapper
-                tastics={tastics}
-                key={t.tasticId}
-                data={t}
-                dataSources={data.data.dataSources}
-              ></TasticWrapper>
+              <TasticWrapper tastics={tastics} key={t.tasticId} data={t} dataSources={data.data.dataSources} />
             ))}
           </LayoutElement>
         ))}
@@ -35,12 +30,7 @@ export function FrontasticRenderer({
         {data?.page?.sections?.main.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
-              <TasticWrapper
-                tastics={tastics}
-                key={t.tasticId}
-                data={t}
-                dataSources={data.data.dataSources}
-              ></TasticWrapper>
+              <TasticWrapper tastics={tastics} key={t.tasticId} data={t} dataSources={data.data.dataSources} />
             ))}
           </LayoutElement>
         ))}
@@ -49,12 +39,7 @@ export function FrontasticRenderer({
         {data?.page?.sections?.footer.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
-              <TasticWrapper
-                tastics={tastics}
-                key={t.tasticId}
-                data={t}
-                dataSources={data.data.dataSources}
-              ></TasticWrapper>
+              <TasticWrapper tastics={tastics} key={t.tasticId} data={t} dataSources={data.data.dataSources} />
             ))}
           </LayoutElement>
         ))}

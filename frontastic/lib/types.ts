@@ -140,8 +140,8 @@ export interface PageFolder {
 export interface PageDataResponse {
   pageFolder: PageFolder;
   page: Page2;
-  data: ViewData
-};
+  data: ViewData;
+}
 export interface PagePreviewDataResponse extends PageDataResponse {
   previewId: string;
 }
