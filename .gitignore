@@ -1,4 +1,5 @@
 .next
+.netlify
 
 .env
 .env.build
