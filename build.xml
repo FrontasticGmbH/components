@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Project libraries: components nextjs" basedir="./" default="test">
+<project name="Components nextjs" basedir="./" default="test">
 
     <property name="frontastic_basedir" value="${basedir}/../../.." />
     <property name="integration_dir" value="${frontastic_basedir}/paas/integration" />
