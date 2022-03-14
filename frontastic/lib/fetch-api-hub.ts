@@ -28,6 +28,23 @@ type CookieManager = {
   setCookie: (cookieIdentifier: string, cookieValue: string) => void;
 };
 
+export class ResponseError extends Error {
+  private readonly response: Response;
+
+  constructor(response: Response) {
+    super(`Got HTTP status code ${response.status} (${response.statusText})`);
+    this.response = response;
+  }
+
+  getResponse() {
+    return this.response;
+  }
+
+  getStatus() {
+    return this.response.status;
+  }
+}
+
 export type fetchFunction = (endpointPath: string, init?: RequestInit, payload?: object) => Promise<any>;
 
 const performFetchApiHub = async (
@@ -87,6 +104,7 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
     if (response.ok) {
       return response.json();
     }
+    throw new ResponseError(response);
   });
 };
 
