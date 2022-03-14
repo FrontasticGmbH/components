@@ -12,7 +12,8 @@ import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
 import { getAccount, GetAccountResult } from '../actions/get-account';
-import { login, logout } from '../actions/login';
+import { login, logout, register } from '../actions/login';
+import { Account } from '../../../types/account/Account';
 
 interface UseCart {
   data?: Cart;
@@ -28,6 +29,7 @@ interface UseCart {
 type UseAccount = GetAccountResult & {
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  register: (account: Account) => Promise<Account>;
 };
 
 interface FrontasticState {
@@ -50,6 +52,7 @@ const initialState: FrontasticState = {
     loggedIn: false,
     login: undefined,
     logout: undefined,
+    register: undefined,
   },
 };
 
@@ -71,6 +74,7 @@ export const FrontasticProvider: React.FC = ({ children }) => {
       ...getAccount(),
       login,
       logout,
+      register,
     },
   };
   return (
