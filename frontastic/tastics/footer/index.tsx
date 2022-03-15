@@ -15,7 +15,7 @@ const FooterTastic = ({ data }) => {
     {
       header: data.headerCol3,
       links: data.linksCol3,
-    },    
+    },
   ];
 
   return (

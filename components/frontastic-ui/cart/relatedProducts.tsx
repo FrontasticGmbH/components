@@ -1,11 +1,7 @@
+interface Props {}
 
-
-interface Props {
-
-}
-
-const RelatedProducts = ({ }: Props) => {
-    return null;/*<section aria-labelledby="related-heading" className="mt-24">
+const RelatedProducts = ({}: Props) => {
+  return null; /*<section aria-labelledby="related-heading" className="mt-24">
     <h2 id="related-heading" className="text-lg font-medium text-gray-900">
         You may also like&hellip;
     </h2>
@@ -36,6 +32,6 @@ const RelatedProducts = ({ }: Props) => {
         ))}
         </div>
 </section>*/
-}
+};
 
-export default RelatedProducts
+export default RelatedProducts;

@@ -1,7 +1,7 @@
 import Form from './form';
 import MobileOrderSummary from './mobileOrderSummary';
 import DesktopOrderSummary from './desktopOrderSummary';
-import { Props as FormInputProps } from "./form/fields/formInput";
+import { Props as FormInputProps } from './form/fields/formInput';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
@@ -9,141 +9,168 @@ import { useRouter } from 'next/router';
 import { useCart } from 'frontastic';
 import { Address } from '../../../../types/account/Address';
 
-const inputData: Omit<Omit<FormInputProps, "value">, "onChange">[] = [
-    { name: "firstName", inputAutoComplete: "given-name", label: "First Name", containerClassNames: "col-span-6 sm:col-span-6" },
-    { name: "lastName", inputAutoComplete: "family-name", label: "Last Name", containerClassNames: "col-span-6 sm:col-span-6" },
-    { name: "emailAddress", inputType: "email", inputAutoComplete: "email", label: "Email address" },
-    //TODO: uncomment below for card payments
-    //{ name: "nameOnCard", inputAutoComplete: "cc-name", label: "Name on card" },
-    //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
-    //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
-    //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
-    { name: "streetName", inputAutoComplete: "cc-name", label: "Street Name", containerClassNames: "col-span-full sm:col-span-9" },
-    { name: "streetNumber", inputAutoComplete: "cc-name", label: "Street No.", containerClassNames: "col-span-full sm:col-span-3" },
-    { name: "city", inputAutoComplete: "address-level2", label: "City", containerClassNames: "col-span-full sm:col-span-4" },
-    { name: "postalCode", inputAutoComplete: "postal-code", label: "Postal code", containerClassNames: "col-span-full sm:col-span-4" }
+const inputData: Omit<Omit<FormInputProps, 'value'>, 'onChange'>[] = [
+  {
+    name: 'firstName',
+    inputAutoComplete: 'given-name',
+    label: 'First Name',
+    containerClassNames: 'col-span-6 sm:col-span-6',
+  },
+  {
+    name: 'lastName',
+    inputAutoComplete: 'family-name',
+    label: 'Last Name',
+    containerClassNames: 'col-span-6 sm:col-span-6',
+  },
+  { name: 'emailAddress', inputType: 'email', inputAutoComplete: 'email', label: 'Email address' },
+  //TODO: uncomment below for card payments
+  //{ name: "nameOnCard", inputAutoComplete: "cc-name", label: "Name on card" },
+  //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
+  //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
+  //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
+  {
+    name: 'streetName',
+    inputAutoComplete: 'cc-name',
+    label: 'Street Name',
+    containerClassNames: 'col-span-full sm:col-span-9',
+  },
+  {
+    name: 'streetNumber',
+    inputAutoComplete: 'cc-name',
+    label: 'Street No.',
+    containerClassNames: 'col-span-full sm:col-span-3',
+  },
+  {
+    name: 'city',
+    inputAutoComplete: 'address-level2',
+    label: 'City',
+    containerClassNames: 'col-span-full sm:col-span-4',
+  },
+  {
+    name: 'postalCode',
+    inputAutoComplete: 'postal-code',
+    label: 'Postal code',
+    containerClassNames: 'col-span-full sm:col-span-4',
+  },
 ];
 
-interface Props {
+interface Props {}
 
-}
+const Checkout = ({}: Props) => {
+  const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
+  const router = useRouter();
+  const [checkoutData, setCheckoutData] = useState({
+    firstName: '',
+    lastName: '',
+    emailAddress: '',
+    //TODO: uncomment all below for card payments
+    //nameOnCard: "",
+    //cardNumber: "",
+    //expirationDate: "",
+    //cvc: "",
+    streetName: '',
+    streetNumber: '',
+    city: '',
+    postalCode: '',
+    country: '',
+    // sameAsShipping: true
+  });
 
-const Checkout = ({ }: Props) => {
-    const {
-        data,
-        removeItem,
-        shippingMethods,
-        setShippingMethod,
-        updateCart,
-        orderCart
-    } = useCart();
-    const router = useRouter();
-    const [checkoutData, setCheckoutData] = useState({
-        firstName: "",
-        lastName: "",
-        emailAddress: "",
-        //TODO: uncomment all below for card payments
-        //nameOnCard: "",
-        //cardNumber: "",
-        //expirationDate: "",
-        //cvc: "",
-        streetName: "",
-        streetNumber: "",
-        city: "",
-        postalCode: "",
-        country: "",
-        // sameAsShipping: true
+  const updateFormInput = (propName: string, newValue: string) => {
+    let newData = { ...checkoutData };
+    newData[propName] = newValue;
+    setCheckoutData(newData);
+  };
+
+  const editLineItem = () => router.push('/cart');
+
+  const goToProductPage = (_url: string) => router.push(_url);
+
+  const removeLineItem = (lineItemId: string) => removeItem(lineItemId);
+
+  const isValid = () =>
+    !!checkoutData.firstName &&
+    !!checkoutData.lastName &&
+    !!checkoutData.emailAddress &&
+    !!checkoutData.streetName &&
+    !!checkoutData.streetNumber &&
+    !!checkoutData.city &&
+    !!checkoutData.postalCode &&
+    !!checkoutData.country;
+
+  const submitForm = async () => {
+    // TODO
+    // validate shipping address
+    let shippingAddress: Address = { addressId: '', ...checkoutData };
+    await updateCart({
+      account: {
+        email: checkoutData.emailAddress,
+      },
+      shipping: shippingAddress,
     });
-
-    const updateFormInput = (propName: string, newValue: string) => {
-        let newData = { ...checkoutData };
-        newData[propName] = newValue;
-        setCheckoutData(newData);
+    await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
+    await orderCart();
+    //TODO: figure out logic here
+    if (false) {
+      console.error('Error ordering cart');
+    } else {
+      router.push('/checkout-success');
     }
+  };
 
-    const editLineItem = () => router.push('/cart');
+  if (!data?.lineItems || data.lineItems.length < 1) {
+    return <EmptyCart />;
+  }
 
-    const goToProductPage = (_url: string) => router.push(_url);
-
-    const removeLineItem = (lineItemId: string) => removeItem(lineItemId);
-
-    const isValid = () => !!checkoutData.firstName && !!checkoutData.lastName && !!checkoutData.emailAddress && !!checkoutData.streetName
-        && !!checkoutData.streetNumber && !!checkoutData.city && !!checkoutData.postalCode && !!checkoutData.country
-
-    const submitForm = async () => {
-        // TODO
-        // validate shipping address
-        let shippingAddress: Address = { addressId: "", ...checkoutData };
-        await updateCart({
-            account: {
-                email: checkoutData.emailAddress
-            },
-            shipping: shippingAddress
-        });
-        await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
-        await orderCart();
-        //TODO: figure out logic here
-        if (false) {
-            console.error('Error ordering cart');
-        }
-        else {
-            router.push('/checkout-success');
-        }
-    }
-
-
-    if (!data?.lineItems || data.lineItems.length < 1) {
-        return <EmptyCart />
-    }
-
-    return <main className="lg:min-h-full lg:overflow-hidden lg:flex lg:flex-row-reverse">
-        <div className="px-4 py-6 sm:px-6 lg:hidden">
-            <div className="max-w-lg mx-auto flex">
-                <a href="#">
-                    <span className="sr-only">Workflow</span>
-                    <img
-                        src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-                        alt=""
-                        className="h-8 w-auto"
-                    />
-                </a>
-            </div>
+  return (
+    <main className="lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
+      <div className="px-4 py-6 sm:px-6 lg:hidden">
+        <div className="mx-auto flex max-w-lg">
+          <a href="#">
+            <span className="sr-only">Workflow</span>
+            <img
+              src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
+              alt=""
+              className="h-8 w-auto"
+            />
+          </a>
         </div>
+      </div>
 
-        <h1 className="sr-only">Checkout</h1>
+      <h1 className="sr-only">Checkout</h1>
 
-        <MobileOrderSummary
-            cart={data}
-            editCartItem={editLineItem}
-            goToProductPage={goToProductPage}
-            removeCartItem={removeLineItem}
-            selectedShipping={shippingMethods.data?.[0]}
-        />
-        <DesktopOrderSummary
-            cart={data}
-            editCartItem={editLineItem}
-            goToProductPage={goToProductPage}
-            removeCartItem={removeLineItem}
-            selectedShipping={shippingMethods.data?.[0]}
-        />
+      <MobileOrderSummary
+        cart={data}
+        editCartItem={editLineItem}
+        goToProductPage={goToProductPage}
+        removeCartItem={removeLineItem}
+        selectedShipping={shippingMethods.data?.[0]}
+      />
+      <DesktopOrderSummary
+        cart={data}
+        editCartItem={editLineItem}
+        goToProductPage={goToProductPage}
+        removeCartItem={removeLineItem}
+        selectedShipping={shippingMethods.data?.[0]}
+      />
 
-        {/* Checkout form */}
-        <section
-            aria-labelledby="payment-heading"
-            className="flex-auto overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-8 lg:pt-0 lg:pb-24"
-        >
-            <div className="max-w-lg mx-auto">
-                <div className="hidden pt-10 pb-16 lg:flex">
-                    <a href="#">
-                        <span className="sr-only">Workflow</span>
-                        <img
-                            src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-                            alt=""
-                            className="h-8 w-auto"
-                        />
-                    </a>
-                </div>
-                {/*<button
+      {/* Checkout form */}
+      <section
+        aria-labelledby="payment-heading"
+        className="flex-auto overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-8 lg:pt-0 lg:pb-24"
+      >
+        <div className="mx-auto max-w-lg">
+          <div className="hidden pt-10 pb-16 lg:flex">
+            <a href="#">
+              <span className="sr-only">Workflow</span>
+              <img
+                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
+                alt=""
+                className="h-8 w-auto"
+              />
+            </a>
+          </div>
+          {/*<button
                     type="button"
                     className="w-full flex items-center justify-center bg-black border border-transparent text-white rounded-md py-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                 >
@@ -162,18 +189,20 @@ const Checkout = ({ }: Props) => {
                     </div>
                 </div>*/}
 
-                <Form
-                    formInputData={inputData}
-                    submitText={`Pay ${CurrencyHelpers.formatForCurrency(
-                        CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}))}`}
-                    updateFormInput={updateFormInput}
-                    submitForm={submitForm}
-                    data={checkoutData}
-                    isFormValid={isValid()}
-                />
-            </div>
-        </section>
+          <Form
+            formInputData={inputData}
+            submitText={`Pay ${CurrencyHelpers.formatForCurrency(
+              CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
+            )}`}
+            updateFormInput={updateFormInput}
+            submitForm={submitForm}
+            data={checkoutData}
+            isFormValid={isValid()}
+          />
+        </div>
+      </section>
     </main>
-}
+  );
+};
 
 export default Checkout;

@@ -10,13 +10,14 @@ export type CartDetails = {
 
 export const updateCart = async (payload: CartDetails) => {
   const res = await fetchApiHub(
-    '/action/cart/updateCart', {
-    headers: {
-      accept: 'application/json',
+    '/action/cart/updateCart',
+    {
+      headers: {
+        accept: 'application/json',
+      },
+      credentials: 'include',
+      method: 'POST',
     },
-    credentials: 'include',
-    method: 'POST',
-  },
     payload,
   );
   console.log('cart updated, ', payload, res);
@@ -26,19 +27,20 @@ export const updateCart = async (payload: CartDetails) => {
 export const setShippingMethod = async (shippingMethodId: string) => {
   const payload = {
     shippingMethod: {
-      id: shippingMethodId
-    }
-  }
-  const res = await fetchApiHub(
-    '/action/cart/setShippingMethod', {
-    headers: {
-      accept: 'application/json',
+      id: shippingMethodId,
     },
-    credentials: 'include',
-    method: 'POST',
-  },
+  };
+  const res = await fetchApiHub(
+    '/action/cart/setShippingMethod',
+    {
+      headers: {
+        accept: 'application/json',
+      },
+      credentials: 'include',
+      method: 'POST',
+    },
     payload,
   );
   console.log('shipping method set, ', payload, res);
   mutate('/action/cart/getCart', res);
-}
+};

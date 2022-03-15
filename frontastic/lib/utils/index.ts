@@ -1,1 +1,1 @@
-export { default as handleFetchResponse } from "./handle-fetch-response";
+export { default as handleFetchResponse } from './handle-fetch-response';

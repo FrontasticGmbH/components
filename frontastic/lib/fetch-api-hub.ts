@@ -77,14 +77,12 @@ const performFetchApiHub = async (
 
   const endpoint = resolveApiHubUrl() + endpointPath;
 
-  return await fetch(endpoint, actualInit).then(
-    (response): Response => {
-      if (response.ok && response.headers.has('Frontastic-Session')) {
-        cookieManager.setCookie('frontastic-session', response.headers.get('Frontastic-Session'));
-      }
-      return response;
-    },
-  );
+  return await fetch(endpoint, actualInit).then((response): Response => {
+    if (response.ok && response.headers.has('Frontastic-Session')) {
+      cookieManager.setCookie('frontastic-session', response.headers.get('Frontastic-Session'));
+    }
+    return response;
+  });
 };
 
 export const rawFetchApiHub: fetchFunction = async (endpointPath, init = {}, payload = null) => {

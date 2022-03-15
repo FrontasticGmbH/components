@@ -38,27 +38,27 @@ const Footer: React.FC<Props> = ({ columns, copyright }) => {
   const renderIcon = (name: string) => {
     switch (name) {
       case 'rocket':
-        return <RocketIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <RocketIcon className="h-6 w-6 text-[#CE3E72]" aria-hidden="true" />;
       case 'loop':
-        return <LoopIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <LoopIcon className="h-6 w-6 text-[#CE3E72]" aria-hidden="true" />;
       case 'loop':
-        return <LockIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <LockIcon className="h-6 w-6 text-[#CE3E72]" aria-hidden="true" />;
       case 'question':
-        return <QuestionMarkCircleIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <QuestionMarkCircleIcon className="h-6 w-6 text-[#CE3E72]" aria-hidden="true" />;
       case 'inbox':
-        return <InboxIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <InboxIcon className="h-6 w-6 text-[#CE3E72]" aria-hidden="true" />;
       case 'speaker':
-        return <SpeakerphoneIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <SpeakerphoneIcon className="h-6 w-6 text-[#CE3E72]" aria-hidden="true" />;
       default:
-        return <LockIcon className="w-4 h-4 text-[#CE3E72]" aria-hidden="true" />;
+        return <LockIcon className="h-4 w-4 text-[#CE3E72]" aria-hidden="true" />;
     }
   };
 
   return (
     <footer aria-labelledby="footer-heading">
       {isBiggerThanMobileView && (
-        <div className="bg-gray-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="px-2 py-10 max-w-5xl mx-auto xl:grid xl:grid-cols-2 xl:gap-8">
+        <div className="mx-auto max-w-7xl bg-gray-100 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl px-2 py-10 xl:grid xl:grid-cols-2 xl:gap-8">
             <div className="grid grid-cols-3 gap-4 xl:col-span-2">
               {columns.map((column, index) => (
                 <div key={index}>
@@ -69,7 +69,7 @@ const Footer: React.FC<Props> = ({ columns, copyright }) => {
                   <ul role="list" className="mt-6 space-y-3">
                     {column.links.map((item, i) => (
                       <li key={i} className="text-sm">
-                        <ReferenceLink target={item.reference} className="text-gray-700 hover:text-gray-800 px-6">
+                        <ReferenceLink target={item.reference} className="px-6 text-gray-700 hover:text-gray-800">
                           {item.name}
                         </ReferenceLink>
                       </li>
@@ -82,12 +82,12 @@ const Footer: React.FC<Props> = ({ columns, copyright }) => {
         </div>
       )}
       {copyright && (
-        <div className="flex place-content-between bg-gray-100 px-4 sm:px-10 border-t border-gray-200 py-4">
-          <p className="text-xs sm:text-sm text-gray-700">© {copyright}</p>
+        <div className="flex place-content-between border-t border-gray-200 bg-gray-100 px-4 py-4 sm:px-10">
+          <p className="text-xs text-gray-700 sm:text-sm">© {copyright}</p>
           <ul className="flex">
             {mockCopyrightLinks.map((item, i) => (
               <li key={i} className="text-xs">
-                <p className="text-gray-700 sm:text-sm hover:text-white px-2">{item.name}</p>
+                <p className="px-2 text-gray-700 hover:text-white sm:text-sm">{item.name}</p>
               </li>
             ))}
           </ul>

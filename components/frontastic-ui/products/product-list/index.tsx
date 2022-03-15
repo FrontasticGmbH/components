@@ -24,7 +24,7 @@ export default function ProductList({ products }: Props) {
     ));
 
   return (
-    <div className="bg-white mt-10 px-4 sm:px-6 lg:px-8">
+    <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
       <div className="cursor-default">
         {isLargerThan1024 ? (
           <Breadcrumb Separator="/">{categories}</Breadcrumb>
