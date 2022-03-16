@@ -1,0 +1,132 @@
+.slider {
+    position: static;
+  
+    &__container {
+      position: relative;
+      padding-bottom: 40px;
+      overflow: hidden;
+  
+      &--fit {
+        width: fit-content;
+      }
+  
+      &--with-thumbs {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 25px;
+        height: 480px;
+      }
+    }
+  
+    &__slides {
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+  
+      .swiper-button {
+        &-prev,
+        &-next {
+          width: 50px;
+          height: 50px;
+          top: 50%;
+          transform: translateY(-50%);
+          opacity: 0;
+        }
+      }
+  
+      &:hover {
+        .swiper-button {
+          &-prev,
+          &-next {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  
+    &__thumbs {
+      position: relative;
+      box-sizing: border-box;
+      height: 480px;
+      width: 80px;
+  
+      .swiper-button {
+        &-prev,
+        &-next {
+          transform: translate(-50%) rotate(90deg);
+          left: 50%;
+          z-index: 99;
+          width: 30px;
+          height: 30px;
+        }
+  
+        &-prev {
+          top: 20px;
+        }
+  
+        &-next {
+          top: unset;
+          bottom: 0;
+        }
+      }
+  
+      .swiper-slide-thumb-active {
+        box-sizing: border-box;
+        border: 1px solid gray;
+      }
+    }
+  
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+  
+    &__bullet {
+      &--active {
+        background: gray;
+        opacity: 1;
+      }
+    }
+  
+    &__thumb {
+      height: 80px;
+      width: 80px;
+    }
+  }
+  
+  .swiper-button {
+    &-prev,
+    &-next {
+      background-repeat: no-repeat;
+      background-position: center;
+  
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom center, 50%, 50%;
+  
+      top: 40% !important;
+  
+      &.swiper-button-disabled {
+        background-image: none;
+      }
+    }
+  
+    &-next {
+      background-image: url('../../../public/images/Arrow-right.png');
+      right: 0 !important;
+  
+      &::after {
+        display: none;
+      }
+    }
+  
+    &-prev {
+      background-image: url('../../../public/images/Arrow-left.png');
+      left: 0 !important;
+  
+      &::after {
+        display: none;
+      }
+    }
+  }
+  

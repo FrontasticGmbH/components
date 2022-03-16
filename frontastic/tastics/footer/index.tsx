@@ -1,4 +1,5 @@
 import React from 'react';
+import Highlights from './highlights';
 import Footer from 'components/frontastic-ui/footer';
 
 const FooterTastic = ({ data }) => {
@@ -15,13 +16,14 @@ const FooterTastic = ({ data }) => {
       header: data.headerCol3,
       links: data.linksCol3,
     },
-    {
-      header: data.headerCol4,
-      links: data.linksCol4,
-    },
   ];
 
-  return <Footer columns={columns} copyright={data.copyright} />;
+  return (
+    <div className="fixed-screen-width lg:relative-width">
+      <Highlights />
+      <Footer columns={columns} copyright={data.copyright} />
+    </div>
+  );
 };
 
 export default FooterTastic;

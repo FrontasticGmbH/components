@@ -8,15 +8,18 @@
     "dev": "concurrently -n NEXT,TSC -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "build": "next build",
     "start": "next start",
+    "test": "next build",
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
-    "fix": "next lint --fix --ext .js --ext .jsx --ext tsx -c ../../../integration/eslint.config.json starters/frontend/nextjs/components/ starters/frontend/nextjs/components/frontastic/"
+    "prettify": "prettier --write \"**/*.{ts,tsx}\"",
+    "fix": "yarn lint --fix --ext .js --ext .jsx --ext ts --ext tsx && yarn prettify"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@hookform/error-message": "^2.0.0",
-    "cookies-next": "^2.0.0",
+    "cookie-cutter": "^0.2.0",
+    "cookies": "^0.8.0",
     "markdown": "^0.5.0",
     "next": "^12.0.8",
     "next-i18next": "^10.2.0",
@@ -25,12 +28,15 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.12.2",
+    "react-icons": "^4.3.1",
     "react-intersection-observer": "^8.28.5",
     "react-intl": "^5.24.3",
     "react-markdown": "^6.0.3",
     "react-slick": "0.28.1",
     "reactjs-popup": "^1.5.0",
     "resize-observer-polyfill": "^1.5.1",
+    "sass": "^1.49.9",
+    "swiper": "^8.0.6",
     "swr": "^1.2.0",
     "typescript": "^4.5.4",
     "uuid": "^8.3.2"
@@ -51,6 +57,7 @@
     "eslint-plugin-react": "^7.27.1",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "tailwindcss": "^3.0.15"
   }
 }

@@ -19,7 +19,7 @@ export function TasticWrapper(props: TasticWrapperProps) {
 
   return (
     <div className={`w-full ${highlight && 'ring-8 ring-pink-500'} `}>
-      <TasticToRender type={data?.tasticType} id={data?.tasticId} data={updatedBlock} />
+      <TasticToRender type={data?.tasticType} id={data?.tasticId} data={updatedBlock} pageFolder={props.pageFolder} />
     </div>
   );
 }

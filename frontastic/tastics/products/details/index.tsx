@@ -63,7 +63,7 @@ function ProductDetailsTastic({ data }) {
     sizes,
 
     description: `
-      <p>${variant.attributes.description || ""}</p>
+      <p>${product.description || ''}</p>
     `,
 
     details: [
@@ -77,7 +77,7 @@ function ProductDetailsTastic({ data }) {
       },
     ],
   };
-  console.log(variant)
+  console.log(product);
 
   const handleAddToCart = () => {
     addItem(variant, 1);

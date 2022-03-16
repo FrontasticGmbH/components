@@ -1,12 +1,9 @@
-import { EmptyState } from "components/empty-state";
+import { EmptyState } from 'components/empty-state';
 
+interface Props {}
 
-interface Props {
-
-}
-
-const EmptyCart = ({ }: Props) => {
-    return <EmptyState icon={'😿😿😿'} title={'Nothing here yet'} />;
-}
+const EmptyCart = ({}: Props) => {
+  return <EmptyState icon={'😿😿😿'} title={'Nothing here yet'} />;
+};
 
 export default EmptyCart;

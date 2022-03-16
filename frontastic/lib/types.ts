@@ -109,6 +109,7 @@ export type TasticWrapperProps = {
   dataSources: DataSources | null;
   tastics: TasticRegistry;
   data: TasticData;
+  pageFolder: PageFolder;
   highlight?: boolean;
 };
 export interface DataSourceConfiguration {
@@ -140,8 +141,8 @@ export interface PageFolder {
 export interface PageDataResponse {
   pageFolder: PageFolder;
   page: Page2;
-  data: ViewData
-};
+  data: ViewData;
+}
 export interface PagePreviewDataResponse extends PageDataResponse {
   previewId: string;
 }

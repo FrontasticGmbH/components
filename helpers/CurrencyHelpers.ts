@@ -19,7 +19,7 @@ export class CurrencyHelpers {
   };
 
   private static formatMoneyCurrency = function (price: Money) {
-    return Intl.NumberFormat('en-US', { style: 'currency', currency: price.currencyCode ?? 'USD' }).format(
+    return Intl.NumberFormat('de-DE', { style: 'currency', currency: price.currencyCode ?? 'EUR' }).format(
       (price.centAmount ?? 0) / Math.pow(10, price.fractionDigits ?? 2),
     );
   };
@@ -32,44 +32,52 @@ export class CurrencyHelpers {
     typeof costInCents === 'string'
       ? CurrencyHelpers.formatStringForCurrency(costInCents)
       : typeof costInCents === 'number'
-        ? CurrencyHelpers.formatNumberForCurrency(costInCents)
-        : CurrencyHelpers.formatMoneyCurrency(costInCents);
+      ? CurrencyHelpers.formatNumberForCurrency(costInCents)
+      : CurrencyHelpers.formatMoneyCurrency(costInCents);
 
   static addCurrency: (value1: Money, value2: Money) => Money = (value1: Money, value2: Money) => {
     if (value1.fractionDigits !== value2.fractionDigits && value1.fractionDigits && value2.fractionDigits) {
-      console.warn(`Money with different fraction codes passed to addCurrency, value returned will be innacurate. `
-        + `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`);
+      console.warn(
+        `Money with different fraction codes passed to addCurrency, value returned will be innacurate. ` +
+          `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`,
+      );
     }
     if (value1.currencyCode !== value2.currencyCode && value1.currencyCode && value2.currencyCode) {
-      console.warn(`Money with different currency codes passed to addCurrency, value returned will be innacurate. `
-        + `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`);
+      console.warn(
+        `Money with different currency codes passed to addCurrency, value returned will be innacurate. ` +
+          `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`,
+      );
     }
     return {
       fractionDigits: value1.fractionDigits || value2.fractionDigits,
       centAmount: value1.centAmount + value2.centAmount,
-      currencyCode: value1.currencyCode || value2.currencyCode
+      currencyCode: value1.currencyCode || value2.currencyCode,
     };
-  }
+  };
 
   static subtractCurrency: (value1: Money, value2: Money) => Money = (value1: Money, value2: Money) => {
     if (value1.fractionDigits !== value2.fractionDigits) {
-      console.warn(`Money with different fraction codes passed to addCurrency, value returned will be innacurate. `
-        + `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`);
+      console.warn(
+        `Money with different fraction codes passed to addCurrency, value returned will be innacurate. ` +
+          `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`,
+      );
     }
     if (value1.currencyCode !== value2.currencyCode) {
-      console.warn(`Money with different currency codes passed to addCurrency, value returned will be innacurate. `
-        + `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`);
+      console.warn(
+        `Money with different currency codes passed to addCurrency, value returned will be innacurate. ` +
+          `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`,
+      );
     }
     return {
       fractionDigits: value1.fractionDigits || value2.fractionDigits,
       centAmount: value1.centAmount - value2.centAmount,
-      currencyCode: value1.currencyCode || value2.currencyCode
+      currencyCode: value1.currencyCode || value2.currencyCode,
     };
-  }
+  };
 
   static multiplyCurrency: (value: Money, numberOfItems: number) => Money = (value: Money, numberOfItems: number) => ({
     fractionDigits: value.fractionDigits,
     centAmount: value.centAmount * numberOfItems,
-    currencyCode: value.currencyCode
+    currencyCode: value.currencyCode,
   });
 }

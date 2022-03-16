@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// atoms
+@import './components/atoms/input';
+@import './components/atoms/slider';
+
+@layer utilities {
+    .relative-width {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .fixed-screen-width {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+}

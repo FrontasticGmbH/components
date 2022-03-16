@@ -1,9 +1,11 @@
 //import { FetcherError } from '@commerce/utils/errors'
+import { FrontasticError } from './FrontasticError';
 
 export function getError(errors: any[], status: number) {
   //return new FetcherError({ errors, status })
   console.log('errors,', errors);
-  return new Error(`Error, ${status}`);
+
+  return new FrontasticError(`Error, ${status}`, status);
 }
 
 export async function getAsyncError(res: Response) {
@@ -27,7 +29,7 @@ const handleFetchResponse = async (res: Response) => {
     return data;
   }
 
-  throw await getAsyncError(res);
+  return await getAsyncError(res);
 };
 
 export default handleFetchResponse;

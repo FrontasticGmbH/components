@@ -26,7 +26,8 @@ export function FrontasticRenderer({
                 key={t.tasticId}
                 data={t}
                 dataSources={data.data.dataSources}
-              ></TasticWrapper>
+                pageFolder={data.pageFolder}
+              />
             ))}
           </LayoutElement>
         ))}
@@ -40,7 +41,8 @@ export function FrontasticRenderer({
                 key={t.tasticId}
                 data={t}
                 dataSources={data.data.dataSources}
-              ></TasticWrapper>
+                pageFolder={data.pageFolder}
+              />
             ))}
           </LayoutElement>
         ))}
@@ -54,7 +56,8 @@ export function FrontasticRenderer({
                 key={t.tasticId}
                 data={t}
                 dataSources={data.data.dataSources}
-              ></TasticWrapper>
+                pageFolder={data.pageFolder}
+              />
             ))}
           </LayoutElement>
         ))}

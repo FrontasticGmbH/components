@@ -5,7 +5,7 @@ import { FrontasticProvider } from 'frontastic';
 
 import 'tailwindcss/tailwind.css';
 
-import './app.css';
+import '../styles/app.scss';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (
