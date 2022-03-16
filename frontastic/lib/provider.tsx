@@ -13,16 +13,15 @@ import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
 import { getAccount, GetAccountResult } from '../actions/get-account';
 import {
+  changePassword,
+  confirm,
   login,
   logout,
   register,
-  confirm,
-  changePassword,
   requestPasswordReset,
   resetPassword,
 } from '../actions/account-actions';
 import { Account } from '../../../types/account/Account';
-import { PasswordResetToken } from '../../../types/account/PasswordResetToken';
 
 interface UseCart {
   data?: Cart;
@@ -41,7 +40,7 @@ type UseAccount = GetAccountResult & {
   register: (account: Account) => Promise<Account>;
   confirm: (token: string) => Promise<Account>;
   changePassword: (oldPassword: string, newPassword: string) => Promise<Account>;
-  requestPasswordReset: (email: string) => Promise<PasswordResetToken>;
+  requestPasswordReset: (email: string) => Promise<void>;
   resetPassword: (token: string, newPassword: string) => Promise<Account>;
 };
 

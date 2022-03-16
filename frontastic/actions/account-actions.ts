@@ -1,7 +1,6 @@
 import { fetchApiHub } from '../lib/fetch-api-hub';
 import { mutate } from 'swr';
 import { Account } from '../../../types/account/Account';
-import { PasswordResetToken } from '../../../types/account/PasswordResetToken';
 
 export const login = async (email: string, password: string): Promise<Account> => {
   const payload = {
@@ -40,10 +39,9 @@ export const changePassword = async (oldPassword: string, newPassword: string): 
   return res;
 };
 
-export const requestPasswordReset = async (email: string): Promise<PasswordResetToken> => {
+export const requestPasswordReset = async (email: string): Promise<void> => {
   const res = await fetchApiHub('/action/account/requestReset', { method: 'POST' }, { email });
   console.log('requested password reset, ', res.email, res);
-  return res;
 };
 
 export const resetPassword = async (token: string, newPassword: string): Promise<Account> => {
