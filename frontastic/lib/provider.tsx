@@ -12,8 +12,17 @@ import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
 import { getAccount, GetAccountResult } from '../actions/get-account';
-import { login, logout, register } from '../actions/login';
+import {
+  login,
+  logout,
+  register,
+  confirm,
+  changePassword,
+  requestPasswordReset,
+  resetPassword,
+} from '../actions/account-actions';
 import { Account } from '../../../types/account/Account';
+import { PasswordResetToken } from '../../../types/account/PasswordResetToken';
 
 interface UseCart {
   data?: Cart;
@@ -27,9 +36,13 @@ interface UseCart {
 }
 
 type UseAccount = GetAccountResult & {
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<Account>;
   logout: () => Promise<void>;
   register: (account: Account) => Promise<Account>;
+  confirm: (token: string) => Promise<Account>;
+  changePassword: (oldPassword: string, newPassword: string) => Promise<Account>;
+  requestPasswordReset: (email: string) => Promise<PasswordResetToken>;
+  resetPassword: (token: string, newPassword: string) => Promise<Account>;
 };
 
 interface FrontasticState {
@@ -50,9 +63,14 @@ const initialState: FrontasticState = {
   },
   useAccount: {
     loggedIn: false,
+    account: undefined,
     login: undefined,
     logout: undefined,
     register: undefined,
+    confirm: undefined,
+    changePassword: undefined,
+    requestPasswordReset: undefined,
+    resetPassword: undefined,
   },
 };
 
@@ -75,6 +93,10 @@ export const FrontasticProvider: React.FC = ({ children }) => {
       login,
       logout,
       register,
+      confirm,
+      changePassword,
+      requestPasswordReset,
+      resetPassword,
     },
   };
   return (
