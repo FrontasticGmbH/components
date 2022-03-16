@@ -1,8 +1,24 @@
 import { useAccount } from '../../../lib/provider';
+import { setDefaultBillingAddress, setDefaultShippingAddress } from '../../../actions/account-actions';
 
 function AccountTestTastic() {
-  const { loggedIn, account, login, logout, register, confirm, changePassword, requestPasswordReset, resetPassword } =
-    useAccount();
+  const {
+    loggedIn,
+    account,
+    login,
+    logout,
+    register,
+    confirm,
+    changePassword,
+    requestPasswordReset,
+    resetPassword,
+    update,
+    addAddress,
+    updateAddress,
+    removeAddress,
+    setDefaultBillingAddress,
+    setDefaultShippingAddress,
+  } = useAccount();
 
   return (
     <div>
@@ -23,6 +39,84 @@ function AccountTestTastic() {
             }}
           >
             Change Password
+          </button>
+          <button
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={() => {
+              update({
+                firstName: 'Florian',
+                lastName: 'Sowade',
+                salutation: 'Mr.',
+                birthdayYear: 1988,
+                birthdayMonth: 9,
+                birthdayDay: 18,
+              });
+            }}
+          >
+            Update
+          </button>
+          <button
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={() => {
+              addAddress({
+                firstName: 'Florian',
+                lastName: 'Sowade',
+                salutation: 'Mr.',
+                streetName: 'Oskar-Hoffmann-Str.',
+                streetNumber: '122',
+                postalCode: '44789',
+                city: 'Bochum',
+                country: 'DE',
+                isDefaultBillingAddress: true,
+                isDefaultShippingAddress: true,
+              });
+            }}
+          >
+            Add Address
+          </button>
+          <button
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={() => {
+              updateAddress({
+                addressId: 'C6R3Tch4',
+                firstName: 'Florian',
+                lastName: 'Sowade',
+                salutation: 'Herr',
+                streetName: 'Oskar-Hoffmann-Str.',
+                streetNumber: '122',
+                postalCode: '44789',
+                city: 'Bochum',
+                country: 'DE',
+                isDefaultBillingAddress: true,
+                isDefaultShippingAddress: true,
+              });
+            }}
+          >
+            Update Address
+          </button>
+          <button
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={() => {
+              removeAddress('WI1-AJ0T');
+            }}
+          >
+            Remove Address
+          </button>
+          <button
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={() => {
+              setDefaultBillingAddress('C6R3Tch4');
+            }}
+          >
+            Set Default Billing Address
+          </button>
+          <button
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={() => {
+              setDefaultShippingAddress('C6R3Tch4');
+            }}
+          >
+            Set Default Shipping Address
           </button>
         </>
       )}

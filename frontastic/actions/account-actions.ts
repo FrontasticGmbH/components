@@ -1,6 +1,23 @@
 import { fetchApiHub } from '../lib/fetch-api-hub';
 import { mutate } from 'swr';
 import { Account } from '../../../types/account/Account';
+import { Address } from '../../../types/account/Address';
+
+export interface UpdateAccount {
+  firstName?: string;
+  lastName?: string;
+  salutation?: string;
+  birthdayYear?: number;
+  birthdayMonth?: number;
+  birthdayDay?: number;
+}
+
+export type RegisterAccount = UpdateAccount & {
+  email: string;
+  password: string;
+  billingAddress?: Address;
+  shippingAddress?: Address;
+};
 
 export const login = async (email: string, password: string): Promise<Account> => {
   const payload = {
@@ -19,7 +36,7 @@ export const logout = async () => {
   await mutate('/action/account/getAccount', res);
 };
 
-export const register = async (account: Account): Promise<Account> => {
+export const register = async (account: RegisterAccount): Promise<Account> => {
   const res = await fetchApiHub('/action/account/register', { method: 'POST' }, account);
   console.log('created account, ', account.email, res);
   await mutate('/action/account/getAccount', res);
@@ -46,6 +63,48 @@ export const requestPasswordReset = async (email: string): Promise<void> => {
 
 export const resetPassword = async (token: string, newPassword: string): Promise<Account> => {
   const res = await fetchApiHub('/action/account/reset', { method: 'POST' }, { token, newPassword });
+  console.log('password reset, ', res.email, res);
+  await mutate('/action/account/getAccount', res);
+  return res;
+};
+
+export const update = async (account: UpdateAccount): Promise<Account> => {
+  const res = await fetchApiHub('/action/account/update', { method: 'POST' }, account);
+  console.log('password reset, ', res.email, res);
+  await mutate('/action/account/getAccount', res);
+  return res;
+};
+
+export const addAddress = async (address: Omit<Address, 'addressId'>): Promise<Account> => {
+  const res = await fetchApiHub('/action/account/addAddress', { method: 'POST' }, address);
+  console.log('password reset, ', res.email, res);
+  await mutate('/action/account/getAccount', res);
+  return res;
+};
+
+export const updateAddress = async (address: Address): Promise<Account> => {
+  const res = await fetchApiHub('/action/account/updateAddress', { method: 'POST' }, address);
+  console.log('password reset, ', res.email, res);
+  await mutate('/action/account/getAccount', res);
+  return res;
+};
+
+export const removeAddress = async (addressId: string): Promise<Account> => {
+  const res = await fetchApiHub('/action/account/removeAddress', { method: 'POST' }, { addressId });
+  console.log('password reset, ', res.email, res);
+  await mutate('/action/account/getAccount', res);
+  return res;
+};
+
+export const setDefaultBillingAddress = async (addressId: string): Promise<Account> => {
+  const res = await fetchApiHub('/action/account/setDefaultBillingAddress', { method: 'POST' }, { addressId });
+  console.log('password reset, ', res.email, res);
+  await mutate('/action/account/getAccount', res);
+  return res;
+};
+
+export const setDefaultShippingAddress = async (addressId: string): Promise<Account> => {
+  const res = await fetchApiHub('/action/account/setDefaultShippingAddress', { method: 'POST' }, { addressId });
   console.log('password reset, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;

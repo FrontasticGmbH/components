@@ -17,11 +17,20 @@ import {
   confirm,
   login,
   logout,
+  RegisterAccount,
   register,
   requestPasswordReset,
   resetPassword,
+  UpdateAccount,
+  update,
+  addAddress,
+  updateAddress,
+  removeAddress,
+  setDefaultBillingAddress,
+  setDefaultShippingAddress,
 } from '../actions/account-actions';
 import { Account } from '../../../types/account/Account';
+import { Address } from '../../../types/account/Address';
 
 interface UseCart {
   data?: Cart;
@@ -37,11 +46,17 @@ interface UseCart {
 type UseAccount = GetAccountResult & {
   login: (email: string, password: string) => Promise<Account>;
   logout: () => Promise<void>;
-  register: (account: Account) => Promise<Account>;
+  register: (account: RegisterAccount) => Promise<Account>;
   confirm: (token: string) => Promise<Account>;
   changePassword: (oldPassword: string, newPassword: string) => Promise<Account>;
   requestPasswordReset: (email: string) => Promise<void>;
   resetPassword: (token: string, newPassword: string) => Promise<Account>;
+  update: (account: UpdateAccount) => Promise<Account>;
+  addAddress: (address: Omit<Address, 'addressId'>) => Promise<Account>;
+  updateAddress: (address: Address) => Promise<Account>;
+  removeAddress: (addressId: string) => Promise<Account>;
+  setDefaultBillingAddress: (addressId: string) => Promise<Account>;
+  setDefaultShippingAddress: (addressId: string) => Promise<Account>;
 };
 
 interface FrontasticState {
@@ -70,6 +85,12 @@ const initialState: FrontasticState = {
     changePassword: undefined,
     requestPasswordReset: undefined,
     resetPassword: undefined,
+    update: undefined,
+    addAddress: undefined,
+    updateAddress: undefined,
+    removeAddress: undefined,
+    setDefaultBillingAddress: undefined,
+    setDefaultShippingAddress: undefined,
   },
 };
 
@@ -96,6 +117,12 @@ export const FrontasticProvider: React.FC = ({ children }) => {
       changePassword,
       requestPasswordReset,
       resetPassword,
+      update,
+      addAddress,
+      updateAddress,
+      removeAddress,
+      setDefaultBillingAddress,
+      setDefaultShippingAddress,
     },
   };
   return (
