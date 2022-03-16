@@ -23,7 +23,7 @@ export default function ProductList({ products }: Props) {
       </span>
     ));
 
-  return (
+  return products.length > 0 ? (
     <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
       {/* <div className="cursor-default">
         {isLargerThan1024 ? (
@@ -34,5 +34,7 @@ export default function ProductList({ products }: Props) {
       </div> */}
       {products && <List products={products} />}
     </div>
+  ) : (
+    <></>
   );
 }
