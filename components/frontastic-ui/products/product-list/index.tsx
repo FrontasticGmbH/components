@@ -32,7 +32,7 @@ export default function ProductList({ products }: Props) {
           <Laddercrumb>{categories}</Laddercrumb>
         )}
       </div> */}
-      <List products={products} />
+      {products && <List products={products} />}
     </div>
   );
 }
