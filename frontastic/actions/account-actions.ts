@@ -70,42 +70,42 @@ export const resetPassword = async (token: string, newPassword: string): Promise
 
 export const update = async (account: UpdateAccount): Promise<Account> => {
   const res = await fetchApiHub('/action/account/update', { method: 'POST' }, account);
-  console.log('password reset, ', res.email, res);
+  console.log('updated account, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;
 };
 
 export const addAddress = async (address: Omit<Address, 'addressId'>): Promise<Account> => {
   const res = await fetchApiHub('/action/account/addAddress', { method: 'POST' }, address);
-  console.log('password reset, ', res.email, res);
+  console.log('added address to account, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;
 };
 
 export const updateAddress = async (address: Address): Promise<Account> => {
   const res = await fetchApiHub('/action/account/updateAddress', { method: 'POST' }, address);
-  console.log('password reset, ', res.email, res);
+  console.log('updated address of account, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;
 };
 
 export const removeAddress = async (addressId: string): Promise<Account> => {
   const res = await fetchApiHub('/action/account/removeAddress', { method: 'POST' }, { addressId });
-  console.log('password reset, ', res.email, res);
+  console.log('removed address from account, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;
 };
 
 export const setDefaultBillingAddress = async (addressId: string): Promise<Account> => {
   const res = await fetchApiHub('/action/account/setDefaultBillingAddress', { method: 'POST' }, { addressId });
-  console.log('password reset, ', res.email, res);
+  console.log('set default billing address for account, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;
 };
 
 export const setDefaultShippingAddress = async (addressId: string): Promise<Account> => {
   const res = await fetchApiHub('/action/account/setDefaultShippingAddress', { method: 'POST' }, { addressId });
-  console.log('password reset, ', res.email, res);
+  console.log('set default shipping address for account, ', res.email, res);
   await mutate('/action/account/getAccount', res);
   return res;
 };
