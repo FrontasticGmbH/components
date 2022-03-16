@@ -25,13 +25,13 @@ export default function ProductList({ products }: Props) {
 
   return (
     <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
-      <div className="cursor-default">
+      {/* <div className="cursor-default">
         {isLargerThan1024 ? (
           <Breadcrumb Separator="/">{categories}</Breadcrumb>
         ) : (
           <Laddercrumb>{categories}</Laddercrumb>
         )}
-      </div>
+      </div> */}
       <List products={products} />
     </div>
   );
