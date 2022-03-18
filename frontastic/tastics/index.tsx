@@ -9,7 +9,7 @@ import Tile from './content/tile';
 import ProductDetails from './products/details';
 import ProductList from './products/product-list';
 import ProductSlider from './products/slider';
-// import Markdown from './content/markdown';
+import AccountTest from './account/test';
 // Doc Examples
 import SimpleButton from './doc-examples/simple-button';
 import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
@@ -25,6 +25,7 @@ export const tastics = {
   'frontastic/ui/products/details': ProductDetails,
   'frontastic/ui/products/product-list': ProductList,
   'frontastic/ui/products/slider': ProductSlider,
+  'frontastic/ui/account/test': AccountTest,
   'frontastic/ui/examples/simple-button': SimpleButton,
   'frontastic/ui/examples/star-wars/character-search': StarWarsCharacterSearch,
   default: NotFound,

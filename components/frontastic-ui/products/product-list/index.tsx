@@ -23,16 +23,18 @@ export default function ProductList({ products }: Props) {
       </span>
     ));
 
-  return (
+  return products.length > 0 ? (
     <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
-      <div className="cursor-default">
+      {/* <div className="cursor-default">
         {isLargerThan1024 ? (
           <Breadcrumb Separator="/">{categories}</Breadcrumb>
         ) : (
           <Laddercrumb>{categories}</Laddercrumb>
         )}
-      </div>
-      <List products={products} />
+      </div> */}
+      {products && <List products={products} />}
     </div>
+  ) : (
+    <></>
   );
 }

@@ -9,10 +9,12 @@ interface LoggedInResult {
 
 interface NotLoggedInResult {
   loggedIn: false;
+  account: undefined;
 }
 
 interface ErrorResult {
   loggedIn: false;
+  account: undefined;
   error: ResponseError;
 }
 
@@ -27,6 +29,7 @@ export const getAccount = (): GetAccountResult => {
 
   return {
     loggedIn: false,
+    account: undefined,
     error: result.error,
   };
 };
