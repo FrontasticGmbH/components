@@ -11,6 +11,7 @@ import { updateItem } from 'frontastic/actions/update-cart-item';
 import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Cart } from '../../../types/cart/Cart';
 import { Variant } from '../../../types/product/Variant';
+import { Wishlist } from '../../../types/wishlist/Wishlist';
 import { getAccount, GetAccountResult } from '../actions/get-account';
 import {
   changePassword,
@@ -31,6 +32,7 @@ import {
 } from '../actions/account-actions';
 import { Account } from '../../../types/account/Account';
 import { Address } from '../../../types/account/Address';
+import { addToWishlist, removeLineItem, updateLineItem, getWishlist } from '../actions/wishlist';
 
 interface UseCart {
   data?: Cart;
@@ -41,7 +43,7 @@ interface UseCart {
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;
   shippingMethods: { data?: ShippingMethod[] };
   orderCart: () => Promise<void>;
-}
+};
 
 type UseAccount = GetAccountResult & {
   login: (email: string, password: string) => Promise<Account>;
@@ -59,9 +61,17 @@ type UseAccount = GetAccountResult & {
   setDefaultShippingAddress: (addressId: string) => Promise<Account>;
 };
 
+type UseWishlist = {
+  data?: Wishlist;
+  addToWishlist: typeof addToWishlist;
+  removeLineItem: typeof removeLineItem;
+  updateLineItem: typeof updateLineItem;
+}
+
 interface FrontasticState {
   useCart: UseCart;
   useAccount: UseAccount;
+  useWishlist: UseWishlist;
 }
 
 const initialState: FrontasticState = {
@@ -92,6 +102,12 @@ const initialState: FrontasticState = {
     setDefaultBillingAddress: undefined,
     setDefaultShippingAddress: undefined,
   },
+  useWishlist: {
+    data: undefined,
+    addToWishlist: undefined,
+    removeLineItem: undefined,
+    updateLineItem: undefined
+  }
 };
 
 const FrontasticContext = React.createContext<FrontasticState>(initialState);
@@ -124,6 +140,12 @@ export const FrontasticProvider: React.FC = ({ children }) => {
       setDefaultBillingAddress,
       setDefaultShippingAddress,
     },
+    useWishlist: {
+      ...getWishlist(),
+      addToWishlist,
+      removeLineItem,
+      updateLineItem
+    }
   };
   return (
     <SWRConfig value={{ fetcher: fetchApiHub }}>
@@ -148,4 +170,14 @@ export const useAccount = () => {
   }
 
   return context.useAccount;
+};
+
+export const useWishlist = () => {
+  const context = React.useContext(FrontasticContext);
+
+  if (!context) {
+    throw new Error('Expected to be wrapped in FrontasticProvider');
+  }
+
+  return context.useWishlist;
 };
