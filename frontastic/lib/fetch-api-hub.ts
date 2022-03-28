@@ -91,7 +91,7 @@ export const rawFetchApiHub: fetchFunction = async (endpointPath, init = {}, pay
       return cookieCutter.get(cookieIdenfier);
     },
     setCookie: (cookieIdenfier, cookieValue) => {
-      cookieCutter.set(cookieIdenfier, cookieValue);
+      cookieCutter.set(cookieIdenfier, cookieValue, { path: '/' });
     },
   });
 };
