@@ -13,6 +13,7 @@ import AccountTest from './account/test';
 // Doc Examples
 import SimpleButton from './doc-examples/simple-button';
 import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
+import AccountDetailsTastic from './account/details';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
@@ -28,5 +29,6 @@ export const tastics = {
   'frontastic/ui/account/test': AccountTest,
   'frontastic/ui/examples/simple-button': SimpleButton,
   'frontastic/ui/examples/star-wars/character-search': StarWarsCharacterSearch,
+  'frontastic/ui/account/details': AccountDetailsTastic,
   default: NotFound,
 };
