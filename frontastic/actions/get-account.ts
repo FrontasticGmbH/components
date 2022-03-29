@@ -23,9 +23,9 @@ export type GetAccountResult = LoggedInResult | NotLoggedInResult | ErrorResult;
 export const getAccount = (): GetAccountResult => {
   const result = useSWR<LoggedInResult | NotLoggedInResult, ResponseError>('/action/account/getAccount', fetchApiHub);
 
-  if (result.data) {
-    return result.data;
-  }
+  const account = result.data?.account;
+
+  if (account?.confirmed) return result.data;
 
   return {
     loggedIn: false,

@@ -15,6 +15,7 @@ import SimpleButton from './doc-examples/simple-button';
 import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
 import AccountDetailsTastic from './account/details';
 import AccountLoginTastic from './account/login';
+import AccountRegisterTastic from './account/register';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
@@ -32,5 +33,6 @@ export const tastics = {
   'frontastic/ui/examples/star-wars/character-search': StarWarsCharacterSearch,
   'frontastic/ui/account/details': AccountDetailsTastic,
   'frontastic/ui/account/login': AccountLoginTastic,
+  'frontastic/ui/account/register': AccountRegisterTastic,
   default: NotFound,
 };
