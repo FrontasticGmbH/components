@@ -1,0 +1,36 @@
+{
+  "tasticType": "frontastic/ui/account/login",
+  "name": "Frontastic UI Account Login",
+  "category": "Account",
+  "icon": "account_circle",
+  "schema": [
+    {
+      "name": "Media",
+      "fields": [
+        {
+          "label": "Logo",
+          "field": "logo",
+          "type": "media",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Registeration Link",
+          "field": "registerLink",
+          "type": "reference",
+          "required": true
+        },
+        {
+          "label": "Reset Password Link",
+          "field": "resetPasswordLink",
+          "type": "reference",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
