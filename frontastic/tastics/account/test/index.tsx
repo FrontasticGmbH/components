@@ -1,4 +1,4 @@
-import { useAccount } from '../../../lib/provider/provider';
+import { useAccount } from '../../../lib/provider';
 import { setDefaultBillingAddress, setDefaultShippingAddress } from '../../../actions/account/account-actions';
 
 function AccountTestTastic() {
