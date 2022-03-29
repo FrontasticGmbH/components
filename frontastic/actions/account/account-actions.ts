@@ -1,7 +1,7 @@
-import { fetchApiHub } from '../lib/fetch-api-hub';
+import { fetchApiHub } from '../../lib/fetch-api-hub';
 import { mutate } from 'swr';
-import { Account } from '../../../types/account/Account';
-import { Address } from '../../../types/account/Address';
+import { Account } from '../../../../types/account/Account';
+import { Address } from '../../../../types/account/Address';
 
 export interface UpdateAccount {
   firstName?: string;
@@ -12,7 +12,7 @@ export interface UpdateAccount {
   birthdayDay?: number;
 }
 
-export type RegisterAccount = UpdateAccount & {
+export interface RegisterAccount extends UpdateAccount {
   email: string;
   password: string;
   billingAddress?: Address;

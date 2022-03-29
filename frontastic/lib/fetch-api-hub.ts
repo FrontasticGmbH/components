@@ -45,7 +45,7 @@ export class ResponseError extends Error {
   }
 }
 
-export type fetchFunction = (endpointPath: string, init?: RequestInit, payload?: object) => Promise<any>;
+export type FetchFunction = (endpointPath: string, init?: RequestInit, payload?: object) => Promise<any>;
 
 const performFetchApiHub = async (
   endpointPath: string,
@@ -85,7 +85,7 @@ const performFetchApiHub = async (
   });
 };
 
-export const rawFetchApiHub: fetchFunction = async (endpointPath, init = {}, payload = null) => {
+export const rawFetchApiHub: FetchFunction = async (endpointPath, init = {}, payload = null) => {
   return await performFetchApiHub(endpointPath, init, payload, {
     getCookie: (cookieIdenfier) => {
       return cookieCutter.get(cookieIdenfier);
@@ -106,7 +106,7 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
   });
 };
 
-export const fetchApiHub: fetchFunction = async (endpointPath, init = {}, payload = null) => {
+export const fetchApiHub: FetchFunction = async (endpointPath, init = {}, payload = null) => {
   return handleApiHubResponse(rawFetchApiHub(endpointPath, init, payload));
 };
 

@@ -1,6 +1,6 @@
 import { mutate } from 'swr';
-import { fetchApiHub } from '..';
-import { Address } from '../../../types/account/Address';
+import { fetchApiHub } from '../..';
+import { Address } from '../../../../types/account/Address';
 
 export type CartDetails = {
   account?: { email: string };
