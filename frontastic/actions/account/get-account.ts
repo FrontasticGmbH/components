@@ -11,7 +11,9 @@ export interface GetAccountResult {
 export const getAccount = (): GetAccountResult => {
   const result = useSWR<GetAccountResult>('/action/account/getAccount', fetchApiHub);
 
-  if (result.data) {
+  const account = result.data?.account;
+
+  if (account?.confirmed) {
     return result.data;
   }
 

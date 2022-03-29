@@ -9,8 +9,11 @@ export default function Image({
   media,
   gravity,
   layout = 'responsive',
+  src = '',
   ...props
 }: NextFrontasticImage) {
+  if (!media?.mediaId) return <img src={src as string} {...props} />; //not a frontastic image
+
   //paremeters to inject in the source to be used in loader
   const paremeters = {
     ratio,

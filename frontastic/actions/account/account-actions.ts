@@ -39,7 +39,7 @@ export const logout = async () => {
 export const register = async (account: RegisterAccount): Promise<Account> => {
   const res = await fetchApiHub('/action/account/register', { method: 'POST' }, account);
   console.log('created account, ', account.email, res);
-  await mutate('/action/account/getAccount', res);
+  // await mutate('/action/account/getAccount', res);
   return res;
 };
 

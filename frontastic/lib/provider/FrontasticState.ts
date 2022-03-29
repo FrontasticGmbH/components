@@ -2,7 +2,7 @@ import { UseAccount } from "./UseAccount";
 import { UseCart } from "./UseCart";
 import { UseWishlist } from "./UseWishlist";
 import { updateItem } from 'frontastic/actions/cart/update-cart-item';
-import { getAccount } from '../../actions/cart/get-account';
+import { getAccount } from '../../actions/account/get-account';
 import {
     changePassword,
     confirm,

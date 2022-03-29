@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         orange: colors.orange,
+        pink: '#CE3E72',
         primary: {
           100: '#EBF4FF',
           200: '#C3DAFE',

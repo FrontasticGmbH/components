@@ -1,5 +1,5 @@
 import { RegisterAccount, UpdateAccount } from "frontastic/actions/account/account-actions";
-import { GetAccountResult } from "frontastic/actions/cart/get-account";
+import { GetAccountResult } from "frontastic/actions/account/get-account";
 import { Account } from "../../../../types/account/Account";
 import { Address } from "../../../../types/account/Address";
 
