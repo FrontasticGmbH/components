@@ -6,7 +6,6 @@ export interface Props {
 }
 
 const AccountLoginTastic: React.FC<Props> = ({ data }) => {
-  console.log(data);
   return <Login {...data} />;
 };
 

@@ -6,7 +6,6 @@ import { FrontasticProvider } from 'frontastic';
 import 'tailwindcss/tailwind.css';
 
 import '../styles/app.scss';
-import Login from 'components/frontastic-ui/account/login';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (
