@@ -16,6 +16,7 @@ import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
 import AccountDetailsTastic from './account/details';
 import AccountLoginTastic from './account/login';
 import AccountRegisterTastic from './account/register';
+import SpacerTastic from './content/spacer';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
@@ -34,5 +35,6 @@ export const tastics = {
   'frontastic/ui/account/details': AccountDetailsTastic,
   'frontastic/ui/account/login': AccountLoginTastic,
   'frontastic/ui/account/register': AccountRegisterTastic,
+  'frontastic/ui/content/spacer': SpacerTastic,
   default: NotFound,
 };
