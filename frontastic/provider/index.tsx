@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SWRConfig } from 'swr';
-import { fetchApiHub } from '../fetch-api-hub';
+import { fetchApiHub } from '../lib/fetch-api-hub';
 import { FrontasticState, getFrontasticState } from './FrontasticState';
 
 

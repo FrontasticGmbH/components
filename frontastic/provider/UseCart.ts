@@ -1,7 +1,7 @@
 import { CartDetails } from "frontastic/actions/cart/update-cart";
-import { Cart } from "../../../../types/cart/Cart";
-import { ShippingMethod } from "../../../../types/cart/ShippingMethod";
-import { Variant } from "../../../../types/product/Variant";
+import { Cart } from "../../../types/cart/Cart";
+import { ShippingMethod } from "../../../types/cart/ShippingMethod";
+import { Variant } from "../../../types/product/Variant";
 
 export interface UseCart {
     data?: Cart;
