@@ -3,11 +3,10 @@ import { SWRConfig } from 'swr';
 import { fetchApiHub } from '../lib/fetch-api-hub';
 import { FrontasticState, getFrontasticState } from './FrontasticState';
 
-
 const initialState: FrontasticState = {
   useCart: {} as any,
   useAccount: {} as any,
-  useWishlist: {} as any
+  useWishlist: {} as any,
 };
 
 const FrontasticContext = React.createContext<FrontasticState>(initialState);
@@ -25,7 +24,7 @@ const checkContext = (context: FrontasticState) => {
   if (!context) {
     throw new Error('Expected to be wrapped in FrontasticProvider');
   }
-}
+};
 
 export const useCart = () => {
   const context = React.useContext(FrontasticContext);
