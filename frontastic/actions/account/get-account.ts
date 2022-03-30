@@ -13,9 +13,7 @@ export const getAccount = (): GetAccountResult => {
 
   const account = result.data?.account;
 
-  if (account?.confirmed) {
-    return result.data;
-  }
+  if (account?.confirmed) return { ...result.data, loggedIn: true };
 
   return {
     loggedIn: false,
