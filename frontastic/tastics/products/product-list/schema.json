@@ -10,8 +10,8 @@
                 {
                     "label": "products",
                     "field": "data",
-                    "type": "stream",
-                    "streamType": "frontastic/product-list",
+                    "type": "dataSource",
+                    "dataSourceType": "frontastic/product-list",
                     "required": true
                 }
             ]
