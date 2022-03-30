@@ -6,6 +6,7 @@ import Checkout from './checkout';
 import CheckoutSuccess from './checkout-success';
 import Markdown from './content/markdown';
 import Tile from './content/tile';
+import Newsletter from './newsletter';
 import ProductDetails from './products/details';
 import ProductList from './products/product-list';
 import ProductSlider from './products/slider';
@@ -26,6 +27,7 @@ export const tastics = {
   'frontastic/ui/header': Header,
   'frontastic/ui/content/markdown': Markdown,
   'frontastic/ui/content/tile': Tile,
+  'frontastic/ui/content/newsletter': Newsletter,
   'frontastic/ui/products/details': ProductDetails,
   'frontastic/ui/products/product-list': ProductList,
   'frontastic/ui/products/slider': ProductSlider,

@@ -1,0 +1,58 @@
+{
+  "tasticType": "frontastic/ui/content/newsletter",
+  "name": "Newsletter",
+  "category": "Content",
+  "icon": "email",
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Headline",
+          "field": "headline",
+          "type": "string"
+        },
+        {
+          "label": "Description",
+          "field": "description",
+          "type": "string"
+        },
+        {
+          "label": "Disclaimer",
+          "field": "disclaimer",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Form",
+      "fields": [
+        {
+          "label": "Input Placeholder",
+          "field": "inputPlaceholder",
+          "type": "string"
+        },
+        {
+          "label": "CTA Label",
+          "field": "ctaLabel",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Subscription Confirmation",
+      "fields": [
+        {
+          "label": "Success Title",
+          "field": "successTitle",
+          "type": "string"
+        },
+        {
+          "label": "Success Message",
+          "field": "successMessage",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
