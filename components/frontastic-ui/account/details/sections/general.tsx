@@ -1,4 +1,4 @@
-import Editable from 'components/editable';
+import Editable from '../editable';
 import { useAccount } from 'frontastic';
 import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
 import { useRouter } from 'next/router';
