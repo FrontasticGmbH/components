@@ -1,3 +1,4 @@
 import GeneralSection from './general';
+import SecuritySection from './security';
 
-export { GeneralSection };
+export { GeneralSection, SecuritySection };

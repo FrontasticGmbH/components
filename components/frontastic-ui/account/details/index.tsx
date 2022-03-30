@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useAccount } from 'frontastic';
 import Redirect from 'helpers/Redirect';
 import { Reference } from 'helpers/Reference';
-import { GeneralSection } from './sections';
+import { GeneralSection, SecuritySection } from './sections';
 import useHash from 'helpers/hooks/useHash';
 
 function classNames(...classes) {
@@ -39,6 +39,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
   //tabs-content mapping
   const mapping = {
     '#': GeneralSection,
+    '#security': SecuritySection,
   };
 
   //current rendered content

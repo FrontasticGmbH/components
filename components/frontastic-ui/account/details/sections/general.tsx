@@ -96,20 +96,6 @@ const General = () => {
                   onSubmit={field.onSubmit}
                   editable={field.editable}
                 />
-                // <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5" key={fieldIndex}>
-                //   <dt className="text-sm font-medium text-gray-500">{field.label}</dt>
-                //   <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                //     <span className="flex-grow">{field.value}</span>
-                //     <span className="ml-4 flex-shrink-0">
-                //       <button
-                //         type="button"
-                //         className="rounded-md bg-white font-medium text-purple-600 hover:text-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-                //       >
-                //         Update
-                //       </button>
-                //     </span>
-                //   </dd>
-                // </div>
               ))}
             </dl>
           </div>

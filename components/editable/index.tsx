@@ -68,7 +68,7 @@ const Editable: React.FC<EditableProps> = ({
         const options = input.options ?? [];
         return (
           <select
-            className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink focus:outline-none focus:ring-pink sm:text-sm"
             defaultValue={value}
             onChange={handleChange}
           >
@@ -84,7 +84,7 @@ const Editable: React.FC<EditableProps> = ({
           <input
             {...input}
             value={value}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink sm:text-sm"
             onChange={handleChange}
           />
         );
