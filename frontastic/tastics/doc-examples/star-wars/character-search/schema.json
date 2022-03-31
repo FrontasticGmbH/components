@@ -10,8 +10,8 @@
         {
           "label": "characters",
           "field": "data",
-          "type": "stream",
-          "streamType": "example/star-wars-character-search",
+          "type": "dataSource",
+          "dataSourceType": "example/star-wars-character-search",
           "required": true
         }
       ]
