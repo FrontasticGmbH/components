@@ -4,6 +4,7 @@ import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/ou
 import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import { Link } from './index';
 import classNames from 'classnames';
+import Typography from 'components/typography';
 
 interface HeaderMenuProps {
   open: boolean;
@@ -63,7 +64,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                         )
                       }
                     >
-                      {category.name}
+                      <Typography>{category.name}</Typography>
                     </Tab>
                   ))}
                 </Tab.List>
@@ -85,7 +86,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                             {category.featured.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
-                                  {item.name}
+                                  <Typography>{item.name}</Typography>
                                 </a>
                               </li>
                             ))}
@@ -99,7 +100,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                             {category.categories.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
-                                  {item.name}
+                                  <Typography>{item.name}</Typography>
                                 </a>
                               </li>
                             ))}
@@ -115,7 +116,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                             {category.collection.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
-                                  {item.name}
+                                  <Typography>{item.name}</Typography>
                                 </a>
                               </li>
                             ))}
@@ -130,7 +131,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                             {category.brands.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
-                                  {item.name}
+                                  <Typography>{item.name}</Typography>
                                 </a>
                               </li>
                             ))}
@@ -147,7 +148,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
               {links.map((link) => (
                 <div key={link.name} className="flow-root">
                   <ReferenceLink target={link.reference} className="-m-2 block p-2 font-medium text-gray-900">
-                    {link.name}
+                    <Typography>{link.name}</Typography>
                   </ReferenceLink>
                 </div>
               ))}

@@ -1,3 +1,4 @@
+import Typography from 'components/typography';
 import React from 'react';
 
 const MegaMenuContent = ({ category, categoryIdx }) => {
@@ -18,7 +19,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
                 {category.featured.map((item) => (
                   <li key={item.name} className="flex">
                     <a href={item.href} className="hover:text-gray-800">
-                      {item.name}
+                      <Typography>{item.name}</Typography>
                     </a>
                   </li>
                 ))}
@@ -36,7 +37,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
                 {category.categories.map((item) => (
                   <li key={item.name} className="flex">
                     <a href={item.href} className="hover:text-gray-800">
-                      {item.name}
+                      <Typography>{item.name}</Typography>
                     </a>
                   </li>
                 ))}
@@ -56,7 +57,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
                 {category.collection.map((item) => (
                   <li key={item.name} className="flex">
                     <a href={item.href} className="hover:text-gray-800">
-                      {item.name}
+                      <Typography>{item.name}</Typography>
                     </a>
                   </li>
                 ))}
@@ -71,7 +72,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
                 {category.brands.map((item) => (
                   <li key={item.name} className="flex">
                     <a href={item.href} className="hover:text-gray-800">
-                      {item.name}
+                      <Typography>{item.name}</Typography>
                     </a>
                   </li>
                 ))}
