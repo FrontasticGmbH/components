@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useAccount } from 'frontastic';
 import Redirect from 'helpers/Redirect';
 import { Reference } from 'helpers/Reference';
-import { GeneralSection, SecuritySection } from './sections';
+import { AddressesSection, GeneralSection, SecuritySection } from './sections';
 import useHash from 'helpers/hooks/useHash';
 
 function classNames(...classes) {
@@ -39,6 +39,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
   //tabs-content mapping
   const mapping = {
     '#': GeneralSection,
+    '#addresses': AddressesSection,
     '#security': SecuritySection,
   };
 
@@ -67,7 +68,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                         <select
                           id="selected-tab"
                           name="selected-tab"
-                          className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink focus:outline-none focus:ring-pink sm:text-sm"
+                          className="focus:border-pink-400 focus:ring-pink-400 mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:outline-none sm:text-sm"
                           defaultValue={tabs.find((tab) => tab.href === hash).name}
                           onChange={handleTabChange}
                         >
@@ -87,7 +88,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                                 href={tab.href}
                                 className={classNames(
                                   tab.href === hash
-                                    ? 'border-pink text-pink'
+                                    ? 'border-pink-400 text-pink-400'
                                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                                   'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
                                 )}

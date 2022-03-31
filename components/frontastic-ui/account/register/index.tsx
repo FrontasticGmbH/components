@@ -92,7 +92,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
             Already have an account?{' '}
             <ReferenceLink
               target={loginLink}
-              className="duration-150ms font-medium text-pink underline transition-colors ease-out"
+              className="duration-150ms text-pink-400 font-medium underline transition-colors ease-out"
             >
               Sign in here!
             </ReferenceLink>
@@ -103,7 +103,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600">{success}</p>}
-              {error && <p className="text-sm text-pink">{error}</p>}
+              {error && <p className="text-pink-400 text-sm">{error}</p>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email address
@@ -115,7 +115,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink focus:outline-none focus:ring-pink sm:text-sm"
+                    className="focus:border-pink-400 focus:ring-pink-400 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -132,7 +132,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink focus:outline-none focus:ring-pink sm:text-sm"
+                    className="focus:border-pink-400 focus:ring-pink-400 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -149,7 +149,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink focus:outline-none focus:ring-pink sm:text-sm"
+                    className="focus:border-pink-400 focus:ring-pink-400 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -161,7 +161,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     id="remember-me"
                     name="rememberMe"
                     type="checkbox"
-                    className="texpink h-4 w-4 rounded border-gray-300 focus:ring-pink"
+                    className="texpink h-4 w-4 rounded border-gray-300 focus:ring-pink-400"
                     onChange={handleCheckboxChange}
                   />
                   <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
@@ -170,7 +170,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                 </div>
 
                 <div className="text-sm">
-                  <ReferenceLink target={resetPasswordLink} className="font-medium text-pink hover:text-pink">
+                  <ReferenceLink target={resetPasswordLink} className="font-medium text-pink-400 hover:text-pink-400">
                     Forgot your password?
                   </ReferenceLink>
                 </div>
@@ -179,7 +179,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink focus:outline-none focus:ring-2 focus:ring-pink focus:ring-offset-2 disabled:bg-gray-200"
+                  className="duration-250ms bg-pink-400 hover:bg-pink-400 focus:ring-pink-400 flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
                   Sign up

@@ -62,13 +62,13 @@ const Security = () => {
       </div>
       <form className="mt-6" onSubmit={handleSubmit}>
         {success && <p className="text-sm text-green-600">{success}</p>}
-        {error && <p className="text-sm text-pink">{error}</p>}
+        {error && <p className="text-pink-400 text-sm">{error}</p>}
         <div className="mt-3 max-w-[400px]">
           <input
             id="old-password"
             name="oldPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink sm:text-sm"
+            className="focus:border-pink-400 focus:ring-pink-400 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"
             placeholder="Old Password"
             required
             onChange={handleChange}
@@ -80,7 +80,7 @@ const Security = () => {
             id="password"
             name="password"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink sm:text-sm"
+            className="focus:border-pink-400 focus:ring-pink-400 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"
             placeholder="Password"
             required
             onChange={handleChange}
@@ -92,7 +92,7 @@ const Security = () => {
             id="confirm-password"
             name="confirmPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink sm:text-sm"
+            className="focus:border-pink-400 focus:ring-pink-400 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"
             placeholder="Confirm Password"
             required
             onChange={handleChange}
@@ -101,7 +101,7 @@ const Security = () => {
         </div>
         <button
           type="submit"
-          className="duration-150ms mt-4 w-[80px] items-center rounded-md border border-transparent bg-pink px-4 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
+          className="duration-150ms bg-pink-400 mt-4 w-[80px] items-center rounded-md border border-transparent px-4 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
           disabled={submitDisabled || processing}
         >
           Save

@@ -68,7 +68,7 @@ const Editable: React.FC<EditableProps> = ({
         const options = input.options ?? [];
         return (
           <select
-            className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink focus:outline-none focus:ring-pink sm:text-sm"
+            className="focus:border-pink-400 focus:ring-pink-400 mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:outline-none sm:text-sm"
             defaultValue={value}
             onChange={handleChange}
           >
@@ -84,7 +84,7 @@ const Editable: React.FC<EditableProps> = ({
           <input
             {...input}
             value={value}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink sm:text-sm"
+            className="focus:border-pink-400 focus:ring-pink-400 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"
             onChange={handleChange}
           />
         );
@@ -107,7 +107,7 @@ const Editable: React.FC<EditableProps> = ({
             <span className="ml-4 flex-shrink-0">
               <button
                 type="submit"
-                className="rounded-md bg-white font-medium text-pink focus:outline-none focus:ring-2 focus:ring-pink focus:ring-offset-2"
+                className="text-pink-400 focus:ring-pink-400 rounded-md bg-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2"
                 form="editable-form"
               >
                 Save
@@ -116,7 +116,7 @@ const Editable: React.FC<EditableProps> = ({
             <span className="ml-4 flex-shrink-0">
               <button
                 type="button"
-                className="rounded-md bg-white font-medium text-pink focus:outline-none focus:ring-2 focus:ring-pink focus:ring-offset-2"
+                className="text-pink-400 focus:ring-pink-400 rounded-md bg-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2"
                 onClick={stopEdit}
               >
                 Cancel
@@ -128,7 +128,7 @@ const Editable: React.FC<EditableProps> = ({
             <span className="ml-4 flex-shrink-0">
               <button
                 type="button"
-                className="rounded-md bg-white font-medium text-pink focus:outline-none focus:ring-2 focus:ring-pink focus:ring-offset-2"
+                className="text-pink-400 focus:ring-pink-400 rounded-md bg-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2"
                 onClick={startEdit}
               >
                 Update
