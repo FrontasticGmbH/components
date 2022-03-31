@@ -17,7 +17,7 @@ export interface RegisterAccount extends UpdateAccount {
   password: string;
   billingAddress?: Address;
   shippingAddress?: Address;
-};
+}
 
 export const login = async (email: string, password: string): Promise<Account> => {
   const payload = {

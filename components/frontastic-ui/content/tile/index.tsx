@@ -36,12 +36,10 @@ const Tile: React.FC<Props> = ({
       </div>
 
       <div className="text-start absolute left-4 top-1/2 flex -translate-y-1/2 flex-col md:left-10 md:max-w-[30%]">
-        <div className="mb-1 text-md font-medium">
-          {subtitle}
-        </div>
+        <div className="text-md mb-1 font-medium">{subtitle}</div>
 
         <h2
-          className={`whitespace-pre-line font-extrabold tracking-tight ${headerColor} text-center sm:text-left text-2xl lg:text-5xl`}
+          className={`whitespace-pre-line font-extrabold tracking-tight ${headerColor} text-center text-2xl sm:text-left lg:text-5xl`}
         >
           {header}
         </h2>
@@ -49,7 +47,7 @@ const Tile: React.FC<Props> = ({
         {ctaLabel && ctaReference && (
           <ReferenceLink
             target={ctaReference}
-            className="mt-8 py-2 px-4 block bg-[#CE3E72] border border-transparent rounded-md text-base font-medium text-white hover:bg-[#B22C5D] w-36"
+            className="mt-8 block w-36 rounded-md border border-transparent bg-[#CE3E72] py-2 px-4 text-base font-medium text-white hover:bg-[#B22C5D]"
           >
             {ctaLabel}
           </ReferenceLink>

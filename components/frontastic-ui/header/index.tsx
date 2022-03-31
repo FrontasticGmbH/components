@@ -3,6 +3,13 @@ import Image from 'frontastic/lib/image';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
 import { Reference, ReferenceLink } from 'helpers/Reference';
+import HeaderMenu from './header_menu';
+import WishListButton from './wishlist_button';
+import CartButton from './cart_button';
+import { SearchIcon } from '@heroicons/react/solid';
+import AccountButton from './account_button';
+import SearchButton from './search_button';
+import MegaMenuContent from './mega_menu_content';
 
 const navigation = {
   categories: [
@@ -69,7 +76,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-interface Link {
+export interface Link {
   name: string;
   reference: Reference;
 }
@@ -78,12 +85,14 @@ interface Props {
   tagline?: string;
   links: Link[];
   cartItemCount: number;
+  wishlistItemCount?: number;
   logo: {
     media: any;
   };
   logoLink: Reference;
   searchLink: Reference;
   accountLink: Reference;
+  wishlistLink?: Reference;
   cartLink: Reference;
 }
 
@@ -91,10 +100,12 @@ const Header: React.FC<Props> = ({
   tagline,
   links,
   cartItemCount,
+  wishlistItemCount,
   logo,
   logoLink,
   searchLink,
   accountLink,
+  wishlistLink,
   cartLink,
 }) => {
   const [open, setOpen] = useState(false);
@@ -102,148 +113,7 @@ const Header: React.FC<Props> = ({
   return (
     <div className="fixed-screen-width lg:relative-width bg-white">
       {/* Mobile menu */}
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={setOpen}>
-          <Transition.Child
-            as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-
-          <Transition.Child
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
-          >
-            <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
-              <div className="flex px-4 pt-5 pb-2">
-                <button
-                  type="button"
-                  className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-                  onClick={() => setOpen(false)}
-                >
-                  <span className="sr-only">Close menu</span>
-                  <XIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-
-              {/* Links */}
-              <Tab.Group>
-                <div className="mt-2 border-b border-gray-200">
-                  <Tab.List className="-mb-px flex space-x-8 px-4">
-                    {navigation.categories.map((category) => (
-                      <Tab
-                        key={category.name}
-                        className={({ selected }) =>
-                          classNames(
-                            selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-900',
-                            'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium',
-                          )
-                        }
-                      >
-                        {category.name}
-                      </Tab>
-                    ))}
-                  </Tab.List>
-                </div>
-                <Tab.Panels as={Fragment}>
-                  {navigation.categories.map((category, categoryIdx) => (
-                    <Tab.Panel key={category.name} className="space-y-12 px-4 pt-10 pb-6">
-                      <div className="grid grid-cols-1 items-start gap-y-10 gap-x-6">
-                        <div className="grid grid-cols-1 gap-y-10 gap-x-6">
-                          <div>
-                            <p id={`mobile-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
-                              Featured
-                            </p>
-                            <ul
-                              role="list"
-                              aria-labelledby={`mobile-featured-heading-${categoryIdx}`}
-                              className="mt-6 space-y-6"
-                            >
-                              {category.featured.map((item) => (
-                                <li key={item.name} className="flex">
-                                  <a href={item.href} className="text-gray-500">
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <p id="mobile-categories-heading" className="font-medium text-gray-900">
-                              Categories
-                            </p>
-                            <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
-                              {category.categories.map((item) => (
-                                <li key={item.name} className="flex">
-                                  <a href={item.href} className="text-gray-500">
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="grid grid-cols-1 gap-y-10 gap-x-6">
-                          <div>
-                            <p id="mobile-collection-heading" className="font-medium text-gray-900">
-                              Collection
-                            </p>
-                            <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
-                              {category.collection.map((item) => (
-                                <li key={item.name} className="flex">
-                                  <a href={item.href} className="text-gray-500">
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div>
-                            <p id="mobile-brand-heading" className="font-medium text-gray-900">
-                              Brands
-                            </p>
-                            <ul role="list" aria-labelledby="mobile-brand-heading" className="mt-6 space-y-6">
-                              {category.brands.map((item) => (
-                                <li key={item.name} className="flex">
-                                  <a href={item.href} className="text-gray-500">
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Panel>
-                  ))}
-                </Tab.Panels>
-              </Tab.Group>
-
-              <div className="space-y-6 border-t border-gray-200 py-6 px-4">
-                {links.map((link) => (
-                  <div key={link.name} className="flow-root">
-                    <ReferenceLink target={link.reference} className="-m-2 block p-2 font-medium text-gray-900">
-                      {link.name}
-                    </ReferenceLink>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Transition.Child>
-        </Dialog>
-      </Transition.Root>
+      <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={navigation} />
 
       <header className="relative bg-white">
         {tagline && (
@@ -263,11 +133,12 @@ const Header: React.FC<Props> = ({
                   <Image media={logo.media} width={100} height={45} className="h-7 w-auto sm:h-10" alt="Logo" />
                 </div>
               </ReferenceLink>
+
               <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
                   className="-ml-2 rounded-md bg-white p-2 text-[#25304D]"
-                  onClick={() => setOpen(true)}
+                  onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
@@ -307,92 +178,7 @@ const Header: React.FC<Props> = ({
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
-                              <div className="relative bg-white">
-                                <div className="mx-auto max-w-7xl px-8">
-                                  <div className="grid grid-cols-2 items-start gap-y-10 gap-x-8 pt-10 pb-12">
-                                    <div className="grid grid-cols-2 gap-y-10 gap-x-8">
-                                      <div>
-                                        <p
-                                          id={`desktop-featured-heading-${categoryIdx}`}
-                                          className="font-medium text-gray-900"
-                                        >
-                                          Featured
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby={`desktop-featured-heading-${categoryIdx}`}
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.featured.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                      <div>
-                                        <p id="desktop-categories-heading" className="font-medium text-gray-900">
-                                          Categories
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="desktop-categories-heading"
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.categories.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-y-10 gap-x-8">
-                                      <div>
-                                        <p id="desktop-collection-heading" className="font-medium text-gray-900">
-                                          Collection
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="desktop-collection-heading"
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.collection.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
-
-                                      <div>
-                                        <p id="desktop-brand-heading" className="font-medium text-gray-900">
-                                          Brands
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="desktop-brand-heading"
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.brands.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                              <MegaMenuContent category={category} categoryIdx={categoryIdx} />
                             </Popover.Panel>
                           </Transition>
                         </>
@@ -413,36 +199,16 @@ const Header: React.FC<Props> = ({
               </Popover.Group>
 
               <div className="flex flex-1 items-center justify-end">
-                <div className="flex items-center lg:ml-8">
-                  <div className="flex space-x-8">
-                    <div className="flex">
-                      <ReferenceLink target={accountLink} className="-m-2 p-2 text-[#25304D] hover:text-[#192038]">
-                        <span className="sr-only">Account</span>
-                        <UserIcon className="h-6 w-6" aria-hidden="true" />
-                      </ReferenceLink>
-                    </div>
-                  </div>
+                <div className="flex items-center">
+                  <SearchButton searchLink={searchLink} />
 
-                  <span className="mx-4 h-6 w-px bg-gray-200 lg:mx-6" aria-hidden="true" />
+                  <AccountButton accountLink={accountLink} />
 
-                  <div className="flow-root">
-                    <ReferenceLink target={cartLink} className="group relative -m-2 flex items-center p-2">
-                      <ShoppingCartIcon
-                        className="h-6 w-6 flex-shrink-0 text-[#25304D] group-hover:text-[#192038]"
-                        aria-hidden="true"
-                      />
-                      {cartItemCount > 0 && (
-                        <>
-                          <span className="absolute top-0 -right-[5px] h-4 w-4 rounded-full bg-[#CE3E72] hover:bg-[#B22C5D]">
-                            <span className="font-small flex h-full w-full items-center justify-center text-[12px] text-white group-hover:text-white">
-                              {cartItemCount}
-                            </span>
-                          </span>
-                          <span className="sr-only">items in cart, view bag</span>
-                        </>
-                      )}
-                    </ReferenceLink>
-                  </div>
+                  <span className="mx-4 h-6 w-px bg-gray-200 lg:mx-4" aria-hidden="true" />
+
+                  <WishListButton wishlistItemCount={wishlistItemCount} wishlistLink={wishlistLink} />
+
+                  <CartButton cartItemCount={cartItemCount} cartLink={cartLink} />
                 </div>
               </div>
             </div>
