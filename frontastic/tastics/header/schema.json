@@ -1,75 +1,81 @@
 {
-    "tasticType": "frontastic/ui/header",
-    "name": "Frontastic UI header",
-    "icon": "menu",
-    "category": "Header and footer",
-    "schema": [
+  "tasticType": "frontastic/ui/header",
+  "name": "Frontastic UI header",
+  "icon": "menu",
+  "category": "Header and footer",
+  "schema": [
+    {
+      "name": "Menu",
+      "fields": [
         {
-            "name": "Menu",
-            "fields": [
-                {
-                    "label": "Tagline",
-                    "field": "tagline",
-                    "type": "string",
-                    "required": false
-                },
-                {
-                    "label": "Logo",
-                    "field": "logo",
-                    "type": "media",
-                    "required": true
-                },
-                {
-                    "label": "links",
-                    "field": "links",
-                    "type": "group",
-                    "itemLabelField": "name",
-                    "fields": [
-                        {
-                            "label": "Name",
-                            "field": "name",
-                            "translatable": true,
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "label": "Link",
-                            "field": "reference",
-                            "required": true,
-                            "type": "reference"
-                        }
-                    ]
-                }
-            ]
+          "label": "Tagline",
+          "field": "tagline",
+          "type": "string",
+          "required": false
         },
         {
-            "name": "Links",
-            "fields": [
-                {
-                    "label": "Logo link",
-                    "field": "logoLink",
-                    "type": "reference",
-                    "required": true
-                },
-                {
-                    "label": "Search link",
-                    "field": "searchLink",
-                    "type": "reference",
-                    "required": true
-                },
-                {
-                    "label": "Account link",
-                    "field": "accountLink",
-                    "type": "reference",
-                    "required": true
-                },
-                {
-                    "label": "Cart link",
-                    "field": "cartLink",
-                    "type": "reference",
-                    "required": true
-                }
-            ]
+          "label": "Logo",
+          "field": "logo",
+          "type": "media",
+          "required": true
+        },
+        {
+          "label": "links",
+          "field": "links",
+          "type": "group",
+          "itemLabelField": "name",
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "translatable": true,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "required": true,
+              "type": "reference"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "name": "Links",
+      "fields": [
+        {
+          "label": "Logo link",
+          "field": "logoLink",
+          "type": "reference",
+          "required": true
+        },
+        {
+          "label": "Search link",
+          "field": "searchLink",
+          "type": "reference",
+          "required": true
+        },
+        {
+          "label": "Account link",
+          "field": "accountLink",
+          "type": "reference",
+          "required": true
+        },
+        {
+          "label": "Wish list link",
+          "field": "wishlistLink",
+          "type": "reference",
+          "required": true
+        },
+        {
+          "label": "Cart link",
+          "field": "cartLink",
+          "type": "reference",
+          "required": true
+        }
+      ]
+    }
+  ]
 }

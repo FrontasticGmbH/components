@@ -21,7 +21,7 @@ export function TasticWrapper(props: TasticWrapperProps) {
   return (
     <div
       className={classnames(
-        `w-full ${highlight && 'ring-8 ring-pink-500'} ${data.configuration.mobile ? 'block' : 'hidden'} ${
+        `w-full ${highlight && 'ring-8 ring-pink-400'} ${data.configuration.mobile ? 'block' : 'hidden'} ${
           data.configuration.tablet ? 'md:block' : 'md:hidden'
         } ${data.configuration.desktop ? 'lg:block' : 'lg:hidden'}`,
       )}

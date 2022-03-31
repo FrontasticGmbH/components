@@ -1,7 +1,7 @@
-import { fetchApiHub } from '../lib/fetch-api-hub';
+import { fetchApiHub } from '../../lib/fetch-api-hub';
 import { mutate } from 'swr';
-import { Account } from '../../../types/account/Account';
-import { Address } from '../../../types/account/Address';
+import { Account } from '../../../../types/account/Account';
+import { Address } from '../../../../types/account/Address';
 
 export interface UpdateAccount {
   firstName?: string;
@@ -12,12 +12,12 @@ export interface UpdateAccount {
   birthdayDay?: number;
 }
 
-export type RegisterAccount = UpdateAccount & {
+export interface RegisterAccount extends UpdateAccount {
   email: string;
   password: string;
   billingAddress?: Address;
   shippingAddress?: Address;
-};
+}
 
 export const login = async (email: string, password: string): Promise<Account> => {
   const payload = {
@@ -39,7 +39,7 @@ export const logout = async () => {
 export const register = async (account: RegisterAccount): Promise<Account> => {
   const res = await fetchApiHub('/action/account/register', { method: 'POST' }, account);
   console.log('created account, ', account.email, res);
-  await mutate('/action/account/getAccount', res);
+  // await mutate('/action/account/getAccount', res);
   return res;
 };
 

@@ -1,0 +1,19 @@
+{
+  "tasticType": "frontastic/ui/account/details",
+  "name": "Account Details",
+  "icon": "account_circle",
+  "category": "Account",
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Login Link",
+          "field": "loginLink",
+          "type": "reference",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

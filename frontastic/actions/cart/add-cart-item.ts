@@ -1,6 +1,6 @@
 import { mutate } from 'swr';
 import { fetchApiHub } from 'frontastic';
-import { Variant } from '../../../types/product/Variant';
+import { Variant } from '../../../../types/product/Variant';
 
 export const addItem = async (variant: Variant, quantity: number) => {
   const payload = {
