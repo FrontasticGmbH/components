@@ -9,11 +9,11 @@ export interface GetAccountResult {
 }
 
 export const getAccount = (): GetAccountResult => {
-  const result = useSWR<GetAccountResult>('/action/account/getAccount');
+  const result = useSWR<Account | GetAccountResult>('/action/account/getAccount');
 
-  const account = result.data?.account;
+  const account = (result.data as Account) || (result.data as GetAccountResult)?.account;
 
-  if (account?.confirmed) return { ...result.data, loggedIn: true };
+  if (account && account.confirmed) return { account, loggedIn: true };
 
   return {
     loggedIn: false,

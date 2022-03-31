@@ -22,6 +22,11 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  //checkbox change handler
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [e.target.name]: e.target.checked });
+  };
+
   //submission handler
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -192,6 +197,52 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                           />
                         </div>
                       </div>
+                      {!defaultValues.isDefaultShippingAddress && (
+                        <div>
+                          <legend className="sr-only">Set as default delivery address</legend>
+                          <div className="relative flex items-start">
+                            <div className="flex h-5 items-center">
+                              <input
+                                id="is-default-shipping-address"
+                                aria-describedby="Set as default shipping address"
+                                name="isDefaultShippingAddress"
+                                type="checkbox"
+                                className="h-6 w-6 rounded border-gray-300 border-gray-300 text-white focus:ring-pink-400"
+                                onChange={handleCheckboxChange}
+                                defaultChecked={defaultValues.isDefaultShippingAddress}
+                              />
+                            </div>
+                            <div className="text-md ml-3">
+                              <label htmlFor="is-default-shipping-address" className="text-gray-400">
+                                Set as default delivery address
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {!defaultValues.isDefaultBillingAddress && (
+                        <div>
+                          <legend className="sr-only">Set as default billing addaress</legend>
+                          <div className="relative flex items-start">
+                            <div className="flex h-5 items-center">
+                              <input
+                                id="is-default-billing-address"
+                                aria-describedby="Set as default billing addaress"
+                                name="isDefaultBillingAddress"
+                                type="checkbox"
+                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-pink-400"
+                                onChange={handleCheckboxChange}
+                                defaultChecked={defaultValues.isDefaultBillingAddress}
+                              />
+                            </div>
+                            <div className="text-md ml-3">
+                              <label htmlFor="is-default-billing-address" className="text-gray-400">
+                                Set as default billing addaress
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                       <div className="text-center sm:col-span-2">
                         <p className="mt-4 text-lg leading-6 text-gray-400">
                           All the personal data associated to your account is safely stored in our database, and we will
