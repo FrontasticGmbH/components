@@ -5,6 +5,7 @@ import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/
 import { default as RocketIcon } from '../../icons/rocket';
 import { default as LoopIcon } from '../../icons/loop';
 import { default as LockIcon } from '../../icons/lock';
+import Typography from 'components/typography';
 
 interface Link {
   name: string;
@@ -64,13 +65,15 @@ const Footer: React.FC<Props> = ({ columns, copyright }) => {
                 <div key={index}>
                   <div className="flex space-x-2">
                     {renderIcon(column.icon)}
-                    <h3 className="text-sm font-medium text-gray-800">{column.header}</h3>
+                    <h3 className="text-sm font-medium text-gray-800">
+                      <Typography>{column.header}</Typography>
+                    </h3>
                   </div>
                   <ul role="list" className="mt-6 space-y-3">
                     {column.links.map((item, i) => (
                       <li key={i} className="text-sm">
                         <ReferenceLink target={item.reference} className="px-6 text-gray-700 hover:text-gray-800">
-                          {item.name}
+                          <Typography>{item.name}</Typography>
                         </ReferenceLink>
                       </li>
                     ))}
@@ -87,7 +90,9 @@ const Footer: React.FC<Props> = ({ columns, copyright }) => {
           <ul className="flex">
             {mockCopyrightLinks.map((item, i) => (
               <li key={i} className="text-xs">
-                <p className="px-2 text-gray-700 hover:text-white sm:text-sm">{item.name}</p>
+                <p className="px-2 text-gray-700 hover:text-white sm:text-sm">
+                  <Typography>{item.name}</Typography>
+                </p>
               </li>
             ))}
           </ul>
