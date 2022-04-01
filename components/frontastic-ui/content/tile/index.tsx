@@ -1,6 +1,7 @@
 import { Reference, ReferenceLink } from 'helpers/Reference';
 import Image from 'frontastic/lib/image';
 import Markdown from 'frontastic/lib/markdown';
+import Typography from 'components/typography';
 interface Props {
   image: {
     media: any;
@@ -36,12 +37,14 @@ const Tile: React.FC<Props> = ({
       </div>
 
       <div className="text-start absolute left-4 top-1/2 flex -translate-y-1/2 flex-col md:left-10 md:max-w-[30%]">
-        <div className="text-md mb-1 font-medium">{subtitle}</div>
+        <div className="text-md mb-1 font-medium">
+          <Typography>{subtitle}</Typography>
+        </div>
 
         <h2
           className={`whitespace-pre-line font-extrabold tracking-tight ${headerColor} text-center text-2xl sm:text-left lg:text-5xl`}
         >
-          {header}
+          <Typography>{header}</Typography>
         </h2>
 
         {ctaLabel && ctaReference && (
@@ -49,7 +52,7 @@ const Tile: React.FC<Props> = ({
             target={ctaReference}
             className="mt-8 block w-36 rounded-md border border-transparent bg-[#CE3E72] py-2 px-4 text-base font-medium text-white hover:bg-[#B22C5D]"
           >
-            {ctaLabel}
+            <Typography>{ctaLabel}</Typography>
           </ReferenceLink>
         )}
       </div>

@@ -18,6 +18,7 @@ import AccountDetailsTastic from './account/details';
 import AccountLoginTastic from './account/login';
 import AccountRegisterTastic from './account/register';
 import SpacerTastic from './content/spacer';
+import WishlistTastic from './wishlist';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
@@ -38,5 +39,6 @@ export const tastics = {
   'frontastic/ui/account/login': AccountLoginTastic,
   'frontastic/ui/account/register': AccountRegisterTastic,
   'frontastic/ui/content/spacer': SpacerTastic,
+  'frontastic/ui/wishlist': WishlistTastic,
   default: NotFound,
 };

@@ -1,3 +1,4 @@
+import Typography from 'components/typography';
 import React, { useState } from 'react';
 
 export interface Props {
@@ -59,7 +60,7 @@ export default function Newsletter({
           <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
             <form action="#" className="mt-4 sm:mx-auto sm:flex sm:max-w-xl xl:px-4" onSubmit={onSubmit}>
               <label htmlFor="cta-email" className="sr-only">
-                {inputPlaceholder}
+                <Typography>{inputPlaceholder}</Typography>
               </label>
               <input
                 id="cta-email"
@@ -74,12 +75,12 @@ export default function Newsletter({
                   type="submit"
                   className="block w-full rounded-md bg-[#CE3E72] px-6 py-3 text-base font-bold leading-5 text-white hover:bg-[#CE3E72] sm:px-11"
                 >
-                  {ctaLabel}
+                  <Typography>{ctaLabel}</Typography>
                 </button>
               </div>
             </form>
             <p className="mt-2 max-w-md text-left text-xs text-neutral-600 xl:px-5">
-              {disclaimer || fallbackDisclaimer}
+              <Typography>{disclaimer || fallbackDisclaimer}</Typography>
             </p>
           </div>
         </div>
@@ -130,9 +131,11 @@ export default function Newsletter({
             </div>
 
             <h2 className="mt-2 text-center text-2xl font-bold tracking-[0.010em] lg:text-3xl">
-              {successTitle || fallbackSuccessTitle}
+              <Typography>{successTitle || fallbackSuccessTitle}</Typography>
             </h2>
-            <p className="mx-auto mt-1 max-w-2xl text-center text-sm ">{successMessage || fallbackSuccessMessage}</p>
+            <p className="mx-auto mt-1 max-w-2xl text-center text-sm ">
+              <Typography>{successMessage || fallbackSuccessMessage}</Typography>
+            </p>
           </div>
         </div>
       )}

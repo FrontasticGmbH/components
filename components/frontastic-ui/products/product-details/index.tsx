@@ -6,6 +6,7 @@ import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
 import { Money } from '../../../../../types/product/Money';
+import WishlistAddButton from './wishlist_add_button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -14,6 +15,8 @@ function classNames(...classes) {
 interface Props {
   product: UIProduct;
   onAddToCart: any;
+
+  onAddToWishlist: any;
   variant: Variant;
   onChangeVariantIdx: any;
 }
@@ -48,7 +51,7 @@ interface UIDetail {
   items: string[];
 }
 
-export default function ProductDetail({ product, onAddToCart, variant, onChangeVariantIdx }: Props) {
+export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
   const [selectedColor, setSelectedColor] = useState<UIColor>(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState<UISize>(product.sizes[0]);
 
@@ -217,6 +220,8 @@ export default function ProductDetail({ product, onAddToCart, variant, onChangeV
                 >
                   Add to bag
                 </button>
+
+                <WishlistAddButton onAddToWishlist={onAddToWishlist} />
               </div>
             </form>
 

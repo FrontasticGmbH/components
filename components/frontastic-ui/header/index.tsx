@@ -10,6 +10,7 @@ import { SearchIcon } from '@heroicons/react/solid';
 import AccountButton from './account_button';
 import SearchButton from './search_button';
 import MegaMenuContent from './mega_menu_content';
+import Typography from 'components/typography';
 
 const navigation = {
   categories: [
@@ -118,7 +119,7 @@ const Header: React.FC<Props> = ({
       <header className="relative bg-white">
         {tagline && (
           <p className="flex h-[4px] items-center justify-center bg-[#25304D] px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-            {tagline}
+            <Typography>{tagline}</Typography>
           </p>
         )}
 
@@ -161,7 +162,7 @@ const Header: React.FC<Props> = ({
                                 'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out',
                               )}
                             >
-                              {category.name}
+                              <Typography>{category.name}</Typography>
                             </Popover.Button>
                           </div>
 
@@ -192,7 +193,7 @@ const Header: React.FC<Props> = ({
                       target={link.reference}
                       className="text-md flex items-center font-medium text-[#25304D] hover:text-[#192038]"
                     >
-                      {link.name}
+                      <Typography>{link.name}</Typography>
                     </ReferenceLink>
                   ))}
                 </div>
