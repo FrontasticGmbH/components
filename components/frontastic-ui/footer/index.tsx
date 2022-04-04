@@ -6,6 +6,7 @@ import { default as RocketIcon } from '../../icons/rocket';
 import { default as LoopIcon } from '../../icons/loop';
 import { default as LockIcon } from '../../icons/lock';
 import Typography from 'components/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface Link {
   name: string;
@@ -28,11 +29,14 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = ({ columns, copyright }) => {
+  //i18n messages
+  const { formatMessage } = useFormat({ name: 'common' });
+
   const isBiggerThanMobileView = useMediaQuery(480)[0];
 
   const mockCopyrightLinks = [
-    { name: 'Cookies', reference: '/' },
-    { name: 'Privacy policy', reference: '/' },
+    { name: formatMessage({ id: 'cookies', defaultMessage: 'Cookies' }), reference: '/' },
+    { name: formatMessage({ id: 'privacyPolicy', defaultMessage: 'Privacy policy' }), reference: '/' },
     { name: 'T&C', reference: '/' },
   ];
 

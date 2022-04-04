@@ -2,6 +2,7 @@ import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import React from 'react';
 import { HeartIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface WishListButtonProps {
   wishlistItemCount?: number;
@@ -9,6 +10,9 @@ interface WishListButtonProps {
 }
 
 const WishListButton: React.FC<WishListButtonProps> = ({ wishlistItemCount, wishlistLink }) => {
+  //i18n messages
+  const { formatMessage: formatWishlistMessage } = useFormat({ name: 'wishlist' });
+
   const wishlistButtonClassNames = {
     'wishlist-btn': 'flow-root pr-3',
     'wishlist-btn__wrap': 'group relative -m-2 flex items-center p-2',
@@ -28,7 +32,12 @@ const WishListButton: React.FC<WishListButtonProps> = ({ wishlistItemCount, wish
                 {wishlistItemCount}
               </span>
             </span>
-            <span className="sr-only">items in wishlist, view wishlist</span>
+            <span className="sr-only">
+              {formatWishlistMessage({
+                id: 'wishlist.items.in.view',
+                defaultMessage: 'items in wishlist, view wishlist',
+              })}
+            </span>
           </>
         )}
       </ReferenceLink>

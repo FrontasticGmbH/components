@@ -2,6 +2,7 @@ import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import React from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface CartButtonProps {
   cartItemCount?: number;
@@ -9,6 +10,9 @@ interface CartButtonProps {
 }
 
 const CartButton: React.FC<CartButtonProps> = ({ cartItemCount, cartLink }) => {
+  //i18n messages
+  const { formatMessage: formatCartMessge } = useFormat({ name: 'cart' });
+
   const cartButtonClassNames = {
     'cart-btn': 'flow-root',
     'cart-btn__wrap': 'group relative -m-2 flex items-center p-2',
@@ -26,7 +30,12 @@ const CartButton: React.FC<CartButtonProps> = ({ cartItemCount, cartLink }) => {
             <span className={classNames(cartButtonClassNames['cart-btn__badge'])}>
               <span className={classNames(cartButtonClassNames['cart-btn__badge-text'])}>{cartItemCount}</span>
             </span>
-            <span className="sr-only">items in wishlist, view wishlist</span>
+            <span className="sr-only">
+              {formatCartMessge({
+                id: 'cart.items.in.view',
+                defaultMessage: 'items in cart, view cart',
+              })}
+            </span>
           </>
         )}
       </ReferenceLink>

@@ -1,5 +1,10 @@
 {
-    "color": "Color",
-    "size": "Size",
-    "quantity": "Quantity"
+  "color": "Color",
+  "size": "Size",
+  "quantity": "Quantity",
+  "product.info": "Product information",
+  "product.desc": "Product description",
+  "bag.add": "Add to bag",
+  "details.additional": "Additional details",
+  "products": "Products"
 }

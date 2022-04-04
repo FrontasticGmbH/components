@@ -1,7 +1,11 @@
 import Typography from 'components/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
 import React from 'react';
 
 const MegaMenuContent = ({ category, categoryIdx }) => {
+  //i18n messages
+  const { formatMessage } = useFormat({ name: 'common' });
+
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl px-8">
@@ -9,7 +13,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
           <div className="grid grid-cols-2 gap-y-10 gap-x-8">
             <div>
               <p id={`desktop-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
-                Featured
+                {formatMessage({ id: 'featured', defaultMessage: 'Featured' })}
               </p>
               <ul
                 role="list"
@@ -27,7 +31,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
             </div>
             <div>
               <p id="desktop-categories-heading" className="font-medium text-gray-900">
-                Categories
+                {formatMessage({ id: 'categories', defaultMessage: 'Categories' })}
               </p>
               <ul
                 role="list"
@@ -47,7 +51,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
           <div className="grid grid-cols-2 gap-y-10 gap-x-8">
             <div>
               <p id="desktop-collection-heading" className="font-medium text-gray-900">
-                Collection
+                {formatMessage({ id: 'collection', defaultMessage: 'Collection' })}
               </p>
               <ul
                 role="list"
@@ -66,7 +70,7 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
 
             <div>
               <p id="desktop-brand-heading" className="font-medium text-gray-900">
-                Brands
+                {formatMessage({ id: 'brands', defaultMessage: 'Brands' })}
               </p>
               <ul role="list" aria-labelledby="desktop-brand-heading" className="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                 {category.brands.map((item) => (

@@ -1,5 +1,6 @@
 import { XIcon as XIconSolid } from '@heroicons/react/solid';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/StringHelpers';
 import { Cart } from '../../../../types/cart/Cart';
 
@@ -11,10 +12,14 @@ interface Props {
 }
 
 const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props) => {
+  //i18n messages
+  const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
+  const { formatMessage } = useFormat({ name: 'common' });
+
   return (
     <section aria-labelledby="cart-heading" className="lg:col-span-7">
       <h2 id="cart-heading" className="sr-only">
-        Items in your shopping cart
+        {formatCartMessage({ id: 'cart.shopping.items', defaultMessage: 'Items in your shopping cart' })}
       </h2>
 
       <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
@@ -63,7 +68,7 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
 
                 <div className="mt-4 sm:mt-0 sm:pr-9">
                   <label htmlFor={`quantity-${i}`} className="sr-only">
-                    Quantity, {lineItem.name}
+                    {formatMessage({ id: 'quantity', defaultMessage: 'Quantity' })}, {lineItem.name}
                   </label>
                   <select
                     id={`quantity-${i}`}
@@ -88,7 +93,7 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
                       onClick={() => removeItem(lineItem.lineItemId)}
                       className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
                     >
-                      <span className="sr-only">Remove</span>
+                      <span className="sr-only">{formatMessage({ id: 'remove', defaultMessage: 'Remove' })}</span>
                       <XIconSolid className="h-5 w-5" aria-hidden="true" />
                     </button>
                   </div>

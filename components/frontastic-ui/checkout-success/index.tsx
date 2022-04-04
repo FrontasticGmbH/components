@@ -1,8 +1,12 @@
+import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
 
 interface Props {}
 
 const CheckoutSuccess = ({}: Props) => {
+  //i18n messages
+  const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
+
   const router = useRouter();
 
   return (
@@ -19,10 +23,15 @@ const CheckoutSuccess = ({}: Props) => {
         <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32 xl:gap-x-24">
           <div className="lg:col-start-2">
             {/*<h1 className="text-sm font-medium text-indigo-600">Payment successful</h1>*/}
-            <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">Thanks for ordering</p>
+            <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+              {formatCheckoutMessage({ id: 'order.thanks', defaultMessage: 'Thanks for ordering' })}
+            </p>
             <p className="mt-2 text-base text-gray-500">
-              We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation
-              very soon!
+              {formatCheckoutMessage({
+                id: 'order.appreciate',
+                defaultMessage:
+                  ' We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation very soon!',
+              })}
             </p>
 
             {/*<dl className="mt-16 text-sm font-medium">
@@ -119,7 +128,8 @@ const CheckoutSuccess = ({}: Props) => {
                 className="cursor-pointer text-sm font-medium text-indigo-600 hover:text-indigo-500"
                 onClick={() => router.push('/')}
               >
-                Continue Shopping<span aria-hidden="true"> &rarr;</span>
+                {formatCheckoutMessage({ id: 'continueShopping', defaultMessage: 'Continue Shopping' })}
+                <span aria-hidden="true"> &rarr;</span>
               </p>
             </div>
           </div>

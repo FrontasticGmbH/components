@@ -1,4 +1,5 @@
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { useFormat } from 'helpers/hooks/useFormat';
 import React from 'react';
 import { Product } from '../../../../../types/product/Product';
 
@@ -7,9 +8,12 @@ interface Props {
 }
 
 const List: React.FC<Props> = ({ products }) => {
+  //i18n messages
+  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
+
   return (
     <div className="mx-auto max-w-2xl pb-16 pt-8 lg:max-w-7xl lg:pt-4">
-      <h2 className="sr-only">Products</h2>
+      <h2 className="sr-only">{formatProductMessage({ id: 'products', defaultMessage: 'Products' })}</h2>
       <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {products?.map((product) => (
           <a key={product.productId} href={product._url} className="group">

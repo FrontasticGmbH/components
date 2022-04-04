@@ -5,6 +5,7 @@ import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import Laddercrumb from 'components/frontastic-ui/laddercrumb';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { Product } from '../../../../../types/product/Product';
+import { useFormat } from 'helpers/hooks/useFormat';
 interface Props {
   products: Product[];
   previousCursor: string;
@@ -13,6 +14,10 @@ interface Props {
 }
 
 export default function ProductList({ products, previousCursor, nextCursor, category }: Props) {
+  //i18n messages
+  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
+  const { formatMessage } = useFormat({ name: 'common' });
+
   const [isLargerThan1024] = useMediaQuery(1024);
 
   const router = useRouter();
@@ -51,13 +56,13 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
             href={`${category}&cursor=${previousCursor}`}
             className={previousCursor ? activeButtonClassName : disabledButtonClassName}
           >
-            Previous
+            {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
           </a>
           <a
             href={`${category}&cursor=${nextCursor}`}
             className={nextCursor ? activeButtonClassName : disabledButtonClassName}
           >
-            Next
+            {formatMessage({ id: 'next', defaultMessage: 'Next' })}
           </a>
         </div>
       </nav>

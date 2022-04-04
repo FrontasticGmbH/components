@@ -5,6 +5,7 @@ import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import { Link } from './index';
 import classNames from 'classnames';
 import Typography from 'components/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface HeaderMenuProps {
   open: boolean;
@@ -14,6 +15,9 @@ interface HeaderMenuProps {
 }
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, links }) => {
+  //i18n messages
+  const { formatMessage } = useFormat({ name: 'common' });
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={setOpen}>
@@ -45,7 +49,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                 className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                 onClick={() => setOpen(false)}
               >
-                <span className="sr-only">Close menu</span>
+                <span className="sr-only">{formatMessage({ id: 'menu.close', defaultMessage: 'Close menu' })}</span>
                 <XIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
@@ -76,7 +80,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                       <div className="grid grid-cols-1 gap-y-10 gap-x-6">
                         <div>
                           <p id={`mobile-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
-                            Featured
+                            {formatMessage({ id: 'featured', defaultMessage: 'Featured' })}
                           </p>
                           <ul
                             role="list"
@@ -94,7 +98,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                         </div>
                         <div>
                           <p id="mobile-categories-heading" className="font-medium text-gray-900">
-                            Categories
+                            {formatMessage({ id: 'categories', defaultMessage: 'Categories' })}
                           </p>
                           <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
                             {category.categories.map((item) => (
@@ -110,7 +114,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                       <div className="grid grid-cols-1 gap-y-10 gap-x-6">
                         <div>
                           <p id="mobile-collection-heading" className="font-medium text-gray-900">
-                            Collection
+                            {formatMessage({ id: 'collection', defaultMessage: 'Collection' })}
                           </p>
                           <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
                             {category.collection.map((item) => (
@@ -125,7 +129,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
                         <div>
                           <p id="mobile-brand-heading" className="font-medium text-gray-900">
-                            Brands
+                            {formatMessage({ id: 'brands', defaultMessage: 'Brands' })}
                           </p>
                           <ul role="list" aria-labelledby="mobile-brand-heading" className="mt-6 space-y-6">
                             {category.brands.map((item) => (

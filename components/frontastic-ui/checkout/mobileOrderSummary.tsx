@@ -1,5 +1,6 @@
 import { Disclosure } from '@headlessui/react';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/StringHelpers';
 import { Cart } from '../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../types/cart/ShippingMethod';
@@ -13,6 +14,11 @@ interface Props {
 }
 
 const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartItem, selectedShipping }: Props) => {
+  //i18n messages
+  const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
+  const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
+  const { formatMessage } = useFormat({ name: 'common' });
+
   return (
     <section aria-labelledby="order-heading" className="bg-gray-50 px-4 py-6 sm:px-6 lg:hidden">
       <Disclosure>
@@ -21,10 +27,18 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
             <>
               <div className="flex items-center justify-between">
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
-                  Your Order
+                  {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
                 </h2>
                 <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
-                  {open ? <span>Hide full summary</span> : <span>Show full summary</span>}
+                  {open ? (
+                    <span>
+                      {formatCheckoutMessage({ id: 'fullsummary.hide', defaultMessage: 'Hide full summary' })}
+                    </span>
+                  ) : (
+                    <span>
+                      {formatCheckoutMessage({ id: 'fullsummary.show', defaultMessage: 'Show full summary' })}
+                    </span>
+                  )}
                 </Disclosure.Button>
               </div>
 
@@ -66,7 +80,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                             onClick={editCartItem}
                             className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
                           >
-                            Edit
+                            {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                           </button>
                           <div className="flex border-l border-gray-300 pl-4">
                             <button
@@ -74,7 +88,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                               onClick={(e) => removeCartItem(lineItem.lineItemId)}
                               className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
                             >
-                              Remove
+                              {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
                             </button>
                           </div>
                         </div>
@@ -105,7 +119,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
 
                 <dl className="mt-10 space-y-6 text-sm font-medium text-gray-500">
                   <div className="flex justify-between">
-                    <dt>Subtotal</dt>
+                    <dt>{formatCheckoutMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}</dt>
                     <dd className="text-gray-900">
                       {CurrencyHelpers.formatForCurrency(
                         cart.lineItems.reduce(
@@ -125,7 +139,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                   </div>
                   <div className="flex justify-between">
                     <dt className="flex">
-                      Discounts
+                      {formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}
                       {/*<span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
                                             {discount.code}
                                                     </span>*/}
@@ -155,7 +169,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                                     <dd className="text-gray-900">{taxes}</dd>
                                                     </div>*/}
                   <div className="flex justify-between">
-                    <dt>Shipping</dt>
+                    <dt>{formatCheckoutMessage({ id: 'shipping', defaultMessage: 'Shipping' })}</dt>
                     <dd className="text-gray-900">
                       {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price || {})}
                     </dd>
@@ -164,7 +178,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
               </Disclosure.Panel>
 
               <p className="mt-6 flex items-center justify-between border-t border-gray-200 pt-6 text-sm font-medium text-gray-900">
-                <span className="text-base">Total</span>
+                <span className="text-base">{formatCheckoutMessage({ id: 'total', defaultMessage: 'Total' })}</span>
                 <span className="text-base">
                   {CurrencyHelpers.formatForCurrency(
                     CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0].price || {}),

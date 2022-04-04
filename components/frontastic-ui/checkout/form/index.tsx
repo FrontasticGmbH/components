@@ -43,11 +43,11 @@ const Form = ({ formInputData, submitText, updateFormInput, submitForm, data, is
             inverseLabel={true}
         />*/}
       <FormButton buttonText={submitText} onClick={submitForm} isDisabled={!isFormValid} />
-
+      {/* 
       <p className="mt-6 flex justify-center text-sm font-medium text-gray-500">
         <LockClosedIcon className="mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
         Payment details stored in plain text
-      </p>
+      </p> */}
     </form>
   );
 };

@@ -8,55 +8,66 @@ import EmptyCart from '../cart/emptyCart';
 import { useRouter } from 'next/router';
 import { useCart } from 'frontastic';
 import { Address } from '../../../../types/account/Address';
-
-const inputData: Omit<Omit<FormInputProps, 'value'>, 'onChange'>[] = [
-  {
-    name: 'firstName',
-    inputAutoComplete: 'given-name',
-    label: 'First Name',
-    containerClassNames: 'col-span-6 sm:col-span-6',
-  },
-  {
-    name: 'lastName',
-    inputAutoComplete: 'family-name',
-    label: 'Last Name',
-    containerClassNames: 'col-span-6 sm:col-span-6',
-  },
-  { name: 'emailAddress', inputType: 'email', inputAutoComplete: 'email', label: 'Email address' },
-  //TODO: uncomment below for card payments
-  //{ name: "nameOnCard", inputAutoComplete: "cc-name", label: "Name on card" },
-  //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
-  //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
-  //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
-  {
-    name: 'streetName',
-    inputAutoComplete: 'cc-name',
-    label: 'Street Name',
-    containerClassNames: 'col-span-full sm:col-span-9',
-  },
-  {
-    name: 'streetNumber',
-    inputAutoComplete: 'cc-name',
-    label: 'Street No.',
-    containerClassNames: 'col-span-full sm:col-span-3',
-  },
-  {
-    name: 'city',
-    inputAutoComplete: 'address-level2',
-    label: 'City',
-    containerClassNames: 'col-span-full sm:col-span-4',
-  },
-  {
-    name: 'postalCode',
-    inputAutoComplete: 'postal-code',
-    label: 'Postal code',
-    containerClassNames: 'col-span-full sm:col-span-4',
-  },
-];
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface Props {}
 
 const Checkout = ({}: Props) => {
+  //i18n messages
+  const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
+  const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
+  const { formatMessage } = useFormat({ name: 'common' });
+
+  const inputData: Omit<Omit<FormInputProps, 'value'>, 'onChange'>[] = [
+    {
+      name: 'firstName',
+      inputAutoComplete: 'given-name',
+      label: formatMessage({ id: 'firstName', defaultMessage: 'First Name' }),
+      containerClassNames: 'col-span-6 sm:col-span-6',
+    },
+    {
+      name: 'lastName',
+      inputAutoComplete: 'family-name',
+      label: formatMessage({ id: 'lastName', defaultMessage: 'Last Name' }),
+      containerClassNames: 'col-span-6 sm:col-span-6',
+    },
+    {
+      name: 'emailAddress',
+      inputType: 'email',
+      inputAutoComplete: 'email',
+      label: formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' }),
+    },
+    //TODO: uncomment below for card payments
+    //{ name: "nameOnCard", inputAutoComplete: "cc-name", label: "Name on card" },
+    //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
+    //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
+    //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
+    {
+      name: 'streetName',
+      inputAutoComplete: 'cc-name',
+      label: formatMessage({ id: 'street.name', defaultMessage: 'Street Name' }),
+      containerClassNames: 'col-span-full sm:col-span-9',
+    },
+    {
+      name: 'streetNumber',
+      inputAutoComplete: 'cc-name',
+      label: formatMessage({ id: 'street.number', defaultMessage: 'Street No.' }),
+      containerClassNames: 'col-span-full sm:col-span-3',
+    },
+    {
+      name: 'city',
+      inputAutoComplete: 'address-level2',
+      label: formatMessage({ id: 'city', defaultMessage: ' City' }),
+      containerClassNames: 'col-span-full sm:col-span-4',
+    },
+    {
+      name: 'postalCode',
+      inputAutoComplete: 'postal-code',
+      label: formatMessage({ id: 'zipCode', defaultMessage: 'Postal code' }),
+      containerClassNames: 'col-span-full sm:col-span-4',
+    },
+  ];
+
   const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
   const router = useRouter();
   const [checkoutData, setCheckoutData] = useState({
@@ -111,11 +122,7 @@ const Checkout = ({}: Props) => {
     await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
     await orderCart();
     //TODO: figure out logic here
-    if (false) {
-      console.error('Error ordering cart');
-    } else {
-      router.push('/checkout-success');
-    }
+    router.push('/checkout-success');
   };
 
   if (!data?.lineItems || data.lineItems.length < 1) {
@@ -127,7 +134,7 @@ const Checkout = ({}: Props) => {
       <div className="px-4 py-6 sm:px-6 lg:hidden">
         <div className="mx-auto flex max-w-lg">
           <a href="#">
-            <span className="sr-only">Workflow</span>
+            <span className="sr-only">{formatMessage({ id: 'workflow', defaultMessage: 'Workflow' })}</span>
             <img
               src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
               alt=""
@@ -137,7 +144,7 @@ const Checkout = ({}: Props) => {
         </div>
       </div>
 
-      <h1 className="sr-only">Checkout</h1>
+      <h1 className="sr-only">{formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}</h1>
 
       <MobileOrderSummary
         cart={data}
@@ -162,7 +169,7 @@ const Checkout = ({}: Props) => {
         <div className="mx-auto max-w-lg">
           <div className="hidden pt-10 pb-16 lg:flex">
             <a href="#">
-              <span className="sr-only">Workflow</span>
+              <span className="sr-only">{formatMessage({ id: 'workflow', defaultMessage: 'Workflow' })}</span>
               <img
                 src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                 alt=""
@@ -191,7 +198,10 @@ const Checkout = ({}: Props) => {
 
           <Form
             formInputData={inputData}
-            submitText={`Pay ${CurrencyHelpers.formatForCurrency(
+            submitText={`${formatCheckoutMessage({
+              id: 'pay',
+              defaultMessage: 'Pay',
+            })} ${CurrencyHelpers.formatForCurrency(
               CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
             )}`}
             updateFormInput={updateFormInput}

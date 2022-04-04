@@ -1,4 +1,5 @@
 import Typography from 'components/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useState } from 'react';
 
 export interface Props {
@@ -11,12 +12,6 @@ export interface Props {
   disclaimer?: string;
 }
 
-const fallbackDisclaimer =
-  "By clicking 'Submit' you agree that we may use your information in accordance with our privacy policy process the data for a specific purpose.";
-
-const fallbackSuccessTitle = 'Welcome aboard!';
-const fallbackSuccessMessage = 'You’re subscribed. We’ll keep you up to date with all things fashion.';
-
 export default function Newsletter({
   headline,
   description,
@@ -26,6 +21,25 @@ export default function Newsletter({
   successTitle,
   successMessage,
 }: Props) {
+  //i18n messages
+  const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
+  const { formatMessage: formatNewsletterMessage } = useFormat({ name: 'newsletter' });
+
+  //messages
+  const fallbackDisclaimer = formatNewsletterMessage({
+    id: 'disclaimer.fallback',
+    defaultMessage:
+      "By clicking 'Submit' you agree that we may use your information in accordance with our privacy policy process the data for a specific purpose",
+  });
+  const fallbackSuccessTitle = formatNewsletterMessage({
+    id: 'success.fallback.title',
+    defaultMessage: 'Welcome aboard!',
+  });
+  const fallbackSuccessMessage = formatNewsletterMessage({
+    id: 'success.fallback.message',
+    defaultMessage: 'You’re subscribed. We’ll keep you up to date with all things fashion.',
+  });
+
   //form data
   const [data, setData] = useState({ email: '' });
   // confirmation
@@ -42,7 +56,7 @@ export default function Newsletter({
     //validate
     const isValid = !!data.email;
     if (!isValid) {
-      return alert('Please enter your email address!');
+      return alert(formatErrorMessage({ id: 'enter.email', defaultMessage: 'Please enter your email address' }));
     }
     //success
     //Add newsletter subscription logic here

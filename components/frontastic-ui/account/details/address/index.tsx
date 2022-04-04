@@ -5,6 +5,7 @@ import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import * as screensizes from 'helpers/utils/screensizes';
 import { useAccount } from 'frontastic';
 import UpdateAddressModal from '../modals/updateAddress';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 export interface AddressProps {
   address: AddressType;
@@ -13,6 +14,9 @@ export interface AddressProps {
 const Address: React.FC<AddressProps> = ({ address }) => {
   //account data
   const { removeAddress } = useAccount();
+
+  //i18n messages
+  const { formatMessage } = useFormat({ name: 'common' });
 
   //responsive
   const [isLargerThanDesktop] = useMediaQuery(screensizes.desktop);
@@ -51,7 +55,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
               className="rounded-md bg-white text-sm font-medium text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
               onClick={openUpdateModal}
             >
-              Update
+              {formatMessage({ id: 'update', defaultMessage: 'Update' })}
             </button>
           ) : (
             <EditIcon className="h-5 w-5 text-pink-400" onClick={openUpdateModal} />
@@ -65,7 +69,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
               className="ounded-md bg-white text-sm font-medium text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
               onClick={handleDelete}
             >
-              Remove
+              {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
             </button>
           ) : (
             <DeleteIcon className="h-5 w-5 text-pink-400" onClick={handleDelete} />

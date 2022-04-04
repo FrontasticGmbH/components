@@ -7,6 +7,7 @@ import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
 import { Money } from '../../../../../types/product/Money';
 import WishlistAddButton from './wishlist_add_button';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -52,6 +53,9 @@ interface UIDetail {
 }
 
 export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
+  //i18n messages
+  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
+
   const [selectedColor, setSelectedColor] = useState<UIColor>(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState<UISize>(product.sizes[0]);
 
@@ -128,14 +132,16 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
             <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product.name}</h1>
 
             <div className="mt-3">
-              <h2 className="sr-only">Product information</h2>
+              <h2 className="sr-only">
+                {formatProductMessage({ id: 'product.info', defaultMessage: 'Product information' })}
+              </h2>
               <p className="text-3xl text-gray-900 text-[#CE3E72]">
                 {CurrencyHelpers.formatForCurrency(product.price)}
               </p>
             </div>
 
             <div className="mt-6">
-              <h3 className="sr-only">Description</h3>
+              <h3 className="sr-only">{formatProductMessage({ id: 'product.desc', defaultMessage: 'Description' })}</h3>
 
               <div
                 className="space-y-6 text-base text-gray-700"
@@ -218,7 +224,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   onClick={() => onAddToCart(variant, 1)}
                   className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
-                  Add to bag
+                  {formatProductMessage({ id: 'bad.add', defaultMessage: 'Add to bag' })}
                 </button>
 
                 <WishlistAddButton onAddToWishlist={onAddToWishlist} />
@@ -227,7 +233,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
             <section aria-labelledby="details-heading" className="mt-12">
               <h2 id="details-heading" className="sr-only">
-                Additional details
+                {formatProductMessage({ id: 'details.additional', defaultMessage: 'Additional details' })}
               </h2>
 
               <div className="divide-y divide-gray-200 border-t">

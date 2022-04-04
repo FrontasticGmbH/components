@@ -1,9 +1,7 @@
 import ProductList from 'components/frontastic-ui/products/product-list';
 
-function ProductListTastic({ data }) {  
-  if (!data?.data?.dataSources?.__master) {
-    return null
-  }
+function ProductListTastic({ data }) {
+  if (!data.data?.dataSources?.__master) return <></>;
 
   const { products, category, nextCursor, previousCursor } = data.data.dataSources.__master;
 

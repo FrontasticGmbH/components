@@ -1,4 +1,5 @@
 import { useCart } from 'frontastic';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
@@ -12,6 +13,9 @@ function classNames(...classes) {
 interface Props {}
 
 const Cart = ({}: Props) => {
+  //i18n messages
+  const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
+
   const { data, removeItem, updateItem, shippingMethods } = useCart();
   const router = useRouter();
 
@@ -27,7 +31,9 @@ const Cart = ({}: Props) => {
 
   return (
     <main className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-xl">Shopping Cart</h1>
+      <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-xl">
+        {formatCartMessage({ id: 'cart.shopping', defaultMessage: 'Shopping Cart' })}
+      </h1>
 
       <form className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
         <ItemList

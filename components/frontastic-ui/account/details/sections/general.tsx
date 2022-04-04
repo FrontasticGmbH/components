@@ -3,8 +3,13 @@ import { useAccount } from 'frontastic';
 import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 const General = () => {
+  //i18n messages
+  const { formatMessage } = useFormat({ name: 'common' });
+  const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
+
   //next/router
   const router = useRouter();
 
@@ -13,11 +18,14 @@ const General = () => {
 
   const sections = [
     {
-      headline: 'Profile',
-      subline: 'This information will be displayed publicly so be careful what you share.',
+      headline: formatAccountMessage({ id: 'profile', defaultMessage: 'Profile' }),
+      subline: formatAccountMessage({
+        id: 'profile.desc',
+        defaultMessage: 'This information will be displayed publicly so be careful what you share.',
+      }),
       fields: [
         {
-          label: 'First Name',
+          label: formatMessage({ id: 'firstName', defaultMessage: 'First Name' }),
           value: account?.firstName,
           type: 'text',
           options: [],
@@ -29,7 +37,7 @@ const General = () => {
           editable: true,
         },
         {
-          label: 'Last Name',
+          label: formatMessage({ id: 'lastName', defaultMessage: 'Last Name' }),
           value: account?.lastName,
           type: 'text',
           options: [],
@@ -41,7 +49,7 @@ const General = () => {
           editable: true,
         },
         {
-          label: 'Email',
+          label: formatMessage({ id: 'email', defaultMessage: 'Email' }),
           value: account?.email,
           type: 'email',
           options: [],
@@ -53,8 +61,11 @@ const General = () => {
       ],
     },
     {
-      headline: 'Account',
-      subline: 'Manage how information is displayed on your account.',
+      headline: formatAccountMessage({ id: 'account', defaultMessage: 'Account' }),
+      subline: formatAccountMessage({
+        id: 'account.desc',
+        defaultMessage: 'Manage how information is displayed on your account.',
+      }),
       fields: [
         {
           label: 'language',
