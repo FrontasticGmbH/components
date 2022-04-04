@@ -26,7 +26,7 @@ export type Reference = LinkReference | PageFolderReference;
 export const getReferenceTarget = (target: Reference): string => {
   switch (target.type) {
     case 'link':
-      return target.target;
+      return target.link || target.target;
     case 'page-folder':
       return target.pageFolder._url;      
     default:
