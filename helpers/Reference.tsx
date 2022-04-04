@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 interface LinkReference {
   type: 'link';
   link: string;
+  target?: string;
   openInNewWindow: boolean;
 }
 
@@ -25,9 +26,12 @@ export type Reference = LinkReference | PageFolderReference;
 export const getReferenceTarget = (target: Reference): string => {
   switch (target.type) {
     case 'link':
-      return target.link;
+      return target.link || target.target;
     case 'page-folder':
-      return target.pageFolder._url;
+      return target.pageFolder._url;      
+    default:
+      //console.warn('Reference ', target, ' is not valid reference')
+      return '/'
   }
 };
 
@@ -54,7 +58,7 @@ export const ReferenceLink: React.FC<Props> = ({ target, className, children }) 
       <a href="#" className={className}>
         {children}
       </a>
-    );
+    );  
 
   return (
     <NextLink href={getReferenceTarget(target)}>

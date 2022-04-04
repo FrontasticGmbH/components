@@ -150,7 +150,7 @@ const Header: React.FC<Props> = ({
               <Popover.Group className="hidden lg:block lg:flex-1 lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category, categoryIdx) => (
-                    <Popover key={category.name} className="flex">
+                    <Popover key={categoryIdx} className="flex">
                       {({ open }) => (
                         <>
                           <div className="relative flex">
@@ -187,9 +187,9 @@ const Header: React.FC<Props> = ({
                     </Popover>
                   ))}
 
-                  {links.map((link) => (
+                  {links.map((link, id) => (
                     <ReferenceLink
-                      key={link.name}
+                      key={id}
                       target={link.reference}
                       className="text-md flex items-center font-medium text-[#25304D] hover:text-[#192038]"
                     >
