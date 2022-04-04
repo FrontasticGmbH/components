@@ -39,13 +39,16 @@ export const getRouteData =
     delete query.slug;
 
     const slug = urlParams.slug?.join('/') || '';
-    const endpointQuery = [`path=/${slug !== 'index' ? slug : ''}`, `locale=${locale}`, ...encodeQueryParams(query)];
-    const endpoint = `/page?${endpointQuery.join('&')}`;
+    const headers = {
+      'Frontastic-Path': `/${slug !== 'index' ? slug : ''}`,
+      'Frontastic-Locale': locale
+    };
+    const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
 
     const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(endpoint, {
       req: nextJsReq,
       res: nextJsRes,
-    })) as RedirectResponse | PageDataResponse;
+    }, headers)) as RedirectResponse | PageDataResponse;
 
     return data;
   };
