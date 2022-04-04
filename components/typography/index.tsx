@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
 
-export const normalize = (content: string, locale = 'de_CH') => {
+export const normalize = (content: string, locale: string) => {
   return (typeof content === 'string' ? content : content[locale]) ?? '';
 };
 
@@ -13,8 +13,11 @@ const Typography: React.FC<TypographyProps> = ({ children }) => {
   //next/router
   const router = useRouter();
 
+  //locale
+  const locale = router?.locale || router?.defaultLocale;
+
   //normalize content
-  const normalized = normalize(children, router?.locale);
+  const normalized = children && normalize(children, locale);
 
   return <>{normalized}</>;
 };
