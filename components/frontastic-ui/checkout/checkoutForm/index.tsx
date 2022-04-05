@@ -18,90 +18,92 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
     <form className="mt-6">
       <div className="grid grid-cols-12 gap-y-6 gap-x-4">
         <FormInput
-          name='firstName'
-          inputAutoComplete='given-name'
+          name="firstName"
+          inputAutoComplete="given-name"
           label={formatMessage({ id: 'firstName', defaultMessage: 'First Name' })}
           value={data.firstName}
           onChange={updateFormInput}
-          containerClassNames='col-span-6 sm:col-span-6'
+          containerClassNames="col-span-6 sm:col-span-6"
         />
         <FormInput
-          name='lastName'
-          inputAutoComplete='family-name'
+          name="lastName"
+          inputAutoComplete="family-name"
           label={formatMessage({ id: 'lastName', defaultMessage: 'Last Name' })}
           value={data.lastName}
           onChange={updateFormInput}
-          containerClassNames='col-span-6 sm:col-span-6'
+          containerClassNames="col-span-6 sm:col-span-6"
         />
         <FormInput
-          name='emailAddress'
-          inputAutoComplete='email'
+          name="emailAddress"
+          inputAutoComplete="email"
           label={formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
           value={data.email}
           onChange={updateFormInput}
         />
-        {cardPayments && <>
-          <FormInput
-            name='nameOnCard'
-            inputAutoComplete='cc-name'
-            label={formatMessage({ id: 'street.nameOnCard', defaultMessage: 'Name on Card' })}
-            value={data.nameOnCard}
-            onChange={updateFormInput}
-          />
-          <FormInput
-            name='cardNumber'
-            inputAutoComplete='cc-number'
-            label={formatMessage({ id: 'street.cardNumber', defaultMessage: 'Card Number' })}
-            value={data.cardNumber}
-            onChange={updateFormInput}
-          />
-          <FormInput
-            name='expirationDate'
-            inputAutoComplete='cc-exp'
-            label={formatMessage({ id: 'street.expirationDate', defaultMessage: 'Expiration date (MM/YY)' })}
-            value={data.expirationDate}
-            onChange={updateFormInput}
-            containerClassNames='col-span-8 sm:col-span-9'
-          />
-          <FormInput
-            name='cvc'
-            inputAutoComplete='csc'
-            label={formatMessage({ id: 'street.cvc', defaultMessage: 'CVC' })}
-            value={data.nameOnCard}
-            onChange={updateFormInput}
-            containerClassNames='col-span-4 sm:col-span-3'
-          />
-        </>}
+        {cardPayments && (
+          <>
+            <FormInput
+              name="nameOnCard"
+              inputAutoComplete="cc-name"
+              label={formatMessage({ id: 'street.nameOnCard', defaultMessage: 'Name on Card' })}
+              value={data.nameOnCard}
+              onChange={updateFormInput}
+            />
+            <FormInput
+              name="cardNumber"
+              inputAutoComplete="cc-number"
+              label={formatMessage({ id: 'street.cardNumber', defaultMessage: 'Card Number' })}
+              value={data.cardNumber}
+              onChange={updateFormInput}
+            />
+            <FormInput
+              name="expirationDate"
+              inputAutoComplete="cc-exp"
+              label={formatMessage({ id: 'street.expirationDate', defaultMessage: 'Expiration date (MM/YY)' })}
+              value={data.expirationDate}
+              onChange={updateFormInput}
+              containerClassNames="col-span-8 sm:col-span-9"
+            />
+            <FormInput
+              name="cvc"
+              inputAutoComplete="csc"
+              label={formatMessage({ id: 'street.cvc', defaultMessage: 'CVC' })}
+              value={data.nameOnCard}
+              onChange={updateFormInput}
+              containerClassNames="col-span-4 sm:col-span-3"
+            />
+          </>
+        )}
         <FormInput
-          name='streetName'
-          inputAutoComplete='given-name'
+          name="streetName"
+          inputAutoComplete="given-name"
           label={formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })}
           value={data.streetName}
           onChange={updateFormInput}
-          containerClassNames='col-span-full sm:col-span-9'
+          containerClassNames="col-span-full sm:col-span-9"
         />
         <FormInput
-          name='streetNumber'
+          name="streetNumber"
           label={formatMessage({ id: 'street.number', defaultMessage: 'Street No.' })}
           value={data.streetNumber}
           onChange={updateFormInput}
-          containerClassNames='col-span-full sm:col-span-3'
+          containerClassNames="col-span-full sm:col-span-3"
         />
         <FormInput
-          name='city'
-          inputAutoComplete='address-level2'
+          name="city"
+          inputAutoComplete="address-level2"
           label={formatMessage({ id: 'city', defaultMessage: ' City' })}
           value={data.city}
           onChange={updateFormInput}
-          containerClassNames='col-span-full sm:col-span-4'
+          containerClassNames="col-span-full sm:col-span-4"
         />
         <FormInput
-          name='postalCode'
-          inputAutoComplete='postal-code'
+          name="postalCode"
+          inputAutoComplete="postal-code"
           label={formatMessage({ id: 'zipCode', defaultMessage: 'Postal code' })}
           value={data.postalCode}
           onChange={updateFormInput}
-          containerClassNames='col-span-full sm:col-span-4'
+          containerClassNames="col-span-full sm:col-span-4"
         />
         <FormSelect
           name="country"

@@ -41,14 +41,18 @@ export const getRouteData =
     const slug = urlParams.slug?.join('/') || '';
     const headers = {
       'Frontastic-Path': `/${slug !== 'index' ? slug : ''}`,
-      'Frontastic-Locale': locale
+      'Frontastic-Locale': locale,
     };
     const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
 
-    const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(endpoint, {
-      req: nextJsReq,
-      res: nextJsRes,
-    }, headers)) as RedirectResponse | PageDataResponse;
+    const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(
+      endpoint,
+      {
+        req: nextJsReq,
+        res: nextJsRes,
+      },
+      headers,
+    )) as RedirectResponse | PageDataResponse;
 
     return data;
   };

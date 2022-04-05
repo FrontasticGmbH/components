@@ -110,7 +110,11 @@ export const fetchApiHub: FetchFunction = async (endpointPath, init = {}, payloa
   return handleApiHubResponse(rawFetchApiHub(endpointPath, init, payload));
 };
 
-export const rawFetchApiHubServerSide = async (endpointPath: string, expressMessages: ExpressMessages, headers: HeadersInit = []) => {
+export const rawFetchApiHubServerSide = async (
+  endpointPath: string,
+  expressMessages: ExpressMessages,
+  headers: HeadersInit = [],
+) => {
   const cookies = new ServerCookies(expressMessages.req, expressMessages.res);
   return await performFetchApiHub(endpointPath, { headers }, null, {
     getCookie: (cookieIdentifier) => {
@@ -122,6 +126,10 @@ export const rawFetchApiHubServerSide = async (endpointPath: string, expressMess
   });
 };
 
-export const fetchApiHubServerSide = async (endpointPath: string, expressMessages: ExpressMessages, headers: HeadersInit = []) => {
+export const fetchApiHubServerSide = async (
+  endpointPath: string,
+  expressMessages: ExpressMessages,
+  headers: HeadersInit = [],
+) => {
   return handleApiHubResponse(rawFetchApiHubServerSide(endpointPath, expressMessages, headers));
 };

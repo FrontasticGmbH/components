@@ -5,8 +5,7 @@ import { Wishlist } from '../../../../types/wishlist/Wishlist';
 import EmptyWishlist from './empty_wishlist';
 import List from './list';
 
-const WishList: React.FC = ({ }) => {
-
+const WishList: React.FC = ({}) => {
   const { data } = useWishlist();
 
   return data?.lineItems?.length > 0 ? (
@@ -14,6 +13,6 @@ const WishList: React.FC = ({ }) => {
   ) : (
     <EmptyWishlist />
   );
-}
+};
 
-export default WishList
+export default WishList;

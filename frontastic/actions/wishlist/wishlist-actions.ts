@@ -6,9 +6,9 @@ export const getWishlist = () => {
 };
 
 export const addToWishlist = async (sku: string, count = 1) => {
-    const res = await fetchApiHub('/action/wishlist/addToWishlist', { method: 'POST' }, { variant: { sku }, count });
-    mutate('/action/wishlist/getWishlist', res);
-}
+  const res = await fetchApiHub('/action/wishlist/addToWishlist', { method: 'POST' }, { variant: { sku }, count });
+  mutate('/action/wishlist/getWishlist', res);
+};
 
 export const removeLineItem = async (lineItemId: string) => {
   const res = await fetchApiHub(

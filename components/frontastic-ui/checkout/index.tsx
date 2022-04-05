@@ -9,9 +9,9 @@ import { useCart } from 'frontastic';
 import { Address } from '../../../../types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
 
-interface Props { }
+interface Props {}
 
-const Checkout = ({ }: Props) => {
+const Checkout = ({}: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -23,10 +23,10 @@ const Checkout = ({ }: Props) => {
     firstName: '',
     lastName: '',
     emailAddress: '',
-    nameOnCard: "",
-    cardNumber: "",
-    expirationDate: "",
-    cvc: "",
+    nameOnCard: '',
+    cardNumber: '',
+    expirationDate: '',
+    cvc: '',
     streetName: '',
     streetNumber: '',
     city: '',

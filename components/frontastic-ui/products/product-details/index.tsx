@@ -72,7 +72,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl md:py-4 lg:max-w-7xl lg:px-8">
+      <div className=" mx-auto max-w-2xl md:py-4 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}
           <Tab.Group>
@@ -135,9 +135,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <h2 className="sr-only">
                 {formatProductMessage({ id: 'product.info', defaultMessage: 'Product information' })}
               </h2>
-              <p className="text-3xl text-[#CE3E72]">
-                {CurrencyHelpers.formatForCurrency(product.price)}
-              </p>
+              <p className="text-3xl text-[#CE3E72]">{CurrencyHelpers.formatForCurrency(product.price)}</p>
             </div>
 
             <div className="mt-6">
