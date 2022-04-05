@@ -17,12 +17,12 @@ const FormSelect = ({ name, label, options, selectedOptionValue, onChange, conta
         id={name}
         name={name}
         className={
-          'mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
+          'mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm'
         }
         value={selectedOptionValue}
-        onChange={(e) => onChange('country', e.target.value)}
+        onChange={(e) => onChange(e.target.name, e.target.value)}
       >
-        {!selectedOptionValue && <option>Please select</option>}
+        {/* {!selectedOptionValue && <option value="">Please select</option>} */}
         {options.map((option, n) => (
           <option key={n} value={option.data}>
             {option.display}

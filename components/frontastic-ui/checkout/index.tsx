@@ -5,20 +5,31 @@ import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
 import { useRouter } from 'next/router';
-import { useCart } from 'frontastic';
+import { useAccount, useCart } from 'frontastic';
 import { Address } from '../../../../types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { Reference } from 'helpers/Reference';
+import Redirect from 'helpers/Redirect';
+import * as yup from 'yup';
 
-interface Props {}
+interface Props {
+  loginLink?: Reference;
+}
 
-const Checkout = ({}: Props) => {
+const Checkout = ({ loginLink }: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
   const { formatMessage } = useFormat({ name: 'common' });
 
+  //account data
+  const { loggedIn } = useAccount();
+
   //cart data
   const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
+
+  //account data
+  const { account } = useAccount();
 
   //next/router
   const router = useRouter();
@@ -32,18 +43,19 @@ const Checkout = ({}: Props) => {
     cardNumber: '',
     expirationDate: '',
     cvc: '',
-    streetName: '',
-    streetNumber: '',
-    city: '',
-    postalCode: '',
-    country: '',
-    // sameAsShipping: true
+    // streetName: '',
+    // streetNumber: '',
+    // city: '',
+    // postalCode: '',
+    // country: '',
+    billingAddress: account?.addresses.find((address) => address.isDefaultBillingAddress)?.addressId ?? '',
+    shippingAddress: account?.addresses.find((address) => address.isDefaultShippingAddress)?.addressId ?? '',
+    invoiceId: '',
+    pay: 'cc',
   });
-
+  console.log(checkoutData);
   const updateFormInput = (propName: string, newValue: string) => {
-    let newData = { ...checkoutData };
-    newData[propName] = newValue;
-    setCheckoutData(newData);
+    setCheckoutData({ ...checkoutData, [propName]: newValue });
   };
 
   const editLineItem = () => router.push('/cart');
@@ -52,25 +64,61 @@ const Checkout = ({}: Props) => {
 
   const removeLineItem = (lineItemId: string) => removeItem(lineItemId);
 
-  const isValid = () =>
-    !!checkoutData.firstName &&
-    !!checkoutData.lastName &&
-    !!checkoutData.emailAddress &&
-    !!checkoutData.streetName &&
-    !!checkoutData.streetNumber &&
-    !!checkoutData.city &&
-    !!checkoutData.postalCode &&
-    !!checkoutData.country;
+  const isValid = () => {
+    //credit card scheme
+    const ccScheme = yup.object({
+      nameOnCard: yup.string().required(),
+      cardNumber: yup.string().required(),
+      expirationDate: yup
+        .date()
+        .transform((value, originalValue, ctx) => {
+          if (typeof originalValue !== 'string' && ctx.isType(value)) return value;
+          const [month, year] = originalValue.split('/');
+          return new Date(+`20${year}`, +month - 1);
+        })
+        .min(new Date(Date.now()))
+        .required(),
+      cvc: yup
+        .string()
+        .required()
+        .matches(/^[0-9]+$/)
+        .min(3)
+        .max(3),
+    });
+
+    //invoice scheme
+    const invoiceScheme = yup.object({
+      invoiceId: yup.string().required(),
+    });
+
+    //merged scheme
+    const scheme = yup
+      .object({
+        firstName: yup.string().required(),
+        lastName: yup.string().required(),
+        emailAddress: yup.string().email(),
+        billingAddress: yup.string().required(),
+        shippingAddress: yup.string().optional(),
+      })
+      .concat(checkoutData.pay === 'cc' ? ccScheme : invoiceScheme);
+
+    return scheme.isValidSync(checkoutData);
+  };
 
   const submitForm = async () => {
-    // TODO
-    // validate shipping address
-    let shippingAddress: Address = { addressId: '', ...checkoutData };
+    if (!account) return;
+    const shippingAddress: Address = account.addresses.find(
+      (address) => address.addressId === checkoutData.shippingAddress,
+    );
+    const billingAddress: Address = account.addresses.find(
+      (address) => address.addressId === checkoutData.billingAddress,
+    );
     await updateCart({
       account: {
         email: checkoutData.emailAddress,
       },
-      shipping: shippingAddress,
+      billing: billingAddress,
+      shipping: shippingAddress || billingAddress,
     });
     await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
     await orderCart();
@@ -81,6 +129,9 @@ const Checkout = ({}: Props) => {
   if (!data?.lineItems || data.lineItems.length < 1) {
     return <EmptyCart />;
   }
+
+  //need to be authenticated to checkout
+  if (!loggedIn) return <Redirect target={loginLink} />;
 
   return (
     <main className="py-10 lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">

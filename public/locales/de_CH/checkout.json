@@ -15,10 +15,11 @@
   "placeOrder": "Bestellung abgeben",
   "shippingTo": "Versand an",
   "shippingAddress": "Lieferadresse",
+  "billingAddress": "Rechnungsadresse",
   "shippingInformation": "Versandinformationen",
   "billingDetails": "Angaben zur Rechnung",
   "billingInformation": "Informationen zur Abrechnung",
-  "billingDetailsLabel": "Verwende dieselben Rechnungsdaten wie die Lieferadresse",
+  "billingDetailsLabel": "Rechnungsadresse ist gleich Lieferadresse",
   "paymentMethod": "Bezahlarten",
   "yourOrder": "Deine Bestellung",
   "orderId": "Bestellung ID",
@@ -35,5 +36,7 @@
   "fullsummary.show": "Vollständige Zusammenfassung anzeigen",
   "total": "Insgesamt",
   "order.thanks": "Vielen Dank für die Bestellung",
-  "order.appreciate": "Wir freuen uns über deine Bestellung, die wir gerade bearbeiten. Bleib also dran und wir werden dir bald eine Bestätigung schicken!"
+  "order.appreciate": "Wir freuen uns über deine Bestellung, die wir gerade bearbeiten. Bleib also dran und wir werden dir bald eine Bestätigung schicken!",
+  "creditCard": "Kreditkarte",
+  "payment.preference.ask": "Womit bezahlst du am liebsten?"
 }
