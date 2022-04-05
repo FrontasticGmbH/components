@@ -94,7 +94,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                       <div>
                         <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
-                          {formatMessage({ id: 'firstName', defaultMessage: 'First Name' })};
+                          {formatMessage({ id: 'firstName', defaultMessage: 'First Name' })}
                         </label>
                         <div className="mt-1">
                           <input
@@ -111,7 +111,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                       </div>
                       <div>
                         <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
-                          {formatMessage({ id: 'lastName', defaultMessage: 'Last Name' })};
+                          {formatMessage({ id: 'lastName', defaultMessage: 'Last Name' })}
                         </label>
                         <div className="mt-1">
                           <input
@@ -128,7 +128,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                       </div>
                       <div className="">
                         <label htmlFor="street-number" className="block text-sm font-medium text-gray-700">
-                          {formatMessage({ id: 'street.number', defaultMessage: 'Street Number' })};
+                          {formatMessage({ id: 'street.number', defaultMessage: 'Street Number' })}
                         </label>
                         <div className="mt-1">
                           <input
@@ -144,7 +144,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                       </div>
                       <div className="">
                         <label htmlFor="street-name" className="block text-sm font-medium text-gray-700">
-                          {formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })};
+                          {formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })}
                         </label>
                         <div className="mt-1">
                           <input
@@ -161,7 +161,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                       </div>
                       <div className="sm:col-span-2">
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                          {formatMessage({ id: 'phone', defaultMessage: 'Phone' })};
+                          {formatMessage({ id: 'phone', defaultMessage: 'Phone' })}
                         </label>
                         <div className="mt-1">
                           <input
@@ -217,7 +217,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                               id: 'address.setDefault.delivery',
                               defaultMessage: 'Set as default delivery address',
                             })}
-                            ;
                           </legend>
                           <div className="relative flex items-start">
                             <div className="flex h-5 items-center">
@@ -237,7 +236,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                                   id: 'address.setDefault.delivery',
                                   defaultMessage: 'Set as default delivery address',
                                 })}
-                                ;
                               </label>
                             </div>
                           </div>
@@ -250,7 +248,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                               id: 'address.setDefault.billing',
                               defaultMessage: 'Set as default billing address',
                             })}
-                            ;
                           </legend>
                           <div className="relative flex items-start">
                             <div className="flex h-5 items-center">
@@ -270,7 +267,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                                   id: 'address.setDefault.billing',
                                   defaultMessage: 'Set as default billing address',
                                 })}
-                                ;
                               </label>
                             </div>
                           </div>
@@ -291,13 +287,13 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                           className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                           onClick={onClose}
                         >
-                          {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })};
+                          {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                         </button>
                         <button
                           type="submit"
                           className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-pink-400 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
                         >
-                          {formatMessage({ id: 'save', defaultMessage: 'Save' })};
+                          {formatMessage({ id: 'save', defaultMessage: 'Save' })}
                         </button>
                       </div>
                     </form>
