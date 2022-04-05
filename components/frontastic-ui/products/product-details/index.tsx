@@ -135,7 +135,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <h2 className="sr-only">
                 {formatProductMessage({ id: 'product.info', defaultMessage: 'Product information' })}
               </h2>
-              <p className="text-3xl text-gray-900 text-[#CE3E72]">
+              <p className="text-3xl text-[#CE3E72]">
                 {CurrencyHelpers.formatForCurrency(product.price)}
               </p>
             </div>
