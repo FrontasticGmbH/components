@@ -17,8 +17,13 @@ const Checkout = ({}: Props) => {
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
   const { formatMessage } = useFormat({ name: 'common' });
 
+  //cart data
   const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
+
+  //next/router
   const router = useRouter();
+
+  //checkout data
   const [checkoutData, setCheckoutData] = useState({
     firstName: '',
     lastName: '',
@@ -78,8 +83,8 @@ const Checkout = ({}: Props) => {
   }
 
   return (
-    <main className="lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
-      <div className="px-4 py-6 sm:px-6 lg:hidden">
+    <main className="py-10 lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
+      {/* <div className="px-4 py-6 sm:px-6 lg:hidden">
         <div className="mx-auto flex max-w-lg">
           <a href="#">
             <span className="sr-only">{formatMessage({ id: 'workflow', defaultMessage: 'Workflow' })}</span>
@@ -90,7 +95,7 @@ const Checkout = ({}: Props) => {
             />
           </a>
         </div>
-      </div>
+      </div> */}
 
       <h1 className="sr-only">{formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}</h1>
 
@@ -115,7 +120,7 @@ const Checkout = ({}: Props) => {
         className="flex-auto overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-8 lg:pt-0 lg:pb-24"
       >
         <div className="mx-auto max-w-lg">
-          <div className="hidden pt-10 pb-16 lg:flex">
+          {/* <div className="hidden pt-10 pb-16 lg:flex">
             <a href="#">
               <span className="sr-only">{formatMessage({ id: 'workflow', defaultMessage: 'Workflow' })}</span>
               <img
@@ -124,7 +129,7 @@ const Checkout = ({}: Props) => {
                 className="h-8 w-auto"
               />
             </a>
-          </div>
+          </div> */}
           {/*<button
                     type="button"
                     className="w-full flex items-center justify-center bg-black border border-transparent text-white rounded-md py-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
