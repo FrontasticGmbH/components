@@ -76,13 +76,18 @@ const performFetchApiHub = async (
   };
 
   const endpoint = resolveApiHubUrl() + endpointPath;
+  console.log({ endpointPath, init, payload, cookieManager });
 
-  return await fetch(endpoint, actualInit).then((response): Response => {
-    if (response.ok && response.headers.has('Frontastic-Session')) {
-      cookieManager.setCookie('frontastic-session', response.headers.get('Frontastic-Session'));
-    }
-    return response;
-  });
+  return await fetch(endpoint, actualInit)
+    .then((response): Response => {
+      if (response.ok && response.headers.has('Frontastic-Session')) {
+        cookieManager.setCookie('frontastic-session', response.headers.get('Frontastic-Session'));
+      }
+      return response;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
 export const rawFetchApiHub: FetchFunction = async (endpointPath, init = {}, payload = null) => {
@@ -98,12 +103,16 @@ export const rawFetchApiHub: FetchFunction = async (endpointPath, init = {}, pay
 
 export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<object> => {
   // TODO: Handle errors
-  return fetchApiHubPromise.then((response: Response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw new ResponseError(response);
-  });
+  return fetchApiHubPromise
+    .then((response: Response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new ResponseError(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
 export const fetchApiHub: FetchFunction = async (endpointPath, init = {}, payload = null) => {

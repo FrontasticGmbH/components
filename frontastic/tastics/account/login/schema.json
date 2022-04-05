@@ -19,7 +19,7 @@
       "name": "Content",
       "fields": [
         {
-          "label": "Registeration Link",
+          "label": "Registration Link",
           "field": "registerLink",
           "type": "reference",
           "required": true
