@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import List from './List';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
@@ -6,16 +6,19 @@ import Laddercrumb from 'components/frontastic-ui/laddercrumb';
 import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
 import { Product } from '../../../../../types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
-export interface ProductListProps {
+import { updateURLParams } from 'helpers/utils/updateURLParams';
+interface Props {
   products: Product[];
   previousCursor: string;
   nextCursor: string;
   category: string;
 }
 
-export default function ProductList({ products, previousCursor, nextCursor, category }: ProductListProps) {
+export default function ProductList({ products, previousCursor, nextCursor, category }: Props) {
+  const [previousPageURL, setPreviousPageURL] = useState<string>('');
+  const [nextPageURL, setNextPageURL] = useState<string>('');
+
   //i18n messages
-  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
   const { formatMessage } = useFormat({ name: 'common' });
 
   const [isLargerThan1024] = useMediaQuery(1024);
@@ -36,6 +39,11 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
 
   const disabledButtonClassName = 'pointer-events-none rounded bg-gray-500 py-2 px-4 font-bold text-white opacity-50';
 
+  useEffect(() => {
+    setPreviousPageURL(updateURLParams('cursor', previousCursor));
+    setNextPageURL(updateURLParams('cursor', nextCursor));
+  }, []);
+
   return (
     <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
       {/* <div className="cursor-default">
@@ -52,16 +60,10 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
         aria-label="Pagination"
       >
         <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
-          <a
-            href={`${category}&cursor=${previousCursor}`}
-            className={previousCursor ? activeButtonClassName : disabledButtonClassName}
-          >
+          <a href={previousPageURL} className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
             {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
           </a>
-          <a
-            href={`${category}&cursor=${nextCursor}`}
-            className={nextCursor ? activeButtonClassName : disabledButtonClassName}
-          >
+          <a href={nextPageURL} className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
             {formatMessage({ id: 'next', defaultMessage: 'Next' })}
           </a>
         </div>
