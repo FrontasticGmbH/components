@@ -1,7 +1,6 @@
 import CheckoutForm from './checkoutForm';
 import MobileOrderSummary from './mobileOrderSummary';
 import DesktopOrderSummary from './desktopOrderSummary';
-import { Props as FormInputProps } from './checkoutForm/fields/formInput';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
@@ -18,67 +17,16 @@ const Checkout = ({ }: Props) => {
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
   const { formatMessage } = useFormat({ name: 'common' });
 
-  const inputData: Omit<Omit<FormInputProps, 'value'>, 'onChange'>[] = [
-    {
-      name: 'firstName',
-      inputAutoComplete: 'given-name',
-      label: formatMessage({ id: 'firstName', defaultMessage: 'First Name' }),
-      containerClassNames: 'col-span-6 sm:col-span-6',
-    },
-    {
-      name: 'lastName',
-      inputAutoComplete: 'family-name',
-      label: formatMessage({ id: 'lastName', defaultMessage: 'Last Name' }),
-      containerClassNames: 'col-span-6 sm:col-span-6',
-    },
-    {
-      name: 'emailAddress',
-      inputType: 'email',
-      inputAutoComplete: 'email',
-      label: formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' }),
-    },
-    //TODO: uncomment below for card payments
-    //{ name: "nameOnCard", inputAutoComplete: "cc-name", label: "Name on card" },
-    //{ name: "cardNumber", inputAutoComplete: "cc-number", label: "Card number" },
-    //{ name: "expirationDate", inputAutoComplete: "cc-exp", label: "Expiration date (MM/YY)", containerClassNames: "col-span-8 sm:col-span-9" },
-    //{ name: "cvc", inputAutoComplete: "csc", label: "CVC", containerClassNames: "col-span-4 sm:col-span-3" },
-    {
-      name: 'streetName',
-      inputAutoComplete: 'cc-name',
-      label: formatMessage({ id: 'street.name', defaultMessage: 'Street Name' }),
-      containerClassNames: 'col-span-full sm:col-span-9',
-    },
-    {
-      name: 'streetNumber',
-      inputAutoComplete: 'cc-name',
-      label: formatMessage({ id: 'street.number', defaultMessage: 'Street No.' }),
-      containerClassNames: 'col-span-full sm:col-span-3',
-    },
-    {
-      name: 'city',
-      inputAutoComplete: 'address-level2',
-      label: formatMessage({ id: 'city', defaultMessage: ' City' }),
-      containerClassNames: 'col-span-full sm:col-span-4',
-    },
-    {
-      name: 'postalCode',
-      inputAutoComplete: 'postal-code',
-      label: formatMessage({ id: 'zipCode', defaultMessage: 'Postal code' }),
-      containerClassNames: 'col-span-full sm:col-span-4',
-    },
-  ];
-
   const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
   const router = useRouter();
   const [checkoutData, setCheckoutData] = useState({
     firstName: '',
     lastName: '',
     emailAddress: '',
-    //TODO: uncomment all below for card payments
-    //nameOnCard: "",
-    //cardNumber: "",
-    //expirationDate: "",
-    //cvc: "",
+    nameOnCard: "",
+    cardNumber: "",
+    expirationDate: "",
+    cvc: "",
     streetName: '',
     streetNumber: '',
     city: '',
@@ -197,7 +145,6 @@ const Checkout = ({ }: Props) => {
                 </div>*/}
 
           <CheckoutForm
-            formInputData={inputData}
             submitText={`${formatCheckoutMessage({
               id: 'pay',
               defaultMessage: 'Pay',
