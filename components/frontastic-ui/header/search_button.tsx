@@ -1,5 +1,5 @@
 import React from 'react';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import { SearchIcon } from '@heroicons/react/outline';
 
 interface SearchButtonProps {

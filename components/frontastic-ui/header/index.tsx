@@ -1,77 +1,16 @@
 import React, { Fragment, useState } from 'react';
-import Image from 'frontastic/lib/image';
+import Image from '../../../frontastic/lib/image';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
-import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { MenuIcon } from '@heroicons/react/outline';
+import { Reference, ReferenceLink } from '../../../helpers/Reference';
+import { headerNavigation } from '../../../components/mockData';
 import HeaderMenu from './header_menu';
 import WishListButton from './wishlist_button';
 import CartButton from './cart_button';
-import { SearchIcon } from '@heroicons/react/solid';
 import AccountButton from './account_button';
 import SearchButton from './search_button';
 import MegaMenuContent from './mega_menu_content';
 import Typography from 'components/typography';
-
-const navigation = {
-  categories: [
-    /*{
-      name: 'Women',
-      featured: [
-        { name: 'Sleep', href: '#' },
-        { name: 'Swimwear', href: '#' },
-        { name: 'Underwear', href: '#' },
-      ],
-      collection: [
-        { name: 'Everything', href: '#' },
-        { name: 'Core', href: '#' },
-        { name: 'New Arrivals', href: '#' },
-        { name: 'Sale', href: '#' },
-      ],
-      categories: [
-        { name: 'Basic Tees', href: '#' },
-        { name: 'Artwork Tees', href: '#' },
-        { name: 'Bottoms', href: '#' },
-        { name: 'Underwear', href: '#' },
-        { name: 'Accessories', href: '#' },
-      ],
-      brands: [
-        { name: 'Full Nelson', href: '#' },
-        { name: 'My Way', href: '#' },
-        { name: 'Re-Arranged', href: '#' },
-        { name: 'Counterfeit', href: '#' },
-        { name: 'Significant Other', href: '#' },
-      ],
-    },
-    {
-      name: 'Men',
-      featured: [
-        { name: 'Casual', href: '#' },
-        { name: 'Boxers', href: '#' },
-        { name: 'Outdoor', href: '#' },
-      ],
-      collection: [
-        { name: 'Everything', href: '#' },
-        { name: 'Core', href: '#' },
-        { name: 'New Arrivals', href: '#' },
-        { name: 'Sale', href: '#' },
-      ],
-      categories: [
-        { name: 'Artwork Tees', href: '#' },
-        { name: 'Pants', href: '#' },
-        { name: 'Accessories', href: '#' },
-        { name: 'Boxers', href: '#' },
-        { name: 'Basic Tees', href: '#' },
-      ],
-      brands: [
-        { name: 'Significant Other', href: '#' },
-        { name: 'My Way', href: '#' },
-        { name: 'Counterfeit', href: '#' },
-        { name: 'Re-Arranged', href: '#' },
-        { name: 'Full Nelson', href: '#' },
-      ],
-    },*/
-  ],
-};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -82,14 +21,12 @@ export interface Link {
   reference: Reference;
 }
 
-interface Props {
+export interface HeaderProps {
   tagline?: string;
   links: Link[];
   cartItemCount: number;
   wishlistItemCount?: number;
-  logo: {
-    media: any;
-  };
+  logo: { media: any } | any;
   logoLink: Reference;
   searchLink: Reference;
   accountLink: Reference;
@@ -97,7 +34,7 @@ interface Props {
   cartLink: Reference;
 }
 
-const Header: React.FC<Props> = ({
+const Header: React.FC<HeaderProps> = ({
   tagline,
   links,
   cartItemCount,
@@ -114,7 +51,7 @@ const Header: React.FC<Props> = ({
   return (
     <div className="fixed-screen-width lg:relative-width bg-white">
       {/* Mobile menu */}
-      <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={navigation} />
+      <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={headerNavigation} />
 
       <header className="relative bg-white">
         {tagline && (
@@ -131,7 +68,14 @@ const Header: React.FC<Props> = ({
               <ReferenceLink target={logoLink} className="flex">
                 <span className="sr-only">Catwalk</span>
                 <div className="w-[60px] pr-3 sm:w-[100px] sm:pr-7">
-                  <Image media={logo.media} width={100} height={45} className="h-7 w-auto sm:h-10" alt="Logo" />
+                  <Image
+                    media={logo.media ? logo.media : { media: '' }}
+                    src={!logo.media ? logo : ''}
+                    width={100}
+                    height={45}
+                    className="h-7 w-auto sm:h-10"
+                    alt="Logo"
+                  />
                 </div>
               </ReferenceLink>
 
@@ -149,8 +93,8 @@ const Header: React.FC<Props> = ({
               {/* Mega menus */}
               <Popover.Group className="hidden lg:block lg:flex-1 lg:self-stretch">
                 <div className="flex h-full space-x-8">
-                  {navigation.categories.map((category, categoryIdx) => (
-                    <Popover key={categoryIdx} className="flex">
+                  {headerNavigation.categories.map((category, categoryIdx) => (
+                    <Popover key={category.name} className="flex">
                       {({ open }) => (
                         <>
                           <div className="relative flex">

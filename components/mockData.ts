@@ -1,6 +1,668 @@
 import { Product } from '../../types/product/Product';
 import { Cart } from '../../types/cart/Cart';
 
+export const productItem = {
+  productId: 'e35519db-1c34-4642-aff8-49ca072b5264',
+  version: '1351',
+  name: 'Jacke „Favola“ Peuterey schwarz',
+  slug: 'peuterey-jacke-favola-BMATNER-schwarz',
+  colors: [
+    {
+      name: 'Red',
+      key: '0',
+      bgColor: '#ff4d4d',
+      selectedColor: '#4dc3ff',
+    },
+    {
+      name: 'Blue',
+      key: '1',
+      bgColor: '#3333cc',
+      selectedColor: '#4dc3ff',
+    },
+    {
+      name: 'Green',
+      key: '2',
+      bgColor: '#00cc99',
+      selectedColor: '#4dc3ff',
+    },
+  ],
+  sizes: [
+    {
+      label: 'SM',
+      key: '0',
+    },
+    {
+      label: 'M',
+      key: '1',
+    },
+    {
+      label: 'LG',
+      key: '2',
+    },
+    {
+      label: 'XL',
+      key: '3',
+    },
+    {
+      label: 'XXL',
+      key: '4',
+    },
+    {
+      label: 'XXXL',
+      key: '5',
+    },
+  ],
+  categories: [
+    {
+      categoryId: '537e55cc-c6f8-4c22-8f09-64bbc2175bc3',
+    },
+    {
+      categoryId: '9acc95ed-0053-417e-b342-96da452f7eab',
+    },
+  ],
+  images: [
+    { src: 'https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg' },
+    { src: 'https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081072_1_medium.jpg' },
+  ],
+  price: {
+    centAmount: 16650,
+  },
+  details: [
+    {
+      name: 'A white Shirt',
+      items: 'A white shirt and a black jacket',
+    },
+  ],
+  variants: [
+    {
+      id: '1',
+      sku: 'M0E20000000E4QP',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QP',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxs',
+          label: 'XXS',
+        },
+        size: '34',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '2',
+      sku: 'M0E20000000E4QQ',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QQ',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxs',
+          label: 'XXS',
+        },
+        size: '36',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '3',
+      sku: 'M0E20000000E4QR',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QR',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxs',
+          label: 'XXS',
+        },
+        size: '38',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '4',
+      sku: 'M0E20000000E4QS',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QS',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xs',
+          label: 'XS',
+        },
+        size: '40',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '5',
+      sku: 'M0E20000000E4QT',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QT',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 's',
+          label: 'S',
+        },
+        size: '42',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+        isOnStock: true,
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '6',
+      sku: 'M0E20000000E4QU',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QU',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'm',
+          label: 'M',
+        },
+        size: '44',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '7',
+      sku: 'M0E20000000E4QV',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QV',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'l',
+          label: 'L',
+        },
+        size: '46',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+        isOnStock: true,
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '8',
+      sku: 'M0E20000000E4QW',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QW',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xl',
+          label: 'XL',
+        },
+        size: '48',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '9',
+      sku: 'M0E20000000E4QX',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QX',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxl',
+          label: 'XXL',
+        },
+        size: '50',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '10',
+      sku: 'M0E20000000E4QY',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QY',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxxl',
+          label: 'XXXL',
+        },
+        size: '52',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '11',
+      sku: 'M0E20000000E4QZ',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4QZ',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxxl',
+          label: 'XXXL',
+        },
+        size: '54',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '12',
+      sku: 'M0E20000000E4R0',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4R0',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxxl',
+          label: 'XXXL',
+        },
+        size: '56',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+    {
+      id: '13',
+      sku: 'M0E20000000E4R1',
+      images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      groupId: '80123',
+      attributes: {
+        articleNumberManufacturer: 'FAVOLA BMAT NER',
+        articleNumberMax: '80123',
+        matrixId: 'M0E20000000E4R1',
+        baseId: '80123',
+        designer: {
+          key: 'peuterey',
+          label: 'Peuterey',
+        },
+        madeInItaly: {
+          key: 'no',
+          label: 'no',
+        },
+        commonSize: {
+          key: 'xxxl',
+          label: 'XXXL',
+        },
+        size: '58',
+        color: {
+          key: 'black',
+          label: 'schwarz',
+        },
+        colorFreeDefinition: 'schwarz',
+        style: {
+          key: 'sporty',
+          label: 'sporty',
+        },
+        gender: {
+          key: 'women',
+          label: 'Damen',
+        },
+        season: 's15',
+      },
+      price: {
+        centAmount: 16650,
+      },
+      discountedPrice: {
+        centAmount: 14940,
+      },
+    },
+  ],
+};
 export const products: Product[] = [
   {
     productId: '05a9e149-0596-4a3d-aed2-c52949eac45b',
@@ -13699,3 +14361,378 @@ export const getMockCart: (numberOfLineitems?: number) => Cart = (numberOfLineit
   cart.sum.centAmount = cart.lineItems.reduce((prev, current) => prev + current.totalPrice.centAmount, 0);
   return cart;
 };
+
+export const headerNavigation = {
+  categories: [
+    /*{
+      name: 'Women',
+      featured: [
+        { name: 'Sleep', href: '#' },
+        { name: 'Swimwear', href: '#' },
+        { name: 'Underwear', href: '#' },
+      ],
+      collection: [
+        { name: 'Everything', href: '#' },
+        { name: 'Core', href: '#' },
+        { name: 'New Arrivals', href: '#' },
+        { name: 'Sale', href: '#' },
+      ],
+      categories: [
+        { name: 'Basic Tees', href: '#' },
+        { name: 'Artwork Tees', href: '#' },
+        { name: 'Bottoms', href: '#' },
+        { name: 'Underwear', href: '#' },
+        { name: 'Accessories', href: '#' },
+      ],
+      brands: [
+        { name: 'Full Nelson', href: '#' },
+        { name: 'My Way', href: '#' },
+        { name: 'Re-Arranged', href: '#' },
+        { name: 'Counterfeit', href: '#' },
+        { name: 'Significant Other', href: '#' },
+      ],
+    },
+    {
+      name: 'Men',
+      featured: [
+        { name: 'Casual', href: '#' },
+        { name: 'Boxers', href: '#' },
+        { name: 'Outdoor', href: '#' },
+      ],
+      collection: [
+        { name: 'Everything', href: '#' },
+        { name: 'Core', href: '#' },
+        { name: 'New Arrivals', href: '#' },
+        { name: 'Sale', href: '#' },
+      ],
+      categories: [
+        { name: 'Artwork Tees', href: '#' },
+        { name: 'Pants', href: '#' },
+        { name: 'Accessories', href: '#' },
+        { name: 'Boxers', href: '#' },
+        { name: 'Basic Tees', href: '#' },
+      ],
+      brands: [
+        { name: 'Significant Other', href: '#' },
+        { name: 'My Way', href: '#' },
+        { name: 'Counterfeit', href: '#' },
+        { name: 'Re-Arranged', href: '#' },
+        { name: 'Full Nelson', href: '#' },
+      ],
+    },*/
+  ],
+};
+
+export const headerLogo = { media: 'https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/test.png' };
+
+export const headerButtonLink = {
+  type: 'page-folder',
+  pageFolder: {
+    pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+    name: 'Start',
+    _urls: { de_CH: '/', fr_CH: '/', it_CH: '/', de_LI: '/' },
+    _url: '/',
+  },
+  openInNewWindow: false,
+};
+
+export const headerAccountLink = {
+  type: 'link',
+  link: '/account',
+  openInNewWindow: false,
+};
+
+export const headerLinks = [
+  {
+    name: 'Men',
+    reference: {
+      type: 'page-folder',
+      pageFolder: {
+        pageFolderId: 'b27378fbe05639798e9b23399a373bc0',
+        name: 'Men',
+        _urls: { de_CH: '/men', fr_CH: '/men', it_CH: '/men', de_LI: '/men' },
+        _url: '/men',
+      },
+      openInNewWindow: false,
+    },
+  },
+  {
+    name: 'Women',
+    reference: {
+      type: 'page-folder',
+      pageFolder: {
+        pageFolderId: 'b27378fbe05639798e9b23399a373bc0',
+        name: 'Men',
+        _urls: { de_CH: '/men', fr_CH: '/men', it_CH: '/men', de_LI: '/men' },
+        _url: '/men',
+      },
+      openInNewWindow: false,
+    },
+  },
+];
+
+export const footerCopyrightLinks = [
+  { name: 'Cookies', reference: '/' },
+  { name: 'Privacy policy', reference: '/' },
+  { name: 'T&C', reference: '/' },
+];
+
+export const footerColumns = [
+  {
+    header: 'Help & Information',
+    icon: 'question',
+    links: [
+      {
+        name: 'Order status',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Shipment',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Returns and exchanges',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Refunds',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+    header: 'Contact us',
+    icon: 'inbox',
+    links: [
+      {
+        name: '02300 77 77 5',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'hello@frontastic.cloud',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+    header: 'About us',
+    icon: 'speaker',
+    links: [
+      {
+        name: 'About Us',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Careers',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Partnership',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Press',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+    ],
+  },
+  {
+    header: 'Products & Services',
+    links: [
+      {
+        name: 'Limitless Customizability',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Amazing Performance',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+      {
+        name: 'Functional Usability',
+        reference: {
+          openInNewWindow: false,
+          type: 'page-folder',
+          pageFolder: {
+            pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+            name: 'Start',
+            _url: '/',
+            _urls: {
+              de_CH: '/',
+              de_LI: '/',
+              fr_CH: '/',
+              it_CH: '/',
+            },
+          },
+        },
+      },
+    ],
+  },
+];

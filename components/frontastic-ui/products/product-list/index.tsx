@@ -3,33 +3,33 @@ import { useRouter } from 'next/router';
 import List from './List';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import Laddercrumb from 'components/frontastic-ui/laddercrumb';
-import useMediaQuery from 'helpers/hooks/useMediaQuery';
+import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
 import { Product } from '../../../../../types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
-interface Props {
+export interface ProductListProps {
   products: Product[];
   previousCursor: string;
   nextCursor: string;
   category: string;
 }
 
-export default function ProductList({ products, previousCursor, nextCursor, category }: Props) {
+export default function ProductList({ products, previousCursor, nextCursor, category }: ProductListProps) {
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
   const { formatMessage } = useFormat({ name: 'common' });
 
   const [isLargerThan1024] = useMediaQuery(1024);
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const categories = router.asPath
-    .split('/')
-    .filter(Boolean)
-    .map((category) => (
-      <span key={category} className="capitalize">
-        {category}
-      </span>
-    ));
+  // const categories = router.asPath
+  //   .split('/')
+  //   .filter(Boolean)
+  //   .map((category) => (
+  //     <span key={category} className="capitalize">
+  //       {category}
+  //     </span>
+  //   ));
 
   const activeButtonClassName =
     'relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50';

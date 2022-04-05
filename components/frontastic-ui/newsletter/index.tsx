@@ -2,7 +2,7 @@ import Typography from 'components/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useState } from 'react';
 
-export interface Props {
+export interface NewsletterProps {
   headline?: string;
   description?: string;
   inputPlaceholder?: string;
@@ -20,7 +20,7 @@ export default function Newsletter({
   disclaimer,
   successTitle,
   successMessage,
-}: Props) {
+}: NewsletterProps) {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatNewsletterMessage } = useFormat({ name: 'newsletter' });

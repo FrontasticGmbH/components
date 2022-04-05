@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from '../../../../helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
 import { Money } from '../../../../../types/product/Money';
 import WishlistAddButton from './wishlist_add_button';
@@ -13,7 +13,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-interface Props {
+export interface ProductDetailsProps {
   product: UIProduct;
   onAddToCart: any;
 
@@ -52,7 +52,13 @@ interface UIDetail {
   items: string[];
 }
 
-export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
+export default function ProductDetail({
+  product,
+  onAddToCart,
+  onAddToWishlist,
+  variant,
+  onChangeVariantIdx,
+}: ProductDetailsProps) {
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 

@@ -1,11 +1,9 @@
-import { Reference, ReferenceLink } from 'helpers/Reference';
-import Image from 'frontastic/lib/image';
-import Markdown from 'frontastic/lib/markdown';
+import { Reference, ReferenceLink } from '../../../../helpers/Reference';
+import Image from '../../../../frontastic/lib/image';
 import Typography from 'components/typography';
-interface Props {
-  image: {
-    media: any;
-  };
+import Markdown from 'frontastic/lib/markdown';
+export interface TileProps {
+  image: { media: any } | any;
   subtitle: string;
   header: string;
   text: string;
@@ -15,7 +13,7 @@ interface Props {
   textColor?: string;
 }
 
-const Tile: React.FC<Props> = ({
+const Tile: React.FC<TileProps> = ({
   image,
   subtitle,
   header,
@@ -29,7 +27,8 @@ const Tile: React.FC<Props> = ({
     <div className="relative">
       <div className="aspect-w-6 aspect-h-4 w-full md:aspect-h-3">
         <Image
-          media={image.media}
+          media={image.media ? image.media : { media: '' }}
+          src={!image.media ? image : ''}
           layout="fill"
           className="object-cover object-top opacity-70 md:opacity-100"
           alt={header}
