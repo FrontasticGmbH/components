@@ -14,7 +14,7 @@ interface Props {
   readonly isFormValid: boolean;
 }
 
-const Form = ({ formInputData, submitText, updateFormInput, submitForm, data, isFormValid }: Props) => {
+const CheckoutForm = ({ formInputData, submitText, updateFormInput, submitForm, data, isFormValid }: Props) => {
   return (
     <form className="mt-6">
       <div className="grid grid-cols-12 gap-y-6 gap-x-4">
@@ -52,4 +52,4 @@ const Form = ({ formInputData, submitText, updateFormInput, submitForm, data, is
   );
 };
 
-export default Form;
+export default CheckoutForm;
