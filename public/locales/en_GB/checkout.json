@@ -15,10 +15,11 @@
   "placeOrder": "Place order",
   "shippingTo": "Shipping to",
   "shippingAddress": "Shipping address",
+  "billingAddress": "Billing address",
   "shippingInformation": "Shipping information",
   "billingDetails": "Billing details",
   "billingInformation": "Billing information",
-  "billingDetailsLabel": "Use same billing details as delivery address",
+  "billingDetailsLabel": "Billing address is the same as shipping address",
   "paymentMethod": "Payment method",
   "yourOrder": "Your order",
   "orderId": "Order ID",
@@ -35,5 +36,7 @@
   "fullsummary.show": "Show full summary",
   "total": "Total",
   "order.thanks": "Thanks for ordering",
-  "order.appreciate": "We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation very soon!"
+  "order.appreciate": "We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation very soon!",
+  "creditCard": "Credit card",
+  "payment.preference.ask": "What do you prefer to pay with?"
 }

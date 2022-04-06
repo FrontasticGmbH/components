@@ -2,7 +2,7 @@ export interface Props {
   /*
    * function called when input is changed
    */
-  readonly onChange: (propName: string, newValue: boolean) => void;
+  readonly onChange: (newValue: boolean) => void;
   /*
    * whether the checkbox is checked
    */
@@ -67,11 +67,9 @@ const FormCheckbox = ({
         name={name}
         autoComplete={inputAutoComplete}
         className={
-          inputClassNames ? inputClassNames : 'h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+          inputClassNames ? inputClassNames : 'h-4 w-4 rounded border-gray-300 text-pink-400 focus:ring-pink-400'
         }
-        onChange={(e: React.FormEvent) =>
-          onChange((e.target as HTMLInputElement).name, (e.target as HTMLInputElement).checked)
-        }
+        onChange={(e: React.FormEvent) => onChange((e.target as HTMLInputElement).checked)}
         checked={checked}
       />
     </div>

@@ -22,9 +22,9 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
   return (
     <section aria-labelledby="order-heading" className="bg-gray-50 px-4 py-6 sm:px-6 lg:hidden">
       <Disclosure>
-        <div className="mx-auto max-w-lg">
-          {({ open }) => (
-            <>
+        {({ open }) => (
+          <div className="mx-auto max-w-lg">
+            <div>
               <div className="flex items-center justify-between">
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
                   {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
@@ -185,9 +185,9 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                   )}
                 </span>
               </p>
-            </>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
       </Disclosure>
     </section>
   );

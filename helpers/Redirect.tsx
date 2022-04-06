@@ -11,11 +11,12 @@ const Redirect: React.FC<RedirectProps> = ({ target }) => {
   const router = useRouter();
 
   useEffect(() => {
+    if (!target) return;
     //resolve href
     const resolvedTarget = typeof target === 'string' ? target : getReferenceTarget(target);
     //redirect upon mounting
     router.push(resolvedTarget);
-  }, []);
+  }, [target]);
 
   return <></>;
 };

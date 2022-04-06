@@ -1,5 +1,10 @@
 {
-    "color": "Farbe",
-    "size": "Größe",
-    "quantity": "Menge"
+  "color": "Farbe",
+  "size": "Größe",
+  "quantity": "Menge",
+  "product.info": "Produktinformation",
+  "product.desc": "Beschreibung des Produkts",
+  "bag.add": "In den Warenkorb",
+  "details.additional": "Weitere Details",
+  "products": "Produkte"
 }

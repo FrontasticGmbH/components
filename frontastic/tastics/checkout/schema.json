@@ -1,7 +1,19 @@
 {
-    "tasticType": "frontastic/ui/checkout",
-    "name": "Frontastic UI checkout",
-    "icon": "wrap_text",
-    "category": "Checkout",
-    "schema": []
+  "tasticType": "frontastic/ui/checkout",
+  "name": "Frontastic UI checkout",
+  "icon": "wrap_text",
+  "category": "Checkout",
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Login Link",
+          "field": "loginLink",
+          "type": "reference",
+          "required": true
+        }
+      ]
+    }
+  ]
 }
