@@ -2,6 +2,9 @@ import { CartDetails } from 'frontastic/actions/cart/update-cart';
 import { Cart } from '../../../types/cart/Cart';
 import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Variant } from '../../../types/product/Variant';
+import { Order } from '../../../types/cart/Order';
+
+import { SWRResponse } from 'swr';
 
 export interface UseCart {
   data?: Cart;
@@ -12,4 +15,5 @@ export interface UseCart {
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;
   shippingMethods: { data?: ShippingMethod[] };
   orderCart: () => Promise<void>;
+  orderHistory?: () => Promise<Order[]>;
 }

@@ -16,14 +16,5 @@ export const addItem = async (variant: Variant, quantity: number) => {
     },
     payload,
   );
-  console.log('item added, ', variant, quantity, res);
   mutate('/action/cart/getCart', res);
 };
-
-// const { data } = useSWR(`${url}/action/cart/getCart`);
-
-// const addToCart = async e => {
-//   e.preventDefault();
-
-//   mutate(`${url}/action/cart/getCart`);
-// };

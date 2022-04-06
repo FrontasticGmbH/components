@@ -7,14 +7,15 @@ import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
 import { Product } from '../../../../../types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
-interface Props {
+
+export interface ProductListProps {
   products: Product[];
   previousCursor: string;
   nextCursor: string;
   category: string;
 }
 
-export default function ProductList({ products, previousCursor, nextCursor, category }: Props) {
+export default function ProductList({ products, previousCursor, nextCursor, category }: ProductListProps) {
   const [previousPageURL, setPreviousPageURL] = useState<string>('');
   const [nextPageURL, setNextPageURL] = useState<string>('');
 

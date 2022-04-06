@@ -25,6 +25,7 @@ import { setShippingMethod, updateCart } from '../actions/cart/update-cart';
 import { orderCart } from '../actions/cart/order-cart';
 import { cartItems } from '../actions/cart/cart-items';
 import { shippingMethods } from '../actions/cart/shipping-methods';
+import { orderHistory } from '../actions/cart/order-history';
 
 export interface FrontasticState {
   useCart: UseCart;
@@ -43,6 +44,7 @@ export const getFrontasticState = (): FrontasticState => {
       updateItem,
       shippingMethods: shippingMethods(),
       orderCart,
+      orderHistory,
     },
     useAccount: {
       ...getAccount(),
