@@ -37,13 +37,18 @@ export const getRouteData =
   ): Promise<RedirectResponse | PageDataResponse> => {
     // Remove slug from query since it's not needed as part of the query.
     delete query.slug;
-
+    
     const slug = urlParams.slug?.join('/') || '';
+    query.path = `/${slug !== 'index' ? slug : ''}`;
+    query.locale = locale;
+
     const headers = {
-      'Frontastic-Path': `/${slug !== 'index' ? slug : ''}`,
+      'Frontastic-Path': query.path,
       'Frontastic-Locale': locale,
     };
     const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
+
+    //console.log('endpoint:', endpoint)
 
     const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(
       endpoint,
@@ -54,6 +59,7 @@ export const getRouteData =
       headers,
     )) as RedirectResponse | PageDataResponse;
 
+    //console.log('data:', data)
     return data;
   };
 
