@@ -56,7 +56,6 @@ const performFetchApiHub = async (
   const frontasticSessionHeaders = {};
 
   const frontasticSessionCookie = cookieManager.getCookie('frontastic-session');
-  console.log('Session cookie:', frontasticSessionCookie);
   if (frontasticSessionCookie) {
     frontasticSessionHeaders['Frontastic-Session'] = frontasticSessionCookie;
   }
