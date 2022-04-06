@@ -1,8 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  stories: [
-    '../components/**/*.stories.mdx',
-    '../components/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../components/**/*.stories.mdx', '../components/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -28,5 +27,17 @@ module.exports = {
   framework: '@storybook/react',
   core: {
     builder: 'webpack5',
+  },
+  webpackFinal: async (config) => {
+    config.resolve.modules.push(path.resolve(__dirname, '..'));
+    config.resolve.fallback = {
+      fs: false,
+      tls: false,
+      net: false,
+      module: false,
+      path: require.resolve('path-browserify'),
+    };
+
+    return config;
   },
 };
