@@ -74,7 +74,7 @@ const performFetchApiHub = async (
     },
   };
 
-  const endpoint = resolveApiHubUrl() + endpointPath;  
+  const endpoint = resolveApiHubUrl() + endpointPath;
 
   return await fetch(endpoint, actualInit).then((response): Response => {
     if (response.ok && response.headers.has('Frontastic-Session')) {
