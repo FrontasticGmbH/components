@@ -6,5 +6,6 @@
   "product.desc": "Product description",
   "bag.add": "Add to bag",
   "details.additional": "Additional details",
-  "products": "Products"
+  "products": "Products",
+  "outOfStock": "Out of stock"
 }

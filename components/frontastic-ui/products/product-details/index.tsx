@@ -226,9 +226,12 @@ export default function ProductDetail({
                 <button
                   type="button"
                   onClick={() => onAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50"
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
+                  disabled={!variant.isOnStock}
                 >
-                  {formatProductMessage({ id: 'bad.add', defaultMessage: 'Add to bag' })}
+                  {variant.isOnStock
+                    ? formatProductMessage({ id: 'bag.add', defaultMessage: 'Add to bag' })
+                    : formatProductMessage({ id: 'outOfStock', defaultMessage: 'Out of stock' })}
                 </button>
 
                 <WishlistAddButton onAddToWishlist={onAddToWishlist} />

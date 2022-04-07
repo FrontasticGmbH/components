@@ -6,5 +6,6 @@
   "product.desc": "Beschreibung des Produkts",
   "bag.add": "In den Warenkorb",
   "details.additional": "Weitere Details",
-  "products": "Produkte"
+  "products": "Produkte",
+  "outOfStock": "nicht vorrättig"
 }
