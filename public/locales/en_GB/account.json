@@ -23,5 +23,8 @@
   "profile": "Profile",
   "profile.desc": "This information will be displayed publicly so be careful what you share.",
   "account.sign.in": "Sign in to your account",
-  "account.create.new": "Create new account"
+  "account.create.new": "Create new account",
+  "verification.resend": "Resend verification email",
+  "verification.done": "Email verified",
+  "verification.failed": "Invalid token"
 }

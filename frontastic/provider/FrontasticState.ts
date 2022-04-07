@@ -6,6 +6,7 @@ import { getAccount } from '../actions/account/get-account';
 import {
   changePassword,
   confirm,
+  resendVerificationEmail,
   login,
   logout,
   register,
@@ -52,6 +53,7 @@ export const getFrontasticState = (): FrontasticState => {
       logout,
       register,
       confirm,
+      resendVerificationEmail,
       changePassword,
       requestPasswordReset,
       resetPassword,

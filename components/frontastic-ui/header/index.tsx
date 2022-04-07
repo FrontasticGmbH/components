@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({
 
       <header className="relative bg-white">
         {tagline && (
-          <p className="flex h-[4px] items-center justify-center bg-[#25304D] px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          <p className="flex items-center justify-center bg-[#25304D] px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             <Typography>{tagline}</Typography>
           </p>
         )}

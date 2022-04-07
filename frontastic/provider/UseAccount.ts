@@ -8,6 +8,7 @@ export interface UseAccount extends GetAccountResult {
   logout: () => Promise<void>;
   register: (account: RegisterAccount) => Promise<Account>;
   confirm: (token: string) => Promise<Account>;
+  resendVerificationEmail: (email: string, password: string) => Promise<void>;
   changePassword: (oldPassword: string, newPassword: string) => Promise<Account>;
   requestPasswordReset: (email: string) => Promise<void>;
   resetPassword: (token: string, newPassword: string) => Promise<Account>;

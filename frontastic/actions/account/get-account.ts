@@ -13,7 +13,7 @@ export const getAccount = (): GetAccountResult => {
 
   const account = (result.data as Account) || (result.data as GetAccountResult)?.account;
 
-  if (account?.accountId) return { account, loggedIn: true };
+  if (account?.accountId && account?.confirmed) return { account, loggedIn: true };
 
   return {
     loggedIn: false,

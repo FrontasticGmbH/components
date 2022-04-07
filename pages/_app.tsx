@@ -6,11 +6,13 @@ import { FrontasticProvider } from 'frontastic';
 import 'tailwindcss/tailwind.css';
 
 import '../styles/app.scss';
+import Toaster from 'components/Toaster';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (
     <FrontasticProvider>
       <Component {...pageProps} />
+      <Toaster />
     </FrontasticProvider>
   );
 }

@@ -42,5 +42,6 @@
   "brands": "Brands",
   "next": "Next",
   "prev": "Previous",
-  "item.add.on": "Item Added on"
+  "item.add.on": "Item Added on",
+  "submit": "Submit"
 }

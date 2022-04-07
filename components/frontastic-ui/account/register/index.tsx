@@ -103,10 +103,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Already have an account?{' '}
-            <ReferenceLink
-              target={loginLink}
-              className="duration-150ms font-medium text-pink-400 underline transition-colors ease-out"
-            >
+            <ReferenceLink target={loginLink} className="font-medium text-pink-400 underline hover:text-pink-200">
               {formatAccountMessage({ id: 'account.login.here', defaultMessage: 'Login here' })}
             </ReferenceLink>
           </p>
@@ -170,7 +167,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
                   {formatAccountMessage({ id: 'sign.up', defaultMessage: 'Sign up' })}

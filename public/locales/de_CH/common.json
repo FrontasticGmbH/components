@@ -42,5 +42,6 @@
   "brands": "Marken",
   "next": "Weiter",
   "prev": "Vorherige",
-  "item.add.on": "Artikel hinzugefügt am"
+  "item.add.on": "Artikel hinzugefügt am",
+  "submit": "einreichen"
 }

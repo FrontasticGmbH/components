@@ -50,6 +50,15 @@ export const confirm = async (token: string): Promise<Account> => {
   return res;
 };
 
+export const resendVerificationEmail = async (email: string, password: string): Promise<void> => {
+  const payload = {
+    email,
+    password,
+  };
+  const res = await fetchApiHub('/action/account/resendVerificationEmail', { method: 'POST' }, payload);
+  return res;
+};
+
 export const changePassword = async (oldPassword: string, newPassword: string): Promise<Account> => {
   const res = await fetchApiHub('/action/account/password', { method: 'POST' }, { oldPassword, newPassword });
   console.log('changed password, ', res.email, res);
