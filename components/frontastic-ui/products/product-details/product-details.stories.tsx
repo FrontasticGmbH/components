@@ -16,6 +16,7 @@ const Template: Story<ProductDetailsProps> = (args) => (
     product={productItem}
     onAddToCart={() => console.log('Added to Cart')}
     onChangeVariantIdx={() => console.log('EVENT CLICKED')}
+    variant={productItem.variants[0]}
     {...args}
   />
 );

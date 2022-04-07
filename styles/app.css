@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-// atoms
-@import './components/atoms/input';
-@import './components/atoms/slider';
-
 body {
     color: #2d3748;
     background-color:white;
