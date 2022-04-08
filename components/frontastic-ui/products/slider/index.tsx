@@ -6,7 +6,7 @@ import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { mobile, tablet, desktop } from 'helpers/utils/screensizes';
 import { ReferenceLink, Reference } from 'helpers/Reference';
 
-interface Props {
+export interface Props {
   products: Product[];
   title: string;
   subline?: string;

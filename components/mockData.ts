@@ -722,6 +722,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: false,
       },
       {
         id: '2',
@@ -767,6 +768,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: false,
       },
       {
         id: '3',
@@ -812,6 +814,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: false,
       },
       {
         id: '4',
@@ -857,6 +860,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: false,
       },
       {
         id: '5',
@@ -903,6 +907,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: false,
       },
       {
         id: '6',
@@ -948,6 +953,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -994,6 +1000,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -1039,6 +1046,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -1085,6 +1093,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -1130,6 +1139,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -1175,6 +1185,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -1220,6 +1231,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -1266,6 +1278,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -1311,6 +1324,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -1357,6 +1371,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -1402,6 +1417,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -1447,6 +1463,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '18',
@@ -1492,6 +1509,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '19',
@@ -1537,6 +1555,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '20',
@@ -1582,6 +1601,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '21',
@@ -1627,6 +1647,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '22',
@@ -1672,6 +1693,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '23',
@@ -1717,6 +1739,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '24',
@@ -1762,9 +1785,11 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '25',
+        isOnStock: true,
         sku: 'M0E20000000E734',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080367_1_medium.jpg'],
         groupId: '80367',
@@ -1809,7 +1834,7 @@ export const products: Product[] = [
         },
       },
     ],
-    _url: '/p/05a9e149-0596-4a3d-aed2-c52949eac45b',
+    _url: '/',
   },
   {
     productId: 'a9eea3e9-4615-41f7-8d83-5238a923b6b0',
@@ -1867,9 +1892,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: false,
       },
     ],
-    _url: '/p/a9eea3e9-4615-41f7-8d83-5238a923b6b0',
+    _url: '/',
   },
   {
     productId: 'fc4e2b50-6ec6-4018-806d-b34fb54556d7',
@@ -1933,9 +1959,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/fc4e2b50-6ec6-4018-806d-b34fb54556d7',
+    _url: '/',
   },
   {
     productId: 'c05dee38-6054-4ca4-a91a-4a1d581fa179',
@@ -1995,6 +2022,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -2040,6 +2068,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -2085,6 +2114,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -2130,6 +2160,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -2175,6 +2206,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -2220,6 +2252,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -2265,6 +2298,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -2310,9 +2344,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/c05dee38-6054-4ca4-a91a-4a1d581fa179',
+    _url: '/',
   },
   {
     productId: 'e35519db-1c34-4642-aff8-49ca072b5264',
@@ -2372,6 +2407,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -2417,6 +2453,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -2462,6 +2499,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -2507,6 +2545,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -2553,6 +2592,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -2598,6 +2638,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -2644,6 +2685,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -2689,6 +2731,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -2734,6 +2777,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -2779,6 +2823,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -2824,6 +2869,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -2869,6 +2915,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -2914,9 +2961,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/e35519db-1c34-4642-aff8-49ca072b5264',
+    _url: '/',
   },
   {
     productId: '4984bfa2-d47d-483e-906a-1aa28fbb96d4',
@@ -2976,6 +3024,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -3021,6 +3070,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -3066,6 +3116,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -3111,6 +3162,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -3157,6 +3209,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -3202,6 +3255,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -3248,6 +3302,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -3293,6 +3348,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -3339,6 +3395,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -3384,6 +3441,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -3430,6 +3488,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -3475,6 +3534,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -3521,6 +3581,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -3566,6 +3627,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -3612,6 +3674,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -3657,6 +3720,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -3702,6 +3766,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '18',
@@ -3747,6 +3812,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '19',
@@ -3792,6 +3858,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '20',
@@ -3837,6 +3904,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '21',
@@ -3882,6 +3950,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '22',
@@ -3927,6 +3996,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '23',
@@ -3972,6 +4042,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '24',
@@ -4017,6 +4088,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '25',
@@ -4062,9 +4134,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/4984bfa2-d47d-483e-906a-1aa28fbb96d4',
+    _url: '/',
   },
   {
     productId: '79568202-7381-4c78-976b-379c25090cd9',
@@ -4124,6 +4197,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -4169,6 +4243,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -4214,6 +4289,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -4260,6 +4336,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -4306,6 +4383,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -4352,6 +4430,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -4397,6 +4476,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -4442,6 +4522,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -4487,6 +4568,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -4532,6 +4614,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -4577,6 +4660,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -4622,6 +4706,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -4667,9 +4752,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/79568202-7381-4c78-976b-379c25090cd9',
+    _url: '/',
   },
   {
     productId: 'aae59a92-f94c-45b2-8e44-4441dc00cb84',
@@ -4729,6 +4815,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -4774,6 +4861,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -4819,6 +4907,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -4864,6 +4953,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -4909,6 +4999,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -4954,6 +5045,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -4999,6 +5091,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -5044,6 +5137,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -5089,6 +5183,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -5134,6 +5229,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -5179,6 +5275,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -5224,6 +5321,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -5269,6 +5367,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -5314,6 +5413,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -5359,6 +5459,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -5404,6 +5505,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -5449,6 +5551,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '18',
@@ -5494,6 +5597,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '19',
@@ -5539,6 +5643,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '20',
@@ -5584,6 +5689,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '21',
@@ -5629,6 +5735,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '22',
@@ -5674,6 +5781,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '23',
@@ -5719,6 +5827,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '24',
@@ -5764,6 +5873,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '25',
@@ -5809,9 +5919,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/aae59a92-f94c-45b2-8e44-4441dc00cb84',
+    _url: '/',
   },
   {
     productId: '5c3718ac-88c3-43ac-9066-fe0f096a3c81',
@@ -5868,9 +5979,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/5c3718ac-88c3-43ac-9066-fe0f096a3c81',
+    _url: '/',
   },
   {
     productId: '4d1c5585-1be8-472f-b41b-219c656c9377',
@@ -5931,9 +6043,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/4d1c5585-1be8-472f-b41b-219c656c9377',
+    _url: '/',
   },
   {
     productId: '3a7b081a-5fc6-4ea7-8d0c-440968cac05b',
@@ -5993,6 +6106,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -6039,6 +6153,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -6085,6 +6200,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -6131,6 +6247,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -6177,6 +6294,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -6222,6 +6340,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -6267,6 +6386,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -6312,9 +6432,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/3a7b081a-5fc6-4ea7-8d0c-440968cac05b',
+    _url: '/',
   },
   {
     productId: 'a59eee16-8159-4540-9ca7-3df2d8418580',
@@ -6374,6 +6495,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -6419,6 +6541,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -6464,6 +6587,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -6509,6 +6633,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -6554,6 +6679,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -6599,6 +6725,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -6644,6 +6771,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -6689,6 +6817,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -6734,6 +6863,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -6779,6 +6909,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -6824,6 +6955,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -6869,6 +7001,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -6914,9 +7047,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/a59eee16-8159-4540-9ca7-3df2d8418580',
+    _url: '/',
   },
   {
     productId: '76a5e010-4c5c-4ab2-b3d9-5791a0c77bbb',
@@ -6973,6 +7107,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -7018,6 +7153,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -7063,6 +7199,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -7108,6 +7245,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -7153,6 +7291,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -7199,6 +7338,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -7244,6 +7384,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -7289,9 +7430,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/76a5e010-4c5c-4ab2-b3d9-5791a0c77bbb',
+    _url: '/',
   },
   {
     productId: '588ce3c6-71ee-4f95-9d45-6bdab7979e40',
@@ -7348,6 +7490,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -7393,6 +7536,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -7439,6 +7583,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -7484,6 +7629,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -7529,6 +7675,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -7574,6 +7721,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -7620,6 +7768,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -7665,6 +7814,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -7710,6 +7860,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -7755,6 +7906,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -7801,6 +7953,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -7846,6 +7999,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -7891,6 +8045,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -7936,6 +8091,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -7981,6 +8137,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -8026,6 +8183,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -8071,6 +8229,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '18',
@@ -8116,6 +8275,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '19',
@@ -8161,6 +8321,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '20',
@@ -8206,6 +8367,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '21',
@@ -8251,6 +8413,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '22',
@@ -8296,6 +8459,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '23',
@@ -8341,6 +8505,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '24',
@@ -8386,6 +8551,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '25',
@@ -8431,9 +8597,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/588ce3c6-71ee-4f95-9d45-6bdab7979e40',
+    _url: '/',
   },
   {
     productId: 'd93365a5-060e-4495-b1d7-81f8d5d40c61',
@@ -8491,9 +8658,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/d93365a5-060e-4495-b1d7-81f8d5d40c61',
+    _url: '/',
   },
   {
     productId: 'f807645f-e3d6-479a-a57a-4f62a7e6ec0c',
@@ -8553,6 +8721,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -8598,6 +8767,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -8643,6 +8813,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -8688,6 +8859,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -8733,6 +8905,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -8778,6 +8951,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -8823,6 +8997,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -8868,6 +9043,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -8913,6 +9089,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -8958,6 +9135,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -9004,6 +9182,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -9049,6 +9228,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -9095,6 +9275,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -9140,6 +9321,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -9185,6 +9367,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -9230,6 +9413,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -9275,6 +9459,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '18',
@@ -9320,6 +9505,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '19',
@@ -9365,6 +9551,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '20',
@@ -9410,6 +9597,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '21',
@@ -9455,6 +9643,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '22',
@@ -9500,6 +9689,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '23',
@@ -9545,6 +9735,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '24',
@@ -9590,6 +9781,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '25',
@@ -9635,9 +9827,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/f807645f-e3d6-479a-a57a-4f62a7e6ec0c',
+    _url: '/',
   },
   {
     productId: 'aa197fc8-1b7f-4d0c-909b-496106bedce7',
@@ -9694,6 +9887,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -9739,6 +9933,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -9784,6 +9979,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -9829,6 +10025,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -9874,6 +10071,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -9919,6 +10117,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -9964,6 +10163,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -10009,6 +10209,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -10054,6 +10255,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -10100,6 +10302,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -10146,6 +10349,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -10191,6 +10395,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -10236,9 +10441,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/aa197fc8-1b7f-4d0c-909b-496106bedce7',
+    _url: '/',
   },
   {
     productId: '5239fe72-d6db-4e6d-8fb9-5e0dbbfc783a',
@@ -10298,6 +10504,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -10343,6 +10550,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -10388,6 +10596,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -10433,6 +10642,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -10478,6 +10688,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -10523,6 +10734,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -10569,6 +10781,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -10614,6 +10827,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -10659,6 +10873,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -10704,6 +10919,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -10749,6 +10965,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -10794,6 +11011,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -10839,9 +11057,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/5239fe72-d6db-4e6d-8fb9-5e0dbbfc783a',
+    _url: '/',
   },
   {
     productId: 'd06d47d9-ab00-4d2b-8461-e126192aa615',
@@ -10898,6 +11117,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -10943,6 +11163,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -10988,6 +11209,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -11033,6 +11255,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -11078,6 +11301,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -11123,6 +11347,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -11168,6 +11393,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -11213,6 +11439,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -11258,6 +11485,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -11303,6 +11531,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -11348,6 +11577,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -11393,6 +11623,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -11438,6 +11669,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -11483,6 +11715,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -11529,6 +11762,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -11574,6 +11808,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -11619,6 +11854,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '18',
@@ -11664,6 +11900,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '19',
@@ -11710,6 +11947,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '20',
@@ -11755,6 +11993,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '21',
@@ -11800,6 +12039,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '22',
@@ -11845,6 +12085,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '23',
@@ -11891,6 +12132,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '24',
@@ -11936,6 +12178,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '25',
@@ -11981,9 +12224,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/d06d47d9-ab00-4d2b-8461-e126192aa615',
+    _url: '/',
   },
   {
     productId: 'f3d9c787-fb5f-458e-8776-9e20faedb94c',
@@ -12040,6 +12284,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -12085,6 +12330,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -12130,6 +12376,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -12175,6 +12422,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -12221,6 +12469,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -12266,6 +12515,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -12312,6 +12562,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -12357,9 +12608,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/f3d9c787-fb5f-458e-8776-9e20faedb94c',
+    _url: '/',
   },
   {
     productId: 'e2a7871f-b8fb-4874-ba0b-62433ec28881',
@@ -12419,6 +12671,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -12465,6 +12718,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -12511,6 +12765,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -12556,6 +12811,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -12601,6 +12857,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -12646,6 +12903,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -12691,6 +12949,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -12736,9 +12995,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/e2a7871f-b8fb-4874-ba0b-62433ec28881',
+    _url: '/',
   },
   {
     productId: '2f0c0cc2-39c6-4c5b-ac6b-cd18c2304aa1',
@@ -12795,6 +13055,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -12840,6 +13101,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -12885,6 +13147,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -12930,6 +13193,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -12975,6 +13239,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -13020,6 +13285,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -13065,6 +13331,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -13110,9 +13377,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/2f0c0cc2-39c6-4c5b-ac6b-cd18c2304aa1',
+    _url: '/',
   },
   {
     productId: 'af8f00e7-adc9-45ca-81d7-4b0b8801a10e',
@@ -13172,6 +13440,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -13217,6 +13486,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -13263,6 +13533,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -13309,6 +13580,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -13355,6 +13627,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -13401,6 +13674,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -13446,6 +13720,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -13491,9 +13766,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 16650,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/af8f00e7-adc9-45ca-81d7-4b0b8801a10e',
+    _url: '/',
   },
   {
     productId: '5d4f7fbb-310e-47df-9c7e-6ef42a6e85be',
@@ -13551,9 +13827,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/5d4f7fbb-310e-47df-9c7e-6ef42a6e85be',
+    _url: '/',
   },
   {
     productId: '9db89af1-29c8-4c4f-a877-7d94b2be5f54',
@@ -13613,6 +13890,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '2',
@@ -13658,6 +13936,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '3',
@@ -13703,6 +13982,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '4',
@@ -13748,6 +14028,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '5',
@@ -13793,6 +14074,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '6',
@@ -13838,6 +14120,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '7',
@@ -13883,6 +14166,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '8',
@@ -13928,6 +14212,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '9',
@@ -13973,6 +14258,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '10',
@@ -14018,6 +14304,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '11',
@@ -14063,6 +14350,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '12',
@@ -14108,6 +14396,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '13',
@@ -14153,6 +14442,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '14',
@@ -14198,6 +14488,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '15',
@@ -14243,6 +14534,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '16',
@@ -14288,6 +14580,7 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
       {
         id: '17',
@@ -14333,9 +14626,10 @@ export const products: Product[] = [
         discountedPrice: {
           centAmount: 14940,
         },
+        isOnStock: true,
       },
     ],
-    _url: '/p/9db89af1-29c8-4c4f-a877-7d94b2be5f54',
+    _url: '/',
   },
 ];
 
