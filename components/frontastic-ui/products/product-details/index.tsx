@@ -6,20 +6,19 @@ import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 import { CurrencyHelpers } from '../../../../helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
 import { Money } from '../../../../../types/product/Money';
-import WishlistAddButton from './wishlist_add_button';
+import WishlistButton from './wishlist-button';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export interface ProductDetailsProps {
+export interface Props {
   product: UIProduct;
-  onAddToCart: any;
-
-  onAddToWishlist: any;
+  onAddToCart: (variant: Variant, quantity: number) => Promise<void>;
+  onAddToWishlist: () => void;
   variant: Variant;
-  onChangeVariantIdx: any;
+  onChangeVariantIdx: (idx: number) => void;
 }
 
 export type UIProduct = {
@@ -52,18 +51,14 @@ interface UIDetail {
   items: string[];
 }
 
-export default function ProductDetail({
-  product,
-  onAddToCart,
-  onAddToWishlist,
-  variant,
-  onChangeVariantIdx,
-}: ProductDetailsProps) {
+export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
   const [selectedColor, setSelectedColor] = useState<UIColor>(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState<UISize>(product.sizes[0]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [added, setAdded] = useState<boolean>(false);
 
   // changes the selected variant whenever
   // one of the attributes changes and
@@ -75,6 +70,22 @@ export default function ProductDetail({
     );
     onChangeVariantIdx(idx);
   }, [selectedColor, selectedSize, onChangeVariantIdx, product.variants]);
+
+  const handleAddToCart = (variant: Variant, quantity: number) => {
+    setLoading(true);
+    onAddToCart(variant, quantity).then(() => {
+      setLoading(false);
+      setAdded(true);
+    });
+  };
+
+  useEffect(() => {
+    if (added) {
+      setTimeout(() => {
+        setAdded(false);
+      }, 1000);
+    }
+  }, [added]);
 
   return (
     <div className="bg-white">
@@ -161,31 +172,35 @@ export default function ProductDetail({
                 <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
-                    {product.colors.map((color: { name: string; bgColor: string; selectedColor: string }) => (
-                      <RadioGroup.Option
-                        key={color.name}
-                        value={color}
-                        className={({ active, checked }) =>
-                          classNames(
-                            color.selectedColor,
-                            active && checked ? 'ring ring-offset-1' : '',
-                            !active && checked ? 'ring-2' : '',
-                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
-                          )
-                        }
-                      >
-                        <RadioGroup.Label>
-                          <p className="sr-only">{color.name}</p>
-                        </RadioGroup.Label>
-                        <span
-                          aria-hidden="true"
-                          className={classNames(
-                            color.bgColor,
-                            'h-8 w-8 rounded-full border border-black border-opacity-10',
-                          )}
-                        />
-                      </RadioGroup.Option>
-                    ))}
+                    {product.colors.map(
+                      (color: { name: string; bgColor: string; selectedColor: string; key: string }) => (
+                        <RadioGroup.Option
+                          key={color.name}
+                          value={color}
+                          className={({ active, checked }) =>
+                            classNames(
+                              color.selectedColor,
+                              (active && checked) || selectedColor.key === color.key
+                                ? 'ring-2 ring-[#CE3E72] ring-offset-1'
+                                : '',
+                              !active && checked ? 'ring-2 ring-[#CE3E72] ring-offset-1' : '',
+                              'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
+                            )
+                          }
+                        >
+                          <RadioGroup.Label>
+                            <p className="sr-only">{color.name}</p>
+                          </RadioGroup.Label>
+                          <span
+                            aria-hidden="true"
+                            className={classNames(
+                              color.bgColor,
+                              'h-8 w-8 rounded-full border border-black border-opacity-10',
+                            )}
+                          />
+                        </RadioGroup.Option>
+                      ),
+                    )}
                   </div>
                 </RadioGroup>
               </div>
@@ -205,9 +220,9 @@ export default function ProductDetail({
                         value={size}
                         className={({ active, checked }) =>
                           classNames(
-                            active ? 'ring-2 ring-indigo-500 ring-offset-2' : '',
+                            active || selectedSize.key == size.key ? 'ring-2 ring-[#CE3E72] ring-offset-2' : '',
                             checked
-                              ? 'border-transparent bg-[#CE3E72] text-white hover:bg-[#B22C5D]'
+                              ? 'bg-transparent text-gray-900 hover:bg-gray-50'
                               : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
                             'flex cursor-pointer items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1',
                           )
@@ -226,15 +241,35 @@ export default function ProductDetail({
                 <button
                   type="button"
                   onClick={() => onAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-[#CE3E72] focus:ring-offset-2 focus:ring-offset-gray-50"
                   disabled={!variant.isOnStock}
                 >
                   {variant.isOnStock
                     ? formatProductMessage({ id: 'bag.add', defaultMessage: 'Add to bag' })
                     : formatProductMessage({ id: 'outOfStock', defaultMessage: 'Out of stock' })}
+
+                  {loading && (
+                    <svg className="h-6 w-6 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                      <path
+                        d="M8,8.5A3.5,3.5,0,1,1,4.5,5,3.5,3.5,0,0,1,8,8.5ZM4.5,14A3.5,3.5,0,1,0,8,17.5,3.5,3.5,0,0,0,4.5,14Zm16-2A3.5,3.5,0,1,0,17,8.5,3.5,3.5,0,0,0,20.5,12Zm0,2A3.5,3.5,0,1,0,24,17.5,3.5,3.5,0,0,0,20.5,14Zm-8,4A3.5,3.5,0,1,0,16,21.5,3.5,3.5,0,0,0,12.5,18Zm0-18A3.5,3.5,0,1,0,16,3.5,3.5,3.5,0,0,0,12.5,0Z"
+                        fill="#fff"
+                      />
+                    </svg>
+                  )}
+                  {!loading && added && (
+                    <svg className="h-6 w-6" fill="#fff" viewBox="0 0 80.588 61.158">
+                      <path
+                        d="M29.658,61.157c-1.238,0-2.427-0.491-3.305-1.369L1.37,34.808c-1.826-1.825-1.826-4.785,0-6.611
+                     c1.825-1.826,4.786-1.827,6.611,0l21.485,21.481L72.426,1.561c1.719-1.924,4.674-2.094,6.601-0.374
+                     c1.926,1.72,2.094,4.675,0.374,6.601L33.145,59.595c-0.856,0.959-2.07,1.523-3.355,1.56C29.746,61.156,29.702,61.157,29.658,61.157z
+                     "
+                      />
+                    </svg>
+                  )}
+                  {/* {!loading && !added && formatProductMessage({ id: 'bad.add', defaultMessage: 'Add to bag' })} */}
                 </button>
 
-                <WishlistAddButton onAddToWishlist={onAddToWishlist} />
+                <WishlistButton variant={variant} onAddToWishlist={onAddToWishlist} />
               </div>
             </form>
 

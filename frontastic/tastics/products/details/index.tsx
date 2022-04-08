@@ -78,10 +78,9 @@ function ProductDetailsTastic({ data }) {
       },
     ],
   };
-  console.log(product);
 
-  const handleAddToCart = () => {
-    addItem(variant, 1);
+  const handleAddToCart = (variant: Variant, quantity: number): Promise<void> => {
+    return addItem(variant, 1);
   };
 
   const handleAddToWishList = () => {

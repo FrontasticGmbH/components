@@ -8,14 +8,14 @@ import { Product } from '../../../../../types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
 
-export interface ProductListProps {
+export interface Props {
   products: Product[];
   previousCursor: string;
   nextCursor: string;
   category: string;
 }
 
-export default function ProductList({ products, previousCursor, nextCursor, category }: ProductListProps) {
+export default function ProductList({ products, previousCursor, nextCursor, category }: Props) {
   const [previousPageURL, setPreviousPageURL] = useState<string>('');
   const [nextPageURL, setNextPageURL] = useState<string>('');
 
