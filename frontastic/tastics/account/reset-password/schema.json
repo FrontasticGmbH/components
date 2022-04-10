@@ -1,0 +1,19 @@
+{
+  "tasticType": "frontastic/ui/account/reset-password",
+  "name": "Frontastic UI Account Reset Password",
+  "category": "Account",
+  "icon": "account_circle",
+  "schema": [
+    {
+      "name": "Media",
+      "fields": [
+        {
+          "label": "Logo",
+          "field": "logo",
+          "type": "media",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

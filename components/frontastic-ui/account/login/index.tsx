@@ -10,17 +10,16 @@ import { ArrowLeftIcon } from '@heroicons/react/solid';
 export interface LoginProps {
   logo?: NextFrontasticImage;
   registerLink?: Reference;
-  resetPasswordLink?: Reference;
 }
 
-const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) => {
+const Login: React.FC<LoginProps> = ({ logo, registerLink }) => {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage } = useFormat({ name: 'common' });
 
   //account actions
-  const { login, loggedIn, resendVerificationEmail } = useAccount();
+  const { login, loggedIn, resendVerificationEmail, requestPasswordReset } = useAccount();
 
   //login data
   const [data, setData] = useState({ email: '', password: '', rememberMe: false });
@@ -36,6 +35,30 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
 
   //attempting to resend verification email
   const [resendVerification, setResendVerification] = useState(false);
+
+  //attempting to request a password reset
+  const [resendPasswordReset, setResendPasswordReset] = useState(false);
+
+  //not on default login modal
+  const subModal = resendVerification || resendPasswordReset;
+
+  //get back to login modal
+  const backToLogin = () => {
+    setResendPasswordReset(false);
+    setResendVerification(false);
+  };
+
+  //wants to resend verification
+  const toResendVerification = () => {
+    setResendVerification(true);
+    setResendPasswordReset(false);
+  };
+
+  //requesting a password reset
+  const toResendPassword = () => {
+    setResendPasswordReset(true);
+    setResendVerification(false);
+  };
 
   //handle text input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +88,24 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
       setSuccess(
         formatAccountMessage({
           id: 'verification.resent',
-          defaultMessage: `Verification email was resent to ${data.email}`,
+          defaultMessage: 'An email was sent to {email}',
+          values: { email: data.email },
+        }),
+      );
+    } catch (err) {
+      setError(formatErrorMessage({ id: 'wentWrong', defaultMessage: 'Sorry. Something went wrong..' }));
+    }
+  };
+
+  //request a password reset for user
+  const resendPasswordResetForUser = async () => {
+    try {
+      await requestPasswordReset(data.email);
+      setSuccess(
+        formatAccountMessage({
+          id: 'verification.resent',
+          defaultMessage: 'An email was sent to {email}',
+          values: { email: data.email },
         }),
       );
     } catch (err) {
@@ -79,8 +119,11 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
     //processing starts
     setLoading(true);
     //if user is attempting to resend verification email
-    //execute resend verification fn otherwise, login user
-    resendVerification ? resendVerificationEmailForUser() : loginUser();
+    if (resendVerification) resendVerificationEmailForUser();
+    //if user is attempting tor equest a password reset
+    else if (resendPasswordReset) resendPasswordResetForUser();
+    //if user wants to login
+    else loginUser();
     //processing ends
     setLoading(false);
   };
@@ -127,28 +170,30 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                  {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
-                    onChange={handleChange}
-                  />
+              {!resendPasswordReset && (
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      autoComplete="current-password"
+                      required
+                      className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {resendVerification ? (
+              {subModal ? (
                 <div>
                   <ArrowLeftIcon
                     className="w-4 cursor-pointer text-pink-400 hover:text-pink-200"
-                    onClick={() => setResendVerification(false)}
+                    onClick={backToLogin}
                   />
                 </div>
               ) : (
@@ -168,12 +213,12 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
                     </div>
 
                     <div className="text-sm">
-                      <ReferenceLink
-                        target={resetPasswordLink}
-                        className="font-medium text-pink-400 hover:text-pink-200"
+                      <span
+                        className="cursor-pointer font-medium text-pink-400 hover:text-pink-200"
+                        onClick={toResendPassword}
                       >
                         {formatAccountMessage({ id: 'password.forgot', defaultMessage: 'Forgot your password?' })}
-                      </ReferenceLink>
+                      </span>
                     </div>
                   </div>
 
@@ -181,7 +226,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
                     <div className="text-sm">
                       <span
                         className="cursor-pointer font-medium text-pink-400 hover:text-pink-200"
-                        onClick={() => setResendVerification(true)}
+                        onClick={toResendVerification}
                       >
                         {formatAccountMessage({
                           id: 'verification.resend',
@@ -192,7 +237,6 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, resetPasswordLink }) 
                   </div>
                 </div>
               )}
-
               <div>
                 <button
                   type="submit"

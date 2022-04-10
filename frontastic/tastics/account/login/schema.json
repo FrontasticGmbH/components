@@ -23,12 +23,6 @@
           "field": "registerLink",
           "type": "reference",
           "required": true
-        },
-        {
-          "label": "Reset Password Link",
-          "field": "resetPasswordLink",
-          "type": "reference",
-          "required": true
         }
       ]
     }

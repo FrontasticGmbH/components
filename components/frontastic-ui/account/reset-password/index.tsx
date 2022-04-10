@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
-import { Reference, ReferenceLink } from 'helpers/Reference';
 import { useAccount } from 'frontastic';
-import Redirect from 'helpers/Redirect';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { useRouter } from 'next/router';
 
-export interface RegisterProps {
+export interface ResetPasswordProps {
   logo?: NextFrontasticImage;
-  loginLink?: Reference;
 }
 
-const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
+const ResetPassword: React.FC<ResetPasswordProps> = ({ logo }) => {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
-  const { formatMessage: formatSuccessMessage } = useFormat({ name: 'success' });
-  const { formatMessage } = useFormat({ name: 'common' });
+
+  //next/router
+  const router = useRouter();
+
+  //reset password token
+  const { token } = router.query;
 
   //account actions
-  const { register, loggedIn } = useAccount();
+  const { resetPassword } = useAccount();
 
   //register data
   const [data, setData] = useState({ email: '', password: '', confirmPassword: '' });
@@ -27,20 +28,12 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
   //error
   const [error, setError] = useState('');
 
-  //success
-  const [success, setSuccess] = useState('');
-
   //processing...
   const [loading, setLoading] = useState(false);
 
   //handle text input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  //handle checkbox input change
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.checked });
   };
 
   //data validation
@@ -65,31 +58,21 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
     setLoading(true);
     //try registering the user with given credentials
     try {
-      const response = await register({ email: data.email, password: data.password });
+      const response = await resetPassword(token as string, data.password);
       if (!response.accountId) {
         setError(
           formatErrorMessage({ id: 'account.create.fail', defaultMessage: "Sorry. We couldn't create your account.." }),
         );
-        setSuccess('');
       } else {
         setError('');
-        setSuccess(
-          formatSuccessMessage({
-            id: 'account.created',
-            defaultMessage: 'A verification email was sent to {email} ✓',
-            values: { email: data.email },
-          }),
-        );
+        router.push('/');
       }
     } catch (err) {
       setError(formatErrorMessage({ id: 'wentWrong', defaultMessage: 'Sorry. Something went wrong..' }));
-      setSuccess('');
     }
     //processing ends
     setLoading(false);
   };
-
-  if (loggedIn) return <Redirect target="/" />;
 
   return (
     <>
@@ -99,38 +82,20 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
             <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            {formatAccountMessage({ id: 'account.create.new', defaultMessage: 'Create a new account' })}
+            {formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            {formatAccountMessage({ id: 'account.alreadyHave', defaultMessage: 'Already have an account?' })}{' '}
-            <ReferenceLink target={loginLink} className="font-medium text-pink-400 underline hover:text-pink-200">
-              {formatAccountMessage({ id: 'account.login.here', defaultMessage: 'Login here' })}
-            </ReferenceLink>
+            {formatAccountMessage({
+              id: 'password.reset.desc',
+              defaultMessage: 'Fill the fields below to complete your password reset',
+            })}
           </p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              {success && <p className="text-sm text-green-600">{success}</p>}
               {error && <p className="text-sm text-pink-400">{error}</p>}
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  {formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                   {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
@@ -170,7 +135,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                   className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
-                  {formatAccountMessage({ id: 'sign.up', defaultMessage: 'Sign up' })}
+                  {formatAccountMessage({ id: 'submit', defaultMessage: 'Submit' })}
                 </button>
               </div>
             </form>
@@ -181,4 +146,4 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
   );
 };
 
-export default Register;
+export default ResetPassword;
