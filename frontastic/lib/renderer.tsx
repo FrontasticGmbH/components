@@ -16,8 +16,8 @@ export function FrontasticRenderer({
   wrapperClassName?: string;
 }) {
   return (
-    <div>
-      <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
+    <div className="flex min-h-screen flex-col items-stretch justify-start">
+      <Grid gridClassName={gridClassName} wrapperClassName={`${wrapperClassName} w-full`}>
         {data?.page?.sections?.head?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t) => (
@@ -32,7 +32,7 @@ export function FrontasticRenderer({
           </LayoutElement>
         ))}
       </Grid>
-      <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
+      <Grid gridClassName={gridClassName} wrapperClassName={`${wrapperClassName} w-full grow`}>
         {data?.page?.sections?.main?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
@@ -47,7 +47,7 @@ export function FrontasticRenderer({
           </LayoutElement>
         ))}
       </Grid>
-      <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
+      <Grid gridClassName={gridClassName} wrapperClassName={`${wrapperClassName} w-full`}>
         {data?.page?.sections?.footer?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
