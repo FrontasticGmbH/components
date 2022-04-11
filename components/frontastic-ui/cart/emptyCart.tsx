@@ -1,4 +1,4 @@
-import { EmptyState } from 'components/empty-state';
+import { EmptyState } from 'components/frontastic-ui/empty-state';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 interface Props {}

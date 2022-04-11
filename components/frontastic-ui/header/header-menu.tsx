@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from '../../../helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/Reference';
 import { Link } from './index';
 import classNames from 'classnames';
-import Typography from 'components/typography';
+import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 interface HeaderMenuProps {

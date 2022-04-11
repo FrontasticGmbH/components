@@ -1,13 +1,13 @@
 import React from 'react';
-import { Reference, ReferenceLink } from '../../../helpers/Reference';
-import useMediaQuery from '../../../helpers/hooks/useMediaQuery';
+import { Reference, ReferenceLink } from 'helpers/Reference';
+import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/react/outline';
-import { default as RocketIcon } from '../../icons/rocket';
-import { default as LoopIcon } from '../../icons/loop';
-import { default as LockIcon } from '../../icons/lock';
-import Typography from 'components/typography';
+import { default as RocketIcon } from 'components/icons/rocket';
+import { default as LoopIcon } from 'components/icons/loop';
+import { default as LockIcon } from 'components/icons/lock';
+import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { footerCopyrightLinks } from '../../../components/mockData';
+import { footerCopyrightLinks } from 'components/mockData';
 
 interface Link {
   name: string;

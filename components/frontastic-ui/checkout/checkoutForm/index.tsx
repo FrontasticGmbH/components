@@ -22,7 +22,10 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
 
   //account data
-  const { account } = useAccount();
+  const { account, loggedIn } = useAccount();
+
+  //geust checkout
+  const isGuestCheckout = !loggedIn;
 
   //available payment methods
   const paymentMethods = [
@@ -41,7 +44,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
   ];
 
   //available addresses to choose from
-  const addresses = (account.addresses ?? []).map((address) => ({
+  const addresses = (account?.addresses ?? []).map((address) => ({
     display: `${address.city} - ${address.streetName} ${address.streetNumber}`,
     data: address.addressId,
   }));
@@ -52,7 +55,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
   useEffect(() => {
     if (billingSameAsShipping) updateFormInput('shippingAddress', data.billingAddress);
     else updateFormInput('shippingAddress', '');
-  }, [billingSameAsShipping]);
+  }, [billingSameAsShipping, data.billingAddress]);
 
   //active payment method
   const [activePaymentMethod, setActivePaymentMethod] = useState('cc');
@@ -87,67 +90,129 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
           value={data.email}
           onChange={updateFormInput}
         />
-        {/* <FormInput
-          name="streetName"
-          inputAutoComplete="given-name"
-          label={formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })}
-          value={data.streetName}
-          onChange={updateFormInput}
-          containerClassNames="col-span-full sm:col-span-9"
-        />
-        <FormInput
-          name="streetNumber"
-          label={formatMessage({ id: 'street.number', defaultMessage: 'Street No.' })}
-          value={data.streetNumber}
-          onChange={updateFormInput}
-          containerClassNames="col-span-full sm:col-span-3"
-        />
-        <FormInput
-          name="city"
-          inputAutoComplete="address-level2"
-          label={formatMessage({ id: 'city', defaultMessage: ' City' })}
-          value={data.city}
-          onChange={updateFormInput}
-          containerClassNames="col-span-full sm:col-span-4"
-        />
-        <FormInput
-          name="postalCode"
-          inputAutoComplete="postal-code"
-          label={formatMessage({ id: 'zipCode', defaultMessage: 'Postal code' })}
-          value={data.postalCode}
-          onChange={updateFormInput}
-          containerClassNames="col-span-full sm:col-span-4"
-        />
-        <FormSelect
-          name="country"
-          label="Country"
-          options={[
-            { display: 'Germany', data: 'DE' },
-            { display: 'United States', data: 'US' },
-            { display: 'Canada', data: 'CA' },
-          ]}
-          selectedOptionValue={(data['country'] as string) || undefined}
-          onChange={updateFormInput}
-          containerClassName="col-span-full sm:col-span-4"
-        /> */}
-        <FormSelect
-          name="billingAddress"
-          label={formatCheckoutMessage({ id: 'billingAddress', defaultMessage: 'Billing address' })}
-          options={addresses}
-          selectedOptionValue={data.billingAddress}
-          onChange={updateFormInput}
-          containerClassName="col-span-full"
-        />
-        {!billingSameAsShipping && (
+        {isGuestCheckout ? (
+          <>
+            <div className="col-span-full">
+              <label className="text-base font-medium text-gray-900">
+                {formatCheckoutMessage({ id: 'billingAddress', defaultMessage: 'Billing address' })}
+              </label>
+            </div>
+            <FormInput
+              name="streetName"
+              inputAutoComplete="given-name"
+              label={formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })}
+              value={data.streetName}
+              onChange={updateFormInput}
+              containerClassNames="col-span-full sm:col-span-9"
+            />
+            <FormInput
+              name="streetNumber"
+              label={formatMessage({ id: 'street.number', defaultMessage: 'Street No.' })}
+              value={data.streetNumber}
+              onChange={updateFormInput}
+              containerClassNames="col-span-full sm:col-span-3"
+            />
+            <FormInput
+              name="city"
+              inputAutoComplete="address-level2"
+              label={formatMessage({ id: 'city', defaultMessage: ' City' })}
+              value={data.city}
+              onChange={updateFormInput}
+              containerClassNames="col-span-full sm:col-span-4"
+            />
+            <FormInput
+              name="postalCode"
+              inputAutoComplete="postal-code"
+              label={formatMessage({ id: 'zipCode', defaultMessage: 'Postal code' })}
+              value={data.postalCode}
+              onChange={updateFormInput}
+              containerClassNames="col-span-full sm:col-span-4"
+            />
+            <FormSelect
+              name="country"
+              label="Country"
+              options={[
+                { display: 'Germany', data: 'DE' },
+                { display: 'United States', data: 'US' },
+                { display: 'Canada', data: 'CA' },
+              ]}
+              selectedOptionValue={(data.country as string) || undefined}
+              onChange={updateFormInput}
+              containerClassName="col-span-full sm:col-span-4"
+            />
+          </>
+        ) : (
           <FormSelect
-            name="shippingAddress"
-            label={formatCheckoutMessage({ id: 'shippingAddress', defaultMessage: 'Shipping address' })}
+            name="billingAddress"
+            label={formatCheckoutMessage({ id: 'billingAddress', defaultMessage: 'Billing address' })}
             options={addresses}
-            selectedOptionValue={data.shippingAddress}
+            selectedOptionValue={data.billingAddress}
             onChange={updateFormInput}
             containerClassName="col-span-full"
           />
         )}
+        {!billingSameAsShipping &&
+          (isGuestCheckout ? (
+            <>
+              <div className="col-span-full">
+                <label className="text-base font-medium text-gray-900">
+                  {formatCheckoutMessage({ id: 'shippingAddress', defaultMessage: 'Shipping address' })}
+                </label>
+              </div>
+              <FormInput
+                name="shippingStreetName"
+                inputAutoComplete="given-name"
+                label={formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })}
+                value={data.shippingStreetName}
+                onChange={updateFormInput}
+                containerClassNames="col-span-full sm:col-span-9"
+              />
+              <FormInput
+                name="shippingStreetNumber"
+                label={formatMessage({ id: 'street.number', defaultMessage: 'Street No.' })}
+                value={data.shippingStreetNumber}
+                onChange={updateFormInput}
+                containerClassNames="col-span-full sm:col-span-3"
+              />
+              <FormInput
+                name="shippingCity"
+                inputAutoComplete="address-level2"
+                label={formatMessage({ id: 'city', defaultMessage: ' City' })}
+                value={data.shippingCity}
+                onChange={updateFormInput}
+                containerClassNames="col-span-full sm:col-span-4"
+              />
+              <FormInput
+                name="shippingPostalCode"
+                inputAutoComplete="postal-code"
+                label={formatMessage({ id: 'zipCode', defaultMessage: 'Postal code' })}
+                value={data.shippingPostalCode}
+                onChange={updateFormInput}
+                containerClassNames="col-span-full sm:col-span-4"
+              />
+              <FormSelect
+                name="shippingCountry"
+                label="Country"
+                options={[
+                  { display: 'Germany', data: 'DE' },
+                  { display: 'United States', data: 'US' },
+                  { display: 'Canada', data: 'CA' },
+                ]}
+                selectedOptionValue={(data.shippingCountry as string) || undefined}
+                onChange={updateFormInput}
+                containerClassName="col-span-full sm:col-span-4"
+              />
+            </>
+          ) : (
+            <FormSelect
+              name="shippingAddress"
+              label={formatCheckoutMessage({ id: 'shippingAddress', defaultMessage: 'Shipping address' })}
+              options={addresses}
+              selectedOptionValue={data.shippingAddress}
+              onChange={updateFormInput}
+              containerClassName="col-span-full"
+            />
+          ))}
         <FormCheckbox
           checked={billingSameAsShipping}
           onChange={(checked) => setBillingSameAsShipping(checked)}

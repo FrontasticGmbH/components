@@ -72,6 +72,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   }, [selectedColor, selectedSize, onChangeVariantIdx, product.variants]);
 
   const handleAddToCart = (variant: Variant, quantity: number) => {
+    if (!variant.isOnStock) return;
     setLoading(true);
     onAddToCart(variant, quantity).then(() => {
       setLoading(false);
@@ -240,13 +241,17 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <div className="sm:flex-col1 mt-10 flex">
                 <button
                   type="button"
-                  onClick={() => onAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-[#CE3E72] focus:ring-offset-2 focus:ring-offset-gray-50"
+                  onClick={() => handleAddToCart(variant, 1)}
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-[#CE3E72] focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
                   disabled={!variant.isOnStock}
                 >
-                  {variant.isOnStock
-                    ? formatProductMessage({ id: 'bag.add', defaultMessage: 'Add to bag' })
-                    : formatProductMessage({ id: 'outOfStock', defaultMessage: 'Out of stock' })}
+                  {!loading && !added && (
+                    <>
+                      {variant.isOnStock
+                        ? formatProductMessage({ id: 'bag.add', defaultMessage: 'Add to bag' })
+                        : formatProductMessage({ id: 'outOfStock', defaultMessage: 'Out of stock' })}
+                    </>
+                  )}
 
                   {loading && (
                     <svg className="h-6 w-6 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -266,7 +271,6 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                       />
                     </svg>
                   )}
-                  {/* {!loading && !added && formatProductMessage({ id: 'bad.add', defaultMessage: 'Add to bag' })} */}
                 </button>
 
                 <WishlistButton variant={variant} onAddToWishlist={onAddToWishlist} />

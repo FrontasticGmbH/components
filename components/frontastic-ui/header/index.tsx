@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Image from '../../../frontastic/lib/image';
+import Image from 'frontastic/lib/image';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
 import { Reference, ReferenceLink } from '../../../helpers/Reference';
@@ -10,7 +10,7 @@ import CartButton from './cart-button';
 import AccountButton from './account-button';
 import SearchButton from './search-button';
 import MegaMenuContent from './mega-menu-content';
-import Typography from 'components/typography';
+import Typography from 'components/frontastic-ui/typography';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

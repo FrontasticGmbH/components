@@ -18,7 +18,7 @@ export interface FormRadioGroupProps {
 export default function FormRadioGroup({ headline, subline, options, onChange, className = '' }: FormRadioGroupProps) {
   return (
     <div className={className}>
-      <label className="text-base font-medium text-gray-900">{headline}s</label>
+      <label className="text-base font-medium text-gray-900">{headline}</label>
       <p className="text-sm leading-5 text-gray-500">{subline}</p>
       <fieldset className="mt-4">
         <legend className="sr-only">{headline}</legend>

@@ -1,4 +1,4 @@
-import Typography from 'components/typography';
+import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 import React from 'react';
 

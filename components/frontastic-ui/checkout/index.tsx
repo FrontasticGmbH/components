@@ -9,8 +9,8 @@ import { useAccount, useCart } from 'frontastic';
 import { Address } from '../../../../types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/Reference';
-import Redirect from 'helpers/Redirect';
 import * as yup from 'yup';
+import { ObjectShape } from 'yup/lib/object';
 
 interface Props {
   loginLink?: Reference;
@@ -43,17 +43,22 @@ const Checkout = ({ loginLink }: Props) => {
     cardNumber: '',
     expirationDate: '',
     cvc: '',
-    // streetName: '',
-    // streetNumber: '',
-    // city: '',
-    // postalCode: '',
-    // country: '',
+    streetName: '',
+    streetNumber: '',
+    city: '',
+    postalCode: '',
+    country: '',
+    shippingStreetName: '',
+    shippingStreetNumber: '',
+    shippingCity: '',
+    shippingPostalCode: '',
+    shippingCountry: '',
     billingAddress: account?.addresses.find((address) => address.isDefaultBillingAddress)?.addressId ?? '',
     shippingAddress: account?.addresses.find((address) => address.isDefaultShippingAddress)?.addressId ?? '',
     invoiceId: '',
     pay: 'cc',
   });
-  console.log(checkoutData);
+
   const updateFormInput = (propName: string, newValue: string) => {
     setCheckoutData({ ...checkoutData, [propName]: newValue });
   };
@@ -66,7 +71,7 @@ const Checkout = ({ loginLink }: Props) => {
 
   const isValid = () => {
     //credit card scheme
-    const ccScheme = yup.object({
+    const ccScheme = yup.object().shape({
       nameOnCard: yup.string().required(),
       cardNumber: yup.string().required(),
       expirationDate: yup
@@ -87,32 +92,75 @@ const Checkout = ({ loginLink }: Props) => {
     });
 
     //invoice scheme
-    const invoiceScheme = yup.object({
+    const invoiceScheme = yup.object().shape({
       invoiceId: yup.string().required(),
+    });
+
+    //scheme for logged in users
+    const loggedInScheme = yup.object().shape({
+      billingAddress: yup.string().required(),
+      shippingAddress: yup.string().optional(),
+    });
+
+    //scheme for guest users
+    const guestScheme = yup.object().shape({
+      streetName: yup.string().required(),
+      streetNumber: yup.string().required(),
+      city: yup.string().required(),
+      postalCode: yup.string().required(),
+      country: yup.string().required(),
+      shippingStreetName: yup.string().optional(),
+      shippingStreetNumber: yup.string().optional(),
+      shippingCity: yup.string().optional(),
+      shippingPostalCode: yup.string().optional(),
+      shippingCountry: yup.string().optional(),
     });
 
     //merged scheme
     const scheme = yup
-      .object({
+      .object()
+      .shape({
         firstName: yup.string().required(),
         lastName: yup.string().required(),
         emailAddress: yup.string().email(),
-        billingAddress: yup.string().required(),
-        shippingAddress: yup.string().optional(),
       })
-      .concat(checkoutData.pay === 'cc' ? ccScheme : invoiceScheme);
+      .concat((loggedIn ? loggedInScheme : guestScheme) as yup.ObjectSchema<ObjectShape>)
+      .concat(checkoutData.pay === 'cc' ? ccScheme : (invoiceScheme as yup.ObjectSchema<ObjectShape>));
 
     return scheme.isValidSync(checkoutData);
   };
 
   const submitForm = async () => {
-    if (!account) return;
-    const shippingAddress: Address = account.addresses.find(
-      (address) => address.addressId === checkoutData.shippingAddress,
-    );
-    const billingAddress: Address = account.addresses.find(
-      (address) => address.addressId === checkoutData.billingAddress,
-    );
+    //validation for shipping address for guests
+    const isValidShippingAddress =
+      !!checkoutData.shippingCity &&
+      !!checkoutData.shippingCountry &&
+      !!checkoutData.shippingPostalCode &&
+      !!checkoutData.shippingStreetName &&
+      !!checkoutData.shippingStreetNumber;
+
+    const shippingAddress = loggedIn
+      ? account.addresses.find((address) => address.addressId === checkoutData.shippingAddress)
+      : ((isValidShippingAddress
+          ? {
+              streetName: checkoutData.shippingStreetName,
+              streetNumber: checkoutData.shippingStreetNumber,
+              city: checkoutData.shippingCity,
+              country: checkoutData.shippingCountry,
+              postalCode: checkoutData.shippingPostalCode,
+            }
+          : null) as Address);
+
+    const billingAddress: Address = loggedIn
+      ? account.addresses.find((address) => address.addressId === checkoutData.billingAddress)
+      : ({
+          streetName: checkoutData.streetName,
+          streetNumber: checkoutData.streetNumber,
+          city: checkoutData.city,
+          country: checkoutData.country,
+          postalCode: checkoutData.postalCode,
+        } as Address);
+
     await updateCart({
       account: {
         email: checkoutData.emailAddress,
@@ -129,9 +177,6 @@ const Checkout = ({ loginLink }: Props) => {
   if (!data?.lineItems || data.lineItems.length < 1) {
     return <EmptyCart />;
   }
-
-  //need to be authenticated to checkout
-  if (!loggedIn) return <Redirect target={loginLink} />;
 
   return (
     <main className="py-10 lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
