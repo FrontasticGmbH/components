@@ -12,6 +12,7 @@
   "address.myAddresses": "Meine Adressen",
   "address.desc": "Hier kannst du verschiedene Lieferadressen für dein Konto hinzufügen",
   "account.doNotHave": "Du hast noch kein Konto?",
+  "account.alreadyHave": "Sie haben bereits ein Konto?",
   "account.register.here": "Hier anmelden",
   "account.login.here": "Hier anmelden",
   "rememberMe": "Anmeldeinformationen speichern",
@@ -26,5 +27,8 @@
   "account.create.new": "Neues Konto erstellen",
   "verification.resend": "Bestätigungsmail erneut senden",
   "verification.done": "Email überprüft",
-  "verification.failed": "ungültiges Token"
+  "verification.failed": "ungültiges Token",
+  "verification.resent": "Eine E-Mail wurde an {email} gesendet",
+  "password.reset.headline": "Setze dein Passwort zurück",
+  "password.reset.desc": "Füllen Sie die Felder unten aus, um Ihr Passwort zurückzusetzen"
 }

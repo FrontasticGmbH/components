@@ -11,6 +11,7 @@
   "address.add": "Add an address",
   "address.myAddresses": "My Addresses",
   "address.desc": "Here you can add different delivery addresses for your account",
+  "account.alreadyHave": "Already have an account?",
   "account.doNotHave": "Don't have an account?",
   "account.register.here": "Register here",
   "account.login.here": "Login here",
@@ -26,5 +27,8 @@
   "account.create.new": "Create new account",
   "verification.resend": "Resend verification email",
   "verification.done": "Email verified",
-  "verification.failed": "Invalid token"
+  "verification.failed": "Invalid token",
+  "verification.resent": "An email was sent to {email}",
+  "password.reset.headline": "Reset your password",
+  "password.reset.desc": "Fill the fields below to complete your password reset"
 }
