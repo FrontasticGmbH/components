@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <div className="flex flex-1 items-center justify-end">
                 <div className="flex items-center">
-                  <SearchButton searchLink={searchLink} />
+                  <SearchButton />
 
                   <AccountButton accountLink={accountLink} />
 

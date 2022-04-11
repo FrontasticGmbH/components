@@ -1,20 +1,62 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import { SearchIcon } from '@heroicons/react/outline';
+import { Transition } from '@headlessui/react';
+import SearchInput from './search_input';
+import { useRouter } from 'next/router';
 
-interface SearchButtonProps {
-  searchLink: Reference;
-}
+const SearchButton: React.FC = () => {
+  //next/router
+  const router = useRouter();
 
-const SearchButton: React.FC<SearchButtonProps> = ({ searchLink }) => {
+  //show search input
+  const [searching, setSearching] = useState(false);
+
+  const startSearch = () => setSearching(true);
+
+  const endSearch = () => setSearching(false);
+
+  //input value
+  const [searchValue, setSearchValue] = useState('');
+
+  //handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
+
+  //handle submission
+  const handleSubmit = () => {
+    setSearching(false);
+    router.push({ pathname: '/search', query: { query: searchValue } });
+  };
+
   return (
-    <div className="flex space-x-8">
-      <div className="flex">
-        <ReferenceLink target={searchLink} className="-m-2 p-2 text-[#25304D] hover:text-[#192038]">
+    <div className="relative flex">
+      <Transition
+        show={!searching}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="cursor-pointer" onClick={startSearch}>
           <span className="sr-only">Search</span>
           <SearchIcon className="h-6 w-6" aria-hidden="true" />
-        </ReferenceLink>
-      </div>
+        </div>
+      </Transition>
+      <Transition
+        show={searching}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <SearchInput onBlur={endSearch} value={searchValue} onChange={handleChange} onSubmit={handleSubmit} />
+      </Transition>
     </div>
   );
 };
