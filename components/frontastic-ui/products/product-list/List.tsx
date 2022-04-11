@@ -1,4 +1,5 @@
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { useFormat } from 'helpers/hooks/useFormat';
 import React from 'react';
 import { Product } from '../../../../../types/product/Product';
 
@@ -7,20 +8,23 @@ interface Props {
 }
 
 const List: React.FC<Props> = ({ products }) => {
+  //i18n messages
+  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
+
   return (
-    <div className="max-w-2xl mx-auto pb-16 pt-8 lg:pt-4 lg:max-w-7xl">
-      <h2 className="sr-only">Products</h2>
-      <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {products.map((product) => (
+    <div className="mx-auto max-w-2xl pb-16 pt-8 lg:max-w-7xl lg:pt-4">
+      <h2 className="sr-only">{formatProductMessage({ id: 'products', defaultMessage: 'Products' })}</h2>
+      <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        {products?.map((product) => (
           <a key={product.productId} href={product._url} className="group">
-            <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg xl:aspect-w-7 xl:aspect-h-8 transition-shadow hover:shadow-xl">
+            <div className="aspect-w-1 aspect-h-1 w-full rounded-lg bg-gray-200 transition-shadow hover:shadow-xl xl:aspect-w-7 xl:aspect-h-8">
               <img
                 src={product.variants[0].images[0]}
                 alt={product.name}
-                className="w-full h-full object-center object-cover rounded-lg"
+                className="h-full w-full rounded-lg object-cover object-center"
               />
             </div>
-            <h3 className="mt-4 text-lg font-bold text-gray-700 overflow-hidden truncate ">{product.name}</h3>
+            <h3 className="mt-4 overflow-hidden truncate text-lg font-bold text-gray-700 ">{product.name}</h3>
             <p className="text-sm text-gray-900">{CurrencyHelpers.formatForCurrency(product.variants[0].price)}</p>
           </a>
         ))}

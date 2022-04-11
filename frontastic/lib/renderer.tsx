@@ -33,7 +33,7 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {data?.page?.sections?.main.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+        {data?.page?.sections?.main?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
               <TasticWrapper
@@ -48,7 +48,7 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid gridClassName={gridClassName} wrapperClassName={wrapperClassName}>
-        {data?.page?.sections?.footer.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
+        {data?.page?.sections?.footer?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
             {layoutElement.tastics.map((t: Tastic) => (
               <TasticWrapper

@@ -1,10 +1,13 @@
 import React from 'react';
-import { Reference, ReferenceLink } from 'helpers/Reference';
-import useMediaQuery from 'helpers/hooks/useMediaQuery';
+import { Reference, ReferenceLink } from '../../../helpers/Reference';
+import useMediaQuery from '../../../helpers/hooks/useMediaQuery';
 import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/react/outline';
 import { default as RocketIcon } from '../../icons/rocket';
 import { default as LoopIcon } from '../../icons/loop';
 import { default as LockIcon } from '../../icons/lock';
+import Typography from 'components/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
+import { footerCopyrightLinks } from '../../../components/mockData';
 
 interface Link {
   name: string;
@@ -20,57 +23,53 @@ interface CopyrightLink {
   name: string;
   reference: Reference;
 }
-interface Props {
+export interface FooterProps {
   columns: Column[];
   copyright?: string;
   copyrightLinks?: CopyrightLink[];
 }
 
-const Footer: React.FC<Props> = ({ columns, copyright }) => {
+const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
   const isBiggerThanMobileView = useMediaQuery(480)[0];
-
-  const mockCopyrightLinks = [
-    { name: 'Cookies', reference: '/' },
-    { name: 'Privacy policy', reference: '/' },
-    { name: 'T&C', reference: '/' },
-  ];
 
   const renderIcon = (name: string) => {
     switch (name) {
       case 'rocket':
-        return <RocketIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <RocketIcon className="h-6 w-6 text-[#A0AEC0]" aria-hidden="true" />;
       case 'loop':
-        return <LoopIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <LoopIcon className="h-6 w-6 text-[#A0AEC0]" aria-hidden="true" />;
       case 'loop':
-        return <LockIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <LockIcon className="h-6 w-6 text-[#A0AEC0]" aria-hidden="true" />;
       case 'question':
-        return <QuestionMarkCircleIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <QuestionMarkCircleIcon className="h-6 w-6 text-[#A0AEC0]" aria-hidden="true" />;
       case 'inbox':
-        return <InboxIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <InboxIcon className="h-6 w-6 text-[#A0AEC0]" aria-hidden="true" />;
       case 'speaker':
-        return <SpeakerphoneIcon className="w-6 h-6 text-[#CE3E72]" aria-hidden="true" />;
+        return <SpeakerphoneIcon className="h-6 w-6 text-[#A0AEC0]" aria-hidden="true" />;
       default:
-        return <LockIcon className="w-4 h-4 text-[#CE3E72]" aria-hidden="true" />;
+        return <LockIcon className="h-4 w-4 text-[#A0AEC0]" aria-hidden="true" />;
     }
   };
 
   return (
     <footer aria-labelledby="footer-heading">
       {isBiggerThanMobileView && (
-        <div className="bg-gray-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="px-2 py-10 max-w-5xl mx-auto xl:grid xl:grid-cols-2 xl:gap-8">
-            <div className="grid grid-cols-3 gap-4 xl:col-span-2">
+        <div className="mx-auto w-full bg-gray-100 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl px-2 py-10 xl:grid xl:grid-cols-2 xl:gap-8">
+            <div className="grid grid-cols-4 gap-4 xl:col-span-2">
               {columns.map((column, index) => (
                 <div key={index}>
                   <div className="flex space-x-2">
                     {renderIcon(column.icon)}
-                    <h3 className="text-sm font-medium text-gray-800">{column.header}</h3>
+                    <h3 className="text-sm font-medium text-gray-800">
+                      <Typography>{column.header}</Typography>
+                    </h3>
                   </div>
                   <ul role="list" className="mt-6 space-y-3">
                     {column.links.map((item, i) => (
                       <li key={i} className="text-sm">
-                        <ReferenceLink target={item.reference} className="text-gray-700 hover:text-gray-800 px-6">
-                          {item.name}
+                        <ReferenceLink target={item.reference} className="px-6 text-gray-700 hover:text-gray-800">
+                          <Typography>{item.name}</Typography>
                         </ReferenceLink>
                       </li>
                     ))}
@@ -82,12 +81,14 @@ const Footer: React.FC<Props> = ({ columns, copyright }) => {
         </div>
       )}
       {copyright && (
-        <div className="flex place-content-between bg-gray-100 px-4 sm:px-10 border-t border-gray-200 py-4">
-          <p className="text-xs sm:text-sm text-gray-700">© {copyright}</p>
+        <div className="flex place-content-between border-t border-gray-200 bg-[#25304D] px-4 py-4 sm:px-10">
+          <p className="text-xs text-[#FFFFFF] sm:text-sm">© {copyright}</p>
           <ul className="flex">
-            {mockCopyrightLinks.map((item, i) => (
+            {footerCopyrightLinks.map((item, i) => (
               <li key={i} className="text-xs">
-                <p className="text-gray-700 sm:text-sm hover:text-white px-2">{item.name}</p>
+                <p className="px-2 text-gray-700 hover:text-white sm:text-sm">
+                  <Typography>{item.name}</Typography>
+                </p>
               </li>
             ))}
           </ul>

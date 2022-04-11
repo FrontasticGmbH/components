@@ -22,7 +22,7 @@ export function Grid({
     margin: '0 10px',
   };
   return (
-    <div className={`px-4 sm:px-8 lg:px-auto ${wrapperClassName}`} style={wrapperCss}>
+    <div className={`lg:px-auto px-4 sm:px-8 ${wrapperClassName}`} style={wrapperCss}>
       <div className={gridClassName} style={gridCss}>
         {children}
       </div>

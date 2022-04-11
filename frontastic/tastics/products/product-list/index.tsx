@@ -1,11 +1,15 @@
 import ProductList from 'components/frontastic-ui/products/product-list';
 
 function ProductListTastic({ data }) {
-  const { items } = data.data.dataSource;
+  if (!data) return <></>;
 
-  if (!items) return <p>No products found.</p>;
+  const { products, category, nextCursor, previousCursor } = data;
 
-  return <ProductList products={items} />;
+  if (!products || products.length == 0) return <p>No products found.</p>;
+
+  return (
+    <ProductList products={products} category={category} previousCursor={previousCursor} nextCursor={nextCursor} />
+  );
 }
 
 export default ProductListTastic;

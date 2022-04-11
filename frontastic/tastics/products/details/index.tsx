@@ -5,6 +5,7 @@ import { Variant } from '../../../../../types/product/Variant';
 import { useCart } from 'frontastic';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/frontastic-ui/products/product-details';
 import { Product } from '../../../../../types/product/Product';
+import { addToWishlist } from 'frontastic/actions/wishlist/wishlist-actions';
 
 function ProductDetailsTastic({ data }) {
   const [currentVariantIdx, setCurrentVariantIdx] = useState(0);
@@ -63,7 +64,7 @@ function ProductDetailsTastic({ data }) {
     sizes,
 
     description: `
-      <p>${product.description || ""}</p>
+      <p>${product.description || ''}</p>
     `,
 
     details: [
@@ -77,10 +78,14 @@ function ProductDetailsTastic({ data }) {
       },
     ],
   };
-  console.log(product)
+  console.log(product);
 
   const handleAddToCart = () => {
     addItem(variant, 1);
+  };
+
+  const handleAddToWishList = () => {
+    addToWishlist(variant.sku, 1);
   };
 
   return (
@@ -89,6 +94,7 @@ function ProductDetailsTastic({ data }) {
       onAddToCart={handleAddToCart}
       variant={variant}
       onChangeVariantIdx={setCurrentVariantIdx}
+      onAddToWishlist={handleAddToWishList}
     />
   );
 }

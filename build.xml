@@ -18,8 +18,48 @@
     <import file="${integration_dir}/main.xml" />
 
     <!--
-        Enable used modules
+        Custom initialize, test and build
     -->
-    <import file="${integration_dir}/project-libraries.xml" />
+    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
+        <tool-exists executable="yarn" />
+
+        <exec executable="yarn" failonerror="true" dir="${basedir}">
+            <env key="CI" value="true" />
+
+            <arg value="--network-timeout" />
+            <arg value="1000000000" />
+
+            <!-- This is a workaround for ENOENT errors: https://github.com/yarnpkg/yarn/issues/2629 -->
+            <arg value="--mutex" />
+            <arg value="network" />
+            <arg value="--network-concurrency" />
+            <arg value="1" />
+
+            <arg value="install" />
+        </exec>
+    </target>
+
+    <target name="components nextjs:test" unless="${production}" extensionOf="-test-unit:main~hook">
+        <tool-exists executable="yarn" />
+
+        <exec executable="yarn" dir="${basedir}">
+            <arg value="run" />
+            <arg value="lint" />
+        </exec>
+        <exec executable="yarn" dir="${basedir}" failonerror="true">
+            <arg value="run" />
+            <arg value="test" />
+            <env key="CI" value="true" />
+        </exec>
+    </target>
+
+    <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
+        <tool-exists executable="yarn" />
+
+        <exec executable="yarn" dir="${basedir}" failonerror="true">
+            <arg value="run" />
+            <arg value="build" />
+        </exec>
+    </target>
 
 </project>

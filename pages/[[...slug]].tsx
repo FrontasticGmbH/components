@@ -41,7 +41,17 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
   return {
     props: {
       data: data || null,
-      ...(await serverSideTranslations(locale, ['common', 'cart', 'product', 'checkout'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'cart',
+        'product',
+        'checkout',
+        'account',
+        'error',
+        'success',
+        'wishlist',
+        'newsletter',
+      ])),
     },
   };
 };

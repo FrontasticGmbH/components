@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -19,17 +15,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "incremental": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@headlessui/react/dist/index.d.ts"
-    ]
+    "typeRoots": ["./node_modules/@types", "./node_modules/@headlessui/react/dist/index.d.ts"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["."],
+  "exclude": ["node_modules"]
 }

@@ -26,39 +26,56 @@ const encodeQueryParams = (query: QueryParams): string[] => {
   return Object.entries(query).flatMap(([key, value]) => encodeSingleQueryParam(key, value));
 };
 
-export const getRouteData = (url: string, key: string) => async (
-  urlParams: UrlParams,
-  locale: string,
-  query: QueryParams,
-  nextJsReq: IncomingMessage,
-  nextJsRes: ServerResponse,
-): Promise<RedirectResponse | PageDataResponse> => {
-  // Remove slug from query since it's not needed as part of the query.
-  delete query.slug;
+export const getRouteData =
+  (url: string, key: string) =>
+  async (
+    urlParams: UrlParams,
+    locale: string,
+    query: QueryParams,
+    nextJsReq: IncomingMessage,
+    nextJsRes: ServerResponse,
+  ): Promise<RedirectResponse | PageDataResponse> => {
+    // Remove slug from query since it's not needed as part of the query.
+    delete query.slug;
+    
+    const slug = urlParams.slug?.join('/') || '';
+    query.path = `/${slug !== 'index' ? slug : ''}`;
+    query.locale = locale;
 
-  const slug = urlParams.slug?.join('/') || '';
-  const endpointQuery = [`path=/${slug !== 'index' ? slug : ''}`, `locale=${locale}`, ...encodeQueryParams(query)];
-  const endpoint = `/page?${endpointQuery.join('&')}`;
+    const headers = {
+      'Frontastic-Path': query.path,
+      'Frontastic-Locale': locale,
+    };
+    const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
 
-  const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(endpoint, {
-    req: nextJsReq,
-    res: nextJsRes,
-  })) as RedirectResponse | PageDataResponse;
+    //console.log('endpoint:', endpoint)
 
-  return data;
-};
+    const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(
+      endpoint,
+      {
+        req: nextJsReq,
+        res: nextJsRes,
+      },
+      headers,
+    )) as RedirectResponse | PageDataResponse;
 
-export const getPreview = (url: string, key: string) => async (
-  previewId: string,
-  locale: string,
-  nextJsReq: IncomingMessage,
-  nextJsRes: ServerResponse,
-): Promise<PagePreviewDataResponse> => {
-  const endpoint = `/preview?previewId=${previewId}&locale=${locale}`;
+    //console.log('data:', data)
+    return data;
+  };
 
-  const data: PagePreviewDataResponse = (await fetchApiHubServerSide(endpoint, {
-    req: nextJsReq,
-    res: nextJsRes,
-  })) as PagePreviewDataResponse;
-  return data;
-};
+export const getPreview =
+  (url: string, key: string) =>
+  async (
+    previewId: string,
+    locale: string,
+    nextJsReq: IncomingMessage,
+    nextJsRes: ServerResponse,
+  ): Promise<PagePreviewDataResponse> => {
+    const endpoint = `/preview?previewId=${previewId}&locale=${locale}`;
+
+    const data: PagePreviewDataResponse = (await fetchApiHubServerSide(endpoint, {
+      req: nextJsReq,
+      res: nextJsRes,
+    })) as PagePreviewDataResponse;
+    return data;
+  };

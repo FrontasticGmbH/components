@@ -6,6 +6,11 @@
 @import './components/atoms/input';
 @import './components/atoms/slider';
 
+body {
+    color: #2d3748;
+    background-color:white;
+}
+
 @layer utilities {
     .relative-width {
         width: 100%;

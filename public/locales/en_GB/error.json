@@ -1,0 +1,7 @@
+{
+  "auth.wrong": "Wrong email address or password",
+  "wentWrong": "Sorry. Something went wrong..",
+  "password.noMatch": "Passwords don't match",
+  "account.create.fail": "Sorry. We couldn't create your account..",
+  "email.enter": "Please enter your email address"
+}

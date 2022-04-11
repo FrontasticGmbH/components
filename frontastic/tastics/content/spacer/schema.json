@@ -1,0 +1,46 @@
+{
+  "tasticType": "frontastic/ui/content/spacer",
+  "name": "Frontastic UI Spacer",
+  "category": "Content",
+  "icon": "favorite",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
+        {
+          "label": "Value",
+          "field": "variant",
+          "type": "enum",
+          "values": [
+            {
+              "name": "Small",
+              "value": "sm"
+            },
+            {
+              "name": "Medium",
+              "value": "md"
+            },
+            {
+              "name": "Large",
+              "value": "lg"
+            }
+          ]
+        },
+        {
+          "type": "description",
+          "text": "Or specify custom spacing in pixels."
+        },
+        {
+          "label": "Custom (Mobile-Tablet)",
+          "field": "customMobile",
+          "type": "number"
+        },
+        {
+          "label": "Custom (Desktop)",
+          "field": "customDesktop",
+          "type": "number"
+        }
+      ]
+    }
+  ]
+}

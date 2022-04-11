@@ -1,12 +1,15 @@
-import { EmptyState } from "components/empty-state";
+import { EmptyState } from 'components/empty-state';
+import { useFormat } from 'helpers/hooks/useFormat';
 
+interface Props {}
 
-interface Props {
+const EmptyCart = ({}: Props) => {
+  //i18n messages
+  const { formatMessage } = useFormat({ name: 'common' });
 
-}
-
-const EmptyCart = ({ }: Props) => {
-    return <EmptyState icon={'😿😿😿'} title={'Nothing here yet'} />;
-}
+  return (
+    <EmptyState icon={'😿😿😿'} title={formatMessage({ id: 'nothing.here', defaultMessage: 'Nothing here yet' })} />
+  );
+};
 
 export default EmptyCart;

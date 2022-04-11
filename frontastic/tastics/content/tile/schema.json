@@ -21,6 +21,14 @@
       "helpText": "Customize your tile message",
       "fields": [
         {
+          "label": "Subtitle",
+          "field": "subtitle",
+          "type": "string",
+          "default": "New arrivals",
+          "translatable": true,
+          "required": false
+        },
+        {
           "label": "Header",
           "field": "header",
           "type": "string",
@@ -28,11 +36,25 @@
           "required": true
         },
         {
+          "label": "Header color",
+          "field": "headerColor",
+          "type": "string",
+          "default": "text-black",
+          "translatable": false
+        },
+        {
           "label": "Text",
           "field": "text",
           "type": "markdown",
           "translatable": true,
           "required": true
+        },
+        {
+          "label": "Text color",
+          "field": "textColor",
+          "type": "string",
+          "default": "text-white",
+          "translatable": false
         }
       ]
     },
