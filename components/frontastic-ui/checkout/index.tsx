@@ -1,3 +1,4 @@
+import GuestCheckoutForm from './checkoutForm/guest';
 import CheckoutForm from './checkoutForm';
 import MobileOrderSummary from './mobileOrderSummary';
 import DesktopOrderSummary from './desktopOrderSummary';
@@ -245,18 +246,33 @@ const Checkout = ({ loginLink }: Props) => {
                     </div>
                 </div>*/}
 
-          <CheckoutForm
-            submitText={`${formatCheckoutMessage({
-              id: 'pay',
-              defaultMessage: 'Pay',
-            })} ${CurrencyHelpers.formatForCurrency(
-              CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
-            )}`}
-            updateFormInput={updateFormInput}
-            submitForm={submitForm}
-            data={checkoutData}
-            isFormValid={isValid()}
-          />
+          {loggedIn ? (
+            <CheckoutForm
+              submitText={`${formatCheckoutMessage({
+                id: 'pay',
+                defaultMessage: 'Pay',
+              })} ${CurrencyHelpers.formatForCurrency(
+                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
+              )}`}
+              updateFormInput={updateFormInput}
+              submitForm={submitForm}
+              data={checkoutData}
+              isFormValid={isValid()}
+            />
+          ) : (
+            <GuestCheckoutForm
+              submitText={`${formatCheckoutMessage({
+                id: 'pay',
+                defaultMessage: 'Pay',
+              })} ${CurrencyHelpers.formatForCurrency(
+                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
+              )}`}
+              updateFormInput={updateFormInput}
+              submitForm={submitForm}
+              data={checkoutData}
+              isFormValid={isValid()}
+            />
+          )}
         </div>
       </section>
     </main>
