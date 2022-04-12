@@ -1,6 +1,115 @@
 import { Product } from '../../types/product/Product';
 import { Cart } from '../../types/cart/Cart';
+import { ShippingMethod } from '../../types/cart/ShippingMethod';
 
+export const shippingMethods: ShippingMethod[] = [
+  {
+    shippingMethodId: 'id-32244',
+    description: 'Description',
+    name: 'Shipping Name',
+    rates: [
+      {
+        shippingRateId: 'ship-r-4422',
+        name: 'Central Europe',
+        price: { fractionDigits: 2, centAmount: 1500, currencyCode: 'EUR' },
+        locations: [
+          { country: 'SI' },
+          { country: 'SK' },
+          { country: 'CH' },
+          { country: 'AT' },
+          { country: 'PL' },
+          { country: 'CZ' },
+          { country: 'GB' },
+          { country: 'HU' },
+          { country: 'DE' },
+        ],
+      },
+    ],
+  },
+  {
+    shippingMethodId: 'id-32245',
+    description: 'Description 2',
+    name: 'Shipping Name 2',
+    rates: [
+      {
+        shippingRateId: 'ship-r-4423',
+        name: 'Central Europe',
+        price: { fractionDigits: 2, centAmount: 1500, currencyCode: 'EUR' },
+        locations: [
+          { country: 'SI' },
+          { country: 'SK' },
+          { country: 'CH' },
+          { country: 'AT' },
+          { country: 'PL' },
+          { country: 'CZ' },
+          { country: 'GB' },
+          { country: 'HU' },
+          { country: 'DE' },
+        ],
+      },
+    ],
+  },
+];
+export const cart: Cart = {
+  cartId: 'cf2200af-5891-41f1-aa04-099866ec348a',
+  cartVersion: '28',
+  payments: [],
+  sum: { fractionDigits: 2, centAmount: 56160, currencyCode: 'EUR' },
+  lineItems: [
+    {
+      lineItemId: 'f2200af-5891-41f1-aa04-099866ec348',
+      name: 'product name 1',
+      count: 3,
+      isGift: false,
+      type: 'variant',
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
+      totalPrice: { fractionDigits: 2, centAmount: 37440, currencyCode: 'EUR' },
+      variant: {
+        isOnStock: true,
+        price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
+        sku: 'SKU',
+        attributes: {
+          articleNumberManufacturer: 'WOMEN RNRN 1501 L',
+          articleNumberMax: '72261',
+          baseId: '72261',
+          color: { key: 'red', label: 'rot' },
+          size: 'one size',
+        },
+        discountedPrice: { fractionDigits: 2, centAmount: 18720, currencyCode: 'EUR' },
+        discounts: [],
+        groupId: 'grp-1',
+        id: 'id-1',
+        images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081072_1_medium.jpg'],
+      },
+    },
+    {
+      lineItemId: 'f2200af-5891-41f1-aa04-099866ec349',
+      name: 'product name 2',
+      count: 1,
+      isGift: false,
+      type: 'variant',
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
+      totalPrice: { fractionDigits: 2, centAmount: 37440, currencyCode: 'EUR' },
+      variant: {
+        isOnStock: true,
+        price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
+        sku: 'SKU',
+        groupId: '72261',
+        attributes: {
+          articleNumberManufacturer: 'WOMEN RNRN 1501 L 2',
+          articleNumberMax: '72261',
+          baseId: '72261',
+          color: { key: 'red', label: 'rot' },
+          size: 'one size',
+        },
+        discountedPrice: { fractionDigits: 2, centAmount: 18720, currencyCode: 'EUR' },
+        discounts: [],
+        id: 'id-2',
+        images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
+      },
+    },
+  ],
+};
 export const productItem = {
   productId: 'e35519db-1c34-4642-aff8-49ca072b5264',
   version: '1351',

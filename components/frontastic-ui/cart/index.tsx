@@ -1,6 +1,7 @@
-import { useCart } from 'frontastic';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
+import { Cart } from '../../../../types/cart/Cart';
+import { ShippingMethod } from '../../../../types/cart/ShippingMethod';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
@@ -10,22 +11,24 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-interface Props {}
+export interface Props {
+  cart: Cart;
+  editItemQuantity: any;
+  removeItem: any;
+  shippingMethods: ShippingMethod[];
+}
 
-const Cart = ({}: Props) => {
+const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
 
-  const { data, removeItem, updateItem, shippingMethods } = useCart();
   const router = useRouter();
 
   const onCheckout = () => router.push('/checkout');
 
-  const editItemQuantity = (lineItemId: string, newQuantity: number) => updateItem(lineItemId, newQuantity);
-
   const goToProductPage = (_url: string) => router.push(_url);
 
-  if (!data?.lineItems || data.lineItems.length < 1) {
+  if (!cart?.lineItems || cart.lineItems.length < 1) {
     return <EmptyCart />;
   }
 
@@ -37,12 +40,12 @@ const Cart = ({}: Props) => {
 
       <form className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
         <ItemList
-          cart={data}
+          cart={cart}
           editItemQuantity={editItemQuantity}
           goToProductPage={goToProductPage}
           removeItem={(lineItemId: string) => removeItem(lineItemId)}
         />
-        <OrderSummary cart={data} shippingMethod={shippingMethods.data?.[0]} onCheckout={onCheckout} />
+        <OrderSummary cart={cart} shippingMethod={shippingMethods?.[0]} onCheckout={onCheckout} />
       </form>
 
       <RelatedProducts />
@@ -50,4 +53,4 @@ const Cart = ({}: Props) => {
   );
 };
 
-export default Cart;
+export default CartPage;
