@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import { SearchIcon } from '@heroicons/react/outline';
 import { Transition } from '@headlessui/react';
-import SearchInput from './search_input';
+import SearchInput from './search-input';
 import { useRouter } from 'next/router';
 
 const SearchButton: React.FC = () => {
