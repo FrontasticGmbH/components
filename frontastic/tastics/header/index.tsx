@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from 'components/frontastic-ui/header';
 import { useCart, useWishlist } from '../../provider';
+import { calculateCartCount } from '../../../helpers/utils/calculateCartCount';
 
 const HeaderTastic = ({ data }) => {
   const { data: cart } = useCart();
@@ -10,7 +11,7 @@ const HeaderTastic = ({ data }) => {
     <Header
       tagline={data.tagline}
       links={data.links}
-      cartItemCount={cart?.lineItems?.length || 0}
+      cartItemCount={calculateCartCount(cart?.lineItems) || 0}
       wishlistItemCount={wishlist?.lineItems?.length || 0}
       logo={data.logo}
       logoLink={data.logoLink}
