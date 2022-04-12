@@ -13,8 +13,8 @@ function classNames(...classes) {
 
 export interface Props {
   cart: Cart;
-  editItemQuantity: any;
-  removeItem: any;
+  editItemQuantity: (lineItemId: string, newQuantity: number) => Promise<void>;
+  removeItem: (lineItemId: string) => void;
   shippingMethods: ShippingMethod[];
 }
 
