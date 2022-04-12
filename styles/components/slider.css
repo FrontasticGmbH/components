@@ -1,0 +1,36 @@
+.slider {
+    position: static;
+}
+.slider__container {
+    position: relative;
+    padding-bottom: 40px;
+    overflow: hidden;
+}
+.slider__container--fit {
+    width: fit-content;
+}
+.slider__container--with-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 25px;
+    height: 480px;
+}
+.slider__slides {
+    position: relative;
+    overflow: hidden;
+    padding: 0 20px;
+}
+.slider__thumbs {
+    position: relative;
+    box-sizing: border-box;
+    height: 480px;
+    width: 80px;
+}
+.slider__bullet--active {
+    background: gray;
+    opacity: 1;
+}
+.slider__thumb {
+    height: 80px;
+    width: 80px;
+}
