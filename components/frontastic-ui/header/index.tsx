@@ -4,12 +4,12 @@ import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
 import { Reference, ReferenceLink } from '../../../helpers/Reference';
 import { headerNavigation } from '../../../components/mockData';
-import HeaderMenu from './header_menu';
-import WishListButton from './wishlist_button';
-import CartButton from './cart_button';
-import AccountButton from './account_button';
-import SearchButton from './search_button';
-import MegaMenuContent from './mega_menu_content';
+import HeaderMenu from './header-menu';
+import WishListButton from './wishlist-button';
+import CartButton from './cart-button';
+import AccountButton from './account-button';
+import SearchButton from './search-button';
+import MegaMenuContent from './mega-menu-content';
 import Typography from 'components/typography';
 
 function classNames(...classes) {
@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <div className="flex flex-1 items-center justify-end">
                 <div className="flex items-center">
-                  <SearchButton searchLink={searchLink} />
+                  <SearchButton />
 
                   <AccountButton accountLink={accountLink} />
 
