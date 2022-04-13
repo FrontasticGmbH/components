@@ -1,26 +1,29 @@
 import { useState, Fragment } from 'react';
 import { Switch, Dialog, Transition } from '@headlessui/react';
-import { Address } from '../../../../../../types/account/Address';
+import { Address } from '../../../../../../../types/account/Address';
 import { useAccount } from 'frontastic';
+import useI18n from 'helpers/hooks/useI18n';
 import { useFormat } from 'helpers/hooks/useFormat';
 
-export interface UpdateAddressProps {
+export interface CreateAddressProps {
   open?: boolean;
   onClose?: () => void;
   addressId?: string;
-  defaultValues: Partial<Address>;
 }
 
-const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultValues }) => {
+const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
   //i18n messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage } = useFormat({ name: 'common' });
 
   //account data
-  const { updateAddress } = useAccount();
+  const { addAddress } = useAccount();
 
-  //updated address data
-  const [data, setData] = useState(defaultValues as Address);
+  //I18n info
+  const { country } = useI18n();
+
+  //new address data
+  const [data, setData] = useState({ country } as Address);
 
   //input change handler
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +39,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      updateAddress(data);
+      addAddress(data);
     } catch (err) {
     } finally {
       onClose();
@@ -80,14 +83,13 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                 <div className="relative mx-auto max-w-xl">
                   <div className="text-center">
                     <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                      {formatAccountMessage({ id: 'address.update.headline', defaultMessage: 'Update Address' })}
+                      {formatAccountMessage({ id: 'address.create.headline', defaultMessage: 'New Address' })}
                     </h2>
                     <p className="mt-4 text-lg leading-6 text-gray-400">
                       {formatAccountMessage({
-                        id: 'address.update.desc',
-                        defaultMessage: 'Update your associated address here',
+                        id: 'address.create.dec',
+                        defaultMessage: 'Add a new address here to associate it with your account',
                       })}
-                      ;
                     </p>
                   </div>
                   <div className="mt-12">
@@ -105,7 +107,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             autoComplete="given-name"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.firstName}
                           />
                         </div>
                       </div>
@@ -122,7 +123,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             autoComplete="family-name"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.lastName}
                           />
                         </div>
                       </div>
@@ -138,7 +138,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             id="street-number"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.streetNumber}
                           />
                         </div>
                       </div>
@@ -155,7 +154,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             autoComplete="address-line1"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.streetName}
                           />
                         </div>
                       </div>
@@ -172,7 +170,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             autoComplete="tel"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.phone}
                           />
                         </div>
                       </div>
@@ -189,7 +186,6 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             autoComplete="postal-code"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.postalCode}
                           />
                         </div>
                       </div>
@@ -206,74 +202,71 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                             autoComplete="country"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
                             onChange={handleChange}
-                            defaultValue={defaultValues.city}
                           />
                         </div>
                       </div>
-                      {!defaultValues.isDefaultShippingAddress && (
-                        <div>
-                          <legend className="sr-only">
-                            {formatAccountMessage({
-                              id: 'address.setDefault.delivery',
-                              defaultMessage: 'Set as default delivery address',
-                            })}
-                          </legend>
-                          <div className="relative flex items-start">
-                            <div className="flex h-5 items-center">
-                              <input
-                                id="is-default-shipping-address"
-                                aria-describedby="Set as default shipping address"
-                                name="isDefaultShippingAddress"
-                                type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 border-gray-300 text-white focus:ring-pink-400"
-                                onChange={handleCheckboxChange}
-                                defaultChecked={defaultValues.isDefaultShippingAddress}
-                              />
-                            </div>
-                            <div className="text-md ml-3">
-                              <label htmlFor="is-default-shipping-address" className="text-gray-400">
-                                {formatAccountMessage({
-                                  id: 'address.setDefault.delivery',
-                                  defaultMessage: 'Set as default delivery address',
-                                })}
-                              </label>
-                            </div>
+                      <div>
+                        <legend className="sr-only">
+                          {formatAccountMessage({
+                            id: 'address.setDefault.delivery',
+                            defaultMessage: 'Set as default delivery address',
+                          })}
+                          ;
+                        </legend>
+                        <div className="relative flex items-start">
+                          <div className="flex h-5 items-center">
+                            <input
+                              id="is-default-shipping-address"
+                              aria-describedby="Set as default shipping address"
+                              name="isDefaultShippingAddress"
+                              type="checkbox"
+                              className="h-6 w-6 rounded border-gray-300 border-gray-300 text-white focus:ring-pink-400"
+                              onChange={handleCheckboxChange}
+                            />
+                          </div>
+                          <div className="text-md ml-3">
+                            <label htmlFor="is-default-shipping-address" className="text-gray-400">
+                              {formatAccountMessage({
+                                id: 'address.setDefault.delivery',
+                                defaultMessage: 'Set as default delivery address',
+                              })}
+                              ;
+                            </label>
                           </div>
                         </div>
-                      )}
-                      {!defaultValues.isDefaultBillingAddress && (
-                        <div>
-                          <legend className="sr-only">
-                            {formatAccountMessage({
-                              id: 'address.setDefault.billing',
-                              defaultMessage: 'Set as default billing address',
-                            })}
-                          </legend>
-                          <div className="relative flex items-start">
-                            <div className="flex h-5 items-center">
-                              <input
-                                id="is-default-billing-address"
-                                aria-describedby="Set as default billing addaress"
-                                name="isDefaultBillingAddress"
-                                type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-pink-400"
-                                onChange={handleCheckboxChange}
-                                defaultChecked={defaultValues.isDefaultBillingAddress}
-                              />
-                            </div>
-                            <div className="text-md ml-3">
-                              <label htmlFor="is-default-billing-address" className="text-gray-400">
-                                {formatAccountMessage({
-                                  id: 'address.setDefault.billing',
-                                  defaultMessage: 'Set as default billing address',
-                                })}
-                              </label>
-                            </div>
+                      </div>
+                      <div>
+                        <legend className="sr-only">
+                          {formatAccountMessage({
+                            id: 'address.setDefault.billing',
+                            defaultMessage: 'Set as default billing address',
+                          })}
+                          ;
+                        </legend>
+                        <div className="relative flex items-start">
+                          <div className="flex h-5 items-center">
+                            <input
+                              id="is-default-billing-address"
+                              aria-describedby="Set as default billing addaress"
+                              name="isDefaultBillingAddress"
+                              type="checkbox"
+                              className="h-6 w-6 rounded border-gray-300 text-white focus:ring-pink-400"
+                              onChange={handleCheckboxChange}
+                            />
+                          </div>
+                          <div className="text-md ml-3">
+                            <label htmlFor="is-default-billing-address" className="text-gray-400">
+                              {formatAccountMessage({
+                                id: 'address.setDefault.billing',
+                                defaultMessage: 'Set as default billing address',
+                              })}
+                              ;
+                            </label>
                           </div>
                         </div>
-                      )}
+                      </div>
                       <div className="text-center sm:col-span-2">
-                        <p className="mt-4 text-lg leading-6 text-gray-400">
+                        <p className="mt-4 text-sm leading-6 text-gray-400">
                           {formatAccountMessage({
                             id: 'address.create.safety',
                             defaultMessage:
@@ -308,4 +301,4 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
   );
 };
 
-export default UpdateAddress;
+export default CreateAddress;

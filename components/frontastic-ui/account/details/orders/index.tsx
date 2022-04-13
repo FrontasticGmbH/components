@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useCart } from 'frontastic';
+import React from 'react';
+import { Order } from '../../../../../../types/cart/Order';
 
-const OrdersHistory: React.FC = () => {
-  const [orders, setOrders] = useState([]);
-  const { orderHistory } = useCart();
+export interface Props {
+  orders: Order[];
+}
 
-  useEffect(() => {
-    orderHistory().then((data) => setOrders(data));
-  }, []);
-
+const OrdersHistory: React.FC<Props> = ({ orders }) => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 lg:pb-24">
@@ -40,7 +37,7 @@ const OrdersHistory: React.FC = () => {
                     <div className="flex justify-between pt-6 font-medium text-gray-900 sm:block sm:pt-0">
                       <dt>Total amount</dt>
                       <dd className="sm:mt-1">
-                        {(order.sum / 100).toFixed(2)}
+                        {(order.sum.centAmount / 100).toFixed(2)}
                         {order.lineItems[0].price.currencyCode}
                       </dd>
                     </div>

@@ -1,7 +1,52 @@
 import { Product } from '../../types/product/Product';
 import { Cart } from '../../types/cart/Cart';
+import { NextFrontasticImage } from 'frontastic/lib/image';
+import { Account } from '../../types/account/Account';
 import { ShippingMethod } from '../../types/cart/ShippingMethod';
+import { Group } from '../../types/account/Group';
+import { Address } from '../../types/account/Address';
+import { Order } from '../../types/cart/Order';
 
+export const addresses: Address[] = [
+  {
+    addressId: 'adrs-1',
+    city: 'Munster',
+    country: 'Germany',
+    firstName: 'Peter',
+    lastName: 'Parker',
+    phone: '+4 1233455666',
+    state: 'MUNSTER',
+    postalCode: '12345',
+    streetName: 'Baker Street',
+    streetNumber: '21st',
+  },
+];
+export const groups: Group[] = [
+  {
+    groupId: 'grp-1',
+    groupNameAll: '__SYSTEM_ALL',
+    name: 'Name',
+  },
+  {
+    groupId: 'grp-2',
+    groupNameAll: '__SYSTEM_ALL',
+    name: 'Name 2',
+  },
+];
+export const account: Account = {
+  email: 'spiderman@friendlyNeighbourhood.com',
+  accountId: 'usr-12345',
+  firstName: 'Peter',
+  lastName: 'Parker',
+  password: '123456789',
+  birthday: new Date('1995, 11, 17'),
+  apiToken: 'token',
+  confirmationToken: 'token',
+  confirmed: true,
+  salutation: 'Salutations',
+  groups: groups,
+  addresses: addresses,
+};
 export const shippingMethods: ShippingMethod[] = [
   {
     shippingMethodId: 'id-32244',
@@ -109,6 +154,32 @@ export const cart: Cart = {
       },
     },
   ],
+};
+export const orders: Order[] = [
+  {
+    orderId: 'ord-101',
+    orderVersion: '25',
+    orderState: 'ORDER STATE',
+    createdAt: new Date(),
+    ...cart,
+  },
+  {
+    orderId: 'ord-102',
+    orderVersion: '26',
+    orderState: 'ORDER STATE',
+    createdAt: new Date(),
+    ...cart,
+  },
+];
+
+export const frontasticImage: NextFrontasticImage = {
+  media: {
+    file: 'https://res.cloudinary.com/dlwdq84ig/image/upload/v1646648997/m1qzalyiebn9boow3tth.webp',
+    height: 66,
+    mediaId: 'm1qzalyiebn9boow3tth',
+    name: 'Logo',
+    width: 142,
+  },
 };
 export const productItem = {
   productId: 'e35519db-1c34-4642-aff8-49ca072b5264',

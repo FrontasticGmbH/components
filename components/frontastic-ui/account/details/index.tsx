@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { useAccount } from 'frontastic';
 import Redirect from 'helpers/Redirect';
 import { Reference } from 'helpers/Reference';
-import { AddressesSection, GeneralSection, SecuritySection } from './sections';
+import { AddressesSection, GeneralSection, SecuritySection } from './sections/exporter';
 import useHash from 'helpers/hooks/useHash';
 
 function classNames(...classes) {
