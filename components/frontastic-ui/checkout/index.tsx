@@ -1,7 +1,7 @@
 import GuestCheckoutForm from './checkoutForm/guest';
 import CheckoutForm from './checkoutForm';
-import MobileOrderSummary from './mobileOrderSummary';
-import DesktopOrderSummary from './desktopOrderSummary';
+import MobileOrderSummary from './OrderSummary/OrderSummaryMobile';
+import DesktopOrderSummary from './OrderSummary/OrderSummaryDesktop';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
@@ -258,6 +258,8 @@ const Checkout = ({ loginLink }: Props) => {
               submitForm={submitForm}
               data={checkoutData}
               isFormValid={isValid()}
+              account={account}
+              loggedIn={loggedIn}
             />
           ) : (
             <GuestCheckoutForm

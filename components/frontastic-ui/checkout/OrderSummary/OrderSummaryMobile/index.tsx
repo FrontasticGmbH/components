@@ -2,10 +2,10 @@ import { Disclosure } from '@headlessui/react';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/StringHelpers';
-import { Cart } from '../../../../types/cart/Cart';
-import { ShippingMethod } from '../../../../types/cart/ShippingMethod';
+import { Cart } from '../../../../../../types/cart/Cart';
+import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 
-interface Props {
+export interface Props {
   readonly cart: Cart;
   readonly editCartItem: () => void;
   readonly goToProductPage: (_url: string) => void;
@@ -29,7 +29,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
                   {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
                 </h2>
-                <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Disclosure.Button className="font-medium text-[#CE3E72] hover:text-[#B22C5D]">
                   {open ? (
                     <span>
                       {formatCheckoutMessage({ id: 'fullsummary.hide', defaultMessage: 'Hide full summary' })}

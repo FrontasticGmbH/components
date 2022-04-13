@@ -1,0 +1,31 @@
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
+import MobileOrderSummary, { Props as MobileOrderSummaryProps } from './index';
+import { cart } from '../../../../mockData';
+import { shippingMethods } from 'frontastic/actions/cart/shipping-methods';
+
+export default {
+  title: 'Frontastic/OrderSummaryMobile',
+  component: MobileOrderSummary,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as Meta;
+
+const Template: Story<MobileOrderSummaryProps> = (args) => (
+  <div>
+    <h2 className="py-10 text-2xl">Decrease Screen Size for visibility </h2>
+    <MobileOrderSummary
+      cart={cart}
+      editCartItem={() => console.log('Edited')}
+      removeCartItem={() => console.log('Removed')}
+      selectedShipping={shippingMethods[0]}
+      goToProductPage={() => console.log('Gone')}
+      {...args}
+    />
+  </div>
+);
+
+export const Primary = Template.bind({});
+
+Primary.args = {};

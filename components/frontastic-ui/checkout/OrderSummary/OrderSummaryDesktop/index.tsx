@@ -1,10 +1,10 @@
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/StringHelpers';
-import { Cart } from '../../../../types/cart/Cart';
-import { ShippingMethod } from '../../../../types/cart/ShippingMethod';
+import { Cart } from '../../../../../../types/cart/Cart';
+import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 
-interface Props {
+export interface Props {
   readonly cart: Cart;
   readonly editCartItem: () => void;
   readonly goToProductPage: (_url: string) => void;
