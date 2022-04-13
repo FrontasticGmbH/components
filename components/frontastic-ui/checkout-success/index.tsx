@@ -125,7 +125,7 @@ const CheckoutSuccess = ({}: Props) => {
 
             <div className="mt-16 border-t border-gray-200 py-6 text-right">
               <p
-                className="cursor-pointer text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                className="cursor-pointer text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
                 onClick={() => router.push('/')}
               >
                 {formatCheckoutMessage({ id: 'continueShopping', defaultMessage: 'Continue Shopping' })}

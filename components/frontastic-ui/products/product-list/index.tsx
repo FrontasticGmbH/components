@@ -7,7 +7,6 @@ import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
 import { Product } from '../../../../../types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
-
 export interface Props {
   products: Product[];
   previousCursor: string;
