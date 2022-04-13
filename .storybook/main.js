@@ -34,6 +34,8 @@ module.exports = {
       tls: false,
       net: false,
       module: false,
+      http: false,
+      crypto: false,
       path: require.resolve('path-browserify'),
     };
 

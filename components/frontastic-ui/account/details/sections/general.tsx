@@ -4,6 +4,7 @@ import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { account as accountMock } from '../../../../mockData';
 
 const General = () => {
   //i18n messages
@@ -26,7 +27,7 @@ const General = () => {
       fields: [
         {
           label: formatMessage({ id: 'firstName', defaultMessage: 'First Name' }),
-          value: account?.firstName,
+          value: account ? account?.firstName : accountMock.firstName,
           type: 'text',
           options: [],
           defaultValue: '',
@@ -38,7 +39,7 @@ const General = () => {
         },
         {
           label: formatMessage({ id: 'lastName', defaultMessage: 'Last Name' }),
-          value: account?.lastName,
+          value: account ? account?.lastName : accountMock.lastName,
           type: 'text',
           options: [],
           defaultValue: '',
@@ -50,7 +51,7 @@ const General = () => {
         },
         {
           label: formatMessage({ id: 'email', defaultMessage: 'Email' }),
-          value: account?.email,
+          value: account ? account?.email : accountMock.email,
           type: 'email',
           options: [],
           defaultValue: '',
@@ -60,27 +61,36 @@ const General = () => {
         },
       ],
     },
-    {
-      headline: formatAccountMessage({ id: 'account', defaultMessage: 'Account' }),
-      subline: formatAccountMessage({
-        id: 'account.desc',
-        defaultMessage: 'Manage how information is displayed on your account.',
-      }),
-      fields: [
-        {
-          label: 'language',
-          value: mapLocaleToMeaningfulFormat(router.locale).name,
-          type: 'select',
-          options: router.locales.map((locale) => ({ name: mapLocaleToMeaningfulFormat(locale).name, value: locale })),
-          defaultValue: router.locale,
-          required: true,
-          onSubmit: (value: string) => {
-            router.replace(router.asPath, undefined, { locale: value });
-          },
-          editable: true,
+    router != null
+      ? {
+          headline: formatAccountMessage({ id: 'account', defaultMessage: 'Account' }),
+          subline: formatAccountMessage({
+            id: 'account.desc',
+            defaultMessage: 'Manage how information is displayed on your account.',
+          }),
+          fields: [
+            {
+              label: 'language',
+              value: mapLocaleToMeaningfulFormat(router.locale).name,
+              type: 'select',
+              options: router.locales.map((locale) => ({
+                name: mapLocaleToMeaningfulFormat(locale).name,
+                value: locale,
+              })),
+              defaultValue: router.locale,
+              required: true,
+              onSubmit: (value: string) => {
+                router.replace(router.asPath, undefined, { locale: value });
+              },
+              editable: true,
+            },
+          ],
+        }
+      : {
+          headline: '',
+          subline: '',
+          fields: [],
         },
-      ],
-    },
   ];
 
   return (
