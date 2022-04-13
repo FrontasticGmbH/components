@@ -78,9 +78,8 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
             id: 'account.created',
             defaultMessage: 'A verification email was sent to {email} ✓',
             values: { email: data.email },
-          }) + 
-          `<br/> <a href="${response['url'].replace('localhost:3000','')}">Click this link to get verified</a>`,
-        );        
+          })
+        )
       }
     } catch (err) {
       setError(formatErrorMessage({ id: 'wentWrong', defaultMessage: 'Sorry. Something went wrong..' }));
