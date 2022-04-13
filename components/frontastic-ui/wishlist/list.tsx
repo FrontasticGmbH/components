@@ -1,30 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { LineItem } from '../../../../types/wishlist/LineItem';
 import { useWishlist } from 'frontastic';
 import { DateHelpers } from 'helpers/DateHelpers';
 import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
 
-interface Props {
+export interface Props {
   items?: LineItem[];
+  removeLineItems: any;
 }
 
-const List: React.FC<Props> = ({ items }) => {
+const List: React.FC<Props> = ({ items, removeLineItems }) => {
   //i18n messages
   const { formatMessage: formatWishlistMessage } = useFormat({ name: 'wishlist' });
   const { formatMessage } = useFormat({ name: 'common' });
 
-  const { removeLineItem } = useWishlist();
   const router = useRouter();
 
   const goToProductPage = (variantSku: string) => router.push(`/slug/p/${variantSku}`);
-
-  const removeLineItems = async (item: LineItem) => {
-    let itemsToRemove = items.filter((lineItem) => lineItem.name === item.name);
-    for await (const lineItem of itemsToRemove) {
-      await removeLineItem(lineItem.lineItemId);
-    }
-  };
 
   return (
     <div className="mx-auto max-w-2xl pb-16 pt-8 lg:max-w-3xl lg:pt-4">

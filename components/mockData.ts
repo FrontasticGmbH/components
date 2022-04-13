@@ -6,6 +6,55 @@ import { ShippingMethod } from '../../types/cart/ShippingMethod';
 import { Group } from '../../types/account/Group';
 import { Address } from '../../types/account/Address';
 import { Order } from '../../types/cart/Order';
+import { Wishlist } from '../../types/wishlist/Wishlist';
+import { LineItem } from '../../types/wishlist/LineItem';
+
+const lineItems: LineItem[] = [
+  {
+    lineItemId: '0',
+    _url: '/',
+    addedAt: new Date(),
+    count: 5,
+    name: 'Some Article of clothing 1',
+    type: 'Clothes',
+    variant: {
+      sku: 'SKU',
+      images: ['https://tailwindui.com/img/ecommerce-images/checkout-page-03-product-04.jpg'],
+    },
+  },
+  {
+    lineItemId: '1',
+    _url: '/',
+    addedAt: new Date(),
+    count: 5,
+    name: 'Some Article of clothing 2',
+    type: 'Clothes',
+    variant: {
+      sku: 'SKU',
+      images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg'],
+    },
+  },
+  {
+    lineItemId: '2',
+    _url: '/',
+    addedAt: new Date(),
+    count: 5,
+    name: 'Some Article of clothing 3',
+    type: 'Clothes',
+    variant: {
+      sku: 'SKU',
+      images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg'],
+    },
+  },
+];
+export const wishlist: Wishlist = {
+  wishlistId: '0',
+  anonymousId: 'an',
+  name: 'Wishlist Items',
+  accountId: 'Acc-12-43',
+  wishlistVersion: 'v 1.0',
+  lineItems: lineItems,
+};
 
 export const addresses: Address[] = [
   {
