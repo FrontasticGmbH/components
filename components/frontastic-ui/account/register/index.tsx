@@ -78,8 +78,9 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
             id: 'account.created',
             defaultMessage: 'A verification email was sent to {email} ✓',
             values: { email: data.email },
-          }),
-        );
+          }) + 
+          `<br/> <a href="${response['url'].replace('localhost:3000','')}">Click this link to get verified</a>`,
+        );        
       }
     } catch (err) {
       setError(formatErrorMessage({ id: 'wentWrong', defaultMessage: 'Sorry. Something went wrong..' }));
@@ -112,7 +113,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              {success && <p className="text-sm text-green-600">{success}</p>}
+              {success && <p className="text-sm text-green-600" dangerouslySetInnerHTML={{ __html: success}}></p>}
               {error && <p className="text-sm text-pink-400">{error}</p>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
