@@ -6,22 +6,22 @@ import FormRadioGroup from './fields/formRadioGroup';
 import { useEffect, useState } from 'react';
 import { useAccount } from 'frontastic';
 import FormCheckbox from './fields/formCheckbox';
+import { Account } from '../../../../../types/account/Account';
 
-interface Props {
+export interface Props {
   readonly submitText: string;
   readonly updateFormInput: (propName: string, newValue: string) => void;
   readonly submitForm: () => void;
   readonly data: { [inputName: string]: string };
   readonly isFormValid: boolean;
+  account: Account;
+  loggedIn: boolean;
 }
 
-const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormValid }: Props) => {
+const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormValid, account, loggedIn }: Props) => {
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
-
-  //account data
-  const { account, loggedIn } = useAccount();
 
   //geust checkout
   const isGuestCheckout = !loggedIn;
@@ -232,7 +232,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
         )}
       </div>
       <FormButton buttonText={submitText} onClick={submitForm} isDisabled={!isFormValid} />
-      {/* 
+      {/*
       <p className="mt-6 flex justify-center text-sm font-medium text-gray-500">
         <LockClosedIcon className="mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
         Payment details stored in plain text
