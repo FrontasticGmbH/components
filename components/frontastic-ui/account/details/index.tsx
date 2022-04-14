@@ -2,7 +2,7 @@ import React from 'react';
 import { useAccount } from 'frontastic';
 import Redirect from 'helpers/Redirect';
 import { Reference } from 'helpers/Reference';
-import { AddressesSection, GeneralSection, SecuritySection } from './sections/exporter';
+import { AddressesSection, GeneralSection, SecuritySection, OrdersHistorySection } from './sections/exporter';
 import useHash from 'helpers/hooks/useHash';
 
 function classNames(...classes) {
@@ -41,6 +41,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
     '#': GeneralSection,
     '#addresses': AddressesSection,
     '#security': SecuritySection,
+    '#orders': OrdersHistorySection,
   };
 
   //current rendered content

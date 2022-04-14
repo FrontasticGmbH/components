@@ -17,6 +17,7 @@
   "account.login.here": "Hier anmelden",
   "rememberMe": "Anmeldeinformationen speichern",
   "password": "Passwort",
+  "password.old": "Altes passwort",
   "password.confirm": "Passwort bestätigen",
   "password.forgot": "Passwort vergessen?",
   "sign.in": "Anmelden",
@@ -30,5 +31,12 @@
   "verification.failed": "ungültiges Token",
   "verification.resent": "Eine E-Mail wurde an {email} gesendet",
   "password.reset.headline": "Setze dein Passwort zurück",
-  "password.reset.desc": "Füllen Sie die Felder unten aus, um Ihr Passwort zurückzusetzen"
+  "password.reset.desc": "Füllen Sie die Felder unten aus, um Ihr Passwort zurückzusetzen",
+  "account.security.warning": "Seien Sie vorsichtig, wenn Sie diese Einstellung verwenden.",
+  "orders.history": "Meine Bestellhistorie",
+  "orders.desc": "Überprüfen Sie den Status der letzten Bestellungen, verwalten Sie Rücksendungen und laden Sie Rechnungen herunter.",
+  "orders.number": "Bestellnummer",
+  "orders.total.amount": "Gesamtsumme",
+  "orders.view.invoice": "Rechnung ansehen",
+  "orders.status": "Bestellstatus"
 }

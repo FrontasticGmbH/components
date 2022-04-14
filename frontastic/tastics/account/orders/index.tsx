@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import OrdersHistory from 'components/frontastic-ui/account/details/orders';
+import OrdersHistory from 'components/frontastic-ui/account/details/sections/orders';
 import { useCart } from 'frontastic/provider';
 
 const AccountOrdersHistoryTastic: React.FC = () => {
-  const { orderHistory } = useCart();
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    orderHistory().then((data) => setOrders(data));
-  }, []);
-
-  return <OrdersHistory orders={orders} />;
+  return <OrdersHistory />;
 };
 
 export default AccountOrdersHistoryTastic;

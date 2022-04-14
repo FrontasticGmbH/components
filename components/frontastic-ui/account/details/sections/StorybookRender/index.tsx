@@ -4,7 +4,7 @@ import Addresses from '../addresses';
 import General from '../general';
 import Security from '../security';
 import classNames from 'classnames';
-import OrdersHistory from '../../orders';
+import OrdersHistory from '../orders';
 import { orders } from '../../../../../mockData';
 
 const Sections = () => {

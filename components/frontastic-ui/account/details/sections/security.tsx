@@ -1,9 +1,11 @@
 import { useAccount } from 'frontastic';
+import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useState } from 'react';
 
 const Security = () => {
   //account data
   const { changePassword } = useAccount();
+  const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
 
   //new passwords
   const initialData = { oldPassword: '', password: '', confirmPassword: '' };
@@ -57,7 +59,12 @@ const Security = () => {
       <div className="mt-10 divide-y divide-gray-200">
         <div className="space-y-1">
           <h3 className="text-lg font-medium leading-6 text-gray-900">Password</h3>
-          <p className="max-w-2xl text-sm text-gray-500">Be careful when using this setting.</p>
+          <p className="max-w-2xl text-sm text-gray-500">
+            {formatAccountMessage({
+              id: 'account.security.warning',
+              defaultMessage: 'Be careful when using this settinggggggg',
+            })}
+          </p>
         </div>
       </div>
       <form className="mt-6" onSubmit={handleSubmit}>
@@ -69,7 +76,10 @@ const Security = () => {
             name="oldPassword"
             type="password"
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
-            placeholder="Old Password"
+            placeholder={formatAccountMessage({
+              id: 'password.old',
+              defaultMessage: 'Old password',
+            })}
             required
             onChange={handleChange}
             value={data.oldPassword}
@@ -81,7 +91,10 @@ const Security = () => {
             name="password"
             type="password"
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
-            placeholder="Password"
+            placeholder={formatAccountMessage({
+              id: 'password',
+              defaultMessage: 'Password',
+            })}
             required
             onChange={handleChange}
             value={data.password}
@@ -93,7 +106,10 @@ const Security = () => {
             name="confirmPassword"
             type="password"
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
-            placeholder="Confirm Password"
+            placeholder={formatAccountMessage({
+              id: 'password.confirm',
+              defaultMessage: 'Confirm password',
+            })}
             required
             onChange={handleChange}
             value={data.confirmPassword}
