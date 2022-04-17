@@ -3,18 +3,14 @@ import { Order } from '../../../../../../types/cart/Order';
 import { useCart } from 'frontastic/provider';
 import { useFormat } from 'helpers/hooks/useFormat';
 
-export interface Props {
-  orders?: Order[];
-}
-
-const OrdersHistory: React.FC<Props> = ({}) => {
+const OrdersHistory: React.FC = ({}) => {
   //18in messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
   //account data
   const { orderHistory } = useCart();
-  const [accountOrders, setAccountOrders] = useState([]);
+  const [accountOrders, setAccountOrders] = useState<Order[]>([]);
 
   useEffect(() => {
     orderHistory().then((data) => {
@@ -69,7 +65,7 @@ const OrdersHistory: React.FC<Props> = ({}) => {
                           })}
                         </dt>
                         <dd className="sm:mt-1">
-                          {(order.sum / 100).toFixed(2)}
+                          {(+order.sum / 100).toFixed(2)}
                           {order.lineItems[0].price.currencyCode}
                         </dd>
                       </div>
