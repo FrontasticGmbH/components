@@ -6,6 +6,7 @@ import Toaster from 'components/frontastic-ui/Toaster';
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
 import '../styles/components/slider.css';
+import '../styles/components/default-loader.css';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (

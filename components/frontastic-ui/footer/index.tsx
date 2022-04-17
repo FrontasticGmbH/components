@@ -86,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
           <ul className="flex">
             {footerCopyrightLinks.map((item, i) => (
               <li key={i} className="text-xs">
-                <p className="px-2 text-gray-700 hover:text-white sm:text-sm">
+                <p className="px-2 text-[#CBD5E0] hover:text-white sm:text-sm">
                   <Typography>{item.name}</Typography>
                 </p>
               </li>
