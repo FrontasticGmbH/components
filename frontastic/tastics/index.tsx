@@ -21,6 +21,7 @@ import AccountRegisterTastic from './account/register';
 import SpacerTastic from './content/spacer';
 import WishlistTastic from './wishlist';
 import ResetPasswordTastic from './account/reset-password';
+import ShowcaseTastic from './showcase';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
@@ -44,5 +45,6 @@ export const tastics = {
   'frontastic/ui/content/spacer': SpacerTastic,
   'frontastic/ui/wishlist': WishlistTastic,
   'frontastic/ui/account/reset-password': ResetPasswordTastic,
+  'frontastic/ui/content/showcase': ShowcaseTastic,
   default: NotFound,
 };
