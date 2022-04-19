@@ -1,6 +1,6 @@
 {
   "name": "@frontastic/extensions",
-  "version": "0.0.1",
+  "version": "1.0.0-alpha",
   "main": "index.js",
   "author": "Marcel Fahle",
   "license": "MIT",
