@@ -1,5 +1,5 @@
 {
-  "name": "@frontastic/extensions",
+  "name": "@frontastic/components",
   "version": "1.0.0-alpha",
   "license": "MIT",
   "main": "index.js",
