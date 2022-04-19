@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 import { useAccount } from 'frontastic';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { NextRouter, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
+import { getReferenceTarget, Reference } from 'helpers/Reference';
 
 export interface ResetPasswordProps {
   logo?: NextFrontasticImage;
-  router?: NextRouter;
   token?: string | string[];
+  accountLink?: Reference;
 }
 
-const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, router, token }) => {
+const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink }) => {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
+
+  //next/router
+  const router = useRouter();
 
   //account actions
   const { resetPassword } = useAccount();
@@ -61,7 +65,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, router, token }) =>
         );
       } else {
         setError('');
-        router.push('/');
+        router?.push(getReferenceTarget(accountLink));
       }
     } catch (err) {
       setError(formatErrorMessage({ id: 'wentWrong', defaultMessage: 'Sorry. Something went wrong..' }));

@@ -30,5 +30,6 @@
   "verification.failed": "Invalid token",
   "verification.resent": "An email was sent to {email}",
   "password.reset.headline": "Reset your password",
-  "password.reset.desc": "Fill the fields below to complete your password reset"
+  "password.reset.desc": "Fill the fields below to complete your password reset",
+  "settings": "Settings"
 }

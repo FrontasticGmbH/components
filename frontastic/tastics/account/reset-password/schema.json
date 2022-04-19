@@ -14,6 +14,17 @@
           "required": true
         }
       ]
+    },
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Account Link",
+          "field": "accountLink",
+          "type": "reference",
+          "required": true
+        }
+      ]
     }
   ]
 }

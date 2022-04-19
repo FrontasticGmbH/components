@@ -4,6 +4,7 @@ import Redirect from 'helpers/Redirect';
 import { Reference } from 'helpers/Reference';
 import { AddressesSection, GeneralSection, SecuritySection, OrdersHistorySection } from './sections/exporter';
 import useHash from 'helpers/hooks/useHash';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -16,6 +17,9 @@ export interface AccountDetailsProps {
 const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
   //account data
   const { loggedIn } = useAccount();
+
+  //i18n messages
+  const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
 
   //current window hash
   const hash = useHash();
@@ -56,10 +60,12 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
             <main className="flex-1">
               <div className="relative mx-auto max-w-4xl md:px-8 xl:px-0">
                 <div className="pt-10 pb-16">
-                  <div className="px-4 sm:px-6 md:px-0">
-                    <h1 className="text-3xl font-extrabold text-gray-900">Settings</h1>
+                  <div className="w-full">
+                    <h1 className="text-center text-3xl font-extrabold text-gray-900 sm:text-left">
+                      {formatAccountMessage({ id: 'settings', defaultMessage: 'Settings' })}
+                    </h1>
                   </div>
-                  <div className="px-4 sm:px-6 md:px-0">
+                  <div className="w-full">
                     <div className="py-6">
                       {/* Tabs */}
                       <div className="lg:hidden">

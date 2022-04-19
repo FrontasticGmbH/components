@@ -12,7 +12,8 @@ const ResetPasswordTastic: React.FC<Props> = ({ data }) => {
 
   //reset password token
   const { token } = router.query;
-  return <ResetPassword router={router} token={token} {...data} />;
+
+  return <ResetPassword token={token} {...data} />;
 };
 
 export default ResetPasswordTastic;

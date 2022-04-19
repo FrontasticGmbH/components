@@ -38,5 +38,6 @@
   "orders.number": "Bestellnummer",
   "orders.total.amount": "Gesamtsumme",
   "orders.view.invoice": "Rechnung ansehen",
-  "orders.status": "Bestellstatus"
+  "orders.status": "Bestellstatus",
+  "settings": "die Einestellungen"
 }
