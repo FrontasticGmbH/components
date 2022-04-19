@@ -43,5 +43,7 @@
   "next": "Weiter",
   "prev": "Vorherige",
   "item.add.on": "Artikel hinzugefügt am",
-  "submit": "einreichen"
+  "submit": "einreichen",
+  "page.notFound": "Seite nicht gefunden",
+  "page.notFound.desc": "Die gesuchte Seite konnte nicht gefunden werden. Es wurde möglicherweise gelöscht, umbenannt oder existiert nicht."
 }
