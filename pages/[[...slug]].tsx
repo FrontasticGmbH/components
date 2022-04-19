@@ -7,15 +7,14 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { FrontasticError } from '../frontastic/lib/utils/FrontasticError';
 
 import styles from './slug.module.css';
+import Error404 from 'components/frontastic-ui/404';
 
 type SlugProps = {
   data: any;
 };
 
 export default function Slug({ data }: SlugProps) {
-  if (!data) {
-    return null;
-  }
+  if (!data) return <Error404 />;
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 

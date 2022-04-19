@@ -43,5 +43,7 @@
   "next": "Next",
   "prev": "Previous",
   "item.add.on": "Item Added on",
-  "submit": "Submit"
+  "submit": "Submit",
+  "page.notFound": "Page not found",
+  "page.notFound.desc": "The page you were looking for couldn't be found. It may have been deleted, renamed, or doesn't exist."
 }
