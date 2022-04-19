@@ -2,22 +2,18 @@ import React, { useState } from 'react';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 import { useAccount } from 'frontastic';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 
 export interface ResetPasswordProps {
   logo?: NextFrontasticImage;
+  router?: NextRouter;
+  token?: string | string[];
 }
 
-const ResetPassword: React.FC<ResetPasswordProps> = ({ logo }) => {
+const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, router, token }) => {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
-
-  //next/router
-  const router = useRouter();
-
-  //reset password token
-  const { token } = router.query;
 
   //account actions
   const { resetPassword } = useAccount();
