@@ -1,9 +1,8 @@
 {
   "name": "@frontastic/extensions",
   "version": "1.0.0-alpha",
-  "main": "index.js",
-  "author": "Marcel Fahle",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "dev": "concurrently -n NEXT,TSC -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "build": "next build",
