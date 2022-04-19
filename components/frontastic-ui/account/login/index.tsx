@@ -10,9 +10,10 @@ import { ArrowLeftIcon } from '@heroicons/react/solid';
 export interface LoginProps {
   logo?: NextFrontasticImage;
   registerLink?: Reference;
+  accountLink?: Reference;
 }
 
-const Login: React.FC<LoginProps> = ({ logo, registerLink }) => {
+const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
@@ -128,7 +129,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink }) => {
     setLoading(false);
   };
 
-  if (loggedIn) return <Redirect target="/" />;
+  if (loggedIn) return <Redirect target={accountLink} />;
 
   return (
     <>

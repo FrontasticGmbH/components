@@ -23,6 +23,12 @@
           "field": "registerLink",
           "type": "reference",
           "required": true
+        },
+        {
+          "label": "Account Link",
+          "field": "accountLink",
+          "type": "reference",
+          "required": true
         }
       ]
     }
