@@ -5,8 +5,8 @@
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #667eea;
-    border-color: #667eea transparent #667eea transparent;
+    border: 6px solid #CE3E72;
+    border-color: #CE3E72 transparent #CE3E72 transparent;
     animation: loading-full-screen 1.5s linear infinite;
 }
 @keyframes loading-full-screen {
