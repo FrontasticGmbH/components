@@ -3,6 +3,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/StringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
 
 export interface Props {
   readonly cart: Cart;
@@ -10,9 +11,17 @@ export interface Props {
   readonly goToProductPage: (_url: string) => void;
   readonly removeCartItem: (lineItemId: string) => void;
   readonly selectedShipping: ShippingMethod;
+  readonly someOutOfStock: boolean;
 }
 
-const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartItem, selectedShipping }: Props) => {
+const DesktopOrderSummary = ({
+  cart,
+  editCartItem,
+  goToProductPage,
+  removeCartItem,
+  selectedShipping,
+  someOutOfStock,
+}: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -77,7 +86,14 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
           </li>
         ))}
       </ul>
-
+      {someOutOfStock && (
+        <p className="flex items-center gap-1 p-6 text-xs text-red-500">
+          <span style={{ marginBottom: '1px' }}>
+            <ExclamationCircleIcon width={15} />
+          </span>
+          <span>{formatCheckoutMessage({ id: 'outOfStock', defaultMessage: 'Some products are out of stock' })}</span>
+        </p>
+      )}
       <div className="sticky bottom-0 flex-none border-t border-gray-200 bg-gray-50 p-6">
         {/*<form>
                 <label htmlFor="discount-code" className="block text-sm font-medium text-gray-700">

@@ -1,4 +1,5 @@
 import { Disclosure } from '@headlessui/react';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/StringHelpers';
@@ -11,9 +12,17 @@ export interface Props {
   readonly goToProductPage: (_url: string) => void;
   readonly removeCartItem: (lineItemId: string) => void;
   readonly selectedShipping: ShippingMethod;
+  readonly someOutOfStock: boolean;
 }
 
-const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartItem, selectedShipping }: Props) => {
+const MobileOrderSummary = ({
+  cart,
+  editCartItem,
+  goToProductPage,
+  removeCartItem,
+  selectedShipping,
+  someOutOfStock,
+}: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -25,7 +34,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
         {({ open }) => (
           <div className="mx-auto max-w-lg">
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-4">
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
                   {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
                 </h2>
@@ -52,7 +61,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                         className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
                         onClick={() => goToProductPage(lineItem._url)}
                       />
-                      <div className="flex flex-col justify-between space-y-4">
+                      <div className="flex flex-col items-start justify-between space-y-4">
                         <div className="space-y-1 text-sm font-medium">
                           <h3 className="cursor-pointer text-gray-900" onClick={() => goToProductPage(lineItem._url)}>
                             {lineItem.name}
@@ -74,7 +83,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                             </p>
                           )}
                         </div>
-                        <div className="flex space-x-4">
+                        <div className="flex w-full flex-col items-start space-y-2">
                           <button
                             type="button"
                             onClick={editCartItem}
@@ -82,21 +91,28 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                           >
                             {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                           </button>
-                          <div className="flex border-l border-gray-300 pl-4">
-                            <button
-                              type="button"
-                              onClick={(e) => removeCartItem(lineItem.lineItemId)}
-                              className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
-                            >
-                              {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
-                            </button>
-                          </div>
+                          <button
+                            type="button"
+                            onClick={(e) => removeCartItem(lineItem.lineItemId)}
+                            className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                          >
+                            {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
+                          </button>
                         </div>
                       </div>
                     </li>
                   ))}
+                  {someOutOfStock && (
+                    <p className="flex items-center gap-1 py-6 text-xs text-red-500">
+                      <span style={{ marginBottom: '1px' }}>
+                        <ExclamationCircleIcon width={15} />
+                      </span>
+                      <span>
+                        {formatCheckoutMessage({ id: 'outOfStock', defaultMessage: 'Some products are out of stock' })}
+                      </span>
+                    </p>
+                  )}
                 </ul>
-
                 {/*<form className="mt-10">
                                 <label htmlFor="discount-code-mobile" className="block text-sm font-medium text-gray-700">
                                     Discount code

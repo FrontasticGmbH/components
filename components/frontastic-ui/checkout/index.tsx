@@ -12,6 +12,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/Reference';
 import * as yup from 'yup';
 import { ObjectShape } from 'yup/lib/object';
+import useI18n from 'helpers/hooks/useI18n';
 
 interface Props {
   loginLink?: Reference;
@@ -29,11 +30,17 @@ const Checkout = ({ loginLink }: Props) => {
   //cart data
   const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
 
+  //i18n data
+  const { country } = useI18n();
+
   //account data
   const { account } = useAccount();
 
   //next/router
   const router = useRouter();
+
+  //some products are out of stock?
+  const someOutOfStock = !!data?.lineItems.find((item) => !item.variant.isOnStock);
 
   //checkout data
   const [checkoutData, setCheckoutData] = useState({
@@ -48,7 +55,7 @@ const Checkout = ({ loginLink }: Props) => {
     streetNumber: '',
     city: '',
     postalCode: '',
-    country: '',
+    country: country.toLowerCase(),
     shippingStreetName: '',
     shippingStreetNumber: '',
     shippingCity: '',
@@ -70,7 +77,11 @@ const Checkout = ({ loginLink }: Props) => {
 
   const removeLineItem = (lineItemId: string) => removeItem(lineItemId);
 
-  const isValid = () => {
+  const isItemsValid = () => {
+    return !someOutOfStock;
+  };
+
+  const isCheckoutDataValid = () => {
     //credit card scheme
     const ccScheme = yup.object().shape({
       nameOnCard: yup.string().required(),
@@ -129,6 +140,10 @@ const Checkout = ({ loginLink }: Props) => {
       .concat(checkoutData.pay === 'cc' ? ccScheme : (invoiceScheme as yup.ObjectSchema<ObjectShape>));
 
     return scheme.isValidSync(checkoutData);
+  };
+
+  const isValid = () => {
+    return isCheckoutDataValid() && isItemsValid();
   };
 
   const submitForm = async () => {
@@ -202,6 +217,7 @@ const Checkout = ({ loginLink }: Props) => {
         goToProductPage={goToProductPage}
         removeCartItem={removeLineItem}
         selectedShipping={shippingMethods.data?.[0]}
+        someOutOfStock={someOutOfStock}
       />
       <DesktopOrderSummary
         cart={data}
@@ -209,6 +225,7 @@ const Checkout = ({ loginLink }: Props) => {
         goToProductPage={goToProductPage}
         removeCartItem={removeLineItem}
         selectedShipping={shippingMethods.data?.[0]}
+        someOutOfStock={someOutOfStock}
       />
 
       {/* Checkout form */}
