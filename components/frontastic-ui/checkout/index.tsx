@@ -1,7 +1,7 @@
-import GuestCheckoutForm from './checkoutForm/guest';
-import CheckoutForm from './checkoutForm';
-import MobileOrderSummary from './OrderSummary/OrderSummaryMobile';
-import DesktopOrderSummary from './OrderSummary/OrderSummaryDesktop';
+import GuestCheckoutForm from './checkout-form/guest';
+import CheckoutForm from './checkout-form';
+import MobileOrderSummary from './order-summary/order-summary-mobile';
+import DesktopOrderSummary from './order-summary/order-summary-desktop';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useState } from 'react';
 import EmptyCart from '../cart/emptyCart';
