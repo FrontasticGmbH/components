@@ -137,7 +137,6 @@ function AccountTestTastic() {
                 email: crypto.randomUUID() + '@r9e.de',
                 password: '3e7e422b-93d1-4ed8-8dca-161dd1867ca6',
               });
-              console.log('created account: ', account);
             }}
           >
             Register
@@ -146,7 +145,6 @@ function AccountTestTastic() {
             className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             onClick={async () => {
               const account = await confirm(crypto.randomUUID());
-              console.log('confirmed account: ', account);
             }}
           >
             Confirm
@@ -155,7 +153,6 @@ function AccountTestTastic() {
             className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             onClick={async () => {
               const token = await requestPasswordReset('0fccf729-4a81-43f6-a475-939540761786@r9e.de');
-              console.log('requested reset: ', token);
             }}
           >
             Request Password Reset
@@ -167,7 +164,6 @@ function AccountTestTastic() {
                 'I_kiMJBbR6mZ0FpLLHq_kWi0eBp9yXQy9q-cx_4J',
                 '3e7e422b-93d1-4ed8-8dca-161dd1867ca6',
               );
-              console.log('password reset: ', account);
             }}
           >
             Reset Password

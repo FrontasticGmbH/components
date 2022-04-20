@@ -15,6 +15,5 @@ export const updateItem = async (lineItemId: string, newQuantity: number) => {
     },
     payload,
   );
-  console.log('item updated, <id, new quantity>', lineItemId, newQuantity, res);
   mutate('/action/cart/getCart', res);
 };

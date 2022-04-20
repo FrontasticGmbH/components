@@ -13,7 +13,5 @@ export const removeItem = async (lineItemId: string) => {
     },
     payload,
   );
-
-  console.log('item removed, ID:', lineItemId, res);
   mutate('/action/cart/getCart', res);
 };

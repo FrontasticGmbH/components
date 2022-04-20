@@ -6,8 +6,6 @@ const CartTastic = () => {
   const { data, removeItem, updateItem, shippingMethods } = useCart();
   const editItemQuantity = (lineItemId: string, newQuantity: number) => updateItem(lineItemId, newQuantity);
 
-  console.log('CART SHIP', data);
-
   return (
     <CartPage
       cart={data}
