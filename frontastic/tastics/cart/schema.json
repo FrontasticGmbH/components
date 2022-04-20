@@ -1,7 +1,7 @@
 {
     "tasticType": "frontastic/ui/cart",
     "name": "Frontastic UI cart",
-    "icon": "wrap_text",
+    "icon": "shopping_cart",
     "category": "Cart",
     "schema": []
 }
