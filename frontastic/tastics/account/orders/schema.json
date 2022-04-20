@@ -1,6 +1,6 @@
 {
   "tasticType": "frontastic/ui/account/orders",
-  "name": "Frontastic UI Account Orders",
+  "name": "Frontastic UI account orders",
   "category": "Account",
   "icon": "account_circle",
   "schema": []

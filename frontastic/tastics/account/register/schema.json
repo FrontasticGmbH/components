@@ -1,6 +1,6 @@
 {
   "tasticType": "frontastic/ui/account/register",
-  "name": "Frontastic UI Account Register",
+  "name": "Frontastic UI account register",
   "category": "Account",
   "icon": "account_circle",
   "schema": [
@@ -19,7 +19,7 @@
       "name": "Content",
       "fields": [
         {
-          "label": "Login Link",
+          "label": "Login link",
           "field": "loginLink",
           "type": "reference",
           "required": true

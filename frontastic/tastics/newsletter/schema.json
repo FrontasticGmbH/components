@@ -1,6 +1,6 @@
 {
   "tasticType": "frontastic/ui/content/newsletter",
-  "name": "Newsletter",
+  "name": "Frontastic UI newsletter",
   "category": "Content",
   "icon": "email",
   "schema": [
@@ -28,27 +28,27 @@
       "name": "Form",
       "fields": [
         {
-          "label": "Input Placeholder",
+          "label": "Input placeholder",
           "field": "inputPlaceholder",
           "type": "string"
         },
         {
-          "label": "CTA Label",
+          "label": "CTA label",
           "field": "ctaLabel",
           "type": "string"
         }
       ]
     },
     {
-      "name": "Subscription Confirmation",
+      "name": "Subscription confirmation",
       "fields": [
         {
-          "label": "Success Title",
+          "label": "Success title",
           "field": "successTitle",
           "type": "string"
         },
         {
-          "label": "Success Message",
+          "label": "Success message",
           "field": "successMessage",
           "type": "string"
         }

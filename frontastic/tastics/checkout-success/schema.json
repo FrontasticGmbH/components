@@ -1,7 +1,7 @@
 {
     "tasticType": "frontastic/ui/checkout-success",
     "name": "Frontastic UI checkout success",
-    "icon": "menu",
+    "icon": "done",
     "category": "Checkout",
     "schema": []
 }

@@ -8,7 +8,7 @@
             "name": "Configuration",
             "fields": [
                 {
-                    "label": "product",
+                    "label": "Product",
                     "field": "data",
                     "type": "dataSource",
                     "dataSourceType": "frontastic/product",
