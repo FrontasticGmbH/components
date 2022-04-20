@@ -33,7 +33,6 @@ const Security = () => {
     //try updating user's password
     try {
       const response = await changePassword(data.oldPassword, data.password);
-      console.log(response);
       if (response.accountId) {
         setSuccess('Password successfully changed!');
         setError('');

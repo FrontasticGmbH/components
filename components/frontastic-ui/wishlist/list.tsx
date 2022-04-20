@@ -1,6 +1,5 @@
 import React from 'react';
 import { LineItem } from '../../../../types/wishlist/LineItem';
-import { useWishlist } from 'frontastic';
 import { DateHelpers } from 'helpers/DateHelpers';
 import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
