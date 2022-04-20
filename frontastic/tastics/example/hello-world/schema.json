@@ -1,0 +1,19 @@
+{
+  "tasticType": "example/hello-world",
+  "name": "Hello World",
+  "category": "Example",
+  "description": "A very basic Frontastic component example",
+  "schema": [
+    {
+      "name": "Content configuration",
+      "fields": [
+        {
+          "label": "Greeting recipient",
+          "field": "recipient",
+          "type": "string",
+          "default": "world"
+        }
+      ]
+    }
+  ]
+}
