@@ -11,6 +11,7 @@
           "label": "Tagline",
           "field": "tagline",
           "type": "string",
+          "translatable": true,
           "required": false
         },
         {

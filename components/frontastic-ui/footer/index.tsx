@@ -5,7 +5,7 @@ import { default as RocketIcon } from 'components/icons/rocket';
 import { default as LoopIcon } from 'components/icons/loop';
 import { default as LockIcon } from 'components/icons/lock';
 import Typography from 'components/frontastic-ui/typography';
-import { footerCopyrightLinks } from 'components/mockData';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface Link {
   name: string;
@@ -28,6 +28,20 @@ export interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
+  const { formatMessage } = useFormat({ name: 'common' });
+
+  const footerCopyrightLinks = [
+    { name: formatMessage({ id: 'cookies', defaultMessage: 'Cookies' }), reference: '/' },
+    {
+      name: formatMessage({ id: 'privacy.policy', defaultMessage: 'Privacy policy' }),
+      reference: '/',
+    },
+    {
+      name: formatMessage({ id: 'terms.conditions', defaultMessage: 'T&C' }),
+      reference: '/',
+    },
+  ];
+
   const renderIcon = (name: string) => {
     switch (name) {
       case 'rocket':

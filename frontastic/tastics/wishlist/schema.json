@@ -1,7 +1,7 @@
 {
   "tasticType": "frontastic/ui/wishlist",
-  "name": "Frontastic UI wish list",
+  "name": "Frontastic UI wishlist",
   "icon": "list",
-  "category": "Wish List",
+  "category": "Wishlist",
   "schema": []
 }

@@ -1,20 +1,20 @@
 {
-    "tasticType": "frontastic/ui/products/product-list",
-    "name": "Frontastic UI product list",
-    "icon": "list",
-    "category": "Products",
-    "schema": [
+  "tasticType": "frontastic/ui/products/product-list",
+  "name": "Frontastic UI product list",
+  "icon": "list",
+  "category": "Products",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
         {
-            "name": "Configuration",
-            "fields": [
-                {
-                    "label": "products",
-                    "field": "data",
-                    "type": "dataSource",
-                    "dataSourceType": "frontastic/product-list",
-                    "required": true
-                }
-            ]
+          "label": "products",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "frontastic/product-list",
+          "required": true
         }
-    ]
+      ]
+    }
+  ]
 }

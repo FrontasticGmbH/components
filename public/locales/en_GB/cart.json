@@ -4,6 +4,7 @@
   "subtotal": "Subtotal",
   "totalAmount": "Total amount",
   "totalSum": "Total sum",
+  "orderTotal": "Order total",
   "enterVouchers": "You can enter voucher codes in the last step of the order process.",
   "checkout": "Checkout",
   "shippingCosts": "Shipping costs",

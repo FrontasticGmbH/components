@@ -4,6 +4,7 @@
   "subtotal": "Zwischensumme",
   "totalAmount": "Gesamtbetrag",
   "totalSum": "Gesamtsumme",
+  "orderTotal": "Auftragssumme",
   "enterVouchers": "Du kannst Gutscheincodes im letzten Schritt des Bestellvorgangs eingeben.",
   "checkout": "Zur Kasse",
   "shippingCosts": "Versandkosten",

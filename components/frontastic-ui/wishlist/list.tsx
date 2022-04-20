@@ -52,8 +52,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                         onClick={() => goToProductPage(item.variant.sku)}
                         className="cursor-pointer font-medium text-gray-700 hover:text-gray-800"
                       >
-                        {' '}
-                        {item.name}{' '}
+                        {item.name}
                       </p>
                     </h4>
                     <p className="ml-4 text-sm font-medium text-gray-900">{item.variant.sku}</p>

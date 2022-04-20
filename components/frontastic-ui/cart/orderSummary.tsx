@@ -25,7 +25,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
 
       <dl className="mt-6 space-y-4">
         <div className="flex items-center justify-between">
-          <dt className="text-sm text-gray-600">Subtotal</dt>
+          <dt className="text-sm text-gray-600">{formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}</dt>
           <dd className="text-sm font-medium text-gray-900">
             {CurrencyHelpers.formatForCurrency(
               cart.lineItems.reduce(
@@ -103,7 +103,9 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
           </dd>
         </div>
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="text-base font-medium text-gray-900">Order total</dt>
+          <dt className="text-base font-medium text-gray-900">
+            {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
+          </dt>
           <dd className="text-base font-medium text-gray-900">
             {CurrencyHelpers.formatForCurrency(
               CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0].price || {}),
