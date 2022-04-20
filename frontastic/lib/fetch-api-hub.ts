@@ -113,6 +113,7 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
         error = await response.text();
       }
       console.error(error);
+      return err;
     });
 };
 
