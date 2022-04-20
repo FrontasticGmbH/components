@@ -68,13 +68,13 @@ const Security = () => {
       </div>
       <form className="mt-6" onSubmit={handleSubmit}>
         {success && <p className="text-sm text-green-600">{success}</p>}
-        {error && <p className="text-sm text-pink-400">{error}</p>}
+        {error && <p className="text-sm text-accent-400">{error}</p>}
         <div className="mt-3 max-w-[400px]">
           <input
             id="old-password"
             name="oldPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password.old',
               defaultMessage: 'Old password',
@@ -89,7 +89,7 @@ const Security = () => {
             id="password"
             name="password"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password',
               defaultMessage: 'Password',
@@ -104,7 +104,7 @@ const Security = () => {
             id="confirm-password"
             name="confirmPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password.confirm',
               defaultMessage: 'Confirm password',
@@ -116,7 +116,7 @@ const Security = () => {
         </div>
         <button
           type="submit"
-          className="duration-150ms mt-4 w-[80px] items-center rounded-md border border-transparent bg-pink-400 px-4 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
+          className="duration-150ms mt-4 w-[80px] items-center rounded-md border border-transparent bg-accent-400 px-4 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
           disabled={submitDisabled || processing}
         >
           Save

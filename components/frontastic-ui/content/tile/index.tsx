@@ -49,7 +49,7 @@ const Tile: React.FC<TileProps> = ({
         {ctaLabel && ctaReference && (
           <ReferenceLink
             target={ctaReference}
-            className="mt-8 block w-36 rounded-md border border-transparent bg-[#CE3E72] py-2 px-4 text-base font-medium text-white hover:bg-[#B22C5D]"
+            className="mt-8 block w-36 rounded-md border border-transparent bg-accent-400 py-2 px-4 text-base font-medium text-white hover:bg-accent-500"
           >
             <Typography>{ctaLabel}</Typography>
           </ReferenceLink>

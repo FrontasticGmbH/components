@@ -121,7 +121,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             e.preventDefault();
             onCheckout();
           }}
-          className="w-full rounded-md border border-transparent bg-[#ce3e72] py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-[#b22c5d] focus:outline-none focus:ring-2 focus:ring-[#b22c5d] focus:ring-offset-2 focus:ring-offset-gray-50"
+          className="w-full rounded-md border border-transparent bg-accent-400 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50"
         >
           {formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
         </button>

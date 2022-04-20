@@ -103,7 +103,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             {formatAccountMessage({ id: 'account.alreadyHave', defaultMessage: 'Already have an account?' })}{' '}
-            <ReferenceLink target={loginLink} className="font-medium text-pink-400 underline hover:text-pink-200">
+            <ReferenceLink target={loginLink} className="font-medium text-accent-400 underline hover:text-accent-500">
               {formatAccountMessage({ id: 'account.login.here', defaultMessage: 'Login here' })}
             </ReferenceLink>
           </p>
@@ -113,7 +113,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600" dangerouslySetInnerHTML={{ __html: success }}></p>}
-              {error && <p className="text-sm text-pink-400">{error}</p>}
+              {error && <p className="text-sm text-accent-400">{error}</p>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   {formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
@@ -125,7 +125,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -142,7 +142,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -159,7 +159,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -167,7 +167,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
                   {formatAccountMessage({ id: 'sign.up', defaultMessage: 'Sign up' })}

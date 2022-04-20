@@ -95,7 +95,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              {error && <p className="text-sm text-pink-400">{error}</p>}
+              {error && <p className="text-sm text-accent-400">{error}</p>}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                   {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
@@ -107,7 +107,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -124,7 +124,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -132,7 +132,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
                   {formatAccountMessage({ id: 'submit', defaultMessage: 'Submit' })}

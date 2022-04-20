@@ -72,7 +72,7 @@ const OrdersHistory: React.FC = ({}) => {
                     </dl>
                     <a
                       href={order.orderId}
-                      className="mt-6 flex w-full items-center justify-center rounded-md border border-[#CE3E72] bg-white py-2 px-4 text-sm font-medium text-[#CE3E72] shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto"
+                      className="mt-6 flex w-full items-center justify-center rounded-md border border-accent-400 bg-white py-2 px-4 text-sm font-medium text-accent-400 shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto"
                     >
                       {formatAccountMessage({
                         id: 'orders.view.invoice',
@@ -152,7 +152,7 @@ const OrdersHistory: React.FC = ({}) => {
                             {
                               //TODO: get product href and link
                             }
-                            <a href={product._url} className="text-[#CE3E72]">
+                            <a href={product._url} className="text-accent-400">
                               {formatProductMessage({
                                 id: 'product.view',
                                 defaultMessage: 'View product',

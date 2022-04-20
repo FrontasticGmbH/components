@@ -117,7 +117,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           </span>
                           <span
                             className={classNames(
-                              selected ? 'ring-[#CE3E72]' : 'ring-transparent',
+                              selected ? 'ring-accent-400' : 'ring-transparent',
                               'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2',
                             )}
                             aria-hidden="true"
@@ -153,7 +153,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <h2 className="sr-only">
                 {formatProductMessage({ id: 'product.info', defaultMessage: 'Product information' })}
               </h2>
-              <p className="text-3xl text-[#CE3E72]">{CurrencyHelpers.formatForCurrency(product.price)}</p>
+              <p className="text-3xl text-accent-400">{CurrencyHelpers.formatForCurrency(product.price)}</p>
             </div>
 
             <div className="mt-6">
@@ -182,9 +182,9 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             classNames(
                               color.selectedColor,
                               (active && checked) || selectedColor.key === color.key
-                                ? 'ring-2 ring-[#CE3E72] ring-offset-1'
+                                ? 'ring-2 ring-accent-400 ring-offset-1'
                                 : '',
-                              !active && checked ? 'ring-2 ring-[#CE3E72] ring-offset-1' : '',
+                              !active && checked ? 'ring-2 ring-accent-400 ring-offset-1' : '',
                               'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
                             )
                           }
@@ -221,7 +221,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                         value={size}
                         className={({ active, checked }) =>
                           classNames(
-                            active || selectedSize.key == size.key ? 'ring-2 ring-[#CE3E72] ring-offset-2' : '',
+                            active || selectedSize.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
                             checked
                               ? 'bg-transparent text-gray-900 hover:bg-gray-50'
                               : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
@@ -242,7 +242,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 <button
                   type="button"
                   onClick={() => handleAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-[#CE3E72] py-3 px-8 text-base font-medium text-white hover:bg-[#B22C5D] focus:bg-[#B22C5D] focus:outline-none focus:ring-2 focus:ring-[#CE3E72] focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-primary-400 py-3 px-8 text-base font-medium text-white hover:bg-primary-500 focus:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
                   disabled={!variant.isOnStock}
                 >
                   {!loading && !added && (

@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
         </div>
       </div>
       {copyright && (
-        <div className="flex place-content-between border-t border-gray-200 bg-[#25304D] px-4 py-4 sm:px-10">
+        <div className="flex place-content-between border-t border-gray-200 bg-primary-400 px-4 py-4 sm:px-10">
           <p className="text-xs text-[#FFFFFF] sm:text-sm">© {copyright}</p>
           <ul className="flex">
             {footerCopyrightLinks.map((item, i) => (

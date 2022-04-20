@@ -68,7 +68,7 @@ const DesktopOrderSummary = ({
                 <button
                   type="button"
                   onClick={editCartItem}
-                  className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                  className="text-sm font-medium text-accent-400 hover:text-accent-500"
                 >
                   {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                 </button>
@@ -76,7 +76,7 @@ const DesktopOrderSummary = ({
                   <button
                     type="button"
                     onClick={(e) => removeCartItem(lineItem.lineItemId)}
-                    className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                    className="text-sm font-medium text-accent-400 hover:text-accent-500"
                   >
                     {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
                   </button>

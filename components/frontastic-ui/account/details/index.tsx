@@ -75,7 +75,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                         <select
                           id="selected-tab"
                           name="selected-tab"
-                          className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                          className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                           defaultValue={tabs.find((tab) => tab.href === hash).name}
                           onChange={handleTabChange}
                         >
@@ -95,7 +95,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                                 href={tab.href}
                                 className={classNames(
                                   tab.href === hash
-                                    ? 'border-pink-400 text-pink-400'
+                                    ? 'border-accent-400 text-accent-400'
                                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                                   'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
                                 )}

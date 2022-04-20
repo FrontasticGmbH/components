@@ -67,7 +67,7 @@ const FormCheckbox = ({
         name={name}
         autoComplete={inputAutoComplete}
         className={
-          inputClassNames ? inputClassNames : 'h-4 w-4 rounded border-gray-300 text-pink-400 focus:ring-pink-400'
+          inputClassNames ? inputClassNames : 'h-4 w-4 rounded border-gray-300 text-accent-400 focus:ring-accent-400'
         }
         onChange={(e: React.FormEvent) => onChange((e.target as HTMLInputElement).checked)}
         checked={checked}
