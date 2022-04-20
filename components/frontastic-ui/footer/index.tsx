@@ -53,12 +53,12 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
 
   return (
     <footer aria-labelledby="footer-heading">
-      {isBiggerThanMobileView && (
-        <div className="mx-auto w-full bg-gray-100 px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl px-2 py-10 xl:grid xl:grid-cols-2 xl:gap-8">
-            <div className="grid grid-cols-4 gap-4 xl:col-span-2">
-              {columns.map((column, index) => (
-                <div key={index}>
+      <div className="mx-auto w-full bg-gray-100 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-2 py-10 xl:grid xl:grid-cols-2 xl:gap-8">
+          <div className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${columns.length.toString()} xl:col-span-2`}>
+            {columns.map((column, index) => (
+              <div key={index} className="md:flex md:justify-center">
+                <div>
                   <div className="flex space-x-2">
                     {renderIcon(column.icon)}
                     <h3 className="text-sm font-medium text-gray-800">
@@ -75,11 +75,11 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
+      </div>
       {copyright && (
         <div className="flex place-content-between border-t border-gray-200 bg-[#25304D] px-4 py-4 sm:px-10">
           <p className="text-xs text-[#FFFFFF] sm:text-sm">© {copyright}</p>

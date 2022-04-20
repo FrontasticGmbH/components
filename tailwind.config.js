@@ -8,6 +8,7 @@ module.exports = {
     './frontastic/**/*.{js,ts,jsx,tsx}',
     './stories/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: ['md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'md:grid-cols-4'],
   theme: {
     extend: {
       gridTemplateColumns: {
