@@ -21,6 +21,12 @@ export function injectDataSources(
   return Object.entries(block).reduce((acc, [key, value]) => {
     // if a dataSourceId is found, inject the data of the same ID from the dataSources list
     if (key === 'dataSourceId') {
+      if (!dataSources[value].ok && dataSources[value].message) {
+        // @TODO:
+        // * Better error formatting
+        // * Log request ID (even link to a Kibana search right away during dev?)
+        console.error("Data source error: " + dataSources[value].message);
+      }
       return { ...acc, [key]: value, dataSource: dataSources[value] };
     } else {
       // if the value is another object, traverse deeper into the tree
