@@ -1,8 +1,8 @@
 import { Disclosure } from '@headlessui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/StringHelpers';
+import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 

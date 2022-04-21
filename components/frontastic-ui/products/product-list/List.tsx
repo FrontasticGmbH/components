@@ -1,4 +1,4 @@
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import React from 'react';
 import { Product } from '../../../../../types/product/Product';

@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
-import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import React, { Fragment } from 'react';
+import { Dialog, Tab, Transition } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
+import { ReferenceLink } from 'helpers/reference';
 import { Link } from './index';
 import classNames from 'classnames';
 import Typography from 'components/frontastic-ui/typography';

@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Reference, ReferenceLink } from '../../../helpers/Reference';
+import React, { useState } from 'react';
 import { SearchIcon } from '@heroicons/react/outline';
 import { Transition } from '@headlessui/react';
 import SearchInput from './search-input';

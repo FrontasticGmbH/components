@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { Product } from '../../../../../types/product/Product';
 
 const Tile: React.FC<Product> = ({ variants, name, _url }) => {
