@@ -1,7 +1,7 @@
 import { Reference, ReferenceLink } from 'helpers/Reference';
 import Image from 'frontastic/lib/image';
 import Typography from 'components/frontastic-ui/typography';
-import Markdown from 'frontastic/lib/markdown';
+
 export interface TileProps {
   image: { media: any } | any;
   subtitle: string;
