@@ -62,7 +62,6 @@ function ProductDetailsTastic({ data }) {
     })),
     colors,
     sizes,
-
     description: `
       <p>${product.description || ''}</p>
     `,
