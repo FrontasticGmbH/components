@@ -18,9 +18,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={setOpen}>
+      <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={closeMenu}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
@@ -57,7 +59,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
             {/* Links */}
             <Tab.Group>
               <div className="mt-2 border-b border-gray-200">
-                <Tab.List className="-mb-px flex space-x-8 px-4">
+                <Tab.List className="-mb-px flex space-x-8 px-4" onClick={closeMenu}>
                   {navigation.categories.map((category) => (
                     <Tab
                       key={category.name}
@@ -89,7 +91,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           >
                             {category.featured.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -103,7 +105,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
                             {category.categories.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -119,7 +121,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
                             {category.collection.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -134,7 +136,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-brand-heading" className="mt-6 space-y-6">
                             {category.brands.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -150,7 +152,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
             <div className="space-y-6 border-t border-gray-200 py-6 px-4">
               {links.map((link) => (
-                <div key={link.name} className="flow-root">
+                <div key={link.name} className="flow-root" onClick={closeMenu}>
                   <ReferenceLink target={link.reference} className="-m-2 block p-2 font-medium text-gray-900">
                     <Typography>{link.name}</Typography>
                   </ReferenceLink>

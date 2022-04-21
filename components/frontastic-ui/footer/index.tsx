@@ -63,7 +63,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
 
   return (
     <footer aria-labelledby="footer-heading">
-      <div className="mx-auto w-full bg-gray-100 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full bg-gray-100 px-6 lg:px-8">
         <div className="mx-auto max-w-5xl px-2 py-10 xl:grid xl:grid-cols-2 xl:gap-8">
           <div className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${columns.length.toString()} xl:col-span-2`}>
             {columns.map((column, index) => (

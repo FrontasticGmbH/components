@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({
           </p>
         )}
 
-        <nav aria-label="Top" className="mx-auto max-w-full border-b border-gray-200 px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="mx-auto max-w-full border-b border-gray-200 px-6 lg:px-8">
           {/* Secondary navigation */}
           <div>
             <div className="flex h-16 items-center justify-between">
