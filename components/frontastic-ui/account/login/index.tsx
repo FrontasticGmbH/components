@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import { useAccount } from 'frontastic';
-import Redirect from 'helpers/Redirect';
+import Redirect from 'helpers/redirect';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 

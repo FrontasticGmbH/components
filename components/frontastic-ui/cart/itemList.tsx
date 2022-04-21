@@ -1,7 +1,7 @@
 import { XIcon as XIconSolid } from '@heroicons/react/solid';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/StringHelpers';
+import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../types/cart/Cart';
 
 interface Props {

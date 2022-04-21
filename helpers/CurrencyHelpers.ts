@@ -1,4 +1,4 @@
-import { StringHelpers } from './StringHelpers';
+import { StringHelpers } from './stringHelpers';
 import { Money } from '../../types/product/Money';
 
 export class CurrencyHelpers {
