@@ -38,7 +38,7 @@ const MobileOrderSummary = ({
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
                   {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
                 </h2>
-                <Disclosure.Button className="font-medium text-[#CE3E72] hover:text-[#B22C5D]">
+                <Disclosure.Button className="font-medium text-accent-400 hover:text-accent-500">
                   {open ? (
                     <span>
                       {formatCheckoutMessage({ id: 'fullsummary.hide', defaultMessage: 'Hide full summary' })}
@@ -87,17 +87,19 @@ const MobileOrderSummary = ({
                           <button
                             type="button"
                             onClick={editCartItem}
-                            className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                            className="text-sm font-medium text-accent-400 hover:text-accent-500"
                           >
                             {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                           </button>
-                          <button
-                            type="button"
-                            onClick={(e) => removeCartItem(lineItem.lineItemId)}
-                            className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
-                          >
-                            {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
-                          </button>
+                          <div className="flex border-l border-gray-300 pl-4">
+                            <button
+                              type="button"
+                              onClick={(e) => removeCartItem(lineItem.lineItemId)}
+                              className="text-sm font-medium text-accent-400 hover:text-accent-500"
+                            >
+                              {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </li>

@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({
 
       <header className="relative bg-white">
         {tagline && (
-          <p className="flex items-center justify-center bg-[#25304D] px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          <p className="flex items-center justify-center bg-primary-400 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             <Typography>{tagline}</Typography>
           </p>
         )}
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
-                  className="-ml-2 rounded-md bg-white p-2 text-[#25304D]"
+                  className="-ml-2 rounded-md bg-white p-2 text-primary-400"
                   onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -135,7 +135,7 @@ const Header: React.FC<HeaderProps> = ({
                     <ReferenceLink
                       key={id}
                       target={link.reference}
-                      className="text-md flex items-center font-medium text-[#25304D] hover:text-[#192038]"
+                      className="text-md flex items-center font-medium text-primary-400 hover:text-primary-500"
                     >
                       <Typography>{link.name}</Typography>
                     </ReferenceLink>

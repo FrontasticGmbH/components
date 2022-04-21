@@ -110,7 +110,7 @@ export default function Newsletter({
               <div className="mt-4 sm:mt-0 sm:ml-3">
                 <button
                   type="submit"
-                  className="block w-full rounded-md bg-[#CE3E72] px-6 py-3 text-base font-bold leading-5 text-white hover:bg-[#CE3E72] sm:px-11"
+                  className="block w-full rounded-md bg-accent-400 px-6 py-3 text-base font-bold leading-5 text-white hover:bg-accent-500 sm:px-11"
                 >
                   <Typography>{ctaLabel || fallbackCta}</Typography>
                 </button>

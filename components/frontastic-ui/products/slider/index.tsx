@@ -35,7 +35,7 @@ export default function ProductSlider({ products, title, subline, ctaLabel, ctaL
       </div>
       {ctaLabel && ctaLink && (
         <div className="flex items-center justify-end px-4 sm:px-6 lg:px-0">
-          <ReferenceLink target={ctaLink} className="hidden text-sm font-semibold text-[#CE3E72] sm:block">
+          <ReferenceLink target={ctaLink} className="hidden text-sm font-semibold text-accent-400 sm:block">
             {ctaLabel}
             <span aria-hidden="true"> &rarr;</span>
           </ReferenceLink>
@@ -53,7 +53,7 @@ export default function ProductSlider({ products, title, subline, ctaLabel, ctaL
 
       {ctaLabel && ctaLink && (
         <div className="mt-12 flex px-4 sm:hidden">
-          <ReferenceLink target={ctaLink} className="text-sm font-semibold text-[#CE3E72] hover:text-pink-500">
+          <ReferenceLink target={ctaLink} className="text-sm font-semibold text-accent-400 hover:text-accent-500">
             {ctaLabel}
             <span aria-hidden="true"> &rarr;</span>
           </ReferenceLink>

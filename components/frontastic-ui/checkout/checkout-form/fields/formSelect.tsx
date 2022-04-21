@@ -17,7 +17,7 @@ const FormSelect = ({ name, label, options, selectedOptionValue, onChange, conta
         id={name}
         name={name}
         className={
-          'mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm'
+          'mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm'
         }
         value={selectedOptionValue}
         onChange={(e) => onChange(e.target.name, e.target.value)}

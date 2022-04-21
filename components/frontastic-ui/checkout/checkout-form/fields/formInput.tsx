@@ -74,7 +74,7 @@ const FormInput = ({
         className={
           inputClassNames
             ? inputClassNames
-            : 'block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm'
+            : 'block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm'
         }
         onChange={(e: React.FormEvent) =>
           onChange((e.target as HTMLInputElement).name, (e.target as HTMLInputElement).value)

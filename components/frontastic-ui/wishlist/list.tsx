@@ -33,6 +33,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
           }, [] as LineItem[])
           .map((item) => (
             <li key={item.lineItemId} className="flex py-6">
+              primary-400
               <div className="flex-shrink-0  cursor-pointer">
                 <img
                   alt="Front side of charcoal cotton t-shirt."
@@ -43,7 +44,6 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                   onClick={() => goToProductPage(item.variant.sku)}
                 />
               </div>
-
               <div className="ml-4 flex flex-1 flex-col sm:ml-6">
                 <div>
                   <div className="flex justify-between">
@@ -84,7 +84,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                     <button
                       type="button"
                       onClick={() => removeLineItems(item)}
-                      className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                      className="text-sm font-medium text-accent-400 hover:text-accent-500"
                     >
                       <span>{formatMessage({ id: 'remove', defaultMessage: 'Remove' })}</span>
                     </button>

@@ -31,7 +31,7 @@ const SearchInput: React.FC<Props> = ({ onSubmit, ...props }) => {
         type="text"
         name="search"
         id="search"
-        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 sm:text-sm"
+        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
         placeholder="you@example.com"
         {...props}
         ref={ref}
