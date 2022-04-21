@@ -23,5 +23,6 @@
   "profile": "Profil",
   "profile.desc": "Diese Informationen werden öffentlich angezeigt, also sei vorsichtig, was du teilst.",
   "account.sign.in": "Melde dich bei deinem Konto an",
-  "account.create.new": "Neues Konto erstellen"
+  "account.create.new": "Neues Konto erstellen",
+  "settings": "Die Einestellungen"
 }

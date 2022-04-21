@@ -28,7 +28,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
   //error
   const [error, setError] = useState('');
 
-  //sucess
+  //success
   const [success, setSuccess] = useState('');
 
   //processing...
