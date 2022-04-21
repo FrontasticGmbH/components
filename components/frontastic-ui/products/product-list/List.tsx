@@ -1,4 +1,5 @@
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
+import Image from 'frontastic/lib/image';
+import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import React from 'react';
 import { Product } from '../../../../../types/product/Product';
@@ -18,7 +19,7 @@ const List: React.FC<Props> = ({ products }) => {
         {products?.map((product) => (
           <a key={product.productId} href={product._url} className="group">
             <div className="aspect-w-1 aspect-h-1 w-full rounded-lg bg-gray-200 transition-shadow hover:shadow-xl xl:aspect-w-7 xl:aspect-h-8">
-              <img
+              <Image
                 src={product.variants[0].images[0]}
                 alt={product.name}
                 className="h-full w-full rounded-lg object-cover object-center"

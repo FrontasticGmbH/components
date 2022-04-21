@@ -1,3 +1,4 @@
+import Image from 'frontastic/lib/image';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
 
@@ -12,7 +13,7 @@ const CheckoutSuccess = ({}: Props) => {
   return (
     <main className="relative lg:min-h-full">
       <div className="h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
-        <img
+        <Image
           src="https://tailwindui.com/img/ecommerce-images/confirmation-page-06-hero.jpg"
           alt="TODO"
           className="h-full w-full object-cover object-center"

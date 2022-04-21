@@ -4,6 +4,7 @@ import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
+import Image from 'frontastic/lib/image';
 
 export interface Props {
   readonly cart: Cart;
@@ -36,7 +37,7 @@ const DesktopOrderSummary = ({
       <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
         {cart.lineItems.map((lineItem, i) => (
           <li key={i} className="flex space-x-6 py-6">
-            <img
+            <Image
               src={lineItem.variant.images[0]}
               alt={lineItem.name}
               className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"

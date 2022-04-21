@@ -9,10 +9,12 @@ export default function Image({
   media,
   gravity,
   layout = 'responsive',
+  alt = '',
   src = '',
   ...props
 }: NextFrontasticImage) {
-  if (!media?.mediaId) return <img src={src as string} {...props} />; //not a frontastic image
+  // eslint-disable-next-line @next/next/no-img-element
+  if (!media?.mediaId) return <img src={src as string} alt={alt} {...props} />; //not a frontastic image
 
   //paremeters to inject in the source to be used in loader
   const paremeters = {
@@ -45,7 +47,9 @@ export default function Image({
 
   //layout fill doesn't make use of width and height
   if (layout === 'fill')
-    return <NextImage {...props} loader={frontasticCloudinaryLoader} layout={layout} src={paremeterizedSrc} />;
+    return (
+      <NextImage {...props} loader={frontasticCloudinaryLoader} layout={layout} src={paremeterizedSrc} alt={alt} />
+    );
 
   return (
     <NextImage
@@ -55,6 +59,7 @@ export default function Image({
       height={getImageHeight()}
       src={paremeterizedSrc}
       layout={layout}
+      alt={alt}
     />
   );
 }

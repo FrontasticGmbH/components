@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
+import Image from 'frontastic/lib/image';
+import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
@@ -55,7 +56,7 @@ const MobileOrderSummary = ({
                 <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
                   {cart.lineItems.map((lineItem, i) => (
                     <li key={i} className="flex space-x-6 py-6">
-                      <img
+                      <Image
                         src={lineItem.variant.images[0]}
                         alt={lineItem.name}
                         className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"

@@ -4,6 +4,7 @@ import { DateHelpers } from 'helpers/dateHelpers';
 import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Spinner from '../spinner';
+import Image from 'frontastic/lib/image';
 
 export interface Props {
   items?: LineItem[];
@@ -45,8 +46,8 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
             }, [] as LineItem[])
             .map((item) => (
               <li key={item.lineItemId} className="flex py-6">
-                <div className="shrink-0  cursor-pointer">
-                  <img
+                <div className="flex-shrink-0  cursor-pointer">
+                  <Image
                     alt="Front side of charcoal cotton t-shirt."
                     width={100}
                     height={13}

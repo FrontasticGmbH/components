@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Order } from '../../../../../../types/cart/Order';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Spinner from '../../../spinner';
+import Image from 'frontastic/lib/image';
 
 export interface OrdersHistoryProps {
   loading: boolean;
@@ -125,7 +126,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                         <tr key={product.lineItemId}>
                           <td className="py-6 pr-8">
                             <div className="flex items-center">
-                              <img
+                              <Image
                                 src={product.variant.images[0]}
                                 alt={product.name}
                                 className="mr-6 h-16 w-16 rounded object-cover object-center"
