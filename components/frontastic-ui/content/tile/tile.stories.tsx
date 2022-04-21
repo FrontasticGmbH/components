@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Tile, { TileProps } from './index';
 import { headerButtonLink } from 'components/mockData';
-import { Reference } from 'helpers/reference';
+import { Reference } from 'helpers/Reference';
 
 export default {
   title: 'Frontastic/Tile',

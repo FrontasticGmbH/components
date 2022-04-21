@@ -1,5 +1,5 @@
 import React from 'react';
-import { Reference, ReferenceLink } from 'helpers/reference';
+import { Reference, ReferenceLink } from 'helpers/Reference';
 import { UserIcon } from '@heroicons/react/outline';
 
 interface AccountButtonProps {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LineItem } from '../../../../types/wishlist/LineItem';
-import { DateHelpers } from 'helpers/dateHelpers';
+import { DateHelpers } from 'helpers/DateHelpers';
 import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Spinner from '../spinner';

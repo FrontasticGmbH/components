@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
+import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
 import { Money } from '../../../../../types/product/Money';
 import WishlistButton from './wishlist-button';

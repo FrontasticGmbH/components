@@ -3,7 +3,7 @@ import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import Image from 'frontastic/lib/image';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/stringHelpers';
+import { StringHelpers } from 'helpers/StringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 

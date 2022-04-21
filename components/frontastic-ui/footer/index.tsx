@@ -1,5 +1,5 @@
 import React from 'react';
-import { Reference, ReferenceLink } from 'helpers/reference';
+import { Reference, ReferenceLink } from 'helpers/Reference';
 import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/react/outline';
 import { default as RocketIcon } from 'components/icons/rocket';
 import { default as LoopIcon } from 'components/icons/loop';

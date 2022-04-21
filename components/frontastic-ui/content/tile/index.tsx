@@ -1,4 +1,4 @@
-import { Reference, ReferenceLink } from 'helpers/reference';
+import { Reference, ReferenceLink } from 'helpers/Reference';
 import Image from 'frontastic/lib/image';
 import Typography from 'components/frontastic-ui/typography';
 

@@ -4,7 +4,7 @@ import { Product } from '../../../../../types/product/Product';
 import Slider, { SliderProps } from 'components/frontastic-ui/slider';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { mobile, tablet, desktop } from 'helpers/utils/screensizes';
-import { ReferenceLink, Reference } from 'helpers/reference';
+import { ReferenceLink, Reference } from 'helpers/Reference';
 
 export interface Props {
   products: Product[];

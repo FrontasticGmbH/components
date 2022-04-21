@@ -1,4 +1,4 @@
-import { Reference, ReferenceLink } from 'helpers/reference';
+import { Reference, ReferenceLink } from 'helpers/Reference';
 import React from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';

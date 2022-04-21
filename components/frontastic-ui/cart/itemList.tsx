@@ -2,7 +2,7 @@ import { XIcon as XIconSolid } from '@heroicons/react/solid';
 import Image from 'frontastic/lib/image';
 import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/stringHelpers';
+import { StringHelpers } from 'helpers/StringHelpers';
 import { Cart } from '../../../../types/cart/Cart';
 
 interface Props {
