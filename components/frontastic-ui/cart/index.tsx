@@ -33,7 +33,7 @@ const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <main className="mx-auto max-w-2xl px-2 pt-16 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
       <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-xl">
         {formatCartMessage({ id: 'cart.shopping', defaultMessage: 'Shopping Cart' })}
       </h1>

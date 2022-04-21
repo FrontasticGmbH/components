@@ -55,7 +55,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   }, []);
 
   return (
-    <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
+    <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
       <List products={products} />
 
