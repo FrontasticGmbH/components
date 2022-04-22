@@ -21,7 +21,7 @@ const SearchInput: React.FC<Props> = ({ onSubmit, ...props }) => {
 
   return (
     <form
-      className="fixed top-[65px] left-0 z-40 w-full bg-white p-5 shadow-md md:absolute md:left-[unset] md:top-1/2 md:right-0 md:w-[300px] md:-translate-y-1/2 md:p-0 md:shadow-none"
+      className="fixed top-[65px] left-0 z-40 w-full bg-white p-5 shadow-md md:absolute md:top-1/2 md:right-0 md:left-[unset] md:w-[300px] md:-translate-y-1/2 md:p-0 md:shadow-none"
       onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="sr-only">

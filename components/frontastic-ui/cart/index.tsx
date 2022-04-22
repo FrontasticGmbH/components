@@ -44,7 +44,7 @@ const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props
         {formatCartMessage({ id: 'cart.shopping', defaultMessage: 'Shopping Cart' })}
       </h1>
       {loading ? (
-        <div className="flex items-stretch justify-center px-12 py-10">
+        <div className="flex items-stretch justify-center py-10 px-12">
           <Spinner />
         </div>
       ) : (

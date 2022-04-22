@@ -28,7 +28,7 @@ const Sections = () => {
             <select
               id="selected-tab"
               name="selected-tab"
-              className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-gray-300 py-2 pr-10 pl-3 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
             >
               {tabs.map((tab) => (
                 <option key={tab.name} value={tab.href}>

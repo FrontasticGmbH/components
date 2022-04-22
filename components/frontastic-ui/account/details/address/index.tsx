@@ -48,7 +48,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
           </dt>
           <dt className="mt-2 text-sm text-slate-500">{address.phone}</dt>
         </div>
-        <span className="flex flex-shrink-0 items-start space-x-4 md:ml-4">
+        <span className="flex shrink-0 items-start space-x-4 md:ml-4">
           <button
             type="button"
             className="rounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"

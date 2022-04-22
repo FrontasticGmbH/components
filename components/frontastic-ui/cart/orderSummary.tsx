@@ -17,7 +17,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
   return (
     <section
       aria-labelledby="summary-heading"
-      className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+      className="mt-16 rounded-lg bg-gray-50 py-6 px-4 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
     >
       <h2 id="summary-heading" className="text-lg font-medium text-gray-900">
         {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order Summary' })}
@@ -43,7 +43,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <dt className="flex items-center text-sm text-gray-600">
             <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
-            <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+            <a href="#" className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
               <span className="sr-only">
                 {formatCartMessage({
                   id: 'shipping.calculation.learnMore',
@@ -72,7 +72,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <dt className="flex text-sm text-gray-600">
             <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
-            <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+            <a href="#" className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
               <span className="sr-only">
                 {formatCartMessage({
                   id: 'discounts.calculation.learnMore',

@@ -26,16 +26,16 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-2xl pb-16 pt-8 lg:max-w-3xl lg:pt-4">
+    <div className="mx-auto max-w-2xl pt-8 pb-16 lg:max-w-3xl lg:pt-4">
       <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
         {formatWishlistMessage({ id: 'wishlist.items', defaultMessage: 'Wishlist Items' })}
       </h1>
       {loading ? (
-        <div className="flex items-stretch justify-center px-12 py-10">
+        <div className="flex items-stretch justify-center py-10 px-12">
           <Spinner />
         </div>
       ) : (
-        <ul role="list" className="divide-y divide-gray-200 border-t border-b border-gray-200">
+        <ul role="list" className="divide-y divide-gray-200 border-y border-gray-200">
           {items
             .reduce((previousValue, currentValue) => {
               if (!Boolean(previousValue.find((val) => val.name === currentValue.name))) {
@@ -45,7 +45,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
             }, [] as LineItem[])
             .map((item) => (
               <li key={item.lineItemId} className="flex py-6">
-                <div className="flex-shrink-0  cursor-pointer">
+                <div className="shrink-0  cursor-pointer">
                   <img
                     alt="Front side of charcoal cotton t-shirt."
                     width={100}
@@ -74,7 +74,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                   <div className="mt-4 flex flex-1 items-end justify-between">
                     <p className="flex items-center space-x-2 text-sm text-gray-700">
                       <svg
-                        className="h-5 w-5 flex-shrink-0 text-gray-300"
+                        className="h-5 w-5 shrink-0 text-gray-300"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"

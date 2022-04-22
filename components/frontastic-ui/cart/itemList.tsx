@@ -25,7 +25,7 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
       <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
         {cart.lineItems.map((lineItem, i) => (
           <li key={i} className="flex py-6 sm:py-10">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <img
                 src={lineItem.variant.images[0]}
                 alt={lineItem.name}

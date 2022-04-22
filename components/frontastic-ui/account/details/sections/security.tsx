@@ -116,7 +116,7 @@ const Security = () => {
         </div>
         <button
           type="submit"
-          className="duration-150ms mt-4 w-[80px] items-center rounded-md border border-transparent bg-accent-400 px-4 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
+          className="duration-150ms mt-4 w-[80px] items-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
           disabled={submitDisabled || processing}
         >
           Save

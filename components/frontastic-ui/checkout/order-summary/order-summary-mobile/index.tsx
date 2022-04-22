@@ -29,7 +29,7 @@ const MobileOrderSummary = ({
   const { formatMessage } = useFormat({ name: 'common' });
 
   return (
-    <section aria-labelledby="order-heading" className="bg-gray-50 px-4 py-6 sm:px-6 lg:hidden">
+    <section aria-labelledby="order-heading" className="bg-gray-50 py-6 px-4 sm:px-6 lg:hidden">
       <Disclosure>
         {({ open }) => (
           <div className="mx-auto max-w-lg">

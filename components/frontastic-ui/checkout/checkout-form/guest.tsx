@@ -52,7 +52,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
 
   return (
     <form className="mt-6">
-      <div className="grid grid-cols-12 gap-y-6 gap-x-4">
+      <div className="grid grid-cols-12 gap-x-4 gap-y-6">
         <FormInput
           name="firstName"
           inputAutoComplete="given-name"

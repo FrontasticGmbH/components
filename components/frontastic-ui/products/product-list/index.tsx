@@ -26,7 +26,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
     <li key={category}>
       <div className="flex items-center">
         <svg
-          className="h-5 w-5 flex-shrink-0 text-gray-300"
+          className="h-5 w-5 shrink-0 text-gray-300"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -60,7 +60,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
       <List products={products} />
 
       <nav
-        className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+        className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
         aria-label="Pagination"
       >
         <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">

@@ -29,7 +29,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
         </div>
         <div className="divide-y divide-gray-200"></div>
         {loading ? (
-          <div className="flex items-stretch justify-center px-12 py-10">
+          <div className="flex items-stretch justify-center py-10 px-12">
             <Spinner />
           </div>
         ) : accountOrders && accountOrders.length ? (

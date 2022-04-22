@@ -167,7 +167,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -185,7 +185,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                      className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                       onChange={handleChange}
                     />
                   </div>
