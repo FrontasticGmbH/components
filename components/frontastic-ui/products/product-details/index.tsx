@@ -246,7 +246,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 <button
                   type="button"
                   onClick={() => handleAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-primary-400 py-3 px-8 text-base font-medium text-white hover:bg-primary-500 focus:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-8 text-base font-medium text-white hover:bg-accent-500 focus:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
                   disabled={!variant.isOnStock}
                 >
                   {!loading && !added && (
@@ -295,14 +295,17 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           <h3>
                             <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
                               <span
-                                className={classNames(open ? 'text-pink-400' : 'text-gray-900', 'text-sm font-medium')}
+                                className={classNames(
+                                  open ? 'text-accent-400' : 'text-gray-900',
+                                  'text-sm font-medium',
+                                )}
                               >
                                 {detail.name}
                               </span>
                               <span className="ml-6 flex items-center">
                                 {open ? (
                                   <MinusSmIcon
-                                    className="block h-6 w-6 text-pink-400 group-hover:text-pink-400"
+                                    className="block h-6 w-6 text-accent-400 group-hover:text-accent-500"
                                     aria-hidden="true"
                                   />
                                 ) : (

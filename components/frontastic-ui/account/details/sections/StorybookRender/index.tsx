@@ -1,4 +1,3 @@
-import useHash from 'helpers/hooks/useHash';
 import React, { useState } from 'react';
 import Addresses from '../addresses';
 import General from '../general';
@@ -63,7 +62,7 @@ const Sections = () => {
           ) : selectedTab === tabs[1].href ? (
             <Addresses />
           ) : selectedTab === tabs[2].href ? (
-            <OrdersHistory />
+            <OrdersHistory accountOrders={orders} loading={false} />
           ) : (
             <Security />
           )}

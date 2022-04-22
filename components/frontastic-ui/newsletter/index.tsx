@@ -85,7 +85,7 @@ export default function Newsletter({
   };
 
   return (
-    <div className="mx-auto max-w-7xl rounded-lg bg-[#F5F1EC] px-4 py-2 sm:px-6 lg:px-0">
+    <div className="mx-auto max-w-7xl rounded-lg bg-gray-100 px-4 py-2 sm:px-6 lg:px-0">
       {!isConfirm ? (
         <div className="relative py-3 px-6 text-neutral-700 md:py-6 md:px-12 lg:py-9 lg:px-16 xl:flex xl:items-center">
           <div className="xl:w-0 xl:flex-1">

@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Order } from '../../../../../../types/cart/Order';
-import { useCart } from 'frontastic/provider';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Spinner from '../../../spinner';
 
-const OrdersHistory: React.FC = ({}) => {
-  const [accountOrders, setAccountOrders] = useState<Order[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+export interface OrdersHistoryProps {
+  loading: boolean;
+  accountOrders: Order[];
+}
+
+const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders }) => {
   //18in messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
-
-  //account data
-  const { orderHistory } = useCart();
-
-  useEffect(() => {
-    orderHistory().then((data) => {
-      setAccountOrders(data);
-      setTimeout(() => setLoading(false), 500);
-    });
-  }, []);
 
   return (
     <div className="bg-white">
@@ -51,7 +43,7 @@ const OrdersHistory: React.FC = ({}) => {
                   <h3 className="sr-only">
                     Order placed on <time dateTime={order.email}>{order.email}</time>
                   </h3>
-                  <div className="rounded-lg bg-[#F5F1EC] py-6 px-4 sm:flex sm:items-center sm:justify-between sm:space-x-6 sm:px-6 lg:space-x-8">
+                  <div className="rounded-lg bg-gray-100 py-6 px-4 sm:flex sm:items-center sm:justify-between sm:space-x-6 sm:px-6 lg:space-x-8">
                     <dl className="flex-auto space-y-6 divide-y divide-gray-200 text-sm text-gray-600 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:space-y-0 sm:divide-y-0 lg:w-1/2 lg:flex-none lg:gap-x-8">
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
                         <dt className="font-medium text-gray-900">
