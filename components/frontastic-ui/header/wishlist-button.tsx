@@ -1,4 +1,4 @@
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import React from 'react';
 import { HeartIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';

@@ -3,7 +3,7 @@ import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 import { useAccount } from 'frontastic';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
-import { getReferenceTarget, Reference } from 'helpers/Reference';
+import { getReferenceTarget, Reference } from 'helpers/reference';
 
 export interface ResetPasswordProps {
   logo?: NextFrontasticImage;

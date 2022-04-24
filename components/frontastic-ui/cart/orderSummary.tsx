@@ -1,5 +1,5 @@
 import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Cart } from '../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../types/cart/ShippingMethod';

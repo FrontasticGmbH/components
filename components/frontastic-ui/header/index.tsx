@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Image from 'frontastic/lib/image';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import { headerNavigation } from 'components/mockData';
 import HeaderMenu from './header-menu';
 import WishListButton from './wishlist-button';

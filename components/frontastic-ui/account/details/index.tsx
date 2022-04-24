@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAccount } from 'frontastic';
-import Redirect from 'helpers/Redirect';
-import { Reference } from 'helpers/Reference';
+import Redirect from 'helpers/redirect';
+import { Reference } from 'helpers/reference';
 import { AddressesSection, GeneralSection, SecuritySection, OrdersHistorySection } from './sections/exporter';
 import useHash from 'helpers/hooks/useHash';
 import { useFormat } from 'helpers/hooks/useFormat';
