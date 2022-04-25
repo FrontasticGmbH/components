@@ -46,7 +46,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
             }, [] as LineItem[])
             .map((item) => (
               <li key={item.lineItemId} className="flex py-6">
-                <div className="flex-shrink-0  cursor-pointer">
+                <div className="shrink-0  cursor-pointer">
                   <Image
                     alt="Front side of charcoal cotton t-shirt."
                     width={100}
