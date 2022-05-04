@@ -1,5 +1,5 @@
-import { fetchApiHub } from '../../lib/fetch-api-hub';
 import { mutate } from 'swr';
+import { fetchApiHub } from '../../lib/fetch-api-hub';
 import { Account } from '../../../../types/account/Account';
 import { Address } from '../../../../types/account/Address';
 
