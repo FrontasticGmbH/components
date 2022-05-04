@@ -104,8 +104,16 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
       }
       throw new ResponseError(response);
     })
-    .catch((err) => {
-      console.error(err);
+    .catch(async (err: ResponseError) => {
+      const response = err.getResponse();
+      let error: object | string;
+      try {
+        error = await response.json();
+      } catch (e) {
+        error = await response.text();
+      }
+      console.error(error);
+      return err;
     });
 };
 

@@ -42,8 +42,14 @@
   "brands": "Marken",
   "next": "Weiter",
   "prev": "Vorherige",
-  "item.add.on": "Artikel hinzugefügt am",
+  "item.added.on": "Artikel hinzugefügt am",
   "submit": "einreichen",
   "page.notFound": "Seite nicht gefunden",
-  "page.notFound.desc": "Die gesuchte Seite konnte nicht gefunden werden. Es wurde möglicherweise gelöscht, umbenannt oder existiert nicht."
+  "page.notFound.desc": "Die gesuchte Seite konnte nicht gefunden werden. Es wurde möglicherweise gelöscht, umbenannt oder existiert nicht.",
+  "fast.delivery": "Kostenlose und schnelle Lieferung",
+  "free.returns": "Kostenlose Rücksendungen",
+  "safe.payment": "Sichere Zahlung & Datenschutz",
+  "privacy.policy": "Datenschutz-Bestimmungen",
+  "terms.conditions": "Geschäftsbedingungen",
+  "rememberMe": "Erinnere dich an mich"
 }

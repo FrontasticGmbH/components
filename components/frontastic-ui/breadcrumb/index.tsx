@@ -1,3 +1,4 @@
+import { HomeIcon } from '@heroicons/react/solid';
 import React from 'react';
 
 export type BreadcrumbProps = {
@@ -6,19 +7,29 @@ export type BreadcrumbProps = {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ children, Separator }) => {
   return (
-    <div className="flex flex-wrap items-center justify-items-start gap-2">
-      {React.Children.map(children, (Child, index) => {
-        if (index < React.Children.count(children) - 1) {
-          return (
-            <>
-              <b>{Child}</b>
-              <span>{Separator}</span>
-            </>
-          );
-        }
-        return <span className="text-gray-400">{Child}</span>;
-      })}
-    </div>
+    <nav className="flex" aria-label="Breadcrumb">
+      <ol role="list" className="flex items-center space-x-4">
+        <li>
+          <div>
+            <a href="/" className="text-gray-400 hover:text-gray-500">
+              <HomeIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
+              <span className="sr-only">Home</span>
+            </a>
+          </div>
+        </li>
+        {React.Children.map(children, (Child, index) => {
+          if (index < React.Children.count(children) - 1) {
+            return (
+              <>
+                <b>{Child}</b>
+                <span>{Separator}</span>
+              </>
+            );
+          }
+          return <span className="text-gray-400">{Child}</span>;
+        })}
+      </ol>
+    </nav>
   );
 };
 

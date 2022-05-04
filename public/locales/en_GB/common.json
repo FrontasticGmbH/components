@@ -45,5 +45,11 @@
   "item.add.on": "Item Added on",
   "submit": "Submit",
   "page.notFound": "Page not found",
-  "page.notFound.desc": "The page you were looking for couldn't be found. It may have been deleted, renamed, or doesn't exist."
+  "page.notFound.desc": "The page you were looking for couldn't be found. It may have been deleted, renamed, or doesn't exist.",
+  "fast.delivery": "Free & fast delivery",
+  "free.returns": "Free returns",
+  "safe.payment": "Safe payment & data protection",
+  "privacy.policy": "Privacy policy",
+  "terms.conditions": "Terms and conditions",
+  "rememberMe": "Remember me"
 }

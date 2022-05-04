@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import { useAccount } from 'frontastic';
-import Redirect from 'helpers/Redirect';
+import Redirect from 'helpers/redirect';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 
@@ -28,7 +27,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
   //error
   const [error, setError] = useState('');
 
-  //sucess
+  //success
   const [success, setSuccess] = useState('');
 
   //processing...
@@ -143,7 +142,10 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             {formatAccountMessage({ id: 'account.doNotHave', defaultMessage: "Don't have an account?" })}{' '}
-            <ReferenceLink target={registerLink} className="font-medium text-pink-400 underline hover:text-pink-200">
+            <ReferenceLink
+              target={registerLink}
+              className="font-medium text-accent-400 underline hover:text-accent-500"
+            >
               {formatAccountMessage({ id: 'account.register.here', defaultMessage: 'Register here' })}
             </ReferenceLink>
           </p>
@@ -153,7 +155,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600">{success}</p>}
-              {error && <p className="text-sm text-pink-400">{error}</p>}
+              {error && <p className="text-sm text-accent-400">{error}</p>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   {formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
@@ -165,7 +167,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -183,7 +185,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-pink-400 focus:outline-none focus:ring-pink-400 sm:text-sm"
+                      className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                       onChange={handleChange}
                     />
                   </div>
@@ -193,7 +195,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
               {subModal ? (
                 <div>
                   <ArrowLeftIcon
-                    className="w-4 cursor-pointer text-pink-400 hover:text-pink-200"
+                    className="w-4 cursor-pointer text-accent-400 hover:text-accent-500"
                     onClick={backToLogin}
                   />
                 </div>
@@ -205,7 +207,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                         id="remember-me"
                         name="rememberMe"
                         type="checkbox"
-                        className="texpink h-4 w-4 rounded border-gray-300 focus:ring-pink-400"
+                        className="texpink h-4 w-4 rounded border-gray-300 focus:ring-accent-400"
                         onChange={handleCheckboxChange}
                       />
                       <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
@@ -215,7 +217,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
 
                     <div className="text-sm">
                       <span
-                        className="cursor-pointer font-medium text-pink-400 hover:text-pink-200"
+                        className="cursor-pointer font-medium text-accent-400 hover:text-accent-500"
                         onClick={toResendPassword}
                       >
                         {formatAccountMessage({ id: 'password.forgot', defaultMessage: 'Forgot your password?' })}
@@ -226,7 +228,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                   <div className="flex items-center justify-end">
                     <div className="text-sm">
                       <span
-                        className="cursor-pointer font-medium text-pink-400 hover:text-pink-200"
+                        className="cursor-pointer font-medium text-accent-400 hover:text-accent-500"
                         onClick={toResendVerification}
                       >
                         {formatAccountMessage({
@@ -241,7 +243,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-pink-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
                   {resendVerification

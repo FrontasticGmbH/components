@@ -42,5 +42,11 @@
   "brands": "Marken",
   "next": "Weiter",
   "prev": "Vorherige",
-  "item.add.on": "Artikel hinzugefügt am"
+  "item.add.on": "Artikel hinzugefügt am",
+  "fast.delivery": "Kostenlose und schnelle Lieferung",
+  "free.returns": "Kostenlose Rücksendungen",
+  "safe.payment": "Sichere Zahlung & Datenschutz",
+  "privacy.policy": "Datenschutz-Bestimmungen",
+  "terms.conditions": "Geschäftsbedingungen",
+  "rememberMe": "Erinnere dich an mich"
 }

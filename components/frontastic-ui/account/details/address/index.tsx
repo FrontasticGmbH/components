@@ -37,7 +37,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
               {address.firstName} {address.lastName}
             </span>
             {(address.isDefaultBillingAddress || address.isDefaultShippingAddress) && (
-              <StarIcon className="h-4 text-pink-400" />
+              <StarIcon className="h-4 text-accent-400" />
             )}
           </dt>
           <dt className="mt-2 text-sm">
@@ -48,10 +48,10 @@ const Address: React.FC<AddressProps> = ({ address }) => {
           </dt>
           <dt className="mt-2 text-sm text-slate-500">{address.phone}</dt>
         </div>
-        <span className="flex flex-shrink-0 items-start space-x-4 md:ml-4">
+        <span className="flex shrink-0 items-start space-x-4 md:ml-4">
           <button
             type="button"
-            className="rounded-md bg-white text-sm font-medium text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+            className="rounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
             onClick={openUpdateModal}
           >
             {formatMessage({ id: 'update', defaultMessage: 'Update' })}
@@ -61,7 +61,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
           </span>
           <button
             type="button"
-            className="ounded-md bg-white text-sm font-medium text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+            className="ounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
             onClick={handleDelete}
           >
             {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}

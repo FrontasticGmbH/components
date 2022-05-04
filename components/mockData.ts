@@ -14994,12 +14994,6 @@ export const headerLinks = [
   },
 ];
 
-export const footerCopyrightLinks = [
-  { name: 'Cookies', reference: '/' },
-  { name: 'Privacy policy', reference: '/' },
-  { name: 'T&C', reference: '/' },
-];
-
 export const footerColumns = [
   {
     header: 'Help & Information',

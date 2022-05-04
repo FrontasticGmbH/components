@@ -60,7 +60,7 @@ const Addresses = () => {
         <div className="py-4 sm:py-8">
           <button
             type="button"
-            className="duration-150ms px:0 mt-4 w-full items-center rounded-md border border-transparent bg-pink-400 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:bg-gray-300 sm:w-fit sm:px-24"
+            className="duration-150ms px:0 mt-4 w-full items-center rounded-md border border-transparent bg-accent-400 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-300 sm:w-fit sm:px-24"
             onClick={openCreateModal}
           >
             {formatAccountMessage({ id: 'address.add', defaultMessage: 'Add an address' })}

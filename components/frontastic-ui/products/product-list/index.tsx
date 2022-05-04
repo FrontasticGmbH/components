@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import List from './List';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import Laddercrumb from 'components/frontastic-ui/laddercrumb';
@@ -23,16 +22,27 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
 
   const [isLargerThan1024] = useMediaQuery(1024);
 
-  // const router = useRouter();
-
-  // const categories = router.asPath
-  //   .split('/')
-  //   .filter(Boolean)
-  //   .map((category) => (
-  //     <span key={category} className="capitalize">
-  //       {category}
-  //     </span>
-  //   ));
+  const categoryListItem = (
+    <li key={category}>
+      <div className="flex items-center">
+        <svg
+          className="h-5 w-5 shrink-0 text-gray-300"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+        >
+          <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+        </svg>
+        <span
+          className="ml-4 text-sm font-medium capitalize text-gray-700"
+          aria-current={category ? 'page' : undefined}
+        >
+          {category?.split('/')[1]}
+        </span>
+      </div>
+    </li>
+  );
 
   const activeButtonClassName =
     'relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50';
@@ -45,18 +55,12 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   }, []);
 
   return (
-    <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
-      {/* <div className="cursor-default">
-        {isLargerThan1024 ? (
-          <Breadcrumb Separator="/">{categories}</Breadcrumb>
-        ) : (
-          <Laddercrumb>{categories}</Laddercrumb>
-        )}
-      </div> */}
+    <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
+      {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
       <List products={products} />
 
       <nav
-        className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+        className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
         aria-label="Pagination"
       >
         <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">

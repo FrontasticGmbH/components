@@ -1,168 +1,296 @@
 {
-    "tasticType": "frontastic/ui/footer",
-    "name": "Frontastic UI footer",
-    "icon": "menu",
-    "category": "Header and footer",
-    "schema": [
+  "tasticType": "frontastic/ui/footer",
+  "name": "Frontastic UI footer",
+  "icon": "menu",
+  "category": "Header and footer",
+  "schema": [
+    {
+      "name": "Nav Column 1",
+      "fields": [
         {
-            "name": "Nav column 1",
-            "fields": [
-                {
-                    "type": "description",
-                    "text": "Ideally 3-6 links"
-                },
-                {
-                    "label": "Header",
-                    "field": "headerCol1",
-                    "translatable": true,
-                    "required": true,
-                    "type": "string"
-                },
-                {
-                    "label": "Links",
-                    "field": "linksCol1",
-                    "type": "group",
-                    "itemLabelField": "name",
-                    "fields": [
-                        {
-                            "label": "Name",
-                            "field": "name",
-                            "translatable": true,
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "label": "Link",
-                            "field": "reference",
-                            "required": true,
-                            "type": "reference"
-                        }
-                    ]
-                }
-            ]
+          "type": "description",
+          "text": "Ideally 3-6 links"
         },
         {
-            "name": "Nav column 2",
-            "fields": [
-                {
-                    "type": "description",
-                    "text": "Ideally 3-6 links"
-                },
-                {
-                    "label": "Header",
-                    "field": "headerCol2",
-                    "translatable": true,
-                    "required": true,
-                    "type": "string"
-                },
-                {
-                    "label": "Links",
-                    "field": "linksCol2",
-                    "type": "group",
-                    "itemLabelField": "name",
-                    "fields": [
-                        {
-                            "label": "Name",
-                            "field": "name",
-                            "translatable": true,
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "label": "Link",
-                            "field": "reference",
-                            "required": true,
-                            "type": "reference"
-                        }
-                    ]
-                }
-            ]
+          "label": "Header",
+          "field": "headerCol1",
+          "translatable": true,
+          "required": true,
+          "type": "string"
         },
         {
-            "name": "Nav column 3",
-            "fields": [
-                {
-                    "type": "description",
-                    "text": "Ideally 3-6 links"
-                },
-                {
-                    "label": "Header",
-                    "field": "headerCol3",
-                    "translatable": true,
-                    "required": true,
-                    "type": "string"
-                },
-                {
-                    "label": "Links",
-                    "field": "linksCol3",
-                    "type": "group",
-                    "itemLabelField": "name",
-                    "fields": [
-                        {
-                            "label": "Name",
-                            "field": "name",
-                            "translatable": true,
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "label": "Link",
-                            "field": "reference",
-                            "required": true,
-                            "type": "reference"
-                        }
-                    ]
-                }
-            ]
+          "label": "Links",
+          "field": "linksCol1",
+          "type": "group",
+          "itemLabelField": "name",
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "translatable": true,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "required": true,
+              "type": "reference"
+            }
+          ]
         },
         {
-            "name": "Nav column 4",
-            "fields": [
-                {
-                    "type": "description",
-                    "text": "Ideally 3-6 links"
-                },
-                {
-                    "label": "Header",
-                    "field": "headerCol4",
-                    "translatable": true,
-                    "required": true,
-                    "type": "string"
-                },
-                {
-                    "label": "Links",
-                    "field": "linksCol4",
-                    "type": "group",
-                    "itemLabelField": "name",
-                    "fields": [
-                        {
-                            "label": "Name",
-                            "field": "name",
-                            "translatable": true,
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "label": "Link",
-                            "field": "reference",
-                            "required": true,
-                            "type": "reference"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Copyright",
-            "fields": [
-                {
-                    "label": "Copyright",
-                    "field": "copyright",
-                    "translatable": false,
-                    "required": false,
-                    "type": "string"
-                }
-            ]
+          "label": "Icon",
+          "field": "icon",
+          "type": "enum",
+          "default": "rocket",
+          "values": [
+            {
+              "name": "Rocket",
+              "value": "rocket"
+            },
+            {
+              "name": "Loop",
+              "value": "loop"
+            },
+            {
+              "name": "Lock",
+              "value": "lock"
+            },
+            {
+              "name": "Question Mark",
+              "value": "question"
+            },
+            {
+              "name": "Inbox",
+              "value": "inbox"
+            },
+            {
+              "name": "Speaker",
+              "value": "speaker"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "name": "Nav Column 2",
+      "fields": [
+        {
+          "type": "description",
+          "text": "Ideally 3-6 links"
+        },
+        {
+          "label": "Header",
+          "field": "headerCol2",
+          "translatable": true,
+          "required": true,
+          "type": "string"
+        },
+        {
+          "label": "Links",
+          "field": "linksCol2",
+          "type": "group",
+          "itemLabelField": "name",
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "translatable": true,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "required": true,
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "label": "Icon",
+          "field": "icon",
+          "type": "enum",
+          "default": "rocket",
+          "values": [
+            {
+              "name": "Rocket",
+              "value": "rocket"
+            },
+            {
+              "name": "Loop",
+              "value": "loop"
+            },
+            {
+              "name": "Lock",
+              "value": "lock"
+            },
+            {
+              "name": "Question Mark",
+              "value": "question"
+            },
+            {
+              "name": "Inbox",
+              "value": "inbox"
+            },
+            {
+              "name": "Speaker",
+              "value": "speaker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nav Column 3",
+      "fields": [
+        {
+          "type": "description",
+          "text": "Ideally 3-6 links"
+        },
+        {
+          "label": "Header",
+          "field": "headerCol3",
+          "translatable": true,
+          "required": true,
+          "type": "string"
+        },
+        {
+          "label": "Links",
+          "field": "linksCol3",
+          "type": "group",
+          "itemLabelField": "name",
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "translatable": true,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "required": true,
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "label": "Icon",
+          "field": "icon",
+          "type": "enum",
+          "default": "rocket",
+          "values": [
+            {
+              "name": "Rocket",
+              "value": "rocket"
+            },
+            {
+              "name": "Loop",
+              "value": "loop"
+            },
+            {
+              "name": "Lock",
+              "value": "lock"
+            },
+            {
+              "name": "Question Mark",
+              "value": "question"
+            },
+            {
+              "name": "Inbox",
+              "value": "inbox"
+            },
+            {
+              "name": "Speaker",
+              "value": "speaker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nav Column 4",
+      "fields": [
+        {
+          "type": "description",
+          "text": "Ideally 3-6 links"
+        },
+        {
+          "label": "Header",
+          "field": "headerCol4",
+          "translatable": true,
+          "required": true,
+          "type": "string"
+        },
+        {
+          "label": "Links",
+          "field": "linksCol4",
+          "type": "group",
+          "itemLabelField": "name",
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "translatable": true,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "required": true,
+              "type": "reference"
+            }
+          ]
+        },
+        {
+          "label": "Icon",
+          "field": "icon",
+          "type": "enum",
+          "default": "rocket",
+          "values": [
+            {
+              "name": "Rocket",
+              "value": "rocket"
+            },
+            {
+              "name": "Loop",
+              "value": "loop"
+            },
+            {
+              "name": "Lock",
+              "value": "lock"
+            },
+            {
+              "name": "Question Mark",
+              "value": "question"
+            },
+            {
+              "name": "Inbox",
+              "value": "inbox"
+            },
+            {
+              "name": "Speaker",
+              "value": "speaker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Copyright",
+      "fields": [
+        {
+          "label": "Copyright",
+          "field": "copyright",
+          "translatable": false,
+          "required": false,
+          "type": "string"
+        }
+      ]
+    }
+  ]
 }

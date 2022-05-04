@@ -1,7 +1,9 @@
 import { Disclosure } from '@headlessui/react';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
+import Image from 'frontastic/lib/image';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/StringHelpers';
+import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 
@@ -11,25 +13,33 @@ export interface Props {
   readonly goToProductPage: (_url: string) => void;
   readonly removeCartItem: (lineItemId: string) => void;
   readonly selectedShipping: ShippingMethod;
+  readonly someOutOfStock: boolean;
 }
 
-const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartItem, selectedShipping }: Props) => {
+const MobileOrderSummary = ({
+  cart,
+  editCartItem,
+  goToProductPage,
+  removeCartItem,
+  selectedShipping,
+  someOutOfStock,
+}: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
   const { formatMessage } = useFormat({ name: 'common' });
 
   return (
-    <section aria-labelledby="order-heading" className="bg-gray-50 px-4 py-6 sm:px-6 lg:hidden">
+    <section aria-labelledby="order-heading" className="bg-gray-50 py-6 px-4 sm:px-6 lg:hidden">
       <Disclosure>
         {({ open }) => (
           <div className="mx-auto max-w-lg">
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-4">
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
                   {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
                 </h2>
-                <Disclosure.Button className="font-medium text-[#CE3E72] hover:text-[#B22C5D]">
+                <Disclosure.Button className="font-medium text-accent-400 hover:text-accent-500">
                   {open ? (
                     <span>
                       {formatCheckoutMessage({ id: 'fullsummary.hide', defaultMessage: 'Hide full summary' })}
@@ -46,13 +56,13 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                 <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
                   {cart.lineItems.map((lineItem, i) => (
                     <li key={i} className="flex space-x-6 py-6">
-                      <img
+                      <Image
                         src={lineItem.variant.images[0]}
                         alt={lineItem.name}
                         className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
                         onClick={() => goToProductPage(lineItem._url)}
                       />
-                      <div className="flex flex-col justify-between space-y-4">
+                      <div className="flex flex-col items-start justify-between space-y-4">
                         <div className="space-y-1 text-sm font-medium">
                           <h3 className="cursor-pointer text-gray-900" onClick={() => goToProductPage(lineItem._url)}>
                             {lineItem.name}
@@ -74,11 +84,11 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                             </p>
                           )}
                         </div>
-                        <div className="flex space-x-4">
+                        <div className="flex w-full flex-col items-start space-y-2">
                           <button
                             type="button"
                             onClick={editCartItem}
-                            className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                            className="text-sm font-medium text-accent-400 hover:text-accent-500"
                           >
                             {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                           </button>
@@ -86,7 +96,7 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                             <button
                               type="button"
                               onClick={(e) => removeCartItem(lineItem.lineItemId)}
-                              className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                              className="text-sm font-medium text-accent-400 hover:text-accent-500"
                             >
                               {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
                             </button>
@@ -95,8 +105,17 @@ const MobileOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIte
                       </div>
                     </li>
                   ))}
+                  {someOutOfStock && (
+                    <p className="flex items-center gap-1 py-6 text-xs text-red-500">
+                      <span style={{ marginBottom: '1px' }}>
+                        <ExclamationCircleIcon width={15} />
+                      </span>
+                      <span>
+                        {formatCheckoutMessage({ id: 'outOfStock', defaultMessage: 'Some products are out of stock' })}
+                      </span>
+                    </p>
+                  )}
                 </ul>
-
                 {/*<form className="mt-10">
                                 <label htmlFor="discount-code-mobile" className="block text-sm font-medium text-gray-700">
                                     Discount code

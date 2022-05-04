@@ -8,6 +8,7 @@ module.exports = {
     './frontastic/**/*.{js,ts,jsx,tsx}',
     './stories/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: ['md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'md:grid-cols-4'],
   theme: {
     extend: {
       gridTemplateColumns: {
@@ -15,20 +16,27 @@ module.exports = {
       },
       colors: {
         orange: colors.orange,
-        pink: {
-          200: '#ed4b85',
-          400: '#CE3E72',
-        },
         primary: {
-          100: '#EBF4FF',
-          200: '#C3DAFE',
-          300: '#A3BFFA',
-          400: '#7F9CF5',
-          500: '#667EEA',
-          600: '#5A67D8',
-          700: '#4C51BF',
-          800: '#434190',
-          900: '#3C366b',
+          100: '#666e82',
+          200: '#515971',
+          300: '#3b455f',
+          400: '#25304D',
+          500: '#192038',
+          600: '#1e263e',
+          700: '#1a2236',
+          800: '#161d2e',
+          900: '#131827',
+        },
+        accent: {
+          100: '#dd789c',
+          200: '#d8658e',
+          300: '#d35180',
+          400: '#CE3E72',
+          500: '#B22C5D',
+          600: '#A5325B',
+          700: '#902b50',
+          800: '#7c2544',
+          900: '#671f39',
         },
         secondary: {
           100: '#E6FFFA',

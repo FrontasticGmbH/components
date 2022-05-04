@@ -1,20 +1,25 @@
 {
-    "tasticType": "frontastic/ui/products/details",
-    "name": "Frontastic UI product details",
-    "icon": "card_giftcard",
-    "category": "Products",
-    "schema": [
+  "tasticType": "frontastic/ui/products/details",
+  "name": "Frontastic UI product details",
+  "icon": "card_giftcard",
+  "category": "Products",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
         {
-            "name": "Configuration",
-            "fields": [
-                {
-                    "label": "product",
-                    "field": "data",
-                    "type": "dataSource",
-                    "dataSourceType": "frontastic/product",
-                    "required": true
-                }
-            ]
+          "name": "Configuration",
+          "fields": [
+            {
+              "label": "Product",
+              "field": "data",
+              "type": "dataSource",
+              "dataSourceType": "frontastic/product",
+              "required": true
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }

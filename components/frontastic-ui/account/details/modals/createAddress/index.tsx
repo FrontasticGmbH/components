@@ -78,7 +78,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
             >
               <div className="absolute inset-0" onClick={onClose}>
                 <div
-                  className="absolute left-1/2 top-1/2 h-[90vh] w-[90%] max-w-[800px] -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white py-16 px-4 sm:px-6 lg:px-8 lg:py-24"
+                  className="absolute top-1/2 left-1/2 h-[90vh] w-[90%] max-w-[800px] -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white py-16 px-4 sm:px-6 lg:py-24 lg:px-8"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="relative mx-auto max-w-xl">
@@ -106,7 +106,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="firstName"
                               id="first-name"
                               autoComplete="given-name"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -122,7 +122,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="lastName"
                               id="last-name"
                               autoComplete="family-name"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -137,7 +137,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               type="text"
                               name="streetNumber"
                               id="street-number"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -153,7 +153,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="streetName"
                               type="text"
                               autoComplete="address-line1"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -169,7 +169,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="phone"
                               id="phone"
                               autoComplete="tel"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -185,7 +185,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="postalCode"
                               id="postal-code"
                               autoComplete="postal-code"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -201,7 +201,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="city"
                               id="city"
                               autoComplete="country"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-pink-400 focus:ring-pink-400"
+                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -221,7 +221,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                                 aria-describedby="Set as default shipping address"
                                 name="isDefaultShippingAddress"
                                 type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 border-gray-300 text-white focus:ring-pink-400"
+                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
                                 onChange={handleCheckboxChange}
                               />
                             </div>
@@ -251,7 +251,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                                 aria-describedby="Set as default billing addaress"
                                 name="isDefaultBillingAddress"
                                 type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-pink-400"
+                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
                                 onChange={handleCheckboxChange}
                               />
                             </div>
@@ -278,14 +278,14 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                         <div className="mt-4 flex gap-4 sm:col-span-2 sm:gap-8">
                           <button
                             type="button"
-                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                             onClick={onClose}
                           >
                             {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                           </button>
                           <button
                             type="submit"
-                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-pink-400 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
                           >
                             {formatMessage({ id: 'save', defaultMessage: 'Save' })}
                           </button>

@@ -20,7 +20,6 @@ export const updateCart = async (payload: CartDetails) => {
     },
     payload,
   );
-  console.log('cart updated, ', payload, res);
   mutate('/action/cart/getCart', res);
 };
 
@@ -41,6 +40,5 @@ export const setShippingMethod = async (shippingMethodId: string) => {
     },
     payload,
   );
-  console.log('shipping method set, ', payload, res);
   mutate('/action/cart/getCart', res);
 };

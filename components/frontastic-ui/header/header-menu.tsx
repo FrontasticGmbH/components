@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
-import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import React, { Fragment } from 'react';
+import { Dialog, Tab, Transition } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
+import { ReferenceLink } from 'helpers/reference';
 import { Link } from './index';
 import classNames from 'classnames';
 import Typography from 'components/frontastic-ui/typography';
@@ -18,9 +18,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={setOpen}>
+      <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={closeMenu}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
@@ -57,7 +59,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
             {/* Links */}
             <Tab.Group>
               <div className="mt-2 border-b border-gray-200">
-                <Tab.List className="-mb-px flex space-x-8 px-4">
+                <Tab.List className="-mb-px flex space-x-8 px-4" onClick={closeMenu}>
                   {navigation.categories.map((category) => (
                     <Tab
                       key={category.name}
@@ -76,8 +78,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
               <Tab.Panels as={Fragment}>
                 {navigation.categories.map((category, categoryIdx) => (
                   <Tab.Panel key={category.name} className="space-y-12 px-4 pt-10 pb-6">
-                    <div className="grid grid-cols-1 items-start gap-y-10 gap-x-6">
-                      <div className="grid grid-cols-1 gap-y-10 gap-x-6">
+                    <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10">
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p id={`mobile-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
                             {formatMessage({ id: 'featured', defaultMessage: 'Featured' })}
@@ -89,7 +91,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           >
                             {category.featured.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -103,7 +105,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
                             {category.categories.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -111,7 +113,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           </ul>
                         </div>
                       </div>
-                      <div className="grid grid-cols-1 gap-y-10 gap-x-6">
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p id="mobile-collection-heading" className="font-medium text-gray-900">
                             {formatMessage({ id: 'collection', defaultMessage: 'Collection' })}
@@ -119,7 +121,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
                             {category.collection.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -134,7 +136,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-brand-heading" className="mt-6 space-y-6">
                             {category.brands.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500">
+                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
                                   <Typography>{item.name}</Typography>
                                 </a>
                               </li>
@@ -150,7 +152,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
             <div className="space-y-6 border-t border-gray-200 py-6 px-4">
               {links.map((link) => (
-                <div key={link.name} className="flow-root">
+                <div key={link.name} className="flow-root" onClick={closeMenu}>
                   <ReferenceLink target={link.reference} className="-m-2 block p-2 font-medium text-gray-900">
                     <Typography>{link.name}</Typography>
                   </ReferenceLink>

@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Order } from '../../../../../../types/cart/Order';
-import { useCart } from 'frontastic/provider';
 import { useFormat } from 'helpers/hooks/useFormat';
+import Spinner from '../../../spinner';
+import Image from 'frontastic/lib/image';
 
-const OrdersHistory: React.FC = ({}) => {
+export interface OrdersHistoryProps {
+  loading: boolean;
+  accountOrders: Order[];
+}
+
+const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders }) => {
   //18in messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
-  //account data
-  const { orderHistory } = useCart();
-  const [accountOrders, setAccountOrders] = useState<Order[]>([]);
-
-  useEffect(() => {
-    orderHistory().then((data) => {
-      setAccountOrders(data);
-    });
-  }, []);
-
   return (
     <div className="bg-white">
-      {/* <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 lg:pb-24"> */}
       <div className="mt-10">
         <div className="space-y-1">
           <h3 className="text-lg font-medium leading-6 text-gray-900">
@@ -34,7 +29,11 @@ const OrdersHistory: React.FC = ({}) => {
           </p>
         </div>
         <div className="divide-y divide-gray-200"></div>
-        {accountOrders && accountOrders.length ? (
+        {loading ? (
+          <div className="flex items-stretch justify-center py-10 px-12">
+            <Spinner />
+          </div>
+        ) : accountOrders && accountOrders.length ? (
           <section aria-labelledby="recent-heading" className="mt-16">
             <h2 id="recent-heading" className="sr-only">
               Recent orders
@@ -45,8 +44,7 @@ const OrdersHistory: React.FC = ({}) => {
                   <h3 className="sr-only">
                     Order placed on <time dateTime={order.email}>{order.email}</time>
                   </h3>
-
-                  <div className="rounded-lg bg-[#F5F1EC] py-6 px-4 sm:flex sm:items-center sm:justify-between sm:space-x-6 sm:px-6 lg:space-x-8">
+                  <div className="rounded-lg bg-gray-100 py-6 px-4 sm:flex sm:items-center sm:justify-between sm:space-x-6 sm:px-6 lg:space-x-8">
                     <dl className="flex-auto space-y-6 divide-y divide-gray-200 text-sm text-gray-600 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:space-y-0 sm:divide-y-0 lg:w-1/2 lg:flex-none lg:gap-x-8">
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
                         <dt className="font-medium text-gray-900">
@@ -72,7 +70,7 @@ const OrdersHistory: React.FC = ({}) => {
                     </dl>
                     <a
                       href={order.orderId}
-                      className="mt-6 flex w-full items-center justify-center rounded-md border border-[#CE3E72] bg-white py-2 px-4 text-sm font-medium text-[#CE3E72] shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto"
+                      className="mt-6 flex w-full items-center justify-center rounded-md border border-accent-400 bg-white py-2 px-4 text-sm font-medium text-accent-400 shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto"
                     >
                       {formatAccountMessage({
                         id: 'orders.view.invoice',
@@ -128,7 +126,7 @@ const OrdersHistory: React.FC = ({}) => {
                         <tr key={product.lineItemId}>
                           <td className="py-6 pr-8">
                             <div className="flex items-center">
-                              <img
+                              <Image
                                 src={product.variant.images[0]}
                                 alt={product.name}
                                 className="mr-6 h-16 w-16 rounded object-cover object-center"
@@ -152,7 +150,7 @@ const OrdersHistory: React.FC = ({}) => {
                             {
                               //TODO: get product href and link
                             }
-                            <a href={product._url} className="text-[#CE3E72]">
+                            <a href={product._url} className="text-accent-400">
                               {formatProductMessage({
                                 id: 'product.view',
                                 defaultMessage: 'View product',

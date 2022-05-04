@@ -11,6 +11,7 @@
           "label": "Tagline",
           "field": "tagline",
           "type": "string",
+          "translatable": true,
           "required": false
         },
         {
@@ -20,7 +21,7 @@
           "required": true
         },
         {
-          "label": "links",
+          "label": "Links",
           "field": "links",
           "type": "group",
           "itemLabelField": "name",
@@ -64,7 +65,7 @@
           "required": true
         },
         {
-          "label": "Wish list link",
+          "label": "Wishlist link",
           "field": "wishlistLink",
           "type": "reference",
           "required": true

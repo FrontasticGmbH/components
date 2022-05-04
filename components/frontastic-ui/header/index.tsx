@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import Image from 'frontastic/lib/image';
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
+import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from '../../../helpers/Reference';
-import { headerNavigation } from '../../../components/mockData';
+import { Reference, ReferenceLink } from 'helpers/reference';
+import { headerNavigation } from 'components/mockData';
 import HeaderMenu from './header-menu';
 import WishListButton from './wishlist-button';
 import CartButton from './cart-button';
@@ -55,12 +55,12 @@ const Header: React.FC<HeaderProps> = ({
 
       <header className="relative bg-white">
         {tagline && (
-          <p className="flex items-center justify-center bg-[#25304D] px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          <p className="flex items-center justify-center bg-primary-400 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             <Typography>{tagline}</Typography>
           </p>
         )}
 
-        <nav aria-label="Top" className="mx-auto max-w-full border-b border-gray-200 px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="mx-auto max-w-full border-b border-gray-200 px-6 lg:px-8">
           {/* Secondary navigation */}
           <div>
             <div className="flex h-16 items-center justify-between">
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
-                  className="-ml-2 rounded-md bg-white p-2 text-[#25304D]"
+                  className="-ml-2 rounded-md bg-white p-2 text-primary-400"
                   onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -135,7 +135,7 @@ const Header: React.FC<HeaderProps> = ({
                     <ReferenceLink
                       key={id}
                       target={link.reference}
-                      className="text-md flex items-center font-medium text-[#25304D] hover:text-[#192038]"
+                      className="text-md flex items-center font-medium text-primary-400 hover:text-primary-500"
                     >
                       <Typography>{link.name}</Typography>
                     </ReferenceLink>

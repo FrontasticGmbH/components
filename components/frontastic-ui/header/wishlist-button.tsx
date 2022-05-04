@@ -1,4 +1,4 @@
-import { Reference, ReferenceLink } from '../../../helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import React from 'react';
 import { HeartIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
@@ -16,8 +16,8 @@ const WishListButton: React.FC<WishListButtonProps> = ({ wishlistItemCount, wish
   const wishlistButtonClassNames = {
     'wishlist-btn': 'flow-root pr-3',
     'wishlist-btn__wrap': 'group relative -m-2 flex items-center p-2',
-    'wishlist-btn__icon': 'h-6 w-6 flex-shrink-0 text-[#25304D] group-hover:text-[#192038]',
-    'wishlist-btn__badge': 'absolute -top-[-1px] -right-[2px] h-4 w-4 rounded-full bg-[#CE3E72] hover:bg-[#B22C5D]',
+    'wishlist-btn__icon': 'h-6 w-6 flex-shrink-0 text-primary-400 group-hover:text-primary-500',
+    'wishlist-btn__badge': 'absolute -top-[-1px] -right-[2px] h-4 w-4 rounded-full bg-accent-400 hover:bg-accent-500',
     'wishlist-btn__badge-text':
       'font-small flex h-full w-full items-center justify-center text-[12px] text-white group-hover:text-white',
   };

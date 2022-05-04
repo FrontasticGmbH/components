@@ -1,6 +1,6 @@
 {
   "tasticType": "frontastic/ui/account/reset-password",
-  "name": "Frontastic UI Account Reset Password",
+  "name": "Frontastic UI account reset password",
   "category": "Account",
   "icon": "account_circle",
   "schema": [
@@ -19,7 +19,7 @@
       "name": "Content",
       "fields": [
         {
-          "label": "Account Link",
+          "label": "Account link",
           "field": "accountLink",
           "type": "reference",
           "required": true

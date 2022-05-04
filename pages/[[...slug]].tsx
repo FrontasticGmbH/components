@@ -1,20 +1,17 @@
 import React from 'react';
 import { GetServerSideProps, Redirect } from 'next';
-import { createClient } from 'frontastic';
+import { createClient, ResponseError } from 'frontastic';
 import { tastics } from 'frontastic/tastics';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { FrontasticError } from '../frontastic/lib/utils/FrontasticError';
-
 import styles from './slug.module.css';
-import Error404 from 'components/frontastic-ui/404';
 
 type SlugProps = {
   data: any;
 };
 
 export default function Slug({ data }: SlugProps) {
-  if (!data) return <Error404 />;
+  if (!data) return <></>;
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
@@ -23,7 +20,7 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
   const data = await frontastic.getRouteData(params, locale, query, req, res);
 
   if (data) {
-    if (data instanceof FrontasticError && data.statusCode == 404) {
+    if (data instanceof ResponseError && data.getStatus() == 404) {
       return {
         notFound: true,
       };

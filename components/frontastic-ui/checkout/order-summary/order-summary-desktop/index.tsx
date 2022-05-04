@@ -1,8 +1,10 @@
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/StringHelpers';
+import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
+import Image from 'frontastic/lib/image';
 
 export interface Props {
   readonly cart: Cart;
@@ -10,9 +12,17 @@ export interface Props {
   readonly goToProductPage: (_url: string) => void;
   readonly removeCartItem: (lineItemId: string) => void;
   readonly selectedShipping: ShippingMethod;
+  readonly someOutOfStock: boolean;
 }
 
-const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartItem, selectedShipping }: Props) => {
+const DesktopOrderSummary = ({
+  cart,
+  editCartItem,
+  goToProductPage,
+  removeCartItem,
+  selectedShipping,
+  someOutOfStock,
+}: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -27,7 +37,7 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
       <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
         {cart.lineItems.map((lineItem, i) => (
           <li key={i} className="flex space-x-6 py-6">
-            <img
+            <Image
               src={lineItem.variant.images[0]}
               alt={lineItem.name}
               className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
@@ -59,7 +69,7 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
                 <button
                   type="button"
                   onClick={editCartItem}
-                  className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                  className="text-sm font-medium text-accent-400 hover:text-accent-500"
                 >
                   {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                 </button>
@@ -67,7 +77,7 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
                   <button
                     type="button"
                     onClick={(e) => removeCartItem(lineItem.lineItemId)}
-                    className="text-sm font-medium text-[#CE3E72] hover:text-[#B22C5D]"
+                    className="text-sm font-medium text-accent-400 hover:text-accent-500"
                   >
                     {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}
                   </button>
@@ -77,7 +87,14 @@ const DesktopOrderSummary = ({ cart, editCartItem, goToProductPage, removeCartIt
           </li>
         ))}
       </ul>
-
+      {someOutOfStock && (
+        <p className="flex items-center gap-1 p-6 text-xs text-red-500">
+          <span style={{ marginBottom: '1px' }}>
+            <ExclamationCircleIcon width={15} />
+          </span>
+          <span>{formatCheckoutMessage({ id: 'outOfStock', defaultMessage: 'Some products are out of stock' })}</span>
+        </p>
+      )}
       <div className="sticky bottom-0 flex-none border-t border-gray-200 bg-gray-50 p-6">
         {/*<form>
                 <label htmlFor="discount-code" className="block text-sm font-medium text-gray-700">

@@ -1,41 +1,41 @@
 {
-    "tasticType": "frontastic/ui/products/slider",
-    "name": "Frontastic UI product slider",
-    "icon": "menu",
-    "category": "Products",
-    "schema": [
+  "tasticType": "frontastic/ui/products/slider",
+  "name": "Frontastic UI product slider",
+  "icon": "menu",
+  "category": "Products",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
         {
-            "name": "Configuration",
-            "fields": [
-                {
-                    "label": "title",
-                    "field": "title",
-                    "type": "string",
-                    "required": true
-                },
-                {
-                    "label": "products",
-                    "field": "data",
-                    "type": "dataSource",
-                    "dataSourceType": "frontastic/product-list",
-                    "required": true
-                }
-            ]
+          "label": "title",
+          "field": "title",
+          "type": "string",
+          "required": true
         },
         {
-            "name": "CTA",
-            "fields": [
-                {
-                    "label": "label",
-                    "field": "ctaLabel",
-                    "type": "string"
-                },
-                {
-                    "label": "link",
-                    "field": "ctaLink",
-                    "type": "reference"
-                }
-            ]
+          "label": "products",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "frontastic/product-list",
+          "required": true
         }
-    ]
+      ]
+    },
+    {
+      "name": "CTA",
+      "fields": [
+        {
+          "label": "label",
+          "field": "ctaLabel",
+          "type": "string"
+        },
+        {
+          "label": "link",
+          "field": "ctaLink",
+          "type": "reference"
+        }
+      ]
+    }
+  ]
 }
