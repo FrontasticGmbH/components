@@ -11,6 +11,7 @@ import AccountButton from './account-button';
 import SearchButton from './search-button';
 import MegaMenuContent from './mega-menu-content';
 import Typography from 'components/frontastic-ui/typography';
+import LanguageSwitcher from 'components/frontastic-ui/language-switcher';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -154,6 +155,10 @@ const Header: React.FC<HeaderProps> = ({
                   <WishListButton wishlistItemCount={wishlistItemCount} wishlistLink={wishlistLink} />
 
                   <CartButton cartItemCount={cartItemCount} cartLink={cartLink} />
+
+                  <span className="mx-1 h-6 w-px bg-gray-200 lg:mx-6" aria-hidden="true" />
+
+                  <LanguageSwitcher />
                 </div>
               </div>
             </div>
