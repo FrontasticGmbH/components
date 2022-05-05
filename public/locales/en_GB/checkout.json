@@ -38,5 +38,6 @@
   "order.thanks": "Thanks for ordering",
   "order.appreciate": "We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation very soon!",
   "creditCard": "Credit card",
-  "payment.preference.ask": "What do you prefer to pay with?"
+  "askPaymentPreference": "What do you prefer to pay with?",
+  "billingAddressSameAsShipping": "Billing address is the same as shipping address"
 }

@@ -38,5 +38,6 @@
   "order.thanks": "Vielen Dank für die Bestellung",
   "order.appreciate": "Wir freuen uns über deine Bestellung, die wir gerade bearbeiten. Bleib also dran und wir werden dir bald eine Bestätigung schicken!",
   "creditCard": "Kreditkarte",
-  "payment.preference.ask": "Womit bezahlst du am liebsten?"
+  "askPaymentPreference": "Womit bezahlst du am liebsten?",
+  "billingAddressSameAsShipping": "Die Rechnungsadresse ist die gleiche wie die Lieferadresse"
 }
