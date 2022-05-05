@@ -34,6 +34,13 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
     }
   }
 
+  if (data instanceof Error) {
+    console.error("Error retrieving data: ", data);
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       data: data || null,
