@@ -3,6 +3,10 @@ import { TasticWrapper } from './component';
 import { Grid } from './grid';
 import { Cell as LayoutElement } from './cell';
 import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse } from './types';
+import { ActionContext } from '@frontastic/extension-types';
+import { TastValue } from '@frontastic/extension-types';
+
+const foo: TastValue = {};
 
 export function FrontasticRenderer({
   data,
