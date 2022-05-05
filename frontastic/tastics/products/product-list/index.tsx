@@ -5,7 +5,7 @@ function ProductListTastic({ data }) {
 
   const { category, nextCursor, previousCursor } = data;
 
-  const products = data.items || data.products;
+  const products = data.data.dataSource.items || data.items || data.products;
 
   if (!products || products.length == 0) return <p>No products found.</p>;
 
