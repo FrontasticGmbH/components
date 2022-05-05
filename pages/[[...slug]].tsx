@@ -35,6 +35,9 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
   }
 
   if (data instanceof Error) {
+    // @TODO: Render nicer error page in debug mode, which shows the error to
+    // the developer and also outlines how to debug this (take a look at
+    // frontastic-CLI).
     console.error("Error retrieving data: ", data);
     return {
       notFound: true,
