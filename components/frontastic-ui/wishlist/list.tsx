@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { LineItem } from '../../../../types/wishlist/LineItem';
-import { DateHelpers } from 'helpers/dateHelpers';
 import { useRouter } from 'next/router';
+import { DateHelpers } from 'helpers/dateHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import Spinner from '../spinner';
 import Image from 'frontastic/lib/image';
+import { LineItem } from '../../../../types/wishlist/LineItem';
+import Spinner from '../spinner';
 
 export interface Props {
   items?: LineItem[];
@@ -46,7 +46,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
             }, [] as LineItem[])
             .map((item) => (
               <li key={item.lineItemId} className="flex py-6">
-                <div className="flex-shrink-0  cursor-pointer">
+                <div className="shrink-0  cursor-pointer">
                   <Image
                     alt="Front side of charcoal cotton t-shirt."
                     width={100}

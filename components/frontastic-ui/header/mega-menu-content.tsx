@@ -1,6 +1,6 @@
+import React from 'react';
 import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
-import React from 'react';
 
 const MegaMenuContent = ({ category, categoryIdx }) => {
   //i18n messages

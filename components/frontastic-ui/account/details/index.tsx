@@ -1,10 +1,10 @@
 import React from 'react';
-import { useAccount } from 'frontastic';
+import { useFormat } from 'helpers/hooks/useFormat';
+import useHash from 'helpers/hooks/useHash';
 import Redirect from 'helpers/redirect';
 import { Reference } from 'helpers/reference';
+import { useAccount } from 'frontastic';
 import { AddressesSection, GeneralSection, SecuritySection, OrdersHistorySection } from './sections/exporter';
-import useHash from 'helpers/hooks/useHash';
-import { useFormat } from 'helpers/hooks/useFormat';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

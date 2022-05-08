@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import ProductSlider, { Props as SliderProps } from './index';
 import { products, headerButtonLink } from '../../../../components/mockData';
+import ProductSlider, { Props as SliderProps } from './index';
 
 export default {
   title: 'Frontastic/ProductSlider',

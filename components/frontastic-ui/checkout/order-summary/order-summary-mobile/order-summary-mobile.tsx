@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import MobileOrderSummary, { Props as MobileOrderSummaryProps } from './index';
-import { cart } from '../../../../mockData';
 import { shippingMethods } from 'frontastic/actions/cart/shipping-methods';
+import { cart } from '../../../../mockData';
+import MobileOrderSummary, { Props as MobileOrderSummaryProps } from './index';
 
 export default {
   title: 'Frontastic/OrderSummaryMobile',

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
+import NextLink from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { i18n } from 'next-i18next.config';
-import NextLink from 'next/link';
 
 const LanguageSwitcher: React.FC = () => {
   const { locales } = i18n;
@@ -10,7 +10,7 @@ const LanguageSwitcher: React.FC = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-100 focus:outline-none">
+        <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-100 focus:outline-none">
           Language
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
@@ -30,7 +30,7 @@ const LanguageSwitcher: React.FC = () => {
             {locales.map((locale, index) => (
               <Menu.Item key={index}>
                 <NextLink href="/" locale={locale}>
-                  <a className="block px-4 py-2 text-center text-sm hover:bg-gray-100">{locale}</a>
+                  <a className="block py-2 px-4 text-center text-sm hover:bg-gray-100">{locale}</a>
                 </NextLink>
               </Menu.Item>
             ))}

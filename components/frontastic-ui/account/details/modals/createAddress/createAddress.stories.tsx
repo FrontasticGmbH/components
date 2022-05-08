@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import CreateAddress, { CreateAddressProps } from './index';
 import { addresses, orders } from '../../../../../mockData';
+import CreateAddress, { CreateAddressProps } from './index';
 
 export default {
   title: 'Frontastic/CreateAddress',

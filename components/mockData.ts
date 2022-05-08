@@ -1,13 +1,13 @@
-import { Product } from '../../types/product/Product';
-import { Cart } from '../../types/cart/Cart';
 import { NextFrontasticImage } from 'frontastic/lib/image';
 import { Account } from '../../types/account/Account';
-import { ShippingMethod } from '../../types/cart/ShippingMethod';
-import { Group } from '../../types/account/Group';
 import { Address } from '../../types/account/Address';
+import { Group } from '../../types/account/Group';
+import { Cart } from '../../types/cart/Cart';
 import { Order } from '../../types/cart/Order';
-import { Wishlist } from '../../types/wishlist/Wishlist';
+import { ShippingMethod } from '../../types/cart/ShippingMethod';
+import { Product } from '../../types/product/Product';
 import { LineItem } from '../../types/wishlist/LineItem';
+import { Wishlist } from '../../types/wishlist/Wishlist';
 
 const lineItems: LineItem[] = [
   {

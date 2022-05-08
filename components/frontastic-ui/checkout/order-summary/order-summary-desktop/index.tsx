@@ -1,10 +1,10 @@
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
+import Image from 'frontastic/lib/image';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
-import { ExclamationCircleIcon } from '@heroicons/react/outline';
-import Image from 'frontastic/lib/image';
 
 export interface Props {
   readonly cart: Cart;

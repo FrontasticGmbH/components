@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { Cart } from '../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../types/cart/ShippingMethod';
+import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
 import RelatedProducts from './relatedProducts';
-import Spinner from '../spinner';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

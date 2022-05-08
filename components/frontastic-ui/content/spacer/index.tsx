@@ -1,6 +1,6 @@
+import React from 'react';
 import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
 import * as screenSizes from '../../../../helpers/utils/screensizes';
-import React from 'react';
 
 export type SpacerProps = {
   variant?: 'sm' | 'md' | 'lg' | 'custom';
