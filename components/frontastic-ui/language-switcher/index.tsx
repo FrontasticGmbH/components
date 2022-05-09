@@ -2,15 +2,23 @@ import React, { Fragment } from 'react';
 import NextLink from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import useMediaQuery from 'helpers/hooks/useMediaQuery';
+import { mobile } from 'helpers/utils/screensizes';
 import { i18n } from 'next-i18next.config';
 
 const LanguageSwitcher: React.FC = () => {
+  const [isLargerThanMobile] = useMediaQuery(mobile);
+
   const { locales } = i18n;
+
+  if (!isLargerThanMobile) {
+    return null;
+  }
 
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-100 focus:outline-none">
+        <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none">
           Language
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
