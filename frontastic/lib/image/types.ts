@@ -6,7 +6,7 @@ export type Gravity = {
 };
 
 export type FrontasticImage = {
-  media: {
+  media?: {
     mediaId?: string;
     file: string;
     name: string;

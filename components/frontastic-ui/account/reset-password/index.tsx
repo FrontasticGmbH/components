@@ -3,7 +3,7 @@ import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 import { useAccount } from 'frontastic';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
-import { getReferenceTarget, Reference } from 'helpers/Reference';
+import { getReferenceTarget, Reference } from 'helpers/reference';
 
 export interface ResetPasswordProps {
   logo?: NextFrontasticImage;
@@ -107,7 +107,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -124,7 +124,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>

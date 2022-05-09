@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
-import { CurrencyHelpers } from '../../../../helpers/CurrencyHelpers';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { Variant } from '../../../../../types/product/Variant';
 import { Money } from '../../../../../types/product/Money';
 import WishlistButton from './wishlist-button';
@@ -168,7 +168,9 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
             <form className="mt-6">
               {/* Colors */}
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Color</h3>
+                <h3 className="text-sm font-medium text-gray-900">
+                  {formatProductMessage({ id: 'color', defaultMessage: 'Color' })}
+                </h3>
 
                 <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
@@ -205,44 +207,46 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   </div>
                 </RadioGroup>
               </div>
-
-              {/* Size picker */}
-              <div className="mt-8">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-sm font-medium text-gray-900">Size</h2>
-                </div>
-
-                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-2">
-                  <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
-                  <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                    {product.sizes.map((size: { label: string; key: string }) => (
-                      <RadioGroup.Option
-                        key={size.label}
-                        value={size}
-                        className={({ active, checked }) =>
-                          classNames(
-                            active || selectedSize.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
-                            checked
-                              ? 'bg-transparent text-gray-900 hover:bg-gray-50'
-                              : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
-                            'flex cursor-pointer items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1',
-                          )
-                        }
-                      >
-                        <RadioGroup.Label>
-                          <p>{size.label}</p>
-                        </RadioGroup.Label>
-                      </RadioGroup.Option>
-                    ))}
+              {product.sizes.length > 1 && (
+                <div className="mt-8">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-sm font-medium text-gray-900">
+                      {formatProductMessage({ id: 'size', defaultMessage: 'Size' })}
+                    </h2>
                   </div>
-                </RadioGroup>
-              </div>
+
+                  <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-2">
+                    <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
+                    <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                      {product.sizes.map((size: { label: string; key: string }) => (
+                        <RadioGroup.Option
+                          key={size.label}
+                          value={size}
+                          className={({ active, checked }) =>
+                            classNames(
+                              active || selectedSize.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
+                              checked
+                                ? 'bg-transparent text-gray-900 hover:bg-gray-50'
+                                : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
+                              'flex cursor-pointer items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1',
+                            )
+                          }
+                        >
+                          <RadioGroup.Label>
+                            <p>{size.label}</p>
+                          </RadioGroup.Label>
+                        </RadioGroup.Option>
+                      ))}
+                    </div>
+                  </RadioGroup>
+                </div>
+              )}
 
               <div className="sm:flex-col1 mt-10 flex">
                 <button
                   type="button"
                   onClick={() => handleAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-primary-400 py-3 px-8 text-base font-medium text-white hover:bg-primary-500 focus:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-8 text-base font-medium text-white hover:bg-accent-500 focus:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
                   disabled={!variant.isOnStock}
                 >
                   {!loading && !added && (
@@ -282,17 +286,17 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 {formatProductMessage({ id: 'details.additional', defaultMessage: 'Additional details' })}
               </h2>
 
-              <div className="divide-y divide-gray-200 border-t">
-                {product.details.map((detail) => (
-                  <Disclosure key={detail.name}>
-                    <div>
+              {product.details?.length > 0 && (
+                <div className="divide-y divide-gray-200 border-t">
+                  {product.details.map((detail) => (
+                    <Disclosure key={detail.name}>
                       {({ open }) => (
                         <>
                           <h3>
                             <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
                               <span
                                 className={classNames(
-                                  open ? 'text-indigo-600' : 'text-gray-900',
+                                  open ? 'text-accent-400' : 'text-gray-900',
                                   'text-sm font-medium',
                                 )}
                               >
@@ -301,7 +305,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                               <span className="ml-6 flex items-center">
                                 {open ? (
                                   <MinusSmIcon
-                                    className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                                    className="block h-6 w-6 text-accent-400 group-hover:text-accent-500"
                                     aria-hidden="true"
                                   />
                                 ) : (
@@ -314,7 +318,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             </Disclosure.Button>
                           </h3>
                           <Disclosure.Panel>
-                            <div className="prose prose-sm pb-6">
+                            <div className="prose prose-sm py-6">
                               <ul role="list">
                                 {detail.items.map((item) => (
                                   <li key={item}>{item}</li>
@@ -324,10 +328,10 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           </Disclosure.Panel>
                         </>
                       )}
-                    </div>
-                  </Disclosure>
-                ))}
-              </div>
+                    </Disclosure>
+                  ))}
+                </div>
+              )}
             </section>
           </div>
         </div>

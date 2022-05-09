@@ -29,12 +29,6 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
   //available payment methods
   const paymentMethods = [
     {
-      id: 'cc',
-      label: formatCheckoutMessage({ id: 'creditCard', defaultMessage: 'Credit card' }),
-      value: 'cc',
-      default: true,
-    },
-    {
       id: 'invoice',
       label: formatCheckoutMessage({ id: 'invoice', defaultMessage: 'Invoice' }),
       value: 'invoice',
@@ -57,7 +51,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
   }, [billingSameAsShipping, data.billingAddress]);
 
   //active payment method
-  const [activePaymentMethod, setActivePaymentMethod] = useState('cc');
+  const [activePaymentMethod, setActivePaymentMethod] = useState('invoice');
 
   useEffect(() => {
     updateFormInput('pay', activePaymentMethod);
@@ -65,7 +59,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
 
   return (
     <form className="mt-6">
-      <div className="grid grid-cols-12 gap-y-6 gap-x-4">
+      <div className="grid grid-cols-12 gap-x-4 gap-y-6">
         <FormInput
           name="firstName"
           inputAutoComplete="given-name"
@@ -173,70 +167,31 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
           checked={billingSameAsShipping}
           onChange={(checked) => setBillingSameAsShipping(checked)}
           name="sameAsShipping"
-          label="Billing address is the same as shipping address"
+          label={formatCheckoutMessage({
+            id: 'billingAddressSameAsShipping',
+            defaultMessage: 'Billing address is the same as shipping address',
+          })}
           inverseLabel
           containerClassNames="flex items-center gap-4 col-span-full"
         />
         <FormRadioGroup
           headline={formatCheckoutMessage({ id: 'payment', defaultMessage: 'Payment' })}
           subline={formatCheckoutMessage({
-            id: 'pay.preference.ask',
+            id: 'askPaymentPreference',
             defaultMessage: 'What do you prefer to pay with?',
           })}
           options={paymentMethods}
           className="col-span-full"
           onChange={(val) => setActivePaymentMethod(val)}
         />
-        {activePaymentMethod === 'cc' ? (
-          <>
-            <FormInput
-              name="nameOnCard"
-              inputAutoComplete="cc-name"
-              label={formatMessage({ id: 'street.nameOnCard', defaultMessage: 'Name on Card' })}
-              value={data.nameOnCard}
-              onChange={updateFormInput}
-            />
-            <FormInput
-              name="cardNumber"
-              inputAutoComplete="cc-number"
-              label={formatMessage({ id: 'street.cardNumber', defaultMessage: 'Card Number' })}
-              value={data.cardNumber}
-              onChange={updateFormInput}
-            />
-            <FormInput
-              name="expirationDate"
-              inputAutoComplete="cc-exp"
-              label={formatMessage({ id: 'street.expirationDate', defaultMessage: 'Expiration date (MM/YY)' })}
-              value={data.expirationDate}
-              onChange={updateFormInput}
-              containerClassNames="col-span-8 sm:col-span-9"
-            />
-            <FormInput
-              name="cvc"
-              inputAutoComplete="csc"
-              label={formatMessage({ id: 'street.cvc', defaultMessage: 'CVC' })}
-              value={data.cvc}
-              onChange={updateFormInput}
-              containerClassNames="col-span-4 sm:col-span-3"
-            />
-          </>
-        ) : (
-          <>
-            <FormInput
-              name="invoiceId"
-              label={formatCheckoutMessage({ id: 'invoice', defaultMessage: 'Invoice' }) + ' ID'}
-              value={data.invoice}
-              onChange={updateFormInput}
-            />
-          </>
-        )}
+        <FormInput
+          name="invoiceId"
+          label={formatCheckoutMessage({ id: 'invoice', defaultMessage: 'Invoice' }) + ' ID'}
+          value={data.invoice}
+          onChange={updateFormInput}
+        />
       </div>
       <FormButton buttonText={submitText} onClick={submitForm} isDisabled={!isFormValid} />
-      {/*
-      <p className="mt-6 flex justify-center text-sm font-medium text-gray-500">
-        <LockClosedIcon className="mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-        Payment details stored in plain text
-      </p> */}
     </form>
   );
 };

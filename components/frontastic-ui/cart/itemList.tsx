@@ -1,7 +1,8 @@
 import { XIcon as XIconSolid } from '@heroicons/react/solid';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import Image from 'frontastic/lib/image';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/StringHelpers';
+import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../types/cart/Cart';
 
 interface Props {
@@ -26,7 +27,7 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
         {cart.lineItems.map((lineItem, i) => (
           <li key={i} className="flex py-6 sm:py-10">
             <div className="flex-shrink-0">
-              <img
+              <Image
                 src={lineItem.variant.images[0]}
                 alt={lineItem.name}
                 className="h-24 w-24 cursor-pointer rounded-md object-cover object-center sm:h-48 sm:w-48"

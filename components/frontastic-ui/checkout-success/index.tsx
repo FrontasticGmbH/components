@@ -1,3 +1,4 @@
+import Image from 'frontastic/lib/image';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useRouter } from 'next/router';
 
@@ -12,7 +13,7 @@ const CheckoutSuccess = ({}: Props) => {
   return (
     <main className="relative lg:min-h-full">
       <div className="h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
-        <img
+        <Image
           src="https://tailwindui.com/img/ecommerce-images/confirmation-page-06-hero.jpg"
           alt="TODO"
           className="h-full w-full object-cover object-center"
@@ -20,7 +21,7 @@ const CheckoutSuccess = ({}: Props) => {
       </div>
 
       <div>
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32 xl:gap-x-24">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:py-32 lg:px-8 xl:gap-x-24">
           <div className="lg:col-start-2">
             {/*<h1 className="text-sm font-medium text-indigo-600">Payment successful</h1>*/}
             <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">

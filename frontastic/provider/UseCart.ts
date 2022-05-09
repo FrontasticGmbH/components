@@ -3,9 +3,6 @@ import { Cart } from '../../../types/cart/Cart';
 import { ShippingMethod } from '../../../types/cart/ShippingMethod';
 import { Variant } from '../../../types/product/Variant';
 import { Order } from '../../../types/cart/Order';
-
-import { SWRResponse } from 'swr';
-
 export interface UseCart {
   data?: Cart;
   addItem: (variant: Variant, quantity: number) => Promise<void>;

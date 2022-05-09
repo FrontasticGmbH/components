@@ -1,5 +1,5 @@
 import React from 'react';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/react/outline';
 import { default as RocketIcon } from 'components/icons/rocket';
 import { default as LoopIcon } from 'components/icons/loop';
@@ -64,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
   return (
     <footer aria-labelledby="footer-heading">
       <div className="mx-auto w-full bg-gray-100 px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl px-2 py-10 xl:grid xl:grid-cols-2 xl:gap-8">
+        <div className="mx-auto max-w-5xl py-10 px-2 xl:grid xl:grid-cols-2 xl:gap-8">
           <div className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${columns.length.toString()} xl:col-span-2`}>
             {columns.map((column, index) => (
               <div key={index} className="md:flex md:justify-center">
@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
         </div>
       </div>
       {copyright && (
-        <div className="flex place-content-between border-t border-gray-200 bg-primary-400 px-4 py-4 sm:px-10">
+        <div className="flex place-content-between border-t border-gray-200 bg-primary-400 p-4 sm:px-10">
           <p className="text-xs text-[#FFFFFF] sm:text-sm">© {copyright}</p>
           <ul className="flex">
             {footerCopyrightLinks.map((item, i) => (

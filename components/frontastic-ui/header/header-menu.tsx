@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
-import { MenuIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import React, { Fragment } from 'react';
+import { Dialog, Tab, Transition } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
+import { ReferenceLink } from 'helpers/reference';
 import { Link } from './index';
 import classNames from 'classnames';
 import Typography from 'components/frontastic-ui/typography';
@@ -78,8 +78,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
               <Tab.Panels as={Fragment}>
                 {navigation.categories.map((category, categoryIdx) => (
                   <Tab.Panel key={category.name} className="space-y-12 px-4 pt-10 pb-6">
-                    <div className="grid grid-cols-1 items-start gap-y-10 gap-x-6">
-                      <div className="grid grid-cols-1 gap-y-10 gap-x-6">
+                    <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10">
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p id={`mobile-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
                             {formatMessage({ id: 'featured', defaultMessage: 'Featured' })}
@@ -113,7 +113,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           </ul>
                         </div>
                       </div>
-                      <div className="grid grid-cols-1 gap-y-10 gap-x-6">
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p id="mobile-collection-heading" className="font-medium text-gray-900">
                             {formatMessage({ id: 'collection', defaultMessage: 'Collection' })}

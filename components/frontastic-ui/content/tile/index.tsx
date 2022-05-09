@@ -1,4 +1,4 @@
-import { Reference, ReferenceLink } from 'helpers/Reference';
+import { Reference, ReferenceLink } from 'helpers/reference';
 import Image from 'frontastic/lib/image';
 import Typography from 'components/frontastic-ui/typography';
 
@@ -35,7 +35,7 @@ const Tile: React.FC<TileProps> = ({
         />
       </div>
 
-      <div className="text-start absolute left-4 top-1/2 flex -translate-y-1/2 flex-col md:left-10 md:max-w-[30%]">
+      <div className="text-start absolute top-1/2 left-4 flex -translate-y-1/2 flex-col md:left-10 md:max-w-[30%]">
         <div className="text-md mb-1 font-medium">
           <Typography>{subtitle}</Typography>
         </div>

@@ -1,8 +1,9 @@
 import { Disclosure } from '@headlessui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
-import { CurrencyHelpers } from 'helpers/CurrencyHelpers';
+import Image from 'frontastic/lib/image';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { StringHelpers } from 'helpers/StringHelpers';
+import { StringHelpers } from 'helpers/stringHelpers';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 
@@ -29,7 +30,7 @@ const MobileOrderSummary = ({
   const { formatMessage } = useFormat({ name: 'common' });
 
   return (
-    <section aria-labelledby="order-heading" className="bg-gray-50 px-4 py-6 sm:px-6 lg:hidden">
+    <section aria-labelledby="order-heading" className="bg-gray-50 py-6 px-4 sm:px-6 lg:hidden">
       <Disclosure>
         {({ open }) => (
           <div className="mx-auto max-w-lg">
@@ -55,7 +56,7 @@ const MobileOrderSummary = ({
                 <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
                   {cart.lineItems.map((lineItem, i) => (
                     <li key={i} className="flex space-x-6 py-6">
-                      <img
+                      <Image
                         src={lineItem.variant.images[0]}
                         alt={lineItem.name}
                         className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
