@@ -12,6 +12,14 @@ type SlugProps = {
 
 export default function Slug({ data }: SlugProps) {
   if (!data) return <></>;
+
+  if (typeof data === 'string') {
+    return <>
+      <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
+      <p className="mt-2 text-l">{data}</p>
+    </>;
+  }
+
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
@@ -24,7 +32,7 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
       return {
         notFound: true,
       };
-    } else if ('target' in data) {
+    } else if (typeof data === 'object' && 'target' in data) {
       return {
         redirect: {
           destination: data.target,
@@ -42,6 +50,15 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
     return {
       notFound: true,
     };
+  }
+
+  if (typeof data === 'string') {
+    return {
+      props: {
+        data: { error: data },
+        error: data,
+      }
+    }
   }
 
   return {
