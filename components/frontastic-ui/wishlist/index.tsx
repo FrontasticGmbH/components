@@ -1,4 +1,6 @@
 import React from 'react';
+import useMediaQuery from 'helpers/hooks/useMediaQuery';
+import { mobile } from 'helpers/utils/screensizes';
 import { LineItem } from '../../../../types/wishlist/LineItem';
 import { Wishlist } from '../../../../types/wishlist/Wishlist';
 import EmptyWishlist from './empty_wishlist';
@@ -10,12 +12,14 @@ export interface Props {
 }
 
 const WishList: React.FC<Props> = ({ items, removeLineItems }) => {
-  return items?.lineItems?.length > 0 ? (
+  const [isLargerThanMobile] = useMediaQuery(mobile);
+
+  if (items?.lineItems?.length <= 0) return <EmptyWishlist />;
+
+  return (
     <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
       {items?.lineItems && <List items={items.lineItems} removeLineItems={removeLineItems} />}
     </div>
-  ) : (
-    <EmptyWishlist />
   );
 };
 
