@@ -5,7 +5,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
 import { Product } from '../../../../../types/product/Product';
 import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
-import List from './List';
+// import List from './List';
 export interface Props {
   products: Product[];
   previousCursor: string;
@@ -57,7 +57,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   return (
     <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
-      <List products={products} />
+      {/* <List products={products} /> */}
 
       <nav
         className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
