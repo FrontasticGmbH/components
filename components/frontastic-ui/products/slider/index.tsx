@@ -4,7 +4,7 @@ import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { ReferenceLink, Reference } from 'helpers/reference';
 import { mobile, tablet, desktop } from 'helpers/utils/screensizes';
 import { Product } from '../../../../../types/product/Product';
-import Tile from './Tile';
+// import Tile from './Tile';
 
 export interface Props {
   products: Product[];
@@ -44,9 +44,11 @@ export default function ProductSlider({ products, title, subline, ctaLabel, ctaL
       <div className="relative mt-8">
         <div className="relative -mb-6 w-full overflow-x-auto pb-6">
           <Slider {...sliderConfiguration}>
-            {products.slice(0, 15).map((product, index: number) => (
-              <Tile {...product} key={index} />
-            ))}
+            {products.slice(0, 15).map(
+              (product, index: number) =>
+                // <Tile {...product} key={index} />
+                null,
+            )}
           </Slider>
         </div>
       </div>
