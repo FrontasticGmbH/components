@@ -48,7 +48,6 @@ export function Errors() {
     }
   });
 
-  console.log("Current error state:", errors);
   const styles: CSS.Properties = {
     position: 'absolute',
     zIndex: '1024',
