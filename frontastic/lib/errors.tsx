@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as CSS from 'csstype';
 import classNames from 'classnames';
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon, ExclamationIcon, } from '@heroicons/react/outline';
@@ -47,16 +46,6 @@ export function Errors() {
       setOpen(true);
     }
   });
-
-  const styles: CSS.Properties = {
-    position: 'absolute',
-    zIndex: '1024',
-    border: '2px solid red',
-    width: '100vw',
-    gridColumn: 'span 12 / span 12',
-    marginLeft: '50%',
-    transform: 'translateX(-50%)',
-  };
 
   if (!errors.length || !open) {
     return null;
