@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import type { Address as AddressType } from '../../../../../../types/account/Address';
 import { StarIcon } from '@heroicons/react/solid';
-import { useAccount } from 'frontastic';
-import UpdateAddressModal from '../modals/updateAddress';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { useAccount } from 'frontastic';
+import type { Address as AddressType } from '../../../../../../types/account/Address';
+import UpdateAddressModal from '../modals/updateAddress';
 
 export interface AddressProps {
   address: AddressType;

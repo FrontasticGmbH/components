@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
+import { orders } from '../../../../../mockData';
 import Addresses from '../addresses';
 import General from '../general';
-import Security from '../security';
-import classNames from 'classnames';
 import OrdersHistory from '../orders';
-import { orders } from '../../../../../mockData';
+import Security from '../security';
 
 const Sections = () => {
   const [selectedTab, setSelectedTab] = useState('#');

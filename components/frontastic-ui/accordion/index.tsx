@@ -2,63 +2,60 @@ import React, { useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 
 export interface AccordionProps {
+  index?: number;
+
+  accordionListLength?: number;
   className?: string;
   sectionTitle: string;
 }
 
-const AccordionBtn: React.FC<AccordionProps> = ({ sectionTitle, children }) => {
+const AccordionBtn: React.FC<AccordionProps> = ({ index, accordionListLength, sectionTitle, children }) => {
   const [showContent, setShowContent] = useState(false);
   function toggleAccordion() {
     setShowContent((prevState) => !prevState);
   }
   return (
-    <div className="flex flex-col  items-center rounded-t-lg ">
+    <div className="flex flex-col  items-center rounded-t-lg">
       <button
         onClick={toggleAccordion}
         className={`
         flex
         w-full
-        items-center
-        justify-between
+        items-center justify-between
         py-2 px-4
-        text-base
+        text-base font-medium
         ${showContent ? 'text-accent-400' : 'text-primary-400'}
-        rounded
-        border-b-2
+        ${index === accordionListLength - 1 && !showContent ? 'border-0' : 'border-b-2'}
         bg-white
-        transition
-        duration-300
-        ease-in-out`}
+        transition duration-300 ease-in-out`}
       >
-        {sectionTitle}
+        {sectionTitle} {' #'} {index + 1}
         {
           <ChevronDownIcon
-            className={`h-10 w-10 flex-shrink-0
+            className={`
+             h-10 w-10
+             flex-shrink-0
              transition
              duration-300
              ease-in-out
-             ${showContent ? 'text-accent-400' : 'text-primary-400'}
-             ${showContent ? 'rotate-180' : 'rotate-0'}
+             ${showContent ? 'rotate-180 text-accent-400' : 'rotate-0 text-primary-400'}
              `}
           />
         }
       </button>
       <div
         className={`
-          border-b-2
+          ${index === accordionListLength - 1 ? 'border-0' : 'border-b-2'}
           ${showContent ? 'scale-y-100' : 'scale-y-0'}
-          w-full
-          ${showContent ? 'visible' : 'hidden'}
-          flex items-center overflow-hidden px-5
-          py-5
+          flex
+          w-full items-center overflow-hidden px-5
           transition
-          delay-150
           duration-300
           ease-in-out`}
       >
         <div
           className={`
-
+          ${showContent ? 'h-fit py-5' : 'h-0'}
           transition
           duration-300
           ease-in-out`}

@@ -1,9 +1,9 @@
 import React from 'react';
-import Logo from 'public/images/Logo.svg';
-import CableCut from 'public/images/cable-cut.png';
 import Image from 'next/image';
-import { useFormat } from 'helpers/hooks/useFormat';
 import Link from 'next/link';
+import { useFormat } from 'helpers/hooks/useFormat';
+import CableCut from 'public/images/cable-cut.png';
+import Logo from 'public/images/Logo.svg';
 
 const Error404 = () => {
   const { formatMessage } = useFormat({ name: 'common' });

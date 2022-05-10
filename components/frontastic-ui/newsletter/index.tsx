@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
-import React, { useState } from 'react';
 
 export interface NewsletterProps {
   headline?: string;

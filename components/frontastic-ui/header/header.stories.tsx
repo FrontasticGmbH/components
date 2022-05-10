@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Header, { HeaderProps } from './index';
 import { headerButtonLink, headerAccountLink, headerLinks } from '../../../components/mockData';
+import Header, { HeaderProps } from './index';
 
 export default {
   title: 'Frontastic/Header',

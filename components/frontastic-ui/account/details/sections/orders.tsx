@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Order } from '../../../../../../types/cart/Order';
 import { useFormat } from 'helpers/hooks/useFormat';
-import Spinner from '../../../spinner';
 import Image from 'frontastic/lib/image';
+import { Order } from '../../../../../../types/cart/Order';
+import Spinner from '../../../spinner';
 
 export interface OrdersHistoryProps {
   loading: boolean;

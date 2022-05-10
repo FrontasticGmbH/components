@@ -1,10 +1,10 @@
-import FormButton from './fields/formButton';
-import FormInput from './fields/formInput';
-import FormSelect from './fields/formSelect';
-import { useFormat } from 'helpers/hooks/useFormat';
-import FormRadioGroup from './fields/formRadioGroup';
 import { useEffect, useState } from 'react';
+import { useFormat } from 'helpers/hooks/useFormat';
+import FormButton from './fields/formButton';
 import FormCheckbox from './fields/formCheckbox';
+import FormInput from './fields/formInput';
+import FormRadioGroup from './fields/formRadioGroup';
+import FormSelect from './fields/formSelect';
 
 interface Props {
   readonly submitText: string;

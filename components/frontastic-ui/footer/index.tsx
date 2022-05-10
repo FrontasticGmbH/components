@@ -1,11 +1,11 @@
 import React from 'react';
-import { Reference, ReferenceLink } from 'helpers/reference';
 import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/react/outline';
-import { default as RocketIcon } from 'components/icons/rocket';
-import { default as LoopIcon } from 'components/icons/loop';
-import { default as LockIcon } from 'components/icons/lock';
 import Typography from 'components/frontastic-ui/typography';
+import { default as LockIcon } from 'components/icons/lock';
+import { default as LoopIcon } from 'components/icons/loop';
+import { default as RocketIcon } from 'components/icons/rocket';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { Reference, ReferenceLink } from 'helpers/reference';
 
 interface Link {
   name: string;

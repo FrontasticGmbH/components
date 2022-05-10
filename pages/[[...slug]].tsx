@@ -1,9 +1,9 @@
 import React from 'react';
 import { GetServerSideProps, Redirect } from 'next';
-import { createClient, ResponseError } from 'frontastic';
-import { tastics } from 'frontastic/tastics';
-import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { createClient, ResponseError } from 'frontastic';
+import { FrontasticRenderer } from 'frontastic/lib/renderer';
+import { tastics } from 'frontastic/tastics';
 import styles from './slug.module.css';
 import { Log } from '../helpers/errorLogger';
 
@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
     // @TODO: Render nicer error page in debug mode, which shows the error to
     // the developer and also outlines how to debug this (take a look at
     // frontastic-CLI).
-    Log.error("Error retrieving data: ", data);
+    Log.error('Error retrieving data: ', data);
     return {
       notFound: true,
     };

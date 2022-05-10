@@ -1,9 +1,9 @@
 import { Disclosure } from '@headlessui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
-import Image from 'frontastic/lib/image';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
+import Image from 'frontastic/lib/image';
 import { Cart } from '../../../../../../types/cart/Cart';
 import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 
@@ -30,12 +30,12 @@ const MobileOrderSummary = ({
   const { formatMessage } = useFormat({ name: 'common' });
 
   return (
-    <section aria-labelledby="order-heading" className="bg-gray-50 py-6 px-4 sm:px-6 lg:hidden">
+    <section aria-labelledby="order-heading" className="py-6 px-4 bg-gray-50 sm:px-6 lg:hidden">
       <Disclosure>
         {({ open }) => (
           <div className="mx-auto max-w-lg">
             <div>
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex gap-4 justify-between items-center">
                 <h2 id="order-heading" className="text-lg font-medium text-gray-900">
                   {formatCheckoutMessage({ id: 'yourOrder', defaultMessage: 'Your Order' })}
                 </h2>
@@ -53,18 +53,18 @@ const MobileOrderSummary = ({
               </div>
 
               <Disclosure.Panel>
-                <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
+                <ul role="list" className="border-b border-gray-200 divide-y divide-gray-200">
                   {cart.lineItems.map((lineItem, i) => (
-                    <li key={i} className="flex space-x-6 py-6">
+                    <li key={i} className="flex py-6 space-x-6">
                       <Image
                         src={lineItem.variant.images[0]}
                         alt={lineItem.name}
-                        className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
+                        className="object-cover object-center flex-none w-40 h-40 bg-gray-200 rounded-md cursor-pointer"
                         onClick={() => goToProductPage(lineItem._url)}
                       />
-                      <div className="flex flex-col items-start justify-between space-y-4">
+                      <div className="flex flex-col justify-between items-start space-y-4">
                         <div className="space-y-1 text-sm font-medium">
-                          <h3 className="cursor-pointer text-gray-900" onClick={() => goToProductPage(lineItem._url)}>
+                          <h3 className="text-gray-900 cursor-pointer" onClick={() => goToProductPage(lineItem._url)}>
                             {lineItem.name}
                           </h3>
                           <div className="flex space-x-4">
@@ -84,7 +84,7 @@ const MobileOrderSummary = ({
                             </p>
                           )}
                         </div>
-                        <div className="flex w-full flex-col items-start space-y-2">
+                        <div className="flex flex-col items-start space-y-2 w-full">
                           <button
                             type="button"
                             onClick={editCartItem}
@@ -92,7 +92,7 @@ const MobileOrderSummary = ({
                           >
                             {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                           </button>
-                          <div className="flex border-l border-gray-300 pl-4">
+                          <div className="flex pl-4 border-l border-gray-300">
                             <button
                               type="button"
                               onClick={(e) => removeCartItem(lineItem.lineItemId)}
@@ -106,7 +106,7 @@ const MobileOrderSummary = ({
                     </li>
                   ))}
                   {someOutOfStock && (
-                    <p className="flex items-center gap-1 py-6 text-xs text-red-500">
+                    <p className="flex gap-1 items-center py-6 text-xs text-red-500">
                       <span style={{ marginBottom: '1px' }}>
                         <ExclamationCircleIcon width={15} />
                       </span>
@@ -196,7 +196,7 @@ const MobileOrderSummary = ({
                 </dl>
               </Disclosure.Panel>
 
-              <p className="mt-6 flex items-center justify-between border-t border-gray-200 pt-6 text-sm font-medium text-gray-900">
+              <p className="flex justify-between items-center pt-6 mt-6 text-sm font-medium text-gray-900 border-t border-gray-200">
                 <span className="text-base">{formatCheckoutMessage({ id: 'total', defaultMessage: 'Total' })}</span>
                 <span className="text-base">
                   {CurrencyHelpers.formatForCurrency(

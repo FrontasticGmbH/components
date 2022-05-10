@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import List from './List';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import Laddercrumb from 'components/frontastic-ui/laddercrumb';
-import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
-import { Product } from '../../../../../types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
+import { Product } from '../../../../../types/product/Product';
+import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
+import List from './list';
+// import List from './List';
 export interface Props {
   products: Product[];
   previousCursor: string;

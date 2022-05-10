@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { SearchIcon } from '@heroicons/react/outline';
-import { Transition } from '@headlessui/react';
-import SearchInput from './search-input';
 import { useRouter } from 'next/router';
+import { Transition } from '@headlessui/react';
+import { SearchIcon } from '@heroicons/react/outline';
+import SearchInput from './search-input';
 
 const SearchButton: React.FC = () => {
   //next/router

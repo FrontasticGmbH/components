@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
-
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
-import { Variant } from '../../../../../types/product/Variant';
-import { Money } from '../../../../../types/product/Money';
-import WishlistButton from './wishlist-button';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { Money } from '../../../../../types/product/Money';
+import { Variant } from '../../../../../types/product/Variant';
+import WishlistButton from './wishlist-button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

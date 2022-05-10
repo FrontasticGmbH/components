@@ -1,10 +1,11 @@
 import React from 'react';
-import Tile from './Tile';
-import { Product } from '../../../../../types/product/Product';
 import Slider, { SliderProps } from 'components/frontastic-ui/slider';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
-import { mobile, tablet, desktop } from 'helpers/utils/screensizes';
 import { ReferenceLink, Reference } from 'helpers/reference';
+import { mobile, tablet, desktop } from 'helpers/utils/screensizes';
+import { Product } from '../../../../../types/product/Product';
+import Tile from './tile';
+// import Tile from './Tile';
 
 export interface Props {
   products: Product[];

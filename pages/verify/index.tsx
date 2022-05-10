@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { useAccount } from 'frontastic';
 import toast from 'react-hot-toast';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { useAccount } from 'frontastic';
 
 const Verify: NextPage = () => {
   //i18n messages

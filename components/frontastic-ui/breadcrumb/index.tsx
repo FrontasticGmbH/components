@@ -1,5 +1,5 @@
-import { HomeIcon } from '@heroicons/react/solid';
 import React from 'react';
+import { HomeIcon } from '@heroicons/react/solid';
 
 export type BreadcrumbProps = {
   Separator?: React.ReactNode;
