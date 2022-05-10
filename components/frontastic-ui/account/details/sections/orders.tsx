@@ -30,7 +30,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
         </div>
         <div className="divide-y divide-gray-200"></div>
         {loading ? (
-          <div className="flex items-stretch justify-center py-10 px-12">
+          <div className="flex justify-center items-stretch py-10 px-12">
             <Spinner />
           </div>
         ) : accountOrders && accountOrders.length ? (
@@ -44,8 +44,8 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                   <h3 className="sr-only">
                     Order placed on <time dateTime={order.email}>{order.email}</time>
                   </h3>
-                  <div className="rounded-lg bg-gray-100 py-6 px-4 sm:flex sm:items-center sm:justify-between sm:space-x-6 sm:px-6 lg:space-x-8">
-                    <dl className="flex-auto space-y-6 divide-y divide-gray-200 text-sm text-gray-600 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:space-y-0 sm:divide-y-0 lg:w-1/2 lg:flex-none lg:gap-x-8">
+                  <div className="py-6 px-4 bg-gray-100 rounded-lg sm:flex sm:justify-between sm:items-center sm:px-6 sm:space-x-6 lg:space-x-8">
+                    <dl className="flex-auto space-y-6 text-sm text-gray-600 divide-y divide-gray-200 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:space-y-0 sm:divide-y-0 lg:flex-none lg:gap-x-8 lg:w-1/2">
                       <div className="flex justify-between pt-6 sm:block sm:pt-0">
                         <dt className="font-medium text-gray-900">
                           {formatAccountMessage({
@@ -70,7 +70,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                     </dl>
                     <a
                       href={order.orderId}
-                      className="mt-6 flex w-full items-center justify-center rounded-md border border-accent-400 bg-white py-2 px-4 text-sm font-medium text-accent-400 shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto"
+                      className="flex justify-center items-center py-2 px-4 mt-6 w-full text-sm font-medium text-accent-400 bg-white hover:bg-gray-50 rounded-md border border-accent-400 focus:outline-none shadow-sm sm:mt-0 sm:w-auto"
                     >
                       {formatAccountMessage({
                         id: 'orders.view.invoice',
@@ -87,7 +87,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                         defaultMessage: 'Products',
                       })}
                     </caption>
-                    <thead className="sr-only text-left text-sm text-gray-800 sm:not-sr-only">
+                    <thead className="text-sm text-left text-gray-800 sr-only sm:not-sr-only">
                       <tr>
                         <th scope="col" className="py-3 pr-8 font-normal sm:w-2/5 lg:w-1/3">
                           {formatProductMessage({
@@ -95,7 +95,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                             defaultMessage: 'Product',
                           })}
                         </th>
-                        <th scope="col" className="hidden w-1/5 py-3 pr-8 font-normal sm:table-cell">
+                        <th scope="col" className="hidden py-3 pr-8 w-1/5 font-normal sm:table-cell">
                           {formatProductMessage({
                             id: 'price',
                             defaultMessage: 'Price',
@@ -113,7 +113,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                             defaultMessage: 'Order status',
                           })}
                         </th>
-                        <th scope="col" className="w-0 py-3 text-right font-normal">
+                        <th scope="col" className="py-3 w-0 font-normal text-right">
                           {formatProductMessage({
                             id: 'product.info',
                             defaultMessage: 'Product information',
@@ -121,7 +121,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200 border-b border-gray-200 text-sm sm:border-t">
+                    <tbody className="text-sm border-b border-gray-200 divide-y divide-gray-200 sm:border-t">
                       {order.lineItems.map((product) => (
                         <tr key={product.lineItemId}>
                           <td className="py-6 pr-8">
@@ -129,7 +129,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                               <Image
                                 src={product.variant.images[0]}
                                 alt={product.name}
-                                className="mr-6 h-16 w-16 rounded object-cover object-center"
+                                className="object-cover object-center mr-6 w-16 h-16 rounded"
                               />
                               <div>
                                 <div className="font-medium text-gray-900">{product.name}</div>
@@ -146,7 +146,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                           </td>
                           <td className="hidden py-6 pr-8 sm:table-cell">{product.variant.attributes.size}</td>
                           <td className="hidden py-6 pr-8 sm:table-cell">{order.orderState}</td>
-                          <td className="whitespace-nowrap py-6 text-right font-medium">
+                          <td className="font-medium text-right whitespace-nowrap pyENTJ-6">
                             {
                               //TODO: get product href and link
                             }

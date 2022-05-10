@@ -30,7 +30,7 @@ const SearchButton: React.FC = () => {
   };
 
   return (
-    <div className="relative flex">
+    <div className="flex relative">
       <Transition
         show={!searching}
         enter="transition-opacity duration-75"
@@ -42,7 +42,7 @@ const SearchButton: React.FC = () => {
       >
         <div className="cursor-pointer" onClick={startSearch}>
           <span className="sr-only">Search</span>
-          <SearchIcon className="h-6 w-6" aria-hidden="true" />
+          <SearchIcon className="w-6 h-6" aria-hidden="true" />
         </div>
       </Transition>
       <Transition

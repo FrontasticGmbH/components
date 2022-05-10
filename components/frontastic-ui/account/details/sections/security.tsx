@@ -74,7 +74,7 @@ const Security = () => {
             id="old-password"
             name="oldPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password.old',
               defaultMessage: 'Old password',
@@ -89,7 +89,7 @@ const Security = () => {
             id="password"
             name="password"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password',
               defaultMessage: 'Password',
@@ -104,7 +104,7 @@ const Security = () => {
             id="confirm-password"
             name="confirmPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password.confirm',
               defaultMessage: 'Confirm password',
@@ -116,7 +116,7 @@ const Security = () => {
         </div>
         <button
           type="submit"
-          className="duration-150ms mt-4 w-[80px] items-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-center text-sm font-medium text-white shadow-sm transition-colors ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
+          className="items-center py-2 px-4 mt-4 w-[80px] text-sm font-medium text-center text-white bg-accent-400 disabled:bg-gray-300 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-sm transition-colors ease-out duration-150ms"
           disabled={submitDisabled || processing}
         >
           Save

@@ -22,7 +22,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className="fixed inset-0 z-40 flex lg:hidden" onClose={closeMenu}>
+      <Dialog className="flex fixed inset-0 z-40 lg:hidden" onClose={closeMenu}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
@@ -44,22 +44,22 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
           leaveFrom="translate-x-0"
           leaveTo="-translate-x-full"
         >
-          <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+          <div className="flex overflow-y-auto relative flex-col pb-12 w-full max-w-xs bg-white shadow-xl">
             <div className="flex px-4 pt-5 pb-2">
               <button
                 type="button"
-                className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                className="inline-flex justify-center items-center p-2 -m-2 text-gray-400 rounded-md"
                 onClick={() => setOpen(false)}
               >
                 <span className="sr-only">{formatMessage({ id: 'menu.close', defaultMessage: 'Close menu' })}</span>
-                <XIcon className="h-6 w-6" aria-hidden="true" />
+                <XIcon className="w-6 h-6" aria-hidden="true" />
               </button>
             </div>
 
             {/* Links */}
             <Tab.Group>
               <div className="mt-2 border-b border-gray-200">
-                <Tab.List className="-mb-px flex space-x-8 px-4" onClick={closeMenu}>
+                <Tab.List className="flex px-4 -mb-px space-x-8" onClick={closeMenu}>
                   {navigation.categories.map((category) => (
                     <Tab
                       key={category.name}
@@ -77,8 +77,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
               </div>
               <Tab.Panels as={Fragment}>
                 {navigation.categories.map((category, categoryIdx) => (
-                  <Tab.Panel key={category.name} className="space-y-12 px-4 pt-10 pb-6">
-                    <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10">
+                  <Tab.Panel key={category.name} className="px-4 pt-10 pb-6 space-y-12">
+                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 items-start">
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p id={`mobile-featured-heading-${categoryIdx}`} className="font-medium text-gray-900">
@@ -150,10 +150,10 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
               </Tab.Panels>
             </Tab.Group>
 
-            <div className="space-y-6 border-t border-gray-200 py-6 px-4">
+            <div className="py-6 px-4 space-y-6 border-t border-gray-200">
               {links.map((link) => (
                 <div key={link.name} className="flow-root" onClick={closeMenu}>
-                  <ReferenceLink target={link.reference} className="-m-2 block p-2 font-medium text-gray-900">
+                  <ReferenceLink target={link.reference} className="block p-2 -m-2 font-medium text-gray-900">
                     <Typography>{link.name}</Typography>
                   </ReferenceLink>
                 </div>

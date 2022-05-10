@@ -132,19 +132,19 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
 
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex flex-col justify-center py-12 min-h-full sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="relative h-12">
             <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
             {formatAccountMessage({ id: 'account.sign.in', defaultMessage: 'Sign in to your account' })}
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-sm text-center text-gray-600">
             {formatAccountMessage({ id: 'account.doNotHave', defaultMessage: "Don't have an account?" })}{' '}
             <ReferenceLink
               target={registerLink}
-              className="font-medium text-accent-400 underline hover:text-accent-500"
+              className="font-medium text-accent-400 hover:text-accent-500 underline"
             >
               {formatAccountMessage({ id: 'account.register.here', defaultMessage: 'Register here' })}
             </ReferenceLink>
@@ -152,7 +152,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="py-8 px-4 bg-white shadow sm:px-10 sm:rounded-lg">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600">{success}</p>}
               {error && <p className="text-sm text-accent-400">{error}</p>}
@@ -167,7 +167,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block py-2 px-3 w-full placeholder:text-gray-400 rounded-md border border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 shadow-sm appearance-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -185,7 +185,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                      className="block py-2 px-3 w-full placeholder:text-gray-400 rounded-md border border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 shadow-sm appearance-none sm:text-sm"
                       onChange={handleChange}
                     />
                   </div>
@@ -195,29 +195,29 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
               {subModal ? (
                 <div>
                   <ArrowLeftIcon
-                    className="w-4 cursor-pointer text-accent-400 hover:text-accent-500"
+                    className="w-4 text-accent-400 hover:text-accent-500 cursor-pointer"
                     onClick={backToLogin}
                   />
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between items-center">
                     <div className="flex items-center">
                       <input
                         id="remember-me"
                         name="rememberMe"
                         type="checkbox"
-                        className="texpink h-4 w-4 rounded border-gray-300 focus:ring-accent-400"
+                        className="w-4 h-4 rounded border-gray-300 focus:ring-accent-400 texpink"
                         onChange={handleCheckboxChange}
                       />
-                      <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                      <label htmlFor="remember-me" className="block ml-2 text-sm text-gray-900">
                         {formatMessage({ id: 'rememberMe', defaultMessage: 'Remember me' })}
                       </label>
                     </div>
 
                     <div className="text-sm">
                       <span
-                        className="cursor-pointer font-medium text-accent-400 hover:text-accent-500"
+                        className="font-medium text-accent-400 hover:text-accent-500 cursor-pointer"
                         onClick={toResendPassword}
                       >
                         {formatAccountMessage({ id: 'password.forgot', defaultMessage: 'Forgot your password?' })}
@@ -225,10 +225,10 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-end">
+                  <div className="flex justify-end items-center">
                     <div className="text-sm">
                       <span
-                        className="cursor-pointer font-medium text-accent-400 hover:text-accent-500"
+                        className="font-medium text-accent-400 hover:text-accent-500 cursor-pointer"
                         onClick={toResendVerification}
                       >
                         {formatAccountMessage({
@@ -243,7 +243,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="flex justify-center py-2 px-4 w-full text-sm font-medium text-white bg-accent-400 hover:bg-accent-500 disabled:bg-gray-200 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 shadow-sm transition-colors ease-out duration-250ms"
                   disabled={loading}
                 >
                   {resendVerification

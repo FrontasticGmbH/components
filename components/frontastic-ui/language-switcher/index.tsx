@@ -16,11 +16,11 @@ const LanguageSwitcher: React.FC = () => {
   }
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="inline-block relative text-left">
       <div>
-        <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none">
+        <Menu.Button className="inline-flex z-50 justify-center py-2 px-4 w-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-100 rounded-md focus:outline-none">
           Language
-          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          <ChevronDownIcon className="-mr-1 ml-2 w-5 h-5" aria-hidden="true" />
         </Menu.Button>
       </div>
 
@@ -33,12 +33,12 @@ const LanguageSwitcher: React.FC = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-50 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-50 mt-2 w-full bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right">
           <div className="py-1">
             {locales.map((locale, index) => (
               <Menu.Item key={index}>
                 <NextLink href="/" locale={locale}>
-                  <a className="block py-2 px-4 text-center text-sm hover:bg-gray-100">{locale}</a>
+                  <a className="block py-2 px-4 text-sm text-center hover:bg-gray-100">{locale}</a>
                 </NextLink>
               </Menu.Item>
             ))}

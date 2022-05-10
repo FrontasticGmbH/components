@@ -31,10 +31,10 @@ export default function FormRadioGroup({ headline, subline, options, onChange, c
                 type="radio"
                 defaultChecked={option.default}
                 value={option.value}
-                className="h-4 w-4 border-gray-300 text-accent-400 focus:ring-accent-400"
+                className="w-4 h-4 text-accent-400 border-gray-300 focus:ring-accent-400"
                 onChange={(e) => onChange(e.target.value)}
               />
-              <label htmlFor={option.id} className="ml-3 block text-sm font-medium text-gray-700">
+              <label htmlFor={option.id} className="block ml-3 text-sm font-medium text-gray-700">
                 {option.label}
               </label>
             </div>
