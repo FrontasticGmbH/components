@@ -1,5 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
+import { Log } from './errorLogger';
 
 interface LinkReference {
   type: 'link';
@@ -30,7 +31,7 @@ export const getReferenceTarget = (target: Reference): string => {
     case 'page-folder':
       return target.pageFolder._url;
     default:
-      //console.warn('Reference ', target, ' is not valid reference')
+      //Log.warn('Reference ', target, ' is not valid reference')
       return '/';
   }
 };

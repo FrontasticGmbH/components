@@ -2,6 +2,7 @@ import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
 
 import { IncomingMessage, ServerResponse } from 'http';
+import { Log } from '../../helpers/errorLogger';
 
 function resolveApiHubUrl(): string {
   // TODO: Error checks!
@@ -113,10 +114,10 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
         } catch (e) {
           error = await response.text();
         }
-        console.error(error);
+        Log.error(error);
         return err;
       } else {
-        console.error("Network error: " + err);
+        Log.error("Network error: " + err);
         return "Network error: " + err;
       }
     });

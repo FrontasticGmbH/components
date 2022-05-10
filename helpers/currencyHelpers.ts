@@ -1,4 +1,5 @@
 import { StringHelpers } from './stringHelpers';
+import { Log } from './errorLogger';
 import { Money } from '../../types/product/Money';
 
 export class CurrencyHelpers {
@@ -12,7 +13,7 @@ export class CurrencyHelpers {
 
   private static formatStringForCurrency = function (costInCents: string) {
     if (!StringHelpers.isNumeric(costInCents)) {
-      console.error(`Value (${costInCents}) passed for currency formatting cannot be parsed to a number`);
+      Log.error(`Value (${costInCents}) passed for currency formatting cannot be parsed to a number`);
       return '';
     }
     return CurrencyHelpers.formatNumberForCurrency(parseInt(costInCents, 10));
@@ -37,13 +38,13 @@ export class CurrencyHelpers {
 
   static addCurrency: (value1: Money, value2: Money) => Money = (value1: Money, value2: Money) => {
     if (value1.fractionDigits !== value2.fractionDigits && value1.fractionDigits && value2.fractionDigits) {
-      console.warn(
+      Log.warn(
         `Money with different fraction codes passed to addCurrency, value returned will be innacurate. ` +
           `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`,
       );
     }
     if (value1.currencyCode !== value2.currencyCode && value1.currencyCode && value2.currencyCode) {
-      console.warn(
+      Log.warn(
         `Money with different currency codes passed to addCurrency, value returned will be innacurate. ` +
           `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`,
       );
@@ -57,13 +58,13 @@ export class CurrencyHelpers {
 
   static subtractCurrency: (value1: Money, value2: Money) => Money = (value1: Money, value2: Money) => {
     if (value1.fractionDigits !== value2.fractionDigits) {
-      console.warn(
+      Log.warn(
         `Money with different fraction codes passed to addCurrency, value returned will be innacurate. ` +
           `Value 1: ${value1.fractionDigits}, value 2: ${value2.fractionDigits}`,
       );
     }
     if (value1.currencyCode !== value2.currencyCode) {
-      console.warn(
+      Log.warn(
         `Money with different currency codes passed to addCurrency, value returned will be innacurate. ` +
           `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`,
       );

@@ -5,6 +5,7 @@ import { tastics } from 'frontastic/tastics';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import styles from './slug.module.css';
+import { Log } from '../helpers/errorLogger';
 
 type SlugProps = {
   data: any;
@@ -46,7 +47,7 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
     // @TODO: Render nicer error page in debug mode, which shows the error to
     // the developer and also outlines how to debug this (take a look at
     // frontastic-CLI).
-    console.error("Error retrieving data: ", data);
+    Log.error("Error retrieving data: ", data);
     return {
       notFound: true,
     };
