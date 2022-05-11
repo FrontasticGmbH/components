@@ -68,7 +68,8 @@ export function Errors() {
               </h3>
               <div className="mt-2">
                 <p className="text-sm text-gray-500">
-                  Some errors occured when communicating with the API hub. Find
+                  Some errors occured when communicating with the API hub.
+                  Check the sandbox logs (s) of your Frontastic CLI and find
                   the error messages either in the browser console (F12) or the
                   last five below:
                 </p>

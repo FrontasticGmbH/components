@@ -18,7 +18,7 @@ export function FrontasticRenderer({
 }) {
   return (
     <div className="flex min-h-screen flex-col items-stretch justify-start">
-      <Errors />
+      {process && process.env.NODE_ENV !== 'production' && <Errors />}
       <Grid gridClassName={gridClassName} wrapperClassName={`${wrapperClassName} w-full`}>
         {data?.page?.sections?.head?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>
