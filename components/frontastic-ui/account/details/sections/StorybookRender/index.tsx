@@ -28,7 +28,7 @@ const Sections = () => {
             <select
               id="selected-tab"
               name="selected-tab"
-              className="mt-1 block w-full rounded-md border-gray-300 py-2 pr-10 pl-3 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+              className="block py-2 pr-10 pl-3 mt-1 w-full text-base rounded-md border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
             >
               {tabs.map((tab) => (
                 <option key={tab.name} value={tab.href}>
@@ -39,7 +39,7 @@ const Sections = () => {
           </div>
           <div className="hidden lg:block">
             <div className="border-b border-gray-200">
-              <nav className="-mb-px flex space-x-8">
+              <nav className="flex -mb-px space-x-8">
                 {tabs.map((tab) => (
                   <button
                     key={tab.name}

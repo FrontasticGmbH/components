@@ -17,7 +17,7 @@ const WishList: React.FC<Props> = ({ items, removeLineItems }) => {
   if (items?.lineItems?.length <= 0) return <EmptyWishlist />;
 
   return (
-    <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
+    <div className="px-4 mt-10 bg-white sm:px-6 lg:px-8">
       {items?.lineItems && <List items={items.lineItems} removeLineItems={removeLineItems} />}
     </div>
   );

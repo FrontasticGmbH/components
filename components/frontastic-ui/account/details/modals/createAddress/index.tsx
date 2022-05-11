@@ -48,9 +48,9 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className="fixed inset-0 z-10 overflow-y-auto" onClose={onClose}>
+      <Dialog className="overflow-y-auto fixed inset-0 z-10" onClose={onClose}>
         <>
-          <div className="text-start flex min-h-screen items-end justify-center px-4 pt-4 pb-20 sm:block sm:p-0">
+          <div className="flex justify-center items-end px-4 pt-4 pb-20 min-h-screen sm:block sm:p-0 text-start">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -78,7 +78,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
             >
               <div className="absolute inset-0" onClick={onClose}>
                 <div
-                  className="absolute top-1/2 left-1/2 h-[90vh] w-[90%] max-w-[800px] -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white py-16 px-4 sm:px-6 lg:py-24 lg:px-8"
+                  className="overflow-auto absolute top-1/2 left-1/2 py-16 px-4 w-[90%] max-w-[800px] h-[90vh] bg-white -translate-x-1/2 -translate-y-1/2 sm:px-6 lg:py-24 lg:px-8"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="relative mx-auto max-w-xl">
@@ -106,7 +106,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="firstName"
                               id="first-name"
                               autoComplete="given-name"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -122,7 +122,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="lastName"
                               id="last-name"
                               autoComplete="family-name"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -137,7 +137,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               type="text"
                               name="streetNumber"
                               id="street-number"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -153,7 +153,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="streetName"
                               type="text"
                               autoComplete="address-line1"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -169,7 +169,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="phone"
                               id="phone"
                               autoComplete="tel"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -185,7 +185,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="postalCode"
                               id="postal-code"
                               autoComplete="postal-code"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -201,7 +201,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="city"
                               id="city"
                               autoComplete="country"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block py-3 px-4 w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm"
                               onChange={handleChange}
                             />
                           </div>
@@ -214,18 +214,18 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                             })}
                             ;
                           </legend>
-                          <div className="relative flex items-start">
-                            <div className="flex h-5 items-center">
+                          <div className="flex relative items-start">
+                            <div className="flex items-center h-5">
                               <input
                                 id="is-default-shipping-address"
                                 aria-describedby="Set as default shipping address"
                                 name="isDefaultShippingAddress"
                                 type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
+                                className="w-6 h-6 text-white rounded border-gray-300 focus:ring-accent-400"
                                 onChange={handleCheckboxChange}
                               />
                             </div>
-                            <div className="text-md ml-3">
+                            <div className="ml-3 text-md">
                               <label htmlFor="is-default-shipping-address" className="text-gray-400">
                                 {formatAccountMessage({
                                   id: 'address.setDefault.delivery',
@@ -244,18 +244,18 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                             })}
                             ;
                           </legend>
-                          <div className="relative flex items-start">
-                            <div className="flex h-5 items-center">
+                          <div className="flex relative items-start">
+                            <div className="flex items-center h-5">
                               <input
                                 id="is-default-billing-address"
                                 aria-describedby="Set as default billing addaress"
                                 name="isDefaultBillingAddress"
                                 type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
+                                className="w-6 h-6 text-white rounded border-gray-300 focus:ring-accent-400"
                                 onChange={handleCheckboxChange}
                               />
                             </div>
-                            <div className="text-md ml-3">
+                            <div className="ml-3 text-md">
                               <label htmlFor="is-default-billing-address" className="text-gray-400">
                                 {formatAccountMessage({
                                   id: 'address.setDefault.billing',
@@ -275,17 +275,17 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                             })}
                           </p>
                         </div>
-                        <div className="mt-4 flex gap-4 sm:col-span-2 sm:gap-8">
+                        <div className="flex gap-4 mt-4 sm:col-span-2 sm:gap-8">
                           <button
                             type="button"
-                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                            className="inline-flex justify-center items-center py-3 px-6 w-full text-base font-medium text-white bg-gray-400 hover:bg-gray-300 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-sm transition-colors ease-out duration-250ms"
                             onClick={onClose}
                           >
                             {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                           </button>
                           <button
                             type="submit"
-                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+                            className="inline-flex justify-center items-center py-3 px-6 w-full text-base font-medium text-white bg-accent-400 hover:bg-accent-500 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 shadow-sm transition-colors ease-out duration-250ms"
                           >
                             {formatMessage({ id: 'save', defaultMessage: 'Save' })}
                           </button>

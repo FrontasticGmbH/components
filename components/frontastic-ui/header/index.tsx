@@ -50,31 +50,31 @@ const Header: React.FC<HeaderProps> = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed-screen-width lg:relative-width bg-white">
+    <div className="bg-white fixed-screen-width lg:relative-width">
       {/* Mobile menu */}
       <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={headerNavigation} />
 
       <header className="relative bg-white">
         {tagline && (
-          <p className="flex items-center justify-center bg-primary-400 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          <p className="flex justify-center items-center px-4 text-sm font-medium text-white bg-primary-400 sm:px-6 lg:px-8">
             <Typography>{tagline}</Typography>
           </p>
         )}
 
-        <nav aria-label="Top" className="mx-auto max-w-full border-b border-gray-200 px-6 lg:px-8">
+        <nav aria-label="Top" className="px-6 mx-auto max-w-full border-b border-gray-200 lg:px-8">
           {/* Secondary navigation */}
           <div>
-            <div className="flex h-16 items-center justify-between">
+            <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <ReferenceLink target={logoLink} className="flex">
                 <span className="sr-only">Catwalk</span>
-                <div className="w-[60px] pr-3 sm:w-[100px] sm:pr-7">
+                <div className="pr-3 w-[60px] sm:pr-7 sm:w-[100px]">
                   <Image
                     media={logo.media ? logo.media : { media: '' }}
                     src={!logo.media ? logo : ''}
                     width={100}
                     height={45}
-                    className="h-7 w-auto sm:h-10"
+                    className="w-auto h-7 sm:h-10"
                     alt="Logo"
                   />
                 </div>
@@ -83,22 +83,22 @@ const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
-                  className="-ml-2 rounded-md bg-white p-2 text-primary-400"
+                  className="p-2 -ml-2 text-primary-400 bg-white rounded-md"
                   onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
-                  <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                  <MenuIcon className="w-6 h-6" aria-hidden="true" />
                 </button>
               </div>
 
               {/* Mega menus */}
               <Popover.Group className="hidden lg:block lg:flex-1 lg:self-stretch">
-                <div className="flex h-full space-x-8">
+                <div className="flex space-x-8 h-full">
                   {headerNavigation.categories.map((category, categoryIdx) => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
                         <>
-                          <div className="relative flex">
+                          <div className="flex relative">
                             <Popover.Button
                               className={classNames(
                                 open
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({
                     <ReferenceLink
                       key={id}
                       target={link.reference}
-                      className="text-md flex items-center font-medium text-primary-400 hover:text-primary-500"
+                      className="flex items-center font-medium text-primary-400 hover:text-primary-500 text-md"
                     >
                       <Typography>{link.name}</Typography>
                     </ReferenceLink>
@@ -144,19 +144,19 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
               </Popover.Group>
 
-              <div className="flex flex-1 items-center justify-end">
+              <div className="flex flex-1 justify-end items-center">
                 <div className="flex items-center">
                   <SearchButton />
 
                   <AccountButton accountLink={accountLink} />
 
-                  <span className="mx-4 h-6 w-px bg-gray-200 lg:mx-4" aria-hidden="true" />
+                  <span className="mx-4 w-px h-6 bg-gray-200 lg:mx-4" aria-hidden="true" />
 
                   <WishListButton wishlistItemCount={wishlistItemCount} wishlistLink={wishlistLink} />
 
                   <CartButton cartItemCount={cartItemCount} cartLink={cartLink} />
 
-                  <span className="mx-1 h-6 w-px bg-gray-200 lg:mx-6" aria-hidden="true" />
+                  <span className="mx-1 w-px h-6 bg-gray-200 lg:mx-6" aria-hidden="true" />
 
                   <LanguageSwitcher />
                 </div>

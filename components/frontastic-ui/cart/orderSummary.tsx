@@ -17,14 +17,14 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
   return (
     <section
       aria-labelledby="summary-heading"
-      className="mt-16 rounded-lg bg-gray-50 py-6 px-4 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+      className="py-6 px-4 mt-16 bg-gray-50 rounded-lg sm:p-6 lg:col-span-5 lg:p-8 lg:mt-0"
     >
       <h2 id="summary-heading" className="text-lg font-medium text-gray-900">
         {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order Summary' })}
       </h2>
 
       <dl className="mt-6 space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <dt className="text-sm text-gray-600">{formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}</dt>
           <dd className="text-sm font-medium text-gray-900">
             {CurrencyHelpers.formatForCurrency(
@@ -40,17 +40,17 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             )}
           </dd>
         </div>
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+        <div className="flex justify-between items-center pt-4 border-t border-gray-200">
           <dt className="flex items-center text-sm text-gray-600">
             <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
-            <a href="#" className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
+            <a href="#" className="shrink-0 ml-2 text-gray-400 hover:text-gray-500">
               <span className="sr-only">
                 {formatCartMessage({
                   id: 'shipping.calculation.learnMore',
                   defaultMessage: 'Learn more about how shipping is calculated',
                 })}
               </span>
-              <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
+              <QuestionMarkCircleIcon className="w-5 h-5" aria-hidden="true" />
             </a>
           </dt>
           <dd className="text-sm font-medium text-gray-900">
@@ -69,17 +69,17 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
                 <dd className="text-sm font-medium text-gray-900">{'//TODO'}</dd>
                 </div>*/}
 
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+        <div className="flex justify-between items-center pt-4 border-t border-gray-200">
           <dt className="flex text-sm text-gray-600">
             <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
-            <a href="#" className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
+            <a href="#" className="shrink-0 ml-2 text-gray-400 hover:text-gray-500">
               <span className="sr-only">
                 {formatCartMessage({
                   id: 'discounts.calculation.learnMore',
                   defaultMessage: 'Learn more about how shipping is calculated',
                 })}
               </span>
-              <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
+              <QuestionMarkCircleIcon className="w-5 h-5" aria-hidden="true" />
             </a>
           </dt>
           <dd className="text-sm font-medium text-gray-900">
@@ -102,7 +102,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             )}
           </dd>
         </div>
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+        <div className="flex justify-between items-center pt-4 border-t border-gray-200">
           <dt className="text-base font-medium text-gray-900">
             {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
           </dt>
@@ -121,7 +121,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             e.preventDefault();
             onCheckout();
           }}
-          className="w-full rounded-md border border-transparent bg-accent-400 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+          className="py-3 px-4 w-full text-base font-medium text-white bg-accent-400 hover:bg-accent-500 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50 shadow-sm"
         >
           {formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
         </button>

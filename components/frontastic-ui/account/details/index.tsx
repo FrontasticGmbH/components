@@ -56,12 +56,12 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
       <div>
         {/* Content area */}
         <div>
-          <div className="mx-auto flex max-w-4xl flex-col md:px-8 xl:px-0">
+          <div className="flex flex-col mx-auto max-w-4xl md:px-8 xl:px-0">
             <main className="flex-1">
               <div className="relative mx-auto max-w-4xl md:px-8 xl:px-0">
                 <div className="pt-10 pb-16">
                   <div className="w-full">
-                    <h1 className="text-center text-3xl font-extrabold text-gray-900 sm:text-left">
+                    <h1 className="text-3xl font-extrabold text-center text-gray-900 sm:text-left">
                       {formatAccountMessage({ id: 'settings', defaultMessage: 'Settings' })}
                     </h1>
                   </div>
@@ -75,7 +75,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                         <select
                           id="selected-tab"
                           name="selected-tab"
-                          className="mt-1 block w-full rounded-md border-gray-300 py-2 pr-10 pl-3 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                          className="block py-2 pr-10 pl-3 mt-1 w-full text-base rounded-md border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                           defaultValue={tabs.find((tab) => tab.href === hash).name}
                           onChange={handleTabChange}
                         >
@@ -88,7 +88,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                       </div>
                       <div className="hidden lg:block">
                         <div className="border-b border-gray-200">
-                          <nav className="-mb-px flex space-x-8">
+                          <nav className="flex -mb-px space-x-8">
                             {tabs.map((tab) => (
                               <a
                                 key={tab.name}

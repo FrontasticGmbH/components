@@ -31,16 +31,16 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-2xl pt-8 pb-16 lg:max-w-3xl lg:pt-4">
-      <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+    <div className="pt-8 pb-16 mx-auto max-w-2xl lg:pt-4 lg:max-w-3xl">
+      <h1 className="pb-12 text-3xl font-extrabold tracking-tight text-center text-gray-900 sm:text-4xl">
         {formatWishlistMessage({ id: 'wishlist.items', defaultMessage: 'Wishlist Items' })}
       </h1>
       {loading ? (
-        <div className="flex items-stretch justify-center py-10 px-12">
+        <div className="flex justify-center items-stretch py-10 px-12">
           <Spinner />
         </div>
       ) : (
-        <ul role="list" className="divide-y divide-gray-200 border-y border-gray-200">
+        <ul role="list" className="border-y border-gray-200 divide-y divide-gray-200">
           {items
             .reduce((previousValue, currentValue) => {
               if (!Boolean(previousValue.find((val) => val.name === currentValue.name))) {
@@ -55,18 +55,18 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                     alt="Front side of charcoal cotton t-shirt."
                     width={100}
                     height={13}
-                    className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
+                    className="object-cover object-center w-24 h-24 rounded-md sm:w-32 sm:h-32"
                     src={item.variant.images[0]}
                     onClick={() => goToProductPage(item.variant.sku)}
                   />
                 </div>
-                <div className="ml-4 flex flex-1 flex-col sm:ml-6">
+                <div className="flex flex-col flex-1 ml-4 sm:ml-6">
                   <div>
                     <div className="flex justify-between">
                       <h4 className="text-sm">
                         <p
                           onClick={() => goToProductPage(item.variant.sku)}
-                          className="cursor-pointer font-medium text-gray-700 hover:text-gray-800"
+                          className="font-medium text-gray-700 hover:text-gray-800 cursor-pointer"
                         >
                           {item.name}
                         </p>
@@ -78,11 +78,11 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                     {isLargerThanMobile ? <p className="mt-1 text-sm text-gray-500">{item.lineItemId}</p> : null}
                   </div>
 
-                  <div className="mt-4 flex flex-1 items-end justify-between">
+                  <div className="flex flex-1 justify-between items-end mt-4">
                     <p className="flex items-center space-x-2 text-sm text-gray-700">
                       {isLargerThanMobile ? (
                         <svg
-                          className="h-5 w-5 shrink-0 text-gray-300"
+                          className="shrink-0 w-5 h-5 text-gray-300"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"

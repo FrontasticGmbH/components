@@ -92,24 +92,24 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
 
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex flex-col justify-center py-12 min-h-full sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="relative h-12">
             <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
             {formatAccountMessage({ id: 'account.create.new', defaultMessage: 'Create a new account' })}
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-sm text-center text-gray-600">
             {formatAccountMessage({ id: 'account.alreadyHave', defaultMessage: 'Already have an account?' })}{' '}
-            <ReferenceLink target={loginLink} className="font-medium text-accent-400 underline hover:text-accent-500">
+            <ReferenceLink target={loginLink} className="font-medium text-accent-400 hover:text-accent-500 underline">
               {formatAccountMessage({ id: 'account.login.here', defaultMessage: 'Login here' })}
             </ReferenceLink>
           </p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="py-8 px-4 bg-white shadow sm:px-10 sm:rounded-lg">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600" dangerouslySetInnerHTML={{ __html: success }}></p>}
               {error && <p className="text-sm text-accent-400">{error}</p>}
@@ -124,7 +124,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block py-2 px-3 w-full placeholder:text-gray-400 rounded-md border border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 shadow-sm appearance-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -141,7 +141,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block py-2 px-3 w-full placeholder:text-gray-400 rounded-md border border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 shadow-sm appearance-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -158,7 +158,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block py-2 px-3 w-full placeholder:text-gray-400 rounded-md border border-gray-300 focus:border-accent-400 focus:outline-none focus:ring-accent-400 shadow-sm appearance-none sm:text-sm"
                     onChange={handleChange}
                   />
                 </div>
@@ -166,7 +166,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="flex justify-center py-2 px-4 w-full text-sm font-medium text-white bg-accent-400 hover:bg-accent-500 disabled:bg-gray-200 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 shadow-sm transition-colors ease-out duration-250ms"
                   disabled={loading}
                 >
                   {formatAccountMessage({ id: 'sign.up', defaultMessage: 'Sign up' })}
