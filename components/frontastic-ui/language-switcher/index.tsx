@@ -4,12 +4,11 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { mobile } from 'helpers/utils/screensizes';
-import { i18n } from 'next-i18next.config';
+import { useRouter } from 'next/router';
 
 const LanguageSwitcher: React.FC = () => {
   const [isLargerThanMobile] = useMediaQuery(mobile);
-
-  const { locales } = i18n;
+  const { locales } = useRouter();
 
   if (!isLargerThanMobile) {
     return null;

@@ -1,7 +1,11 @@
-const { i18n } = require('./next-i18next.config');
+const path = require('path');
 
 module.exports = {
-  i18n,
+  i18n: {
+    defaultLocale: 'de_CH',
+    locales: ['de_CH', 'fr_CH', 'it_CH', 'de_LI', 'en_GB'],
+  },
+  localePath: path.resolve('./public/locales'),
   images: {
     // loader: 'cloudinary',
     loader: 'custom',
