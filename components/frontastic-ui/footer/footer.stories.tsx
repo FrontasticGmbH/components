@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { footerColumns } from '../../../components/mockData';
+import { footerColumns } from 'components/mockData';
 import Footer, { FooterProps } from './index';
 
 export default {

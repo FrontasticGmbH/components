@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
-import { mobile } from 'helpers/utils/screensizes';
 import { formatLocaleName } from 'helpers/utils/formatLocaleName';
-import { useRouter } from 'next/router';
+import { mobile } from 'helpers/utils/screensizes';
 
 const LanguageSwitcher: React.FC = () => {
   const [isLargerThanMobile] = useMediaQuery(mobile);
   const { locales } = useRouter();
-  console.log('locales ---> ', locales);
 
   if (!isLargerThanMobile) {
     return null;

@@ -4,8 +4,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { createClient, ResponseError } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
-import styles from './slug.module.css';
 import { Log } from '../helpers/errorLogger';
+import styles from './slug.module.css';
 
 type SlugProps = {
   data: any;
@@ -15,10 +15,12 @@ export default function Slug({ data }: SlugProps) {
   if (!data) return <></>;
 
   if (typeof data === 'string') {
-    return <>
-      <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
-      <p className="mt-2 text-l">{data}</p>
-    </>;
+    return (
+      <>
+        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
+        <p className="text-l mt-2">{data}</p>
+      </>
+    );
   }
 
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
@@ -58,8 +60,8 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
       props: {
         data: { error: data },
         error: data,
-      }
-    }
+      },
+    };
   }
 
   return {

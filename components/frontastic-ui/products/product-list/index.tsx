@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Product } from '@Types/product/Product';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import Laddercrumb from 'components/frontastic-ui/laddercrumb';
 import { useFormat } from 'helpers/hooks/useFormat';
+import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
-import { Product } from '../../../../../types/product/Product';
-import useMediaQuery from '../../../../helpers/hooks/useMediaQuery';
 import List from './list';
 // import List from './List';
 export interface Props {
@@ -27,7 +27,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
     <li key={category}>
       <div className="flex items-center">
         <svg
-          className="shrink-0 w-5 h-5 text-gray-300"
+          className="h-5 w-5 shrink-0 text-gray-300"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -36,7 +36,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
           <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
         </svg>
         <span
-          className="ml-4 text-sm font-medium text-gray-700 capitalize"
+          className="ml-4 text-sm font-medium capitalize text-gray-700"
           aria-current={category ? 'page' : undefined}
         >
           {category?.split('/')[1]}
@@ -56,15 +56,15 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   }, []);
 
   return (
-    <div className="px-1 mt-10 bg-white sm:px-3 lg:px-6">
+    <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
       <List products={products} />
 
       <nav
-        className="flex justify-between items-center py-3 px-4 bg-white border-t border-gray-200 sm:px-6"
+        className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
         aria-label="Pagination"
       >
-        <div className="flex flex-1 gap-x-1.5 justify-between sm:justify-end">
+        <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
           <a href={previousPageURL} className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
             {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
           </a>

@@ -1,10 +1,10 @@
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
+import { Cart } from '@Types/cart/Cart';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
 import Image from 'frontastic/lib/image';
-import { Cart } from '../../../../../../types/cart/Cart';
-import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
 
 export interface Props {
   readonly cart: Cart;
@@ -29,23 +29,23 @@ const DesktopOrderSummary = ({
   const { formatMessage } = useFormat({ name: 'common' });
 
   return (
-    <section aria-labelledby="summary-heading" className="hidden flex-col w-full max-w-md bg-gray-50 lg:flex">
+    <section aria-labelledby="summary-heading" className="hidden w-full max-w-md flex-col bg-gray-50 lg:flex">
       <h2 id="summary-heading" className="sr-only">
         {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order summary' })}
       </h2>
 
-      <ul role="list" className="overflow-y-auto flex-auto px-6 divide-y divide-gray-200">
+      <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
         {cart.lineItems.map((lineItem, i) => (
-          <li key={i} className="flex py-6 space-x-6">
+          <li key={i} className="flex space-x-6 py-6">
             <Image
               src={lineItem.variant.images[0]}
               alt={lineItem.name}
-              className="object-cover object-center flex-none w-40 h-40 bg-gray-200 rounded-md cursor-pointer"
+              className="h-40 w-40 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
               onClick={() => goToProductPage(lineItem._url)}
             />
             <div className="flex flex-col justify-between space-y-4">
               <div className="space-y-1 text-sm font-medium">
-                <h3 className="text-gray-900 cursor-pointer" onClick={() => goToProductPage(lineItem._url)}>
+                <h3 className="cursor-pointer text-gray-900" onClick={() => goToProductPage(lineItem._url)}>
                   {lineItem.name}
                 </h3>
                 <div className="flex space-x-4">
@@ -73,7 +73,7 @@ const DesktopOrderSummary = ({
                 >
                   {formatMessage({ id: 'edit', defaultMessage: 'Edit' })}
                 </button>
-                <div className="flex pl-4 border-l border-gray-300">
+                <div className="flex border-l border-gray-300 pl-4">
                   <button
                     type="button"
                     onClick={(e) => removeCartItem(lineItem.lineItemId)}
@@ -88,14 +88,14 @@ const DesktopOrderSummary = ({
         ))}
       </ul>
       {someOutOfStock && (
-        <p className="flex gap-1 items-center p-6 text-xs text-red-500">
+        <p className="flex items-center gap-1 p-6 text-xs text-red-500">
           <span style={{ marginBottom: '1px' }}>
             <ExclamationCircleIcon width={15} />
           </span>
           <span>{formatCheckoutMessage({ id: 'outOfStock', defaultMessage: 'Some products are out of stock' })}</span>
         </p>
       )}
-      <div className="sticky bottom-0 flex-none p-6 bg-gray-50 border-t border-gray-200">
+      <div className="sticky bottom-0 flex-none border-t border-gray-200 bg-gray-50 p-6">
         {/*<form>
                 <label htmlFor="discount-code" className="block text-sm font-medium text-gray-700">
                     Discount code
@@ -170,7 +170,7 @@ const DesktopOrderSummary = ({
               {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price || {})}
             </dd>
           </div>
-          <div className="flex justify-between items-center pt-6 text-gray-900 border-t border-gray-200">
+          <div className="flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900">
             <dt className="text-base">{formatCheckoutMessage({ id: 'total', defaultMessage: 'Total' })}</dt>
             <dd className="text-base">
               {CurrencyHelpers.formatForCurrency(

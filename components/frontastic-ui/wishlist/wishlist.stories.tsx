@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { wishlist } from '../../../components/mockData';
+import { wishlist } from 'components/mockData';
 import WishList, { Props } from './index';
 
 export default {

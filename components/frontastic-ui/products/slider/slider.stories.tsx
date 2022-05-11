@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { products, headerButtonLink } from '../../../../components/mockData';
+import { products, headerButtonLink } from 'components/mockData';
 import ProductSlider, { Props as SliderProps } from './index';
 
 export default {

@@ -2,7 +2,7 @@ import React from 'react';
 
 const HighlightBar: React.FC = ({ children }) => {
   return (
-    <div className="flex flex-col py-0 mt-5 border-solid divide-y divide-gray-200 divide-solid shadow-[0_-1px_10px_#f7f7f7] lg:flex-row lg:py-5 lg:mt-0 lg:divide-y-0 lg:divide-x lg:shadow-none">
+    <div className="mt-5 flex flex-col divide-y divide-solid divide-gray-200 border-solid py-0 shadow-[0_-1px_10px_#f7f7f7] lg:mt-0 lg:flex-row lg:divide-y-0 lg:divide-x lg:py-5 lg:shadow-none">
       {children}
     </div>
   );

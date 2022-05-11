@@ -12,7 +12,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ children, Separator }) => {
         <li>
           <div>
             <a href="/" className="text-gray-400 hover:text-gray-500">
-              <HomeIcon className="shrink-0 w-5 h-5" aria-hidden="true" />
+              <HomeIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
               <span className="sr-only">Home</span>
             </a>
           </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Account } from '@Types/account/Account';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useAccount } from 'frontastic';
-import { Account } from '../../../../../types/account/Account';
 import FormButton from './fields/formButton';
 import FormCheckbox from './fields/formCheckbox';
 import FormInput from './fields/formInput';

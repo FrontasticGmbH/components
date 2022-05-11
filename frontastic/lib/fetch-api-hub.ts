@@ -117,8 +117,8 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
         Log.error(error);
         return err;
       } else {
-        Log.error("Network error: " + err);
-        return "Network error: " + err;
+        Log.error('Network error: ' + err);
+        return 'Network error: ' + err;
       }
     });
 };

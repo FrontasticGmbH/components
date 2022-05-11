@@ -21,7 +21,7 @@ const SearchInput: React.FC<Props> = ({ onSubmit, ...props }) => {
 
   return (
     <form
-      className="fixed top-[65px] left-0 z-40 p-5 w-full bg-white shadow-md md:absolute md:top-1/2 md:right-0 md:left-[unset] md:p-0 md:w-[300px] md:shadow-none md:-translate-y-1/2"
+      className="fixed top-[65px] left-0 z-40 w-full bg-white p-5 shadow-md md:absolute md:top-1/2 md:right-0 md:left-[unset] md:w-[300px] md:-translate-y-1/2 md:p-0 md:shadow-none"
       onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="sr-only">
@@ -31,7 +31,7 @@ const SearchInput: React.FC<Props> = ({ onSubmit, ...props }) => {
         type="text"
         name="search"
         id="search"
-        className="block w-full rounded-md border-gray-300 focus:border-accent-400 focus:ring-accent-400 shadow-sm sm:text-sm"
+        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
         placeholder="you@example.com"
         {...props}
         ref={ref}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import OrdersHistory from 'components/frontastic-ui/account/details/sections/orders';
 import { useCart } from 'frontastic/provider';
-import { Order } from '../../../../../types/cart/Order';
+import { Order } from '@Types/cart/Order';
 
 const AccountOrdersHistoryTastic: React.FC = () => {
   const [accountOrders, setAccountOrders] = useState<Order[]>([]);

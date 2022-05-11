@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
+import { Money } from '@Types/product/Money';
+import { Variant } from '@Types/product/Variant';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { Money } from '../../../../../types/product/Money';
-import { Variant } from '../../../../../types/product/Variant';
 import WishlistButton from './wishlist-button';
 
 function classNames(...classes) {
@@ -89,29 +89,29 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
   return (
     <div className="bg-white">
-      <div className=" mx-auto max-w-2xl md:py-4 lg:px-8 lg:max-w-7xl">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
+      <div className=" mx-auto max-w-2xl md:py-4 lg:max-w-7xl lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}
           <Tab.Group>
             <div className="flex flex-col-reverse">
               {/* Image selector */}
-              <div className="hidden mx-auto mt-6 w-full max-w-2xl sm:block lg:max-w-none">
+              <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
                   {product.images.map((image) => (
                     <Tab
                       key={image.id}
-                      className="flex relative justify-center items-center h-24 text-sm font-medium text-gray-900 uppercase bg-white hover:bg-gray-50 rounded-md focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4 cursor-pointer"
+                      className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
                     >
                       {({ selected }) => (
                         <>
                           <span className="sr-only">{image.alt}</span>
-                          <span className="overflow-hidden absolute inset-0 rounded-md">
+                          <span className="absolute inset-0 overflow-hidden rounded-md">
                             <Image
                               loader={({ src }) => src}
                               layout="fill"
                               src={image.src}
                               alt=""
-                              className="object-cover object-center w-full h-full"
+                              className="h-full w-full object-cover object-center"
                             />
                           </span>
                           <span
@@ -128,7 +128,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 </Tab.List>
               </div>
 
-              <Tab.Panels className="w-full aspect-w-1 aspect-h-1">
+              <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
                 {product.images.map((image) => (
                   <Tab.Panel key={image.id}>
                     <Image
@@ -136,7 +136,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                       layout="fill"
                       src={image.src}
                       alt={image.alt}
-                      className="object-cover object-center w-full sm:rounded-lg"
+                      className="w-full object-cover object-center sm:rounded-lg"
                     />
                   </Tab.Panel>
                 ))}
@@ -145,7 +145,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
           </Tab.Group>
 
           {/* Product info */}
-          <div className="px-4 mt-10 sm:px-0 sm:mt-16 lg:mt-0">
+          <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
             <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product.name}</h1>
 
             <div className="mt-3">
@@ -208,7 +208,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </div>
               {product.sizes.length > 1 && (
                 <div className="mt-8">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     <h2 className="text-sm font-medium text-gray-900">
                       {formatProductMessage({ id: 'size', defaultMessage: 'Size' })}
                     </h2>
@@ -241,11 +241,11 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 </div>
               )}
 
-              <div className="flex mt-10 sm:flex-col1">
+              <div className="sm:flex-col1 mt-10 flex">
                 <button
                   type="button"
                   onClick={() => handleAddToCart(variant, 1)}
-                  className="flex flex-1 justify-center items-center py-3 px-8 w-full text-base font-medium text-white bg-accent-400 hover:bg-accent-500 focus:bg-accent-500 disabled:bg-gray-400 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-8 text-base font-medium text-white hover:bg-accent-500 focus:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
                   disabled={!variant.isOnStock}
                 >
                   {!loading && !added && (
@@ -257,7 +257,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   )}
 
                   {loading && (
-                    <svg className="w-6 h-6 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                    <svg className="h-6 w-6 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
                       <path
                         d="M8,8.5A3.5,3.5,0,1,1,4.5,5,3.5,3.5,0,0,1,8,8.5ZM4.5,14A3.5,3.5,0,1,0,8,17.5,3.5,3.5,0,0,0,4.5,14Zm16-2A3.5,3.5,0,1,0,17,8.5,3.5,3.5,0,0,0,20.5,12Zm0,2A3.5,3.5,0,1,0,24,17.5,3.5,3.5,0,0,0,20.5,14Zm-8,4A3.5,3.5,0,1,0,16,21.5,3.5,3.5,0,0,0,12.5,18Zm0-18A3.5,3.5,0,1,0,16,3.5,3.5,3.5,0,0,0,12.5,0Z"
                         fill="#fff"
@@ -265,7 +265,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                     </svg>
                   )}
                   {!loading && added && (
-                    <svg className="w-6 h-6" fill="#fff" viewBox="0 0 80.588 61.158">
+                    <svg className="h-6 w-6" fill="#fff" viewBox="0 0 80.588 61.158">
                       <path
                         d="M29.658,61.157c-1.238,0-2.427-0.491-3.305-1.369L1.37,34.808c-1.826-1.825-1.826-4.785,0-6.611
                      c1.825-1.826,4.786-1.827,6.611,0l21.485,21.481L72.426,1.561c1.719-1.924,4.674-2.094,6.601-0.374
@@ -286,13 +286,13 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </h2>
 
               {product.details?.length > 0 && (
-                <div className="border-t divide-y divide-gray-200">
+                <div className="divide-y divide-gray-200 border-t">
                   {product.details.map((detail) => (
                     <Disclosure key={detail.name}>
                       {({ open }) => (
                         <>
                           <h3>
-                            <Disclosure.Button className="group flex relative justify-between items-center py-6 w-full text-left">
+                            <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
                               <span
                                 className={classNames(
                                   open ? 'text-accent-400' : 'text-gray-900',
@@ -301,15 +301,15 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                               >
                                 {detail.name}
                               </span>
-                              <span className="flex items-center ml-6">
+                              <span className="ml-6 flex items-center">
                                 {open ? (
                                   <MinusSmIcon
-                                    className="block w-6 h-6 text-accent-400 group-hover:text-accent-500"
+                                    className="block h-6 w-6 text-accent-400 group-hover:text-accent-500"
                                     aria-hidden="true"
                                   />
                                 ) : (
                                   <PlusSmIcon
-                                    className="block w-6 h-6 text-gray-400 group-hover:text-gray-500"
+                                    className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
                                     aria-hidden="true"
                                   />
                                 )}
@@ -317,7 +317,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             </Disclosure.Button>
                           </h3>
                           <Disclosure.Panel>
-                            <div className="py-6 prose prose-sm">
+                            <div className="prose prose-sm py-6">
                               <ul role="list">
                                 {detail.items.map((item) => (
                                   <li key={item}>{item}</li>

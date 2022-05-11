@@ -12,16 +12,16 @@ const CheckoutSuccess = ({}: Props) => {
 
   return (
     <main className="relative lg:min-h-full">
-      <div className="overflow-hidden h-80 lg:absolute lg:pr-4 lg:w-1/2 lg:h-full xl:pr-12">
+      <div className="h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
         <Image
           src="https://tailwindui.com/img/ecommerce-images/confirmation-page-06-hero.jpg"
           alt="TODO"
-          className="object-cover object-center w-full h-full"
+          className="h-full w-full object-cover object-center"
         />
       </div>
 
       <div>
-        <div className="py-16 px-4 mx-auto max-w-2xl sm:py-24 sm:px-6 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:py-32 lg:px-8 lg:max-w-7xl xl:gap-x-24">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:py-32 lg:px-8 xl:gap-x-24">
           <div className="lg:col-start-2">
             {/*<h1 className="text-sm font-medium text-indigo-600">Payment successful</h1>*/}
             <p className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
@@ -124,9 +124,9 @@ const CheckoutSuccess = ({}: Props) => {
                         </div>
                 </dl>*/}
 
-            <div className="py-6 mt-16 text-right border-t border-gray-200">
+            <div className="mt-16 border-t border-gray-200 py-6 text-right">
               <p
-                className="text-sm font-medium text-accent-400 hover:text-accent-500 cursor-pointer"
+                className="cursor-pointer text-sm font-medium text-accent-400 hover:text-accent-500"
                 onClick={() => router.push('/')}
               >
                 {formatCheckoutMessage({ id: 'continueShopping', defaultMessage: 'Continue Shopping' })}

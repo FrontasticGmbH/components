@@ -85,17 +85,17 @@ export default function Newsletter({
   };
 
   return (
-    <div className="py-2 px-4 mx-auto max-w-7xl bg-gray-100 rounded-lg sm:px-6 lg:px-0">
+    <div className="mx-auto max-w-7xl rounded-lg bg-gray-100 py-2 px-4 sm:px-6 lg:px-0">
       {!isConfirm ? (
         <div className="relative py-3 px-6 text-neutral-700 md:py-6 md:px-12 lg:py-9 lg:px-16 xl:flex xl:items-center">
-          <div className="xl:flex-1 xl:w-0">
-            <h2 className="mt-2 text-2xl font-bold tracking-[0.010em] text-center md:text-left">
+          <div className="xl:w-0 xl:flex-1">
+            <h2 className="mt-2 text-center text-2xl font-bold tracking-[0.010em] md:text-left">
               {headline || fallbackHeadline}
             </h2>
-            <p className="mt-3 max-w-2xl text-sm text-center md:text-left">{description || fallbackDescription}</p>
+            <p className="mt-3 max-w-2xl text-center text-sm md:text-left">{description || fallbackDescription}</p>
           </div>
           <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
-            <form action="#" className="mt-4 sm:flex sm:mx-auto sm:max-w-xl xl:px-4" onSubmit={onSubmit}>
+            <form action="#" className="mt-4 sm:mx-auto sm:flex sm:max-w-xl xl:px-4" onSubmit={onSubmit}>
               <label htmlFor="cta-email" className="sr-only">
                 <Typography>{inputPlaceholder || fallbackPlaceholder}</Typography>
               </label>
@@ -103,20 +103,20 @@ export default function Newsletter({
                 id="cta-email"
                 name="email"
                 type="email"
-                className="block py-3 px-5 w-full text-sm leading-5 text-gray-600 placeholder:text-gray-500 rounded-md border border-transparent focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#CE2E72] shadow-sm"
+                className="block w-full rounded-md border border-transparent py-3 px-5 text-sm leading-5 text-gray-600 shadow-sm placeholder:text-gray-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#CE2E72]"
                 placeholder={inputPlaceholder}
                 onChange={onChange}
               />
               <div className="mt-4 sm:mt-0 sm:ml-3">
                 <button
                   type="submit"
-                  className="block py-3 px-6 w-full text-base font-bold leading-5 text-white bg-accent-400 hover:bg-accent-500 rounded-md sm:px-11"
+                  className="block w-full rounded-md bg-accent-400 py-3 px-6 text-base font-bold leading-5 text-white hover:bg-accent-500 sm:px-11"
                 >
                   <Typography>{ctaLabel || fallbackCta}</Typography>
                 </button>
               </div>
             </form>
-            <p className="mt-2 max-w-md text-xs text-left text-neutral-600 xl:px-5">
+            <p className="mt-2 max-w-md text-left text-xs text-neutral-600 xl:px-5">
               <Typography>{disclaimer || fallbackDisclaimer}</Typography>
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function Newsletter({
       ) : (
         <div className="relative py-4">
           <div className="sm:text-center">
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               <svg width="72" height="59" viewBox="0 0 72 59" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M56.5476 34.0136L51.6672 29.1202V21.6665C51.6672 20.9594 51.3864 20.2813 50.8864 19.7813C50.3863 19.2808 49.7078 19 49.0006 19H23.6666C22.9304 19 22.3335 19.5969 22.3335 20.3335V29.1202L17.3866 34.0538C17.2665 34.177 17.1719 34.3212 17.1067 34.4801C17.0366 34.6449 17.0004 34.8217 17 35.0002V57.6668C17 58.0204 17.1406 58.3597 17.3906 58.6097C17.6406 58.8597 17.9799 59.0003 18.3335 59.0003H55.6666C56.0201 59.0003 56.3594 58.8597 56.6094 58.6097C56.8594 58.3597 57.0001 58.0204 57.0001 57.6668V35.0002C56.9956 34.6221 56.8315 34.2631 56.5476 34.0136ZM27.6672 46.24L19.6671 54.2401V38.2399L27.6672 46.24ZM30.4806 47.1869L30.5873 47.0936L37.0008 40.693L43.3875 47.0931L52.6412 56.3335H21.3608L30.4806 47.1869ZM46.3345 46.24L54.3346 38.2399V54.2401L46.3345 46.24ZM25.0005 21.666H49.0008V39.7865H51.6674V32.8797L53.7875 34.9998L44.4539 44.3335L37.974 37.8401C37.7235 37.5874 37.3829 37.4455 37.0275 37.4455C36.6717 37.4455 36.3311 37.5874 36.0806 37.8401L29.5738 44.3335L25.0005 39.7865L25.0005 21.666ZM22.334 32.8795V37.1198L20.2138 34.9996L22.334 32.8795Z"
@@ -167,10 +167,10 @@ export default function Newsletter({
               </svg>
             </div>
 
-            <h2 className="mt-2 text-2xl font-bold tracking-[0.010em] text-center lg:text-3xl">
+            <h2 className="mt-2 text-center text-2xl font-bold tracking-[0.010em] lg:text-3xl">
               <Typography>{successTitle || fallbackSuccessTitle}</Typography>
             </h2>
-            <p className="mx-auto mt-1 max-w-2xl text-sm text-center ">
+            <p className="mx-auto mt-1 max-w-2xl text-center text-sm ">
               <Typography>{successMessage || fallbackSuccessMessage}</Typography>
             </p>
           </div>

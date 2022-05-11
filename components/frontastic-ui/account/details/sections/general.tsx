@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { account as accountMock } from 'components/mockData';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
 import { useAccount } from 'frontastic';
-import { account as accountMock } from '../../../../mockData';
 import Editable from '../editable';
 
 const General = () => {

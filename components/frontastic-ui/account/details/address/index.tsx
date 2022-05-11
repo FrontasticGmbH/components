@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StarIcon } from '@heroicons/react/solid';
+import type { Address as AddressType } from '@Types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useAccount } from 'frontastic';
-import type { Address as AddressType } from '../../../../../../types/account/Address';
 import UpdateAddressModal from '../modals/updateAddress';
 
 export interface AddressProps {
@@ -32,8 +32,8 @@ const Address: React.FC<AddressProps> = ({ address }) => {
     <>
       <div className="flex flex-col gap-4 py-4 sm:py-8 md:flex-row" key={address.addressId}>
         <div className="flex-1">
-          <dt className="flex gap-2 justify-start items-center">
-            <span className="font-bold text-gray-700 text-md">
+          <dt className="flex items-center justify-start gap-2">
+            <span className="text-md font-bold text-gray-700">
               {address.firstName} {address.lastName}
             </span>
             {(address.isDefaultBillingAddress || address.isDefaultShippingAddress) && (
@@ -51,7 +51,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
         <span className="flex shrink-0 items-start space-x-4 md:ml-4">
           <button
             type="button"
-            className="text-sm font-medium text-accent-400 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+            className="rounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
             onClick={openUpdateModal}
           >
             {formatMessage({ id: 'update', defaultMessage: 'Update' })}
@@ -61,7 +61,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
           </span>
           <button
             type="button"
-            className="text-sm font-medium text-accent-400 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+            className="rounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
             onClick={handleDelete}
           >
             {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}

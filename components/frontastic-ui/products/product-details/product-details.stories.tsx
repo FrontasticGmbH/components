@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { productItem } from '../../../mockData';
+import { productItem } from 'components/mockData';
 import ProductDetails, { Props as ProductDetailsProps } from './index';
 
 export default {
