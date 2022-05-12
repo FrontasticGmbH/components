@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NextLink from 'next/link';
 import { Order } from '@Types/cart/Order';
 import Spinner from 'components/frontastic-ui/spinner';
 import { useFormat } from 'helpers/hooks/useFormat';
@@ -150,13 +151,15 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                             {
                               //TODO: get product href and link
                             }
-                            <a href={product._url} className="text-accent-400">
-                              {formatProductMessage({
-                                id: 'product.view',
-                                defaultMessage: 'View product',
-                              })}
-                              <span className="sr-only">, {product.name}</span>
-                            </a>
+                            <NextLink href={product._url}>
+                              <a className="text-accent-400">
+                                {formatProductMessage({
+                                  id: 'product.view',
+                                  defaultMessage: 'View product',
+                                })}
+                                <span className="sr-only">, {product.name}</span>
+                              </a>
+                            </NextLink>
                           </td>
                         </tr>
                       ))}

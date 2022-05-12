@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link';
 import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 
@@ -22,9 +23,11 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
               >
                 {category.featured.map((item) => (
                   <li key={item.name} className="flex">
-                    <a href={item.href} className="hover:text-gray-800">
-                      <Typography>{item.name}</Typography>
-                    </a>
+                    <NextLink href={item.href}>
+                      <a className="hover:text-gray-800">
+                        <Typography>{item.name}</Typography>
+                      </a>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -40,9 +43,11 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
               >
                 {category.categories.map((item) => (
                   <li key={item.name} className="flex">
-                    <a href={item.href} className="hover:text-gray-800">
-                      <Typography>{item.name}</Typography>
-                    </a>
+                    <NextLink href={item.href}>
+                      <a className="hover:text-gray-800">
+                        <Typography>{item.name}</Typography>
+                      </a>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -60,9 +65,11 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
               >
                 {category.collection.map((item) => (
                   <li key={item.name} className="flex">
-                    <a href={item.href} className="hover:text-gray-800">
-                      <Typography>{item.name}</Typography>
-                    </a>
+                    <NextLink href={item.href}>
+                      <a className="hover:text-gray-800">
+                        <Typography>{item.name}</Typography>
+                      </a>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -75,9 +82,11 @@ const MegaMenuContent = ({ category, categoryIdx }) => {
               <ul role="list" aria-labelledby="desktop-brand-heading" className="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                 {category.brands.map((item) => (
                   <li key={item.name} className="flex">
-                    <a href={item.href} className="hover:text-gray-800">
-                      <Typography>{item.name}</Typography>
-                    </a>
+                    <NextLink href={item.href}>
+                      <a className="hover:text-gray-800">
+                        <Typography>{item.name}</Typography>
+                      </a>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
