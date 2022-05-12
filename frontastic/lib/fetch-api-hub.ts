@@ -1,4 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
+import { SESSION_PERSISTENCE } from 'constants/auth';
+import { REMEMBER_ME } from 'constants/localStorage';
 import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
 import { Log } from '../../helpers/errorLogger';
@@ -90,7 +92,10 @@ export const rawFetchApiHub: FetchFunction = async (endpointPath, init = {}, pay
       return cookieCutter.get(cookieIdenfier);
     },
     setCookie: (cookieIdenfier, cookieValue) => {
-      cookieCutter.set(cookieIdenfier, cookieValue, { path: '/' });
+      const expiryDate = window.localStorage.getItem(REMEMBER_ME)
+        ? new Date(Date.now() + SESSION_PERSISTENCE)
+        : 'Session';
+      cookieCutter.set(cookieIdenfier, cookieValue, { path: '/', expires: expiryDate });
     },
   });
 };

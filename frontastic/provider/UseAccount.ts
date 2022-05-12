@@ -4,7 +4,7 @@ import { RegisterAccount, UpdateAccount } from 'frontastic/actions/account/accou
 import { GetAccountResult } from 'frontastic/actions/account/get-account';
 
 export interface UseAccount extends GetAccountResult {
-  login: (email: string, password: string) => Promise<Account>;
+  login: (email: string, password: string, remember?: boolean) => Promise<Account>;
   logout: () => Promise<void>;
   register: (account: RegisterAccount) => Promise<Account>;
   confirm: (token: string) => Promise<Account>;
