@@ -1,0 +1,20 @@
+{
+    "customDataSourceType": "example/star-wars-character",
+    "name": "Star wars character",
+    "category": "Content",
+    "icon": "source",
+    "schema": [
+        {
+            "name": "Character search",
+            "fields": [
+                {
+                    "label": "Filters",
+                    "field": "characterFilters",
+                    "type": "dynamic-filter",
+                    "dynamicFilterEndpoint": "/frontastic/action/star-wars/filters"
+                }
+
+            ]
+        }
+    ]
+}

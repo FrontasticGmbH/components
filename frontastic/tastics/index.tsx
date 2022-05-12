@@ -22,6 +22,9 @@ import SpacerTastic from './content/spacer';
 import WishlistTastic from './wishlist';
 import ResetPasswordTastic from './account/reset-password';
 import ShowcaseTastic from './showcase';
+import HelloWorldTastic from './doc-examples/hello-world';
+import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
+import StarWarsCharacters from './doc-examples/star-wars/character';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
@@ -36,7 +39,7 @@ export const tastics = {
   'frontastic/ui/products/product-list': ProductList,
   'frontastic/ui/products/slider': ProductSlider,
   'frontastic/ui/account/test': AccountTest,
-  'frontastic/ui/examples/simple-button': SimpleButton,
+  'frontastic/examples/simple-button': SimpleButton,
   'frontastic/ui/examples/star-wars/character-search': StarWarsCharacterSearch,
   'frontastic/ui/account/details': AccountDetailsTastic,
   'frontastic/ui/account/login': AccountLoginTastic,
@@ -46,5 +49,9 @@ export const tastics = {
   'frontastic/ui/wishlist': WishlistTastic,
   'frontastic/ui/account/reset-password': ResetPasswordTastic,
   'frontastic/ui/content/showcase': ShowcaseTastic,
+  'example/hello-world': HelloWorldTastic,
+  'example/star-wars/character-search': StarWarsCharacterSearch,
+  'example/star-wars-opening-crawl': StarWarsOpeningCrawl,
+  'example/star-wars-characters': StarWarsCharacters,
   default: NotFound,
 };

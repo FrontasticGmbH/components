@@ -1,0 +1,8 @@
+{
+    "dynamicPageType": "example/star-wars-movie-page",
+    "name": "Star wars movie",
+    "category": "",
+    "icon": "stars",
+    "dataSourceType": "example/star-wars-movie",
+    "isMultiple": true
+  }
