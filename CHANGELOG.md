@@ -1,6 +1,6 @@
 We add any updates to this list as soon as any changes are released.
 
-## Version1.0.0-alpha.3 (2022-04-21)
+## Version 1.0.0-alpha.3 (2022-04-21)
 
 * bug fix
 * fix: Added TypeScript ignore comment
@@ -19,9 +19,9 @@ We add any updates to this list as soon as any changes are released.
 * Handled markdown alternative flow
 * FP-1863 made footer responsive
 
-## Version1.0.0-alpha.1 (2022-04-19)
+## Version 1.0.0-alpha.1 (2022-04-19)
 
 * fix: use right library name on package.json
 
-## Version1.0.0-alpha (2022-04-19)
+## Version 1.0.0-alpha (2022-04-19)
 Initial stable release
