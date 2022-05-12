@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link';
 import { HomeIcon } from '@heroicons/react/solid';
 
 export type BreadcrumbProps = {
@@ -11,10 +12,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ children, Separator }) => {
       <ol role="list" className="flex items-center space-x-4">
         <li>
           <div>
-            <a href="/" className="text-gray-400 hover:text-gray-500">
-              <HomeIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
-              <span className="sr-only">Home</span>
-            </a>
+            <NextLink href="/">
+              <a className="text-gray-400 hover:text-gray-500">
+                <HomeIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                <span className="sr-only">Home</span>
+              </a>
+            </NextLink>
           </div>
         </li>
         {React.Children.map(children, (Child, index) => {

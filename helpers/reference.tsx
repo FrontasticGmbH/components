@@ -56,9 +56,9 @@ export const ReferenceLink: React.FC<Props> = ({ target, className, children }) 
   //no valid target for next/link
   if (!target)
     return (
-      <a href="#" className={className}>
-        {children}
-      </a>
+      <NextLink href="#">
+        <a className={className}>{children}</a>
+      </NextLink>
     );
 
   return (

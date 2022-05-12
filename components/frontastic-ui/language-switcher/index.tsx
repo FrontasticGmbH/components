@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Menu, Transition } from '@headlessui/react';
@@ -9,6 +9,7 @@ import { mobile } from 'helpers/utils/screensizes';
 
 const LanguageSwitcher: React.FC = () => {
   const [isLargerThanMobile] = useMediaQuery(mobile);
+  const router = useRouter();
   const { locales } = useRouter();
 
   if (!isLargerThanMobile) {
@@ -38,7 +39,7 @@ const LanguageSwitcher: React.FC = () => {
             <div className="py-1">
               {locales.map((locale, index) => (
                 <Menu.Item key={index}>
-                  <NextLink href="/" locale={locale}>
+                  <NextLink href={router.asPath} locale={locale}>
                     <a className="block py-2 px-4 text-center text-sm hover:bg-gray-100">{formatLocaleName(locale)}</a>
                   </NextLink>
                 </Menu.Item>

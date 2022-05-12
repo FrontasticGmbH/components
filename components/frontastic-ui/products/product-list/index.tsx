@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import NextLink from 'next/link';
 import { Product } from '@Types/product/Product';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import Laddercrumb from 'components/frontastic-ui/laddercrumb';
@@ -6,7 +7,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
 import List from './list';
-// import List from './List';
+
 export interface Props {
   products: Product[];
   previousCursor: string;
@@ -65,12 +66,16 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
         aria-label="Pagination"
       >
         <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
-          <a href={previousPageURL} className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
-            {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
-          </a>
-          <a href={nextPageURL} className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
-            {formatMessage({ id: 'next', defaultMessage: 'Next' })}
-          </a>
+          <NextLink href={previousPageURL}>
+            <a className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
+              {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
+            </a>
+          </NextLink>
+          <NextLink href={nextPageURL}>
+            <a className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
+              {formatMessage({ id: 'next', defaultMessage: 'Next' })}
+            </a>
+          </NextLink>
         </div>
       </nav>
     </div>
