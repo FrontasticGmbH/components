@@ -1,11 +1,11 @@
 import { Disclosure } from '@headlessui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
-import Image from 'frontastic/lib/image';
+import { Cart } from '@Types/cart/Cart';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
-import { Cart } from '../../../../../../types/cart/Cart';
-import { ShippingMethod } from '../../../../../../types/cart/ShippingMethod';
+import Image from 'frontastic/lib/image';
 
 export interface Props {
   readonly cart: Cart;

@@ -1,10 +1,10 @@
-import Editable from '../editable';
-import { useAccount } from 'frontastic';
-import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
+import { account as accountMock } from 'components/mockData';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { account as accountMock } from '../../../../mockData';
+import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
+import { useAccount } from 'frontastic';
+import Editable from '../editable';
 
 const General = () => {
   //i18n messages

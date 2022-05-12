@@ -1,11 +1,8 @@
 import { CartDetails } from 'frontastic/actions/cart/update-cart';
-import { Cart } from '../../../types/cart/Cart';
-import { ShippingMethod } from '../../../types/cart/ShippingMethod';
-import { Variant } from '../../../types/product/Variant';
-import { Order } from '../../../types/cart/Order';
-
-import { SWRResponse } from 'swr';
-
+import { Cart } from '@Types/cart/Cart';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
+import { Variant } from '@Types/product/Variant';
+import { Order } from '@Types/cart/Order';
 export interface UseCart {
   data?: Cart;
   addItem: (variant: Variant, quantity: number) => Promise<void>;

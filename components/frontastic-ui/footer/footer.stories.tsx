@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { footerColumns } from 'components/mockData';
 import Footer, { FooterProps } from './index';
-import { footerColumns } from '../../../components/mockData';
 
 export default {
   title: 'Frontastic/Footer',

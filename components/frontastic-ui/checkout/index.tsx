@@ -1,18 +1,18 @@
-import GuestCheckoutForm from './checkout-form/guest';
-import CheckoutForm from './checkout-form';
-import MobileOrderSummary from './order-summary/order-summary-mobile';
-import DesktopOrderSummary from './order-summary/order-summary-desktop';
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useState } from 'react';
-import EmptyCart from '../cart/emptyCart';
 import { useRouter } from 'next/router';
-import { useAccount, useCart } from 'frontastic';
-import { Address } from '../../../../types/account/Address';
-import { useFormat } from 'helpers/hooks/useFormat';
-import { Reference } from 'helpers/reference';
+import { Address } from '@Types/account/Address';
 import * as yup from 'yup';
 import { ObjectShape } from 'yup/lib/object';
+import { CurrencyHelpers } from 'helpers/currencyHelpers';
+import { useFormat } from 'helpers/hooks/useFormat';
 import useI18n from 'helpers/hooks/useI18n';
+import { Reference } from 'helpers/reference';
+import { useAccount, useCart } from 'frontastic';
+import EmptyCart from '../cart/emptyCart';
+import CheckoutForm from './checkout-form';
+import GuestCheckoutForm from './checkout-form/guest';
+import DesktopOrderSummary from './order-summary/order-summary-desktop';
+import MobileOrderSummary from './order-summary/order-summary-mobile';
 
 interface Props {
   loginLink?: Reference;

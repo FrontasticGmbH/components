@@ -1,8 +1,8 @@
-import Image from 'frontastic/lib/image';
+import React from 'react';
+import { Product } from '@Types/product/Product';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import React from 'react';
-import { Product } from '../../../../../types/product/Product';
+import Image from 'frontastic/lib/image';
 
 interface Props {
   products: Product[];

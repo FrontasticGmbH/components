@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { TasticWrapper } from './component';
 import { Grid } from './grid';
+import { Errors } from './errors';
 import { Cell as LayoutElement } from './cell';
 import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse } from './types';
 
@@ -17,6 +18,7 @@ export function FrontasticRenderer({
 }) {
   return (
     <div className="flex min-h-screen flex-col items-stretch justify-start">
+      {process && process.env.NODE_ENV !== 'production' && <Errors />}
       <Grid gridClassName={gridClassName} wrapperClassName={`${wrapperClassName} w-full`}>
         {data?.page?.sections?.head?.layoutElements.map((layoutElement: LayoutElementType, i: number) => (
           <LayoutElement size={layoutElement.configuration.size} key={i}>

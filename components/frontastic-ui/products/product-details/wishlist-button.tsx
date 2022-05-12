@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeartIcon } from '@heroicons/react/outline';
-import { Variant } from '../../../../../types/product/Variant';
+import { Variant } from '@Types/product/Variant';
 
 export interface WishlistButtonProps {
   onAddToWishlist: (variant: Variant, num: number) => void;

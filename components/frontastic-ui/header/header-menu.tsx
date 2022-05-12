@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
+import NextLink from 'next/link';
 import { Dialog, Tab, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
-import { ReferenceLink } from 'helpers/reference';
-import { Link } from './index';
 import classNames from 'classnames';
 import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { ReferenceLink } from 'helpers/reference';
+import { Link } from './index';
 
 interface HeaderMenuProps {
   open: boolean;
@@ -91,9 +92,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           >
                             {category.featured.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
-                                  <Typography>{item.name}</Typography>
-                                </a>
+                                <NextLink href={item.href}>
+                                  <a className="text-gray-500" onClick={closeMenu}>
+                                    <Typography>{item.name}</Typography>
+                                  </a>
+                                </NextLink>
                               </li>
                             ))}
                           </ul>
@@ -105,9 +108,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
                             {category.categories.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
-                                  <Typography>{item.name}</Typography>
-                                </a>
+                                <NextLink href={item.href}>
+                                  <a className="text-gray-500" onClick={closeMenu}>
+                                    <Typography>{item.name}</Typography>
+                                  </a>
+                                </NextLink>
                               </li>
                             ))}
                           </ul>
@@ -121,9 +126,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
                             {category.collection.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
-                                  <Typography>{item.name}</Typography>
-                                </a>
+                                <NextLink href={item.href}>
+                                  <a className="text-gray-500" onClick={closeMenu}>
+                                    <Typography>{item.name}</Typography>
+                                  </a>
+                                </NextLink>
                               </li>
                             ))}
                           </ul>
@@ -136,9 +143,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
                           <ul role="list" aria-labelledby="mobile-brand-heading" className="mt-6 space-y-6">
                             {category.brands.map((item) => (
                               <li key={item.name} className="flex">
-                                <a href={item.href} className="text-gray-500" onClick={closeMenu}>
-                                  <Typography>{item.name}</Typography>
-                                </a>
+                                <NextLink href={item.href}>
+                                  <a className="text-gray-500" onClick={closeMenu}>
+                                    <Typography>{item.name}</Typography>
+                                  </a>
+                                </NextLink>
                               </li>
                             ))}
                           </ul>

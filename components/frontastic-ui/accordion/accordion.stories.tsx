@@ -9,14 +9,20 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <div>
-    <AccordionBtn sectionTitle={'Title'} {...args}>
+  <div className="rounded border-2">
+    <AccordionBtn index={0} accordionListLength={3} sectionTitle={'Title'} {...args}>
       We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many
       designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is
       unfortunately not always very easy.
     </AccordionBtn>
 
-    <AccordionBtn sectionTitle={'Title'} {...args}>
+    <AccordionBtn index={1} accordionListLength={3} sectionTitle={'Title'} {...args}>
+      We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many
+      designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is
+      unfortunately not always very easy.
+    </AccordionBtn>
+
+    <AccordionBtn index={2} accordionListLength={3} sectionTitle={'Title'} {...args}>
       We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many
       designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is
       unfortunately not always very easy.

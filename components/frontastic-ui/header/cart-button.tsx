@@ -1,8 +1,8 @@
-import { Reference, ReferenceLink } from 'helpers/reference';
 import React from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { Reference, ReferenceLink } from 'helpers/reference';
 
 interface CartButtonProps {
   cartItemCount?: number;

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-// import { Product } from '../../../../../types/product/Product';
-import { Variant } from '../../../../../types/product/Variant';
+// import { Product } from '@Types/product/Product';
+import { Variant } from '@Types/product/Variant';
 // import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useCart } from 'frontastic';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/frontastic-ui/products/product-details';
-import { Product } from '../../../../../types/product/Product';
+import { Product } from '@Types/product/Product';
 import { addToWishlist } from 'frontastic/actions/wishlist/wishlist-actions';
 
 function ProductDetailsTastic({ data }) {
