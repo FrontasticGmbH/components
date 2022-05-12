@@ -7,7 +7,6 @@ import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
-import RelatedProducts from './relatedProducts';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -58,8 +57,6 @@ const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props
           <OrderSummary cart={cart} shippingMethod={shippingMethods?.[0]} onCheckout={onCheckout} />
         </form>
       )}
-
-      <RelatedProducts />
     </main>
   );
 };
