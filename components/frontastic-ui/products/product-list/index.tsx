@@ -13,16 +13,23 @@ export interface Props {
   previousCursor: string;
   nextCursor: string;
   category: string;
+  showPagination?: boolean;
+  perPage?: number;
 }
 
-export default function ProductList({ products, previousCursor, nextCursor, category }: Props) {
+export default function ProductList({
+  products,
+  previousCursor,
+  nextCursor,
+  category,
+  showPagination = true,
+  perPage = 24,
+}: Props) {
   const [previousPageURL, setPreviousPageURL] = useState<string>('');
   const [nextPageURL, setNextPageURL] = useState<string>('');
 
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
-
-  const [isLargerThan1024] = useMediaQuery(1024);
 
   const categoryListItem = (
     <li key={category}>
@@ -59,25 +66,26 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   return (
     <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
-      <List products={products} />
-
-      <nav
-        className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
-        aria-label="Pagination"
-      >
-        <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
-          <NextLink href={previousPageURL}>
-            <a className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
-              {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
-            </a>
-          </NextLink>
-          <NextLink href={nextPageURL}>
-            <a className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
-              {formatMessage({ id: 'next', defaultMessage: 'Next' })}
-            </a>
-          </NextLink>
-        </div>
-      </nav>
+      <List products={products.slice(0, perPage)} />
+      {showPagination && (
+        <nav
+          className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
+          aria-label="Pagination"
+        >
+          <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
+            <NextLink href={previousPageURL}>
+              <a className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
+                {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
+              </a>
+            </NextLink>
+            <NextLink href={nextPageURL}>
+              <a className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
+                {formatMessage({ id: 'next', defaultMessage: 'Next' })}
+              </a>
+            </NextLink>
+          </div>
+        </nav>
+      )}
     </div>
   );
 }
