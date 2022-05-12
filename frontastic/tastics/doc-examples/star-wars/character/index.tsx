@@ -29,13 +29,13 @@ const StarWarsCharacters: React.FC<Props> = ({ data }) => {
   const [results, setResults] = useState(data)
 
   const OnSearchCharacter = () => {
-    fetch(`https://swiss-marius-demo.frontastic.dev/frontastic/action/star-wars/character?search=${inputText}`)
+    /* fetch(`https://<project_name>-<customer_name>.vercel.app/frontastic/action/star-wars/character?query=${inputText}`)
     .then(response => response.json())
     .then(data => {
       console.log('response data:', data)
 
       setResults(data.data.allPeople.people)
-    })
+    }) */
   }
 
   return (
