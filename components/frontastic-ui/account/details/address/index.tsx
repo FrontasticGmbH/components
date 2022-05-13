@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import type { Address as AddressType } from '../../../../../../types/account/Address';
 import { StarIcon } from '@heroicons/react/solid';
+import type { Address as AddressType } from '@Types/account/Address';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { useAccount } from 'frontastic';
 import UpdateAddressModal from '../modals/updateAddress';
-import { useFormat } from 'helpers/hooks/useFormat';
 
 export interface AddressProps {
   address: AddressType;
@@ -61,7 +61,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
           </span>
           <button
             type="button"
-            className="ounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+            className="rounded-md bg-white text-sm font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
             onClick={handleDelete}
           >
             {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}

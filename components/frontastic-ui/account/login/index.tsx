@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Image, { NextFrontasticImage } from 'frontastic/lib/image';
+import { ArrowLeftIcon } from '@heroicons/react/solid';
+import { useFormat } from 'helpers/hooks/useFormat';
+import Redirect from 'helpers/redirect';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import { useAccount } from 'frontastic';
-import Redirect from 'helpers/redirect';
-import { useFormat } from 'helpers/hooks/useFormat';
-import { ArrowLeftIcon } from '@heroicons/react/solid';
+import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 
 export interface LoginProps {
   logo?: NextFrontasticImage;

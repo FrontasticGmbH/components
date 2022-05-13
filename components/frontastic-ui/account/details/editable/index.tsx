@@ -1,5 +1,5 @@
-import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 interface EditableInput extends React.ComponentProps<'input'> {
   options?: Array<{

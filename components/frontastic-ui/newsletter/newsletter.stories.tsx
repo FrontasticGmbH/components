@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import NewsLetter, { NewsletterProps } from './index';
 import { headerLogo, headerButtonLink, headerAccountLink, headerLinks } from '../../mockData';
+import NewsLetter, { NewsletterProps } from './index';
 
 export default {
   title: 'Frontastic/Newsletter',

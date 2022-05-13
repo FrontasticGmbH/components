@@ -1,16 +1,17 @@
 import React, { Fragment, useState } from 'react';
-import Image from 'frontastic/lib/image';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
-import { Reference, ReferenceLink } from 'helpers/reference';
-import { headerNavigation } from 'components/mockData';
-import HeaderMenu from './header-menu';
-import WishListButton from './wishlist-button';
-import CartButton from './cart-button';
-import AccountButton from './account-button';
-import SearchButton from './search-button';
-import MegaMenuContent from './mega-menu-content';
+import LanguageSwitcher from 'components/frontastic-ui/language-switcher';
 import Typography from 'components/frontastic-ui/typography';
+import { headerNavigation } from 'components/mockData';
+import { Reference, ReferenceLink } from 'helpers/reference';
+import Image from 'frontastic/lib/image';
+import AccountButton from './account-button';
+import CartButton from './cart-button';
+import HeaderMenu from './header-menu';
+import MegaMenuContent from './mega-menu-content';
+import SearchButton from './search-button';
+import WishListButton from './wishlist-button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -154,6 +155,10 @@ const Header: React.FC<HeaderProps> = ({
                   <WishListButton wishlistItemCount={wishlistItemCount} wishlistLink={wishlistLink} />
 
                   <CartButton cartItemCount={cartItemCount} cartLink={cartLink} />
+
+                  <span className="mx-1 h-6 w-px bg-gray-200 lg:mx-6" aria-hidden="true" />
+
+                  <LanguageSwitcher />
                 </div>
               </div>
             </div>

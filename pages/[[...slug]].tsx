@@ -1,9 +1,10 @@
 import React from 'react';
 import { GetServerSideProps, Redirect } from 'next';
-import { createClient, ResponseError } from 'frontastic';
-import { tastics } from 'frontastic/tastics';
-import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { createClient, ResponseError } from 'frontastic';
+import { FrontasticRenderer } from 'frontastic/lib/renderer';
+import { tastics } from 'frontastic/tastics';
+import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
 
 type SlugProps = {
@@ -12,6 +13,16 @@ type SlugProps = {
 
 export default function Slug({ data }: SlugProps) {
   if (!data) return <></>;
+
+  if (typeof data === 'string') {
+    return (
+      <>
+        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
+        <p className="text-l mt-2">{data}</p>
+      </>
+    );
+  }
+
   return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
 }
 
@@ -24,7 +35,7 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
       return {
         notFound: true,
       };
-    } else if ('target' in data) {
+    } else if (typeof data === 'object' && 'target' in data) {
       return {
         redirect: {
           destination: data.target,
@@ -32,6 +43,25 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
         } as Redirect,
       };
     }
+  }
+
+  if (data instanceof Error) {
+    // @TODO: Render nicer error page in debug mode, which shows the error to
+    // the developer and also outlines how to debug this (take a look at
+    // frontastic-CLI).
+    Log.error('Error retrieving data: ', data);
+    return {
+      notFound: true,
+    };
+  }
+
+  if (typeof data === 'string') {
+    return {
+      props: {
+        data: { error: data },
+        error: data,
+      },
+    };
   }
 
   return {

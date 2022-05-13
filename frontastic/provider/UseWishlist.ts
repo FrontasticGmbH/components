@@ -1,4 +1,4 @@
-import { Wishlist } from '../../../types/wishlist/Wishlist';
+import { Wishlist } from '@Types/wishlist/Wishlist';
 
 export interface UseWishlist {
   data?: Wishlist;

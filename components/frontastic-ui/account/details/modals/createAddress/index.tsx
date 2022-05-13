@@ -1,9 +1,9 @@
 import { useState, Fragment } from 'react';
 import { Switch, Dialog, Transition } from '@headlessui/react';
-import { Address } from '../../../../../../../types/account/Address';
-import { useAccount } from 'frontastic';
-import useI18n from 'helpers/hooks/useI18n';
+import { Address } from '@Types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
+import useI18n from 'helpers/hooks/useI18n';
+import { useAccount } from 'frontastic';
 
 export interface CreateAddressProps {
   open?: boolean;

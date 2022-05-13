@@ -1,6 +1,6 @@
-import { useAccount } from 'frontastic';
-import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useState } from 'react';
+import { useFormat } from 'helpers/hooks/useFormat';
+import { useAccount } from 'frontastic';
 import Address from '../address';
 import CreateAddressModal from '../modals/createAddress';
 

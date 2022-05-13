@@ -1,5 +1,5 @@
-import { useAccount } from '../../../provider';
-import { setDefaultBillingAddress, setDefaultShippingAddress } from '../../../actions/account/account-actions';
+import { useAccount } from 'frontastic/provider';
+import { setDefaultBillingAddress, setDefaultShippingAddress } from 'frontastic/actions/account/account-actions';
 
 function AccountTestTastic() {
   const {

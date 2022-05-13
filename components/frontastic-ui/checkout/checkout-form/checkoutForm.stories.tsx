@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { account, cart } from 'components/mockData';
 import CheckoutForm, { Props as CheckoutFormProps } from './index';
-import { account, cart } from '../../../mockData';
 
 export default {
   title: 'Frontastic/CheckoutForm',

@@ -1,6 +1,6 @@
 import React from 'react';
+import { Product } from '@Types/product/Product';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
-import { Product } from '../../../../../types/product/Product';
 import Image from 'frontastic/lib/image';
 
 const Tile: React.FC<Product> = ({ variants, name, _url }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
-import { FrontasticProvider } from 'frontastic';
 import Toaster from 'components/frontastic-ui/toaster';
+import { FrontasticProvider } from 'frontastic';
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
 import '../styles/components/slider.css';

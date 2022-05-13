@@ -1,6 +1,6 @@
+import Typography from 'components/frontastic-ui/typography';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import Image from 'frontastic/lib/image';
-import Typography from 'components/frontastic-ui/typography';
 
 export interface TileProps {
   image: { media: any } | any;

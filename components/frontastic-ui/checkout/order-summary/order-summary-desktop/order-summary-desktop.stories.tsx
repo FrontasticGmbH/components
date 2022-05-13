@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import DesktopOrderSummary, { Props as DesktopOrderSummaryProps } from './index';
-import { cart } from '../../../../mockData';
+import { cart } from 'components/mockData';
 import { shippingMethods } from 'frontastic/actions/cart/shipping-methods';
+import DesktopOrderSummary, { Props as DesktopOrderSummaryProps } from './index';
 
 export default {
   title: 'Frontastic/OrderSummaryDesktop',

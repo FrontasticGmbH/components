@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Image, { NextFrontasticImage } from 'frontastic/lib/image';
+import { useFormat } from 'helpers/hooks/useFormat';
+import Redirect from 'helpers/redirect';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import { useAccount } from 'frontastic';
-import Redirect from 'helpers/redirect';
-import { useFormat } from 'helpers/hooks/useFormat';
+import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 
 export interface RegisterProps {
   logo?: NextFrontasticImage;

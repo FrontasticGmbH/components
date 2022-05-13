@@ -2,6 +2,7 @@ import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
 
 import { IncomingMessage, ServerResponse } from 'http';
+import { Log } from '../../helpers/errorLogger';
 
 function resolveApiHubUrl(): string {
   // TODO: Error checks!
@@ -105,15 +106,20 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
       throw new ResponseError(response);
     })
     .catch(async (err: ResponseError) => {
-      const response = err.getResponse();
-      let error: object | string;
-      try {
-        error = await response.json();
-      } catch (e) {
-        error = await response.text();
+      if (err && err.getResponse) {
+        const response = err.getResponse();
+        let error: object | string;
+        try {
+          error = await response.json();
+        } catch (e) {
+          error = await response.text();
+        }
+        Log.error(error);
+        return err;
+      } else {
+        Log.error('Network error: ' + err);
+        return 'Network error: ' + err;
       }
-      console.error(error);
-      return err;
     });
 };
 

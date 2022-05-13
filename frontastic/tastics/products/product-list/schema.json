@@ -5,6 +5,27 @@
   "category": "Products",
   "schema": [
     {
+      "name": "Basic Options",
+      "fields": [
+        {
+          "label": "Show Pagination",
+          "field": "showPagination",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "label": "Products Per Page",
+          "field": "perPage",
+          "type": "number",
+          "default": 24
+        },
+        {
+          "type": "description",
+          "text": "We strongly advise to set this to a number divisible by 4 so that all rows are always complete"
+        }
+      ]
+    },
+    {
       "name": "Configuration",
       "fields": [
         {

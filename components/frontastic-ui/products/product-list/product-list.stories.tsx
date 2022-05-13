@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { products } from 'components/mockData';
 import ProductList, { Props as ProductListProps } from './index';
-import { products } from '../../../mockData';
 
 export default {
   title: 'Frontastic/ProductList',

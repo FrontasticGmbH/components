@@ -1,10 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { GetServerSideProps, GetStaticProps, Redirect } from 'next';
-import { createClient, FrontasticRenderer, Notifier } from 'frontastic';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
+import { createClient, FrontasticRenderer, Notifier } from 'frontastic';
 import { tastics } from 'frontastic/tastics';
-
 import styles from '../slug.module.css';
 
 type PreviewProps = {

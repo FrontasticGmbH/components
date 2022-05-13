@@ -1,8 +1,8 @@
 import { useState, Fragment } from 'react';
 import { Switch, Dialog, Transition } from '@headlessui/react';
-import { Address } from '../../../../../../../types/account/Address';
-import { useAccount } from 'frontastic';
+import { Address } from '@Types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { useAccount } from 'frontastic';
 
 export interface UpdateAddressProps {
   open?: boolean;

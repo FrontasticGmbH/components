@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import CartPage, { Props } from './index';
 import { cart, shippingMethods } from '../../mockData';
+import CartPage, { Props } from './index';
 
 export default {
   title: 'Frontastic/Cart',

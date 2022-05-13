@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { frontasticImage } from 'components/mockData';
 import Login, { LoginProps } from './index';
-import { frontasticImage } from '../../../../components/mockData';
 
 export default {
   title: 'Frontastic/Login',

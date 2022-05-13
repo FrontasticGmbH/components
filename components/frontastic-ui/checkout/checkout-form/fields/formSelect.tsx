@@ -22,7 +22,6 @@ const FormSelect = ({ name, label, options, selectedOptionValue, onChange, conta
         value={selectedOptionValue}
         onChange={(e) => onChange(e.target.name, e.target.value)}
       >
-        {/* {!selectedOptionValue && <option value="">Please select</option>} */}
         {options.map((option, n) => (
           <option key={n} value={option.data}>
             {option.display}
