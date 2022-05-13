@@ -1,13 +1,14 @@
 {
-  "extends": ["next/core-web-vitals", "prettier", "plugin:tailwindcss/recommended"],
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended", "plugin:tailwindcss/recommended"],
   "plugins": ["tailwindcss"],
   "rules": {
-    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/classnames-order": ["warn", {"officialSorting": true}],
     "tailwindcss/enforces-negative-arbitrary-values": "warn",
     "tailwindcss/enforces-shorthand": "warn",
     "tailwindcss/migration-from-tailwind-2": "warn",
     "tailwindcss/no-arbitrary-value": "warn",
     "tailwindcss/no-custom-classname": "warn",
-    "tailwindcss/no-contradicting-classname": "error"
+    "tailwindcss/no-contradicting-classname": "error",
+    "prettier/prettier": "error"
   }
 }
