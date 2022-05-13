@@ -15,7 +15,7 @@
     "tailwindcss/no-arbitrary-value": "warn",
     "tailwindcss/no-custom-classname": "warn",
     "tailwindcss/no-contradicting-classname": "error",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
     "import/order": [
       "warn",
       {
