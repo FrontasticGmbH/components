@@ -1,6 +1,6 @@
+import { Account } from '@Types/account/Account';
 import useSWR from 'swr';
 import { fetchApiHub, ResponseError } from 'frontastic/lib/fetch-api-hub';
-import { Account } from '@Types/account/Account';
 
 export interface GetAccountResult {
   loggedIn: boolean;

@@ -1,9 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon, ExclamationIcon } from '@heroicons/react/outline';
-
-import { Log } from '../../helpers/errorLogger';
+import classNames from 'classnames';
+import { Log } from 'helpers/errorLogger';
 
 const getErrorMessage = (error) => {
   if (typeof error?.data[0] === 'string') {

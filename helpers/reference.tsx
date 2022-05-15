@@ -1,6 +1,5 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Log } from './errorLogger';
 
 interface LinkReference {
   type: 'link';

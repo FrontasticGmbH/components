@@ -9,7 +9,7 @@ export type SpacerProps = {
 };
 
 const Spacer: React.FC<SpacerProps> = ({ customDesktop, customMobile, variant = 'md' }) => {
-  //responsivness
+  //responsiveness
   const [isLargerThanDesktop] = useMediaQuery(screenSizes.desktop);
 
   //pre defined variants

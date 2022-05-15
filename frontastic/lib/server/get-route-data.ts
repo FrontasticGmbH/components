@@ -1,6 +1,6 @@
-import { PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
-import { fetchApiHubServerSide } from '../fetch-api-hub';
 import { IncomingMessage, ServerResponse } from 'http';
+import { fetchApiHubServerSide } from '../fetch-api-hub';
+import { PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
 
 type UrlParams = {
   slug?: Array<string>;

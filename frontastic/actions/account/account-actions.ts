@@ -1,7 +1,7 @@
-import { mutate } from 'swr';
-import { fetchApiHub } from '../../lib/fetch-api-hub';
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
+import { mutate } from 'swr';
+import { fetchApiHub } from '../../lib/fetch-api-hub';
 
 export interface UpdateAccount {
   firstName?: string;

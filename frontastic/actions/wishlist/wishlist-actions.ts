@@ -1,5 +1,5 @@
-import { fetchApiHub } from 'frontastic';
 import useSWR, { mutate } from 'swr';
+import { fetchApiHub } from 'frontastic';
 
 export const getWishlist = () => {
   return useSWR('/action/wishlist/getWishlist', fetchApiHub);

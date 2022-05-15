@@ -8,10 +8,6 @@ import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export interface Props {
   cart: Cart;
   editItemQuantity: (lineItemId: string, newQuantity: number) => Promise<void>;

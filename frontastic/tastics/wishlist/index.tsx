@@ -1,7 +1,7 @@
-import WishList from 'components/frontastic-ui/wishlist';
-import { useWishlist } from 'frontastic/provider';
 import React from 'react';
 import { LineItem } from '@Types/wishlist/LineItem';
+import WishList from 'components/frontastic-ui/wishlist';
+import { useWishlist } from 'frontastic/provider';
 
 const WishlistTastic = () => {
   const { data } = useWishlist();

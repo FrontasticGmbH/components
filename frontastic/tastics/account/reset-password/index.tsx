@@ -1,6 +1,6 @@
 import React from 'react';
-import ResetPassword, { ResetPasswordProps } from 'components/frontastic-ui/account/reset-password';
 import { useRouter } from 'next/router';
+import ResetPassword, { ResetPasswordProps } from 'components/frontastic-ui/account/reset-password';
 
 export interface Props {
   data: ResetPasswordProps;
