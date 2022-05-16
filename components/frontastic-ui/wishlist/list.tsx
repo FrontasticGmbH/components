@@ -23,7 +23,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
 
   const router = useRouter();
 
-  const goToProductPage = (variantSku: string) => router.push(`/slug/p/${variantSku}`);
+  const goToProductPage = (variantSku: string) => router.push(`/${variantSku}`);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
@@ -56,7 +56,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                     height={13}
                     className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
                     src={item.variant.images[0]}
-                    onClick={() => goToProductPage(item.variant.sku)}
+                    onClick={() => goToProductPage(item._url)}
                   />
                 </div>
                 <div className="ml-4 flex flex-1 flex-col sm:ml-6">
@@ -64,7 +64,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                     <div className="flex justify-between">
                       <h4 className="text-sm">
                         <p
-                          onClick={() => goToProductPage(item.variant.sku)}
+                          onClick={() => goToProductPage(item._url)}
                           className="cursor-pointer font-medium text-gray-700 hover:text-gray-800"
                         >
                           {item.name}
