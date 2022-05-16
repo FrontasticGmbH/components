@@ -1,6 +1,6 @@
 import React from 'react';
 import { markdown } from 'markdown';
-import { Log } from '../../../../helpers/errorLogger';
+import { Log } from 'helpers/errorLogger';
 
 interface Props {
   text: string;

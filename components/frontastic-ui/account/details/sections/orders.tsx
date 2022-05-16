@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import NextLink from 'next/link';
 import { Order } from '@Types/cart/Order';
 import Spinner from 'components/frontastic-ui/spinner';

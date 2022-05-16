@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { Product } from '@Types/product/Product';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
-import Laddercrumb from 'components/frontastic-ui/laddercrumb';
 import { useFormat } from 'helpers/hooks/useFormat';
-import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
 import List from './list';
 

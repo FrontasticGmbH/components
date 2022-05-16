@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { XIcon as XIconSolid } from '@heroicons/react/solid';
 import { LineItem } from '@Types/wishlist/LineItem';
 import { DateHelpers } from 'helpers/dateHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';

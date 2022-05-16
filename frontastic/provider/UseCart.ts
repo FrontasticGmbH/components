@@ -1,8 +1,8 @@
-import { CartDetails } from 'frontastic/actions/cart/update-cart';
 import { Cart } from '@Types/cart/Cart';
+import { Order } from '@Types/cart/Order';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { Variant } from '@Types/product/Variant';
-import { Order } from '@Types/cart/Order';
+import { CartDetails } from 'frontastic/actions/cart/update-cart';
 export interface UseCart {
   data?: Cart;
   addItem: (variant: Variant, quantity: number) => Promise<void>;

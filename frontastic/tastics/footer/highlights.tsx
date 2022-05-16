@@ -1,8 +1,8 @@
 import React from 'react';
-import HighlightBar from 'components/frontastic-ui/bar/highlight';
 import { GiCycle as CycleIcon } from 'react-icons/gi';
-import { IoRocketOutline as RocketIcon } from 'react-icons/io5';
 import { HiOutlineLockClosed as LockIcon } from 'react-icons/hi';
+import { IoRocketOutline as RocketIcon } from 'react-icons/io5';
+import HighlightBar from 'components/frontastic-ui/bar/highlight';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 const Highlights = () => {

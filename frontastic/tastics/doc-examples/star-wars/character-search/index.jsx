@@ -1,6 +1,6 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const StarWarsCharacterSearchTastic = ({ data }) => {
   const { totalCount, pageInfo, people } = data.data.dataSource;
@@ -10,11 +10,11 @@ const StarWarsCharacterSearchTastic = ({ data }) => {
 
   return (
     <div>
-      <h1 className="text-2xl mt-8 font-sans">Star Wars Characters</h1>
+      <h1 className="mt-8 font-sans text-2xl">Star Wars Characters</h1>
       <p className="mt-2">{totalCount} total characters found</p>
       {people.map((character) => (
         <div key={character.id}>
-          <h2 className="text-lg mt-6 font-sans">{character.name}</h2>
+          <h2 className="mt-6 font-sans text-lg">{character.name}</h2>
           {character.species !== null && <p className="mt-2">Species: {character.species.name}</p>}
         </div>
       ))}

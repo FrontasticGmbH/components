@@ -1,7 +1,6 @@
+import { IncomingMessage, ServerResponse } from 'http';
 import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
-
-import { IncomingMessage, ServerResponse } from 'http';
 import { Log } from '../../helpers/errorLogger';
 
 function resolveApiHubUrl(): string {

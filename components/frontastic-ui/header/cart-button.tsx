@@ -1,6 +1,5 @@
 import React from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/outline';
-import classNames from 'classnames';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference, ReferenceLink } from 'helpers/reference';
 
@@ -11,7 +10,7 @@ interface CartButtonProps {
 
 const CartButton: React.FC<CartButtonProps> = ({ cartItemCount, cartLink }) => {
   //i18n messages
-  const { formatMessage: formatCartMessge } = useFormat({ name: 'cart' });
+  const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
 
   return (
     <div className="flow-root">
@@ -28,7 +27,7 @@ const CartButton: React.FC<CartButtonProps> = ({ cartItemCount, cartLink }) => {
               </span>
             </span>
             <span className="sr-only">
-              {formatCartMessge({
+              {formatCartMessage({
                 id: 'cart.items.in.view',
                 defaultMessage: 'items in cart, view cart',
               })}

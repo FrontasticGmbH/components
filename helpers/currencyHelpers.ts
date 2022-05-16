@@ -1,6 +1,6 @@
-import { StringHelpers } from './stringHelpers';
+import { Money } from '@Types/product/Money';
 import { Log } from './errorLogger';
-import { Money } from '../../types/product/Money';
+import { StringHelpers } from './stringHelpers';
 
 export class CurrencyHelpers {
   private static formatNumberForCurrency = function (costInCents: number) {

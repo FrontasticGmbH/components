@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Menu, Transition } from '@headlessui/react';
