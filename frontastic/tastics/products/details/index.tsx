@@ -30,19 +30,21 @@ function ProductDetailsTastic({ data }) {
   const colors = [
     ...new Map(
       product.variants.map((v: Variant) => [
-        v.attributes.color.label,
+        v.attributes.color?.label,
         {
-          name: v.attributes.color.label,
-          key: v.attributes.color.key,
-          bgColor: `bg-${grayFix(v.attributes.color.key)}-500`,
-          selectedColor: `ring-${grayFix(v.attributes.color.key)}-500`,
+          name: v.attributes.color?.label,
+          key: v.attributes.color?.key,
+          bgColor: `bg-${grayFix(v.attributes.color?.key)}-500`,
+          selectedColor: `ring-${grayFix(v.attributes.color?.key)}-500`,
         },
       ]),
     ).values(),
   ] as UIColor[];
 
   const sizes = [
-    ...new Map(product.variants.map((v: Variant) => [v.attributes.commonSize.label, v.attributes.commonSize])).values(),
+    ...new Map(
+      product.variants.map((v: Variant) => [v.attributes.commonSize?.label, v.attributes.commonSize]),
+    ).values(),
   ] as UISize[];
 
   // this maps the entire payload to a component
