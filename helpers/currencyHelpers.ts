@@ -20,8 +20,8 @@ export class CurrencyHelpers {
   };
 
   private static formatMoneyCurrency = function (price: Money) {
-    return Intl.NumberFormat('de-DE', { style: 'currency', currency: price.currencyCode ?? 'EUR' }).format(
-      (price.centAmount ?? 0) / Math.pow(10, price.fractionDigits ?? 2),
+    return Intl.NumberFormat('de-DE', { style: 'currency', currency: price?.currencyCode ?? 'EUR' }).format(
+      (price?.centAmount ?? 0) / Math.pow(10, price?.fractionDigits ?? 2),
     );
   };
 
