@@ -2,6 +2,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import { TasticWrapperProps } from './types';
 import { injectDataSources } from './utils/inject-data-sources';
+import ErrorBoundary from './error-boundary';
 
 export function TasticWrapper(props: TasticWrapperProps) {
   const { tastics, data, dataSources, highlight = false } = props;
@@ -28,7 +29,9 @@ export function TasticWrapper(props: TasticWrapperProps) {
     >
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
-      <TasticToRender type={data?.tasticType} id={data?.tasticId} data={updatedBlock} pageFolder={props.pageFolder} />
+      <ErrorBoundary>
+        <TasticToRender type={data?.tasticType} id={data?.tasticId} data={updatedBlock} pageFolder={props.pageFolder} />
+      </ErrorBoundary>
     </div>
   );
 }
