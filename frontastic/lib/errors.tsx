@@ -75,7 +75,7 @@ export function Errors() {
             </div>
             <dl className="mt-6 space-y-6 divide-y divide-gray-200">
               {errors.map((error) => (
-                <Disclosure as="div" key={error.date.getTime()} className="pt-6">
+                <Disclosure key={error.date.getTime()} className="pt-6">
                   {({ open }) => (
                     <>
                       <dt className="text-lg">
@@ -91,7 +91,7 @@ export function Errors() {
                           </span>
                         </Disclosure.Button>
                       </dt>
-                      <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                      <Disclosure.Panel className="mt-2 pr-12">
                         <p className="whitespace-pre-wrap text-base text-gray-500">
                           {JSON.stringify(error.data, null, 2)}
                         </p>
