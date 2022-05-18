@@ -75,9 +75,9 @@ export function Errors() {
             </div>
             <dl className="mt-6 space-y-6 divide-y divide-gray-200">
               {errors.map((error) => (
-                <Disclosure key={error.date.getTime()} className="pt-6">
+                <Disclosure key={error.date.getTime()}>
                   {({ open }) => (
-                    <>
+                    <div className="pt-6">
                       <dt className="text-lg">
                         <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-400">
                           <span className="font-medium text-gray-900">
@@ -96,7 +96,7 @@ export function Errors() {
                           {JSON.stringify(error.data, null, 2)}
                         </p>
                       </Disclosure.Panel>
-                    </>
+                    </div>
                   )}
                 </Disclosure>
               ))}
