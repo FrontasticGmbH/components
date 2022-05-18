@@ -8,9 +8,8 @@ import { formatLocaleName } from 'helpers/utils/formatLocaleName';
 import { mobile } from 'helpers/utils/screensizes';
 
 const LanguageSwitcher: React.FC = () => {
+  const { locale, locales, asPath } = useRouter();
   const [isLargerThanMobile] = useMediaQuery(mobile);
-  const router = useRouter();
-  const { locales } = useRouter();
 
   if (!isLargerThanMobile) {
     return null;
@@ -21,7 +20,7 @@ const LanguageSwitcher: React.FC = () => {
       <Menu>
         <div>
           <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none">
-            Language
+            {formatLocaleName(locale)}
             <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </Menu.Button>
         </div>
@@ -39,7 +38,7 @@ const LanguageSwitcher: React.FC = () => {
             <div className="py-1">
               {locales.map((locale, index) => (
                 <Menu.Item key={index}>
-                  <NextLink href={router.asPath} locale={locale}>
+                  <NextLink href={asPath} locale={locale}>
                     <a className="block py-2 px-4 text-center text-sm hover:bg-gray-100">{formatLocaleName(locale)}</a>
                   </NextLink>
                 </Menu.Item>
