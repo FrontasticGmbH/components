@@ -7,6 +7,10 @@ import FormInput from './fields/formInput';
 import FormRadioGroup from './fields/formRadioGroup';
 import FormSelect from './fields/formSelect';
 
+export interface ShippingCountryItem {
+  display: string;
+  data: string;
+}
 export interface Props {
   readonly submitText: string;
   readonly updateFormInput: (propName: string, newValue: string) => void;
@@ -15,9 +19,19 @@ export interface Props {
   readonly isFormValid: boolean;
   account: Account;
   loggedIn: boolean;
+  readonly shippingCountryOptions: ShippingCountryItem[];
 }
 
-const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormValid, account, loggedIn }: Props) => {
+const CheckoutForm = ({
+  submitText,
+  updateFormInput,
+  submitForm,
+  data,
+  isFormValid,
+  account,
+  loggedIn,
+  shippingCountryOptions,
+}: Props) => {
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -142,11 +156,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
               <FormSelect
                 name="shippingCountry"
                 label="Country"
-                options={[
-                  { display: 'Germany', data: 'DE' },
-                  { display: 'United States', data: 'US' },
-                  { display: 'Canada', data: 'CA' },
-                ]}
+                options={shippingCountryOptions}
                 selectedOptionValue={(data.shippingCountry as string) || undefined}
                 onChange={updateFormInput}
                 containerClassName="col-span-full sm:col-span-4"
