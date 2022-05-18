@@ -1,15 +1,14 @@
 import { getRouteData, getPreview } from './lib/server/get-route-data';
 
-function createClient(frontasticUrl: string, frontasticKey: string) {
+function createClient(url: string, key: string) {
   return {
-    getRouteData: getRouteData(frontasticUrl, frontasticKey),
-    getPreview: getPreview(frontasticUrl, frontasticKey),
+    getRouteData: getRouteData(url, key),
+    getPreview: getPreview(url, key),
   };
 }
 
 export { createClient };
 export * from './lib/server/get-route-data';
-export * from './actions/cart/update-cart';
 export * from './lib/types';
 export * from './lib/renderer';
 export * from './lib/component';

@@ -1,4 +1,3 @@
-import { updateItem } from 'frontastic/actions/cart/update-cart-item';
 import {
   changePassword,
   confirm,
@@ -16,14 +15,19 @@ import {
   setDefaultShippingAddress,
 } from '../actions/account/account-actions';
 import { getAccount } from '../actions/account/get-account';
-import { addItem } from '../actions/cart/add-cart-item';
+import {
+  addItem,
+  orderCart,
+  orderHistory,
+  removeItem,
+  shippingMethods,
+  setShippingMethod,
+  updateCart,
+  updateItem,
+} from '../actions/cart/cart-actions';
 import { cartItems } from '../actions/cart/cart-items';
-import { orderCart } from '../actions/cart/order-cart';
-import { orderHistory } from '../actions/cart/order-history';
-import { removeItem } from '../actions/cart/remove-cart-item';
-import { shippingMethods } from '../actions/cart/shipping-methods';
-import { setShippingMethod, updateCart } from '../actions/cart/update-cart';
-import { addToWishlist, removeLineItem, updateLineItem, getWishlist } from '../actions/wishlist/wishlist-actions';
+import { addToWishlist, removeLineItem, updateLineItem } from '../actions/wishlist/wishlist-actions';
+import { getWishlist } from '../actions/wishlist/wishlist-items';
 import { UseAccount } from './UseAccount';
 import { UseCart } from './UseCart';
 import { UseWishlist } from './UseWishlist';
