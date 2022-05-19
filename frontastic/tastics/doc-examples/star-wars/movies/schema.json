@@ -1,7 +1,7 @@
 {
     "tasticType": "example/star-wars/movie",
     "name": "Star Wars Movie Opening Crawl",
-    "icon": "verified_user",
+    "icon": "movie",
     "category": "Star Wars Documentation Examples",
     "schema": [
         {

@@ -16,6 +16,9 @@ const StarWarsCharacterFilter = ({ data }) => {
         <div key={character.id}>
           <h2 className="mt-6 font-sans text-lg">{character.name}</h2>
           {character.species !== null && <p className="mt-2">Species: {character.species.name}</p>}
+          {character.hairColor !== null && <p className="mt-2">Hair Color: {character.hairColor}</p>}
+          {character.eyeColor !== null && <p className="mt-2">Eye Color: {character.eyeColor}</p>}
+          {character.gender !== null && <p className="mt-2">Gender: {character.gender}</p>}
         </div>
       ))}
       {pageInfo.hasNextPage && (
