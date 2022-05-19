@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { XIcon as XIconSolid } from '@heroicons/react/solid';
 import { LineItem } from '@Types/cart/LineItem';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
@@ -13,7 +13,7 @@ interface Props {
   removeItem: (lineItemId: string) => void;
 }
 
-const LineItem = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props) => {
+const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props) => {
   const { formatMessage } = useFormat({ name: 'common' });
 
   return (
@@ -57,34 +57,41 @@ const LineItem = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: P
             <p className="mt-1 text-sm font-medium text-gray-900">
               {CurrencyHelpers.formatForCurrency(lineItem.price)}
             </p>
-          </div>
-
-          <div className="mt-4 sm:mt-0 sm:pr-9">
-            <div className="grid grid-cols-3 gap-3">
+            <div className=" mt-5 grid grid-cols-6 gap-2 sm:mt-24 sm:grid-cols-6 md:grid-cols-5">
               <label className="sr-only">
                 {formatMessage({ id: 'quantity', defaultMessage: 'Quantity' })}, {lineItem.name}
               </label>
               <button
+                type="button"
                 onClick={() => {
                   editItemQuantity(lineItem.lineItemId, lineItem.count - 1);
                 }}
-                className="rounded bg-gray-100 py-2 px-4 font-bold text-gray-700 hover:bg-gray-300"
+                disabled={lineItem.count <= 1 ? true : false}
+                className={`h-7 w-7 ${
+                  lineItem.count <= 1 ? 'cursor-not-allowed' : 'cursor-pointer'
+                } rounded bg-gray-200 text-sm font-bold text-gray-700 hover:bg-gray-300 disabled:opacity-50`}
               >
                 -
               </button>
-              <p className=" rounded-md border border-gray-300 py-1.5 text-center text-base font-medium text-gray-700 shadow-sm">
+              <p className="h-7 w-7 rounded-md border border-gray-300 pt-1 text-center text-sm font-medium text-gray-700 shadow-sm">
                 {lineItem.count}
               </p>
               <button
+                type="button"
                 onClick={() => {
                   editItemQuantity(lineItem.lineItemId, lineItem.count + 1);
                 }}
-                className="rounded bg-gray-100 py-2 px-4 font-bold text-gray-700 hover:bg-gray-300"
+                disabled={lineItem.variant.isOnStock ? false : true}
+                className={`h-7 w-7 ${
+                  lineItem.variant.isOnStock ? 'cursor-pointer' : 'cursor-not-allowed'
+                } rounded bg-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-300 disabled:opacity-50`}
               >
                 +
               </button>
             </div>
+          </div>
 
+          <div className="mt-4 sm:mt-0 sm:pr-9">
             <div className="absolute top-0 right-0">
               <button
                 type="button"
@@ -102,4 +109,4 @@ const LineItem = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: P
   );
 };
 
-export default LineItem;
+export default Item;

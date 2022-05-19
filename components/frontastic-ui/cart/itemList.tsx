@@ -1,6 +1,6 @@
 import { Cart } from '@Types/cart/Cart';
 import { useFormat } from 'helpers/hooks/useFormat';
-import LineItem from './item';
+import Item from './item';
 
 interface Props {
   readonly cart: Cart;
@@ -21,7 +21,7 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
 
       <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
         {cart.lineItems.map((lineItem, i) => (
-          <LineItem
+          <Item
             key={i}
             lineItem={lineItem}
             editItemQuantity={editItemQuantity}
