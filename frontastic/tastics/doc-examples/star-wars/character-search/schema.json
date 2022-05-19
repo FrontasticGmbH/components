@@ -1,5 +1,5 @@
 {
-  "tasticType": "frontastic/examples/star-wars/character-search",
+  "tasticType": "frontastic/ui/examples/star-wars/character-search",
   "name": "StarWars character search",
   "category": "Documentation Examples",
   "icon": "info",
