@@ -147,7 +147,7 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                           </td>
                           <td className="hidden py-6 pr-8 sm:table-cell">{product.variant.attributes.size}</td>
                           <td className="hidden py-6 pr-8 sm:table-cell">{order.orderState}</td>
-                          <td className="pyENTJ-6 whitespace-nowrap text-right font-medium">
+                          <td className="whitespace-nowrap py-6 text-right font-medium">
                             {
                               //TODO: get product href and link
                             }

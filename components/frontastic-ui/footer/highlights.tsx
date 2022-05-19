@@ -26,7 +26,10 @@ const Highlights = () => {
   return (
     <HighlightBar>
       {highlights.map(({ Icon, text }, index: number) => (
-        <div key={index} className="justify-left flex flex-1 items-center gap-5 py-4 px-8 lg:justify-center lg:px-0">
+        <div
+          key={index}
+          className="flex flex-1 items-center justify-items-start gap-5 py-4 px-8 lg:justify-items-center lg:px-0"
+        >
           <Icon size={30} color="#CE3E72" />
           <span>{text}</span>
         </div>

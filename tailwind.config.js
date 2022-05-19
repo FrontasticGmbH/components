@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors');
-
 module.exports = {
   mode: 'jit',
   content: [
@@ -11,11 +9,7 @@ module.exports = {
   safelist: ['md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'md:grid-cols-4'],
   theme: {
     extend: {
-      gridTemplateColumns: {
-        '1-340': '1fr 340px',
-      },
       colors: {
-        orange: colors.orange,
         primary: {
           100: '#666e82',
           200: '#515971',

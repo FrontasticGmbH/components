@@ -47,7 +47,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
     <Transition.Root show={open} as={Fragment}>
       <Dialog className="fixed inset-0 z-10 overflow-y-auto" onClose={onClose}>
         <>
-          <div className="text-start flex min-h-screen items-end justify-center px-4 pt-4 pb-20 sm:block sm:p-0">
+          <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-left sm:block sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -57,7 +57,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+              <Dialog.Overlay className="fixed inset-0 bg-gray-500 opacity-75 transition-opacity" />
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
@@ -231,7 +231,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                                   defaultChecked={defaultValues.isDefaultShippingAddress}
                                 />
                               </div>
-                              <div className="text-md ml-3">
+                              <div className="ml-3 text-base">
                                 <label htmlFor="is-default-shipping-address" className="text-gray-400">
                                   {formatAccountMessage({
                                     id: 'address.setDefault.delivery',
@@ -262,7 +262,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                                   defaultChecked={defaultValues.isDefaultBillingAddress}
                                 />
                               </div>
-                              <div className="text-md ml-3">
+                              <div className="ml-3 text-base">
                                 <label htmlFor="is-default-billing-address" className="text-gray-400">
                                   {formatAccountMessage({
                                     id: 'address.setDefault.billing',
@@ -285,14 +285,14 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
                         <div className="mt-4 flex gap-4 sm:col-span-2 sm:gap-8">
                           <button
                             type="button"
-                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                             onClick={onClose}
                           >
                             {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                           </button>
                           <button
                             type="submit"
-                            className="duration-250ms inline-flex w-full items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+                            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
                           >
                             {formatMessage({ id: 'save', defaultMessage: 'Save' })}
                           </button>
