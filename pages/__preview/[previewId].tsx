@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { GetServerSideProps, GetStaticProps, Redirect } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { Log } from 'helpers/errorLogger';
 import { createClient, FrontasticRenderer, Notifier } from 'frontastic';
 import { tastics } from 'frontastic/tastics';
 import styles from '../slug.module.css';
-import { Log } from 'helpers/errorLogger';
 
 type PreviewProps = {
   data: any;

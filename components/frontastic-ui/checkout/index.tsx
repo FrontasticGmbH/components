@@ -187,7 +187,7 @@ const Checkout = ({ loginLink }: Props) => {
     await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
     await orderCart();
     //TODO: figure out logic here
-    router.push('/checkout-success');
+    router.push('/thank-you');
   };
 
   if (!data?.lineItems || data.lineItems.length < 1) {
