@@ -1,7 +1,9 @@
-import { mutate } from 'swr';
-import { fetchApiHub } from '../../lib/fetch-api-hub';
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
+import { mutate } from 'swr';
+import { fetchApiHub } from '../../lib/fetch-api-hub';
+import { REMEMBER_ME } from 'constants/localStorage';
+import { SESSION_PERSISTENCE } from 'constants/auth';
 
 export interface UpdateAccount {
   firstName?: string;
@@ -19,17 +21,19 @@ export interface RegisterAccount extends UpdateAccount {
   shippingAddress?: Address;
 }
 
-export const login = async (email: string, password: string): Promise<Account> => {
+export const login = async (email: string, password: string, remember?: boolean): Promise<Account> => {
   const payload = {
     email,
     password,
   };
+  if (remember) window.localStorage.setItem(REMEMBER_ME, '1');
   const res = await fetchApiHub('/action/account/login', { method: 'POST' }, payload);
   await mutate('/action/account/getAccount', res);
   return res;
 };
 
 export const logout = async () => {
+  window.localStorage.removeItem(REMEMBER_ME);
   const res = await fetchApiHub('/action/account/logout', { method: 'POST' });
   await mutate('/action/account/getAccount', res);
 };

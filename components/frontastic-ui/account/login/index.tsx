@@ -73,7 +73,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
   //login user
   const loginUser = async () => {
     try {
-      const response = await login(data.email, data.password);
+      const response = await login(data.email, data.password, data.rememberMe);
       if (!response.accountId)
         setError(formatErrorMessage({ id: 'auth.wrong', defaultMessage: 'Wrong email address or password' }));
     } catch (err) {

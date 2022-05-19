@@ -1,6 +1,6 @@
 import NextImage from 'next/image';
-import { NextFrontasticImage } from './types';
 import { frontasticCloudinaryLoader } from './loaders';
+import { NextFrontasticImage } from './types';
 
 export default function Image({
   width,

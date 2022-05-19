@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { TasticWrapper } from './component';
-import { Grid } from './grid';
-import { Errors } from './errors';
 import { Cell as LayoutElement } from './cell';
+import { TasticWrapper } from './component';
+import { Errors } from './errors';
+import { Grid } from './grid';
 import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse } from './types';
 
 export function FrontasticRenderer({

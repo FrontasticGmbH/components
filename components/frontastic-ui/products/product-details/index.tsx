@@ -65,7 +65,8 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   // the onChangeVariantIdx handler
   useEffect(() => {
     const idx = product.variants.findIndex(
-      (v: Variant) => v.attributes.color.key === selectedColor.key && v.attributes.commonSize.key === selectedSize.key,
+      (v: Variant) =>
+        v.attributes.color?.key === selectedColor?.key && v.attributes.commonSize?.key === selectedSize?.key,
     );
     onChangeVariantIdx(idx);
   }, [selectedColor, selectedSize, onChangeVariantIdx, product.variants]);

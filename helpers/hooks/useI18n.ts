@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const useI18n = () => {
   const [country, setCountry] = useState('DE');

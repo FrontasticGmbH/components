@@ -1,8 +1,3 @@
-import { UseAccount } from './UseAccount';
-import { UseCart } from './UseCart';
-import { UseWishlist } from './UseWishlist';
-import { updateItem } from 'frontastic/actions/cart/update-cart-item';
-import { getAccount } from '../actions/account/get-account';
 import {
   changePassword,
   confirm,
@@ -19,14 +14,23 @@ import {
   setDefaultBillingAddress,
   setDefaultShippingAddress,
 } from '../actions/account/account-actions';
-import { addToWishlist, removeLineItem, updateLineItem, getWishlist } from '../actions/wishlist/wishlist-actions';
-import { addItem } from '../actions/cart/add-cart-item';
-import { removeItem } from '../actions/cart/remove-cart-item';
-import { setShippingMethod, updateCart } from '../actions/cart/update-cart';
-import { orderCart } from '../actions/cart/order-cart';
+import { getAccount } from '../actions/account/get-account';
+import {
+  addItem,
+  orderCart,
+  orderHistory,
+  removeItem,
+  shippingMethods,
+  setShippingMethod,
+  updateCart,
+  updateItem,
+} from '../actions/cart/cart-actions';
 import { cartItems } from '../actions/cart/cart-items';
-import { shippingMethods } from '../actions/cart/shipping-methods';
-import { orderHistory } from '../actions/cart/order-history';
+import { addToWishlist, removeLineItem, updateLineItem } from '../actions/wishlist/wishlist-actions';
+import { getWishlist } from '../actions/wishlist/wishlist-items';
+import { UseAccount } from './UseAccount';
+import { UseCart } from './UseCart';
+import { UseWishlist } from './UseWishlist';
 
 export interface FrontasticState {
   useCart: UseCart;

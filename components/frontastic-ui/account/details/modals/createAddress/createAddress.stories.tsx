@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { addresses, orders } from 'components/mockData';
 import CreateAddress, { CreateAddressProps } from './index';
 
 export default {

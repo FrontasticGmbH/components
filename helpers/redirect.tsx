@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { getReferenceTarget, Reference } from './reference';
 
 export interface RedirectProps {

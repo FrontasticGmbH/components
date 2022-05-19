@@ -1,6 +1,6 @@
-import { StringHelpers } from './stringHelpers';
+import { Money } from '@Types/product/Money';
 import { Log } from './errorLogger';
-import { Money } from '../../types/product/Money';
+import { StringHelpers } from './stringHelpers';
 
 export class CurrencyHelpers {
   private static formatNumberForCurrency = function (costInCents: number) {
@@ -20,8 +20,8 @@ export class CurrencyHelpers {
   };
 
   private static formatMoneyCurrency = function (price: Money) {
-    return Intl.NumberFormat('de-DE', { style: 'currency', currency: price.currencyCode ?? 'EUR' }).format(
-      (price.centAmount ?? 0) / Math.pow(10, price.fractionDigits ?? 2),
+    return Intl.NumberFormat('de-DE', { style: 'currency', currency: price?.currencyCode ?? 'EUR' }).format(
+      (price?.centAmount ?? 0) / Math.pow(10, price?.fractionDigits ?? 2),
     );
   };
 

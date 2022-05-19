@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { createClient, FrontasticRenderer, Notifier } from 'frontastic';
 import { tastics } from 'frontastic/tastics';
 import styles from '../slug.module.css';
+import { Log } from 'helpers/errorLogger';
 
 type PreviewProps = {
   data: any;
@@ -23,6 +24,11 @@ export default function Preview({ data }: PreviewProps) {
     }
   };
   const handleEndHighlight = () => setCurrentHighlight(null);
+
+  // in case of an error from API hub, we get a ResponseError as JSON back here
+  if (data?.ok === false) {
+    Log.error(data);
+  }
 
   useEffect(() => {
     if (data?.previewId && !notifier.current) {

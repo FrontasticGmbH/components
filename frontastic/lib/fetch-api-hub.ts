@@ -1,7 +1,8 @@
+import { IncomingMessage, ServerResponse } from 'http';
+import { SESSION_PERSISTENCE } from 'constants/auth';
+import { REMEMBER_ME } from 'constants/localStorage';
 import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
-
-import { IncomingMessage, ServerResponse } from 'http';
 import { Log } from '../../helpers/errorLogger';
 
 function resolveApiHubUrl(): string {
@@ -91,7 +92,10 @@ export const rawFetchApiHub: FetchFunction = async (endpointPath, init = {}, pay
       return cookieCutter.get(cookieIdenfier);
     },
     setCookie: (cookieIdenfier, cookieValue) => {
-      cookieCutter.set(cookieIdenfier, cookieValue, { path: '/' });
+      const expiryDate = window.localStorage.getItem(REMEMBER_ME)
+        ? new Date(Date.now() + SESSION_PERSISTENCE)
+        : 'Session';
+      cookieCutter.set(cookieIdenfier, cookieValue, { path: '/', expires: expiryDate });
     },
   });
 };
@@ -115,7 +119,7 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
           error = await response.text();
         }
         Log.error(error);
-        return err;
+        return error;
       } else {
         Log.error('Network error: ' + err);
         return 'Network error: ' + err;

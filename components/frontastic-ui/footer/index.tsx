@@ -48,8 +48,6 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
         return <RocketIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
       case 'loop':
         return <LoopIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
-      case 'loop':
-        return <LockIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
       case 'question':
         return <QuestionMarkCircleIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
       case 'inbox':
