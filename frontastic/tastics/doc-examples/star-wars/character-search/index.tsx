@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
+import { fetchApiHub } from 'frontastic/lib/fetch-api-hub';
 
 type Character = {
   name: string;
@@ -24,18 +25,15 @@ type Props = {
   data: Character[];
 };
 
-const StarWarsCharacters: React.FC<Props> = ({ data }) => {
-  const [inputText, setIputText] = useState('')
+const StarWarsCharacterSearch: React.FC<Props> = ({ data }) => {
+  const [inputText, setInputText] = useState('')
   const [results, setResults] = useState(data)
 
-  const OnSearchCharacter = () => {
-    /* fetch(`https://<project_name>-<customer_name>.vercel.app/frontastic/action/star-wars/character?query=${inputText}`)
-    .then(response => response.json())
+  const handleSearchCharacter = () => {
+    fetchApiHub(`/action/star-wars/character?search=${inputText}`)
     .then(data => {
-      console.log('response data:', data)
-
       setResults(data.data.allPeople.people)
-    }) */
+    })
   }
 
   return (
@@ -48,13 +46,13 @@ const StarWarsCharacters: React.FC<Props> = ({ data }) => {
               type="text"
               placeholder="Character"
               value={inputText}
-              onChange={(e) => { setIputText(e.target.value) }}
+              onChange={(e) => { setInputText(e.target.value) }}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </input>
           </div>
           <div className="md:w-1/3">
             <button
-              onClick={OnSearchCharacter}
+              onClick={handleSearchCharacter}
               className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
               Search
             </button>
@@ -126,4 +124,4 @@ const StarWarsCharacters: React.FC<Props> = ({ data }) => {
   )
 }
 
-export default StarWarsCharacters;
+export default StarWarsCharacterSearch;

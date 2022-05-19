@@ -1,5 +1,5 @@
 {
-    "tasticType": "frontastic/examples/simple-button",
+    "tasticType": "example/simple-button",
     "name": "DocExample Simple Button",
     "category": "Documentation Examples",
     "icon": "info",

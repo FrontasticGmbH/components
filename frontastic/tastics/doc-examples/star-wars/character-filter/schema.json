@@ -1,0 +1,21 @@
+{
+  "tasticType": "example/star-wars/character-filter",
+  "name": "Star Wars Character Filter",
+  "category": "Star Wars Documentation Examples",
+  "icon": "filter_list",  
+  "description": "A Frontastic component with a data source example",
+  "schema": [
+    {
+      "name": "Data source",
+      "fields": [
+        {
+          "label": "Characters",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "example/star-wars/character-filter",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

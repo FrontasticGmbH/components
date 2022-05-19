@@ -1,9 +1,9 @@
 // Doc Examples
 import SimpleButton from './doc-examples/simple-button';
-import HelloWorldTastic from './doc-examples/hello-world';
+import HelloWorld from './doc-examples/hello-world';
 import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
-import StarWarsCharacters from './doc-examples/star-wars/character';
 import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
+import StarWarsCharacterFilter from './doc-examples/star-wars/character-filter';
 
 import NotFound from './not-found';
 import Footer from './footer';
@@ -20,9 +20,7 @@ import ProductDetails from './products/details';
 import ProductList from './products/product-list';
 import ProductSlider from './products/slider';
 import AccountTest from './account/test';
-import SpacerTastic from './content/spacer';
-import WishlistTastic from './wishlist';
-import ShowcaseTastic from './showcase';
+import Wishlist from './wishlist';
 import AccountOrdersHistory from './account/orders';
 import AccountDetails from './account/details';
 import AccountLogin from './account/login';
@@ -30,6 +28,13 @@ import AccountRegister from './account/register';
 import ResetPassword from './account/reset-password';
 
 export const tastics = {
+  // Doc Examples
+  'example/simple-button': SimpleButton,
+  'example/hello-world': HelloWorld,
+  'example/star-wars/character-filter': StarWarsCharacterFilter,
+  'example/star-wars/movie': StarWarsOpeningCrawl,
+  'example/star-wars/character-search': StarWarsCharacterSearch,
+
   'frontastic/ui/checkout': Checkout,
   'frontastic/ui/checkout-success': CheckoutSuccess,
   'frontastic/ui/cart': Cart,
@@ -43,19 +48,12 @@ export const tastics = {
   'frontastic/ui/products/details': ProductDetails,
   'frontastic/ui/products/product-list': ProductList,
   'frontastic/ui/products/slider': ProductSlider,
-  'frontastic/ui/wishlist': WishlistTastic,
+  'frontastic/ui/wishlist': Wishlist,
   'frontastic/ui/account/test': AccountTest,
   'frontastic/ui/account/details': AccountDetails,
   'frontastic/ui/account/login': AccountLogin,
   'frontastic/ui/account/register': AccountRegister,
   'frontastic/ui/account/orders': AccountOrdersHistory,
   'frontastic/ui/account/reset-password': ResetPassword,
-  'frontastic/examples/simple-button': SimpleButton,
-  'frontastic/ui/examples/star-wars/character-search': StarWarsCharacterSearch,
-  'example/hello-world': HelloWorldTastic,
-  'example/star-wars/character-search': StarWarsCharacterSearch,
-  'example/star-wars-opening-crawl': StarWarsOpeningCrawl,
-  'example/star-wars-characters': StarWarsCharacters,
-  'frontastic/ui/examples/simple-button': SimpleButton,
   default: NotFound,
 };

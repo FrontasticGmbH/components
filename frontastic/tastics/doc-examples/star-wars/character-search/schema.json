@@ -1,21 +1,7 @@
 {
-  "tasticType": "example/star-wars/character-search",
-  "name": "Star Wars character search",
-  "category": "Content",
-  "icon": "perm_identity",  
-  "description": "A Frontastic component with a data source example",
-  "schema": [
-    {
-      "name": "Data source",
-      "fields": [
-        {
-          "label": "Characters",
-          "field": "data",
-          "type": "stream",
-          "streamType": "example/star-wars-character-search",
-          "required": true
-        }
-      ]
-    }
-  ]
+    "tasticType": "example/star-wars/character-search",
+    "name": "Star Wars Character Search",
+    "icon": "search",
+    "category": "Star Wars Documentation Examples",
+    "schema": []
 }

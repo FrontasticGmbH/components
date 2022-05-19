@@ -1,17 +1,17 @@
 {
-    "tasticType": "example/star-wars-opening-crawl",
-    "name": "Star Wars opening crawl",
-    "icon": "movie_filter",
-    "category": "general",
+    "tasticType": "example/star-wars/movie",
+    "name": "Star Wars Movie Opening Crawl",
+    "icon": "verified_user",
+    "category": "Star Wars Documentation Examples",
     "schema": [
         {
             "name": "Data source",
             "fields": [
                 {
-                    "label": "Star Wars movie",
+                    "label": "Star Wars Movie",
                     "field": "movieData",
-                    "type": "stream",
-                    "streamType": "example/star-wars-movie"
+                    "type": "dataSource",
+                    "dataSourceType": "example/star-wars/movie"
                 }
             ]
         }
