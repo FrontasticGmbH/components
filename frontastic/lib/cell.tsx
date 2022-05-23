@@ -1,7 +1,15 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
 
-export function Cell({ size, children }: { size: number | 'viewport'; children: React.ReactNode }) {
+export function Cell({
+  size,
+  className,
+  children,
+}: {
+  size: number | 'viewport';
+  className?: string;
+  children: React.ReactNode;
+}) {
   let styles: CSS.Properties;
   if (size === 'viewport') {
     styles = {
@@ -16,5 +24,9 @@ export function Cell({ size, children }: { size: number | 'viewport'; children: 
       //overflow: "hidden"
     };
   }
-  return <div style={styles}>{children}</div>;
+  return (
+    <div style={styles} className={className}>
+      {children}
+    </div>
+  );
 }

@@ -48,7 +48,14 @@ export default function Preview({ data }: PreviewProps) {
     return null;
   }
 
-  return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
+  return (
+    <FrontasticRenderer
+      data={data}
+      tastics={tastics}
+      wrapperClassName={styles.gridWrapper}
+      currentHighlight={currentHighlight}
+    />
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale, req, res }) => {
