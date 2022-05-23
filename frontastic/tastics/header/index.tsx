@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from 'components/frontastic-ui/header';
 import { calculateCartCount } from 'helpers/utils/calculateCartCount';
-import { useCart, useWishlist } from '../../provider';
+import { useCart, useWishlist } from '../../provider/Frontastic';
 
 const HeaderTastic = ({ data }) => {
   const { data: cart } = useCart();

@@ -16,7 +16,7 @@ const LanguageSwitcher: React.FC = () => {
   }
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative ml-4 inline-block text-left">
       <Menu>
         <div>
           <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none">

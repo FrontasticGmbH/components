@@ -13,8 +13,8 @@ import {
   removeAddress,
   setDefaultBillingAddress,
   setDefaultShippingAddress,
-} from '../actions/account/account-actions';
-import { getAccount } from '../actions/account/get-account';
+} from '../../actions/account/account-actions';
+import { getAccount } from '../../actions/account/get-account';
 import {
   addItem,
   orderCart,
@@ -24,10 +24,10 @@ import {
   setShippingMethod,
   updateCart,
   updateItem,
-} from '../actions/cart/cart-actions';
-import { cartItems } from '../actions/cart/cart-items';
-import { addToWishlist, removeLineItem, updateLineItem } from '../actions/wishlist/wishlist-actions';
-import { getWishlist } from '../actions/wishlist/wishlist-items';
+} from '../../actions/cart/cart-actions';
+import { cartItems } from '../../actions/cart/cart-items';
+import { addToWishlist, removeLineItem, updateLineItem } from '../../actions/wishlist/wishlist-actions';
+import { getWishlist } from '../../actions/wishlist/wishlist-items';
 import { UseAccount } from './UseAccount';
 import { UseCart } from './UseCart';
 import { UseWishlist } from './UseWishlist';
