@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const Template: Story<CheckoutFormProps> = (args) => (
-  <div className="w-82 px-20">
+  <div className="w-80 px-20">
     <CheckoutForm
       data={cart}
       account={account}

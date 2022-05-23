@@ -101,7 +101,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   {product.images.map((image) => (
                     <Tab
                       key={image.id}
-                      className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
+                      className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-white/50 focus:ring-offset-4"
                     >
                       {({ selected }) => (
                         <>
@@ -242,7 +242,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 </div>
               )}
 
-              <div className="sm:flex-col1 mt-10 flex">
+              <div className="mt-10 flex sm:flex-1">
                 <button
                   type="button"
                   onClick={() => handleAddToCart(variant, 1)}

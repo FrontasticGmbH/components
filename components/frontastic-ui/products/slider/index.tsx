@@ -29,7 +29,7 @@ export default function ProductSlider({ products, title, subline, ctaLabel, ctaL
 
   return (
     <div className="bg-white py-4 lg:mx-auto lg:max-w-7xl">
-      <div className="w-100 text-center">
+      <div className="w-auto text-center">
         <h2 className="text-xl tracking-tight text-gray-400">{subline}</h2>
         <h2 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">{title}</h2>
       </div>

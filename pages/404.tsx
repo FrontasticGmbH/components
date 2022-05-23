@@ -26,7 +26,7 @@ const Error404 = () => {
             })}
           </p>
           <Link href="/">
-            <a className="duration-150ms mt-1 block text-blue-500 underline transition-colors ease-out hover:text-blue-400">
+            <a className="mt-1 block text-blue-500 underline transition-colors duration-150 ease-out hover:text-blue-400">
               {formatCheckoutMessage({ id: 'continueShopping', defaultMessage: 'Continue shopping' })}
             </a>
           </Link>
