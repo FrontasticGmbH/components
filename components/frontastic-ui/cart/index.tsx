@@ -28,8 +28,10 @@ const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props
   const goToProductPage = (_url: string) => router.push(_url);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
-  }, []);
+    if (cart?.lineItems) {
+      setLoading(false);
+    }
+  }, [cart]);
 
   if (!cart?.lineItems || cart.lineItems.length < 1) return <EmptyCart />;
 
