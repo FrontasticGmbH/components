@@ -3,19 +3,37 @@ import { useRouter } from 'next/router';
 import { Cart } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { Reference } from 'helpers/reference';
 import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
 
 export interface Props {
+  pageTitle?: string;
+  emptyStateImage?: { media: any } | any;
+  emptyStateTitle?: string;
+  emptyStateSubtitle?: string;
+  emptyStateCTALabel?: string;
+  emptyStateCTALink?: Reference;
   cart: Cart;
   editItemQuantity: (lineItemId: string, newQuantity: number) => Promise<void>;
   removeItem: (lineItemId: string) => void;
   shippingMethods: ShippingMethod[];
 }
 
-const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props) => {
+const CartPage = ({
+  cart,
+  editItemQuantity,
+  removeItem,
+  shippingMethods,
+  pageTitle,
+  emptyStateImage,
+  emptyStateTitle,
+  emptyStateSubtitle,
+  emptyStateCTALabel,
+  emptyStateCTALink,
+}: Props) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   //i18n messages
@@ -31,7 +49,17 @@ const CartPage = ({ cart, editItemQuantity, removeItem, shippingMethods }: Props
     setTimeout(() => setLoading(false), 500);
   }, []);
 
-  if (!cart?.lineItems || cart.lineItems.length < 1) return <EmptyCart />;
+  if (!cart?.lineItems || cart.lineItems.length < 1)
+    return (
+      <EmptyCart
+        pageTitle={pageTitle}
+        image={emptyStateImage}
+        title={emptyStateTitle}
+        subtitle={emptyStateSubtitle}
+        ctaLabel={emptyStateCTALabel}
+        ctaLink={emptyStateCTALink}
+      />
+    );
 
   return (
     <main className="mx-auto max-w-2xl px-2 pt-16 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
