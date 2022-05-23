@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SWRConfig } from 'swr';
-import { fetchApiHub } from '../lib/fetch-api-hub';
+import { fetchApiHub } from '../../lib/fetch-api-hub';
+import DarkModeProvider from '../DarkMode';
 import { FrontasticState, getFrontasticState } from './FrontasticState';
 
 const initialState: FrontasticState = {
@@ -15,7 +16,9 @@ export const FrontasticProvider: React.FC = ({ children }) => {
   const state: FrontasticState = getFrontasticState();
   return (
     <SWRConfig value={{ fetcher: fetchApiHub }}>
-      <FrontasticContext.Provider value={state}>{children}</FrontasticContext.Provider>
+      <DarkModeProvider>
+        <FrontasticContext.Provider value={state}>{children}</FrontasticContext.Provider>
+      </DarkModeProvider>
     </SWRConfig>
   );
 };

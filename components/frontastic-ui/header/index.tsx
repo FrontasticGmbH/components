@@ -12,6 +12,7 @@ import HeaderMenu from './header-menu';
 import MegaMenuContent from './mega-menu-content';
 import SearchButton from './search-button';
 import WishListButton from './wishlist-button';
+import DarkModeWidget from '../darkmode-widget';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -145,19 +146,15 @@ const Header: React.FC<HeaderProps> = ({
               </Popover.Group>
 
               <div className="flex flex-1 items-center justify-end">
-                <div className="flex items-center">
+                <div className="w-fit-content flex items-center">
+                  <DarkModeWidget className="mr-4" />
                   <SearchButton />
-
                   <AccountButton accountLink={accountLink} />
 
                   <span className="mx-4 h-6 w-px bg-gray-200 lg:mx-4" aria-hidden="true" />
 
                   <WishListButton wishlistItemCount={wishlistItemCount} wishlistLink={wishlistLink} />
-
                   <CartButton cartItemCount={cartItemCount} cartLink={cartLink} />
-
-                  <span className="mx-1 h-6 w-px bg-gray-200 lg:mx-6" aria-hidden="true" />
-
                   <LanguageSwitcher />
                 </div>
               </div>
