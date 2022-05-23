@@ -1,9 +1,14 @@
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
-import { mutate } from 'swr';
-import { fetchApiHub } from '../../lib/fetch-api-hub';
+import useSWR, { mutate } from 'swr';
 import { REMEMBER_ME } from 'constants/localStorage';
-import { SESSION_PERSISTENCE } from 'constants/auth';
+import { fetchApiHub, ResponseError } from 'frontastic/lib/fetch-api-hub';
+
+export interface GetAccountResult {
+  loggedIn: boolean;
+  account?: Account;
+  error?: ResponseError;
+}
 
 export interface UpdateAccount {
   firstName?: string;
@@ -13,6 +18,20 @@ export interface UpdateAccount {
   birthdayMonth?: number;
   birthdayDay?: number;
 }
+
+export const getAccount = (): GetAccountResult => {
+  const result = useSWR<Account | GetAccountResult>('/action/account/getAccount', fetchApiHub);
+
+  const account = (result.data as GetAccountResult)?.account || (result.data as Account);
+
+  if (account?.accountId && account?.confirmed) return { account, loggedIn: true };
+
+  return {
+    loggedIn: false,
+    account: undefined,
+    error: result.error,
+  };
+};
 
 export interface RegisterAccount extends UpdateAccount {
   email: string;
