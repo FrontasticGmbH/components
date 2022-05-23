@@ -3,23 +3,20 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { formatLocaleName } from 'helpers/utils/formatLocaleName';
-import { mobile } from 'helpers/utils/screensizes';
 
-const LanguageSwitcher: React.FC = () => {
+interface Props {
+  className: string;
+}
+
+const LanguageSwitcher: React.FC<Props> = ({ className }) => {
   const { locale, locales, asPath } = useRouter();
-  const [isLargerThanMobile] = useMediaQuery(mobile);
-
-  if (!isLargerThanMobile) {
-    return null;
-  }
 
   return (
-    <div className="relative ml-4 inline-block text-left">
+    <div className={`relative inline-block text-left ${className}`}>
       <Menu>
         <div>
-          <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none">
+          <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-gray-100 py-2 px-4 text-sm font-medium text-gray-700 hover:bg-white focus:outline-none">
             {formatLocaleName(locale)}
             <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </Menu.Button>
@@ -34,7 +31,7 @@ const LanguageSwitcher: React.FC = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-50 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+          <Menu.Items className="absolute right-0 z-50 mt-2 w-full origin-top-right rounded-md bg-white shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
               {locales.map((locale, index) => (
                 <Menu.Item key={index}>
