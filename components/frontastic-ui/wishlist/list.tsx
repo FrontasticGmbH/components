@@ -26,8 +26,10 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
   const goToProductPage = (variantSku: string) => router.push(`/${variantSku}`);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
-  }, []);
+    if (items) {
+      setLoading(false);
+    }
+  }, [items]);
 
   return (
     <div className="mx-auto max-w-2xl pt-8 pb-16 lg:max-w-3xl lg:pt-4">
