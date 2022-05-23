@@ -18,5 +18,7 @@
   "shipping.calculation.learnMore": "Learn more about how shipping is calculated",
   "discounts": "Discounts",
   "discounts.calculation.learnMore": "Learn more about how discounts are calculated",
-  "cart.items.in.view": "items in cart, view cart"
+  "cart.items.in.view": "items in cart, view cart",
+  "cart.empty": "Currently you have no items in your cart",
+  "cart.start.shopping": "Start Shopping"
 }
