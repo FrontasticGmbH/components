@@ -7,7 +7,7 @@ import ResetPassword from './account/reset-password';
 import AccountTest from './account/test';
 import Cart from './cart';
 import Checkout from './checkout';
-import CheckoutSuccess from './checkout-success';
+import ThankYou from './thank-you';
 import Markdown from './content/markdown';
 import Spacer from './content/spacer';
 import Tile from './content/tile';
@@ -25,7 +25,7 @@ import Wishlist from './wishlist';
 
 export const tastics = {
   'frontastic/ui/checkout': Checkout,
-  'frontastic/ui/checkout-success': CheckoutSuccess,
+  'frontastic/ui/thank-you': ThankYou,
   'frontastic/ui/cart': Cart,
   'frontastic/ui/footer': Footer,
   'frontastic/ui/header': Header,

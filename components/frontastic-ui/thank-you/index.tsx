@@ -4,7 +4,7 @@ import Image from 'frontastic/lib/image';
 
 interface Props {}
 
-const CheckoutSuccess = ({}: Props) => {
+const ThankYou = ({}: Props) => {
   //i18n messages
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
 
@@ -50,4 +50,4 @@ const CheckoutSuccess = ({}: Props) => {
   );
 };
 
-export default CheckoutSuccess;
+export default ThankYou;
