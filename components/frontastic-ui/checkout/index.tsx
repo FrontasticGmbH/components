@@ -56,7 +56,7 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
     streetNumber: '',
     city: '',
     postalCode: '',
-    country: country.toLowerCase(),
+    country,
     shippingStreetName: '',
     shippingStreetNumber: '',
     shippingCity: '',
@@ -160,6 +160,8 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
       ? account.addresses.find((address) => address.addressId === checkoutData.shippingAddress)
       : ((isValidShippingAddress
           ? {
+              firstName: checkoutData.firstName,
+              lastName: checkoutData.lastName,
               streetName: checkoutData.shippingStreetName,
               streetNumber: checkoutData.shippingStreetNumber,
               city: checkoutData.shippingCity,
@@ -171,6 +173,8 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
     const billingAddress: Address = loggedIn
       ? account.addresses.find((address) => address.addressId === checkoutData.billingAddress)
       : ({
+          firstName: checkoutData.firstName,
+          lastName: checkoutData.lastName,
           streetName: checkoutData.streetName,
           streetNumber: checkoutData.streetNumber,
           city: checkoutData.city,

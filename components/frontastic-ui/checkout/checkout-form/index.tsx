@@ -45,7 +45,7 @@ const CheckoutForm = ({
       id: 'invoice',
       label: formatCheckoutMessage({ id: 'invoice', defaultMessage: 'Invoice' }),
       value: 'invoice',
-      default: false,
+      default: true,
     },
   ];
 
