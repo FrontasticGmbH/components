@@ -56,7 +56,7 @@ type Main2 = {
 };
 export type Cell = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Cell';
-  cellId: string;
+  layoutElementId: string;
   configuration: CellConfiguration;
   tastics: Tastic[];
 };

@@ -4,6 +4,10 @@ import { TasticWrapperProps } from './types';
 import { injectDataSources } from './utils/inject-data-sources';
 import ErrorBoundary from './error-boundary';
 
+export function highlightClassNames(highlight: boolean) {
+  return highlight ? 'outline outline-dashed outline-2 outline-accent-400' : '';
+}
+
 export function TasticWrapper(props: TasticWrapperProps) {
   const { tastics, data, dataSources, highlight = false } = props;
   const TasticToRender: React.ElementType = tastics[data.tasticType] || tastics['default'];
@@ -22,7 +26,7 @@ export function TasticWrapper(props: TasticWrapperProps) {
   return (
     <div
       className={classnames(
-        `w-full ${highlight && 'ring-8 ring-accent-400'} ${data.configuration.mobile ? 'block' : 'hidden'} ${
+        `w-full ${highlightClassNames(highlight)} ${data.configuration.mobile ? 'block' : 'hidden'} ${
           data.configuration.tablet ? 'md:block' : 'md:hidden'
         } ${data.configuration.desktop ? 'lg:block' : 'lg:hidden'}`,
       )}
