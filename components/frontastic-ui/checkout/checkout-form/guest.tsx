@@ -5,6 +5,7 @@ import FormCheckbox from './fields/formCheckbox';
 import FormInput from './fields/formInput';
 import FormRadioGroup from './fields/formRadioGroup';
 import FormSelect from './fields/formSelect';
+import { ShippingCountryItem } from './index';
 
 interface Props {
   readonly submitText: string;
@@ -12,9 +13,17 @@ interface Props {
   readonly submitForm: () => void;
   readonly data: { [inputName: string]: string };
   readonly isFormValid: boolean;
+  readonly shippingCountryOptions: ShippingCountryItem[];
 }
 
-const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormValid }: Props) => {
+const CheckoutForm = ({
+  submitText,
+  updateFormInput,
+  submitForm,
+  data,
+  isFormValid,
+  shippingCountryOptions,
+}: Props) => {
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -110,11 +119,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
         <FormSelect
           name="country"
           label="Country"
-          options={[
-            { display: 'Germany', data: 'DE' },
-            { display: 'United States', data: 'US' },
-            { display: 'Canada', data: 'CA' },
-          ]}
+          options={shippingCountryOptions}
           selectedOptionValue={(data.country as string) || undefined}
           onChange={updateFormInput}
           containerClassName="col-span-full sm:col-span-4"
@@ -160,11 +165,7 @@ const CheckoutForm = ({ submitText, updateFormInput, submitForm, data, isFormVal
             <FormSelect
               name="shippingCountry"
               label="Country"
-              options={[
-                { display: 'Germany', data: 'DE' },
-                { display: 'United States', data: 'US' },
-                { display: 'Canada', data: 'CA' },
-              ]}
+              options={shippingCountryOptions}
               selectedOptionValue={(data.shippingCountry as string) || undefined}
               onChange={updateFormInput}
               containerClassName="col-span-full sm:col-span-4"

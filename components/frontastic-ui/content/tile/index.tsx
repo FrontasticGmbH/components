@@ -35,8 +35,8 @@ const Tile: React.FC<TileProps> = ({
         />
       </div>
 
-      <div className="text-start absolute top-1/2 left-4 flex -translate-y-1/2 flex-col md:left-10 md:max-w-[30%]">
-        <div className="text-md mb-1 font-medium">
+      <div className="absolute top-1/2 left-4 flex -translate-y-1/2 flex-col text-left md:left-10 md:max-w-[30%]">
+        <div className="mb-1 text-base font-medium">
           <Typography>{subtitle}</Typography>
         </div>
 

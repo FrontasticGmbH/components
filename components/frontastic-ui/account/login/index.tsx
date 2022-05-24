@@ -207,7 +207,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                         id="remember-me"
                         name="rememberMe"
                         type="checkbox"
-                        className="texpink h-4 w-4 rounded border-gray-300 focus:ring-accent-400"
+                        className="h-4 w-4 rounded border-gray-300 text-accent-400 focus:ring-accent-500"
                         onChange={handleCheckboxChange}
                       />
                       <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
@@ -243,7 +243,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
               <div>
                 <button
                   type="submit"
-                  className="duration-250ms flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
+                  className="flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
                   disabled={loading}
                 >
                   {resendVerification

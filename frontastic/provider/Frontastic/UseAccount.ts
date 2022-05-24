@@ -1,7 +1,6 @@
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
-import { RegisterAccount, UpdateAccount } from 'frontastic/actions/account/account-actions';
-import { GetAccountResult } from 'frontastic/actions/account/get-account';
+import { GetAccountResult, RegisterAccount, UpdateAccount } from 'frontastic/actions/account';
 
 export interface UseAccount extends GetAccountResult {
   login: (email: string, password: string, remember?: boolean) => Promise<Account>;

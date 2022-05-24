@@ -1,0 +1,7 @@
+{
+  "tasticType": "frontastic/ui/thank-you",
+  "name": "Frontastic UI thank you",
+  "icon": "done",
+  "category": "Checkout",
+  "schema": []
+}

@@ -18,5 +18,7 @@
   "shipping.calculation.learnMore": "Erfahre mehr darüber, wie der Versand berechnet wird",
   "discounts": "Rabatte",
   "discounts.calculation.learnMore": "Erfahre mehr darüber, wie Rabatte berechnet werden",
-  "cart.items.in.view": "Artikel im Warenkorb, Warenkorb ansehen"
+  "cart.items.in.view": "Artikel im Warenkorb, Warenkorb ansehen",
+  "cart.empty": "Derzeit haben Sie keine Artikel in Ihrem Warenkorb",
+  "cart.start.shopping": "Beginn mit dem Einkauf"
 }

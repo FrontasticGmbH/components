@@ -5,7 +5,7 @@ import { Variant } from '@Types/product/Variant';
 // import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/frontastic-ui/products/product-details';
 import { useCart } from 'frontastic';
-import { addToWishlist } from 'frontastic/actions/wishlist/wishlist-actions';
+import { addToWishlist } from 'frontastic/actions/wishlist';
 
 function ProductDetailsTastic({ data }) {
   const [currentVariantIdx, setCurrentVariantIdx] = useState(0);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { cart } from 'components/mockData';
-import { shippingMethods } from 'frontastic/actions/cart/cart-actions';
+import { shippingMethods } from 'frontastic/actions/cart';
 import DesktopOrderSummary, { Props as DesktopOrderSummaryProps } from './index';
 
 export default {

@@ -3,5 +3,47 @@
   "name": "Frontastic UI cart",
   "icon": "shopping_cart",
   "category": "Cart",
-  "schema": []
+  "schema": [
+    {
+      "name": "Empty State Data",
+      "fields": [
+        {
+          "label": "Page Title",
+          "field": "pageTitle",
+          "translatable": true,
+          "type": "string"
+        },
+        {
+          "label": "Empty State Image",
+          "field": "emptyStateImage",
+          "type": "media",
+          "required": true
+        },
+        {
+          "label": "Empty State Title",
+          "field": "emptyStateTitle",
+          "translatable": true,
+          "type": "string"
+        },
+        {
+          "label": "Empty State Subtitle",
+          "field": "emptyStateSubtitle",
+          "translatable": true,
+          "type": "string"
+        },
+        {
+          "label": "Call to Action Label",
+          "field": "emptyStateCTALabel",
+          "translatable": true,
+          "type": "string"
+        },
+        {
+          "label": "Call to Action Link",
+          "field": "emptyStateCTALink",
+          "type": "reference",
+          "required": true
+        }
+      ]
+    }
+  ]
 }

@@ -1,11 +1,9 @@
 import React from 'react';
-import { InboxIcon, QuestionMarkCircleIcon, SpeakerphoneIcon } from '@heroicons/react/outline';
+import LanguageSwitcher from 'components/frontastic-ui/language-switcher';
 import Typography from 'components/frontastic-ui/typography';
-import { default as LockIcon } from 'components/icons/lock';
-import { default as LoopIcon } from 'components/icons/loop';
-import { default as RocketIcon } from 'components/icons/rocket';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference, ReferenceLink } from 'helpers/reference';
+import { renderIcon } from './renderIcon';
 
 interface Link {
   name: string;
@@ -42,28 +40,13 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
     },
   ];
 
-  const renderIcon = (name: string) => {
-    switch (name) {
-      case 'rocket':
-        return <RocketIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
-      case 'loop':
-        return <LoopIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
-      case 'question':
-        return <QuestionMarkCircleIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
-      case 'inbox':
-        return <InboxIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
-      case 'speaker':
-        return <SpeakerphoneIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />;
-      default:
-        return <LockIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />;
-    }
-  };
-
   return (
     <footer aria-labelledby="footer-heading">
       <div className="mx-auto w-full bg-gray-100 px-6 lg:px-8">
         <div className="mx-auto max-w-5xl py-10 px-2 xl:grid xl:grid-cols-2 xl:gap-8">
-          <div className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${columns.length.toString()} xl:col-span-2`}>
+          <div
+            className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${(columns.length + 1).toString()} xl:col-span-2`}
+          >
             {columns.map((column, index) => (
               <div key={index} className="md:flex md:justify-center">
                 <div>
@@ -85,6 +68,15 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
                 </div>
               </div>
             ))}
+            <div className="justify-left md:justify-center">
+              <div className="md:justify-left flex space-x-2">
+                {renderIcon('speaker')}
+                <h3 className="text-sm font-medium text-gray-800">
+                  <Typography>Language</Typography>
+                </h3>
+              </div>
+              <LanguageSwitcher className="p-4 md:px-8" />
+            </div>
           </div>
         </div>
       </div>

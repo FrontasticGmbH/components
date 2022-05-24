@@ -1,7 +1,11 @@
+import { Address } from '@Types/account/Address';
 import { Variant } from '@Types/product/Variant';
 import useSWR, { mutate } from 'swr';
 import { fetchApiHub } from 'frontastic';
-import { Address } from '@Types/account/Address';
+
+export const cartItems = () => {
+  return useSWR('/action/cart/getCart', fetchApiHub);
+};
 
 export const addItem = async (variant: Variant, quantity: number) => {
   const payload = {

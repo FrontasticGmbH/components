@@ -18,7 +18,7 @@ export default function Slug({ data }: SlugProps) {
     return (
       <>
         <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
-        <p className="text-l mt-2">{data}</p>
+        <p className="mt-2 text-lg">{data}</p>
       </>
     );
   }

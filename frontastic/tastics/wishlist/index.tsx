@@ -3,18 +3,25 @@ import { LineItem } from '@Types/wishlist/LineItem';
 import WishList from 'components/frontastic-ui/wishlist';
 import { useWishlist } from 'frontastic/provider';
 
-const WishlistTastic = () => {
-  const { data } = useWishlist();
-  const { removeLineItem } = useWishlist();
+const WishlistTastic = ({ data }) => {
+  const { data: wishlist, removeLineItem } = useWishlist();
 
   const removeLineItems = async (item: LineItem) => {
-    let itemsToRemove = data.lineItems.filter((lineItem) => lineItem.name === item.name);
-    for await (const lineItem of itemsToRemove) {
-      await removeLineItem(lineItem.lineItemId);
-    }
+    await removeLineItem(item.lineItemId);
   };
 
-  return <WishList items={data} removeLineItems={removeLineItems} />;
+  return (
+    <WishList
+      pageTitle={data.pageTitle}
+      emptyStateImage={data.emptyStateImage}
+      emptyStateTitle={data.emptyStateTitle}
+      emptyStateSubtitle={data.emptyStateSubtitle}
+      emptyStateCTALabel={data.emptyStateCTALabel}
+      emptyStateCTALink={data.emptyStateCTALink}
+      items={wishlist}
+      removeLineItems={removeLineItems}
+    />
+  );
 };
 
 export default WishlistTastic;
