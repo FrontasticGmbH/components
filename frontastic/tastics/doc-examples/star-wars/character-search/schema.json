@@ -1,20 +1,19 @@
 {
-  "tasticType": "frontastic/ui/examples/star-wars/character-search",
-  "name": "StarWars character search",
-  "category": "Documentation Examples",
-  "icon": "info",
-  "schema": [
-    {
-      "name": "Configuration",
-      "fields": [
-        {
-          "label": "characters",
-          "field": "data",
-          "type": "dataSource",
-          "dataSourceType": "example/star-wars-character-search",
-          "required": true
-        }
-      ]
-    }
-  ]
+    "tasticType": "example/star-wars/character-search",
+    "name": "Star Wars Character Search",
+    "icon": "search",
+    "category": "Star Wars Documentation Examples",
+    "schema": [
+      {
+        "name": "Configuration",
+        "fields": [
+          {
+            "label": "characters",
+            "field": "data",
+            "type": "dataSource",
+            "dataSourceType": "example/star-wars/character-search",
+            "required": true
+          }
+        ]
+      }]
 }

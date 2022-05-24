@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const StarWarsCharacterSearchTastic = ({ data }) => {
+const StarWarsCharacterFilter = ({ data }) => {
   const { totalCount, pageInfo, people } = data.data.dataSource;
   const router = useRouter();
 
@@ -16,6 +16,9 @@ const StarWarsCharacterSearchTastic = ({ data }) => {
         <div key={character.id}>
           <h2 className="mt-6 font-sans text-lg">{character.name}</h2>
           {character.species !== null && <p className="mt-2">Species: {character.species.name}</p>}
+          {character.hairColor !== null && <p className="mt-2">Hair Color: {character.hairColor}</p>}
+          {character.eyeColor !== null && <p className="mt-2">Eye Color: {character.eyeColor}</p>}
+          {character.gender !== null && <p className="mt-2">Gender: {character.gender}</p>}
         </div>
       ))}
       {pageInfo.hasNextPage && (
@@ -37,4 +40,4 @@ const StarWarsCharacterSearchTastic = ({ data }) => {
   );
 };
 
-export default StarWarsCharacterSearchTastic;
+export default StarWarsCharacterFilter;

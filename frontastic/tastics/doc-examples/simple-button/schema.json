@@ -1,12 +1,12 @@
 {
-  "tasticType": "frontastic/ui/examples/simple-button",
-  "name": "DocExample Simple Button",
-  "category": "Documentation Examples",
-  "icon": "info",
-  "schema": [
-    {
-      "name": "Button Configuration",
-      "fields": [
+    "tasticType": "example/simple-button",
+    "name": "DocExample Simple Button",
+    "category": "Documentation Examples",
+    "icon": "info",
+    "schema": [
+      {
+        "name": "Button Configuration",
+        "fields": [
         {
           "label": "Label",
           "field": "label",
