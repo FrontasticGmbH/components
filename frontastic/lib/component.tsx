@@ -26,9 +26,10 @@ export function TasticWrapper(props: TasticWrapperProps) {
           data.configuration.tablet ? 'md:block' : 'md:hidden'
         } ${data.configuration.desktop ? 'lg:block' : 'lg:hidden'}`,
       )}
-    >      
-      <ErrorBoundary>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+    >   
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}   
+      <ErrorBoundary>        
         {/* @ts-ignore */}
         <TasticToRender type={data?.tasticType} id={data?.tasticId} data={updatedBlock} pageFolder={props.pageFolder} />
       </ErrorBoundary>
