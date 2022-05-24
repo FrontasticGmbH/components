@@ -17,6 +17,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@hookform/error-message": "^2.0.0",
@@ -35,6 +36,7 @@
     "react-intersection-observer": "^8.28.5",
     "react-intl": "^5.24.3",
     "react-markdown": "^6.0.3",
+    "react-two-thumb-input-range": "^1.0.7",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.49.9",
     "swiper": "^8.0.6",

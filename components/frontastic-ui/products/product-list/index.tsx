@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import NextLink from 'next/link';
 import { Product } from '@Types/product/Product';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
+import { Facet } from '@Types/result/Facet';
 import List from './list';
+import Filters from 'components/frontastic-ui/filters';
+import CloseIcon from 'components/icons/icon-x';
+import FilterIcon from 'components/icons/filter';
+import NextLink from 'next/link';
 
+// import List from './List';
 export interface Props {
   products: Product[];
   previousCursor: string;
   nextCursor: string;
   category: string;
-  showPagination?: boolean;
-  perPage?: number;
+  facets: Facet[];
 }
 
-export default function ProductList({
-  products,
-  previousCursor,
-  nextCursor,
-  category,
-  showPagination = true,
-  perPage = 24,
-}: Props) {
+export default function ProductList({ products, previousCursor, nextCursor, category, facets }: Props) {
+  const [isFiltering, setIsFiltering] = useState<boolean>(false);
   const [previousPageURL, setPreviousPageURL] = useState<string>('');
   const [nextPageURL, setNextPageURL] = useState<string>('');
 
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
+  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
   const categoryListItem = (
     <li key={category}>
@@ -56,34 +55,71 @@ export default function ProductList({
 
   const disabledButtonClassName = 'pointer-events-none rounded bg-gray-500 py-2 px-4 font-bold text-white opacity-50';
 
+  const toggleFiltering = () => {
+    setIsFiltering(!isFiltering);
+  };
+
   useEffect(() => {
-    setPreviousPageURL(updateURLParams('cursor', previousCursor));
-    setNextPageURL(updateURLParams('cursor', nextCursor));
+    setPreviousPageURL(updateURLParams([{ key: 'cursor', value: previousCursor }]));
+    setNextPageURL(updateURLParams([{ key: 'cursor', value: nextCursor }]));
   }, []);
 
   return (
     <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
-      <List products={products.slice(0, perPage)} />
-      {showPagination && (
-        <nav
-          className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
-          aria-label="Pagination"
-        >
-          <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
-            <NextLink href={previousPageURL}>
-              <a className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
-                {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
-              </a>
-            </NextLink>
-            <NextLink href={nextPageURL}>
-              <a className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
-                {formatMessage({ id: 'next', defaultMessage: 'Next' })}
-              </a>
-            </NextLink>
+
+      <div className="mt-8 grid gap-16 lg:grid-cols-3">
+        {isFiltering ? (
+          <div className="flex justify-between">
+            <h6 className="text-base font-bold text-neutral-700">
+              {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
+            </h6>
+            <button onClick={toggleFiltering}>
+              <CloseIcon className="h-5 w-4 fill-neutral-700" />
+            </button>
           </div>
-        </nav>
+        ) : (
+          <div className="flex gap-1">
+            <button onClick={toggleFiltering}>
+              <FilterIcon className="h-5 w-4 fill-neutral-700" />
+            </button>
+            <h6 className="text-base font-bold text-neutral-700">
+              {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
+            </h6>
+          </div>
+        )}
+      </div>
+
+      {isFiltering ? (
+        <div className="mt-2 grid gap-16 lg:grid-cols-3">
+          <div className="">
+            <Filters facets={facets} products={products} />
+          </div>
+          <div className="lg:col-span-2">
+            <List products={products} />
+          </div>
+        </div>
+      ) : (
+        <List products={products} />
       )}
+
+      <nav
+        className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
+        aria-label="Pagination"
+      >
+        <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">
+          <NextLink href={previousPageURL}>
+            <a className={previousCursor ? activeButtonClassName : disabledButtonClassName}>
+              {formatMessage({ id: 'prev', defaultMessage: 'Previous' })}
+            </a>
+          </NextLink>
+          <NextLink href={nextPageURL}>
+            <a className={nextCursor ? activeButtonClassName : disabledButtonClassName}>
+              {formatMessage({ id: 'next', defaultMessage: 'Next' })}
+            </a>
+          </NextLink>
+        </div>
+      </nav>
     </div>
   );
 }

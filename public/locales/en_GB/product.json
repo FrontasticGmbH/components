@@ -7,5 +7,13 @@
   "bag.add": "Add to bag",
   "details.additional": "Additional details",
   "products": "Products",
-  "outOfStock": "Out of stock"
+  "outOfStock": "Out of stock",
+  "price": "Price",
+  "sortAndFilter":"Sort & Filter",
+  "clear": "Clear",
+  "applyFilters": "Apply",
+  "sortBy": "Sort by",
+  "priceAsc": "Price (ascending)",
+  "priceDesc": "Price (descending)",
+  "noProductsFound": "No products found."
 }

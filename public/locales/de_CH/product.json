@@ -9,6 +9,13 @@
   "products": "Produkte",
   "product": "Produkt",
   "product.view": "Produkt anzeigen",
+  "outOfStock": "Nicht vorrättig",
   "price": "Preis",
-  "outOfStock": "Nicht vorrättig"
+  "sortAndFilter":"Sortieren & Filtern",
+  "clear": "Klar",
+  "applyFilters": "Anwenden",
+  "sortBy": "Sortieren nach",
+  "priceAsc": "Preis (aufsteigend)",
+  "priceDesc": "Preis (absteigend)",
+  "noProductsFound": "Keine Produkte gefunden."
 }

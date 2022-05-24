@@ -1,13 +1,26 @@
 import ProductList from 'components/frontastic-ui/products/product-list';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 function ProductListTastic({ data }) {
   if (!data) return <></>;
 
-  const products = data.data.dataSource.items || data.items || data.products;
+  const { formatMessage } = useFormat({ name: 'product' });
 
-  if (!products || products.length == 0) return <p>No products found.</p>;
+  const { products, category, previousCursor, nextCursor } = data;
 
-  return <ProductList products={products} {...data} />;
+  if (!products || products.length == 0) {
+    return <p>{formatMessage({ id: 'noProductsFound', defaultMessage: 'No products found.' })}</p>;
+  }
+
+  return (
+    <ProductList
+      products={products}
+      category={category}
+      previousCursor={previousCursor}
+      nextCursor={nextCursor}
+      facets={data.data.dataSource.facets}
+    />
+  );
 }
 
 export default ProductListTastic;
