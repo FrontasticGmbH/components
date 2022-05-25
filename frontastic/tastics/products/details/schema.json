@@ -8,16 +8,11 @@
       "name": "Configuration",
       "fields": [
         {
-          "name": "Configuration",
-          "fields": [
-            {
-              "label": "Product",
-              "field": "data",
-              "type": "dataSource",
-              "dataSourceType": "frontastic/product",
-              "required": true
-            }
-          ]
+          "label": "Product",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "frontastic/product",
+          "required": true
         }
       ]
     }
