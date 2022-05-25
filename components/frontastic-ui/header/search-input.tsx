@@ -1,3 +1,4 @@
+import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useEffect, useRef } from 'react';
 
 export interface Props extends React.ComponentProps<'input'> {
@@ -5,6 +6,9 @@ export interface Props extends React.ComponentProps<'input'> {
 }
 
 const SearchInput: React.FC<Props> = ({ onSubmit, ...props }) => {
+  //formatted messages
+  const { formatMessage } = useFormat({ name: 'common' });
+
   //input ref
   const ref = useRef<HTMLInputElement>(null);
 
@@ -32,7 +36,7 @@ const SearchInput: React.FC<Props> = ({ onSubmit, ...props }) => {
         name="search"
         id="search"
         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
-        placeholder="you@example.com"
+        placeholder={`${formatMessage({ id: 'search', defaultMessage: 'Search' })}...`}
         {...props}
         ref={ref}
       />
