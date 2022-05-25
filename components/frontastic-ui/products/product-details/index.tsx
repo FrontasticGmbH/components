@@ -68,7 +68,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
       (v: Variant) =>
         v.attributes.color?.key === selectedColor?.key && v.attributes.commonSize?.key === selectedSize?.key,
     );
-    onChangeVariantIdx(idx);
+    onChangeVariantIdx(idx === -1 ? 0 : idx);
   }, [selectedColor, selectedSize, onChangeVariantIdx, product.variants]);
 
   const handleAddToCart = (variant: Variant, quantity: number) => {
