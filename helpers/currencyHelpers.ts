@@ -36,7 +36,10 @@ export class CurrencyHelpers {
       ? CurrencyHelpers.formatNumberForCurrency(costInCents)
       : CurrencyHelpers.formatMoneyCurrency(costInCents);
 
-  static addCurrency: (value1: Money, value2: Money) => Money = (value1: Money, value2: Money) => {
+  static addCurrency: (value1?: Money, value2?: Money) => Money = (value1?: Money, value2?: Money) => {
+    if (!value1) value1 = { centAmount: 0 };
+    if (!value2) value2 = { centAmount: 0 };
+
     if (value1.fractionDigits !== value2.fractionDigits && value1.fractionDigits && value2.fractionDigits) {
       Log.warn(
         `Money with different fraction codes passed to addCurrency, value returned will be innacurate. ` +
