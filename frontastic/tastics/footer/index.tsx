@@ -7,14 +7,17 @@ const FooterTastic = ({ data }) => {
     {
       header: data.headerCol1,
       links: data.linksCol1,
+      icon: data.iconCol1,
     },
     {
       header: data.headerCol2,
       links: data.linksCol2,
+      icon: data.iconCol2,
     },
     {
       header: data.headerCol3,
       links: data.linksCol3,
+      icon: data.iconCol3,
     },
   ];
 
