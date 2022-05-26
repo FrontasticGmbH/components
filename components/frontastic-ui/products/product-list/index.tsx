@@ -67,7 +67,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
     if (nextCursor) {
       setNextPageURL(updateURLParams([{ key: 'cursor', value: nextCursor }]));
     }
-  }, []);
+  }, [previousCursor, nextCursor]);
 
   return (
     <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">

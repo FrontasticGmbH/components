@@ -28,24 +28,26 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
     setValues(updatedValues);
   };
 
+  const convertCents = (amountInCents: number) => Math.trunc(amountInCents / 100);
+
   const setDefaults = () => {
     // Setting defaults for min and max price
     const priceFacet = facets?.find(({ identifier }) => identifier == 'variants.price');
 
     if (priceFacet) {
       let { min, max, minSelected, maxSelected } = priceFacet as RangeFacet;
-      min = Math.trunc(min / 100);
-      max = Math.trunc(max / 100);
+      const minConverted = convertCents(min);
+      const maxConverted = convertCents(max);
 
-      setMinPrice(min);
-      setMaxPrice(max);
+      setMinPrice(minConverted);
+      setMaxPrice(maxConverted);
 
       // Setting default values
       if (minSelected && maxSelected) {
-        minSelected = Math.trunc(minSelected / 100);
-        maxSelected = Math.trunc(maxSelected / 100);
-        updateValues([minSelected, maxSelected]);
-      } else updateValues([min, max]);
+        const minSelectedConverted = convertCents(minSelected);
+        const maxSelectedConverted = convertCents(maxSelected);
+        updateValues([minSelectedConverted, maxSelectedConverted]);
+      } else updateValues([minConverted, maxConverted]);
 
       // Setting currency
       setCurrency(products?.[0].variants[0].price.currencyCode);

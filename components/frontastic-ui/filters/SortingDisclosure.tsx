@@ -37,7 +37,7 @@ const SortingDisclosure: FC<SortingDisclosureProps> = ({ updateSortingParams }) 
   useEffect(() => {
     const defaultSortingParamID = router.query['sortAttributes[0][price]'] as sortingParamID;
     setCurrentSortingParam(defaultSortingParamID);
-  }, [router.asPath]);
+  }, [router.query]);
 
   return (
     <div className="border-y border-gray-200 py-6">
