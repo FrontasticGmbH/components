@@ -21,8 +21,8 @@ export interface Props {
 
 export default function ProductList({ products, previousCursor, nextCursor, category, facets }: Props) {
   const [isFiltering, setIsFiltering] = useState<boolean>(false);
-  const [previousPageURL, setPreviousPageURL] = useState<string>('');
-  const [nextPageURL, setNextPageURL] = useState<string>('');
+  const [previousPageURL, setPreviousPageURL] = useState<string>('/');
+  const [nextPageURL, setNextPageURL] = useState<string>('/');
 
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
@@ -60,34 +60,48 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   };
 
   useEffect(() => {
-    setPreviousPageURL(updateURLParams([{ key: 'cursor', value: previousCursor }]));
-    setNextPageURL(updateURLParams([{ key: 'cursor', value: nextCursor }]));
+    if (previousCursor) {
+      setPreviousPageURL(updateURLParams([{ key: 'cursor', value: previousCursor }]));
+    }
+
+    if (nextCursor) {
+      setNextPageURL(updateURLParams([{ key: 'cursor', value: nextCursor }]));
+    }
   }, []);
 
   return (
     <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
 
-      <div className="mt-8 grid gap-16 lg:grid-cols-3">
+      <div className="mt-8 gap-16 lg:grid lg:grid-cols-3">
         {isFiltering ? (
-          <div className="flex justify-between">
-            <h6 className="text-base font-bold text-neutral-700">
-              {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
-            </h6>
-            <button onClick={toggleFiltering}>
-              <CloseIcon className="h-5 w-4 fill-neutral-700" />
-            </button>
-          </div>
+          <button onClick={toggleFiltering} className="w-full py-2">
+            <div className="flex justify-between">
+              <h6 className="text-base font-bold text-neutral-700">
+                {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
+              </h6>
+              <CloseIcon className="h-6 w-5 fill-neutral-700" />
+            </div>
+          </button>
         ) : (
-          <div className="flex gap-1">
-            <button onClick={toggleFiltering}>
-              <FilterIcon className="h-5 w-4 fill-neutral-700" />
-            </button>
-            <h6 className="text-base font-bold text-neutral-700">
-              {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
+          <button onClick={toggleFiltering} className="flex w-full justify-between py-2">
+            <div className="flex gap-1">
+              <FilterIcon className="h-6 w-5 fill-neutral-700" />
+              <h6 className="text-base font-bold text-neutral-700">
+                {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
+              </h6>
+            </div>
+
+            <h6 className="col-span-2 block text-right lg:hidden">
+              {products?.length}
+              {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
             </h6>
-          </div>
+          </button>
         )}
+        <h6 className="col-span-2 hidden text-right lg:block">
+          {products?.length}
+          {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
+        </h6>
       </div>
 
       {isFiltering ? (
@@ -96,7 +110,11 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
             <Filters facets={facets} products={products} />
           </div>
           <div className="lg:col-span-2">
-            <List products={products} />
+            {products.length > 0 ? (
+              <List products={products} filtering={isFiltering} />
+            ) : (
+              <p>{formatProductMessage({ id: 'noProductsFound', defaultMessage: 'No products found.' })}</p>
+            )}
           </div>
         </div>
       ) : (

@@ -14,5 +14,6 @@
   "sortBy": "Sortieren nach",
   "priceAsc": "Preis (aufsteigend)",
   "priceDesc": "Preis (absteigend)",
-  "noProductsFound": "Keine Produkte gefunden."
+  "noProductsFound": "Keine Produkte gefunden.",
+  "items": "Produkte"
 }

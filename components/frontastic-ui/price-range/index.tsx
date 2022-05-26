@@ -4,6 +4,7 @@ import { TwoThumbInputRange } from 'react-two-thumb-input-range';
 import { Product } from '@Types/product/Product';
 import { Facet } from '@Types/result/Facet';
 import { RangeFacet } from '@Types/result/RangeFacet';
+import { useRouter } from 'next/router';
 
 type RangeInputValues = [number, number];
 
@@ -14,6 +15,7 @@ export type PriceRangeProps = {
 };
 
 const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilteringParams }) => {
+  const router = useRouter();
   const widthRef = useRef(null);
   const [inputWidth, setInputWidth] = useState(0);
   const [minPrice, setMinPrice] = useState<number>(null);
@@ -29,8 +31,9 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
   const setDefaults = () => {
     // Setting defaults for min and max price
     const priceFacet = facets?.find(({ identifier }) => identifier == 'variants.price');
+
     if (priceFacet) {
-      let { min, max } = priceFacet as RangeFacet;
+      let { min, max, minSelected, maxSelected } = priceFacet as RangeFacet;
       min = Math.trunc(min / 100);
       max = Math.trunc(max / 100);
 
@@ -38,7 +41,11 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
       setMaxPrice(max);
 
       // Setting default values
-      updateValues([min, max]);
+      if (minSelected && maxSelected) {
+        minSelected = Math.trunc(minSelected / 100);
+        maxSelected = Math.trunc(maxSelected / 100);
+        updateValues([minSelected, maxSelected]);
+      } else updateValues([min, max]);
 
       // Setting currency
       setCurrency(products?.[0].variants[0].price.currencyCode);
@@ -48,12 +55,12 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
   useEffect(() => {
     setInputWidth(widthRef.current.clientWidth);
     setDefaults();
-  }, []);
+  }, [router.asPath]);
 
   useEffect(() => {
     const params = [
-      { key: 'minPrice', value: `${values[0] * 100}` },
-      { key: 'maxPrice', value: `${values[1] * 100}` },
+      { key: 'facets[variants.price][min]', value: `${values[0] * 100}` },
+      { key: 'facets[variants.price][max]', value: `${values[1] * 100}` },
     ];
 
     updatePriceFilteringParams?.(params);
