@@ -12,13 +12,22 @@ type SlugProps = {
 };
 
 export default function Slug({ data }: SlugProps) {
-  if (!data) return <></>;
-
-  if (typeof data === 'string') {
+  if (!data || typeof data === 'string') {
     return (
       <>
         <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
         <p className="mt-2 text-lg">{data}</p>
+        <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
+      </>
+    );
+  }
+
+  if (!data?.ok && data?.message) {
+    return (
+      <>
+        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
+        <p className="mt-2 text-lg">{data.message}</p>
+        <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
       </>
     );
   }
