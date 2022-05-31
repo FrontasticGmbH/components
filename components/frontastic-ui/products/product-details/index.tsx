@@ -98,7 +98,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               {/* Image selector */}
               <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                  {product.images.map((image) => (
+                  {product.images?.map((image) => (
                     <Tab
                       key={image.id}
                       className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-white/50 focus:ring-offset-4"
@@ -130,7 +130,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </div>
 
               <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
-                {product.images.map((image) => (
+                {product.images?.map((image) => (
                   <Tab.Panel key={image.id}>
                     <Image
                       loader={({ src }) => src}
@@ -175,7 +175,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
-                    {product.colors.map(
+                    {product.colors?.map(
                       (color: { name: string; bgColor: string; selectedColor: string; key: string }) => (
                         <RadioGroup.Option
                           key={color.name}
@@ -218,7 +218,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-2">
                     <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                      {product.sizes.map((size: { label: string; key: string }) => (
+                      {product.sizes?.map((size: { label: string; key: string }) => (
                         <RadioGroup.Option
                           key={size.label}
                           value={size}
@@ -288,7 +288,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
               {product.details?.length > 0 && (
                 <div className="divide-y divide-gray-200 border-t">
-                  {product.details.map((detail) => (
+                  {product.details?.map((detail) => (
                     <Disclosure key={detail.name}>
                       {({ open }) => (
                         <>
@@ -320,7 +320,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           <Disclosure.Panel>
                             <div className="prose prose-sm py-6">
                               <ul role="list">
-                                {detail.items.map((item) => (
+                                {detail.items?.map((item) => (
                                   <li key={item}>{item}</li>
                                 ))}
                               </ul>
