@@ -13,3 +13,8 @@ yarn-debug.log*
 yarn-error.log*
 
 tsconfig.tsbuildinfo
+
+sw.js
+sw.js.map
+workbox-*.js
+workbox-*.js.map

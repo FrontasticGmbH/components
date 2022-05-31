@@ -1,6 +1,10 @@
 const { i18n, localePath } = require('./next-i18next.config');
+const withPWA = require('next-pwa');
 
-module.exports = {
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+  },
   i18n,
   localePath,
   images: {
@@ -18,4 +22,4 @@ module.exports = {
 
     return config;
   },
-};
+});
