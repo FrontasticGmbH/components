@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { URLParam } from 'helpers/utils/updateURLParams';
-import { TwoThumbInputRange } from 'react-two-thumb-input-range';
+import { useRouter } from 'next/router';
 import { Product } from '@Types/product/Product';
 import { Facet } from '@Types/result/Facet';
 import { RangeFacet } from '@Types/result/RangeFacet';
-import { useRouter } from 'next/router';
+import { TwoThumbInputRange } from 'react-two-thumb-input-range';
+import { URLParam } from 'helpers/utils/updateURLParams';
 
 type RangeInputValues = [number, number];
 

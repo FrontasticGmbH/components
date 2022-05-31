@@ -15,7 +15,7 @@ interface Column {
   header: string;
   links: Link[];
 }
-interface CopyrightLink {
+export interface CopyrightLink {
   name: string;
   reference: Reference;
 }
@@ -71,8 +71,8 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
                 </div>
               </div>
             ))}
-            <div className="justify-left md:justify-center">
-              <div className="md:justify-left flex space-x-2">
+            <div className="justify-start md:justify-center">
+              <div className="flex space-x-2 md:justify-start">
                 {renderIcon('speaker')}
                 <h3 className="text-sm font-medium text-gray-800 dark:text-light-100">
                   <Typography>Language</Typography>

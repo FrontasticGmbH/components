@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import NextLink from 'next/link';
 import { Product } from '@Types/product/Product';
+import { Facet } from '@Types/result/Facet';
 import Breadcrumb from 'components/frontastic-ui/breadcrumb';
+import Filters from 'components/frontastic-ui/filters';
+import FilterIcon from 'components/icons/filter';
+import CloseIcon from 'components/icons/icon-x';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
-import { Facet } from '@Types/result/Facet';
 import List from './list';
-import Filters from 'components/frontastic-ui/filters';
-import CloseIcon from 'components/icons/icon-x';
-import FilterIcon from 'components/icons/filter';
-import NextLink from 'next/link';
 
 // import List from './List';
 export interface Props {

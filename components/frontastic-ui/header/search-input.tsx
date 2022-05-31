@@ -1,5 +1,5 @@
-import { useFormat } from 'helpers/hooks/useFormat';
 import React, { useEffect, useRef } from 'react';
+import { useFormat } from 'helpers/hooks/useFormat';
 
 export interface Props extends React.ComponentProps<'input'> {
   onSubmit?: () => void;

@@ -1,9 +1,9 @@
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { URLParam } from 'helpers/utils/updateURLParams';
-import { ChangeEvent, FC, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 
 type SortingDisclosureProps = {
   updateSortingParams: (param: URLParam) => void;

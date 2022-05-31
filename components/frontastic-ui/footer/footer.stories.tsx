@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { footerColumns } from 'components/mockData';
+import { footerColumns, footerCopyrightLinks } from 'components/mockData';
 import Highlights from './highlights';
 import Footer, { FooterProps } from './index';
 
@@ -12,11 +12,13 @@ export default {
   },
 } as Meta;
 
-const Template: Story<FooterProps> = (args) => <Footer columns={footerColumns} copyright={'Catwalk'} {...args} />;
+const Template: Story<FooterProps> = (args) => (
+  <Footer columns={footerColumns} copyright="Catwalk" copyrightLinks={footerCopyrightLinks} {...args} />
+);
 const TemplateWithHighlights: Story<FooterProps> = (args) => (
   <div>
     <Highlights />
-    <Footer columns={footerColumns} copyright={'Catwalk'} {...args} />
+    <Footer columns={footerColumns} copyright="Catwalk" {...args} />
   </div>
 );
 

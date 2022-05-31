@@ -1,3 +1,4 @@
+import { RouterContext } from "next/dist/shared/lib/router-context";
 import '../styles/app.css';
 import DarkModeProvider from '../frontastic/provider/DarkMode';
 
@@ -8,6 +9,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  nextRouter: {
+    Provider: RouterContext.Provider,
   },
 };
 

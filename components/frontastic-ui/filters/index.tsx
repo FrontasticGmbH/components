@@ -1,12 +1,12 @@
-import { updateURLParams, URLParam } from 'helpers/utils/updateURLParams';
-import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { Product } from '@Types/product/Product';
 import { Facet } from '@Types/result/Facet';
+import { useFormat } from 'helpers/hooks/useFormat';
+import { updateURLParams, URLParam } from 'helpers/utils/updateURLParams';
 import PriceFilterDisclosure from './PriceFilterDisclosure';
 import SortingDisclosure from './SortingDisclosure';
-import { useFormat } from 'helpers/hooks/useFormat';
-import NextLink from 'next/link';
 
 type FiltersProps = {
   facets: Facet[];

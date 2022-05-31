@@ -1,12 +1,12 @@
 import React from 'react';
 
 type HelloWorldTasticProps = {
-    data: {
-        recipient: string;
-    };
+  data: {
+    recipient: string;
+  };
 };
 
-const HelloWorldTastic: React.FC<HelloWorldTasticProps> = ({data}) => {
+const HelloWorldTastic: React.FC<HelloWorldTasticProps> = ({ data }) => {
   return <h1>Hello {data.recipient}</h1>;
 };
 

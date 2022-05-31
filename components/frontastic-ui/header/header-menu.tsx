@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import Typography from 'components/frontastic-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { ReferenceLink } from 'helpers/reference';
-import { Link } from './index';
 import { useDarkMode } from 'frontastic';
+import { Link } from './index';
 
 interface HeaderMenuProps {
   open: boolean;
