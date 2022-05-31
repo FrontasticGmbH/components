@@ -1,84 +1,68 @@
 {
   "tasticType": "frontastic/ui/content/tile",
-  "name": "Frontastic UI tile",
+  "name": "Frontastic UI Tile",
   "icon": "image",
   "category": "Content",
   "schema": [
-    {
-      "name": "Image",
-      "helpText": "Customize your image",
-      "fields": [
-        {
-          "label": "Image",
-          "field": "image",
-          "type": "media",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "Message",
-      "helpText": "Customize your tile message",
-      "fields": [
-        {
-          "label": "Subtitle",
-          "field": "subtitle",
-          "type": "string",
-          "default": "New arrivals",
-          "translatable": true,
-          "required": false
-        },
-        {
-          "label": "Header",
-          "field": "header",
-          "type": "string",
-          "translatable": true,
-          "required": true
-        },
-        {
-          "label": "Header color",
-          "field": "headerColor",
-          "type": "string",
-          "default": "text-black",
-          "translatable": false
-        },
-        {
-          "label": "Text",
-          "field": "text",
-          "type": "markdown",
-          "translatable": true,
-          "required": true
-        },
-        {
-          "label": "Text color",
-          "field": "textColor",
-          "type": "string",
-          "default": "text-white",
-          "translatable": false
-        }
-      ]
-    },
-    {
-      "name": "Call to action",
-      "helpText": "Customize your call to action",
-      "fields": [
-        {
-          "label": "Button label",
-          "field": "ctaLabel",
-          "translatable": true,
-          "type": "string",
-          "required": false,
-          "default": ""
-        },
-        {
-          "label": "Link",
-          "field": "ctaReference",
-          "translatable": false,
-          "required": false,
-          "type": "reference",
-          "default": null
-        }
-      ]
-    }
+      {
+          "name": "Image",
+          "helpText": "Customize your image",
+          "fields": [
+              {
+                  "label": "Image",
+                  "field": "image",
+                  "type": "media",
+                  "required": true
+              },
+              {
+                  "label": "Image Alternative",
+                  "field": "imageAlt",
+                  "type": "string",
+                  "required": true
+              }
+          ]
+      },
+      {
+          "name": "Message",
+          "helpText": "Customize your tile message",
+          "fields": [
+              {
+                  "label": "Tile Title",
+                  "field": "title",
+                  "type": "string",
+                  "translatable": true,
+                  "required": true
+              },
+              {
+                  "label": "Subtitle",
+                  "field": "subtitle",
+                  "type": "string",
+                  "translatable": true,
+                  "required": false
+              }
+          ]
+      },
+      {
+          "name": "Call to action",
+          "helpText": "Customize your call to action",
+          "fields": [
+              {
+                  "label": "Button label",
+                  "field": "ctaLabel",
+                  "translatable": true,
+                  "type": "string",
+                  "required": false,
+                  "default": ""
+              },
+              {
+                  "label": "Link",
+                  "field": "ctaReference",
+                  "translatable": false,
+                  "required": false,
+                  "type": "reference",
+                  "default": null
+              }
+          ]
+      }
   ]
 }

@@ -28,6 +28,7 @@ type Props = {
 const StarWarsCharacterSearch: React.FC<Props> = ({ data }) => {
   const [inputText, setInputText] = useState('');
   const [results, setResults] = useState(data);
+  const resultLabels = ['Name', 'Mass', 'Height', 'Gender', 'Eye color', 'Hair color'];
 
   const handleSearchCharacter = () => {
     fetchApiHub(`/action/star-wars/character?search=${inputText}`).then((data) => {
@@ -66,12 +67,11 @@ const StarWarsCharacterSearch: React.FC<Props> = ({ data }) => {
       {results.length > 0 && (
         <div className="overflow-hidden bg-white shadow sm:rounded-lg">
           <div className="grid grid-cols-7 bg-gray-50 px-4 py-5 sm:gap-4 sm:px-6">
-            <div className="text-sm font-medium text-gray-500">Name</div>
-            <div className="text-sm font-medium text-gray-500">Mass</div>
-            <div className="text-sm font-medium text-gray-500">Height</div>
-            <div className="text-sm font-medium text-gray-500">Gender</div>
-            <div className="text-sm font-medium text-gray-500">Eye color</div>
-            <div className="text-sm font-medium text-gray-500">Hair color</div>
+            {resultLabels.map((label, index) => (
+              <div key={index} className="text-sm font-medium text-gray-500">
+                {label}
+              </div>
+            ))}
           </div>
 
           {results.map((character, i) => (
