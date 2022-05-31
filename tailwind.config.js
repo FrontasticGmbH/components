@@ -55,6 +55,9 @@ module.exports = {
           800: 'var(--neutral-800)',
           900: 'var(--neutral-900)',
         },
+        light: {
+          100: 'var(--light-100)',
+        },
       },
     },
   },

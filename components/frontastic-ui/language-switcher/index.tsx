@@ -10,14 +10,14 @@ interface Props {
 }
 
 const LanguageSwitcher: React.FC<Props> = ({ className }) => {
-  const { locale, locales, asPath } = useRouter();
+  const router = useRouter();
 
   return (
     <div className={`relative inline-block text-left ${className}`}>
       <Menu>
         <div>
           <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-gray-100 py-2 px-4 text-sm font-medium text-gray-700 hover:bg-white focus:outline-none">
-            {formatLocaleName(locale)}
+            {router?.locale && formatLocaleName(router?.locale)}
             <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </Menu.Button>
         </div>
@@ -33,9 +33,9 @@ const LanguageSwitcher: React.FC<Props> = ({ className }) => {
         >
           <Menu.Items className="absolute right-0 z-50 mt-2 w-full origin-top-right rounded-md bg-white shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
-              {locales.map((locale, index) => (
+              {router?.locales.map((locale, index) => (
                 <Menu.Item key={index}>
-                  <NextLink href={asPath} locale={locale}>
+                  <NextLink href={router?.asPath} locale={locale}>
                     <a className="block py-2 px-4 text-center text-sm hover:bg-gray-100">{formatLocaleName(locale)}</a>
                   </NextLink>
                 </Menu.Item>

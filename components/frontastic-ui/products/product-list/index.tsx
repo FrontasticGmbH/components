@@ -70,24 +70,24 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   }, [previousCursor, nextCursor]);
 
   return (
-    <div className="mt-10 bg-white px-1 sm:px-3 lg:px-6">
+    <div className="mt-10 bg-white px-1 dark:bg-primary-400 sm:px-3 lg:px-6">
       {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
 
       <div className="mt-8 gap-16 lg:grid lg:grid-cols-3">
         {isFiltering ? (
           <button onClick={toggleFiltering} className="w-full py-2">
             <div className="flex justify-between">
-              <h6 className="text-base font-bold text-neutral-700">
+              <h6 className="text-base font-bold text-neutral-700 dark:text-light-100">
                 {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
               </h6>
-              <CloseIcon className="h-6 w-5 fill-neutral-700" />
+              <CloseIcon className="h-6 w-5 fill-neutral-700 dark:fill-light-100" />
             </div>
           </button>
         ) : (
           <button onClick={toggleFiltering} className="flex w-full justify-between py-2">
             <div className="flex gap-1">
-              <FilterIcon className="h-6 w-5 fill-neutral-700" />
-              <h6 className="text-base font-bold text-neutral-700">
+              <FilterIcon className="h-6 w-5 fill-neutral-700 dark:fill-light-100" />
+              <h6 className="text-base font-bold text-neutral-700 dark:text-light-100">
                 {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
               </h6>
             </div>

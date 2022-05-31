@@ -40,7 +40,7 @@ const Addresses = () => {
       </style>
       <div className="mt-10 divide-y divide-gray-200">
         <div className="space-y-1">
-          <h3 className="text-lg font-medium leading-6 text-gray-900">
+          <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
             {formatAccountMessage({ id: 'address.myAddresses', defaultMessage: 'My Addresses' })}
           </h3>
           <p className="max-w-2xl text-sm text-gray-500">

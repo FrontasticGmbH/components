@@ -299,7 +299,7 @@ export const productItem = {
   details: [
     {
       name: 'A white Shirt',
-      items: 'A white shirt and a black jacket',
+      items: ['A white shirt and a black jacket'],
     },
   ],
   variants: [

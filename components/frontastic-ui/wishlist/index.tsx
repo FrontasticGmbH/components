@@ -39,7 +39,7 @@ const WishList: React.FC<Props> = ({
     );
 
   return (
-    <div className="mt-10 bg-white px-4 sm:px-6 lg:px-8">
+    <div className="mt-10 bg-white px-4 dark:bg-primary-400 sm:px-6 lg:px-8">
       {items?.lineItems && <List items={items.lineItems} removeLineItems={removeLineItems} />}
     </div>
   );

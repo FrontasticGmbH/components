@@ -61,7 +61,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
               <div className="relative mx-auto max-w-4xl md:px-8 xl:px-0">
                 <div className="pt-10 pb-16">
                   <div className="w-full">
-                    <h1 className="text-center text-3xl font-extrabold text-gray-900 sm:text-left">
+                    <h1 className="text-center text-3xl font-extrabold text-gray-900 dark:text-light-100 sm:text-left">
                       {formatAccountMessage({ id: 'settings', defaultMessage: 'Settings' })}
                     </h1>
                   </div>
@@ -96,7 +96,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
                                 className={classNames(
                                   tab.href === hash
                                     ? 'border-accent-400 text-accent-400'
-                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-light-100',
                                   'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
                                 )}
                               >

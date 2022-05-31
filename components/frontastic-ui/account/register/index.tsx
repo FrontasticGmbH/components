@@ -94,10 +94,10 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="relative h-12">
+          <div className="relative h-12 dark:invert">
             <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-light-100">
             {formatAccountMessage({ id: 'account.create.new', defaultMessage: 'Create a new account' })}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -109,12 +109,12 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="bg-white py-8 px-4 shadow dark:bg-primary-200 sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600" dangerouslySetInnerHTML={{ __html: success }}></p>}
               {error && <p className="text-sm text-accent-400">{error}</p>}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-light-100">
                   {formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
                 </label>
                 <div className="mt-1">
@@ -131,7 +131,7 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-light-100">
                   {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
                 </label>
                 <div className="mt-1">
@@ -148,7 +148,10 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
               </div>
 
               <div>
-                <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="confirm-password"
+                  className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                >
                   {formatAccountMessage({ id: 'password.confirm', defaultMessage: 'Confirm Password' })}
                 </label>
                 <div className="mt-1">

@@ -18,16 +18,18 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
   return (
     <section
       aria-labelledby="summary-heading"
-      className="mt-16 rounded-lg bg-gray-50 py-6 px-4 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+      className="mt-16 rounded-lg bg-gray-50 py-6 px-4 dark:bg-primary-200 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
     >
-      <h2 id="summary-heading" className="text-lg font-medium text-gray-900">
+      <h2 id="summary-heading" className="text-lg font-medium text-gray-900 dark:text-light-100">
         {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order Summary' })}
       </h2>
 
       <dl className="mt-6 space-y-4">
         <div className="flex items-center justify-between">
-          <dt className="text-sm text-gray-600">{formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}</dt>
-          <dd className="text-sm font-medium text-gray-900">
+          <dt className="text-sm text-gray-600 dark:text-light-100">
+            {formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}
+          </dt>
+          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
             {CurrencyHelpers.formatForCurrency(
               cart.lineItems.reduce(
                 (prev, current) =>
@@ -42,7 +44,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
           </dd>
         </div>
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="flex items-center text-sm text-gray-600">
+          <dt className="flex items-center text-sm text-gray-600 dark:text-light-100">
             <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
             <NextLink href="#">
               <a className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
@@ -56,13 +58,13 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
               </a>
             </NextLink>
           </dt>
-          <dd className="text-sm font-medium text-gray-900">
+          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
             {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0].price || {})}
           </dd>
         </div>
 
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="flex text-sm text-gray-600">
+          <dt className="flex text-sm text-gray-600 dark:text-light-100">
             <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
             <NextLink href="#">
               <a className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
@@ -76,7 +78,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
               </a>
             </NextLink>
           </dt>
-          <dd className="text-sm font-medium text-gray-900">
+          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
             {CurrencyHelpers.formatForCurrency(
               cart.lineItems.reduce(
                 (prev, current) =>
@@ -97,10 +99,10 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
           </dd>
         </div>
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="text-base font-medium text-gray-900">
+          <dt className="text-base font-medium text-gray-900 dark:text-light-100">
             {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
           </dt>
-          <dd className="text-base font-medium text-gray-900">
+          <dd className="text-base font-medium text-gray-900 dark:text-light-100">
             {CurrencyHelpers.formatForCurrency(CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0].price))}
           </dd>
         </div>

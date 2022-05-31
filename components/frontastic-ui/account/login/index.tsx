@@ -134,10 +134,10 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="relative h-12">
+          <div className="relative h-12 dark:invert">
             <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-light-100">
             {formatAccountMessage({ id: 'account.sign.in', defaultMessage: 'Sign in to your account' })}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -152,12 +152,12 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="bg-white py-8 px-4 shadow dark:bg-primary-200 sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {success && <p className="text-sm text-green-600">{success}</p>}
               {error && <p className="text-sm text-accent-400">{error}</p>}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-light-100">
                   {formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
                 </label>
                 <div className="mt-1">
@@ -175,7 +175,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
 
               {!resendPasswordReset && (
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-light-100">
                     {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
                   </label>
                   <div className="mt-1">
@@ -210,7 +210,7 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                         className="h-4 w-4 rounded border-gray-300 text-accent-400 focus:ring-accent-500"
                         onChange={handleCheckboxChange}
                       />
-                      <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                      <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900 dark:text-light-100">
                         {formatMessage({ id: 'rememberMe', defaultMessage: 'Remember me' })}
                       </label>
                     </div>

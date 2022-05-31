@@ -50,11 +50,11 @@ const Header: React.FC<HeaderProps> = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed-screen-width lg:relative-width bg-white">
+    <div className="fixed-screen-width lg:relative-width">
       {/* Mobile menu */}
       <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={headerNavigation} />
 
-      <header className="relative bg-white">
+      <header className="relative bg-white dark:bg-primary-400">
         {tagline && (
           <p className="flex items-center justify-center bg-primary-400 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             <Typography>{tagline}</Typography>
@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({
                     src={!logo.media ? logo : ''}
                     width={100}
                     height={45}
-                    className="h-7 w-auto sm:h-10"
+                    className="h-7 w-auto dark:invert sm:h-10"
                     alt="Logo"
                   />
                 </div>
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-1 items-center lg:hidden">
                 <button
                   type="button"
-                  className="-ml-2 rounded-md bg-white p-2 text-primary-400"
+                  className="-ml-2 rounded-md bg-none p-2 text-primary-400 dark:text-light-100"
                   onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({
                     <ReferenceLink
                       key={id}
                       target={link.reference}
-                      className="flex items-center text-base font-medium text-primary-400 hover:text-primary-500"
+                      className="flex items-center text-base font-medium text-primary-400 hover:text-primary-500 dark:text-light-100"
                     >
                       <Typography>{link.name}</Typography>
                     </ReferenceLink>
@@ -146,7 +146,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <div className="flex flex-1 items-center justify-end">
                 <div className="w-fit-content flex items-center">
-                  <DarkModeWidget className="mr-4" />
+                  <DarkModeWidget className="mr-4 dark:text-light-100" />
                   <SearchButton />
                   <AccountButton accountLink={accountLink} />
 

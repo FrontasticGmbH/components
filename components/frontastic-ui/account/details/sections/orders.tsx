@@ -16,10 +16,10 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
   return (
-    <div className="bg-white">
+    <div>
       <div className="mt-10">
         <div className="space-y-1">
-          <h3 className="text-lg font-medium leading-6 text-gray-900">
+          <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-light-100">
             {formatAccountMessage({ id: 'orders.history', defaultMessage: 'My order history' })}
           </h3>
           <p className="max-w-2xl text-sm text-gray-500">
@@ -90,31 +90,34 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                     </caption>
                     <thead className="sr-only text-left text-sm text-gray-800 sm:not-sr-only">
                       <tr>
-                        <th scope="col" className="py-3 pr-8 font-normal sm:w-2/5 lg:w-1/3">
+                        <th scope="col" className="py-3 pr-8 font-normal dark:text-light-100 sm:w-2/5 lg:w-1/3">
                           {formatProductMessage({
                             id: 'product',
                             defaultMessage: 'Product',
                           })}
                         </th>
-                        <th scope="col" className="hidden w-1/5 py-3 pr-8 font-normal sm:table-cell">
+                        <th
+                          scope="col"
+                          className="hidden w-1/5 py-3 pr-8 font-normal dark:text-light-100 sm:table-cell"
+                        >
                           {formatProductMessage({
                             id: 'price',
                             defaultMessage: 'Price',
                           })}
                         </th>
-                        <th scope="col" className="hidden py-3 pr-8 font-normal sm:table-cell">
+                        <th scope="col" className="hidden py-3 pr-8 font-normal dark:text-light-100 sm:table-cell">
                           {formatProductMessage({
                             id: 'size',
                             defaultMessage: 'Size',
                           })}
                         </th>
-                        <th scope="col" className="hidden py-3 pr-8 font-normal sm:table-cell">
+                        <th scope="col" className="hidden py-3 pr-8 font-normal dark:text-light-100 sm:table-cell">
                           {formatAccountMessage({
                             id: 'orders.status',
                             defaultMessage: 'Order status',
                           })}
                         </th>
-                        <th scope="col" className="w-0 py-3 text-right font-normal">
+                        <th scope="col" className="w-0 py-3 text-right font-normal dark:text-light-100">
                           {formatProductMessage({
                             id: 'product.info',
                             defaultMessage: 'Product information',
@@ -133,25 +136,27 @@ const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders })
                                 className="mr-6 h-16 w-16 rounded object-cover object-center"
                               />
                               <div>
-                                <div className="font-medium text-gray-900">{product.name}</div>
-                                <div className="mt-1 sm:hidden">
+                                <div className="font-medium text-gray-900 dark:text-light-100">{product.name}</div>
+                                <div className="mt-1 dark:text-light-100 sm:hidden">
                                   {(product.price.centAmount / 100).toFixed(2)}
                                   {product.price.currencyCode}
                                 </div>
                               </div>
                             </div>
                           </td>
-                          <td className="hidden py-6 pr-8 sm:table-cell">
+                          <td className="hidden py-6 pr-8 dark:text-light-100 sm:table-cell">
                             {(product.price.centAmount / 100).toFixed(2)}
                             {product.price.currencyCode}
                           </td>
-                          <td className="hidden py-6 pr-8 sm:table-cell">{product.variant.attributes.size}</td>
-                          <td className="hidden py-6 pr-8 sm:table-cell">{order.orderState}</td>
-                          <td className="whitespace-nowrap py-6 text-right font-medium">
+                          <td className="hidden py-6 pr-8 dark:text-light-100 sm:table-cell">
+                            {product.variant.attributes.size}
+                          </td>
+                          <td className="hidden py-6 pr-8 dark:text-light-100 sm:table-cell">{order.orderState}</td>
+                          <td className="whitespace-nowrap py-6 text-right font-medium dark:text-light-100">
                             {
                               //TODO: get product href and link
                             }
-                            <NextLink href={product._url}>
+                            <NextLink href={product._url || ''}>
                               <a className="text-accent-400">
                                 {formatProductMessage({
                                   id: 'product.view',

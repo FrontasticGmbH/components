@@ -40,7 +40,7 @@ const SearchButton: React.FC = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="cursor-pointer" onClick={startSearch}>
+        <div className="cursor-pointer dark:text-light-100" onClick={startSearch}>
           <span className="sr-only">Search</span>
           <SearchIcon className="h-6 w-6" aria-hidden="true" />
         </div>

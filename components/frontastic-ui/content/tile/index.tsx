@@ -30,18 +30,18 @@ const Tile: React.FC<TileProps> = ({
           media={image.media ? image.media : { media: '' }}
           src={!image.media ? image : ''}
           layout="fill"
-          className="object-cover object-top opacity-70 md:opacity-100"
+          className="object-cover object-top opacity-70 dark:mix-blend-multiply md:opacity-100"
           alt={header}
         />
       </div>
 
       <div className="absolute top-1/2 left-4 flex -translate-y-1/2 flex-col text-left md:left-10 md:max-w-[30%]">
-        <div className="mb-1 text-base font-medium">
+        <div className="mb-1 text-base font-medium dark:text-light-100">
           <Typography>{subtitle}</Typography>
         </div>
 
         <h2
-          className={`whitespace-pre-line font-extrabold tracking-tight ${headerColor} text-center text-2xl sm:text-left lg:text-5xl`}
+          className={`whitespace-pre-line font-extrabold tracking-tight ${headerColor} text-center text-2xl dark:text-light-100 sm:text-left lg:text-5xl`}
         >
           <Typography>{header}</Typography>
         </h2>

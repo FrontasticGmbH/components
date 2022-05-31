@@ -35,17 +35,17 @@ const SortingDisclosure: FC<SortingDisclosureProps> = ({ updateSortingParams }) 
   ];
 
   useEffect(() => {
-    const defaultSortingParamID = router.query['sortAttributes[0][price]'] as sortingParamID;
+    const defaultSortingParamID = router?.query['sortAttributes[0][price]'] as sortingParamID;
     setCurrentSortingParam(defaultSortingParamID);
-  }, [router.query]);
+  }, [router?.query]);
 
   return (
     <div className="border-y border-gray-200 py-6">
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-gray-400 hover:text-gray-500">
-              <span className="font-medium text-neutral-600">
+            <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-gray-400 hover:text-gray-500 dark:bg-primary-400">
+              <span className="font-medium text-neutral-600 dark:text-light-100">
                 {formatMessage({ id: 'sortBy', defaultMessage: 'Sort by' })}
               </span>
               <span className="ml-6 flex items-center">

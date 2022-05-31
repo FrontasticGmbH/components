@@ -89,7 +89,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   }, [added]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-primary-400">
       <div className=" mx-auto max-w-2xl md:py-4 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}
@@ -147,7 +147,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
           {/* Product info */}
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product.name}</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100">{product.name}</h1>
 
             <div className="mt-3">
               <h2 className="sr-only">
@@ -168,7 +168,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
             <form className="mt-6">
               {/* Colors */}
               <div>
-                <h3 className="text-sm font-medium text-gray-900">
+                <h3 className="text-sm font-medium text-gray-900 dark:text-light-100">
                   {formatProductMessage({ id: 'color', defaultMessage: 'Color' })}
                 </h3>
 
@@ -210,7 +210,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               {product.sizes.length > 1 && (
                 <div className="mt-8">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-sm font-medium text-gray-900">
+                    <h2 className="text-sm font-medium text-gray-900 dark:text-light-100">
                       {formatProductMessage({ id: 'size', defaultMessage: 'Size' })}
                     </h2>
                   </div>
@@ -226,7 +226,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             classNames(
                               active || selectedSize.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
                               checked
-                                ? 'bg-transparent text-gray-900 hover:bg-gray-50'
+                                ? 'bg-transparent text-gray-900 hover:bg-gray-50 dark:text-light-100'
                                 : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
                               'flex cursor-pointer items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1',
                             )
@@ -296,7 +296,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
                               <span
                                 className={classNames(
-                                  open ? 'text-accent-400' : 'text-gray-900',
+                                  open ? 'text-accent-400' : 'text-gray-900 dark:text-light-100',
                                   'text-sm font-medium',
                                 )}
                               >

@@ -14,8 +14,8 @@ const PriceFilterDisclosure: FC<PriceFilterDisclosureProps> = ({ products, facet
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-gray-400 hover:text-gray-500">
-              <span className="font-medium text-neutral-600">
+            <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-gray-400 hover:text-gray-500 dark:bg-primary-400">
+              <span className="font-medium text-neutral-600 dark:text-light-100">
                 {formatMessage({ id: 'price', defaultMessage: 'Price' })}
               </span>
               <span className="ml-6 flex items-center">

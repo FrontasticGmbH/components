@@ -33,7 +33,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
 
   return (
     <div className="mx-auto max-w-2xl pt-8 pb-16 lg:max-w-3xl lg:pt-4">
-      <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
         {formatWishlistMessage({ id: 'wishlist.items', defaultMessage: 'Wishlist Items' })}
       </h1>
       {loading ? (
@@ -60,20 +60,22 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
                     <h4 className="text-sm">
                       <p
                         onClick={() => goToProductPage(item._url)}
-                        className="cursor-pointer font-medium text-gray-700 hover:text-gray-800"
+                        className="cursor-pointer font-medium text-gray-700 hover:text-gray-800 dark:text-light-100"
                       >
                         {item.name}
                       </p>
                     </h4>
                     {isLargerThanMobile ? (
-                      <p className="ml-4 text-sm font-medium text-gray-900">{item.variant.sku}</p>
+                      <p className="ml-4 text-sm font-medium text-gray-900 dark:text-light-100">{item.variant.sku}</p>
                     ) : null}
                   </div>
-                  {isLargerThanMobile ? <p className="mt-1 text-sm text-gray-500">{item.lineItemId}</p> : null}
+                  {isLargerThanMobile ? (
+                    <p className="mt-1 text-sm text-gray-500 dark:text-light-100">{item.lineItemId}</p>
+                  ) : null}
                 </div>
 
                 <div className="mt-4 flex flex-1 items-end justify-between">
-                  <p className="flex items-center space-x-2 text-sm text-gray-700">
+                  <p className="flex items-center space-x-2 text-sm text-gray-700 dark:text-light-100">
                     {isLargerThanMobile ? (
                       <svg
                         className="h-5 w-5 shrink-0 text-gray-300"

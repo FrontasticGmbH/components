@@ -3,6 +3,7 @@ import React, { useCallback, useState, createContext, useContext } from 'react';
 const initialState = {
   enabled: false,
   toggle: () => {},
+  mode: 'light',
 };
 
 export const DarkModeContext = createContext(initialState);
@@ -10,6 +11,9 @@ export const DarkModeContext = createContext(initialState);
 const DarkModeProvider: React.FC = ({ children }) => {
   //Is dark mode active?
   const [enabled, setEnabled] = useState(false);
+
+  //current active mode
+  const mode = enabled ? 'dark' : 'light';
 
   //Toggle dark mode
   const toggle = useCallback(() => {
@@ -22,6 +26,7 @@ const DarkModeProvider: React.FC = ({ children }) => {
   const value = {
     enabled,
     toggle,
+    mode,
   };
 
   return (

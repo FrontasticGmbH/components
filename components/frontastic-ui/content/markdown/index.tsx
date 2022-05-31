@@ -14,7 +14,7 @@ const Markdown: React.FC<Props> = ({ text, className }) => {
   }
 
   return (
-    <div className="markdown">
+    <div className="markdown dark:text-light-100">
       <style>
         {`
         .markdown h1 {

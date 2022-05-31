@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
 
   return (
     <footer aria-labelledby="footer-heading">
-      <div className="mx-auto w-full bg-gray-100 px-6 lg:px-8">
+      <div className="mx-auto w-full bg-gray-100 px-6 dark:bg-primary-400 lg:px-8">
         <div className="mx-auto max-w-5xl py-10 px-2 xl:grid xl:grid-cols-2 xl:gap-8">
           <div
             className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${(columns.length + 1).toString()} xl:col-span-2`}
@@ -52,14 +52,17 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
                 <div>
                   <div className="flex space-x-2">
                     {renderIcon(column.icon)}
-                    <h3 className="text-sm font-medium text-gray-800">
+                    <h3 className="text-sm font-medium text-gray-800 dark:text-light-100">
                       <Typography>{column.header}</Typography>
                     </h3>
                   </div>
                   <ul role="list" className="mt-6 space-y-3">
                     {column.links.map((item, i) => (
                       <li key={i} className="text-sm">
-                        <ReferenceLink target={item.reference} className="px-6 text-gray-700 hover:text-gray-800">
+                        <ReferenceLink
+                          target={item.reference}
+                          className="px-6 text-gray-700 hover:text-gray-800 dark:text-light-100"
+                        >
                           <Typography>{item.name}</Typography>
                         </ReferenceLink>
                       </li>
@@ -71,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ columns, copyright }) => {
             <div className="justify-left md:justify-center">
               <div className="md:justify-left flex space-x-2">
                 {renderIcon('speaker')}
-                <h3 className="text-sm font-medium text-gray-800">
+                <h3 className="text-sm font-medium text-gray-800 dark:text-light-100">
                   <Typography>Language</Typography>
                 </h3>
               </div>
