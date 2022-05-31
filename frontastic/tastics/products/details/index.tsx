@@ -29,7 +29,7 @@ function ProductDetailsTastic({ data }) {
   // features..
   const colors = [
     ...new Map(
-      product.variants.map((v: Variant) => [
+      product.variants?.map((v: Variant) => [
         v.attributes.color?.label,
         {
           name: v.attributes.color?.label,
@@ -43,7 +43,7 @@ function ProductDetailsTastic({ data }) {
 
   const sizes = [
     ...new Map(
-      product.variants.map((v: Variant) => [v.attributes.commonSize?.label, v.attributes.commonSize]),
+      product.variants?.map((v: Variant) => [v.attributes.commonSize?.label, v.attributes.commonSize]),
     ).values(),
   ] as UISize[];
 
@@ -57,7 +57,7 @@ function ProductDetailsTastic({ data }) {
     variants: product.variants,
     price: variant.price,
     // rating: 4,
-    images: variant.images.map((img: string, id: number) => ({
+    images: variant.images?.map((img: string, id: number) => ({
       id: `${variant.sku}-${id}`,
       src: img,
       alt: variant.sku,
