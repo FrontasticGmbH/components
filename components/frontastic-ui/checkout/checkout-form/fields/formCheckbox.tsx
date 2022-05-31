@@ -54,21 +54,19 @@ const FormCheckbox = ({
   inverseLabel,
 }: Props) => {
   let labelElement = (
-    <label htmlFor={name} className={labelClassNames ? labelClassNames : 'text-sm font-medium text-gray-900'}>
+    <label htmlFor={name} className={labelClassNames || 'text-sm font-medium text-gray-900 dark:text-light-100'}>
       {label}
     </label>
   );
 
   let inputElement = (
-    <div className={inputContainerClassNames ? inputContainerClassNames : 'flex h-5 items-center'}>
+    <div className={inputContainerClassNames || 'flex h-5 items-center'}>
       <input
         type="checkbox"
         id={name}
         name={name}
         autoComplete={inputAutoComplete}
-        className={
-          inputClassNames ? inputClassNames : 'h-4 w-4 rounded border-gray-300 text-accent-400 focus:ring-accent-400'
-        }
+        className={inputClassNames || 'h-4 w-4 rounded border-gray-300 text-accent-400 focus:ring-accent-400'}
         onChange={(e: React.FormEvent) => onChange((e.target as HTMLInputElement).checked)}
         checked={checked}
       />

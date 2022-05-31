@@ -98,7 +98,7 @@ const General = () => {
       {sections.map((section, index) => (
         <div className="mt-10 divide-y divide-gray-200" key={index}>
           <div className="space-y-1">
-            <h3 className="text-lg font-medium leading-6 text-gray-900">{section.headline}</h3>
+            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-light-100">{section.headline}</h3>
             <p className="max-w-2xl text-sm text-gray-500">{section.subline}</p>
           </div>
           <div className="mt-6">

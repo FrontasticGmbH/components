@@ -57,7 +57,7 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
   useEffect(() => {
     setInputWidth(widthRef.current.clientWidth);
     setDefaults();
-  }, [router.asPath]);
+  }, [router?.asPath]);
 
   useEffect(() => {
     const params = [

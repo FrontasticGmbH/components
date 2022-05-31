@@ -78,10 +78,10 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="relative h-12">
+          <div className="relative h-12 dark:invert">
             <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-light-100">
             {formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -93,11 +93,11 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="bg-white py-8 px-4 shadow dark:bg-primary-200 sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {error && <p className="text-sm text-accent-400">{error}</p>}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-light-100">
                   {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
                 </label>
                 <div className="mt-1">
@@ -114,7 +114,10 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
               </div>
 
               <div>
-                <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="confirm-password"
+                  className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                >
                   {formatAccountMessage({ id: 'password.confirm', defaultMessage: 'Confirm Password' })}
                 </label>
                 <div className="mt-1">

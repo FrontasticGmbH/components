@@ -47,7 +47,7 @@ const Sections = () => {
                     className={classNames(
                       tab.href === selectedTab
                         ? 'border-accent-400 text-accent-400'
-                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-light-100',
                       'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
                     )}
                   >

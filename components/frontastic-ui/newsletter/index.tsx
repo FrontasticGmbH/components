@@ -85,14 +85,16 @@ export default function Newsletter({
   };
 
   return (
-    <div className="mx-auto max-w-7xl rounded-lg bg-gray-100 py-2 px-4 sm:px-6 lg:px-0">
+    <div className="mx-auto max-w-7xl rounded-lg bg-gray-100 py-2 px-4 dark:bg-primary-200 sm:px-6 lg:px-0">
       {!isConfirm ? (
         <div className="relative py-3 px-6 text-neutral-700 md:py-6 md:px-12 lg:py-9 lg:px-16 xl:flex xl:items-center">
           <div className="xl:w-0 xl:flex-1">
-            <h2 className="mt-2 text-center text-2xl font-bold tracking-[0.010em] md:text-left">
+            <h2 className="mt-2 text-center text-2xl font-bold tracking-[0.010em] dark:text-light-100 md:text-left">
               {headline || fallbackHeadline}
             </h2>
-            <p className="mt-3 max-w-2xl text-center text-sm md:text-left">{description || fallbackDescription}</p>
+            <p className="mt-3 max-w-2xl text-center text-sm dark:text-light-100 md:text-left">
+              {description || fallbackDescription}
+            </p>
           </div>
           <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
             <form action="#" className="mt-4 sm:mx-auto sm:flex sm:max-w-xl xl:px-4" onSubmit={onSubmit}>
@@ -116,7 +118,7 @@ export default function Newsletter({
                 </button>
               </div>
             </form>
-            <p className="mt-2 max-w-md text-left text-xs text-neutral-600 xl:px-5">
+            <p className="mt-2 max-w-md text-left text-xs text-neutral-600 dark:text-light-100 xl:px-5">
               <Typography>{disclaimer || fallbackDisclaimer}</Typography>
             </p>
           </div>

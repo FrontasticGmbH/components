@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Address } from '@Types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useI18n from 'helpers/hooks/useI18n';
-import { useAccount } from 'frontastic';
+import { useAccount, useDarkMode } from 'frontastic';
 
 export interface CreateAddressProps {
   open?: boolean;
@@ -12,6 +12,9 @@ export interface CreateAddressProps {
 }
 
 const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
+  //Darkmode
+  const { mode } = useDarkMode();
+
   //i18n messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage } = useFormat({ name: 'common' });
@@ -48,7 +51,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className="fixed inset-0 z-10 overflow-y-auto" onClose={onClose}>
+      <Dialog className={`${mode} fixed inset-0 z-10 overflow-y-auto`} onClose={onClose}>
         <>
           <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-left sm:block sm:p-0">
             <Transition.Child
@@ -78,12 +81,12 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
             >
               <div className="absolute inset-0" onClick={onClose}>
                 <div
-                  className="absolute top-1/2 left-1/2 h-[90vh] w-[90%] max-w-[800px] -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white py-16 px-4 sm:px-6 lg:py-24 lg:px-8"
+                  className="absolute top-1/2 left-1/2 h-[90vh] w-[90%] max-w-[800px] -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white py-16 px-4 dark:bg-primary-200 sm:px-6 lg:py-24 lg:px-8"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="relative mx-auto max-w-xl">
                     <div className="text-center">
-                      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
                         {formatAccountMessage({ id: 'address.create.headline', defaultMessage: 'New Address' })}
                       </h2>
                       <p className="mt-4 text-lg leading-6 text-gray-400">
@@ -96,7 +99,10 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                     <div className="mt-12">
                       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                         <div>
-                          <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="first-name"
+                            className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                          >
                             {formatMessage({ id: 'firstName', defaultMessage: 'First Name' })}
                           </label>
                           <div className="mt-1">
@@ -112,7 +118,10 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                           </div>
                         </div>
                         <div>
-                          <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="last-name"
+                            className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                          >
                             {formatMessage({ id: 'lastName', defaultMessage: 'Last Name' })}
                           </label>
                           <div className="mt-1">
@@ -128,7 +137,10 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                           </div>
                         </div>
                         <div className="">
-                          <label htmlFor="street-number" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="street-number"
+                            className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                          >
                             {formatMessage({ id: 'street.number', defaultMessage: 'Street Number' })}
                           </label>
                           <div className="mt-1">
@@ -143,7 +155,10 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                           </div>
                         </div>
                         <div className="">
-                          <label htmlFor="street-name" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="street-name"
+                            className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                          >
                             {formatMessage({ id: 'street.name', defaultMessage: 'Street Name' })}
                           </label>
                           <div className="mt-1">
@@ -159,7 +174,10 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                           </div>
                         </div>
                         <div className="sm:col-span-2">
-                          <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="phone"
+                            className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                          >
                             {formatMessage({ id: 'phone', defaultMessage: 'Phone' })}
                           </label>
                           <div className="mt-1">
@@ -175,7 +193,10 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                           </div>
                         </div>
                         <div>
-                          <label htmlFor="postal-code" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="postal-code"
+                            className="block text-sm font-medium text-gray-700 dark:text-light-100"
+                          >
                             {formatMessage({ id: 'zipCode', defaultMessage: 'Postal Code' })}
                           </label>
                           <div className="mt-1">
@@ -191,7 +212,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                           </div>
                         </div>
                         <div>
-                          <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                          <label htmlFor="city" className="block text-sm font-medium text-gray-700 dark:text-light-100">
                             {formatMessage({ id: 'city', defaultMessage: 'City' })}
                           </label>
                           <div className="mt-1">
@@ -212,7 +233,6 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               id: 'address.setDefault.delivery',
                               defaultMessage: 'Set as default delivery address',
                             })}
-                            ;
                           </legend>
                           <div className="relative flex items-start">
                             <div className="flex h-5 items-center">
@@ -231,7 +251,6 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                                   id: 'address.setDefault.delivery',
                                   defaultMessage: 'Set as default delivery address',
                                 })}
-                                ;
                               </label>
                             </div>
                           </div>
@@ -242,7 +261,6 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               id: 'address.setDefault.billing',
                               defaultMessage: 'Set as default billing address',
                             })}
-                            ;
                           </legend>
                           <div className="relative flex items-start">
                             <div className="flex h-5 items-center">

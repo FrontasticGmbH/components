@@ -15,7 +15,7 @@ const AccordionBtn: React.FC<AccordionProps> = ({ index, accordionListLength, se
     setShowContent((prevState) => !prevState);
   }
   return (
-    <div className="flex flex-col  items-center rounded-t-lg">
+    <div className="flex flex-col items-center rounded-t-lg">
       <button
         onClick={toggleAccordion}
         className={`
@@ -24,9 +24,8 @@ const AccordionBtn: React.FC<AccordionProps> = ({ index, accordionListLength, se
         items-center justify-between
         py-2 px-4
         text-base font-medium
-        ${showContent ? 'text-accent-400' : 'text-primary-400'}
+        ${showContent ? 'text-accent-400' : 'text-primary-400 dark:text-light-100'}
         ${index === accordionListLength - 1 && !showContent ? 'border-0' : 'border-b-2'}
-        bg-white
         transition duration-300 ease-in-out`}
       >
         {sectionTitle} {' #'} {index + 1}
@@ -38,6 +37,7 @@ const AccordionBtn: React.FC<AccordionProps> = ({ index, accordionListLength, se
              transition
              duration-300
              ease-in-out
+             dark:text-light-100
              ${showContent ? 'rotate-180 text-accent-400' : 'rotate-0 text-primary-400'}
              `}
           />
@@ -51,7 +51,9 @@ const AccordionBtn: React.FC<AccordionProps> = ({ index, accordionListLength, se
           w-full items-center overflow-hidden px-5
           transition
           duration-300
-          ease-in-out`}
+          ease-in-out
+          dark:text-light-100
+          `}
       >
         <div
           className={`

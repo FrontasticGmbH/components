@@ -28,10 +28,10 @@ export default function ProductSlider({ products, title, subline, ctaLabel, ctaL
   const sliderConfiguration: SliderProps = sliderFixedMood;
 
   return (
-    <div className="bg-white py-4 lg:mx-auto lg:max-w-7xl">
+    <div className="bg-white py-4 dark:bg-primary-400 lg:mx-auto lg:max-w-7xl">
       <div className="w-auto text-center">
-        <h2 className="text-xl tracking-tight text-gray-400">{subline}</h2>
-        <h2 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">{title}</h2>
+        <h2 className="text-xl tracking-tight text-gray-400 dark:text-light-100">{subline}</h2>
+        <h2 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-light-100">{title}</h2>
       </div>
       {ctaLabel && ctaLink && (
         <div className="flex items-center justify-end px-4 sm:px-6 lg:px-0">

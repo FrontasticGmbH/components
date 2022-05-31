@@ -24,12 +24,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ children, Separator }) => {
           if (index < React.Children.count(children) - 1) {
             return (
               <>
-                <b>{Child}</b>
-                <span>{Separator}</span>
+                <b className="dark:text-light-100">{Child}</b>
+                <span className="dark:text-light-100">{Separator}</span>
               </>
             );
           }
-          return <span className="text-gray-400">{Child}</span>;
+          return <span className="text-gray-400 dark:text-accent-400">{Child}</span>;
         })}
       </ol>
     </nav>

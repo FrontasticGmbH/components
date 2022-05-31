@@ -33,7 +33,7 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
             <div className="flex justify-between">
               <h3 className="text-sm">
                 <p
-                  className="cursor-pointer font-medium text-gray-700 hover:text-gray-800"
+                  className="cursor-pointer font-medium text-gray-700 hover:text-gray-800 dark:text-light-100"
                   onClick={() => goToProductPage(lineItem._url)}
                 >
                   {lineItem.name}
@@ -42,19 +42,19 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
             </div>
             <div className="mt-1 flex text-sm">
               {lineItem.variant.attributes?.color && (
-                <p className="text-gray-500">
+                <p className="text-gray- dark:text-light-100">
                   {StringHelpers.capitaliseFirstLetter(lineItem.variant.attributes.color.label)}
                 </p>
               )}
               {lineItem.variant.attributes?.size && (
-                <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
+                <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500 dark:text-light-100">
                   {StringHelpers.isNumeric(lineItem.variant.attributes.size)
                     ? lineItem.variant.attributes.size
                     : StringHelpers.capitaliseFirstLetter(lineItem.variant.attributes.size)}
                 </p>
               )}
             </div>
-            <p className="mt-1 text-sm font-medium text-gray-900">
+            <p className="mt-1 text-sm font-medium text-gray-900 dark:text-light-100">
               {CurrencyHelpers.formatForCurrency(lineItem.price)}
             </p>
             <div className=" mt-5 grid grid-cols-6 gap-2 sm:mt-24 sm:grid-cols-6 md:grid-cols-5">
@@ -73,7 +73,7 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
               >
                 -
               </button>
-              <p className="h-7 w-7 rounded-md border border-gray-300 pt-1 text-center text-sm font-medium text-gray-700 shadow-sm">
+              <p className="h-7 w-7 rounded-md border border-gray-300 pt-1 text-center text-sm font-medium text-gray-700 shadow-sm dark:text-light-100">
                 {lineItem.count}
               </p>
               <button

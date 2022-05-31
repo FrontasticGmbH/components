@@ -31,7 +31,7 @@ const Highlights = () => {
           className="flex flex-1 items-center justify-center gap-5 py-4 px-8 lg:justify-items-center lg:px-0"
         >
           <Icon size={30} color="#CE3E72" />
-          <span>{text}</span>
+          <span className="dark:text-light-100">{text}</span>
         </div>
       ))}
     </HighlightBar>
