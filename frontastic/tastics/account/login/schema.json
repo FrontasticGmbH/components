@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/account/login",
-  "name": "Frontastic UI account login",
+  "tasticType": "commercetools/ui/account/login",
+  "name": "Commercetools UI account login",
   "category": "Account",
   "icon": "account_circle",
   "schema": [

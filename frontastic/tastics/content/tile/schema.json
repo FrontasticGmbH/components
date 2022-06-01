@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/content/tile",
-  "name": "Frontastic UI Tile",
+  "tasticType": "commercetools/ui/content/tile",
+  "name": "Commercetools UI Tile",
   "icon": "image",
   "category": "Content",
   "schema": [

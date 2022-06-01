@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/content/markdown",
-  "name": "Frontastic UI markdown",
+  "tasticType": "commercetools/ui/content/markdown",
+  "name": "Commercetools UI markdown",
   "icon": "wrap_text",
   "category": "Content",
   "schema": [

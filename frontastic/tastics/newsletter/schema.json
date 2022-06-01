@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/content/newsletter",
-  "name": "Frontastic UI newsletter",
+  "tasticType": "commercetools/ui/content/newsletter",
+  "name": "Commercetools UI newsletter",
   "category": "Content",
   "icon": "email",
   "schema": [

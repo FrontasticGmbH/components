@@ -1,5 +1,5 @@
 {
-  "tasticType": "frontastic/ui/content/showcase",
+  "tasticType": "commercetools/ui/content/showcase",
   "name": "Show Case",
   "category": "Content",
   "icon": "wrap_text",

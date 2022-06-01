@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/wishlist",
-  "name": "Frontastic UI wishlist",
+  "tasticType": "commercetools/ui/wishlist",
+  "name": "Commercetools UI wishlist",
   "icon": "list",
   "category": "Wishlist",
   "schema": [

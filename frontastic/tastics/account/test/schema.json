@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/account/test",
-  "name": "Frontastic UI account test",
+  "tasticType": "commercetools/ui/account/test",
+  "name": "Commercetools UI account test",
   "icon": "menu",
   "category": "Account",
   "schema": []

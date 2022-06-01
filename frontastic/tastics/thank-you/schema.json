@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/thank-you",
-  "name": "Frontastic UI thank you",
+  "tasticType": "commercetools/ui/thank-you",
+  "name": "Commercetools UI thank you",
   "icon": "done",
   "category": "Checkout",
   "schema": []

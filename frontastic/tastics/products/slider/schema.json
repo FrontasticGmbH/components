@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/products/slider",
-  "name": "Frontastic UI product slider",
+  "tasticType": "commercetools/ui/products/slider",
+  "name": "Commercetools UI product slider",
   "icon": "menu",
   "category": "Products",
   "schema": [

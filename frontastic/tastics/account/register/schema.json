@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/account/register",
-  "name": "Frontastic UI account register",
+  "tasticType": "commercetools/ui/account/register",
+  "name": "Commercetools UI account register",
   "category": "Account",
   "icon": "account_circle",
   "schema": [

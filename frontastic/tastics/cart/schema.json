@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/cart",
-  "name": "Frontastic UI cart",
+  "tasticType": "commercetools/ui/cart",
+  "name": "Commercetools UI cart",
   "icon": "shopping_cart",
   "category": "Cart",
   "schema": [

@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/checkout",
-  "name": "Frontastic UI checkout",
+  "tasticType": "commercetools/ui/checkout",
+  "name": "Commercetools UI checkout",
   "icon": "add_shopping_cart",
   "category": "Checkout",
   "schema": [

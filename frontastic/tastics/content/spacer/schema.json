@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/content/spacer",
-  "name": "Frontastic UI spacer",
+  "tasticType": "commercetools/ui/content/spacer",
+  "name": "Commercetools UI spacer",
   "category": "Content",
   "icon": "favorite",
   "schema": [

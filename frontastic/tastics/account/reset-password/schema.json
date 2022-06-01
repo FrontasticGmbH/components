@@ -1,6 +1,6 @@
 {
-  "tasticType": "frontastic/ui/account/reset-password",
-  "name": "Frontastic UI account reset password",
+  "tasticType": "commercetools/ui/account/reset-password",
+  "name": "Commercetools UI account reset password",
   "category": "Account",
   "icon": "account_circle",
   "schema": [
