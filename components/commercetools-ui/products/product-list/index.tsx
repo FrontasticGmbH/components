@@ -94,13 +94,13 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
 
             <h6 className="col-span-2 block text-right lg:hidden">
               {products?.length}
-              {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
+              {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
             </h6>
           </button>
         )}
         <h6 className="col-span-2 hidden text-right lg:block">
           {products?.length}
-          {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
+          {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
         </h6>
       </div>
 
