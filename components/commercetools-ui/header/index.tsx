@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
-import Typography from 'components/frontastic-ui/typography';
+import Typography from 'components/commercetools-ui/typography';
 import { headerNavigation } from 'components/mockData';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import Image from 'frontastic/lib/image';

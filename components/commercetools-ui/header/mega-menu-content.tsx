@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import Typography from 'components/frontastic-ui/typography';
+import Typography from 'components/commercetools-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 const MegaMenuContent = ({ category, categoryIdx }) => {

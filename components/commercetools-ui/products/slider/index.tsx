@@ -1,6 +1,6 @@
 import React from 'react';
 import { Product } from '@Types/product/Product';
-import Slider, { SliderProps } from 'components/frontastic-ui/slider';
+import Slider, { SliderProps } from 'components/commercetools-ui/slider';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import { ReferenceLink, Reference } from 'helpers/reference';
 import { mobile, tablet, desktop } from 'helpers/utils/screensizes';

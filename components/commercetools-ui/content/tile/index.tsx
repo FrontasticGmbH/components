@@ -1,4 +1,4 @@
-import Typography from 'components/frontastic-ui/typography';
+import Typography from 'components/commercetools-ui/typography';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import Image from 'frontastic/lib/image';
 

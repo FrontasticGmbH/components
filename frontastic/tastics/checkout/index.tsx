@@ -1,6 +1,6 @@
 import React from 'react';
-import Checkout from 'components/frontastic-ui/checkout';
-import { countryOptions } from 'components/frontastic-ui/checkout/countryOptions';
+import Checkout from 'components/commercetools-ui/checkout';
+import { countryOptions } from 'components/commercetools-ui/checkout/countryOptions';
 
 const CheckoutTastic = (data) => {
   const shippingCountryOptions = countryOptions

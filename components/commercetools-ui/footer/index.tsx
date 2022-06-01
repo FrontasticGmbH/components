@@ -1,6 +1,6 @@
 import React from 'react';
-import LanguageSwitcher from 'components/frontastic-ui/language-switcher';
-import Typography from 'components/frontastic-ui/typography';
+import LanguageSwitcher from 'components/commercetools-ui/language-switcher';
+import Typography from 'components/commercetools-ui/typography';
 import Column, { Link, Column as FooterColumn } from './column';
 import { renderIcon } from './renderIcon';
 export interface Props {

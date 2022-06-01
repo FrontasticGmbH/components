@@ -1,4 +1,4 @@
-import { EmptyState } from 'components/frontastic-ui/empty-state';
+import { EmptyState } from 'components/commercetools-ui/empty-state';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
 

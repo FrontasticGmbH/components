@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 import { Dialog, Tab, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
-import Typography from 'components/frontastic-ui/typography';
+import Typography from 'components/commercetools-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { ReferenceLink } from 'helpers/reference';
 import { useDarkMode } from 'frontastic';

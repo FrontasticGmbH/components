@@ -1,5 +1,5 @@
 import React from 'react';
-import CartPage from 'components/frontastic-ui/cart';
+import CartPage from 'components/commercetools-ui/cart';
 import { useCart } from 'frontastic/provider';
 
 const CartTastic = ({ data }) => {

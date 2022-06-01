@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Order } from '@Types/cart/Order';
-import OrdersHistory from 'components/frontastic-ui/account/details/sections/orders';
+import OrdersHistory from 'components/commercetools-ui/account/details/sections/orders';
 import { useCart } from 'frontastic/provider';
 
 const AccountOrdersHistoryTastic: React.FC = () => {

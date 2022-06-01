@@ -8,7 +8,7 @@ import { ShippingMethod } from '../../types/cart/ShippingMethod';
 import { Product } from '../../types/product/Product';
 import { LineItem } from '../../types/wishlist/LineItem';
 import { Wishlist } from '../../types/wishlist/Wishlist';
-import { Link } from './frontastic-ui/footer/column';
+import { Link } from './commercetools-ui/footer/column';
 
 const lineItems: LineItem[] = [
   {

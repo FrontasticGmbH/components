@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from 'components/frontastic-ui/footer';
-import Highlights from 'components/frontastic-ui/footer/highlights';
+import Footer from 'components/commercetools-ui/footer';
+import Highlights from 'components/commercetools-ui/footer/highlights';
 
 const FooterTastic = ({ data }) => {
   const columns = [

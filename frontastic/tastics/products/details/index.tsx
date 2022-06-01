@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Product } from '@Types/product/Product';
 import { Variant } from '@Types/product/Variant';
 // import { CurrencyHelpers } from 'helpers/currencyHelpers';
-import ProductDetails, { UIProduct, UIColor, UISize } from 'components/frontastic-ui/products/product-details';
+import ProductDetails, { UIProduct, UIColor, UISize } from 'components/commercetools-ui/products/product-details';
 import { useCart } from 'frontastic';
 import { addToWishlist } from 'frontastic/actions/wishlist';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from 'components/frontastic-ui/header';
+import Header from 'components/commercetools-ui/header';
 import { calculateCartCount } from 'helpers/utils/calculateCartCount';
 import { useCart, useWishlist } from '../../provider/Frontastic';
 

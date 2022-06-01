@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from 'components/frontastic-ui/typography';
+import Typography from 'components/commercetools-ui/typography';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import { renderIcon } from './renderIcon';
 

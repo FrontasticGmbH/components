@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Typography from 'components/frontastic-ui/typography';
+import Typography from 'components/commercetools-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 export interface NewsletterProps {

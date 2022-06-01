@@ -1,5 +1,5 @@
 import React from 'react';
-import Newsletter, { NewsletterProps } from 'components/frontastic-ui/newsletter';
+import Newsletter, { NewsletterProps } from 'components/commercetools-ui/newsletter';
 
 interface Props {
   data: NewsletterProps;

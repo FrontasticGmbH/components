@@ -1,5 +1,5 @@
 import React from 'react';
-import Login, { LoginProps } from 'components/frontastic-ui/account/login';
+import Login, { LoginProps } from 'components/commercetools-ui/account/login';
 
 export interface Props {
   data: LoginProps;

@@ -1,7 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { Order } from '@Types/cart/Order';
-import Spinner from 'components/frontastic-ui/spinner';
+import Spinner from 'components/commercetools-ui/spinner';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Image from 'frontastic/lib/image';
 

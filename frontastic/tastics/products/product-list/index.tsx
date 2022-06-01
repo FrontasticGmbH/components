@@ -1,4 +1,4 @@
-import ProductList from 'components/frontastic-ui/products/product-list';
+import ProductList from 'components/commercetools-ui/products/product-list';
 import { useFormat } from 'helpers/hooks/useFormat';
 
 function ProductListTastic({ data }) {
