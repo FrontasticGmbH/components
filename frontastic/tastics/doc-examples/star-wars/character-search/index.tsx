@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import classnames from 'classnames';
+import React, { useState } from 'react';
 import { fetchApiHub } from 'frontastic/lib/fetch-api-hub';
 
 type Character = {
@@ -36,6 +35,10 @@ const StarWarsCharacterSearch: React.FC<Props> = ({ data }) => {
     });
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(e.target.value);
+  };
+
   return (
     <>
       <div className="w-full max-w-xs">
@@ -46,9 +49,7 @@ const StarWarsCharacterSearch: React.FC<Props> = ({ data }) => {
               type="text"
               placeholder="Character"
               value={inputText}
-              onChange={(e) => {
-                setInputText(e.target.value);
-              }}
+              onChange={handleInputChange}
               className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             ></input>
           </div>
@@ -76,22 +77,10 @@ const StarWarsCharacterSearch: React.FC<Props> = ({ data }) => {
 
           {results.map((character, i) => (
             <div key={i} className="border-t border-gray-200">
-              <div
-                className={classnames('grid grid-cols-7 px-4 py-5 sm:gap-4 sm:px-6', {
-                  'bg-gray-50': i % 2 === 1,
-                })}
-              >
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0">{character.name}</div>
-
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0">{character.mass}</div>
-
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0">{character.height}</div>
-
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0">{character.gender}</div>
-
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0">{character.eyeColor}</div>
-
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0">{character.hairColor}</div>
+              <div className={`grid grid-cols-7 px-4 py-5 sm:gap-4 sm:px-6 ${i % 2 === 1 ?? 'bg-gray-50'}`}>
+                {Object.values(character).map((value) => (
+                  <div className="mt-1 text-sm text-gray-900 sm:mt-0">{value}</div>
+                ))}
               </div>
             </div>
           ))}

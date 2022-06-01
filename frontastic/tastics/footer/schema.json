@@ -289,6 +289,26 @@
           "translatable": false,
           "required": false,
           "type": "string"
+        },
+        {
+          "label": "Links",
+          "field": "copyrightLinks",
+          "type": "group",
+          "fields": [
+            {
+              "label": "Copyright",
+              "field": "name",
+              "translatable": true,
+              "required": false,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "required": true,
+              "type": "reference"
+            }
+          ]
         }
       ]
     }

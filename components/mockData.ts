@@ -8,7 +8,7 @@ import { ShippingMethod } from '../../types/cart/ShippingMethod';
 import { Product } from '../../types/product/Product';
 import { LineItem } from '../../types/wishlist/LineItem';
 import { Wishlist } from '../../types/wishlist/Wishlist';
-import { CopyrightLink } from './frontastic-ui/footer';
+import { Link } from './frontastic-ui/footer/column';
 
 const lineItems: LineItem[] = [
   {
@@ -15255,9 +15255,45 @@ export const footerColumns = [
   },
 ];
 
-export const footerCopyrightLinks: CopyrightLink[] = [
+export const footerCopyrightLinks: Link[] = [
   {
-    name: 'Copyright',
+    name: 'T&C',
+    reference: {
+      openInNewWindow: false,
+      type: 'page-folder',
+      pageFolder: {
+        pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+        name: 'Start',
+        _url: '/',
+        _urls: {
+          de_CH: '/',
+          de_LI: '/',
+          fr_CH: '/',
+          it_CH: '/',
+        },
+      },
+    },
+  },
+  {
+    name: 'Cookies',
+    reference: {
+      openInNewWindow: false,
+      type: 'page-folder',
+      pageFolder: {
+        pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
+        name: 'Start',
+        _url: '/',
+        _urls: {
+          de_CH: '/',
+          de_LI: '/',
+          fr_CH: '/',
+          it_CH: '/',
+        },
+      },
+    },
+  },
+  {
+    name: 'Privacy policy',
     reference: {
       openInNewWindow: false,
       type: 'page-folder',
