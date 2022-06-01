@@ -14,14 +14,16 @@ export function TasticWrapper(props: TasticWrapperProps) {
 
   // inject all datasources into the proper nodes
   // dataSources null check satisfies TS
-  let updatedBlock = dataSources ? injectDataSources(data.configuration, dataSources) : data.configuration;
+  const updatedBlock = dataSources ? injectDataSources(data.configuration, dataSources) : data.configuration;
 
+  /*
   if (dataSources && dataSources['__master']) {
     updatedBlock = {
       ...updatedBlock,
       ...dataSources['__master'],
     };
   }
+  */
 
   return (
     <div
