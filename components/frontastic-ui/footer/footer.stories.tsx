@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { footerColumns, footerCopyrightLinks } from 'components/mockData';
 import Highlights from './highlights';
-import Footer, { FooterProps } from './index';
+import Footer, { Props as FooterProps } from './index';
 
 export default {
   title: 'Frontastic/Footer',
