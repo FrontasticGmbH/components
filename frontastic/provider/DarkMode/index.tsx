@@ -1,4 +1,5 @@
-import React, { useCallback, useState, createContext, useContext } from 'react';
+import React, { useCallback, useState, createContext, useContext, useEffect } from 'react';
+import { PREF_DARK_MODE } from 'constants/localStorage';
 
 const initialState = {
   enabled: false,
@@ -18,7 +19,13 @@ const DarkModeProvider: React.FC = ({ children }) => {
   //Toggle dark mode
   const toggle = useCallback(() => {
     setEnabled(!enabled);
+    window.localStorage.setItem(PREF_DARK_MODE, !enabled ? '1' : '0');
   }, [enabled]);
+
+  //Initial value for darkmode
+  useEffect(() => {
+    setEnabled(window.localStorage.getItem(PREF_DARK_MODE) === '1');
+  }, []);
 
   //Wrapper classname
   const className = `${enabled ? 'dark bg-primary-400' : 'light bg-white'} transition duration-300 ease-out`;

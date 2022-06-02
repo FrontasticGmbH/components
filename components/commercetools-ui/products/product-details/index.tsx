@@ -89,7 +89,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   }, [added]);
 
   return (
-    <div className="bg-white dark:bg-primary-400">
+    <div>
       <div className=" mx-auto max-w-2xl md:py-4 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}

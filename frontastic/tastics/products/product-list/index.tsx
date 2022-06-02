@@ -4,7 +4,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 function ProductListTastic({ data }) {
   if (!data) return <></>;
 
-  const { products, category, previousCursor, nextCursor } = data;
+  const { products, category, previousCursor, nextCursor } = data.data.dataSource;
 
   return (
     <ProductList
