@@ -39,5 +39,9 @@
   "orders.total.amount": "Gesamtsumme",
   "orders.view.invoice": "Rechnung ansehen",
   "orders.status": "Bestellstatus",
-  "settings": "Die Einestellungen"
+  "settings": "Die Einestellungen",
+  "general": "Allgemein",
+  "addresses": "Adressen",
+  "orders": "Bestellungen",
+  "security": "Sicherheit"
 }
