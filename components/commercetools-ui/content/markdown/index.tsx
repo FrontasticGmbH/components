@@ -14,29 +14,7 @@ const Markdown: React.FC<Props> = ({ text, className }) => {
   }
 
   return (
-    <div className="markdown dark:text-light-100">
-      <style>
-        {`
-        .markdown h1 {
-          font-size: 2em;
-        }
-        .markdown h2 {
-          font-size: 1.5em;
-        }
-        .markdown h3 {
-          font-size: 1.17em;
-        }
-        .markdown h4 {
-          font-size: 1em;
-        }
-        .markdown h5 {
-          font-size: 0.83em;
-        }
-        .markdown h6 {
-          font-size: 0.75em;
-        }
-      `}
-      </style>
+    <div className={`${className} markdown dark:text-light-100`}>
       <ReactMarkdown>{text}</ReactMarkdown>
     </div>
   );

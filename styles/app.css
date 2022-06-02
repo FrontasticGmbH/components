@@ -67,4 +67,14 @@ body {
     margin-left: -50vw;
     margin-right: -50vw;
   }
+
+  .markdown {
+    @apply max-w-none overflow-x-hidden;
+    @apply lg:prose-lg text-neutral-800 mx-auto pb-10 prose-h2:text-neutral-800  prose-h3:text-neutral-800 prose-h4:text-neutral-800;
+    @apply prose-blockquote:text-neutral-700 prose-a:text-accent-600;
+    @apply prose-code:text-accent-600 prose-code:bg-neutral-200 prose-pre:bg-neutral-200 prose-code:p-1 prose-code:rounded;
+    @apply prose-img:rounded-sm;
+    @apply prose-strong:font-bold prose-strong:text-neutral-800;
+    @apply prose-li:list-disc prose-li:text-neutral-800
+  }
 }
