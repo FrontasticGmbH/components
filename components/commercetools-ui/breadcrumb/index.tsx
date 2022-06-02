@@ -23,13 +23,17 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ children, Separator }) => {
         {React.Children.map(children, (Child, index) => {
           if (index < React.Children.count(children) - 1) {
             return (
-              <>
-                <b className="dark:text-light-100">{Child}</b>
+              <li>
+                <b className="font-medium dark:text-light-100">{Child}</b>
                 <span className="dark:text-light-100">{Separator}</span>
-              </>
+              </li>
             );
           }
-          return <span className="text-gray-400 dark:text-accent-400">{Child}</span>;
+          return (
+            <li>
+              <span className="font-medium text-gray-400 dark:text-accent-400">{Child}</span>
+            </li>
+          );
         })}
       </ol>
     </nav>

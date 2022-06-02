@@ -28,28 +28,6 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   const { formatMessage } = useFormat({ name: 'common' });
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
-  const categoryListItem = (
-    <li key={category}>
-      <div className="flex items-center">
-        <svg
-          className="h-5 w-5 shrink-0 text-gray-300"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-        >
-          <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
-        </svg>
-        <span
-          className="ml-4 text-sm font-medium capitalize text-gray-700"
-          aria-current={category ? 'page' : undefined}
-        >
-          {category?.split('/')[1]}
-        </span>
-      </div>
-    </li>
-  );
-
   const activeButtonClassName =
     'relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50';
 
@@ -70,8 +48,8 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
   }, [previousCursor, nextCursor]);
 
   return (
-    <div className="mt-10 bg-white px-1 dark:bg-primary-400 sm:px-3 lg:px-6">
-      {category && <Breadcrumb Separator="/">{categoryListItem}</Breadcrumb>}
+    <div className="mt-10 px-1 sm:px-3 lg:px-6">
+      {category && <Breadcrumb Separator="/">{category.split('/')}</Breadcrumb>}
 
       <div className="mt-8 gap-16 lg:grid lg:grid-cols-3">
         {isFiltering ? (
@@ -92,14 +70,12 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
               </h6>
             </div>
 
-            <h6 className="col-span-2 block text-right lg:hidden">
-              {products?.length}
+            <h6 className="col-span-2 block text-right dark:text-light-100 lg:hidden">
               {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
             </h6>
           </button>
         )}
-        <h6 className="col-span-2 hidden text-right lg:block">
-          {products?.length}
+        <h6 className="col-span-2 hidden text-right dark:text-light-100 lg:block">
           {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
         </h6>
       </div>
@@ -122,7 +98,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
       )}
 
       <nav
-        className="flex items-center justify-between border-t border-gray-200 bg-white py-3 px-4 sm:px-6"
+        className="flex items-center justify-between border-t border-gray-200 py-3 px-4 sm:px-6"
         aria-label="Pagination"
       >
         <div className="flex flex-1 justify-between gap-x-1.5 sm:justify-end">

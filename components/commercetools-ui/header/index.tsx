@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
       {/* Mobile menu */}
       <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={headerNavigation} />
 
-      <header className="relative bg-white dark:bg-primary-400">
+      <header className="relative">
         {tagline && (
           <p className="flex items-center justify-center bg-primary-400 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             <Typography>{tagline}</Typography>
