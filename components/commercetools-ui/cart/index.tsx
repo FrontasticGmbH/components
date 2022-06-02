@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Cart } from '@Types/cart/Cart';
+import { Cart as CartType } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
@@ -16,13 +16,13 @@ export interface Props {
   emptyStateSubtitle?: string;
   emptyStateCTALabel?: string;
   emptyStateCTALink?: Reference;
-  cart: Cart;
+  cart: CartType;
   editItemQuantity: (lineItemId: string, newQuantity: number) => Promise<void>;
   removeItem: (lineItemId: string) => void;
   shippingMethods: ShippingMethod[];
 }
 
-const CartPage = ({
+const Cart = ({
   cart,
   editItemQuantity,
   removeItem,
@@ -87,4 +87,4 @@ const CartPage = ({
   );
 };
 
-export default CartPage;
+export default Cart;
