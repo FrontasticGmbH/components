@@ -10,7 +10,7 @@ import '../styles/components/default-loader.css';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (
-    <FrontasticProvider>      
+    <FrontasticProvider>
       <Component {...pageProps} />
       <Toaster />
     </FrontasticProvider>
