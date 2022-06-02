@@ -1,14 +1,13 @@
 import ProductList from 'components/commercetools-ui/products/product-list';
-import { useFormat } from 'helpers/hooks/useFormat';
 
-function ProductListTastic({ data }) {
+function ProductListTastic({ data }) {  
   if (!data) return <></>;
 
-  const { products, category, previousCursor, nextCursor } = data.data.dataSource;
+  const { items, category, previousCursor, nextCursor } = data.data.dataSource;
 
   return (
     <ProductList
-      products={products}
+      products={items}
       category={category}
       previousCursor={previousCursor}
       nextCursor={nextCursor}
