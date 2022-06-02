@@ -8,8 +8,8 @@ import { addToWishlist } from 'frontastic/actions/wishlist';
 function ProductDetailsTastic({ data }) {
   const [currentVariantIdx, setCurrentVariantIdx] = useState(0);
   const { addItem } = useCart();
-
-  const { product }: { product: Product } = data.data.dataSource;
+  
+  const product: Product = data.data.dataSource;
   const variant = product?.variants[currentVariantIdx];
 
   if (!product || !variant) return null;
