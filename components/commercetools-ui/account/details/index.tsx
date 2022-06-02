@@ -29,10 +29,10 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({ loginLink }) => {
 
   //tabs
   const tabs = [
-    { name: 'General', href: '#' },
-    { name: 'Addresses', href: '#addresses' },
-    { name: 'Orders', href: '#orders' },
-    { name: 'Security', href: '#security' },
+    { name: formatAccountMessage({ id: 'general', defaultMessage: 'General' }), href: '#' },
+    { name: formatAccountMessage({ id: 'addresses', defaultMessage: 'Addresses' }), href: '#addresses' },
+    { name: formatAccountMessage({ id: 'orders', defaultMessage: 'Orders' }), href: '#orders' },
+    { name: formatAccountMessage({ id: 'security', defaultMessage: 'Security' }), href: '#security' },
   ];
 
   //tabs change (mobile only)

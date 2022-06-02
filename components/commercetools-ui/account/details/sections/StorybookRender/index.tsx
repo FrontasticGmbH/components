@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { orders } from 'components/mockData';
+import { useFormat } from 'helpers/hooks/useFormat';
 import Addresses from '../addresses';
 import General from '../general';
 import OrdersHistory from '../orders';
 import Security from '../security';
 
 const Sections = () => {
+  const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const [selectedTab, setSelectedTab] = useState('#');
 
   const tabs = [
-    { name: 'General', href: '#' },
-    { name: 'Addresses', href: '#addresses' },
-    { name: 'Orders', href: '#orders' },
-    { name: 'Security', href: '#security' },
+    { name: formatAccountMessage({ id: 'general', defaultMessage: 'General' }), href: '#' },
+    { name: formatAccountMessage({ id: 'addresses', defaultMessage: 'Addresses' }), href: '#addresses' },
+    { name: formatAccountMessage({ id: 'orders', defaultMessage: 'Orders' }), href: '#orders' },
+    { name: formatAccountMessage({ id: 'security', defaultMessage: 'Security' }), href: '#security' },
   ];
 
   return (
