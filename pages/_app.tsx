@@ -7,10 +7,12 @@ import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
 import '../styles/components/slider.css';
 import '../styles/components/default-loader.css';
+import WishlistTastic from 'frontastic/tastics/wishlist';
 
 function FrontasticStarter({ Component, pageProps }: AppProps) {
   return (
     <FrontasticProvider>
+      <WishlistTastic data={{}} />
       <Component {...pageProps} />
       <Toaster />
     </FrontasticProvider>

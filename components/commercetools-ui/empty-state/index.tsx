@@ -23,7 +23,7 @@ export const EmptyState: React.FC<Props> = ({
     <div className="my-10 mx-auto w-auto text-center md:mt-20">
       {pageTitle && (
         <div className="mx-28 mt-4 text-left">
-          <h1 className="text-2xl font-bold text-black">{pageTitle}</h1>
+          <h1 className="text-center text-2xl font-bold text-black dark:text-light-100">{pageTitle}</h1>
         </div>
       )}
 
@@ -42,13 +42,13 @@ export const EmptyState: React.FC<Props> = ({
 
       {title && (
         <div className="mt-4 text-center">
-          <h1 className="text-3xl font-bold text-gray-600">{title}</h1>
+          <h1 className="text-3xl font-bold text-gray-600 dark:text-light-100">{title}</h1>
         </div>
       )}
 
       {subtitle && (
         <div className="mt-2 w-auto text-center">
-          <h1 className="text-lg  text-gray-600">{subtitle}</h1>
+          <h1 className="text-lg text-gray-600 dark:text-light-100">{subtitle}</h1>
         </div>
       )}
       {callToActionLink && (
