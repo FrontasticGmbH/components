@@ -11,7 +11,7 @@ function ProductListTastic({ data }) {
       facets={facets}
       category={category}
       previousCursor={previousCursor}
-      nextCursor={nextCursor}      
+      nextCursor={nextCursor}
     />
   );
 }
