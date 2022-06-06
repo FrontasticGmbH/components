@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { Order } from '@Types/cart/Order';
 import Spinner from 'components/commercetools-ui/spinner';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { useCart } from 'frontastic';
 import Image from 'frontastic/lib/image';
 
-export interface OrdersHistoryProps {
-  loading: boolean;
-  accountOrders: Order[];
-}
+const OrdersHistory = ({}) => {
+  const [accountOrders, setAccountOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  //account data
+  const { orderHistory } = useCart();
+  useEffect(() => {
+    orderHistory().then((data) => {
+      setAccountOrders(data);
 
-const OrdersHistory: React.FC<OrdersHistoryProps> = ({ loading, accountOrders }) => {
+      setTimeout(() => setLoading(false), 500);
+    });
+  }, [orderHistory]);
   //18in messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });

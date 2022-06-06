@@ -64,7 +64,7 @@ const Sections = () => {
           ) : selectedTab === tabs[1].href ? (
             <Addresses />
           ) : selectedTab === tabs[2].href ? (
-            <OrdersHistory accountOrders={orders} loading={false} />
+            <OrdersHistory />
           ) : (
             <Security />
           )}
