@@ -1,6 +1,6 @@
 {
   "tasticType": "commercetools/ui/checkout",
-  "name": "Commercetools UI checkout",
+  "name": "commercetools UI checkout",
   "icon": "add_shopping_cart",
   "category": "Checkout",
   "schema": [

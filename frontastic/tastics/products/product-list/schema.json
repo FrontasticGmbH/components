@@ -1,6 +1,6 @@
 {
   "tasticType": "commercetools/ui/products/product-list",
-  "name": "Commercetools UI product list",
+  "name": "commercetools UI product list",
   "icon": "list",
   "category": "Products",
   "schema": [
