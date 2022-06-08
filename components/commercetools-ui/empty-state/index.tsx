@@ -20,10 +20,12 @@ export const EmptyState: React.FC<Props> = ({
   callToActionLink,
 }: Props) => {
   return (
-    <div className="my-10 mx-auto w-auto text-center md:mt-20">
+    <div className="mx-auto max-w-2xl px-2 pt-16 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
       {pageTitle && (
         <div className="mx-28 mt-4 text-left">
-          <h1 className="text-center text-2xl font-bold text-black dark:text-light-100">{pageTitle}</h1>
+          <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
+            {pageTitle}
+          </h1>
         </div>
       )}
 

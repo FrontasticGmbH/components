@@ -64,7 +64,7 @@ const Cart = ({
     );
 
   return (
-    <main className="mx-auto max-w-2xl px-2 pt-16 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
+    <main className="mx-auto max-w-2xl px-2 pt-20 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
       <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
         {formatCartMessage({ id: 'cart.shopping', defaultMessage: 'Shopping Cart' })}
       </h1>
