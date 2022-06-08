@@ -59,7 +59,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             </NextLink>
           </dt>
           <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0].price || {})}
+            {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0]?.price || {})}
           </dd>
         </div>
 
@@ -103,7 +103,7 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
             {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
           </dt>
           <dd className="text-base font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0].price))}
+            {CurrencyHelpers.formatForCurrency(CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0]?.price))}
           </dd>
         </div>
       </dl>

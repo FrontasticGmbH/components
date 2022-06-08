@@ -171,7 +171,7 @@ const MobileOrderSummary = ({
                   <div className="flex justify-between">
                     <dt>{formatCheckoutMessage({ id: 'shipping', defaultMessage: 'Shipping' })}</dt>
                     <dd className="text-gray-900">
-                      {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price || {})}
+                      {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0]?.price || {})}
                     </dd>
                   </div>
                 </dl>
@@ -181,7 +181,7 @@ const MobileOrderSummary = ({
                 <span className="text-base">{formatCheckoutMessage({ id: 'total', defaultMessage: 'Total' })}</span>
                 <span className="text-base">
                   {CurrencyHelpers.formatForCurrency(
-                    CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0].price || {}),
+                    CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0]?.price || {}),
                   )}
                 </span>
               </p>
