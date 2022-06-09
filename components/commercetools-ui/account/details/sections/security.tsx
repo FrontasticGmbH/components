@@ -61,7 +61,7 @@ const Security = () => {
           <p className="max-w-2xl text-sm text-gray-500">
             {formatAccountMessage({
               id: 'account.security.warning',
-              defaultMessage: 'Be careful when using this settinggggggg',
+              defaultMessage: 'Be careful when using this setting',
             })}
           </p>
         </div>
