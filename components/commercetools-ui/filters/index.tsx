@@ -29,7 +29,12 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
 
   const handleFiltersSubmit = (e) => {
     e.preventDefault();
-    let params = [];
+    let params = [
+      {
+        key: 'cursor',
+        value: 'offset:0',
+      },
+    ];
 
     if (priceFilteringParams) {
       params.push(...priceFilteringParams);
