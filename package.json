@@ -1,8 +1,9 @@
 {
   "name": "@frontastic/components",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "concurrently -n NEXT,TSC -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "debug": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_OPTIONS='--inspect' next dev\" \"yarn ts --watch\"",

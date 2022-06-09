@@ -41,7 +41,7 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
   const router = useRouter();
 
   //some products are out of stock?
-  const someOutOfStock = !!data?.lineItems.find((item) => !item.variant.isOnStock);
+  const someOutOfStock = !!data?.lineItems?.find((item) => !item.variant.isOnStock);
 
   //checkout data
   const [checkoutData, setCheckoutData] = useState({
@@ -232,7 +232,7 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
                 id: 'pay',
                 defaultMessage: 'Pay',
               })} ${CurrencyHelpers.formatForCurrency(
-                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
+                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0]?.price || {}),
               )}`}
               updateFormInput={updateFormInput}
               submitForm={submitForm}
@@ -248,7 +248,7 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
                 id: 'pay',
                 defaultMessage: 'Pay',
               })} ${CurrencyHelpers.formatForCurrency(
-                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0].price || {}),
+                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0]?.price || {}),
               )}`}
               updateFormInput={updateFormInput}
               submitForm={submitForm}

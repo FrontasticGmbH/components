@@ -154,14 +154,14 @@ const DesktopOrderSummary = ({
           <div className="flex justify-between">
             <dt>{formatCheckoutMessage({ id: 'shipping', defaultMessage: 'Shipping' })}</dt>
             <dd className="text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0].price || {})}
+              {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0]?.price || {})}
             </dd>
           </div>
           <div className="flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900 dark:text-light-100">
             <dt className="text-base">{formatCheckoutMessage({ id: 'total', defaultMessage: 'Total' })}</dt>
             <dd className="text-base">
               {CurrencyHelpers.formatForCurrency(
-                CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0].price || {}),
+                CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0]?.price || {}),
               )}
             </dd>
           </div>

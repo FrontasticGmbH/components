@@ -1,6 +1,6 @@
 {
   "tasticType": "commercetools/ui/footer",
-  "name": "Commercetools UI footer",
+  "name": "commercetools UI footer",
   "icon": "menu",
   "category": "Header and footer",
   "schema": [

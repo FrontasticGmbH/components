@@ -1,4 +1,53 @@
-We add any updates to this list as soon as any changes are released.
+
+## Version 1.0.0 (2022-06-08)
+
+** New Features **
+
+- Now you can specify your theming variables in app.css file, those values will be used to define tailwind styles, 
+and you can use those styles in your component, we added dark mode toggle component
+
+- Added language switcher component, you can browse website in different locales
+
+- Product listing page now has side menu with sort and price filters
+
+- We have more explicit error handling component
+
+- Added ESLint rules, you can fix your code `yarn run fix`
+
+- Added `Remember me` funcionality for user
+
+- Added breadcrumb component
+
+- Added MWP PWA
+
+
+** Bug fixes **
+
+- All links now use Next Link component
+
+- All images now use Next Image component
+
+- Minor translation fixes
+
+- Theming fixes
+
+- Fixed storybook components
+
+- Fixed emojis rendering in footer
+
+- Account order history was not showing orders
+
+
+** Improvements **
+
+- Renamed `checkout-success` component to `thank-you`
+
+- Product component is more robust in handling product model data
+
+- Added `bundle.js`, `bundle.min.js` to gitignore
+
+- We started using `commercetools` as key word in schemas instead of `frontastic`
+
 
 ## Version 1.0.0-alpha.3 (2022-04-21)
 

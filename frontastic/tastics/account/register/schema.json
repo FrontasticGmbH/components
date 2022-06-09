@@ -1,6 +1,6 @@
 {
   "tasticType": "commercetools/ui/account/register",
-  "name": "Commercetools UI account register",
+  "name": "commercetools UI account register",
   "category": "Account",
   "icon": "account_circle",
   "schema": [
