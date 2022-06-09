@@ -155,7 +155,7 @@ const CheckoutForm = ({
               />
               <FormSelect
                 name="shippingCountry"
-                label="Country"
+                label={formatMessage({ id: 'country', defaultMessage: 'Land' })}
                 options={shippingCountryOptions}
                 selectedOptionValue={(data.shippingCountry as string) || undefined}
                 onChange={updateFormInput}
