@@ -4,13 +4,17 @@ import { Variant } from '@Types/product/Variant';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/commercetools-ui/products/product-details';
 import { useCart } from 'frontastic';
 import { addToWishlist } from 'frontastic/actions/wishlist';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 function ProductDetailsTastic({ data }) {
-  const [currentVariantIdx, setCurrentVariantIdx] = useState(0);
-  const { addItem } = useCart();
-
+  const router = useRouter();
   const { product }: { product: Product } = data.data.dataSource;
-  const variant = product?.variants?.[currentVariantIdx];
+
+  const [currentVariantIdx, setCurrentVariantIdx] = useState<number>();
+  const [variant, setVariant] = useState<Variant>(product.variants[0]);
+  const [prod, setProd] = useState<UIProduct>();
+  const { addItem } = useCart();
 
   if (!product || !variant) return null;
 
@@ -49,34 +53,47 @@ function ProductDetailsTastic({ data }) {
   // friendly datastructure, so data and presentation
   // stay decoupled.
   // TODO: properly type
-  const prod: UIProduct = {
-    name: product.name,
-    // add variants as well, so we can select and filter
-    variants: product.variants,
-    price: variant.price,
-    // rating: 4,
-    images: variant.images?.map((img: string, id: number) => ({
-      id: `${variant.sku}-${id}`,
-      src: img,
-      alt: variant.sku,
-    })),
-    colors,
-    sizes,
-    description: `
-      <p>${product.description || ''}</p>
-    `,
 
-    details: [
-      {
-        name: 'Features',
-        items: [
-          variant.attributes.designer && `Designer: ${variant.attributes.designer.label}`,
-          variant.attributes.gender && `Collection: ${variant.attributes.gender.label}`,
-          variant.attributes.madeInItaly && `Made in Italy`,
-        ],
-      },
-    ],
-  };
+  useEffect(() => {
+    if (!currentVariantIdx) {
+      const currentVariantSKU = router.asPath.split('/')[3];
+      const currentVariantIndex = product?.variants.findIndex(({ sku }) => sku == currentVariantSKU);
+      setVariant(product.variants[currentVariantIndex]);
+    }
+  }, [currentVariantIdx]);
+
+  useEffect(() => {
+    const currentProd: UIProduct = {
+      name: product.name,
+      // add variants as well, so we can select and filter
+      variants: product.variants,
+      price: variant.price,
+      // rating: 4,
+      images: variant.images?.map((img: string, id: number) => ({
+        id: `${variant.sku}-${id}`,
+        src: img,
+        alt: variant.sku,
+      })),
+      colors,
+      sizes,
+      description: `
+        <p>${product.description || ''}</p>
+      `,
+
+      details: [
+        {
+          name: 'Features',
+          items: [
+            variant.attributes.designer && `Designer: ${variant.attributes.designer.label}`,
+            variant.attributes.gender && `Collection: ${variant.attributes.gender.label}`,
+            variant.attributes.madeInItaly && `Made in Italy`,
+          ],
+        },
+      ],
+    };
+
+    setProd(currentProd);
+  }, [variant]);
 
   const handleAddToCart = (variant: Variant, quantity: number): Promise<void> => {
     return addItem(variant, 1);

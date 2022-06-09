@@ -54,8 +54,8 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
-  const [selectedColor, setSelectedColor] = useState<UIColor>(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState<UISize>(product.sizes[0]);
+  const [selectedColor, setSelectedColor] = useState<UIColor>(product?.colors[0]);
+  const [selectedSize, setSelectedSize] = useState<UISize>();
   const [loading, setLoading] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
@@ -64,12 +64,13 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   // notifies the wrapping tastic via
   // the onChangeVariantIdx handler
   useEffect(() => {
-    const idx = product.variants.findIndex(
+    const idx = product?.variants.findIndex(
       (v: Variant) =>
         v.attributes.color?.key === selectedColor?.key && v.attributes.commonSize?.key === selectedSize?.key,
     );
+
     onChangeVariantIdx(idx === -1 ? 0 : idx);
-  }, [selectedColor, selectedSize, onChangeVariantIdx, product.variants]);
+  }, [selectedColor, selectedSize, onChangeVariantIdx, product?.variants]);
 
   const handleAddToCart = (variant: Variant, quantity: number) => {
     if (!variant.isOnStock) return;
@@ -98,7 +99,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               {/* Image selector */}
               <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                  {product.images?.map((image) => (
+                  {product?.images?.map((image) => (
                     <Tab
                       key={image.id}
                       className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-white/50 focus:ring-offset-4"
@@ -130,7 +131,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </div>
 
               <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
-                {product.images?.map((image) => (
+                {product?.images?.map((image) => (
                   <Tab.Panel key={image.id}>
                     <Image
                       loader={({ src }) => src}
@@ -147,21 +148,25 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
           {/* Product info */}
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100">{product.name}</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100">
+              {product?.name}
+            </h1>
 
             <div className="mt-3">
               <h2 className="sr-only">
-                {formatProductMessage({ id: 'product.info', defaultMessage: 'Product information' })}
+                {formatProductMessage({ id: 'product?.info', defaultMessage: 'Product information' })}
               </h2>
-              <p className="text-3xl text-accent-400">{CurrencyHelpers.formatForCurrency(product.price)}</p>
+              <p className="text-3xl text-accent-400">{CurrencyHelpers.formatForCurrency(product?.price)}</p>
             </div>
 
             <div className="mt-6">
-              <h3 className="sr-only">{formatProductMessage({ id: 'product.desc', defaultMessage: 'Description' })}</h3>
+              <h3 className="sr-only">
+                {formatProductMessage({ id: 'product?.desc', defaultMessage: 'Description' })}
+              </h3>
 
               <div
                 className="space-y-6 text-base text-gray-700"
-                dangerouslySetInnerHTML={{ __html: product.description }}
+                dangerouslySetInnerHTML={{ __html: product?.description }}
               />
             </div>
 
@@ -175,7 +180,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
-                    {product.colors?.map(
+                    {product?.colors?.map(
                       (color: { name: string; bgColor: string; selectedColor: string; key: string }) => (
                         <RadioGroup.Option
                           key={color.name}
@@ -183,7 +188,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           className={({ active, checked }) =>
                             classNames(
                               color.selectedColor,
-                              (active && checked) || selectedColor.key === color.key
+                              (active && checked) || selectedColor?.key === color.key
                                 ? 'ring-2 ring-accent-400 ring-offset-1'
                                 : '',
                               !active && checked ? 'ring-2 ring-accent-400 ring-offset-1' : '',
@@ -207,7 +212,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   </div>
                 </RadioGroup>
               </div>
-              {product.sizes.length > 1 && (
+              {product?.sizes.length > 1 && (
                 <div className="mt-8">
                   <div className="flex items-center justify-between">
                     <h2 className="text-sm font-medium text-gray-900 dark:text-light-100">
@@ -218,13 +223,13 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-2">
                     <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                      {product.sizes?.map((size: { label: string; key: string }) => (
+                      {product?.sizes?.map((size: { label: string; key: string }) => (
                         <RadioGroup.Option
                           key={size.label}
                           value={size}
                           className={({ active, checked }) =>
                             classNames(
-                              active || selectedSize.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
+                              active || selectedSize?.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
                               checked
                                 ? 'bg-transparent text-gray-900 hover:bg-gray-50 dark:text-light-100'
                                 : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
@@ -286,9 +291,9 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 {formatProductMessage({ id: 'details.additional', defaultMessage: 'Additional details' })}
               </h2>
 
-              {product.details?.length > 0 && (
+              {product?.details?.length > 0 && (
                 <div className="divide-y divide-gray-200 border-t">
-                  {product.details?.map((detail) => (
+                  {product?.details?.map((detail) => (
                     <Disclosure key={detail.name}>
                       {({ open }) => (
                         <>
