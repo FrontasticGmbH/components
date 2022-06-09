@@ -18,7 +18,6 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
   const [isLargerThanMobile] = useMediaQuery(mobile);
 
   //i18n messages
-  const { formatMessage: formatWishlistMessage } = useFormat({ name: 'wishlist' });
   const { formatMessage } = useFormat({ name: 'common' });
 
   const router = useRouter();
@@ -33,9 +32,6 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
 
   return (
     <div className="mx-auto max-w-2xl pt-8 pb-16 lg:max-w-3xl lg:pt-4">
-      <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
-        {formatWishlistMessage({ id: 'wishlist.items', defaultMessage: 'Wishlist Items' })}
-      </h1>
       {loading ? (
         <div className="flex items-stretch justify-center py-10 px-12">
           <Spinner />
