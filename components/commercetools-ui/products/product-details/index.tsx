@@ -165,7 +165,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </h3>
 
               <div
-                className="space-y-6 text-base text-gray-700"
+                className="space-y-6 text-base text-gray-700 dark:text-light-100"
                 dangerouslySetInnerHTML={{ __html: product?.description }}
               />
             </div>
