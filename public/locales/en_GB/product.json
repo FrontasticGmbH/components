@@ -9,12 +9,14 @@
   "products": "Products",
   "outOfStock": "Out of stock",
   "price": "Price",
-  "sortAndFilter":"Sort & Filter",
+  "sortAndFilter": "Sort & Filter",
   "clear": "Clear",
   "applyFilters": "Apply",
   "sortBy": "Sort by",
   "priceAsc": "Price (ascending)",
   "priceDesc": "Price (descending)",
   "noProductsFound": "No products found.",
-  "items": "Items"
+  "items": "Items",
+  "product": "Product",
+  "product.view": "View product"
 }

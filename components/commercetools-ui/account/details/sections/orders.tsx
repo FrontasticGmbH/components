@@ -160,9 +160,6 @@ const OrdersHistory = ({}) => {
                           </td>
                           <td className="hidden py-6 pr-8 dark:text-light-100 sm:table-cell">{order.orderState}</td>
                           <td className="whitespace-nowrap py-6 text-right font-medium dark:text-light-100">
-                            {
-                              //TODO: get product href and link
-                            }
                             <NextLink href={product._url || ''}>
                               <a className="text-accent-400">
                                 {formatProductMessage({
