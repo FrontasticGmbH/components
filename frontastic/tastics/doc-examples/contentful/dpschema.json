@@ -1,0 +1,7 @@
+{
+    "dynamicPageType": "contentful/blog",
+    "name": "Contentful blog",
+    "category": "Documentation Example",
+    "icon": "list",
+    "isMultiple": true
+}

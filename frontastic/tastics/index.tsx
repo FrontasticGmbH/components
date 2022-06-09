@@ -4,6 +4,7 @@ import HelloWorld from './doc-examples/hello-world';
 import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
 import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
 import StarWarsCharacterFilter from './doc-examples/star-wars/character-filter';
+import ContentfulBlog from './doc-examples/contentful/blog';
 
 import AccountDetails from './account/details';
 import AccountLogin from './account/login';
@@ -34,6 +35,7 @@ export const tastics = {
   'example/star-wars/movie': StarWarsOpeningCrawl,
   'example/star-wars/character-search': StarWarsCharacterSearch,
   'example/star-wars/character-filter': StarWarsCharacterFilter,
+  'contentful/blog': ContentfulBlog,
 
   'commercetools/ui/checkout': Checkout,
   'commercetools/ui/thank-you': ThankYou,

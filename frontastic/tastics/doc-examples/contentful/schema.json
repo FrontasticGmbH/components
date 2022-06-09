@@ -1,0 +1,21 @@
+{
+    "tasticType": "contentful/blog",
+    "name": "Contentful blog",
+    "icon": "list",
+    "category": "Documentation Examples",
+    "schema": [
+        {
+            "name": "Configuration",
+            "fields": [
+                {
+                    "label": "Content",
+                    "field": "content",
+                    "type": "dataSource",
+                    "dataSourceType": "contentful/blog",
+                    "required": true
+                }
+            ]
+        }
+    ]
+}
+// data.content.dataSource.title
