@@ -318,7 +318,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             </Disclosure.Button>
                           </h3>
                           <Disclosure.Panel>
-                            <div className="prose prose-sm py-6">
+                            <div className="prose prose-sm py-6 dark:text-light-100">
                               <ul role="list">
                                 {detail.items?.map((item) => (
                                   <li key={item}>{item}</li>
