@@ -1,7 +1,8 @@
 {
-    "dynamicPageType": "contentful/blog",
-    "name": "Contentful blog",
-    "category": "Documentation Example",
-    "icon": "list",
-    "isMultiple": true
+  "dynamicPageType": "contentful/blog",
+  "name": "Contentful blog",
+  "category": "Documentation Example",
+  "icon": "list",
+  "dataSourceType": "contentful/blog",
+  "isMultiple": true
 }
