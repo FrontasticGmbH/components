@@ -23,7 +23,6 @@ const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
-  const { formatMessage } = useFormat({ name: 'common' });
 
   //account data
   const { loggedIn } = useAccount();
