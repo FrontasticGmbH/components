@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { accordionMockItems } from 'components/mockData';
 import AccordionBtn from './index';
 
 export default {
@@ -10,23 +11,16 @@ export default {
 
 const Template: Story = (args) => (
   <div className="rounded border-2">
-    <AccordionBtn index={0} accordionListLength={3} sectionTitle={'Title'} {...args}>
-      We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many
-      designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is
-      unfortunately not always very easy.
-    </AccordionBtn>
-
-    <AccordionBtn index={1} accordionListLength={3} sectionTitle={'Title'} {...args}>
-      We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many
-      designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is
-      unfortunately not always very easy.
-    </AccordionBtn>
-
-    <AccordionBtn index={2} accordionListLength={3} sectionTitle={'Title'} {...args}>
-      We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many
-      designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is
-      unfortunately not always very easy.
-    </AccordionBtn>
+    {accordionMockItems.map((item, index) => (
+      <AccordionBtn
+        key={index}
+        sectionTitle={item.title}
+        className={index < accordionMockItems.length - 1 ? 'border-b-2' : ''}
+        {...args}
+      >
+        {item.content}
+      </AccordionBtn>
+    ))}
   </div>
 );
 

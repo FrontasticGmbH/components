@@ -10,6 +10,24 @@ import { LineItem } from '../../types/wishlist/LineItem';
 import { Wishlist } from '../../types/wishlist/Wishlist';
 import { Link } from './commercetools-ui/footer/column';
 
+export const accordionMockItems = [
+  {
+    title: 'First Title',
+    content:
+      ' We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is unfortunately not always very easy.',
+  },
+  {
+    title: 'Second Title',
+    content:
+      ' We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is unfortunately not always very easy.',
+  },
+  {
+    title: 'Third Title',
+    content:
+      ' We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is unfortunately not always very easy.',
+  },
+];
+
 const lineItems: LineItem[] = [
   {
     lineItemId: '0',
