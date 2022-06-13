@@ -15,7 +15,6 @@ export default {
 const Template: Story<TileProps> = (args) => (
   <Tile
     image="https://res.cloudinary.com/dlwdq84ig/image/upload/v1648028023/uprtunlmx5h6r6eynyfk.png"
-    imageAlt="Image Banner"
     title="Here are some lovely texts just for testing if things go great, hopefully so"
     subtitle="Here are some lovely Subtitle texts just for testing if things go great, hopefully so"
     ctaLabel="Call To Action"
