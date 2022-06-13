@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { headerButtonLink, headerAccountLink, headerLinks } from 'components/mockData';
+import { headerButtonLink, headerAccountLink, headerLinks } from 'helpers/mocks/mockData';
 import Header, { HeaderProps } from './index';
 
 export default {

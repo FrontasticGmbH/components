@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { account as accountMock } from 'components/mockData';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { account as accountMock } from 'helpers/mocks/mockData';
 import { mapLocaleToMeaningfulFormat } from 'helpers/utils/i18n';
 import { useAccount } from 'frontastic';
 import Editable from '../editable';

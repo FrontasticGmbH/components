@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { orders } from 'components/mockData';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { orders } from 'helpers/mocks/mockData';
 import Addresses from '../addresses';
 import General from '../general';
 import OrdersHistory from '../orders';

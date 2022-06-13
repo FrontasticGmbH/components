@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { cart, shippingMethods } from '../../mockData';
+import { cart, shippingMethods } from '../../../helpers/mocks/mockData';
 import CartPage, { Props } from './index';
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { cart } from 'components/mockData';
+import { cart } from 'helpers/mocks/mockData';
 import { shippingMethods } from 'frontastic/actions/cart';
 import MobileOrderSummary, { Props as MobileOrderSummaryProps } from './index';
 

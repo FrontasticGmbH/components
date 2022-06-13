@@ -1,14 +1,14 @@
 import { NextFrontasticImage } from 'frontastic/lib/image';
-import { Account } from '../../types/account/Account';
-import { Address } from '../../types/account/Address';
-import { Group } from '../../types/account/Group';
-import { Cart } from '../../types/cart/Cart';
-import { Order } from '../../types/cart/Order';
-import { ShippingMethod } from '../../types/cart/ShippingMethod';
-import { Product } from '../../types/product/Product';
-import { LineItem } from '../../types/wishlist/LineItem';
-import { Wishlist } from '../../types/wishlist/Wishlist';
-import { Link } from './commercetools-ui/footer/column';
+import { Account } from '@Types/account/Account';
+import { Address } from '@Types/account/Address';
+import { Group } from '@Types/account/Group';
+import { Cart } from '@Types/cart/Cart';
+import { Order } from '@Types/cart/Order';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
+import { Product } from '@Types/product/Product';
+import { LineItem } from '@Types/wishlist/LineItem';
+import { Wishlist } from '@Types/wishlist/Wishlist';
+import { Link } from 'components/commercetools-ui/footer/column';
 
 export const accordionMockItems = [
   {

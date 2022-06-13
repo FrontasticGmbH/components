@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { footerColumns, footerCopyrightLinks } from 'components/mockData';
+import { footerColumns, footerCopyrightLinks } from 'helpers/mocks/mockData';
 import Highlights from './highlights';
 import Footer, { Props as FooterProps } from './index';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { accordionMockItems } from 'components/mockData';
+import { accordionMockItems } from 'helpers/mocks/mockData';
 import AccordionBtn from './index';
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { headerButtonLink } from 'components/mockData';
+import { headerButtonLink } from 'helpers/mocks/mockData';
 import { Reference } from 'helpers/reference';
 import Tile, { TileProps } from './index';
 

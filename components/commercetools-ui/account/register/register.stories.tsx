@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { frontasticImage } from 'components/mockData';
+import { frontasticImage } from 'helpers/mocks/mockData';
 import Register, { RegisterProps } from './index';
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { products } from 'components/mockData';
+import { products } from 'helpers/mocks/mockData';
 import ProductList, { Props as ProductListProps } from './index';
 
 export default {

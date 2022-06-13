@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { account, cart } from 'components/mockData';
+import { account, cart } from 'helpers/mocks/mockData';
 import CheckoutForm, { Props as CheckoutFormProps } from './index';
 
 export default {
