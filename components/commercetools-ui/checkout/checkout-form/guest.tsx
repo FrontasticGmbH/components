@@ -80,8 +80,8 @@ const CheckoutForm = ({
           value={data.email}
           onChange={updateFormInput}
         />
-        <div className="col-span-full">
-          <label className="text-base font-medium text-gray-900">
+        <div className="col-span-full pt-8">
+          <label className="text-base font-medium text-gray-900 dark:text-light-100">
             {formatCheckoutMessage({ id: 'billingAddress', defaultMessage: 'Billing address' })}
           </label>
         </div>
@@ -126,8 +126,8 @@ const CheckoutForm = ({
         />
         {!billingSameAsShipping && (
           <>
-            <div className="col-span-full">
-              <label className="text-base font-medium text-gray-900">
+            <div className="col-span-full pt-6">
+              <label className="text-base font-medium text-gray-900 dark:text-light-100">
                 {formatCheckoutMessage({ id: 'shippingAddress', defaultMessage: 'Shipping address' })}
               </label>
             </div>
@@ -190,7 +190,7 @@ const CheckoutForm = ({
             defaultMessage: 'What do you prefer to pay with?',
           })}
           options={paymentMethods}
-          className="col-span-full"
+          className="col-span-full pt-6"
           onChange={(val) => setActivePaymentMethod(val)}
         />
         <FormInput

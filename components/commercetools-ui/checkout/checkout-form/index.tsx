@@ -104,16 +104,6 @@ const CheckoutForm = ({
           onChange={updateFormInput}
           containerClassName="col-span-full"
         />
-        {!billingSameAsShipping && (
-          <FormSelect
-            name="billingAddress"
-            label={formatCheckoutMessage({ id: 'billingAddress', defaultMessage: 'Billing address' })}
-            options={addresses}
-            selectedOptionValue={data.billingAddress}
-            onChange={updateFormInput}
-            containerClassName="col-span-full"
-          />
-        )}
         {!billingSameAsShipping &&
           (isGuestCheckout ? (
             <>
