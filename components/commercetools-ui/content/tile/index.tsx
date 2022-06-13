@@ -4,14 +4,13 @@ import Image from 'frontastic/lib/image';
 
 export interface TileProps {
   image: { media: any } | any;
-  imageAlt: string;
   title: string;
   subtitle: string;
   ctaLabel?: string;
   ctaReference?: Reference;
 }
 
-const Tile: React.FC<TileProps> = ({ image, imageAlt, title, subtitle, ctaLabel, ctaReference }) => {
+const Tile: React.FC<TileProps> = ({ image, title, subtitle, ctaLabel, ctaReference }) => {
   return (
     <div className="relative flex justify-center align-middle">
       <div className="aspect-w-6 aspect-h-7 w-full md:aspect-h-3">
@@ -20,7 +19,7 @@ const Tile: React.FC<TileProps> = ({ image, imageAlt, title, subtitle, ctaLabel,
           src={!image.media ? image : ''}
           layout="fill"
           className="object-cover object-top opacity-70 md:opacity-100"
-          alt={imageAlt}
+          alt={'Tile Image'}
         />
       </div>
 

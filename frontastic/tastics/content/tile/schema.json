@@ -1,6 +1,6 @@
 {
   "tasticType": "commercetools/ui/content/tile",
-  "name": "commercetools UI Tile",
+  "name": "commercetools UI tile",
   "icon": "image",
   "category": "Content",
   "schema": [
@@ -13,12 +13,6 @@
           "field": "image",
           "type": "media",
           "required": true
-        },
-        {
-          "label": "Image Alternative",
-          "field": "imageAlt",
-          "type": "string",
-          "required": true
         }
       ]
     },
@@ -27,11 +21,11 @@
       "helpText": "Customize your tile message",
       "fields": [
         {
-          "label": "Tile Title",
+          "label": "Title",
           "field": "title",
           "type": "string",
           "translatable": true,
-          "required": true
+          "required": false
         },
         {
           "label": "Subtitle",
