@@ -8,7 +8,7 @@
       "name": "Configuration",
       "fields": [
         {
-          "label": "title",
+          "label": "Title",
           "field": "title",
           "type": "string",
           "required": true
@@ -26,12 +26,12 @@
       "name": "CTA",
       "fields": [
         {
-          "label": "label",
+          "label": "Label",
           "field": "ctaLabel",
           "type": "string"
         },
         {
-          "label": "link",
+          "label": "Link",
           "field": "ctaLink",
           "type": "reference"
         }
