@@ -46,17 +46,6 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <dt className="flex items-center text-sm text-gray-600 dark:text-light-100">
             <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
-            <NextLink href="#">
-              <a className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
-                <span className="sr-only">
-                  {formatCartMessage({
-                    id: 'shipping.calculation.learnMore',
-                    defaultMessage: 'Learn more about how shipping is calculated',
-                  })}
-                </span>
-                <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-              </a>
-            </NextLink>
           </dt>
           <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
             {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0]?.price || {})}
@@ -66,17 +55,6 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <dt className="flex text-sm text-gray-600 dark:text-light-100">
             <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
-            <NextLink href="#">
-              <a className="ml-2 shrink-0 text-gray-400 hover:text-gray-500">
-                <span className="sr-only">
-                  {formatCartMessage({
-                    id: 'discounts.calculation.learnMore',
-                    defaultMessage: 'Learn more about how shipping is calculated',
-                  })}
-                </span>
-                <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-              </a>
-            </NextLink>
           </dt>
           <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
             {CurrencyHelpers.formatForCurrency(
