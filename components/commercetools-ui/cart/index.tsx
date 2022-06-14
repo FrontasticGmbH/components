@@ -51,7 +51,15 @@ const Cart = ({
     }
   }, [cart]);
 
-  if (!cart?.lineItems || cart.lineItems.length < 1)
+  if (loading) {
+    return (
+      <div className="flex items-stretch justify-center py-20 px-12">
+        <Spinner />
+      </div>
+    );
+  }
+
+  if ((!loading && !cart?.lineItems) || cart.lineItems.length < 1) {
     return (
       <EmptyCart
         pageTitle={pageTitle}
@@ -62,27 +70,23 @@ const Cart = ({
         ctaLink={emptyStateCTALink}
       />
     );
+  }
 
   return (
     <main className="mx-auto max-w-2xl px-2 pt-20 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
       <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
         {formatCartMessage({ id: 'cart.shopping', defaultMessage: 'Shopping Cart' })}
       </h1>
-      {loading ? (
-        <div className="flex items-stretch justify-center py-10 px-12">
-          <Spinner />
-        </div>
-      ) : (
-        <form className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
-          <ItemList
-            cart={cart}
-            editItemQuantity={editItemQuantity}
-            goToProductPage={goToProductPage}
-            removeItem={(lineItemId: string) => removeItem(lineItemId)}
-          />
-          <OrderSummary cart={cart} shippingMethod={shippingMethods?.[0]} onCheckout={onCheckout} />
-        </form>
-      )}
+
+      <form className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+        <ItemList
+          cart={cart}
+          editItemQuantity={editItemQuantity}
+          goToProductPage={goToProductPage}
+          removeItem={(lineItemId: string) => removeItem(lineItemId)}
+        />
+        <OrderSummary cart={cart} shippingMethod={shippingMethods?.[0]} onCheckout={onCheckout} />
+      </form>
     </main>
   );
 };
