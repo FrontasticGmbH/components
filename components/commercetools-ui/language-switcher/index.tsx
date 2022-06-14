@@ -16,7 +16,7 @@ const LanguageSwitcher: React.FC<Props> = ({ className }) => {
     <div className={`relative inline-block text-left ${className}`}>
       <Menu>
         <div>
-          <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-gray-100 py-2 px-4 text-sm font-medium text-gray-700 hover:bg-white focus:outline-none">
+          <Menu.Button className="z-50 inline-flex w-full justify-center rounded-md bg-gray-100 py-2 px-4 text-sm font-medium text-gray-700 focus:outline-none dark:bg-primary-400 dark:text-light-100 dark:shadow-3xl">
             {(router?.locale || 'de_GB') && formatLocaleName(router?.locale || 'de_GB')}
             <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
           </Menu.Button>
@@ -31,12 +31,12 @@ const LanguageSwitcher: React.FC<Props> = ({ className }) => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-50 mt-2 w-full origin-top-right rounded-md bg-white shadow-sm ring-1 ring-black/5 focus:outline-none">
+          <Menu.Items className="absolute right-0 left-28 bottom-4 z-50 mt-2 w-full origin-top-right rounded-md shadow-sm ring-1 ring-black/5 focus:outline-none dark:bg-primary-400 dark:text-light-100 dark:shadow-3xl">
             <div className="py-1">
               {(router?.locales || ['en_GB, de_GB']).map((locale, index) => (
                 <Menu.Item key={index}>
                   <NextLink href={router?.asPath || '/'} locale={locale}>
-                    <a className="block py-2 px-4 text-center text-sm hover:bg-gray-100">
+                    <a className="block py-2 px-4 text-center text-sm hover:bg-gray-600 ">
                       {formatLocaleName(locale || 'de_GB')}
                     </a>
                   </NextLink>

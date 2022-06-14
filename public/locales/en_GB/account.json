@@ -35,13 +35,11 @@
   "password.reset.desc": "Fill the fields below to complete your password reset",
   "settings": "Settings",
   "general": "General",
-  "addresses": "Addresses",
-  "orders": "Orders",
-  "orders.number": "Order number",
-  "orders.total.amount": "Total amount",
-  "orders.view.invoice": "View invoice",
-  "orders.history": "My order history",
-  "orders.desc": "Check the status of recent orders, manage returns, and download invoices.",
-  "orders.status": "Order status",
-  "security": "Security"
+  "addresses":"Addresses",
+  "orders":"Orders",
+  "security":"Security",
+  "hello": "Hi, ",
+  "account.button": "Login / Register",
+  "signout": "Logout",
+  "user":"User "
 }

@@ -10,6 +10,9 @@ module.exports = {
   safelist: ['md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'md:grid-cols-4'],
   theme: {
     extend: {
+      boxShadow: {
+        '3xl': '0 4px 10px -5px rgba(255, 255, 255, 0.25)',
+      },
       colors: {
         primary: {
           100: 'var(--primary-100)',
@@ -61,5 +64,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/typography'),],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/typography')],
 };

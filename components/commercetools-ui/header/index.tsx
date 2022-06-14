@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
+import { Account } from '@Types/account/Account';
 import Typography from 'components/commercetools-ui/typography';
 import { headerNavigation } from 'helpers/mocks/mockData';
 import { Reference, ReferenceLink } from 'helpers/reference';
@@ -29,7 +30,7 @@ export interface HeaderProps {
   wishlistItemCount?: number;
   logo: { media: any } | any;
   logoLink: Reference;
-  searchLink: Reference;
+  account: Account;
   accountLink: Reference;
   wishlistLink?: Reference;
   cartLink: Reference;
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({
   wishlistItemCount,
   logo,
   logoLink,
-  searchLink,
+  account,
   accountLink,
   wishlistLink,
   cartLink,
@@ -145,10 +146,10 @@ const Header: React.FC<HeaderProps> = ({
               </Popover.Group>
 
               <div className="flex flex-1 items-center justify-end">
-                <div className="w-fit-content flex items-center">
+                <div className="flex w-fit items-center">
                   <DarkModeWidget className="mr-4 dark:text-light-100" />
                   <SearchButton />
-                  <AccountButton accountLink={accountLink} />
+                  <AccountButton account={account} accountLink={accountLink} />
 
                   <span className="mx-4 h-6 w-px bg-gray-200 lg:mx-4" aria-hidden="true" />
 
