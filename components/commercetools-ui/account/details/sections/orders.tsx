@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { Order } from '@Types/cart/Order';
 import Spinner from 'components/commercetools-ui/spinner';
@@ -6,18 +6,26 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { useCart } from 'frontastic';
 import Image from 'frontastic/lib/image';
 
-const OrdersHistory = ({}) => {
-  const [accountOrders, setAccountOrders] = useState<Order[]>([]);
+export interface Props {
+  orders?: Order[];
+}
+
+const OrdersHistory: FC<Props> = ({ orders }) => {
+  const [accountOrdersState, setAccountOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   //account data
   const { orderHistory } = useCart();
   useEffect(() => {
-    orderHistory().then((data) => {
-      setAccountOrders(data);
-
-      setTimeout(() => setLoading(false), 500);
-    });
-  }, [orderHistory]);
+    if (orderHistory) {
+      orderHistory().then((data) => {
+        setAccountOrders(data);
+        setLoading(false);
+      });
+    } else {
+      setAccountOrders(orders);
+      setLoading(false);
+    }
+  }, [orders, orderHistory]);
   //18in messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
@@ -41,13 +49,13 @@ const OrdersHistory = ({}) => {
           <div className="flex items-stretch justify-center py-10 px-12">
             <Spinner />
           </div>
-        ) : accountOrders && accountOrders.length ? (
+        ) : accountOrdersState && accountOrdersState.length ? (
           <section aria-labelledby="recent-heading" className="mt-16">
             <h2 id="recent-heading" className="sr-only">
               Recent orders
             </h2>
             <div className="space-y-20">
-              {accountOrders?.map((order) => (
+              {accountOrdersState?.map((order) => (
                 <div key={order.orderId}>
                   <h3 className="sr-only">
                     Order placed on <time dateTime={order.email}>{order.email}</time>

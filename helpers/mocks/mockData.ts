@@ -1,14 +1,16 @@
-import { NextFrontasticImage } from 'frontastic/lib/image';
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
 import { Group } from '@Types/account/Group';
 import { Cart } from '@Types/cart/Cart';
+import { LineItem as CartLineItem } from '@Types/cart/LineItem';
 import { Order } from '@Types/cart/Order';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { Product } from '@Types/product/Product';
+import { Variant } from '@Types/product/Variant';
 import { LineItem } from '@Types/wishlist/LineItem';
 import { Wishlist } from '@Types/wishlist/Wishlist';
 import { Link } from 'components/commercetools-ui/footer/column';
+import { NextFrontasticImage } from 'frontastic/lib/image';
 
 export const accordionMockItems = [
   {
@@ -25,6 +27,87 @@ export const accordionMockItems = [
     title: 'Third Title',
     content:
       ' We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is unfortunately not always very easy.',
+  },
+];
+
+export const billingAddress: Address = {
+  addressId: 'F7dbZ3iR',
+  city: 'New York',
+  country: 'DE',
+  firstName: 'Peter',
+  lastName: 'Parker',
+  phone: '+2 01124206669',
+  postalCode: '10010',
+  streetName: 'Queens',
+  streetNumber: 'st.48',
+};
+
+export const shippingAddress: Address = {
+  addressId: 'F7dbZ3iR',
+  city: 'New Cairo',
+  country: 'DE',
+  firstName: 'Ahmed',
+  lastName: 'Amir',
+  phone: '+2 01124206669',
+  postalCode: '10010',
+  streetName: 'talaat harb',
+  streetNumber: 'st.48',
+};
+
+export const variant: Variant = {
+  groupId: '78695',
+  id: '1',
+  images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/078695_1_large.jpg'],
+  sku: 'M0E20000000DSDJ',
+  price: { centAmount: 71820, currencyCode: 'EUR', fractionDigits: 2 },
+  isOnStock: true,
+  attributes: { articleNumberManufacturer: '621540423 V0065', articleNumberMax: '78695', baseId: '78695', size: 'XXS' },
+};
+
+export const lineItemsOrderHistory: CartLineItem[] = [
+  {
+    lineItemId: '2b7427e1-d00b-4069-9731-a93aa92869c1',
+    name: 'Freizeitjacke Stone Island schwarz',
+    type: 'variant',
+    _url: '/slug/p/M0E20000000DSDJ',
+    count: 2,
+    variant: variant,
+    isGift: false,
+    totalPrice: { centAmount: 71820, currencyCode: 'EUR', fractionDigits: 2 },
+    price: { centAmount: 71820, currencyCode: 'EUR', fractionDigits: 2 },
+  },
+  {
+    lineItemId: '2b7427e1-d00b-4069-9731-a93aa92869c1',
+    name: 'Freizeitjacke Stone Island schwarz',
+    type: 'variant',
+    _url: '/slug/p/M0E20000000DSDJ',
+    count: 2,
+    variant: variant,
+    isGift: false,
+    totalPrice: { centAmount: 71820, currencyCode: 'EUR', fractionDigits: 2 },
+    price: { centAmount: 71820, currencyCode: 'EUR', fractionDigits: 2 },
+  },
+];
+export const orderHistoryMock: Order[] = [
+  {
+    cartId: '4981a058-d32d-4120-bac9-c7b2ff862e36',
+    orderId: 'a480b136-db0c-40d7-111d-d4a1f98fcfba',
+    orderState: 'Open',
+    orderVersion: '1',
+    billingAddress: billingAddress,
+    shippingAddress: shippingAddress,
+    email: 'ahmed.amir@frontastic.cloud',
+    lineItems: lineItemsOrderHistory,
+  },
+  {
+    cartId: '4981a058-d32d-4120-bac9-c7b2ff862e36',
+    orderId: 'a480b136-db0c-40d7-111d-d4a1f98fcfba',
+    orderState: 'Open',
+    orderVersion: '1',
+    billingAddress: billingAddress,
+    shippingAddress: shippingAddress,
+    email: 'ahmed.amir@frontastic.cloud',
+    lineItems: lineItemsOrderHistory,
   },
 ];
 

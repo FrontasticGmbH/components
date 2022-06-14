@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { orders } from 'helpers/mocks/mockData';
+import { orderHistoryMock } from 'helpers/mocks/mockData';
 import Addresses from '../addresses';
 import General from '../general';
 import OrdersHistory from '../orders';
@@ -64,7 +64,7 @@ const Sections = () => {
           ) : selectedTab === tabs[1].href ? (
             <Addresses />
           ) : selectedTab === tabs[2].href ? (
-            <OrdersHistory />
+            <OrdersHistory orders={orderHistoryMock} />
           ) : (
             <Security />
           )}
