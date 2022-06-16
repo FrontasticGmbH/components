@@ -1,8 +1,8 @@
 import { IncomingMessage, ServerResponse } from 'http';
-import { SESSION_PERSISTENCE } from 'constants/auth';
-import { REMEMBER_ME } from 'constants/localStorage';
 import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
+import { SESSION_PERSISTENCE } from 'constants/auth';
+import { REMEMBER_ME } from 'constants/localStorage';
 import { Log } from '../../helpers/errorLogger';
 
 function resolveApiHubUrl(): string {

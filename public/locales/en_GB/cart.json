@@ -20,5 +20,9 @@
   "discounts.calculation.learnMore": "Learn more about how discounts are calculated",
   "cart.items.in.view": "items in cart, view cart",
   "cart.empty": "Currently you have no items in your cart",
-  "cart.start.shopping": "Start Shopping"
+  "cart.start.shopping": "Start Shopping",
+  "cart.apply":"Apply",
+  "cart.discount": "Add discount code (optional)",
+  "cart.discount.code": "Your discount code",
+  "cart.empty.discount": "Code not valid. Check that it is correct."
 }

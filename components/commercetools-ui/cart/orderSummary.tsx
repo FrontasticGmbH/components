@@ -4,6 +4,7 @@ import { Cart } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
+import DiscountForm from '../discount-form';
 
 interface Props {
   readonly cart: Cart;
@@ -16,91 +17,95 @@ const OrderSummary = ({ cart, shippingMethod, onCheckout }: Props) => {
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
 
   return (
-    <section
-      aria-labelledby="summary-heading"
-      className="mt-16 rounded-lg bg-gray-50 py-6 px-4 dark:bg-primary-200 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
-    >
-      <h2 id="summary-heading" className="text-lg font-medium text-gray-900 dark:text-light-100">
-        {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order Summary' })}
-      </h2>
+    <div className="mx-auto flex w-fit flex-col sm:w-11/12 lg:w-96">
+      <section
+        aria-labelledby="summary-heading"
+        className="mt-16 rounded-lg bg-gray-50 py-6 px-4 dark:bg-primary-200 sm:col-span-8 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+      >
+        <h2 id="summary-heading" className="text-lg font-medium text-gray-900 dark:text-light-100">
+          {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order Summary' })}
+        </h2>
 
-      <dl className="mt-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <dt className="text-sm text-gray-600 dark:text-light-100">
-            {formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}
-          </dt>
-          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(
-              cart.lineItems.reduce(
-                (prev, current) =>
-                  CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)),
-                {
-                  fractionDigits: cart.lineItems[0].price.fractionDigits,
-                  centAmount: 0,
-                  currencyCode: cart.lineItems[0].price.currencyCode,
-                },
-              ),
-            )}
-          </dd>
-        </div>
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="flex items-center text-sm text-gray-600 dark:text-light-100">
-            <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
-          </dt>
-          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0]?.price || {})}
-          </dd>
-        </div>
+        <dl className="mt-6 space-y-4">
+          <div className="flex items-center justify-between">
+            <dt className="text-sm text-gray-600 dark:text-light-100">
+              {formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}
+            </dt>
+            <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
+              {CurrencyHelpers.formatForCurrency(
+                cart.lineItems.reduce(
+                  (prev, current) =>
+                    CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)),
+                  {
+                    fractionDigits: cart.lineItems[0].price.fractionDigits,
+                    centAmount: 0,
+                    currencyCode: cart.lineItems[0].price.currencyCode,
+                  },
+                ),
+              )}
+            </dd>
+          </div>
+          <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+            <dt className="flex items-center text-sm text-gray-600 dark:text-light-100">
+              <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
+            </dt>
+            <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
+              {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0]?.price || {})}
+            </dd>
+          </div>
 
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="flex text-sm text-gray-600 dark:text-light-100">
-            <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
-          </dt>
-          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(
-              cart.lineItems.reduce(
-                (prev, current) =>
-                  CurrencyHelpers.addCurrency(
-                    prev,
-                    CurrencyHelpers.subtractCurrency(
-                      current.totalPrice,
-                      CurrencyHelpers.multiplyCurrency(current.price, current.count),
+          <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+            <dt className="flex text-sm text-gray-600 dark:text-light-100">
+              <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
+            </dt>
+            <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
+              {CurrencyHelpers.formatForCurrency(
+                cart.lineItems.reduce(
+                  (prev, current) =>
+                    CurrencyHelpers.addCurrency(
+                      prev,
+                      CurrencyHelpers.subtractCurrency(
+                        current.totalPrice,
+                        CurrencyHelpers.multiplyCurrency(current.price, current.count),
+                      ),
                     ),
-                  ),
-                {
-                  fractionDigits: cart.lineItems[0].price.fractionDigits,
-                  centAmount: 0,
-                  currencyCode: cart.lineItems[0].price.currencyCode,
-                },
-              ),
-            )}
-          </dd>
-        </div>
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <dt className="text-base font-medium text-gray-900 dark:text-light-100">
-            {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
-          </dt>
-          <dd className="text-base font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(
-              CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0]?.price),
-            )}
-          </dd>
-        </div>
-      </dl>
+                  {
+                    fractionDigits: cart.lineItems[0].price.fractionDigits,
+                    centAmount: 0,
+                    currencyCode: cart.lineItems[0].price.currencyCode,
+                  },
+                ),
+              )}
+            </dd>
+          </div>
+          <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+            <dt className="text-base font-medium text-gray-900 dark:text-light-100">
+              {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
+            </dt>
+            <dd className="text-base font-medium text-gray-900 dark:text-light-100">
+              {CurrencyHelpers.formatForCurrency(
+                CurrencyHelpers.addCurrency(cart.sum, shippingMethod?.rates?.[0]?.price),
+              )}
+            </dd>
+          </div>
+        </dl>
 
-      <div className="mt-6">
-        <button
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            onCheckout();
-          }}
-          className="w-full rounded-md border border-transparent bg-accent-400 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-        >
-          {formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
-        </button>
-      </div>
-    </section>
+        <div className="mt-6">
+          <button
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              onCheckout();
+            }}
+            className="w-full rounded-md border border-transparent bg-accent-400 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+          >
+            {formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
+          </button>
+        </div>
+      </section>
+
+      <DiscountForm cart={cart} className="py-10" />
+    </div>
   );
 };
 

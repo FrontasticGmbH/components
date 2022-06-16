@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { useRouter } from 'next/router';
 import { Menu, Transition } from '@headlessui/react';
 import { UserIcon } from '@heroicons/react/outline';
 import { Account } from '@Types/account/Account';
@@ -13,7 +12,6 @@ interface AccountButtonProps {
 }
 
 const AccountButton: React.FC<AccountButtonProps> = ({ accountLink, account }) => {
-  const router = useRouter();
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
 
   const handleLogout = () => {

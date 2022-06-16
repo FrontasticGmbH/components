@@ -20,5 +20,9 @@
   "discounts.calculation.learnMore": "Erfahre mehr darüber, wie Rabatte berechnet werden",
   "cart.items.in.view": "Artikel im Warenkorb, Warenkorb ansehen",
   "cart.empty": "Derzeit haben Sie keine Artikel in Ihrem Warenkorb",
-  "cart.start.shopping": "Beginn mit dem Einkauf"
+  "cart.start.shopping": "Beginn mit dem Einkauf",
+  "cart.apply":"Sich bewerben",
+  "cart.discount": "Rabattcode hinzufügen (optional)",
+  "cart.discount.code": "Ihr Rabattcode",
+  "cart.empty.discount": "Code nicht gültig. Überprüfen Sie, ob es richtig ist."
 }

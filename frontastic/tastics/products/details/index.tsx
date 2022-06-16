@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { Product } from '@Types/product/Product';
 import { Variant } from '@Types/product/Variant';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/commercetools-ui/products/product-details';
 import { useCart } from 'frontastic';
 import { addToWishlist } from 'frontastic/actions/wishlist';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 function ProductDetailsTastic({ data }) {
   const router = useRouter();

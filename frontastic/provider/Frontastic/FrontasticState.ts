@@ -25,6 +25,8 @@ import {
   setShippingMethod,
   updateCart,
   updateItem,
+  redeemDiscountCode,
+  removeDiscountCode,
 } from '../../actions/cart';
 import { getWishlist, addToWishlist, removeLineItem, updateLineItem } from '../../actions/wishlist';
 import { UseAccount } from './UseAccount';
@@ -49,6 +51,8 @@ export const getFrontasticState = (): FrontasticState => {
       shippingMethods: shippingMethods(),
       orderCart,
       orderHistory,
+      redeemDiscountCode,
+      removeDiscountCode,
     },
     useAccount: {
       ...getAccount(),
