@@ -58,7 +58,9 @@ export const logout = async () => {
 };
 
 export const register = async (account: RegisterAccount): Promise<Account> => {
-  const res = await fetchApiHub('/action/account/register', { method: 'POST' }, account);
+  const host = typeof window !== 'undefined' ? window.location.origin : '';
+  const acc = { ...account, host };
+  const res = await fetchApiHub('/action/account/register', { method: 'POST' }, acc);
   // await mutate('/action/account/getAccount', res);
   return res;
 };
@@ -70,9 +72,12 @@ export const confirm = async (token: string): Promise<Account> => {
 };
 
 export const resendVerificationEmail = async (email: string, password: string): Promise<void> => {
+  const host = typeof window !== 'undefined' ? window.location.origin : '';
+
   const payload = {
     email,
     password,
+    host,
   };
   const res = await fetchApiHub('/action/account/resendVerificationEmail', { method: 'POST' }, payload);
   return res;
