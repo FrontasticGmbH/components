@@ -10,6 +10,7 @@
   "shippingCosts": "Shipping costs",
   "freeShipping": "Free",
   "inclVat": "incl.VAT",
+  "taxes": "Taxes",
   "remove": "Remove",
   "cart.shopping": "Shopping Cart",
   "cart.shopping.items": "Items in your shopping cart",
@@ -22,7 +23,12 @@
   "cart.empty": "Currently you have no items in your cart",
   "cart.start.shopping": "Start Shopping",
   "cart.apply":"Apply",
-  "cart.discount": "Add discount code (optional)",
-  "cart.discount.code": "Your discount code",
-  "cart.empty.discount": "Code not valid. Check that it is correct."
+  "cart.discount": "Discounts",
+  "cart.discount.code": "code",
+  "cart.empty.discount": "Code not valid. Check that it is correct.",
+  "payment": "Payment",
+  "address": "Address",
+  "overview": "Overview",
+  "goToOverview": "Go to overview",
+  "ContinueAndPay": "Continue and pay"
 }

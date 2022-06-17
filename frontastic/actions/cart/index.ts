@@ -80,7 +80,7 @@ export type CartDetails = {
   billing?: Address;
 };
 
-export const updateCart = async (payload: CartDetails) => {
+export const updateCart = async (payload: CartDetails): Promise<Cart> => {
   const res = await fetchApiHub(
     '/action/cart/updateCart',
     {
@@ -93,6 +93,7 @@ export const updateCart = async (payload: CartDetails) => {
     payload,
   );
   mutate('/action/cart/getCart', res);
+  return res
 };
 
 export const setShippingMethod = async (shippingMethodId: string) => {

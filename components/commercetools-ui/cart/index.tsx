@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import { Cart as CartType } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
@@ -8,6 +8,7 @@ import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
+import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
 
 export interface Props {
   pageTitle?: string;
@@ -41,7 +42,10 @@ const Cart = ({
 
   const router = useRouter();
 
-  const onCheckout = () => router.push('/checkout');
+  const onCheckout = (e: FormEvent) => {
+    e.preventDefault();
+    router.push('/checkout');
+  };
 
   const goToProductPage = (_url: string) => router.push(_url);
 
@@ -77,16 +81,25 @@ const Cart = ({
       <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
         {formatCartMessage({ id: 'cart.shopping', defaultMessage: 'Shopping Cart' })}
       </h1>
-
-      <form className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
-        <ItemList
-          cart={cart}
-          editItemQuantity={editItemQuantity}
-          goToProductPage={goToProductPage}
-          removeItem={(lineItemId: string) => removeItem(lineItemId)}
-        />
-        <OrderSummary cart={cart} shippingMethod={shippingMethods?.[0]} onCheckout={onCheckout} />
-      </form>
+      {loading ? (
+        <div className="flex items-stretch justify-center py-10 px-12">
+          <Spinner />
+        </div>
+      ) : (
+        <form className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+          <ItemList
+            cart={cart}
+            editItemQuantity={editItemQuantity}
+            goToProductPage={goToProductPage}
+            removeItem={(lineItemId: string) => removeItem(lineItemId)}
+          />
+          <OrderSummary
+            cart={cart}
+            shippingMethod={flattenShippingMethod(shippingMethods?.[0], 'DE')}
+            onSubmit={onCheckout}
+          />
+        </form>
+      )}
     </main>
   );
 };

@@ -1,4 +1,9 @@
-export const countryOptions = [
+type CountryOptions = {
+  display: string;
+  data: string;
+}[];
+
+export const countryOptions: CountryOptions = [
   { display: 'Albania', data: 'AL' },
   { display: 'Austria', data: 'AT' },
   { display: 'Australia', data: 'AU' },

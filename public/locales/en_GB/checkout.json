@@ -1,7 +1,7 @@
 {
   "shipping": "Shipping",
   "payment": "Payment",
-  "overview": "Overivew",
+  "overview": "Overview",
   "nextPayment": "Continue to payment",
   "nextOverview": "Continue to overview",
   "orderConfirmed": "Your order was confirmed",
@@ -39,5 +39,6 @@
   "order.appreciate": "We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation very soon!",
   "creditCard": "Credit card",
   "askPaymentPreference": "What do you prefer to pay with?",
-  "billingAddressSameAsShipping": "Billing address is the same as shipping address"
+  "billingAddressSameAsShipping": "Billing address is the same as shipping address",
+  "taxesNotSupported": "Taxes are not defined for this country in commercetools"
 }

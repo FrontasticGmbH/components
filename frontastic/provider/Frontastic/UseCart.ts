@@ -7,7 +7,7 @@ import { CartDetails } from 'frontastic/actions/cart';
 export interface UseCart {
   data?: Cart;
   addItem: (variant: Variant, quantity: number) => Promise<void>;
-  updateCart: (payload: CartDetails) => Promise<void>;
+  updateCart: (payload: CartDetails) => Promise<Cart>;
   setShippingMethod: (shippingMethodId: string) => Promise<void>;
   removeItem: (lineItemId: string) => Promise<void>;
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;

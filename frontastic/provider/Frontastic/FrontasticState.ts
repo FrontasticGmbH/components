@@ -29,14 +29,17 @@ import {
   removeDiscountCode,
 } from '../../actions/cart';
 import { getWishlist, addToWishlist, removeLineItem, updateLineItem } from '../../actions/wishlist';
+import { createSession } from '../../actions/checkout';
 import { UseAccount } from './UseAccount';
 import { UseCart } from './UseCart';
 import { UseWishlist } from './UseWishlist';
+import { UseCheckout } from './UseCheckout';
 
 export interface FrontasticState {
   useCart: UseCart;
   useAccount: UseAccount;
   useWishlist: UseWishlist;
+  useCheckout: UseCheckout;
 }
 
 export const getFrontasticState = (): FrontasticState => {
@@ -77,5 +80,8 @@ export const getFrontasticState = (): FrontasticState => {
       removeLineItem,
       updateLineItem,
     },
+    useCheckout: {
+      createSession,
+    }
   };
 };
