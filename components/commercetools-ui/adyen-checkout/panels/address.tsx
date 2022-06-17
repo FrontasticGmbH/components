@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import { countryOptions } from 'components/commercetools-ui/checkout/countryOptions';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { FormData } from '..';
@@ -10,9 +10,10 @@ type AddressProps = {
   toggleBillingAddressOption: () => void;
 };
 
-const Address: FC<AddressProps> = ({ data, updateData, billingIsSameAsShipping, toggleBillingAddressOption }) => {
+const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShipping, toggleBillingAddressOption }) => {
   const { formatMessage } = useFormat({ name: 'checkout' });
   const { formatMessage: formatCommonMessage } = useFormat({ name: 'common' });
+
   const handleChange = (e: ChangeEvent) => {
     const updatedData = {
       ...data,

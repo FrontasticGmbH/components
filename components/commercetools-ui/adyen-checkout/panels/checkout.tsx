@@ -11,7 +11,6 @@ type Session = {
 
 const Checkout = () => {
   const { data: cartList } = useCart();
-
   const { createSession } = useCheckout();
   const [session, setSession] = useState<Session>();
 
@@ -23,8 +22,8 @@ const Checkout = () => {
   useEffect(() => {
     createSession(
       {
-        currency: cartList.sum.currencyCode,
         value: cartList.sum.centAmount,
+        currency: cartList.sum.currencyCode,
       },
       `/thank-you`,
     ).then((res) => {

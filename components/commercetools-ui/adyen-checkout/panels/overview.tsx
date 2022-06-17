@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlattenedShippingMethod } from '@Types/cart/FlattenedShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
@@ -11,7 +11,7 @@ type OverviewProps = {
   updateChosenShipmentMethod: (FlattenedShippingMethod) => void;
 };
 
-const Overview: FC<OverviewProps> = ({ country, chosenShipmentMethod, updateChosenShipmentMethod }) => {
+const Overview: React.FC<OverviewProps> = ({ country, chosenShipmentMethod, updateChosenShipmentMethod }) => {
   const { shippingMethods } = useCart();
   const [countryShippingMethods, setCountryShippingMethods] = useState<FlattenedShippingMethod[]>();
 

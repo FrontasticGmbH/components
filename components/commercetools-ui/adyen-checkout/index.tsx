@@ -4,11 +4,10 @@ import toast from 'react-hot-toast';
 import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
 import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
 import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
+import OrderSummary from 'components/commercetools-ui/cart/orderSummary';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { countryBasedShippingRateIndex, flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
 import { useCart } from 'frontastic';
-import { CartDetails } from 'frontastic/actions/cart';
-import OrderSummary from '../cart/orderSummary';
 import { mapToCartStructure, mapToFormStructure } from './mapFormData';
 import { requiredDataIsValid } from './requiredDataIsValid';
 
@@ -39,6 +38,7 @@ const AdyenCheckout = () => {
   const [chosenShipmentMethod, setChosenShipmentMethod] = useState<FlattenedShippingMethod>(
     flattenShippingMethod(shippingMethods.data?.[0], 'DE'),
   );
+
   const [data, setData] = useState<FormData>({
     firstName: '',
     lastName: '',
