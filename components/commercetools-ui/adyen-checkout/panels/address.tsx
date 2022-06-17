@@ -1,6 +1,6 @@
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { countryOptions } from 'components/commercetools-ui/checkout/countryOptions';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { FormData } from '..';
 
 type AddressProps = {

@@ -4,11 +4,11 @@ import { Cart as CartType } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
+import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
 import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
 import OrderSummary from './orderSummary';
-import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
 
 export interface Props {
   pageTitle?: string;

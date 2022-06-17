@@ -93,7 +93,7 @@ export const updateCart = async (payload: CartDetails): Promise<Cart> => {
     payload,
   );
   mutate('/action/cart/getCart', res);
-  return res
+  return res;
 };
 
 export const setShippingMethod = async (shippingMethodId: string) => {

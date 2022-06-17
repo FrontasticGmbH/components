@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
-import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
-import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
-import OrderSummary from '../cart/orderSummary';
-import { useCart } from 'frontastic';
 import { FlattenedShippingMethod } from '@Types/cart/FlattenedShippingMethod';
-import { countryBasedShippingRateIndex, flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
-import { useFormat } from 'helpers/hooks/useFormat';
-import { CartDetails } from 'frontastic/actions/cart';
 import toast from 'react-hot-toast';
+import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
+import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
+import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
+import { useFormat } from 'helpers/hooks/useFormat';
+import { countryBasedShippingRateIndex, flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
+import { useCart } from 'frontastic';
+import { CartDetails } from 'frontastic/actions/cart';
+import OrderSummary from '../cart/orderSummary';
 import { mapToCartStructure, mapToFormStructure } from './mapFormData';
 import { requiredDataIsValid } from './requiredDataIsValid';
 

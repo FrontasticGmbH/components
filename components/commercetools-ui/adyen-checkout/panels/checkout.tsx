@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import AdyenCheckout from '@adyen/adyen-web';
 import { useCart, useCheckout } from 'frontastic';
 
-import AdyenCheckout from '@adyen/adyen-web';
 import '@adyen/adyen-web/dist/adyen.css';
 
 type Session = {
@@ -18,7 +18,7 @@ const Checkout = () => {
   const initializeSession = async (sessionConfiguration) => {
     const checkout = await AdyenCheckout(sessionConfiguration);
     const dropinComponent = checkout.create('dropin').mount('#dropin-container');
-  };  
+  };
 
   useEffect(() => {
     createSession(
@@ -27,7 +27,7 @@ const Checkout = () => {
         value: cartList.sum.centAmount,
       },
       `/thank-you`,
-    ).then((res) => {      
+    ).then((res) => {
       const { id, sessionData } = res;
       setSession({ id, sessionData });
     });

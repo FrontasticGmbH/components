@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
-import { useCart } from 'frontastic';
 import { FlattenedShippingMethod } from '@Types/cart/FlattenedShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
-import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
+import { useCart } from 'frontastic';
 
 type OverviewProps = {
   country: string;

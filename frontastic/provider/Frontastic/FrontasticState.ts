@@ -82,6 +82,6 @@ export const getFrontasticState = (): FrontasticState => {
     },
     useCheckout: {
       createSession,
-    }
+    },
   };
 };
