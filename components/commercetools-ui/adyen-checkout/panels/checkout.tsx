@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useCheckout } from 'frontastic';
+import { useCart, useCheckout } from 'frontastic';
 
 import AdyenCheckout from '@adyen/adyen-web';
 import '@adyen/adyen-web/dist/adyen.css';
@@ -10,22 +10,24 @@ type Session = {
 };
 
 const Checkout = () => {
+  const { data: cartList } = useCart();
+
   const { createSession } = useCheckout();
   const [session, setSession] = useState<Session>();
 
   const initializeSession = async (sessionConfiguration) => {
     const checkout = await AdyenCheckout(sessionConfiguration);
     const dropinComponent = checkout.create('dropin').mount('#dropin-container');
-  };
+  };  
 
   useEffect(() => {
     createSession(
       {
-        currency: 'EUR',
-        value: 5000,
+        currency: cartList.sum.currencyCode,
+        value: cartList.sum.centAmount,
       },
-      '/',
-    ).then((res) => {
+      `/thank-you`,
+    ).then((res) => {      
       const { id, sessionData } = res;
       setSession({ id, sessionData });
     });
