@@ -1,7 +1,8 @@
+import useSWR, { mutate } from 'swr';
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
-import useSWR, { mutate } from 'swr';
 import { REMEMBER_ME } from 'constants/localStorage';
+import { revalidateOptions } from 'frontastic';
 import { fetchApiHub, ResponseError } from 'frontastic/lib/fetch-api-hub';
 
 export interface GetAccountResult {
@@ -20,7 +21,7 @@ export interface UpdateAccount {
 }
 
 export const getAccount = (): GetAccountResult => {
-  const result = useSWR<Account | GetAccountResult>('/action/account/getAccount', fetchApiHub);
+  const result = useSWR<Account | GetAccountResult>('/action/account/getAccount', fetchApiHub, revalidateOptions);
 
   const account = (result.data as GetAccountResult)?.account || (result.data as Account);
 

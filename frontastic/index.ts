@@ -1,13 +1,18 @@
 import { getRouteData, getPreview } from './lib/server/get-route-data';
 
-function createClient(url: string, key: string) {
+export function createClient(url: string, key: string) {
   return {
     getRouteData: getRouteData(url, key),
     getPreview: getPreview(url, key),
   };
 }
 
-export { createClient };
+export const revalidateOptions = {
+  revalidateIfStale: false,
+  revalidateOnFocus: false,
+  revalidateOnReconnect: true,
+};
+
 export * from './lib/server/get-route-data';
 export * from './lib/types';
 export * from './lib/renderer';

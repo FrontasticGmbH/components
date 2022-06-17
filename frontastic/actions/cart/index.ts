@@ -1,12 +1,12 @@
+import useSWR, { mutate } from 'swr';
 import { Address } from '@Types/account/Address';
 import { Cart } from '@Types/cart/Cart';
 import { Discount } from '@Types/cart/Discount';
 import { Variant } from '@Types/product/Variant';
-import useSWR, { mutate } from 'swr';
-import { fetchApiHub } from 'frontastic';
+import { fetchApiHub, revalidateOptions } from 'frontastic';
 
 export const cartItems = () => {
-  return useSWR('/action/cart/getCart', fetchApiHub);
+  return useSWR('/action/cart/getCart', fetchApiHub, revalidateOptions);
 };
 
 export const addItem = async (variant: Variant, quantity: number) => {
@@ -54,7 +54,7 @@ export const removeItem = async (lineItemId: string) => {
 };
 
 export const shippingMethods = () => {
-  return useSWR('/action/cart/getShippingMethods', fetchApiHub);
+  return useSWR('/action/cart/getShippingMethods', fetchApiHub, revalidateOptions);
 };
 
 export const updateItem = async (lineItemId: string, newQuantity: number) => {

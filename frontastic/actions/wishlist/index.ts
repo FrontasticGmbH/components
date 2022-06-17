@@ -1,8 +1,8 @@
 import useSWR, { mutate } from 'swr';
-import { fetchApiHub } from 'frontastic';
+import { fetchApiHub, revalidateOptions } from 'frontastic';
 
 export const getWishlist = () => {
-  return useSWR('/action/wishlist/getWishlist', fetchApiHub);
+  return useSWR('/action/wishlist/getWishlist', fetchApiHub, revalidateOptions);
 };
 
 export const addToWishlist = async (sku: string, count = 1) => {
