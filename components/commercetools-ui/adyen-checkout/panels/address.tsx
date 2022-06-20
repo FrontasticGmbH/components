@@ -164,7 +164,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             checked={billingIsSameAsShipping}
             onChange={toggleBillingAddressOption}
           />
-          {formatCommonMessage({
+          {formatMessage({
             id: 'billingDetailsLabel',
             defaultMessage: 'Billing address is the same as shipping address',
           })}
@@ -172,7 +172,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
 
         {!billingIsSameAsShipping && (
           <>
-            <div className="mb-4 text-xs font-bold uppercase leading-tight text-neutral-600">
+            <div className="my-4 text-xs font-bold uppercase leading-tight text-neutral-600">
               <span>{formatMessage({ id: 'billingInformation', defaultMessage: 'Billing information' })}</span>
             </div>
             <div className="mb-4">

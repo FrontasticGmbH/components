@@ -1,13 +1,13 @@
 import { MouseEvent } from 'react';
 import { Cart } from '@Types/cart/Cart';
-import { FlattenedShippingMethod } from '@Types/cart/FlattenedShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import DiscountForm from '../discount-form';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
 
 interface Props {
   readonly cart: Cart;
-  readonly shippingMethod: FlattenedShippingMethod;
+  readonly shippingMethod: ShippingMethod;
   readonly onSubmit?: (e: MouseEvent) => void;
   readonly submitButtonLabel?: string;
   readonly disableSubmitButton?: Boolean;
@@ -64,7 +64,7 @@ const OrderSummary = ({
               <span>{formatMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
             </dt>
             <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(shippingMethod?.price || {})}
+              {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0]?.price || {})}
             </dd>
           </div>
         )}

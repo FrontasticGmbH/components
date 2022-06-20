@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { FlattenedShippingMethod } from '@Types/cart/FlattenedShippingMethod';
 import toast from 'react-hot-toast';
 import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
 import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
 import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
 import OrderSummary from 'components/commercetools-ui/cart/orderSummary';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { countryBasedShippingRateIndex, flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
-import { useCart } from 'frontastic';
 import { mapToCartStructure, mapToFormStructure } from './mapFormData';
 import { requiredDataIsValid } from './requiredDataIsValid';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
+import { countryBasedShippingRateIndex } from 'helpers/utils/flattenShippingMethod';
+import { useCart } from 'frontastic';
 
 export type FormData = {
   firstName: string;
@@ -27,18 +27,15 @@ export type FormData = {
 };
 
 const AdyenCheckout = () => {
-  const { data: cartList, updateCart, shippingMethods } = useCart();
+  const { data: cartList, updateCart, setShippingMethod } = useCart();
   const { formatMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
   const containerRef = useRef();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [disableSubmitButton, setDisableSubmitButton] = useState<Boolean>(true);
   const [billingIsSameAsShipping, setBillingIsSameAsShipping] = useState<boolean>(true);
+  const [chosenShippingMethod, setChosenShippingMethod] = useState<ShippingMethod>();
   const [dataIsValid, setDataIsValid] = useState<boolean>(false);
-  const [chosenShipmentMethod, setChosenShipmentMethod] = useState<FlattenedShippingMethod>(
-    flattenShippingMethod(shippingMethods.data?.[0], 'DE'),
-  );
-
   const [data, setData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -52,10 +49,6 @@ const AdyenCheckout = () => {
     billingPostalCode: '',
     billingCountry: '',
   });
-
-  const updateChosenShipmentMethod = (method: FlattenedShippingMethod) => {
-    setChosenShipmentMethod(method);
-  };
 
   const changeStep = (stepIndex: number) => {
     if (currentStepIndex > stepIndex) {
@@ -84,6 +77,10 @@ const AdyenCheckout = () => {
   };
 
   const gotToNextStep = () => {
+    if (currentStepIndex == 0) {
+      updateCartData();
+    }
+
     setCurrentStepIndex(currentStepIndex + 1);
     goToTopOfPage();
   };
@@ -110,6 +107,11 @@ const AdyenCheckout = () => {
     }
   };
 
+  const updateChosenShippingMethod = (shippingMethod: ShippingMethod) => {
+    setChosenShippingMethod(shippingMethod);
+    setShippingMethod(shippingMethod.shippingMethodId);
+  };
+
   const submitButtonLabel = [
     formatMessage({ id: 'goToOverview', defaultMessage: 'Go to overview' }),
     formatMessage({ id: 'ContinueAndPay', defaultMessage: 'Continue and pay' }),
@@ -132,9 +134,9 @@ const AdyenCheckout = () => {
 
       component: (
         <Overview
-          country={data.shippingCountry}
-          chosenShipmentMethod={chosenShipmentMethod}
-          updateChosenShipmentMethod={updateChosenShipmentMethod}
+          shippingMethods={cartList?.availableShippingMethods}
+          chosenShippingMethod={chosenShippingMethod}
+          updateChosenShippingMethod={updateChosenShippingMethod}
         />
       ),
     },
@@ -157,8 +159,32 @@ const AdyenCheckout = () => {
 
   useEffect(() => {
     const defaultData = mapToFormStructure(cartList);
-    if (defaultData) updateData(defaultData);
+    if (defaultData && requiredDataIsValid(defaultData, billingIsSameAsShipping)) {
+      updateData(defaultData);
+    }
   }, [cartList]);
+
+  useEffect(() => {
+    if (cartList?.shippingInfo) {
+      const currentShippingMethod = cartList.availableShippingMethods.find(
+        ({ shippingMethodId }) => shippingMethodId == cartList.shippingInfo.shippingMethodId,
+      );
+      setChosenShippingMethod(currentShippingMethod);
+    } else {
+      setChosenShippingMethod(cartList?.availableShippingMethods[0]);
+    }
+  }, [cartList?.shippingInfo]);
+
+  useEffect(() => {
+    if (cartList?.shippingInfo && !chosenShippingMethod) {
+      const chosenMethod = cartList.availableShippingMethods.find(
+        ({ shippingMethodId }) => shippingMethodId === cartList.shippingInfo.shippingMethodId,
+      );
+      setChosenShippingMethod(chosenMethod);
+    } else {
+      setChosenShippingMethod(cartList?.availableShippingMethods?.[0]);
+    }
+  }, []);
 
   return (
     <div className="mx-auto max-w-4xl md:mt-4">
@@ -181,7 +207,7 @@ const AdyenCheckout = () => {
         {steps[currentStepIndex].component}
         <OrderSummary
           cart={cartList}
-          shippingMethod={chosenShipmentMethod}
+          shippingMethod={chosenShippingMethod}
           submitButtonLabel={submitButtonLabel[currentStepIndex]}
           disableSubmitButton={disableSubmitButton}
           hideSubmitButton={currentStepIndex == 2}

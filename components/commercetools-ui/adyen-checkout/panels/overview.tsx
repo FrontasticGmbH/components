@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { FlattenedShippingMethod } from '@Types/cart/FlattenedShippingMethod';
+import { FC } from 'react';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
-import { useCart } from 'frontastic';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
 
 type OverviewProps = {
-  country: string;
-  chosenShipmentMethod: FlattenedShippingMethod;
-  updateChosenShipmentMethod: (FlattenedShippingMethod) => void;
+  shippingMethods: ShippingMethod[];
+  chosenShippingMethod: ShippingMethod;
+  updateChosenShippingMethod: (shippingMethodId: ShippingMethod) => void;
 };
 
-const Overview: React.FC<OverviewProps> = ({ country, chosenShipmentMethod, updateChosenShipmentMethod }) => {
-  const { shippingMethods } = useCart();
-  const [countryShippingMethods, setCountryShippingMethods] = useState<FlattenedShippingMethod[]>();
-
+const Overview: FC<OverviewProps> = ({ shippingMethods, chosenShippingMethod, updateChosenShippingMethod }) => {
   const { formatMessage } = useFormat({ name: 'checkout' });
-
-  useEffect(() => {
-    let currentShippingMethods: FlattenedShippingMethod[] = shippingMethods.data?.map((method) =>
-      flattenShippingMethod(method, country),
-    );
-
-    setCountryShippingMethods(currentShippingMethods);
-    updateChosenShipmentMethod(currentShippingMethods[0]);
-  }, []);
 
   return (
     <section aria-labelledby="cart-heading" className="bg-white md:rounded md:shadow-md lg:col-span-7">
@@ -34,8 +20,9 @@ const Overview: React.FC<OverviewProps> = ({ country, chosenShipmentMethod, upda
             <span>{formatMessage({ id: 'shippingMethods', defaultMessage: 'Shipping methods' })}</span>
           </div>
 
-          {countryShippingMethods?.map(({ shippingMethodId, name, description, price }, index) => (
-            <div
+          {shippingMethods?.map(({ shippingMethodId, name, description, rates }, index) => (
+            <label
+              htmlFor={name}
               key={index}
               className={`flex h-16 cursor-pointer items-center rounded border border-neutral-400 px-4 py-3 ${
                 index > 0 && 'mt-2'
@@ -47,18 +34,18 @@ const Overview: React.FC<OverviewProps> = ({ country, chosenShipmentMethod, upda
                 name="shippingMethodId"
                 id={name}
                 className="mr-2"
-                checked={chosenShipmentMethod.shippingMethodId === shippingMethodId}
+                checked={chosenShippingMethod?.shippingMethodId === shippingMethodId}
                 value={shippingMethodId}
-                onChange={() => updateChosenShipmentMethod(countryShippingMethods[index])}
+                onChange={() => updateChosenShippingMethod(shippingMethods[index])}
               />
               <div className="flex w-full flex-col">
                 <div className="text-md capitalize leading-tight">{name}</div>
                 <span className="text-xs text-neutral-600">{description}</span>
               </div>
               <span className="text-md ml-auto font-bold">
-                <span className=" ">{CurrencyHelpers.formatForCurrency(price)}</span>
+                <span className=" ">{CurrencyHelpers.formatForCurrency(rates?.[0]?.price)}</span>
               </span>
-            </div>
+            </label>
           ))}
         </form>
       </div>
