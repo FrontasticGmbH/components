@@ -135,8 +135,8 @@ const AdyenCheckout = () => {
       component: (
         <Overview
           shippingMethods={cartList?.availableShippingMethods}
-          chosenShippingMethod={chosenShippingMethod}
-          updateChosenShippingMethod={updateChosenShippingMethod}
+          currentShippingMethod={chosenShippingMethod}
+          onSelectShippingMethod={updateChosenShippingMethod}
         />
       ),
     },
