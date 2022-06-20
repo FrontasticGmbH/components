@@ -101,7 +101,7 @@ export const setShippingMethod = async (shippingMethodId: string) => {
       id: shippingMethodId,
     },
   };
-  
+
   const res = await fetchApiHub(
     `/action/cart/setShippingMethod?shippingMethodId=${shippingMethodId}`,
     {

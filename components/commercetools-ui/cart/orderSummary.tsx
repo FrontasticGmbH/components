@@ -1,9 +1,9 @@
 import { MouseEvent } from 'react';
 import { Cart } from '@Types/cart/Cart';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import DiscountForm from '../discount-form';
-import { ShippingMethod } from '@Types/cart/ShippingMethod';
 
 interface Props {
   readonly cart: Cart;
