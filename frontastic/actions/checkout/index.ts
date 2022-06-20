@@ -1,6 +1,6 @@
 import { fetchApiHub } from 'frontastic/lib/fetch-api-hub';
 import { mutate } from 'swr';
-import { Amount } from '../../../../extension-commercetools/adyen/types/Amount';
+import { Amount } from '@Types/adyen/Amount';
 
 export const createSession = async (amount: Amount, returnUrl: string) => {
   const payload = {
