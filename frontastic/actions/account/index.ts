@@ -1,7 +1,7 @@
 import useSWR, { mutate } from 'swr';
 import { Account } from '@Types/account/Account';
 import { Address } from '@Types/account/Address';
-import { REMEMBER_ME } from 'constants/localStorage';
+import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { revalidateOptions } from 'frontastic';
 import { fetchApiHub, ResponseError } from 'frontastic/lib/fetch-api-hub';
 
