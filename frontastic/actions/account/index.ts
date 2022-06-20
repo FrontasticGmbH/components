@@ -61,9 +61,7 @@ export const logout = async () => {
 export const register = async (account: RegisterAccount): Promise<Account> => {
   const host = typeof window !== 'undefined' ? window.location.origin : '';
   const acc = { ...account, host };
-  const res = await fetchApiHub('/action/account/register', { method: 'POST' }, acc);
-  // await mutate('/action/account/getAccount', res);
-  return res;
+  return await fetchApiHub('/action/account/register', { method: 'POST' }, acc);
 };
 
 export const confirm = async (token: string): Promise<Account> => {
@@ -85,12 +83,11 @@ export const resendVerificationEmail = async (email: string, password: string): 
 };
 
 export const changePassword = async (oldPassword: string, newPassword: string): Promise<Account> => {
-  const res = await fetchApiHub('/action/account/password', { method: 'POST' }, { oldPassword, newPassword });
-  return res;
+  return await fetchApiHub('/action/account/password', { method: 'POST' }, { oldPassword, newPassword });
 };
 
 export const requestPasswordReset = async (email: string): Promise<void> => {
-  const res = await fetchApiHub('/action/account/requestReset', { method: 'POST' }, { email });
+  return await fetchApiHub('/action/account/requestReset', { method: 'POST' }, { email });
 };
 
 export const resetPassword = async (token: string, newPassword: string): Promise<Account> => {

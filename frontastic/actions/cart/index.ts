@@ -5,6 +5,12 @@ import { Discount } from '@Types/cart/Discount';
 import { Variant } from '@Types/product/Variant';
 import { fetchApiHub, revalidateOptions } from 'frontastic';
 
+export type CartDetails = {
+  account?: { email: string };
+  shipping?: Address;
+  billing?: Address;
+};
+
 export const cartItems = () => {
   return useSWR('/action/cart/getCart', fetchApiHub, revalidateOptions);
 };
@@ -34,8 +40,7 @@ export const orderCart = async () => {
 };
 
 export const orderHistory = async () => {
-  const res = await fetchApiHub('/action/cart/getOrders');
-  return res;
+  return await fetchApiHub('/action/cart/getOrders');
 };
 
 export const removeItem = async (lineItemId: string) => {
@@ -72,12 +77,6 @@ export const updateItem = async (lineItemId: string, newQuantity: number) => {
     payload,
   );
   mutate('/action/cart/getCart', res);
-};
-
-export type CartDetails = {
-  account?: { email: string };
-  shipping?: Address;
-  billing?: Address;
 };
 
 export const updateCart = async (payload: CartDetails): Promise<Cart> => {

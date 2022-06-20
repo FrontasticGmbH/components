@@ -2,13 +2,12 @@ import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Image from 'frontastic/lib/image';
 
-interface Props {}
-
-const ThankYou = ({}: Props) => {
+const ThankYou = () => {
   //i18n messages
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
 
   const router = useRouter();
+  console.log('Router query:', router.query);
 
   return (
     <main className="relative lg:min-h-full">

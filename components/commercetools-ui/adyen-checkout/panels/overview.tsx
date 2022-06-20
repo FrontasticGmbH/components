@@ -18,8 +18,6 @@ const Overview: React.FC<OverviewProps> = ({ country, chosenShipmentMethod, upda
   const { formatMessage } = useFormat({ name: 'checkout' });
 
   useEffect(() => {
-    console.log(countryShippingMethods);
-
     let currentShippingMethods: FlattenedShippingMethod[] = shippingMethods.data?.map((method) =>
       flattenShippingMethod(method, country),
     );
