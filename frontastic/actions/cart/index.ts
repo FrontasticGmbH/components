@@ -95,6 +95,27 @@ export const updateCart = async (payload: CartDetails): Promise<Cart> => {
   return res;
 };
 
+export const updateOrder = async (sessionId: string, type: string, resultCode: string): Promise<void> => {
+  const payload = {
+    sessionId: sessionId,
+    type: type,
+    resultCode: resultCode,
+  };
+
+  const res = await fetchApiHub(
+    '/action/payment/updateOrder',
+    {
+      headers: {
+        accept: 'application/json',
+      },
+      credentials: 'include',
+      method: 'POST',
+    },
+    payload,
+  );
+  return res;
+};
+
 export const setShippingMethod = async (shippingMethodId: string) => {
   const payload = {
     shippingMethod: {
