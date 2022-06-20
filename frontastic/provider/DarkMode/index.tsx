@@ -1,5 +1,5 @@
 import React, { useCallback, useState, createContext, useContext, useEffect } from 'react';
-import { PREF_DARK_MODE } from 'constants/localStorage';
+import { PREF_DARK_MODE } from 'helpers/constants/localStorage';
 
 const initialState = {
   enabled: false,
