@@ -14,7 +14,7 @@ const Markdown: React.FC<Props> = ({ text, className }) => {
   }
 
   return (
-    <div className={`${className} markdown dark:text-light-100`}>
+    <div className={`prose ${className} markdown dark:text-light-100`}>
       <ReactMarkdown>{text}</ReactMarkdown>
     </div>
   );
