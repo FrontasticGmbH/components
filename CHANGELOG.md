@@ -3,7 +3,7 @@
 
 ** New Features **
 
-- Now you can specify your theming variables in app.css file, those values will be used to define tailwind styles, 
+- Now you can specify your theming variables in the `app.css` file, those values will be used to define tailwind styles, 
 and you can use those styles in your component, we added dark mode toggle component
 
 - Added language switcher component, you can browse website in different locales
