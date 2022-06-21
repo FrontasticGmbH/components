@@ -70,7 +70,7 @@ and you can use those styles in your component, we added dark mode toggle compon
 
 ## Version 1.0.0-alpha.1 (2022-04-19)
 
-- fix: use right library name on package.json
+- fix: use the right library name on package.json
 
 ## Version 1.0.0-alpha (2022-04-19)
 - Initial stable release
