@@ -51,7 +51,6 @@ and you can use those styles in your component, we added dark mode toggle compon
 
 ## Version 1.0.0-alpha.3 (2022-04-21)
 
-- bug fix
 - fix: Added TypeScript ignore comment
 - Adjusted spacings & fixed header menu bug on mobile
 - Moved markdown to library folder
