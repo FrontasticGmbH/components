@@ -40,5 +40,6 @@
   "creditCard": "Credit card",
   "askPaymentPreference": "What do you prefer to pay with?",
   "billingAddressSameAsShipping": "Billing address is the same as shipping address",
-  "taxesNotSupported": "Taxes are not defined for this country in commercetools"
+  "taxesNotSupported": "Taxes are not defined for this country in commercetools",
+  "overview.order": "YOUR ORDER"
 }

@@ -40,5 +40,6 @@
   "creditCard": "Kreditkarte",
   "askPaymentPreference": "Womit bezahlst du am liebsten?",
   "billingAddressSameAsShipping": "Die Rechnungsadresse ist die gleiche wie die Lieferadresse",
-  "taxesNotSupported": "Steuern sind für dieses Land in nicht definiert commercetools"
+  "taxesNotSupported": "Steuern sind für dieses Land in nicht definiert commercetools",
+  "overview.order": "IHRE BESTELLUNG"
 }

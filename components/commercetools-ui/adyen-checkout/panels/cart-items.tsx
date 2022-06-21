@@ -15,11 +15,11 @@ const CartItems: FC<Props> = ({ cart }) => {
           <Image
             src={lineItem.variant.images[0]}
             alt={lineItem.name}
-            className="h-20 w-20 flex-none cursor-pointer rounded-md bg-gray-200 object-cover object-center"
+            className="h-20 w-20 flex-none rounded-md bg-gray-200 object-cover object-center"
           />
           <div className="flex flex-col justify-between space-y-4">
             <div className="space-y-1 text-sm font-medium">
-              <h3 className="cursor-pointer text-gray-900 dark:text-light-100">
+              <h3 className="text-gray-900 dark:text-light-100">
                 <span className="pr-2">{`${lineItem.count}x`}</span> {lineItem.name}
               </h3>
               {lineItem.variant.attributes?.color && (

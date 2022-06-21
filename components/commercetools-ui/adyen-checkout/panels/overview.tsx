@@ -55,6 +55,10 @@ const Overview: React.FC<OverviewProps> = ({ shippingMethods, currentShippingMet
           </form>
         </div>
         <div className="py-5">
+          <div className="px-8 text-xs font-bold uppercase leading-tight text-neutral-600">
+            <span>{formatMessage({ id: 'overview.order', defaultMessage: 'YOUR ORDER' })}</span>
+          </div>
+
           <CartItems cart={data} />
         </div>
       </section>
