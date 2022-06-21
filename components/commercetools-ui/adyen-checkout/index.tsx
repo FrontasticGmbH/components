@@ -171,7 +171,7 @@ const AdyenCheckout = () => {
       );
       setChosenShippingMethod(currentShippingMethod);
     } else {
-      setChosenShippingMethod(cartList?.availableShippingMethods[0]);
+      setChosenShippingMethod(cartList?.availableShippingMethods?.[0]);
     }
   }, [cartList?.shippingInfo]);
 
@@ -209,8 +209,7 @@ const AdyenCheckout = () => {
           cart={cartList}
           shippingMethod={chosenShippingMethod}
           submitButtonLabel={submitButtonLabel[currentStepIndex]}
-          disableSubmitButton={disableSubmitButton}
-          hideSubmitButton={currentStepIndex == 2}
+          disableInput={currentStepIndex == 2}
           onSubmit={gotToNextStep}
         />
       </div>

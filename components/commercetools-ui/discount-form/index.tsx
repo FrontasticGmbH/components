@@ -8,9 +8,10 @@ import { useCart } from 'frontastic/provider';
 export interface Props {
   className?: string;
   cart: Cart;
+  hideInput?: boolean;
 }
 
-const DiscountForm: React.FC<Props> = ({ className, cart }) => {
+const DiscountForm: React.FC<Props> = ({ className, cart, hideInput }) => {
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const [code, setCode] = useState('');
   const [discounts, setDiscounts] = useState<Discount[]>([]);
@@ -39,34 +40,37 @@ const DiscountForm: React.FC<Props> = ({ className, cart }) => {
         </div>
       </div>
       <div className="bg-gray-200 px-5 pb-5">
-        <div className="flex w-full justify-between">
-          <div className=" pr-3">
-            <input
-              className=" w-full appearance-none rounded border-none py-3 px-4 leading-tight text-gray-700 shadow focus:border-accent-400"
-              type="text"
-              value={code}
-              placeholder={formatCartMessage({
-                id: 'cart.discount.code',
-                defaultMessage: 'code',
+        {!hideInput && (
+          <div className="flex w-full justify-between">
+            <div className=" pr-3">
+              <input
+                className=" w-full appearance-none rounded border-none py-3 px-4 leading-tight text-gray-700 shadow focus:border-accent-400"
+                type="text"
+                value={code}
+                placeholder={formatCartMessage({
+                  id: 'cart.discount.code',
+                  defaultMessage: 'code',
+                })}
+                onChange={(e) => setCode(e.target.value)}
+              />
+            </div>
+            <button
+              type="button"
+              onClick={handleApply}
+              disabled={code === '' ? true : false}
+              className="w-24 cursor-pointer content-center rounded border-2 border-accent-400 bg-white p-2 font-bold text-accent-400 hover:bg-accent-400 hover:text-white focus:outline-none disabled:cursor-not-allowed disabled:border-none disabled:bg-gray-300 disabled:text-gray-500"
+            >
+              {formatCartMessage({
+                id: 'cart.apply',
+                defaultMessage: 'Apply',
               })}
-              onChange={(e) => setCode(e.target.value)}
-            />
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={handleApply}
-            disabled={code === '' ? true : false}
-            className="w-24 cursor-pointer content-center rounded border-2 border-accent-400 bg-white p-2 font-bold text-accent-400 hover:bg-accent-400 hover:text-white focus:outline-none disabled:cursor-not-allowed disabled:border-none disabled:bg-gray-300 disabled:text-gray-500"
-          >
-            {formatCartMessage({
-              id: 'cart.apply',
-              defaultMessage: 'Apply',
-            })}
-          </button>
-        </div>
-        <div className={`flex flex-wrap justify-items-start ${discounts?.length === 0 ? 'pt-0' : 'pt-5'}`}>
+        )}
+
+        <div className={`flex flex-wrap justify-items-start ${discounts?.length === 0 ? 'pt-0' : 'pt-4'}`}>
           {discounts?.map((discount) => (
-            <div key={discount.discountId} className="mx-2 mt-3 flex w-fit justify-between rounded bg-gray-400">
+            <div key={discount.discountId} className="mr-2 mt-3 flex w-fit justify-between rounded bg-gray-400">
               <label className="px-4 py-1 text-white">{discount.code}</label>
               <button type="button" onClick={() => handleRemove(discount)} className="py-1 pr-3">
                 <XIcon className="h-6 w-5 text-white" />

@@ -11,7 +11,7 @@ interface Props {
   readonly onSubmit?: (e: MouseEvent) => void;
   readonly submitButtonLabel?: string;
   readonly disableSubmitButton?: Boolean;
-  readonly hideSubmitButton?: Boolean;
+  readonly disableInput?: boolean;
 }
 
 const OrderSummary = ({
@@ -20,7 +20,7 @@ const OrderSummary = ({
   onSubmit,
   submitButtonLabel,
   disableSubmitButton,
-  hideSubmitButton,
+  disableInput,
 }: Props) => {
   //i18n messages
   const { formatMessage } = useFormat({ name: 'cart' });
@@ -107,17 +107,17 @@ const OrderSummary = ({
 
         {cart?.taxed && (
           <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-            <dt className="text-xs text-gray-600 dark:text-light-100">
+            <dt className="text-xs text-gray-500 dark:text-light-100">
               {formatMessage({ id: 'taxes', defaultMessage: 'Taxes' })}
             </dt>
-            <dd className="text-xs font-medium text-gray-900 dark:text-light-100">
+            <dd className="text-xs text-gray-500 dark:text-light-100">
               {CurrencyHelpers.formatForCurrency(cart?.taxed?.amount)}
             </dd>
           </div>
         )}
       </dl>
-      <DiscountForm cart={cart} className="py-10" />
-      {!hideSubmitButton && (
+      <DiscountForm cart={cart} className="py-10" hideInput={disableInput} />
+      {!disableInput && (
         <div className="mt-6">
           <button type="submit" onClick={onSubmit} className={submitButtonClassName}>
             {submitButtonLabel || formatMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
