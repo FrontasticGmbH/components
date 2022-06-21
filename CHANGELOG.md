@@ -14,7 +14,7 @@ and you can use those styles in your component, we added dark mode toggle compon
 
 - Added ESLint rules, you can fix your code `yarn run fix`
 
-- Added `Remember me` funcionality for user
+- Added `Remember me` functionality for user
 
 - Added breadcrumb component
 
