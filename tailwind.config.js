@@ -62,6 +62,9 @@ module.exports = {
           100: 'var(--light-100)',
         },
       },
+      letterSpacing: {
+        modest: '0.01em',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/typography')],
