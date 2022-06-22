@@ -41,5 +41,6 @@
   "askPaymentPreference": "What do you prefer to pay with?",
   "billingAddressSameAsShipping": "Billing address is the same as shipping address",
   "taxesNotSupported": "Taxes are not defined for this country in commercetools",
-  "overview.order": "YOUR ORDER"
+  "overview.order": "YOUR ORDER",
+  "disclaimer": "By clicking on \"Continue and pay\" I agree to the <0>Terms and conditions</0>. I have taken note of the <1>Cancellation policy</1> and the <2>Privacy policy</2>"
 }

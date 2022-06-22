@@ -12,6 +12,21 @@
           "field": "loginLink",
           "type": "reference",
           "required": true
+        },
+        {
+          "label": "Terms & conditions link",
+          "field": "termsLink",
+          "type": "reference"
+        },
+        {
+          "label": "Cancellation policy link",
+          "field": "cancellationLink",
+          "type": "reference"
+        },
+        {
+          "label": "Privacy policy link",
+          "field": "privacyLink",
+          "type": "reference"
         }
       ]
     },

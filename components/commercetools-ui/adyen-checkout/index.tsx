@@ -26,7 +26,7 @@ export type FormData = {
   billingCountry: string;
 };
 
-const AdyenCheckout = () => {
+const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
   const { data: cartList, updateCart, setShippingMethod } = useCart();
   const { formatMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -206,6 +206,9 @@ const AdyenCheckout = () => {
           showDiscountsForm={currentStepIndex < 2}
           showSubmitButton={currentStepIndex < 2}
           onSubmit={gotToNextStep}
+          termsLink={termsLink}
+          cancellationLink={cancellationLink}
+          privacyLink={privacyLink}
         />
       </div>
     </div>

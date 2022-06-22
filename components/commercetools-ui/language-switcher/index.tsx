@@ -36,7 +36,9 @@ const LanguageSwitcher: React.FC<Props> = ({ className }) => {
               {router?.locales.map((locale, index) => (
                 <Menu.Item key={index}>
                   <NextLink href={router?.asPath} locale={locale}>
-                    <a className="block py-2 px-4 text-center text-sm hover:bg-gray-600 ">{formatLocaleName(locale)}</a>
+                    <a className="block py-2 px-4 text-center text-sm hover:bg-gray-300 dark:hover:bg-gray-600 ">
+                      {formatLocaleName(locale)}
+                    </a>
                   </NextLink>
                 </Menu.Item>
               ))}
