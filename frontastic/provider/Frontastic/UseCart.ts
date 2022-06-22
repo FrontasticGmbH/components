@@ -8,7 +8,6 @@ export interface UseCart {
   data?: Cart;
   addItem: (variant: Variant, quantity: number) => Promise<void>;
   updateCart: (payload: CartDetails) => Promise<Cart>;
-  updateOrder: (sessionId: string | string[], type: string | string[], resultCode: string | string[]) => Promise<void>;
   setShippingMethod: (shippingMethodId: string) => Promise<void>;
   removeItem: (lineItemId: string) => Promise<void>;
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;
