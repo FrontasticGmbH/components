@@ -30,5 +30,6 @@
   "address": "Adresse",
   "overview": "Bestellübersicht",
   "goToOverview": "Weiter zur Übersicht",
-  "ContinueAndPay": "Fortfahren und bezahlen"
+  "ContinueAndPay": "Fortfahren und bezahlen",
+  "includedVat": "Gesamtbetrag {amount} inkl. Mwst"
 }

@@ -10,7 +10,7 @@ export interface Props {
 const CartItems: FC<Props> = ({ cart }) => {
   return (
     <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
-      {cart.lineItems.map((lineItem, i) => (
+      {cart?.lineItems?.map((lineItem, i) => (
         <li key={i} className="flex space-x-6 py-6">
           <Image
             src={lineItem.variant.images[0]}
