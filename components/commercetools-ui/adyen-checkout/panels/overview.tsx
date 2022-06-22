@@ -18,7 +18,7 @@ const Overview: React.FC<OverviewProps> = ({ shippingMethods, currentShippingMet
 
   return (
     <>
-      <section aria-labelledby="cart-heading" className="bg-white md:rounded md:shadow-md lg:col-span-7">
+      <section aria-labelledby="cart-heading" className="bg-white md:rounded md:shadow-md lg:col-span-7 lg:p-5">
         <div className="border-b-4 border-neutral-100 px-4 py-5 md:px-6 lg:px-0">
           <form>
             <div className="mb-4 text-xs font-bold uppercase leading-tight text-neutral-600">

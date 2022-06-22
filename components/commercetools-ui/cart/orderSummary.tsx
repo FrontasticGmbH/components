@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useEffect } from 'react';
 import { Cart } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
@@ -10,17 +10,19 @@ interface Props {
   readonly shippingMethod: ShippingMethod;
   readonly onSubmit?: (e: MouseEvent) => void;
   readonly submitButtonLabel?: string;
-  readonly disableSubmitButton?: Boolean;
-  readonly disableInput?: boolean;
+  readonly disableSubmitButton?: boolean;
+  readonly showSubmitButton?: boolean;
+  readonly showDiscountsForm?: boolean;
 }
 
 const OrderSummary = ({
   cart,
   shippingMethod,
   onSubmit,
+  showSubmitButton = true,
+  showDiscountsForm = true,
   submitButtonLabel,
   disableSubmitButton,
-  disableInput,
 }: Props) => {
   //i18n messages
   const { formatMessage } = useFormat({ name: 'cart' });
@@ -106,19 +108,20 @@ const OrderSummary = ({
         </div>
 
         {cart?.taxed && (
-          <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-            <dt className="text-xs text-gray-500 dark:text-light-100">
-              {formatMessage({ id: 'taxes', defaultMessage: 'Taxes' })}
-            </dt>
-            <dd className="text-xs text-gray-500 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(cart?.taxed?.amount)}
-            </dd>
+          <div className="text-xs text-gray-500 dark:text-light-100">
+            (
+            {formatMessage({
+              id: 'includedVat',
+              defaultMessage: 'Tax included',
+              values: { amount: CurrencyHelpers.formatForCurrency(cart?.taxed?.taxPortions[0]?.amount) },
+            })}
+            )
           </div>
         )}
       </dl>
-      <DiscountForm cart={cart} className="py-10" hideInput={disableInput} />
-      {!disableInput && (
-        <div className="mt-6">
+      {showDiscountsForm && <DiscountForm cart={cart} className="py-10" />}
+      {showSubmitButton && (
+        <div>
           <button type="submit" onClick={onSubmit} className={submitButtonClassName}>
             {submitButtonLabel || formatMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
           </button>
