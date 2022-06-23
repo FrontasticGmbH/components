@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import AdyenCheckout from '@adyen/adyen-web';
-import { useCart, useCheckout } from 'frontastic';
+import { useCart, useAdyen } from 'frontastic';
 import '@adyen/adyen-web/dist/adyen.css';
 
 type Session = {
@@ -10,7 +10,7 @@ type Session = {
 
 const Checkout = () => {
   const { data: cartList } = useCart();
-  const { createSession } = useCheckout();
+  const { createSession } = useAdyen();
   const [session, setSession] = useState<Session>();
 
   const initializeSession = async (sessionConfiguration) => {
@@ -29,11 +29,12 @@ const Checkout = () => {
       `${host}/thank-you`,
     ).then((res) => {
       const { id, sessionData } = res;
+
       setSession({ id, sessionData });
     });
-  }, []);
 
-  console.log('Payment env:', process.env.NODE_ENV);
+    console.log('Payment env:', process.env.NODE_ENV);
+  }, []);
 
   useEffect(() => {
     if (session) {

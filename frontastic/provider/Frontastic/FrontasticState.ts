@@ -24,23 +24,22 @@ import {
   shippingMethods,
   setShippingMethod,
   updateCart,
-  updateOrder,
   updateItem,
   redeemDiscountCode,
   removeDiscountCode,
 } from '../../actions/cart';
 import { getWishlist, addToWishlist, removeLineItem, updateLineItem } from '../../actions/wishlist';
-import { createSession } from '../../actions/checkout';
+import { createSession, adyenCheckout } from '../../actions/adyen';
 import { UseAccount } from './UseAccount';
 import { UseCart } from './UseCart';
 import { UseWishlist } from './UseWishlist';
-import { UseCheckout } from './UseCheckout';
+import { UseAdyen } from './UseAdyen';
 
 export interface FrontasticState {
   useCart: UseCart;
   useAccount: UseAccount;
   useWishlist: UseWishlist;
-  useCheckout: UseCheckout;
+  useAdyen: UseAdyen;
 }
 
 export const getFrontasticState = (): FrontasticState => {
@@ -49,7 +48,6 @@ export const getFrontasticState = (): FrontasticState => {
       ...cartItems(),
       addItem,
       updateCart,
-      updateOrder,
       setShippingMethod,
       removeItem,
       updateItem,
@@ -82,8 +80,9 @@ export const getFrontasticState = (): FrontasticState => {
       removeLineItem,
       updateLineItem,
     },
-    useCheckout: {
+    useAdyen: {
       createSession,
+      adyenCheckout,
     },
   };
 };

@@ -87,7 +87,14 @@ export const changePassword = async (oldPassword: string, newPassword: string): 
 };
 
 export const requestPasswordReset = async (email: string): Promise<void> => {
-  return await fetchApiHub('/action/account/requestReset', { method: 'POST' }, { email });
+  const host = typeof window !== 'undefined' ? window.location.origin : '';
+
+  const payload = {
+    email,
+    host,
+  };
+
+  return await fetchApiHub('/action/account/requestReset', { method: 'POST' }, payload);
 };
 
 export const resetPassword = async (token: string, newPassword: string): Promise<Account> => {
