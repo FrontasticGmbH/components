@@ -6,8 +6,10 @@ import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from '../../helpers/errorLogger';
 
 function resolveApiHubUrl(): string {
-  // TODO: Error checks!
-  let apiHubUrl = process.env.NEXT_PUBLIC_FRONTASTIC_HOST!;
+  if (process.env['NEXT_PUBLIC_FRONTASTIC_HOST'] === undefined) {
+    throw new Error(`Env variable "NEXT_PUBLIC_FRONTASTIC_HOST" not set`);
+  }
+  const apiHubUrl = process.env.NEXT_PUBLIC_FRONTASTIC_HOST;
   /*
   if (process.env.NEXT_PUBLIC_VERCEL_ENV! === 'preview') {
     // FIXME: Get project & customer ID from configuration
@@ -47,6 +49,7 @@ export class ResponseError extends Error {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type FetchFunction = (endpointPath: string, init?: RequestInit, payload?: object) => Promise<any>;
 
 const performFetchApiHub = async (
@@ -54,6 +57,7 @@ const performFetchApiHub = async (
   init: RequestInit,
   payload: object = null,
   cookieManager: CookieManager,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Promise<any> => {
   const frontasticSessionHeaders = {};
 
@@ -100,7 +104,7 @@ export const rawFetchApiHub: FetchFunction = async (endpointPath, init = {}, pay
   });
 };
 
-export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<object> => {
+export const handleApiHubResponse = (fetchApiHubPromise: Promise<Response | ResponseError>): Promise<object> => {
   // TODO: Handle errors
   return fetchApiHubPromise
     .then((response: Response) => {
@@ -141,7 +145,7 @@ export const rawFetchApiHubServerSide = async (
     getCookie: (cookieIdentifier) => {
       return cookies.get(cookieIdentifier);
     },
-    setCookie: (cookieIdentifier, cookieValue) => {
+    setCookie: () => {
       // Do nothing. Only actions are eligible to set the session.
     },
   });
