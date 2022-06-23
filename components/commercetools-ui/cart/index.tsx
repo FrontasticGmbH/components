@@ -98,6 +98,7 @@ const Cart = ({
             cart={cart}
             shippingMethod={flattenShippingMethod(shippingMethods?.[0], 'DE')}
             onSubmit={onCheckout}
+            showDiscountsForm={false}
           />
         </form>
       )}

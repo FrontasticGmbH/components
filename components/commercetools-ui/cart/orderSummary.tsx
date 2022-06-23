@@ -15,7 +15,6 @@ interface Props {
   readonly disableSubmitButton?: boolean;
   readonly showSubmitButton?: boolean;
   readonly showDiscountsForm?: boolean;
-  readonly disableInput?: boolean;
 
   termsLink?: Reference;
   cancellationLink?: Reference;
@@ -38,8 +37,8 @@ const OrderSummary = ({
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { t } = useTranslation(['checkout']);
 
-  const submitButtonClassName = `${
-    disableSubmitButton && 'opacity-75 pointer-events-none'
+  const submitButtonClassName = `${disableSubmitButton ? 'opacity-75 pointer-events-none' : ''} ${
+    !showDiscountsForm ? 'mt-7' : ''
   } w-full rounded-md border border-transparent py-3 px-4 text-base shadow-sm font-medium text-white bg-accent-400 hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50`;
 
   const interpolatedComponents = [
