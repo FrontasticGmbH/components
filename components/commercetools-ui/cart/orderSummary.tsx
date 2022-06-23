@@ -42,9 +42,17 @@ const OrderSummary = ({
   } w-full rounded-md border border-transparent py-3 px-4 text-base shadow-sm font-medium text-white bg-accent-400 hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50`;
 
   const interpolatedComponents = [
-    <ReferenceLink key={0} className="font-medium text-accent-500 hover:underline" target={termsLink} />,
-    <ReferenceLink key={1} className="font-medium text-accent-500 hover:underline" target={cancellationLink} />,
-    <ReferenceLink key={2} className="font-medium text-accent-500 hover:underline" target={privacyLink} />,
+    <ReferenceLink key={0} className="cursor-pointer font-medium text-accent-500 hover:underline" target={termsLink} />,
+    <ReferenceLink
+      key={1}
+      className="cursor-pointer font-medium text-accent-500 hover:underline"
+      target={cancellationLink}
+    />,
+    <ReferenceLink
+      key={2}
+      className="cursor-pointer font-medium text-accent-500 hover:underline"
+      target={privacyLink}
+    />,
   ];
   return (
     <section
@@ -142,7 +150,7 @@ const OrderSummary = ({
           </button>
 
           {submitButtonLabel === formatCartMessage({ id: 'ContinueAndPay', defaultMessage: 'Continue and pay' }) && (
-            <p className="px-1 py-8 text-center">
+            <p className="px-1 py-5 text-center text-xs">
               <Trans i18nKey="disclaimer" t={t} components={interpolatedComponents} />
             </p>
           )}
