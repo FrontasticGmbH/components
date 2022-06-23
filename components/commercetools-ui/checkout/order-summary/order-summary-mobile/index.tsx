@@ -95,7 +95,7 @@ const MobileOrderSummary = ({
                           <div className="flex border-l border-gray-300 pl-4">
                             <button
                               type="button"
-                              onClick={(e) => removeCartItem(lineItem.lineItemId)}
+                              onClick={() => removeCartItem(lineItem.lineItemId)}
                               className="text-sm font-medium text-accent-400 hover:text-accent-500"
                             >
                               {formatMessage({ id: 'remove', defaultMessage: 'Remove' })}

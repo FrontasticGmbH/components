@@ -19,7 +19,7 @@ interface Props {
   shippingCountryOptions?: ShippingCountryItem[];
 }
 
-const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
+const Checkout = ({ shippingCountryOptions }: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
