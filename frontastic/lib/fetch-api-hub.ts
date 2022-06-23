@@ -124,6 +124,13 @@ export const handleApiHubResponse = (fetchApiHubPromise: Promise<any>): Promise<
         Log.error('Network error: ' + err);
         return 'Network error: ' + err;
       }
+    })
+    .then((response) => {
+      if (response.error) {
+        throw new Error(response.errorCode);
+      }
+
+      return response;
     });
 };
 

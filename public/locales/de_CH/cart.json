@@ -31,5 +31,7 @@
   "overview": "Bestellübersicht",
   "goToOverview": "Weiter zur Übersicht",
   "ContinueAndPay": "Fortfahren und bezahlen",
-  "includedVat": "Gesamtbetrag {amount} inkl. Mwst"
+  "includedVat": "Gesamtbetrag {amount} inkl. Mwst",
+  "codeNotValid": "Code nicht gültig",
+  "codeAdded": "Rabattcode hinzugefügt"
 }
