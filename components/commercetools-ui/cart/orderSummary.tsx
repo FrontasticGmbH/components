@@ -30,7 +30,6 @@ const OrderSummary = ({
   showDiscountsForm = true,
   submitButtonLabel,
   disableSubmitButton,
-  disableInput,
   termsLink,
   cancellationLink,
   privacyLink,

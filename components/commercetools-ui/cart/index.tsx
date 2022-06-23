@@ -5,6 +5,7 @@ import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
 import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
+import { NextFrontasticImage } from 'frontastic/lib/image';
 import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
 import ItemList from './itemList';
@@ -12,7 +13,7 @@ import OrderSummary from './orderSummary';
 
 export interface Props {
   pageTitle?: string;
-  emptyStateImage?: { media: any } | any;
+  emptyStateImage?: NextFrontasticImage;
   emptyStateTitle?: string;
   emptyStateSubtitle?: string;
   emptyStateCTALabel?: string;
