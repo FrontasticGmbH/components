@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { GetServerSideProps, GetStaticProps, Redirect } from 'next';
+import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Log } from 'helpers/errorLogger';
 import { createClient, FrontasticRenderer, Notifier } from 'frontastic';
@@ -7,7 +7,10 @@ import { tastics } from 'frontastic/tastics';
 import styles from '../slug.module.css';
 
 type PreviewProps = {
+  // This needs an overhaul. Can be too many things in my opinion (*Marcel)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
+  // data: RedirectResponse | PageDataResponse | ResponseError | { ok: string; message: string } | string;
 };
 
 export default function Preview({ data }: PreviewProps) {
@@ -18,11 +21,6 @@ export default function Preview({ data }: PreviewProps) {
     // Do a proper refresh and no full reload
     window.location = window.location;
   };
-  const handleHighlight = ({ item }) => {
-    if (currentHighlight !== item) {
-      setCurrentHighlight(item);
-    }
-  };
   const handleEndHighlight = () => setCurrentHighlight(null);
 
   // in case of an error from API hub, we get a ResponseError as JSON back here
@@ -31,6 +29,11 @@ export default function Preview({ data }: PreviewProps) {
   }
 
   useEffect(() => {
+    const handleHighlight = ({ item }) => {
+      if (currentHighlight !== item) {
+        setCurrentHighlight(item);
+      }
+    };
     if (data?.previewId && !notifier.current) {
       notifier.current = new Notifier(
         { previewId: data.previewId, customer: data?.previewContext?.customerName ?? 'demo' },
@@ -42,7 +45,7 @@ export default function Preview({ data }: PreviewProps) {
       );
       notifier.current.connect();
     }
-  }, [data?.previewId]);
+  }, [currentHighlight, data?.previewId, data?.previewContext?.customerName]);
 
   if (!data) {
     return null;

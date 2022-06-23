@@ -8,7 +8,10 @@ import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
 
 type SlugProps = {
+  // This needs an overhaul. Can be too many things in my opinion (*Marcel)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
+  // data: RedirectResponse | PageDataResponse | ResponseError | { ok: string; message: string } | string;
 };
 
 export default function Slug({ data }: SlugProps) {
