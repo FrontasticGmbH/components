@@ -77,10 +77,12 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <div className="absolute inset-0" onClick={onClose}>
+                {/* eslint-disable */}
                 <div
                   className="absolute top-1/2 left-1/2 h-[90vh] w-[90%] max-w-[800px] -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white py-16 px-4 dark:bg-primary-200 sm:px-6 lg:py-24 lg:px-8"
                   onClick={(e) => e.stopPropagation()}
                 >
+                  {/* eslint-enable */}
                   <div className="relative mx-auto max-w-xl">
                     <div className="text-center">
                       <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">

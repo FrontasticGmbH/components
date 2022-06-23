@@ -69,7 +69,7 @@ const Security = () => {
       <form className="mt-6" onSubmit={handleSubmit}>
         {success && <p className="text-sm text-green-600">{success}</p>}
         {error && <p className="text-sm text-accent-400">{error}</p>}
-        <div className="mt-3 max-w-[400px]">
+        <div className="mt-3 max-w-sm">
           <input
             id="old-password"
             name="oldPassword"
@@ -84,7 +84,7 @@ const Security = () => {
             value={data.oldPassword}
           />
         </div>
-        <div className="mt-3 max-w-[400px]">
+        <div className="mt-3 max-w-sm">
           <input
             id="password"
             name="password"
@@ -99,7 +99,7 @@ const Security = () => {
             value={data.password}
           />
         </div>
-        <div className="mt-3 max-w-[400px]">
+        <div className="mt-3 max-w-sm">
           <input
             id="confirm-password"
             name="confirmPassword"
@@ -116,7 +116,7 @@ const Security = () => {
         </div>
         <button
           type="submit"
-          className="mt-4 w-[80px] items-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-center text-sm font-medium text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
+          className="mt-4 w-20 items-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-center text-sm font-medium text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
           disabled={submitDisabled || processing}
         >
           Save
