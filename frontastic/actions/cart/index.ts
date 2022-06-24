@@ -43,6 +43,10 @@ export const orderHistory = async () => {
   return await fetchApiHub('/action/cart/getOrders');
 };
 
+export const getProjectSettings = async () => {
+  return await fetchApiHub('/action/project/getProjectSettings');
+};
+
 export const removeItem = async (lineItemId: string) => {
   const payload = {
     lineItem: { id: lineItemId },

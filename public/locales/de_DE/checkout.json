@@ -40,5 +40,6 @@
   "billingAddressSameAsShipping": "Die Rechnungsadresse ist die gleiche wie die Lieferadresse",
   "taxesNotSupported": "Steuern sind für dieses Land in nicht definiert commercetools",
   "overview.order": "IHRE BESTELLUNG",
-  "disclaimer": "Mit dem Klick auf \"Fortfahren und bezahlen\" erkläre ich mich mit den <0>Allgemeinen Geschäftsbedingungen</0> einverstanden. Ich habe die <1>Widerrufsbelehrung</1> und die <2>Datenschutzbestimmungen</2> zur Kenntnis genommen."
+  "disclaimer": "Mit dem Klick auf \"Fortfahren und bezahlen\" erkläre ich mich mit den <0>Allgemeinen Geschäftsbedingungen</0> einverstanden. Ich habe die <1>Widerrufsbelehrung</1> und die <2>Datenschutzbestimmungen</2> zur Kenntnis genommen.",
+  "no.countries.available.for.shipping": "Derzeit sind keine Länder für den Versand verfügbarr"
 }

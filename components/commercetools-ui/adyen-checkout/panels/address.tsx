@@ -1,6 +1,10 @@
-import React, { ChangeEvent } from 'react';
-import { countryOptions } from 'components/commercetools-ui/checkout/countryOptions';
+import React, { ChangeEvent, useState, useEffect } from 'react';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
+import { ProjectSettings } from '@Types/ProjectSettings';
+import { countryOptions, CountryOption } from 'helpers/countryOptions';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { getTaxedCountries } from 'helpers/utils/getTaxedCountries';
+import { useCart } from 'frontastic/provider';
 import { FormData } from '..';
 
 type AddressProps = {
@@ -11,8 +15,36 @@ type AddressProps = {
 };
 
 const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShipping, toggleBillingAddressOption }) => {
+  const [projectSettingsCountries, setProjectSettingsCountries] = useState<ProjectSettings>(null);
+  const [shippingMethodsData, setShippingMethodsData] = useState<ShippingMethod[]>(null);
+  const [availableCountryOptions, setAvailableCountryOptions] = useState<CountryOption[]>(null);
+  const { getProjectSettings, shippingMethods } = useCart();
   const { formatMessage } = useFormat({ name: 'checkout' });
   const { formatMessage: formatCommonMessage } = useFormat({ name: 'common' });
+
+  useEffect(() => {
+    getProjectSettings().then((data) => {
+      setProjectSettingsCountries(data);
+      setShippingMethodsData(shippingMethods.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!shippingMethods.data || !projectSettingsCountries) {
+      const showMessageInDropdown = {
+        data: '',
+        display: `${formatMessage({
+          id: 'no.countries.available.for.shipping',
+          defaultMessage: 'Currently there are no countries available for shipping',
+        })}`,
+      };
+      setAvailableCountryOptions([showMessageInDropdown]);
+    } else {
+      const totalCountries = getTaxedCountries(shippingMethods?.data, projectSettingsCountries?.countries);
+
+      setAvailableCountryOptions(totalCountries);
+    }
+  }, [shippingMethods, projectSettingsCountries, shippingMethodsData]);
 
   const handleChange = (e: ChangeEvent) => {
     const updatedData = {
@@ -146,8 +178,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             onChange={handleChange}
             value={data.shippingCountry}
           >
-            <option value=""></option>
-            {countryOptions.map(({ display, data }, index) => (
+            {availableCountryOptions?.map(({ display, data }, index) => (
               <option key={index} value={data}>
                 {formatCommonMessage({ id: `country.${data}`, defaultMessage: display })}
               </option>

@@ -27,6 +27,7 @@ import {
   updateItem,
   redeemDiscountCode,
   removeDiscountCode,
+  getProjectSettings,
 } from '../../actions/cart';
 import { getWishlist, addToWishlist, removeLineItem, updateLineItem } from '../../actions/wishlist';
 import { createSession, adyenCheckout } from '../../actions/adyen';
@@ -54,6 +55,7 @@ export const getFrontasticState = (): FrontasticState => {
       shippingMethods: shippingMethods(),
       orderCart,
       orderHistory,
+      getProjectSettings,
       redeemDiscountCode,
       removeDiscountCode,
     },
