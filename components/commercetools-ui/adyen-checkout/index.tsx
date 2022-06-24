@@ -133,7 +133,6 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
     },
     {
       name: formatMessage({ id: 'overview', defaultMessage: 'Overview' }),
-
       component: (
         <Overview
           shippingMethods={cartList?.availableShippingMethods}

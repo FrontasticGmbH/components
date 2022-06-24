@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
+import PriceRange, { PriceRangeProps } from 'components/commercetools-ui/price-range';
 import { useFormat } from 'helpers/hooks/useFormat';
-import PriceRange, { PriceRangeProps } from '../price-range';
 
 type PriceFilterDisclosureProps = PriceRangeProps;
 

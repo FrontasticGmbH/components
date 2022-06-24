@@ -38,8 +38,6 @@ const Checkout = () => {
 
       setSession({ id, sessionData });
     });
-
-    console.log('Payment env:', process.env.NODE_ENV);
   }, [cartList, createSession]);
 
   useEffect(() => {

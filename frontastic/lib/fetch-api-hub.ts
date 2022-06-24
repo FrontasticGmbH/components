@@ -3,7 +3,7 @@ import cookieCutter from 'cookie-cutter';
 import ServerCookies from 'cookies';
 import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
-import { Log } from '../../helpers/errorLogger';
+import { Log } from 'helpers/errorLogger';
 
 function resolveApiHubUrl(): string {
   if (process.env['NEXT_PUBLIC_FRONTASTIC_HOST'] === undefined) {
