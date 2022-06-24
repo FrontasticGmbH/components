@@ -1,9 +1,9 @@
 import { getRouteData, getPreview } from './lib/server/get-route-data';
 
-export function createClient(url: string, key: string) {
+export function createClient() {
   return {
-    getRouteData: getRouteData(url, key),
-    getPreview: getPreview(url, key),
+    getRouteData: getRouteData(),
+    getPreview: getPreview(),
   };
 }
 

@@ -44,7 +44,7 @@ const CheckoutForm = ({
   useEffect(() => {
     if (billingSameAsShipping) updateFormInput('shippingAddress', data.billingAddress);
     else updateFormInput('shippingAddress', '');
-  }, [billingSameAsShipping, data.billingAddress]);
+  }, [billingSameAsShipping, data.billingAddress, updateFormInput]);
 
   //active payment method
   const [activePaymentMethod, setActivePaymentMethod] = useState('invoice');
@@ -52,7 +52,7 @@ const CheckoutForm = ({
   //change active payment method
   useEffect(() => {
     updateFormInput('pay', activePaymentMethod);
-  }, [activePaymentMethod]);
+  }, [activePaymentMethod, updateFormInput]);
 
   return (
     <form className="mt-6">

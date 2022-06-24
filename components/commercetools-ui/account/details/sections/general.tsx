@@ -56,7 +56,9 @@ const General = () => {
           options: [],
           defaultValue: '',
           required: true,
-          onSubmit: (value: string) => {},
+          onSubmit: () => {
+            // do nothing
+          },
           editable: false,
         },
       ],

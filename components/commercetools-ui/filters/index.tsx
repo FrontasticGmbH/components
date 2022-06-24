@@ -29,7 +29,7 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
 
   const handleFiltersSubmit = (e) => {
     e.preventDefault();
-    let params = [
+    const params = [
       {
         key: 'cursor',
         value: 'offset:0',
@@ -44,7 +44,7 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
       params.push(sortingParam);
     }
 
-    let currentURL = updateURLParams(params);
+    const currentURL = updateURLParams(params);
 
     router.push(currentURL);
   };

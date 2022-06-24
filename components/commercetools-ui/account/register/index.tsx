@@ -37,11 +37,6 @@ const Register: React.FC<RegisterProps> = ({ logo, loginLink }) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  //handle checkbox input change
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.checked });
-  };
-
   //data validation
   const validate = () => {
     //validation schema

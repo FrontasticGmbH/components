@@ -8,7 +8,10 @@ import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
 
 type SlugProps = {
+  // This needs an overhaul. Can be too many things in my opinion (*Marcel)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
+  // data: RedirectResponse | PageDataResponse | ResponseError | { ok: string; message: string } | string;
 };
 
 export default function Slug({ data }: SlugProps) {
@@ -36,7 +39,7 @@ export default function Slug({ data }: SlugProps) {
 }
 
 export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {
-  const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
+  const frontastic = createClient();
   const data = await frontastic.getRouteData(params, locale, query, req, res);
 
   if (data) {

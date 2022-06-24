@@ -8,19 +8,25 @@ type Session = {
   sessionData: string;
 };
 
+type SessionConfig = {
+  environment: string;
+  clientKey: string;
+  session: Session;
+};
+
 const Checkout = () => {
   const { data: cartList } = useCart();
   const { createSession } = useAdyen();
   const [session, setSession] = useState<Session>();
 
-  const initializeSession = async (sessionConfiguration) => {
+  const initializeSession = async (sessionConfiguration: SessionConfig) => {
     const checkout = await AdyenCheckout(sessionConfiguration);
-    const dropinComponent = checkout.create('dropin').mount('#dropin-container');
+    checkout.create('dropin').mount('#dropin-container');
   };
 
-  const host = typeof window !== 'undefined' ? window.location.origin : '';
-
   useEffect(() => {
+    const host = typeof window !== 'undefined' ? window.location.origin : '';
+
     createSession(
       {
         value: cartList.sum.centAmount,
@@ -34,7 +40,7 @@ const Checkout = () => {
     });
 
     console.log('Payment env:', process.env.NODE_ENV);
-  }, []);
+  }, [cartList, createSession]);
 
   useEffect(() => {
     if (session) {

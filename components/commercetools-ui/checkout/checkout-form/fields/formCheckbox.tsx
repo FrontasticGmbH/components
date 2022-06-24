@@ -53,13 +53,13 @@ const FormCheckbox = ({
   inputClassNames,
   inverseLabel,
 }: Props) => {
-  let labelElement = (
+  const labelElement = (
     <label htmlFor={name} className={labelClassNames || 'text-sm font-medium text-gray-900 dark:text-light-100'}>
       {label}
     </label>
   );
 
-  let inputElement = (
+  const inputElement = (
     <div className={inputContainerClassNames || 'flex h-5 items-center'}>
       <input
         type="checkbox"

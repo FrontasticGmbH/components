@@ -58,7 +58,7 @@ const FormInput = ({
   inputClassNames,
   inverseLabel,
 }: Props) => {
-  let labelElement = (
+  const labelElement = (
     <label
       htmlFor={name}
       className={labelClassNames ? labelClassNames : 'block text-sm font-medium text-gray-700 dark:text-light-100'}
@@ -67,7 +67,7 @@ const FormInput = ({
     </label>
   );
 
-  let inputElement = (
+  const inputElement = (
     <div className={inputContainerClassNames ? inputContainerClassNames : 'mt-1'}>
       <input
         type={inputType ? inputType : 'text'}

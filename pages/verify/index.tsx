@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import toast from 'react-hot-toast';
+import Toast from 'react-hot-toast';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useAccount } from 'frontastic';
 
@@ -18,35 +18,40 @@ const Verify: NextPage = () => {
   //account actions
   const { confirm } = useAccount();
 
-  //successful redirection after verification
-  const successRedirect = () => {
-    router
-      .push('/')
-      .then(() => toast.success(formatAccountMessage({ id: 'verification.done', defaultMessage: 'Email verified' })));
-  };
-
-  //error redirection becaues of invalid token
-  const errorRedirect = () => {
-    router
-      .push('/')
-      .then(() => toast.error(formatAccountMessage({ id: 'verification.failed', defaultMessage: 'Invalid token' })));
-  };
-
   //verify user's email
-  const verifyUser = useCallback(async () => {
-    if (!token) return;
-    try {
-      const response = await confirm(token as string);
-      if (response.accountId) successRedirect();
-      else errorRedirect();
-    } catch (err) {
-      errorRedirect();
-    }
-  }, [token]);
 
   useEffect(() => {
+    const verifyUser = async () => {
+      //successful redirection after verification
+      const successRedirect = () => {
+        router
+          .push('/')
+          .then(() =>
+            Toast.success(formatAccountMessage({ id: 'verification.done', defaultMessage: 'Email verified' })),
+          );
+      };
+
+      //error redirection becaues of invalid token
+      const errorRedirect = () => {
+        router
+          .push('/')
+          .then(() =>
+            Toast.error(formatAccountMessage({ id: 'verification.failed', defaultMessage: 'Invalid token' })),
+          );
+      };
+
+      if (!token) return;
+      try {
+        const response = await confirm(token as string);
+        if (response.accountId) successRedirect();
+        else errorRedirect();
+      } catch (err) {
+        errorRedirect();
+      }
+    };
+
     verifyUser();
-  }, [verifyUser]);
+  }, [token, confirm, formatAccountMessage, router]);
 
   return <></>;
 };

@@ -33,7 +33,7 @@ const Address: React.FC<AddressProps> = ({ address }) => {
       <div className="flex flex-col gap-4 py-4 sm:py-8 md:flex-row" key={address.addressId}>
         <div className="flex-1">
           <dt className="flex items-center justify-start gap-2">
-            <span className="text-md font-bold text-gray-700 dark:text-light-100">
+            <span className="text-base font-bold text-gray-700 dark:text-light-100">
               {address.firstName} {address.lastName}
             </span>
             {(address.isDefaultBillingAddress || address.isDefaultShippingAddress) && (

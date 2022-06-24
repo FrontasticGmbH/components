@@ -27,7 +27,7 @@ const encodeQueryParams = (query: QueryParams): string[] => {
 };
 
 export const getRouteData =
-  (url: string, key: string) =>
+  () =>
   async (
     urlParams: UrlParams,
     locale: string,
@@ -61,7 +61,7 @@ export const getRouteData =
   };
 
 export const getPreview =
-  (url: string, key: string) =>
+  () =>
   async (
     previewId: string,
     locale: string,

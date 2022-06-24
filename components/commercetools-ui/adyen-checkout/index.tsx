@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
-import toast from 'react-hot-toast';
+import Toast from 'react-hot-toast';
 import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
 import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
 import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
@@ -90,9 +90,9 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
     setData(data);
   };
 
-  const updateCartData = () => {
+  const updateCartData = useCallback(() => {
     if (countryBasedShippingRateIndex[data.shippingCountry] == undefined) {
-      toast.error(
+      Toast.error(
         formatCheckoutMessage({
           id: 'taxesNotSupported',
           defaultMessage: 'Taxes are not defined for this country in commercetools',
@@ -106,7 +106,7 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
       const updatedData = mapToCartStructure(data, billingIsSameAsShipping);
       updateCart(updatedData);
     }
-  };
+  }, [billingIsSameAsShipping, data, dataIsValid, formatCheckoutMessage, updateCart]);
 
   const updatecurrentShippingMethod = (shippingMethod: ShippingMethod) => {
     if (shippingMethod?.shippingMethodId) {
@@ -158,7 +158,7 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
     if (data.shippingCountry !== '') {
       updateCartData();
     }
-  }, [data.shippingCountry, dataIsValid]);
+  }, [data.shippingCountry, dataIsValid, updateCartData]);
 
   useEffect(() => {
     const defaultData = mapToFormStructure(cartList);
@@ -198,7 +198,7 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
         setCurrentShippingMethod(cartList?.availableShippingMethods?.[0]);
       }
     }
-  }, [cartList?.availableShippingMethods]);
+  }, [cartList, currentShippingMethod]);
 
   return (
     <div className="mx-auto max-w-4xl md:mt-4">
