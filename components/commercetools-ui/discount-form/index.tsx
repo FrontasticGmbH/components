@@ -4,6 +4,7 @@ import { Cart } from '@Types/cart/Cart';
 import { Discount } from '@Types/cart/Discount';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useCart } from 'frontastic/provider';
+import toast from 'react-hot-toast';
 
 export interface Props {
   className?: string;
@@ -20,9 +21,14 @@ const DiscountForm: React.FC<Props> = ({ className, cart }) => {
     setDiscounts(cart?.discountCodes);
   }, [cart?.discountCodes]);
 
-  const handleApply = () => {
-    redeemDiscountCode(code);
-    setCode('');
+  const onApplyDiscount = () => {
+    redeemDiscountCode(code)
+      .catch((e: Error) => {
+        if ((e.message = '101')) {
+          toast.error(formatCartMessage({ id: 'codeNotValid', defaultMessage: 'Code is not valid' }));
+        }
+      })
+      .finally(() => setCode(''));
   };
 
   const handleRemove = (discount) => {
@@ -54,7 +60,7 @@ const DiscountForm: React.FC<Props> = ({ className, cart }) => {
           </div>
           <button
             type="button"
-            onClick={handleApply}
+            onClick={onApplyDiscount}
             disabled={code === '' ? true : false}
             className="w-24 cursor-pointer content-center rounded border-2 border-accent-400 bg-white p-2 font-bold text-accent-400 hover:bg-accent-400 hover:text-white focus:outline-none disabled:cursor-not-allowed disabled:border-none disabled:bg-gray-300 disabled:text-gray-500"
           >
