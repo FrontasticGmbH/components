@@ -23,41 +23,41 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
   const [values, setValues] = useState<RangeInputValues>([minPrice, maxPrice]);
   const [currency, setCurrency] = useState('');
 
-  const updateValues = (updatedValues) => {
+  const updateValues = (updatedValues: RangeInputValues) => {
     if (updatedValues[1] <= updatedValues[0]) return;
     setValues(updatedValues);
   };
 
   const convertCents = (amountInCents: number) => Math.trunc(amountInCents / 100);
 
-  const setDefaults = () => {
-    // Setting defaults for min and max price
-    const priceFacet = facets?.find(({ identifier }) => identifier == 'variants.price');
-
-    if (priceFacet) {
-      let { min, max, minSelected, maxSelected } = priceFacet as RangeFacet;
-      const minConverted = convertCents(min);
-      const maxConverted = convertCents(max);
-
-      setMinPrice(minConverted);
-      setMaxPrice(maxConverted);
-
-      // Setting default values
-      if (minSelected && maxSelected) {
-        const minSelectedConverted = convertCents(minSelected);
-        const maxSelectedConverted = convertCents(maxSelected);
-        updateValues([minSelectedConverted, maxSelectedConverted]);
-      } else updateValues([minConverted, maxConverted]);
-
-      // Setting currency
-      setCurrency(products?.[0].variants[0].price.currencyCode);
-    }
-  };
-
   useEffect(() => {
+    const setDefaults = () => {
+      // Setting defaults for min and max price
+      const priceFacet = facets?.find(({ identifier }) => identifier == 'variants.price');
+
+      if (priceFacet) {
+        const { min, max, minSelected, maxSelected } = priceFacet as RangeFacet;
+        const minConverted = convertCents(min);
+        const maxConverted = convertCents(max);
+
+        setMinPrice(minConverted);
+        setMaxPrice(maxConverted);
+
+        // Setting default values
+        if (minSelected && maxSelected) {
+          const minSelectedConverted = convertCents(minSelected);
+          const maxSelectedConverted = convertCents(maxSelected);
+          updateValues([minSelectedConverted, maxSelectedConverted]);
+        } else updateValues([minConverted, maxConverted]);
+
+        // Setting currency
+        setCurrency(products?.[0].variants[0].price.currencyCode);
+      }
+    };
+
     setInputWidth(widthRef.current.clientWidth);
     setDefaults();
-  }, [router?.asPath]);
+  }, [router, facets, products]);
 
   useEffect(() => {
     const params = [
@@ -66,7 +66,7 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
     ];
 
     updatePriceFilteringParams?.(params);
-  }, [values]);
+  }, [values, updatePriceFilteringParams]);
 
   return (
     <div className="grid w-full gap-4">
