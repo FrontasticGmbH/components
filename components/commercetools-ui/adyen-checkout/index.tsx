@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
-import Toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
 import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
 import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
 import OrderSummary from 'components/commercetools-ui/cart/orderSummary';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { countryBasedShippingRateIndex } from 'helpers/utils/flattenShippingMethod';
-import { useAccount, useCart } from 'frontastic';
+import { useCart } from 'frontastic';
 import { mapToCartStructure, mapToFormStructure } from './mapFormData';
 import { requiredDataIsValid } from './requiredDataIsValid';
 
@@ -27,7 +27,6 @@ export type FormData = {
 };
 
 const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
-  const { account } = useAccount();
   const { data: cartList, updateCart, setShippingMethod } = useCart();
   const { formatMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
@@ -90,9 +89,9 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
     setData(data);
   };
 
-  const updateCartData = useCallback(() => {
+  const updateCartData = () => {
     if (countryBasedShippingRateIndex[data.shippingCountry] == undefined) {
-      Toast.error(
+      toast.error(
         formatCheckoutMessage({
           id: 'taxesNotSupported',
           defaultMessage: 'Taxes are not defined for this country in commercetools',
@@ -106,7 +105,7 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
       const updatedData = mapToCartStructure(data, billingIsSameAsShipping);
       updateCart(updatedData);
     }
-  }, [billingIsSameAsShipping, data, dataIsValid, formatCheckoutMessage, updateCart]);
+  };
 
   const updatecurrentShippingMethod = (shippingMethod: ShippingMethod) => {
     if (shippingMethod?.shippingMethodId) {
@@ -158,34 +157,14 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
     if (data.shippingCountry !== '') {
       updateCartData();
     }
-  }, [data.shippingCountry, dataIsValid, updateCartData]);
+  }, [data.shippingCountry, dataIsValid]);
 
   useEffect(() => {
     const defaultData = mapToFormStructure(cartList);
     if (defaultData && requiredDataIsValid(defaultData, billingIsSameAsShipping)) {
       updateData(defaultData);
-    } else if (account) {
-      const billingAddress = account.addresses.filter((address) => address.isDefaultBillingAddress);
-      const shippingAddress = account.addresses.filter((address) => address.isDefaultShippingAddress);
-
-      const accountData = {
-        firstName: account.firstName,
-        lastName: account.lastName,
-        email: account.email,
-        shippingStreetName: shippingAddress[0].streetName,
-        shippingCity: shippingAddress[0].city,
-        shippingPostalCode: shippingAddress[0].postalCode,
-        shippingCountry: shippingAddress[0].country,
-        billingStreetName: billingAddress[0].streetName,
-        billingCity: billingAddress[0].city,
-        billingPostalCode: billingAddress[0].postalCode,
-        billingCountry: billingAddress[0].country,
-      };
-      if (requiredDataIsValid(accountData, billingIsSameAsShipping)) {
-        updateData(accountData);
-      }
     }
-  }, [cartList, account, billingIsSameAsShipping]);
+  }, [cartList]);
 
   useEffect(() => {
     if (!currentShippingMethod && cartList?.availableShippingMethods) {
@@ -198,7 +177,7 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
         setCurrentShippingMethod(cartList?.availableShippingMethods?.[0]);
       }
     }
-  }, [cartList, currentShippingMethod]);
+  }, [cartList?.availableShippingMethods]);
 
   return (
     <div className="mx-auto max-w-4xl md:mt-4">

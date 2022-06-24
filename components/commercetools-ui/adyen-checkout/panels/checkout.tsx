@@ -45,7 +45,9 @@ const Checkout = () => {
   useEffect(() => {
     if (session) {
       const sessionConfiguration = {
-        environment: process.env.NODE_ENV === 'production' ? 'live' : 'test',
+        //For demo swiss we allways set to test environment
+        environment: 'test',
+        //environment: process.env.NODE_ENV === 'production' ? 'live' : 'test',
         clientKey: 'test_VDRCU3ALS5GMDC45GLZGUF6ANM3P75ZK',
         session,
       };
