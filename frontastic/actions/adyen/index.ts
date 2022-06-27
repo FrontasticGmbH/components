@@ -6,7 +6,7 @@ export const createSession = async (value: number, currency: string, returnUrl: 
     amount: {
       value: value,
       currency: currency,
-    },        
+    },
     returnUrl,
   };
 
