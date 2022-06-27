@@ -5,6 +5,10 @@ import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from 'helpers/errorLogger';
 
+export class LocaleStorage {
+  static locale: string = '';
+}
+
 function resolveApiHubUrl(): string {
   if (process.env['NEXT_PUBLIC_FRONTASTIC_HOST'] === undefined) {
     throw new Error(`Env variable "NEXT_PUBLIC_FRONTASTIC_HOST" not set`);
@@ -68,16 +72,6 @@ const performFetchApiHub = async (
 
   const bodyOverride = payload ? { body: JSON.stringify(payload) } : {};
 
-  let locale: string;
-  const waitForLocale = () => {
-    if (typeof navigator !== 'undefined') {
-      locale = navigator.language;
-    } else {
-      setTimeout(waitForLocale, 250);
-    }
-  };
-  waitForLocale();
-
   const actualInit = {
     ...bodyOverride,
     ...init,
@@ -87,7 +81,7 @@ const performFetchApiHub = async (
       ...(init.headers || {}),
       'X-Frontastic-Access-Token': 'APIKEY',
       ...frontasticSessionHeaders,
-      'Frontastic-Locale': locale || 'en_GB',
+      'Frontastic-Locale': LocaleStorage.locale || 'en_GB',
     },
   };
 
