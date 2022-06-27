@@ -1,10 +1,12 @@
 import { mutate } from 'swr';
 import { fetchApiHub } from 'frontastic';
-import { Amount } from '@Types/adyen/Amount';
 
-export const createSession = async (amount: Amount, returnUrl: string) => {
+export const createSession = async (value: number, currency: string, returnUrl: string) => {
   const payload = {
-    amount,
+    amount: {
+      value: value,
+      currency: currency,
+    },        
     returnUrl,
   };
 
