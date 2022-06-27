@@ -5,6 +5,10 @@ import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from 'helpers/errorLogger';
 
+export class LocaleStorage {
+  static locale: string = '';
+}
+
 function resolveApiHubUrl(): string {
   if (process.env['NEXT_PUBLIC_FRONTASTIC_HOST'] === undefined) {
     throw new Error(`Env variable "NEXT_PUBLIC_FRONTASTIC_HOST" not set`);
@@ -77,6 +81,7 @@ const performFetchApiHub = async (
       ...(init.headers || {}),
       'X-Frontastic-Access-Token': 'APIKEY',
       ...frontasticSessionHeaders,
+      'Frontastic-Locale': LocaleStorage.locale || 'en_GB',
     },
   };
 
