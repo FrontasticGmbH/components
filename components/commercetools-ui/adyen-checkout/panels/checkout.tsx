@@ -27,11 +27,7 @@ const Checkout = () => {
   useEffect(() => {
     const host = typeof window !== 'undefined' ? window.location.origin : '';
 
-    createSession(
-      cartList.sum.centAmount,
-      cartList.sum.currencyCode,
-      `${host}/thank-you`,
-    ).then((res) => {
+    createSession(cartList.sum.centAmount, cartList.sum.currencyCode, `${host}/thank-you`).then((res) => {
       const { id, sessionData } = res;
 
       setSession({ id, sessionData });
