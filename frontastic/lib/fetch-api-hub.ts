@@ -68,6 +68,16 @@ const performFetchApiHub = async (
 
   const bodyOverride = payload ? { body: JSON.stringify(payload) } : {};
 
+  let locale: string;
+  const waitForLocale = () => {
+    if (typeof navigator !== 'undefined') {
+      locale = navigator.language;
+    } else {
+      setTimeout(waitForLocale, 250);
+    }
+  };
+  waitForLocale();
+
   const actualInit = {
     ...bodyOverride,
     ...init,
@@ -77,6 +87,7 @@ const performFetchApiHub = async (
       ...(init.headers || {}),
       'X-Frontastic-Access-Token': 'APIKEY',
       ...frontasticSessionHeaders,
+      'Frontastic-Locale': locale || 'en_GB',
     },
   };
 
