@@ -22,7 +22,7 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
 
   const router = useRouter();
 
-  const goToProductPage = (variantSku: string) => router.push(`/${variantSku}`);
+  const goToProductPage = (itemUrl: string) => router.push(itemUrl);
 
   useEffect(() => {
     if (items) {
