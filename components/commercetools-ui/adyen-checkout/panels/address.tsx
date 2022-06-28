@@ -1,6 +1,10 @@
-import React, { ChangeEvent } from 'react';
-import { countryOptions } from 'components/commercetools-ui/checkout/countryOptions';
+import React, { ChangeEvent, useState, useEffect } from 'react';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
+import { ProjectSettings } from '@Types/ProjectSettings';
+import { countryOptions, CountryOption } from 'helpers/countryOptions';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { getTaxedCountries } from 'helpers/utils/getTaxedCountries';
+import { useCart } from 'frontastic/provider';
 import { FormData } from '..';
 
 type AddressProps = {
@@ -11,8 +15,36 @@ type AddressProps = {
 };
 
 const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShipping, toggleBillingAddressOption }) => {
+  const [projectSettingsCountries, setProjectSettingsCountries] = useState<ProjectSettings>(null);
+  const [shippingMethodsData, setShippingMethodsData] = useState<ShippingMethod[]>(null);
+  const [availableCountryOptions, setAvailableCountryOptions] = useState<CountryOption[]>(null);
+  const { getProjectSettings, shippingMethods } = useCart();
   const { formatMessage } = useFormat({ name: 'checkout' });
   const { formatMessage: formatCommonMessage } = useFormat({ name: 'common' });
+
+  useEffect(() => {
+    getProjectSettings().then((data) => {
+      setProjectSettingsCountries(data);
+      setShippingMethodsData(shippingMethods.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!shippingMethods.data || !projectSettingsCountries) {
+      const showMessageInDropdown = {
+        data: '',
+        display: `${formatMessage({
+          id: 'no.countries.available.for.shipping',
+          defaultMessage: 'Currently there are no countries available for shipping',
+        })}`,
+      };
+      setAvailableCountryOptions([showMessageInDropdown]);
+    } else {
+      const totalCountries = getTaxedCountries(shippingMethods?.data, projectSettingsCountries?.countries);
+
+      setAvailableCountryOptions(totalCountries);
+    }
+  }, [shippingMethods, projectSettingsCountries, shippingMethodsData]);
 
   const handleChange = (e: ChangeEvent) => {
     const updatedData = {
@@ -34,7 +66,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             <span>{formatCommonMessage({ id: 'firstName', defaultMessage: 'First name' })}</span> *
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="firstName"
             name="firstName"
             type="text"
@@ -49,7 +81,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             <span>{formatCommonMessage({ id: 'lastName', defaultMessage: 'Last name' })}</span> *
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="lastName"
             name="lastName"
             type="text"
@@ -63,7 +95,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             {formatCommonMessage({ id: 'phone', defaultMessage: 'Phone number' })}
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="phone"
             name="phone"
             type="text"
@@ -77,7 +109,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             <span>{formatCommonMessage({ id: 'email', defaultMessage: 'Email' })}</span> *
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="email"
             name="email"
             type="email"
@@ -95,7 +127,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             <span>{formatCommonMessage({ id: 'street.name', defaultMessage: 'Street name' })}</span> *
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="shipping-street-name"
             name="shippingStreetName"
             type="text"
@@ -110,7 +142,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             <span>{formatCommonMessage({ id: 'city', defaultMessage: 'City' })}</span> *
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="shipping-city"
             name="shippingCity"
             type="text"
@@ -125,7 +157,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             <span>{formatCommonMessage({ id: 'zipCode', defaultMessage: 'Postal code' })}</span> *
           </label>
           <input
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             id="shipping-postalCode"
             name="shippingPostalCode"
             type="text"
@@ -142,12 +174,11 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
           <select
             id="shipping-country"
             name="shippingCountry"
-            className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+            className=" w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
             onChange={handleChange}
             value={data.shippingCountry}
           >
-            <option value=""></option>
-            {countryOptions.map(({ display, data }, index) => (
+            {availableCountryOptions?.map(({ display, data }, index) => (
               <option key={index} value={data}>
                 {formatCommonMessage({ id: `country.${data}`, defaultMessage: display })}
               </option>
@@ -180,7 +211,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
                 <span>{formatCommonMessage({ id: 'street.name', defaultMessage: 'Street name' })}</span> *
               </label>
               <input
-                className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+                className="w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
                 id="billing-street-name"
                 name="billingStreetName"
                 type="text"
@@ -195,7 +226,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
                 <span>{formatCommonMessage({ id: 'city', defaultMessage: 'City' })}</span> *
               </label>
               <input
-                className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+                className="w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
                 id="billing-city"
                 name="billingCity"
                 type="text"
@@ -210,7 +241,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
                 <span>{formatCommonMessage({ id: 'zipCode', defaultMessage: 'Postal code' })}</span> *
               </label>
               <input
-                className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+                className="w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
                 id="billing-postalCode"
                 name="billingPostalCode"
                 type="text"
@@ -227,7 +258,7 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
               <select
                 id="billing-country"
                 name="billingCountry"
-                className="focus:shadow-outline w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+                className="w-full appearance-none rounded border border-gray-300 py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
                 onChange={handleChange}
                 value={data.billingCountry}
               >

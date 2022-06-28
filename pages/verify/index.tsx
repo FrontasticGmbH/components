@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import toast from 'react-hot-toast';
+import Toast from 'react-hot-toast';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useAccount } from 'frontastic';
 
@@ -19,18 +19,18 @@ const Verify: NextPage = () => {
   const { confirm } = useAccount();
 
   //successful redirection after verification
-  const successRedirect = () => {
+  const successRedirect = useCallback(() => {
     router
       .push('/')
-      .then(() => toast.success(formatAccountMessage({ id: 'verification.done', defaultMessage: 'Email verified' })));
-  };
+      .then(() => Toast.success(formatAccountMessage({ id: 'verification.done', defaultMessage: 'Email verified' })));
+  }, []);
 
   //error redirection becaues of invalid token
-  const errorRedirect = () => {
+  const errorRedirect = useCallback(() => {
     router
       .push('/')
-      .then(() => toast.error(formatAccountMessage({ id: 'verification.failed', defaultMessage: 'Invalid token' })));
-  };
+      .then(() => Toast.error(formatAccountMessage({ id: 'verification.failed', defaultMessage: 'Invalid token' })));
+  }, []);
 
   //verify user's email
   const verifyUser = useCallback(async () => {
@@ -42,7 +42,7 @@ const Verify: NextPage = () => {
     } catch (err) {
       errorRedirect();
     }
-  }, [token]);
+  }, [token, confirm, successRedirect, errorRedirect]);
 
   useEffect(() => {
     verifyUser();

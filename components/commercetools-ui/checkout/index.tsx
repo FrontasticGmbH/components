@@ -3,12 +3,12 @@ import { useRouter } from 'next/router';
 import { Address } from '@Types/account/Address';
 import * as yup from 'yup';
 import { ObjectShape } from 'yup/lib/object';
+import EmptyCart from 'components/commercetools-ui/cart/emptyCart';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useI18n from 'helpers/hooks/useI18n';
 import { Reference } from 'helpers/reference';
 import { useAccount, useCart } from 'frontastic';
-import EmptyCart from '../cart/emptyCart';
 import CheckoutForm, { ShippingCountryItem } from './checkout-form';
 import GuestCheckoutForm from './checkout-form/guest';
 import DesktopOrderSummary from './order-summary/order-summary-desktop';
@@ -19,7 +19,7 @@ interface Props {
   shippingCountryOptions?: ShippingCountryItem[];
 }
 
-const Checkout = ({ loginLink, shippingCountryOptions }: Props) => {
+const Checkout = ({ shippingCountryOptions }: Props) => {
   //i18n messages
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });

@@ -3,6 +3,7 @@ import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon, ExclamationIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 import { Log } from 'helpers/errorLogger';
+import { isDevelopment } from 'helpers/utils/environment';
 
 const getErrorMessage = (error) => {
   if (typeof error?.data[0] === 'string') {
@@ -46,7 +47,7 @@ export function Errors() {
     }
   });
 
-  if (!errors.length || !open) {
+  if (!errors.length || !open || !isDevelopment()) {
     return null;
   }
 

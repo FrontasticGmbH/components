@@ -30,5 +30,8 @@
   "address": "Address",
   "overview": "Overview",
   "goToOverview": "Go to overview",
-  "ContinueAndPay": "Continue and pay"
+  "ContinueAndPay": "Continue and pay",
+  "includedVat": "Total amount {amount} incl.VAT",
+  "codeNotValid": "Code not valid",
+  "codeAdded": "Discount code added"
 }

@@ -29,7 +29,7 @@ const WishList: React.FC<Props> = ({
 }) => {
   const { formatMessage: formatWishlistMessage } = useFormat({ name: 'wishlist' });
 
-  if (items?.lineItems?.length <= 0)
+  if (!items?.lineItems?.length)
     return (
       <EmptyWishlist
         pageTitle={pageTitle}

@@ -1,10 +1,6 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
 
-// function isNumber(value: string | number): boolean {
-//   return value != null && value !== "" && !isNaN(Number(value.toString()));
-// }
-
 export function Grid({
   children,
   wrapperClassName,

@@ -20,6 +20,13 @@ export interface UpdateAccount {
   birthdayDay?: number;
 }
 
+export interface RegisterAccount extends UpdateAccount {
+  email: string;
+  password: string;
+  billingAddress?: Address;
+  shippingAddress?: Address;
+}
+
 export const getAccount = (): GetAccountResult => {
   const result = useSWR<Account | GetAccountResult>('/action/account/getAccount', fetchApiHub, revalidateOptions);
 
@@ -33,13 +40,6 @@ export const getAccount = (): GetAccountResult => {
     error: result.error,
   };
 };
-
-export interface RegisterAccount extends UpdateAccount {
-  email: string;
-  password: string;
-  billingAddress?: Address;
-  shippingAddress?: Address;
-}
 
 export const login = async (email: string, password: string, remember?: boolean): Promise<Account> => {
   const payload = {
@@ -87,7 +87,14 @@ export const changePassword = async (oldPassword: string, newPassword: string): 
 };
 
 export const requestPasswordReset = async (email: string): Promise<void> => {
-  return await fetchApiHub('/action/account/requestReset', { method: 'POST' }, { email });
+  const host = typeof window !== 'undefined' ? window.location.origin : '';
+
+  const payload = {
+    email,
+    host,
+  };
+
+  return await fetchApiHub('/action/account/requestReset', { method: 'POST' }, payload);
 };
 
 export const resetPassword = async (token: string, newPassword: string): Promise<Account> => {

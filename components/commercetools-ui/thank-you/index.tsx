@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { useCart } from 'frontastic';
+import { useAdyen } from 'frontastic';
 import Image from 'frontastic/lib/image';
 
 const ThankYou = () => {
   //i18n messages
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
 
-  const { updateOrder } = useCart();
+  const { adyenCheckout } = useAdyen();
   const router = useRouter();
 
   useEffect(() => {
-    const { sessionId, type, resultCode } = router.query;
+    const { sessionId, redirectResult } = router.query;
 
-    updateOrder(sessionId, type, resultCode);
-  });
+    adyenCheckout(sessionId, redirectResult);
+  }, []);
 
   return (
     <main className="relative lg:min-h-full">

@@ -27,7 +27,7 @@ const AccountButton: React.FC<AccountButtonProps> = ({ accountLink, account }) =
               <span className="sr-only">Account</span>
               <UserIcon className="h-6 w-6 dark:text-light-100" aria-hidden="true" />
             </Menu.Button>
-            <div className="absolute -right-2 h-[10px] w-[10px] rounded-md bg-green-700"></div>
+            <div className="absolute -right-[1px] -bottom-[2px] h-[9px] w-[9px] rounded-md bg-green-700"></div>
           </div>
 
           <Transition

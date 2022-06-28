@@ -43,6 +43,10 @@ export const orderHistory = async () => {
   return await fetchApiHub('/action/cart/getOrders');
 };
 
+export const getProjectSettings = async () => {
+  return await fetchApiHub('/action/project/getProjectSettings');
+};
+
 export const removeItem = async (lineItemId: string) => {
   const payload = {
     lineItem: { id: lineItemId },
@@ -92,27 +96,6 @@ export const updateCart = async (payload: CartDetails): Promise<Cart> => {
     payload,
   );
   mutate('/action/cart/getCart', res);
-  return res;
-};
-
-export const updateOrder = async (sessionId: string, type: string, resultCode: string): Promise<void> => {
-  const payload = {
-    sessionId: sessionId,
-    type: type,
-    resultCode: resultCode,
-  };
-
-  const res = await fetchApiHub(
-    '/action/payment/updateOrder',
-    {
-      headers: {
-        accept: 'application/json',
-      },
-      credentials: 'include',
-      method: 'POST',
-    },
-    payload,
-  );
   return res;
 };
 

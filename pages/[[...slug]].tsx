@@ -1,17 +1,23 @@
 import React from 'react';
 import { GetServerSideProps, Redirect } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { createClient, ResponseError } from 'frontastic';
+import { createClient, ResponseError, LocaleStorage } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
 
 type SlugProps = {
+  // This needs an overhaul. Can be too many things in my opinion (*Marcel)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
+  // data: RedirectResponse | PageDataResponse | ResponseError | { ok: string; message: string } | string;
+  locale: string;
 };
 
-export default function Slug({ data }: SlugProps) {
+export default function Slug({ data, locale }: SlugProps) {
+  LocaleStorage.locale = locale;
+
   if (!data || typeof data === 'string') {
     return (
       <>
@@ -36,7 +42,7 @@ export default function Slug({ data }: SlugProps) {
 }
 
 export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {
-  const frontastic = createClient(process.env.NEXT_PUBLIC_FRONTASTIC_HOST, process.env.NEXT_PUBLIC_FRONTASTIC_API_KEY);
+  const frontastic = createClient();
   const data = await frontastic.getRouteData(params, locale, query, req, res);
 
   if (data) {
@@ -76,6 +82,7 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
   return {
     props: {
       data: data || null,
+      locale: locale,
       ...(await serverSideTranslations(locale, [
         'common',
         'cart',

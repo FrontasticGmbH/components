@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Cart } from '@Types/cart/Cart';
 import { StringHelpers } from 'helpers/stringHelpers';
 import Image from 'frontastic/lib/image';
@@ -7,10 +7,10 @@ export interface Props {
   readonly cart: Cart;
 }
 
-const CartItems: FC<Props> = ({ cart }) => {
+const CartItems: React.FC<Props> = ({ cart }) => {
   return (
     <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
-      {cart.lineItems.map((lineItem, i) => (
+      {cart?.lineItems?.map((lineItem, i) => (
         <li key={i} className="flex space-x-6 py-6">
           <Image
             src={lineItem.variant.images[0]}

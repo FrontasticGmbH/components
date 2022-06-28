@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import AdyenCheckout from '@adyen/adyen-web';
-import { useCart, useCheckout } from 'frontastic';
+import { useCart, useAdyen } from 'frontastic';
 import '@adyen/adyen-web/dist/adyen.css';
 
 type Session = {
@@ -8,37 +8,38 @@ type Session = {
   sessionData: string;
 };
 
+type SessionConfig = {
+  environment: string;
+  clientKey: string;
+  session: Session;
+};
+
 const Checkout = () => {
   const { data: cartList } = useCart();
-  const { createSession } = useCheckout();
+  const { createSession } = useAdyen();
   const [session, setSession] = useState<Session>();
 
-  const initializeSession = async (sessionConfiguration) => {
+  const initializeSession = async (sessionConfiguration: SessionConfig) => {
     const checkout = await AdyenCheckout(sessionConfiguration);
-    const dropinComponent = checkout.create('dropin').mount('#dropin-container');
+    checkout.create('dropin').mount('#dropin-container');
   };
 
-  const host = typeof window !== 'undefined' ? window.location.origin : '';
-
   useEffect(() => {
-    createSession(
-      {
-        value: cartList.sum.centAmount,
-        currency: cartList.sum.currencyCode,
-      },
-      `${host}/thank-you`,
-    ).then((res) => {
+    const host = typeof window !== 'undefined' ? window.location.origin : '';
+
+    createSession(cartList.sum.centAmount, cartList.sum.currencyCode, `${host}/thank-you`).then((res) => {
       const { id, sessionData } = res;
+
       setSession({ id, sessionData });
     });
-  }, []);
-
-  console.log('Payment env:', process.env.NODE_ENV);
+  }, [cartList, createSession]);
 
   useEffect(() => {
     if (session) {
       const sessionConfiguration = {
-        environment: process.env.NODE_ENV === 'production' ? 'live' : 'test',
+        //For demo swiss we allways set to test environment
+        environment: 'test',
+        //environment: process.env.NODE_ENV === 'production' ? 'live' : 'test',
         clientKey: 'test_VDRCU3ALS5GMDC45GLZGUF6ANM3P75ZK',
         session,
       };

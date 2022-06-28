@@ -26,15 +26,15 @@ export type FormData = {
   billingCountry: string;
 };
 
-const AdyenCheckout = () => {
+const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
   const { data: cartList, updateCart, setShippingMethod } = useCart();
   const { formatMessage } = useFormat({ name: 'cart' });
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
   const containerRef = useRef();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [disableSubmitButton, setDisableSubmitButton] = useState<Boolean>(true);
+  const [disableSubmitButton, setDisableSubmitButton] = useState<boolean>(true);
   const [billingIsSameAsShipping, setBillingIsSameAsShipping] = useState<boolean>(true);
-  const [chosenShippingMethod, setChosenShippingMethod] = useState<ShippingMethod>();
+  const [currentShippingMethod, setCurrentShippingMethod] = useState<ShippingMethod>();
   const [dataIsValid, setDataIsValid] = useState<boolean>(false);
   const [data, setData] = useState<FormData>({
     firstName: '',
@@ -107,9 +107,11 @@ const AdyenCheckout = () => {
     }
   };
 
-  const updateChosenShippingMethod = (shippingMethod: ShippingMethod) => {
-    setChosenShippingMethod(shippingMethod);
-    setShippingMethod(shippingMethod.shippingMethodId);
+  const updatecurrentShippingMethod = (shippingMethod: ShippingMethod) => {
+    if (shippingMethod?.shippingMethodId) {
+      setCurrentShippingMethod(shippingMethod);
+      setShippingMethod(shippingMethod.shippingMethodId);
+    }
   };
 
   const submitButtonLabel = [
@@ -131,12 +133,11 @@ const AdyenCheckout = () => {
     },
     {
       name: formatMessage({ id: 'overview', defaultMessage: 'Overview' }),
-
       component: (
         <Overview
           shippingMethods={cartList?.availableShippingMethods}
-          currentShippingMethod={chosenShippingMethod}
-          onSelectShippingMethod={updateChosenShippingMethod}
+          currentShippingMethod={currentShippingMethod}
+          onSelectShippingMethod={updatecurrentShippingMethod}
         />
       ),
     },
@@ -165,33 +166,24 @@ const AdyenCheckout = () => {
   }, [cartList]);
 
   useEffect(() => {
-    if (cartList?.shippingInfo) {
-      const currentShippingMethod = cartList.availableShippingMethods.find(
-        ({ shippingMethodId }) => shippingMethodId == cartList.shippingInfo.shippingMethodId,
-      );
-      setChosenShippingMethod(currentShippingMethod);
-    } else {
-      setChosenShippingMethod(cartList?.availableShippingMethods?.[0]);
+    if (!currentShippingMethod && cartList?.availableShippingMethods) {
+      if (cartList?.shippingInfo) {
+        const currentShippingMethod = cartList.availableShippingMethods.find(
+          ({ shippingMethodId }) => shippingMethodId == cartList.shippingInfo.shippingMethodId,
+        );
+        setCurrentShippingMethod(currentShippingMethod);
+      } else {
+        setCurrentShippingMethod(cartList?.availableShippingMethods?.[0]);
+      }
     }
-  }, [cartList?.shippingInfo]);
-
-  useEffect(() => {
-    if (cartList?.shippingInfo && !chosenShippingMethod) {
-      const chosenMethod = cartList.availableShippingMethods.find(
-        ({ shippingMethodId }) => shippingMethodId === cartList.shippingInfo.shippingMethodId,
-      );
-      setChosenShippingMethod(chosenMethod);
-    } else {
-      setChosenShippingMethod(cartList?.availableShippingMethods?.[0]);
-    }
-  }, []);
+  }, [cartList?.availableShippingMethods]);
 
   return (
     <div className="mx-auto max-w-4xl md:mt-4">
       <div>
-        <div className="container mx-auto py-6">
-          <div className="relative flex justify-between py-6 px-12 shadow-md" id="ProgressStepper">
-            <div className="absolute top-0 left-0 flex h-full w-full items-center justify-between py-6 px-12">
+        <div className="mx-auto py-6">
+          <div className="relative flex justify-between py-6 px-5 shadow-md md:px-12" id="ProgressStepper">
+            <div className="absolute top-0 left-0 flex h-full w-full items-center justify-between py-6 px-12 ">
               <div className="top-2/4 h-2 w-full bg-green-100"></div>
             </div>
             {steps.map(({ name }, index) => (
@@ -207,10 +199,15 @@ const AdyenCheckout = () => {
         {steps[currentStepIndex].component}
         <OrderSummary
           cart={cartList}
-          shippingMethod={chosenShippingMethod}
+          shippingMethod={currentShippingMethod}
           submitButtonLabel={submitButtonLabel[currentStepIndex]}
-          disableInput={currentStepIndex == 2}
+          disableSubmitButton={disableSubmitButton}
+          showDiscountsForm={currentStepIndex < 2}
+          showSubmitButton={currentStepIndex < 2}
           onSubmit={gotToNextStep}
+          termsLink={termsLink}
+          cancellationLink={cancellationLink}
+          privacyLink={privacyLink}
         />
       </div>
     </div>

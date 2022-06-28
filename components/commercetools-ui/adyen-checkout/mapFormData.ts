@@ -40,7 +40,7 @@ export const mapToFormStructure = (data: Cart): FormData => {
 
   const mappedData: FormData = {
     firstName: data.shippingAddress.firstName,
-    lastName: data.shippingAddress.firstName,
+    lastName: data.shippingAddress.lastName,
     email: data.email,
 
     shippingStreetName: data.shippingAddress.streetName,

@@ -13,7 +13,7 @@ const DarkModeWidget: React.FC<Props> = ({ className }) => {
   //Icon to display based on active mode
   const Icon = enabled ? SunIcon : MoonIcon;
 
-  return <>{<Icon className={`h-6 w-6 cursor-pointer ${className}`} aria-hidden="true" onClick={toggle} />}</>;
+  return <Icon className={`h-6 w-6 cursor-pointer ${className}`} aria-hidden="true" onClick={toggle} />;
 };
 
 export default DarkModeWidget;

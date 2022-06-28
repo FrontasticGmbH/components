@@ -15,6 +15,7 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
   const [loading, setLoading] = useState<boolean>(true);
   //account data
   const { orderHistory } = useCart();
+
   useEffect(() => {
     if (orderHistory) {
       orderHistory().then((data) => {

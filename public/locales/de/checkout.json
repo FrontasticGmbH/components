@@ -15,10 +15,11 @@
   "placeOrder": "Bestellung abgeben",
   "shippingTo": "Versand an",
   "shippingAddress": "Lieferadresse",
+  "billingAddress": "Rechnungsadresse",
   "shippingInformation": "Versandinformationen",
   "billingDetails": "Angaben zur Rechnung",
   "billingInformation": "Informationen zur Abrechnung",
-  "billingDetailsLabel": "Verwende dieselben Rechnungsdaten wie die Lieferadresse",
+  "billingDetailsLabel": "Rechnungsadresse ist gleich Lieferadresse",
   "paymentMethod": "Bezahlarten",
   "yourOrder": "Deine Bestellung",
   "orderId": "Bestellung ID",
@@ -36,8 +37,11 @@
   "total": "Insgesamt",
   "order.thanks": "Vielen Dank für die Bestellung",
   "order.appreciate": "Wir freuen uns über deine Bestellung, die wir gerade bearbeiten. Bleib also dran und wir werden dir bald eine Bestätigung schicken!",
+  "creditCard": "Kreditkarte",
   "askPaymentPreference": "Womit bezahlst du am liebsten?",
   "billingAddressSameAsShipping": "Die Rechnungsadresse ist die gleiche wie die Lieferadresse",
   "taxesNotSupported": "Steuern sind für dieses Land in nicht definiert commercetools",
-  "overview.order": "IHRE BESTELLUNG"
+  "overview.order": "IHRE BESTELLUNG",
+  "disclaimer": "Mit dem Klick auf \"Fortfahren und bezahlen\" erkläre ich mich mit den <0>Allgemeinen Geschäftsbedingungen</0> einverstanden. Ich habe die <1>Widerrufsbelehrung</1> und die <2>Datenschutzbestimmungen</2> zur Kenntnis genommen.",
+  "no.countries.available.for.shipping": "Derzeit sind keine Länder für den Versand verfügbar"
 }
