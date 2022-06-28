@@ -2,12 +2,16 @@
   padding: 0 16px;
   max-width: 1200px;
   margin: 0 auto;
+}
 
-  @media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  .gridWrapper {
     padding: 0 40px;
   }
+}
 
-  @media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
+  .gridWrapper {
     padding: 0;
   }
 }
