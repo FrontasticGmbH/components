@@ -93,43 +93,9 @@ export const tastics = {
 
 ## Linting
 
-This project uses linting rules that improve the Core Web Vitals of frontastic
-storefront.
+This project uses linting rules that improve the Core Web Vitals of frontastic storefront which are also the recommended rules by Next.js.
 
-Specifically, the following rules, which are also the recommended rules by
-Next.js, are enabled:
-
-`next/google-font-display` - Enforce optional or swap font-display behavior with Google Fonts
-
-`next/google-font-preconnect` - Enforce preconnect usage with Google Fonts
-
-`next/link-passhref` - Enforce passHref prop usage with custom Link components
-
-`next/no-css-tags` - Prevent manual stylesheet tags
-
-`next/no-document-import-in-page` - Disallow importing next/document outside of pages/document.js
-
-`next/no-head-import-in-document` - Disallow importing next/head in pages/document.js
-
-`next/no-html-link-for-pages` - Prohibit HTML anchor links to pages without a Link component
-
-`next/no-img-element` - Prohibit usage of HTML `<img>` element
-
-`next/no-page-custom-font` - Prevent page-only custom fonts
-
-`next/no-sync-scripts` - Forbid synchronous scripts
-
-`next/no-title-in-document-head` - Disallow using `<title>` with Head from next/document
-
-`next/no-unwanted-polyfillio` - Prevent duplicate polyfills from Polyfill.io
-
-`next/inline-script-id` - Enforce id attribute on next/script components with inline content
-
-`next/no-typos` - Ensure no typos were made declaring Next.js's data fetching function
-
-`next/next-script-for-ga` - use the Script component to defer loading of the script until necessary.
-
-In addition to those specific to Next.js and Core Web Vitals, the following
+In addition, the following
 rules are included as well to get reasonable defaults:
 
 `eslint:recommended`
@@ -143,6 +109,12 @@ To run the linter, just run
 
 ```
 yarn lint
+```
+
+To fix erros that can be automatically fixed, run
+
+```
+yarn lint --fix
 ```
 
 We recommend to add linting directly to your code editor or development environment,
@@ -165,6 +137,22 @@ Once ESLint is installed in Visual Studio Code, you’ll notice colorful underli
 
 We also recommend to setup your editor to use prettier to format a document on save.
 
+To prettify your code, just run
+
+```
+yarn prettify
+```
+
 ### Prettier in vim
 
 ### Prettier in Visual Studio Code
+
+## Full code formatting
+
+To run linter with `--fix` flag and also prettify your code, you can run
+
+```
+yarn fix
+```
+
+This is typically equivalent to running `yarn lint --fix` and `yarn prettify`
