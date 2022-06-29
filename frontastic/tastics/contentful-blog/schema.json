@@ -1,0 +1,20 @@
+{
+  "tasticType": "commercetools/ui/content/contentful/blog",
+  "name": "Commercetools UI contentful blog",
+  "category": "Content",
+  "icon": "favorite",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
+        {
+          "label": "Data",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "contentful/entry",
+          "translatable": true
+        }
+      ]
+    }
+  ]
+}
