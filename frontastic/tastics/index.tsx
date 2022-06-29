@@ -27,6 +27,7 @@ import ProductList from './products/product-list';
 import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
+import ContentfulBlogTastic from './contentful-blog';
 
 export const tastics = {
   // Doc Examples
@@ -57,5 +58,6 @@ export const tastics = {
   'commercetools/ui/account/register': AccountRegister,
   'commercetools/ui/account/orders': AccountOrdersHistory,
   'commercetools/ui/account/reset-password': ResetPassword,
+  'commercetools/ui/content/contentful/blog': ContentfulBlogTastic,
   default: NotFound,
 };
