@@ -8,10 +8,16 @@ export type Gravity = {
 export type FrontasticImage = {
   media?: {
     mediaId?: string;
-    file: string;
-    name: string;
-    width: number;
-    height: number;
+    file?: string;
+    format?: string;
+    name?: string;
+    width?: number | string;
+    height?: number | string;
+    metaData?: string;
+    resourceType?: string;
+    size?: number;
+    tags?: string[];
+    _type?: string;
   };
   ratio?: string;
   gravity?: Gravity;

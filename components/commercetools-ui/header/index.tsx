@@ -5,7 +5,7 @@ import { Account } from '@Types/account/Account';
 import Typography from 'components/commercetools-ui/typography';
 import { headerNavigation } from 'helpers/mocks/mockData';
 import { Reference, ReferenceLink } from 'helpers/reference';
-import Image from 'frontastic/lib/image';
+import Image, { NextFrontasticImage } from 'frontastic/lib/image';
 import DarkModeWidget from '../darkmode-widget';
 import AccountButton from './account-button';
 import CartButton from './cart-button';
@@ -28,7 +28,7 @@ export interface HeaderProps {
   links: Link[];
   cartItemCount: number;
   wishlistItemCount?: number;
-  logo: { media: any } | any;
+  logo: { media: NextFrontasticImage } | NextFrontasticImage;
   logoLink: Reference;
   account: Account;
   accountLink: Reference;
@@ -64,18 +64,17 @@ const Header: React.FC<HeaderProps> = ({
 
         <nav aria-label="Top" className="mx-auto max-w-full border-b border-gray-200 px-6 lg:px-8">
           {/* Secondary navigation */}
-          <div>
+          <div className="h-full">
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
-              <ReferenceLink target={logoLink} className="flex">
+              <ReferenceLink target={logoLink} className="flex h-full items-center py-4 pr-2 md:py-3">
                 <span className="sr-only">Catwalk</span>
-                <div className="w-[60px] pr-3 sm:w-[100px] sm:pr-7">
+                <div className="relative h-8 w-[60px] px-4 pr-3 sm:w-[120px] sm:pr-7">
                   <Image
-                    media={logo.media ? logo.media : { media: '' }}
-                    src={!logo.media ? logo : ''}
-                    width={100}
-                    height={45}
-                    className="h-7 w-auto dark:invert sm:h-10"
+                    media={logo.media ? logo.media : { media: {} }}
+                    className="dark:invert"
+                    layout="fill"
+                    objectFit="contain"
                     alt="Logo"
                   />
                 </div>
