@@ -30,6 +30,8 @@ const Checkout = () => {
     createSession(cartList.sum.centAmount, cartList.sum.currencyCode, `${host}/thank-you`).then((res) => {
       const { id, sessionData } = res;
 
+      console.log(id, sessionData);
+
       setSession({ id, sessionData });
     });
   }, [cartList, createSession]);
