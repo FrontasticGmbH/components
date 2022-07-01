@@ -8,6 +8,7 @@ import '../styles/app.css';
 import '../styles/themes/default.css';
 import '../styles/themes/theme1.css';
 import '../styles/themes/theme2.css';
+import '../styles/themes/theme3.css';
 import '../styles/components/slider.css';
 import '../styles/components/default-loader.css';
 
