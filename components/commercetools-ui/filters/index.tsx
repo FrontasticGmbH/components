@@ -59,12 +59,12 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
       />
       <div className="mt-8 flex justify-between gap-3">
         <NextLink href={router?.asPath.split('?')[0] || ''}>
-          <a className="w-full rounded border border-pink-600 py-2.5 text-center text-pink-600">
+          <a className="w-full rounded border border-accent-400 py-2.5 text-center text-accent-400">
             {formatMessage({ id: 'clear', defaultMessage: 'Clear' })}
           </a>
         </NextLink>
 
-        <button type="submit" className="w-full rounded bg-pink-600 py-2.5 text-white">
+        <button type="submit" className="w-full rounded bg-accent-400 py-2.5 text-white hover:bg-accent-500">
           {formatMessage({ id: 'applyFilters', defaultMessage: 'Apply filters' })}
         </button>
       </div>

@@ -146,7 +146,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <div className="flex flex-1 items-center justify-end">
                 <div className="flex w-fit items-center">
-                  <DarkModeWidget className="mr-4 dark:text-light-100" />
+                  <DarkModeWidget className="mr-4 text-primary-400 hover:text-primary-500 dark:text-light-100" />
                   <SearchButton />
                   <AccountButton account={account} accountLink={accountLink} />
 

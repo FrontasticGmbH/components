@@ -2,6 +2,7 @@ import React, { useCallback, useState, createContext, useContext, useEffect } fr
 import { PREF_DARK_MODE } from 'helpers/constants/localStorage';
 
 const initialState = {
+  theme: 'default',
   enabled: false,
   toggle: () => {},
   mode: 'light',
@@ -30,7 +31,10 @@ const DarkModeProvider: React.FC = ({ children }) => {
   //Wrapper classname
   const className = `${enabled ? 'dark bg-primary-400' : 'light bg-white'} transition duration-300 ease-out`;
 
+  const theme = 'default';
+
   const value = {
+    theme,
     enabled,
     toggle,
     mode,
@@ -38,7 +42,9 @@ const DarkModeProvider: React.FC = ({ children }) => {
 
   return (
     <DarkModeContext.Provider value={value}>
-      <div className={className}>{children}</div>
+      <div className={theme}>
+        <div className={className}>{children}</div>
+      </div>
     </DarkModeContext.Provider>
   );
 };

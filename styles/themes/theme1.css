@@ -1,0 +1,43 @@
+.theme1 {
+    --primary-100: #34A6FC;
+    --primary-200: #0C94FC;
+    --primary-300: #037EDB;
+    --primary-400: #0367B3;
+    --primary-500: #02508B;
+    --primary-600: #013054;
+    --primary-700: #00101C;
+    --primary-800: #000000;
+    --primary-900: #000000;
+  
+    --accent-100: #FEE4C9;
+    --accent-200: #FED1A0;
+    --accent-300: #FEBD78;
+    --accent-400: #FDA94F;
+    --accent-500: #FD9527;
+    --accent-600: #EA7902;
+    --accent-700: #B25C02;
+    --accent-800: #7B4001;
+    --accent-900: #432301;
+  
+    --secondary-100: #e6fffa;
+    --secondary-200: #b2f5ea;
+    --secondary-300: #81e6d9;
+    --secondary-400: #4fd1c5;
+    --secondary-500: #38b2ac;
+    --secondary-600: #319795;
+    --secondary-700: #2c7a7b;
+    --secondary-800: #285e61;
+    --secondary-900: #234e52;
+  
+    --neutral-100: #f7fafc;
+    --neutral-200: #edf2f7;
+    --neutral-300: #e2e8f0;
+    --neutral-400: #cbd5e0;
+    --neutral-500: #a0aec0;
+    --neutral-600: #718096;
+    --neutral-700: #4a5568;
+    --neutral-800: #2d3748;
+    --neutral-900: #1a202c;
+  
+    --light-100: #ffffff;
+  }

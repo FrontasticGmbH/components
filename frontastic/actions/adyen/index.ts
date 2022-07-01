@@ -21,7 +21,7 @@ export const adyenCheckout = async (sessionId: string, redirectResult: string): 
     redirectResult: redirectResult,
   };
 
-  return await fetchApiHub(
+  const res = await fetchApiHub(
     '/action/adyen/checkout',
     {
       headers: {
@@ -32,4 +32,6 @@ export const adyenCheckout = async (sessionId: string, redirectResult: string): 
     },
     payload,
   );
+  mutate('/action/cart/getCart', null);
+  return res;
 };
