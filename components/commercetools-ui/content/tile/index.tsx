@@ -12,23 +12,22 @@ export interface TileProps {
 
 const Tile: React.FC<TileProps> = ({ image, title, subtitle, ctaLabel, ctaReference }) => {
   return (
-    <div className="relative flex justify-center align-middle">
-      <div className="aspect-w-6 aspect-h-7 w-full md:aspect-h-3">
+    <div className="relative flex justify-center p-2 align-middle">
+      <div className="aspect-h-7 w-full md:aspect-h-3">
         <Image
           media={image.media ? image.media : { media: '' }}
           src={!image.media ? image : ''}
-          layout="fill"
           className="object-cover object-top opacity-70 md:opacity-100"
           alt={'Tile Image'}
         />
       </div>
 
       <div className="absolute top-1/2 flex max-w-md -translate-y-1/2 flex-col justify-center text-center md:left-10 md:max-w-xl md:text-left">
-        <div className="mb-2 text-base font-medium">
+        <div className="text-small mb-2 md:font-medium">
           <Typography>{subtitle}</Typography>
         </div>
         <h2
-          className={`w-full whitespace-pre-line px-10 text-center text-4xl font-extrabold tracking-tight text-black sm:px-0 sm:text-left lg:w-60 lg:text-5xl`}
+          className={`text-medium w-full whitespace-pre-line px-10 text-center font-extrabold tracking-tight text-black sm:px-0 sm:text-left md:text-4xl lg:w-60 lg:text-5xl`}
         >
           <Typography>{title}</Typography>
         </h2>
