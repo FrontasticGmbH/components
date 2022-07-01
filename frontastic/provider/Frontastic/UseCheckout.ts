@@ -1,4 +1,4 @@
-import { Amount } from '../../../../extensions/payment-adyen/Session';
+import { Amount } from '@Types/Amount';
 
 export interface UseCheckout {
   createSession: (amount: Amount, returnUrl: any) => Promise<any>;
