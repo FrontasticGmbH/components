@@ -80,9 +80,18 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                           })}
                         </dt>
                         <dd className="sm:mt-1">
-                          {(+order.sum / 100).toFixed(2)}
+                          {(+order.sum.centAmount / 100).toFixed(2)}
                           {order.lineItems[0].price.currencyCode}
                         </dd>
+                      </div>
+                      <div className="flex justify-between pt-6 font-medium text-gray-900 sm:block sm:pt-0">
+                        <dt>
+                          {formatAccountMessage({
+                            id: 'orders.status',
+                            defaultMessage: 'Order status',
+                          })}
+                        </dt>
+                        <dd className="sm:mt-1">{order.orderState}</dd>
                       </div>
                     </dl>
                     <a
@@ -127,12 +136,6 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                             defaultMessage: 'Size',
                           })}
                         </th>
-                        <th scope="col" className="hidden py-3 pr-8 font-normal dark:text-light-100 sm:table-cell">
-                          {formatAccountMessage({
-                            id: 'orders.status',
-                            defaultMessage: 'Order status',
-                          })}
-                        </th>
                         <th scope="col" className="w-0 py-3 text-right font-normal dark:text-light-100">
                           {formatProductMessage({
                             id: 'product.info',
@@ -167,7 +170,6 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                           <td className="hidden py-6 pr-8 dark:text-light-100 sm:table-cell">
                             {product.variant.attributes.size}
                           </td>
-                          <td className="hidden py-6 pr-8 dark:text-light-100 sm:table-cell">{order.orderState}</td>
                           <td className="whitespace-nowrap py-6 text-right font-medium dark:text-light-100">
                             <NextLink href={product._url || ''}>
                               <a className="text-accent-400">
