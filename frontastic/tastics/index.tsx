@@ -14,7 +14,7 @@ import ResetPassword from './account/reset-password';
 import AccountTest from './account/test';
 import Cart from './cart';
 import Checkout from './checkout';
-import ThankYou from './thank-you';
+import ThankYou from './checkout/thank-you';
 import Markdown from './content/markdown';
 import Spacer from './content/spacer';
 import Tile from './content/tile';
