@@ -94,7 +94,7 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                         <dd className="sm:mt-1">{order.orderState}</dd>
                       </div>
                     </dl>
-                    <a
+                    {/* <a
                       href={order.orderId}
                       className="mt-6 flex w-full items-center justify-center rounded-md border border-accent-400 bg-white py-2 px-4 text-sm font-medium text-accent-400 shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto"
                     >
@@ -103,7 +103,7 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                         defaultMessage: 'View invoice',
                       })}
                       <span className="sr-only">for order {order.orderId}</span>
-                    </a>
+                    </a> */}
                   </div>
 
                   <table className="mt-4 w-full text-gray-500 sm:mt-6">
