@@ -25,7 +25,7 @@ const AccountButton: React.FC<AccountButtonProps> = ({ accountLink, account }) =
           <div className="relative flex space-x-8">
             <Menu.Button className="flex">
               <span className="sr-only">Account</span>
-              <UserIcon className="h-6 w-6 dark:text-light-100" aria-hidden="true" />
+              <UserIcon className="h-6 w-6 text-primary-400 dark:text-light-100" aria-hidden="true" />
             </Menu.Button>
             <div className="absolute -right-[1px] -bottom-[2px] h-[9px] w-[9px] rounded-md bg-green-700"></div>
           </div>
@@ -46,7 +46,7 @@ const AccountButton: React.FC<AccountButtonProps> = ({ accountLink, account }) =
                     target={accountLink}
                     className={`block w-36 cursor-pointer py-2 px-4 ${
                       account ? 'text-left' : 'text-center'
-                    }  text-sm hover:bg-gray-100 dark:bg-primary-400 dark:text-light-100`}
+                    }  text-sm text-primary-400 hover:bg-gray-100 dark:bg-primary-400  dark:text-light-100`}
                   >
                     {account.firstName
                       ? formatAccountMessage({ id: 'hello', defaultMessage: 'Hi, ' }) + account.firstName

@@ -52,7 +52,7 @@ export const tastics = {
   'commercetools/ui/products/details': ProductDetails,
   'commercetools/ui/products/product-list': ProductList,
   'commercetools/ui/products/slider': ProductSlider,
-  'commercetools/ui/products/similar-products': SimilarProducts,  
+  'commercetools/ui/products/similar-products': SimilarProducts,
   'commercetools/ui/wishlist': Wishlist,
   'commercetools/ui/account/test': AccountTest,
   'commercetools/ui/account/details': AccountDetails,
