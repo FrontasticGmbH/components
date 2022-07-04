@@ -1,0 +1,41 @@
+{
+  "tasticType": "commercetools/ui/products/similar-products",
+  "name": "commercetools UI similar products",
+  "icon": "menu",
+  "category": "Products",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
+        {
+          "label": "Title",
+          "field": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "label": "products",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "frontastic/similar-products",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "CTA",
+      "fields": [
+        {
+          "label": "Label",
+          "field": "ctaLabel",
+          "type": "string"
+        },
+        {
+          "label": "Link",
+          "field": "ctaLink",
+          "type": "reference"
+        }
+      ]
+    }
+  ]
+}

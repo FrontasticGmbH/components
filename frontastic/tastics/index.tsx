@@ -25,6 +25,7 @@ import NotFound from './not-found';
 import ProductDetails from './products/details';
 import ProductList from './products/product-list';
 import ProductSlider from './products/slider';
+import SimilarProducts from './products/similar-products';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
 import ContentfulBlogTastic from './contentful-blog';
@@ -51,6 +52,7 @@ export const tastics = {
   'commercetools/ui/products/details': ProductDetails,
   'commercetools/ui/products/product-list': ProductList,
   'commercetools/ui/products/slider': ProductSlider,
+  'commercetools/ui/products/similar-products': SimilarProducts,  
   'commercetools/ui/wishlist': Wishlist,
   'commercetools/ui/account/test': AccountTest,
   'commercetools/ui/account/details': AccountDetails,
