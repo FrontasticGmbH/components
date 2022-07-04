@@ -16,7 +16,7 @@
   "priceAsc": "Price (ascending)",
   "priceDesc": "Price (descending)",
   "noProductsFound": "No products found.",
-  "items": "Items",
+  "items": "Items out of ",
   "product": "Product",
   "product.view": "View product"
 }
