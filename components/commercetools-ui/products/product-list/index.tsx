@@ -17,9 +17,10 @@ export interface Props {
   nextCursor: string;
   category: string;
   facets: Facet[];
+  totalProducts: number;
 }
 
-export default function ProductList({ products, previousCursor, nextCursor, category, facets }: Props) {
+export default function ProductList({ products, totalProducts, previousCursor, nextCursor, category, facets }: Props) {
   const [isFiltering, setIsFiltering] = useState<boolean>(false);
   const [previousPageURL, setPreviousPageURL] = useState<string>('/');
   const [nextPageURL, setNextPageURL] = useState<string>('/');
@@ -76,7 +77,7 @@ export default function ProductList({ products, previousCursor, nextCursor, cate
           </button>
         )}
         <h6 className="col-span-2 hidden text-right dark:text-light-100 lg:block">
-          {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
+          {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })} ${totalProducts}`}
         </h6>
       </div>
 
