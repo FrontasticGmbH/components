@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import { markdown } from 'markdown';
 import { Log } from 'helpers/errorLogger';
 
 interface Props {
@@ -14,9 +14,20 @@ const Markdown: React.FC<Props> = ({ text, className }) => {
   }
 
   return (
-    <div className={`prose ${className} markdown dark:text-light-100`}>
-      <ReactMarkdown>{text}</ReactMarkdown>
-    </div>
+    <>
+      <style>
+        {`
+        .markdown > * {
+          margin: revert;
+          padding: revert;
+          font-size: revert;
+          font-weight: revert;
+        }
+      `}
+      </style>
+
+      <div className="markdown" dangerouslySetInnerHTML={{ __html: markdown.toHTML(text) }}></div>
+    </>
   );
 };
 
