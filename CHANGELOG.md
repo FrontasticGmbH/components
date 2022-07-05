@@ -1,4 +1,41 @@
 
+## Version 1.0.1 (2022-07-05)
+
+** New Features and Improvements **
+
+- Added similar products component and datasource
+
+- Logged in user has popover where he can logout
+
+- Checkout with 3 steps, commercetools + adyen integration
+
+- You can specify theme in project folder settings and that theme will be used for your page
+
+- PWA disabled out of the box
+
+
+** Bug fixes **
+
+- Correct locale is passed to backend via api header
+
+- Filters display total amount of products filtered
+
+- Reset password funcionality fixed
+
+- Links from wishlist, cart fixed for internalization
+
+- Order status misplaced fix
+
+- Cart/Wishlist balloon items look similar now
+
+- Filter sliding fixed
+
+- Theming header icons fixed
+
+- PDP color is displayed correctly
+
+- Not used css removed
+
 ## Version 1.0.0 (2022-06-08)
 
 ** New Features **
