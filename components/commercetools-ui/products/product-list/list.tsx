@@ -23,11 +23,11 @@ const List: React.FC<Props> = ({ products, filtering }) => {
         } xl:gap-x-8`}
       >
         {products?.map((product) => (
-          <NextLink href={product._url} key={product.productId}>
+          <NextLink href={product._url || ''} key={product.productId}>
             <a className="group">
               <div className="aspect-w-1 aspect-h-1 w-full rounded-lg bg-gray-200 transition-shadow hover:shadow-xl xl:aspect-w-7 xl:aspect-h-8">
                 <Image
-                  src={product.variants[0].images[0]}
+                  src={product.variants[0].images?.[0] || ''}
                   alt={product.name}
                   className="h-full w-full rounded-lg object-cover object-center"
                 />
