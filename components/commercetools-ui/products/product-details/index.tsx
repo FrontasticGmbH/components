@@ -111,9 +111,10 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                             <Image
                               loader={({ src }) => src}
                               layout="fill"
+                              objectFit="contain"
                               src={image.src}
                               alt=""
-                              className="h-full w-full object-cover object-center"
+                              className="h-full w-full object-center"
                             />
                           </span>
                           <span
@@ -136,9 +137,10 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                     <Image
                       loader={({ src }) => src}
                       layout="fill"
+                      objectFit="contain"
                       src={image.src}
                       alt={image.alt}
-                      className="w-full object-cover object-center sm:rounded-lg"
+                      className="w-full object-center sm:rounded-lg"
                     />
                   </Tab.Panel>
                 ))}
