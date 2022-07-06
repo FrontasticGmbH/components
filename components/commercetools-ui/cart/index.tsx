@@ -4,7 +4,6 @@ import { Cart as CartType } from '@Types/cart/Cart';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
-import { flattenShippingMethod } from 'helpers/utils/flattenShippingMethod';
 import { NextFrontasticImage } from 'frontastic/lib/image';
 import Spinner from '../spinner';
 import EmptyCart from './emptyCart';
@@ -94,12 +93,7 @@ const Cart = ({
             goToProductPage={goToProductPage}
             removeItem={(lineItemId: string) => removeItem(lineItemId)}
           />
-          <OrderSummary
-            cart={cart}
-            shippingMethod={flattenShippingMethod(shippingMethods?.[0], 'DE')}
-            onSubmit={onCheckout}
-            showDiscountsForm={false}
-          />
+          <OrderSummary cart={cart} onSubmit={onCheckout} showDiscountsForm={false} />
         </form>
       )}
     </main>

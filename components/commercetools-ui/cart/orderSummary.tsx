@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 import { Cart } from '@Types/cart/Cart';
-import { ShippingMethod } from '@Types/cart/ShippingMethod';
+import { LineItem } from '@Types/cart/LineItem';
 import { useTranslation, Trans } from 'react-i18next';
 import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
@@ -9,7 +9,6 @@ import DiscountForm from '../discount-form';
 
 interface Props {
   readonly cart: Cart;
-  readonly shippingMethod: ShippingMethod;
   readonly onSubmit?: (e: MouseEvent) => void;
   readonly submitButtonLabel?: string;
   readonly disableSubmitButton?: boolean;
@@ -23,7 +22,6 @@ interface Props {
 
 const OrderSummary = ({
   cart,
-  shippingMethod,
   onSubmit,
   showSubmitButton = true,
   showDiscountsForm = true,
@@ -54,6 +52,27 @@ const OrderSummary = ({
       target={privacyLink}
     />,
   ];
+
+  const totalTaxes = cart?.taxed?.taxPortions?.reduce((a, b) => a + b.amount.centAmount, 0);
+
+  const productPrice = cart?.lineItems.reduce((a, b: LineItem) => {
+    if (b.discountedPrice) {
+      return a + b.discountedPrice.centAmount * b.count;
+    } else {
+      return a + b.price.centAmount * b.count;
+    }
+  }, 0);
+
+  const discountPrice = cart?.lineItems?.reduce((a, b) => {
+    return (
+      a +
+      b.count *
+        b.discounts.reduce((x, y) => {
+          return x + y.discountedAmount.centAmount;
+        }, 0)
+    );
+  }, 0);
+
   return (
     <section
       aria-labelledby="summary-heading"
@@ -69,27 +88,17 @@ const OrderSummary = ({
             {formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}
           </dt>
           <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(
-              cart?.lineItems?.reduce(
-                (prev, current) =>
-                  CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)),
-                {
-                  fractionDigits: cart?.lineItems[0]?.price.fractionDigits,
-                  centAmount: 0,
-                  currencyCode: cart?.lineItems[0]?.price.currencyCode,
-                },
-              ),
-            )}
+            {CurrencyHelpers.formatForCurrency(productPrice)}
           </dd>
         </div>
 
-        {shippingMethod && (
+        {cart?.shippingInfo && (
           <div className="flex items-center justify-between border-t border-gray-200 pt-4">
             <dt className="flex items-center text-sm text-gray-600 dark:text-light-100">
               <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
             </dt>
             <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(shippingMethod?.rates?.[0]?.price || {})}
+              {CurrencyHelpers.formatForCurrency(cart?.shippingInfo?.price || {})}
             </dd>
           </div>
         )}
@@ -99,23 +108,7 @@ const OrderSummary = ({
             <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
           </dt>
           <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(
-              cart?.lineItems?.reduce(
-                (prev, current) =>
-                  CurrencyHelpers.addCurrency(
-                    prev,
-                    CurrencyHelpers.subtractCurrency(
-                      current.totalPrice,
-                      CurrencyHelpers.multiplyCurrency(current.price, current.count),
-                    ),
-                  ),
-                {
-                  fractionDigits: cart?.lineItems[0]?.price.fractionDigits,
-                  centAmount: 0,
-                  currencyCode: cart?.lineItems[0]?.price.currencyCode,
-                },
-              ),
-            )}
+            {CurrencyHelpers.formatForCurrency(-discountPrice || {})}
           </dd>
         </div>
 
@@ -124,9 +117,7 @@ const OrderSummary = ({
             {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
           </dt>
           <dd className="text-base font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(
-              CurrencyHelpers.addCurrency(cart?.sum, shippingMethod?.rates?.[0]?.price),
-            )}
+            {CurrencyHelpers.formatForCurrency(cart?.sum || {})}
           </dd>
         </div>
 
@@ -136,7 +127,7 @@ const OrderSummary = ({
             {formatCartMessage({
               id: 'includedVat',
               defaultMessage: 'Tax included',
-              values: { amount: CurrencyHelpers.formatForCurrency(cart?.taxed?.taxPortions[0]?.amount) },
+              values: { amount: CurrencyHelpers.formatForCurrency(totalTaxes || {}) },
             })}
             )
           </div>

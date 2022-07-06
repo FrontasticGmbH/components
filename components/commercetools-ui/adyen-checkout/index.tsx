@@ -199,7 +199,6 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
         {steps[currentStepIndex].component}
         <OrderSummary
           cart={cartList}
-          shippingMethod={currentShippingMethod}
           submitButtonLabel={submitButtonLabel[currentStepIndex]}
           disableSubmitButton={disableSubmitButton}
           showDiscountsForm={currentStepIndex < 2}

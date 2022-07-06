@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import AdyenCheckout from '@adyen/adyen-web';
 import { useCart, useAdyen } from 'frontastic';
 import '@adyen/adyen-web/dist/adyen.css';
+import toast from 'react-hot-toast';
 
 type Session = {
   id: string;
@@ -42,6 +43,17 @@ const Checkout = () => {
         //environment: process.env.NODE_ENV === 'production' ? 'live' : 'test',
         clientKey: 'test_VDRCU3ALS5GMDC45GLZGUF6ANM3P75ZK',
         session,
+        onPaymentCompleted: (result, component) => {
+          console.log(result);
+
+          if (result === 'Authorised') {
+          }
+        },
+        onError: (error, component) => {
+          console.log(error);
+
+          toast.error(error);
+        },
       };
 
       initializeSession(sessionConfiguration);
