@@ -5,6 +5,7 @@ import { Facet } from '@Types/result/Facet';
 import { RangeFacet } from '@Types/result/RangeFacet';
 import { TwoThumbInputRange } from 'react-two-thumb-input-range';
 import { URLParam } from 'helpers/utils/updateURLParams';
+import Price from '../price';
 
 type RangeInputValues = [number, number];
 
@@ -71,12 +72,19 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
   return (
     <div className="grid w-full gap-4">
       <div className="flex justify-between" ref={widthRef}>
-        <h6 className="text-gray-500">
-          {values[0]} {currency}
-        </h6>
-        <h6 className="text-gray-500">
-          {values[1]} {currency}
-        </h6>
+        {console.log('currencyCode', currency)}
+        {currency && (
+          <>
+            <Price
+              className="text-gray-500"
+              price={{ fractionDigits: 0, centAmount: values[0], currencyCode: currency }}
+            />
+            <Price
+              className="text-gray-500"
+              price={{ fractionDigits: 0, centAmount: values[1], currencyCode: currency }}
+            />
+          </>
+        )}
       </div>
       {minPrice && (
         <TwoThumbInputRange

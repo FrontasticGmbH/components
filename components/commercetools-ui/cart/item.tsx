@@ -1,10 +1,10 @@
 import React from 'react';
 import { XIcon as XIconSolid } from '@heroicons/react/solid';
 import { LineItem } from '@Types/cart/LineItem';
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
 import Image from 'frontastic/lib/image';
+import Price from '../price';
 
 interface Props {
   lineItem: LineItem;
@@ -54,9 +54,7 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
                 </p>
               )}
             </div>
-            <p className="mt-1 text-sm font-medium text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(lineItem.price)}
-            </p>
+            <Price price={lineItem.price} className="mt-1 text-sm font-medium text-gray-900 dark:text-light-100" />
 
             <div className=" h-8 w-28 pt-2 md:pt-24">
               <div className="relative mt-1 flex h-8 w-full flex-row rounded-lg bg-transparent">

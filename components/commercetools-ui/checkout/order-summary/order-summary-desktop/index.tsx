@@ -6,6 +6,7 @@ import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { StringHelpers } from 'helpers/stringHelpers';
 import Image from 'frontastic/lib/image';
+import Price from '../../../price';
 
 export interface Props {
   readonly cart: Cart;
@@ -63,9 +64,7 @@ const DesktopOrderSummary = ({
                   {lineItem.name}
                 </h3>
                 <div className="flex space-x-4">
-                  <p className="text-gray-900 dark:text-light-100">
-                    {CurrencyHelpers.formatForCurrency(lineItem.price)}
-                  </p>
+                  <Price price={lineItem.price} className="text-gray-900 dark:text-light-100" />
                   {lineItem.count && <p className="text-gray-900 dark:text-light-100">{`x${lineItem.count}`}</p>}
                 </div>
                 {lineItem.variant.attributes?.color && (
@@ -115,9 +114,9 @@ const DesktopOrderSummary = ({
         <dl className="mt-8 space-y-6 text-sm font-medium text-gray-500 dark:text-light-100">
           <div className="flex justify-between">
             <dt>{formatCheckoutMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}</dt>
-            <dd className="text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(
-                cart.lineItems.reduce(
+            <dd>
+              <Price
+                price={cart.lineItems.reduce(
                   (prev, current) =>
                     CurrencyHelpers.addCurrency(prev, CurrencyHelpers.multiplyCurrency(current.price, current.count)),
                   {
@@ -125,15 +124,16 @@ const DesktopOrderSummary = ({
                     centAmount: 0,
                     currencyCode: cart.lineItems[0].price.currencyCode,
                   },
-                ),
-              )}
+                )}
+                className="text-gray-900 dark:text-light-100"
+              />
             </dd>
           </div>
           <div className="flex justify-between">
             <dt className="flex">{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</dt>
-            <dd className="text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(
-                cart.lineItems.reduce(
+            <dd>
+              <Price
+                price={cart.lineItems.reduce(
                   (prev, current) =>
                     CurrencyHelpers.addCurrency(
                       prev,
@@ -147,22 +147,21 @@ const DesktopOrderSummary = ({
                     centAmount: 0,
                     currencyCode: cart.lineItems[0].price.currencyCode,
                   },
-                ),
-              )}
+                )}
+                className="text-gray-900 dark:text-light-100"
+              />
             </dd>
           </div>
           <div className="flex justify-between">
             <dt>{formatCheckoutMessage({ id: 'shipping', defaultMessage: 'Shipping' })}</dt>
-            <dd className="text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(selectedShipping?.rates?.[0]?.price || {})}
+            <dd>
+              <Price price={selectedShipping?.rates?.[0]?.price || {}} className="text-gray-900 dark:text-light-100" />
             </dd>
           </div>
           <div className="flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900 dark:text-light-100">
             <dt className="text-base">{formatCheckoutMessage({ id: 'total', defaultMessage: 'Total' })}</dt>
             <dd className="text-base">
-              {CurrencyHelpers.formatForCurrency(
-                CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0]?.price || {}),
-              )}
+              <Price price={CurrencyHelpers.addCurrency(cart.sum, selectedShipping?.rates?.[0]?.price || {})} />
             </dd>
           </div>
         </dl>
