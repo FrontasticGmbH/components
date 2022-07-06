@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { Product } from '@Types/product/Product';
 import { Variant } from '@Types/product/Variant';
@@ -12,7 +12,6 @@ function ProductDetailsTastic({ data }) {
 
   const [currentVariantIdx, setCurrentVariantIdx] = useState<number>();
   const [variant, setVariant] = useState<Variant>(product.variants[0]);
-  const [prod, setProd] = useState<UIProduct>();
   const { addItem } = useCart();
 
   if (!product || !variant) return null;
@@ -54,18 +53,16 @@ function ProductDetailsTastic({ data }) {
   // TODO: properly type
 
   useEffect(() => {
-    if (!currentVariantIdx) {
+    if (!currentVariantIdx && currentVariantIdx !== 0) {
       const currentVariantSKU = router.asPath.split('/')[3];
       const currentVariantIndex = product?.variants.findIndex(({ sku }) => sku == currentVariantSKU);
 
       setVariant(product.variants[currentVariantIndex]);
-    } else {
-      setVariant(product.variants[currentVariantIdx]);
-    }
-  }, [currentVariantIdx]);
+    } else setVariant(product.variants[currentVariantIdx]);
+  }, [product, currentVariantIdx]);
 
-  useEffect(() => {
-    const currentProd: UIProduct = {
+  const prod = useMemo<UIProduct>(
+    () => ({
       name: product.name,
       // add variants as well, so we can select and filter
       variants: product.variants,
@@ -79,8 +76,8 @@ function ProductDetailsTastic({ data }) {
       colors,
       sizes,
       description: `
-        <p>${product.description || ''}</p>
-      `,
+      <p>${product.description || ''}</p>
+    `,
 
       details: [
         {
@@ -92,10 +89,9 @@ function ProductDetailsTastic({ data }) {
           ],
         },
       ],
-    };
-
-    setProd(currentProd);
-  }, [variant]);
+    }),
+    [product, variant, colors, sizes],
+  );
 
   const handleAddToCart = (variant: Variant): Promise<void> => {
     return addItem(variant, 1);
