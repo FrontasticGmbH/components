@@ -57,7 +57,10 @@ function ProductDetailsTastic({ data }) {
     if (!currentVariantIdx) {
       const currentVariantSKU = router.asPath.split('/')[3];
       const currentVariantIndex = product?.variants.findIndex(({ sku }) => sku == currentVariantSKU);
+
       setVariant(product.variants[currentVariantIndex]);
+    } else {
+      setVariant(product.variants[currentVariantIdx]);
     }
   }, [currentVariantIdx]);
 
@@ -94,7 +97,7 @@ function ProductDetailsTastic({ data }) {
     setProd(currentProd);
   }, [variant]);
 
-  const handleAddToCart = (variant: Variant, quantity: number): Promise<void> => {
+  const handleAddToCart = (variant: Variant): Promise<void> => {
     return addItem(variant, 1);
   };
 
