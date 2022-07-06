@@ -49,6 +49,8 @@ export const login = async (email: string, password: string, remember?: boolean)
   if (remember) window.localStorage.setItem(REMEMBER_ME, '1');
   const res = await fetchApiHub('/action/account/login', { method: 'POST' }, payload);
   await mutate('/action/account/getAccount', res);
+  await mutate('/action/cart/getCart');
+  await mutate('/action/wishlist/getWishlist');
   return res;
 };
 
@@ -56,12 +58,17 @@ export const logout = async () => {
   window.localStorage.removeItem(REMEMBER_ME);
   const res = await fetchApiHub('/action/account/logout', { method: 'POST' });
   await mutate('/action/account/getAccount', res);
+  await mutate('/action/cart/getCart');
+  await mutate('/action/wishlist/getWishlist');
+  return res;
 };
 
 export const register = async (account: RegisterAccount): Promise<Account> => {
   const host = typeof window !== 'undefined' ? window.location.origin : '';
   const acc = { ...account, host };
-  return await fetchApiHub('/action/account/register', { method: 'POST' }, acc);
+
+  const response = await fetchApiHub('/action/account/register', { method: 'POST' }, acc);
+  return response;
 };
 
 export const confirm = async (token: string): Promise<Account> => {
