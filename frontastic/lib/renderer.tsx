@@ -4,6 +4,8 @@ import { highlightClassNames, TasticWrapper } from './component';
 import { Errors } from './errors';
 import { Grid } from './grid';
 import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse } from './types';
+import useMediaQuery from 'helpers/hooks/useMediaQuery';
+import * as screenSizes from 'helpers/utils/screensizes';
 
 export function FrontasticRenderer({
   data,
@@ -18,6 +20,8 @@ export function FrontasticRenderer({
   wrapperClassName?: string;
   currentHighlight?: string;
 }) {
+  const [isBiggerThanMobile] = useMediaQuery(screenSizes.mobile);
+
   return (
     <div className="flex min-h-screen flex-col items-stretch justify-start">
       {process && process.env.NODE_ENV !== 'production' && <Errors />}
@@ -50,7 +54,7 @@ export function FrontasticRenderer({
       >
         {data?.page?.sections?.main?.layoutElements.map((layoutElement: LayoutElementType) => (
           <LayoutElement
-            size={layoutElement.configuration.size}
+            size={isBiggerThanMobile ? layoutElement.configuration.size : 12}
             className={highlightClassNames(currentHighlight === layoutElement.layoutElementId)}
             key={layoutElement.layoutElementId}
           >
