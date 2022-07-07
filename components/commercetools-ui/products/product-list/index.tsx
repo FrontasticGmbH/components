@@ -10,7 +10,6 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams } from 'helpers/utils/updateURLParams';
 import List from './list';
 
-// import List from './List';
 export interface Props {
   products: Product[];
   previousCursor: string;
