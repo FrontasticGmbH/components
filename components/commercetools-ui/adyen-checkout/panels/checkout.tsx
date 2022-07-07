@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import AdyenCheckout from '@adyen/adyen-web';
 import { useCart, useAdyen } from 'frontastic';
 import '@adyen/adyen-web/dist/adyen.css';
-import toast from 'react-hot-toast';
 
 type Session = {
   id: string;
@@ -16,8 +16,9 @@ type SessionConfig = {
 };
 
 const Checkout = () => {
+  const router = useRouter();
   const { data: cartList } = useCart();
-  const { createSession } = useAdyen();
+  const { createSession, adyenCheckout } = useAdyen();
   const [session, setSession] = useState<Session>();
 
   const initializeSession = async (sessionConfiguration: SessionConfig) => {
@@ -44,15 +45,16 @@ const Checkout = () => {
         clientKey: 'test_VDRCU3ALS5GMDC45GLZGUF6ANM3P75ZK',
         session,
         onPaymentCompleted: (result, component) => {
-          console.log(result);
+          console.log(session, result, component);
 
-          if (result === 'Authorised') {
+          if (result.resultCode === 'Authorised' || result.resultCode === 'Received') {
+            //adyenCheckout(session.id, result.sessionData).then(() => {
+            //router.push('/thank-you');
+            //});
           }
         },
         onError: (error, component) => {
-          console.log(error);
-
-          toast.error(error);
+          console.log(error, component);
         },
       };
 

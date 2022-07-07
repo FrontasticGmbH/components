@@ -55,7 +55,7 @@ const OrderSummary = ({
 
   const totalTaxes = cart?.taxed?.taxPortions?.reduce((a, b) => a + b.amount.centAmount, 0);
 
-  const productPrice = cart?.lineItems.reduce((a, b: LineItem) => {
+  const productPrice = cart?.lineItems?.reduce((a, b: LineItem) => {
     if (b.discountedPrice) {
       return a + b.discountedPrice.centAmount * b.count;
     } else {
