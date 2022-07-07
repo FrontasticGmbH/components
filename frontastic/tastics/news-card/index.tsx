@@ -2,9 +2,9 @@ import NewsCard from 'components/commercetools-ui/news-card';
 import React from 'react';
 
 const NewsCardTastic = ({ data }) => {
-  if (!data?.data?.dataSource?.fields) return <></>;
+  if (!data?.data?.dataSource) return <></>;
 
-  return <NewsCard {...data.data.dataSource.fields} image={data.data.dataSource.fields.image.fields.file} />;
+  return <NewsCard {...data.data.dataSource.attributes} />;
 };
 
 export default NewsCardTastic;
