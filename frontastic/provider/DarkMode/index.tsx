@@ -29,7 +29,9 @@ const DarkModeProvider: React.FC = ({ children }) => {
 
   //Utility for apply themes
   const applyTheme = useCallback((newTheme: string) => {
-    setTheme(newTheme);
+    if (newTheme) {
+      setTheme(newTheme);
+    }
   }, []);
 
   //Initial value for darkmode
