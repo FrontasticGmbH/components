@@ -5,6 +5,7 @@ const initialState = {
   theme: 'default',
   enabled: false,
   toggle: () => {},
+  applyTheme: (newTheme: string) => {},
   mode: 'light',
 };
 
@@ -23,6 +24,14 @@ const DarkModeProvider: React.FC = ({ children }) => {
     window.localStorage.setItem(PREF_DARK_MODE, !enabled ? '1' : '0');
   }, [enabled]);
 
+  //Active theme
+  const [theme, setTheme] = useState('default');
+
+  //Utility for apply themes
+  const applyTheme = useCallback((newTheme: string) => {
+    setTheme(newTheme);
+  }, []);
+
   //Initial value for darkmode
   useEffect(() => {
     setEnabled(window.localStorage.getItem(PREF_DARK_MODE) === '1');
@@ -31,12 +40,11 @@ const DarkModeProvider: React.FC = ({ children }) => {
   //Wrapper classname
   const className = `${enabled ? 'dark bg-primary-400' : 'light bg-white'} transition duration-300 ease-out`;
 
-  const theme = 'default';
-
   const value = {
     theme,
     enabled,
     toggle,
+    applyTheme,
     mode,
   };
 
