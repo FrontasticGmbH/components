@@ -72,7 +72,6 @@ const PriceRange: FC<PriceRangeProps> = ({ products, facets, updatePriceFilterin
   return (
     <div className="grid w-full gap-4">
       <div className="flex justify-between" ref={widthRef}>
-        {console.log('currencyCode', currency)}
         {currency && (
           <>
             <Price
