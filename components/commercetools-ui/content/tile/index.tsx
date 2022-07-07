@@ -5,29 +5,44 @@ import Image from 'frontastic/lib/image';
 export interface TileProps {
   image: { media: any } | any;
   title: string;
+  titleColor?: string;
   subtitle: string;
+  subtitleColor?: string;
   ctaLabel?: string;
   ctaReference?: Reference;
+  titleFont?: string;
+  subtitleFont?: string;
 }
 
-const Tile: React.FC<TileProps> = ({ image, title, subtitle, ctaLabel, ctaReference }) => {
+const Tile: React.FC<TileProps> = ({
+  image,
+  title,
+  titleColor = 'text-black',
+  titleFont = 'font-sans',
+  subtitle,
+  subtitleColor = 'text-black',
+  subtitleFont = 'font-sans',
+  ctaLabel,
+  ctaReference,
+}) => {
   return (
     <div className="relative flex justify-center p-2 align-middle">
-      <div className="aspect-h-7 w-full md:aspect-h-3">
+      <div className="h-96 w-full md:aspect-h-3">
         <Image
           media={image.media ? image.media : { media: '' }}
           src={!image.media ? image : ''}
-          className="object-cover object-top opacity-70 md:opacity-100"
+          layout="fill"
+          className=" object-cover opacity-70 md:opacity-100"
           alt={'Tile Image'}
         />
       </div>
 
       <div className="absolute top-1/2 flex max-w-md -translate-y-1/2 flex-col justify-center text-center md:left-10 md:max-w-xl md:text-left">
-        <div className="text-small mb-2 md:font-medium">
+        <div className={`text-md mb-2 md:font-medium ${subtitleFont} ${subtitleColor}`}>
           <Typography>{subtitle}</Typography>
         </div>
         <h2
-          className={`text-medium w-full whitespace-pre-line px-10 text-center font-extrabold tracking-tight text-black sm:px-0 sm:text-left md:text-4xl lg:w-60 lg:text-5xl`}
+          className={`w-full whitespace-pre-line px-10 text-center text-5xl font-extrabold ${titleFont} tracking-tight ${titleColor} sm:px-0 md:w-60 md:text-left md:text-4xl lg:text-5xl`}
         >
           <Typography>{title}</Typography>
         </h2>
