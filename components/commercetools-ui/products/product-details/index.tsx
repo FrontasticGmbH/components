@@ -68,7 +68,6 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
       (v: Variant) =>
         v.attributes.color?.key === selectedColor?.key && v.attributes.commonSize?.key === selectedSize?.key,
     );
-
     onChangeVariantIdx(idx === -1 ? 0 : idx);
   }, [selectedColor, selectedSize, onChangeVariantIdx, product?.variants]);
 
@@ -80,6 +79,10 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
       setAdded(true);
     });
   };
+
+  useEffect(() => {
+    if (product?.colors) setSelectedColor(product.colors[0]);
+  }, [product]);
 
   useEffect(() => {
     if (added) {
@@ -179,7 +182,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                   {formatProductMessage({ id: 'color', defaultMessage: 'Color' })}
                 </h3>
 
-                <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-2">
+                <RadioGroup value={selectedColor} onChange={(e) => setSelectedColor(e)} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
                     {product?.colors?.map(
@@ -222,7 +225,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                     </h2>
                   </div>
 
-                  <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-2">
+                  <RadioGroup value={selectedSize} onChange={(e) => setSelectedSize(e)} className="mt-2">
                     <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                       {product?.sizes?.map((size: { label: string; key: string }) => (
