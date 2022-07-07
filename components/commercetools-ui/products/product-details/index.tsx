@@ -4,8 +4,8 @@ import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 import { Money } from '@Types/product/Money';
 import { Variant } from '@Types/product/Variant';
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
+import Price from '../../price';
 import WishlistButton from './wishlist-button';
 
 function classNames(...classes) {
@@ -161,7 +161,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <h2 className="sr-only">
                 {formatProductMessage({ id: 'product?.info', defaultMessage: 'Product information' })}
               </h2>
-              <p className="text-3xl text-accent-400">{CurrencyHelpers.formatForCurrency(product?.price)}</p>
+              <Price price={product?.price} className="text-3xl text-accent-400" />
             </div>
 
             <div className="mt-6">

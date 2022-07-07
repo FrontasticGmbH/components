@@ -1,8 +1,8 @@
 import React from 'react';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useCart } from 'frontastic';
+import Price from '../../price';
 import CartItems from './cart-items';
 
 type OverviewProps = {
@@ -48,7 +48,7 @@ const Overview: React.FC<OverviewProps> = ({ shippingMethods, currentShippingMet
                   <span className="text-xs text-neutral-600">{description}</span>
                 </div>
                 <span className="ml-auto text-base font-bold">
-                  <span className=" ">{CurrencyHelpers.formatForCurrency(rates?.[0]?.price)}</span>
+                  <Price price={rates?.[0]?.price} className=" " />
                 </span>
               </label>
             ))}

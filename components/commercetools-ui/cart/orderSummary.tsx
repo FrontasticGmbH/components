@@ -6,6 +6,7 @@ import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import DiscountForm from '../discount-form';
+import Price from '../price';
 
 interface Props {
   readonly cart: Cart;
@@ -87,8 +88,14 @@ const OrderSummary = ({
           <dt className="text-sm text-gray-600 dark:text-light-100">
             {formatCartMessage({ id: 'subtotal', defaultMessage: 'Subtotal' })}
           </dt>
-          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(productPrice)}
+          <dd>
+            <Price
+              price={{
+                centAmount: productPrice,
+                currencyCode: cart?.sum.currencyCode,
+              }}
+              className="text-sm font-medium text-gray-900 dark:text-light-100"
+            />
           </dd>
         </div>
 
@@ -97,8 +104,11 @@ const OrderSummary = ({
             <dt className="flex items-center text-sm text-gray-600 dark:text-light-100">
               <span>{formatCartMessage({ id: 'shipping.estimate', defaultMessage: 'Shipping estimate' })}</span>
             </dt>
-            <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-              {CurrencyHelpers.formatForCurrency(cart?.shippingInfo?.price || {})}
+            <dd>
+              <Price
+                price={cart?.shippingInfo?.price || {}}
+                className="text-sm font-medium text-gray-900 dark:text-light-100"
+              />
             </dd>
           </div>
         )}
@@ -107,8 +117,11 @@ const OrderSummary = ({
           <dt className="flex text-sm text-gray-600 dark:text-light-100">
             <span>{formatCartMessage({ id: 'discounts', defaultMessage: 'Discounts' })}</span>
           </dt>
-          <dd className="text-sm font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(-discountPrice || {})}
+          <dd>
+            <Price
+              price={{ fractionDigits: 0, centAmount: -discountPrice, currencyCode: cart?.sum.currencyCode } || {}}
+              className="text-sm font-medium text-gray-900 dark:text-light-100"
+            />
           </dd>
         </div>
 
@@ -116,8 +129,8 @@ const OrderSummary = ({
           <dt className="text-base font-medium text-gray-900 dark:text-light-100">
             {formatCartMessage({ id: 'orderTotal', defaultMessage: 'Order total' })}
           </dt>
-          <dd className="text-base font-medium text-gray-900 dark:text-light-100">
-            {CurrencyHelpers.formatForCurrency(cart?.sum || {})}
+          <dd>
+            <Price price={cart?.sum || {}} className="text-base font-medium text-gray-900 dark:text-light-100" />
           </dd>
         </div>
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { Product } from '@Types/product/Product';
-import { CurrencyHelpers } from 'helpers/currencyHelpers';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Image from 'frontastic/lib/image';
+import Price from '../../price';
 
 interface Props {
   products: Product[];
@@ -35,9 +35,7 @@ const List: React.FC<Props> = ({ products, filtering }) => {
               <h3 className="mt-4 overflow-hidden truncate text-lg font-bold text-gray-700 dark:text-light-100">
                 {product.name}
               </h3>
-              <p className="text-sm text-gray-900 dark:text-light-100">
-                {CurrencyHelpers.formatForCurrency(product.variants[0].price)}
-              </p>
+              <Price price={product.variants[0].price} className="text-sm text-gray-900 dark:text-light-100" />
             </a>
           </NextLink>
         ))}
