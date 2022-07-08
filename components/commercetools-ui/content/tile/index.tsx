@@ -1,9 +1,9 @@
 import Typography from 'components/commercetools-ui/typography';
 import { Reference, ReferenceLink } from 'helpers/reference';
-import Image from 'frontastic/lib/image';
+import Image, { FrontasticImage } from 'frontastic/lib/image';
 
 export interface TileProps {
-  image: { media: any } | any;
+  image: FrontasticImage;
   title: string;
   titleColor?: string;
   subtitle: string;
@@ -26,15 +26,9 @@ const Tile: React.FC<TileProps> = ({
   ctaReference,
 }) => {
   return (
-    <div className="relative flex justify-center p-2 align-middle">
-      <div className="h-96 w-full md:aspect-h-3">
-        <Image
-          media={image.media ? image.media : { media: '' }}
-          src={!image.media ? image : ''}
-          layout="fill"
-          className=" object-cover opacity-70 md:opacity-100"
-          alt={'Tile Image'}
-        />
+    <div className="relative flex justify-center overflow-hidden p-2 align-middle">
+      <div className="w-full">
+        <Image media={image} className="opacity-70 md:opacity-100" alt={title} />
       </div>
 
       <div className="absolute top-1/2 flex max-w-md -translate-y-1/2 flex-col justify-center text-center md:left-10 md:max-w-xl md:text-left">
