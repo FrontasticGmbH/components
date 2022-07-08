@@ -6,26 +6,44 @@ export default function Image({
   width,
   height: baseHeight,
   ratio,
-  media,
+  media: mediaProp,
   gravity,
   layout = 'responsive',
+  src,
   alt = '',
-  src = '',
   ...props
 }: NextFrontasticImage) {
+  // if src is provided, we need to render a normal img
   // eslint-disable-next-line @next/next/no-img-element
-  if (!media?.mediaId) return <img src={src as string} alt={alt} {...props} />; //not a frontastic image
+  if (src) return <img src={src} alt={alt} {...props} />; //not a frontastic image
 
-  //paremeters to inject in the source to be used in loader
-  const paremeters = {
-    ratio,
+  // The api used to be that we supply the media object,
+  // ratio and gravity seperately. But, it's more elegant
+  // to just supply the image object from the studio
+  // and let the component figure out the rest.
+  // <Image media={image.media} gravity={image.gravity} ratio={image.ratio} />
+  // versus
+  // <Image media={image} />
+  // This conditional makes sure that either works..
+  let media;
+  if (mediaProp.mediaId) {
+    media = mediaProp;
+  } else {
+    media = mediaProp.media;
+    gravity = mediaProp.gravity;
+    ratio = mediaProp.ratio;
+  }
+
+  //parameters to inject in the source to be used in loader
+  const parameters = {
+    ratio: ratio,
     gravity: gravity?.mode,
     x__coord: gravity?.coordinates?.x,
     y__coord: gravity?.coordinates?.y,
   };
 
   //query string construction
-  const paremeterizedSrc = `${media.mediaId}?${Object.entries(paremeters)
+  const parameterizedSrc = `${media.mediaId}?${Object.entries(parameters)
     .map(([key, value]) => (value ? `${key}=${value}` : ''))
     .filter((val) => !!val) //remove empty strings returned from falsy values
     .join('&')}`;
@@ -48,7 +66,7 @@ export default function Image({
   //layout fill doesn't make use of width and height
   if (layout === 'fill')
     return (
-      <NextImage {...props} loader={frontasticCloudinaryLoader} layout={layout} src={paremeterizedSrc} alt={alt} />
+      <NextImage {...props} loader={frontasticCloudinaryLoader} layout={layout} src={parameterizedSrc} alt={alt} />
     );
 
   return (
@@ -57,7 +75,7 @@ export default function Image({
       loader={frontasticCloudinaryLoader}
       width={getImageWidth()}
       height={getImageHeight()}
-      src={paremeterizedSrc}
+      src={parameterizedSrc}
       layout={layout}
       alt={alt}
     />

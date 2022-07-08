@@ -1,26 +1,33 @@
 import { ImageProps as NextImageProps } from 'next/image';
 
+export type Ratio = string;
+
 export type Gravity = {
   mode?: 'string';
   coordinates?: { x: number; y: number };
 };
 
+type MediaObject = {
+  mediaId: string;
+  file: string;
+  format: string;
+  name: string;
+  width: number;
+  height: number;
+  metaData: string;
+  resourceType: 'image';
+  size: number;
+  tags: string[];
+  _type: string;
+};
+
 export type FrontasticImage = {
-  media?: {
-    mediaId?: string;
-    file?: string;
-    format?: string;
-    name?: string;
-    width?: number | string;
-    height?: number | string;
-    metaData?: string;
-    resourceType?: string;
-    size?: number;
-    tags?: string[];
-    _type?: string;
-  };
-  ratio?: string;
+  media: MediaObject;
+  ratio?: Ratio;
   gravity?: Gravity;
 };
 
-export type NextFrontasticImage = FrontasticImage & Partial<Pick<NextImageProps, 'src'>> & Omit<NextImageProps, 'src'>;
+export type NextFrontasticImage =
+  | (FrontasticImage & NextImageProps)
+  | (NextImageProps & MediaObject & Gravity & Ratio)
+  | NextImageProps;
