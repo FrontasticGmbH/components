@@ -161,7 +161,17 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <h2 className="sr-only">
                 {formatProductMessage({ id: 'product?.info', defaultMessage: 'Product information' })}
               </h2>
-              <Price price={product?.price} className="text-3xl text-accent-400" />
+              <div className="flex pb-6">
+                <Price
+                  price={product?.price}
+                  className={`${
+                    variant.discountedPrice && 'line-through'
+                  } dark:text-light-300 text-2xl text-neutral-600 md:text-3xl`}
+                />
+                {variant.discountedPrice && (
+                  <Price price={variant?.discountedPrice} className="pl-6 text-2xl text-accent-400 md:text-3xl" />
+                )}
+              </div>
             </div>
 
             <div className="mt-6">
