@@ -21,7 +21,7 @@ export default function Slug({ data, locale }: SlugProps) {
   const { applyTheme } = useDarkMode();
 
   useEffect(() => {
-    applyTheme(data.pageFolder.configuration?.theme);
+    applyTheme(data?.pageFolder?.configuration?.theme);
   }, [data?.pageFolder?.configuration]);
 
   if (!data || typeof data === 'string') {
