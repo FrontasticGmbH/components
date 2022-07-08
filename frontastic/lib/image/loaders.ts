@@ -19,7 +19,7 @@ export function frontasticCloudinaryLoader({ src, width }: NextImageProps): stri
   //cloudinary transformations
   const params = [
     ...['f_auto', 'c_limit', 'g_' + (gravity ?? 'auto')],
-    ...(ratio ? ['w_' + width, 'q_' + 'auto', 'c_crop'] : []),
+    ...(ratio ? ['w_' + width, 'q_' + 'auto', 'c_fill'] : []),
     ...(gravity === 'custom' ? ['x_' + x, 'y_' + y] : []),
     ...(ratio ? ['ar_' + ratio] : []),
   ];
