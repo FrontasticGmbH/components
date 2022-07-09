@@ -3,13 +3,13 @@ import { frontasticCloudinaryLoader } from './loaders';
 import { NextFrontasticImage } from './types';
 
 export default function Image({
+  src,
   width,
   height: baseHeight,
-  ratio,
   media: mediaProp,
+  ratio,
   gravity,
   layout = 'responsive',
-  src,
   alt = '',
   ...props
 }: NextFrontasticImage) {
