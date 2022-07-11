@@ -29,7 +29,7 @@ export type MediaItemWithMods = {
 };
 
 // old api vs new api
-export type FrontasticImage = { media: MediaItemWithMods } | MediaItemWithMods;
+export type FrontasticImage = { media: MediaItemWithMods; ratio?: Ratio; gravity?: Gravity } | MediaItemWithMods;
 
 // Explanation
 // - Partial<Pick<NextImageProps, 'src'> takes src from next/image and makes it optional
