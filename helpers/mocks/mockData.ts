@@ -325,11 +325,18 @@ export const orders: Order[] = [
 
 export const frontasticImage: NextFrontasticImage = {
   media: {
-    file: 'https://res.cloudinary.com/dlwdq84ig/image/upload/v1646648997/m1qzalyiebn9boow3tth.webp',
-    height: 66,
     mediaId: 'm1qzalyiebn9boow3tth',
+    file: 'https://res.cloudinary.com/dlwdq84ig/image/upload/v1646648997/m1qzalyiebn9boow3tth.webp',
+    format: 'jpg',
     name: 'Logo',
     width: 142,
+    height: 66,
+    metaData: 'meta',
+    resourceType: 'image',
+    size: 123,
+    tags: [],
+    created: 'today',
+    _type: 'type'
   },
 };
 export const productItem = {

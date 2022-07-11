@@ -1,9 +1,9 @@
 import Typography from 'components/commercetools-ui/typography';
 import { Reference, ReferenceLink } from 'helpers/reference';
-import Image, { FrontasticImage } from 'frontastic/lib/image';
+import Image, { MediaItemWithMods } from 'frontastic/lib/image';
 
 export interface TileProps {
-  image: FrontasticImage;
+  image: MediaItemWithMods;
   title: string;
   titleColor?: string;
   subtitle: string;

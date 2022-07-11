@@ -5,7 +5,7 @@ import { Account } from '@Types/account/Account';
 import Typography from 'components/commercetools-ui/typography';
 import { headerNavigation } from 'helpers/mocks/mockData';
 import { Reference, ReferenceLink } from 'helpers/reference';
-import Image, { NextFrontasticImage } from 'frontastic/lib/image';
+import Image, { MediaItemWithMods } from 'frontastic/lib/image';
 import DarkModeWidget from '../darkmode-widget';
 import AccountButton from './account-button';
 import CartButton from './cart-button';
@@ -28,7 +28,7 @@ export interface HeaderProps {
   links: Link[];
   cartItemCount: number;
   wishlistItemCount?: number;
-  logo: { media: NextFrontasticImage } | NextFrontasticImage;
+  logo: MediaItemWithMods;
   logoLink: Reference;
   account: Account;
   accountLink: Reference;
@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({
                 <span className="sr-only">Catwalk</span>
                 <div className="relative h-8 w-[60px] px-4 pr-3 sm:w-[120px] sm:pr-7">
                   <Image
-                    media={logo.media ? logo.media : { media: {} }}
+                    media={logo}
                     className="dark:invert"
                     layout="fill"
                     objectFit="contain"
