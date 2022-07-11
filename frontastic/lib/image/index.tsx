@@ -1,6 +1,6 @@
 import NextImage from 'next/image';
 import { frontasticCloudinaryLoader } from './loaders';
-import { NextFrontasticImage } from './types';
+import { NextFrontasticImage, MediaItem } from './types';
 
 export default function Image({
   src,
@@ -15,7 +15,7 @@ export default function Image({
 }: NextFrontasticImage) {
   // if src is provided, we need to render a normal img
   // eslint-disable-next-line @next/next/no-img-element
-  if (src) return <img src={src} alt={alt} {...props} />; //not a frontastic image
+  if (src) return <NextImage src={src} alt={alt} {...props} />; //not a frontastic image
 
   // The api used to be that we supply the media object,
   // ratio and gravity seperately. But, it's more elegant
@@ -25,8 +25,8 @@ export default function Image({
   // versus
   // <Image media={image} />
   // This conditional makes sure that either works..
-  let media;
-  if (mediaProp.mediaId) {
+  let media: MediaItem;
+  if ('mediaId' in mediaProp) {
     media = mediaProp;
   } else {
     media = mediaProp.media;

@@ -7,7 +7,7 @@ export type Gravity = {
   coordinates?: { x: number; y: number };
 };
 
-type MediaItem = {
+export type MediaItem = {
   mediaId: string;
   file: string;
   format: string;
@@ -22,14 +22,14 @@ type MediaItem = {
   _type: string;
 };
 
-type MediaItemWithMods = {
+export type MediaItemWithMods = {
   media: MediaItem;
   ratio?: Ratio;
   gravity?: Gravity;
 };
 
 // old api vs new api
-export type FrontasticImage = MediaItemWithMods | { media: MediaItemWithMods };
+export type FrontasticImage = { media: MediaItemWithMods } | MediaItemWithMods;
 
 // Explanation
 // - Partial<Pick<NextImageProps, 'src'> takes src from next/image and makes it optional
@@ -39,10 +39,3 @@ export type FrontasticImage = MediaItemWithMods | { media: MediaItemWithMods };
 export type NextFrontasticImage = Partial<Pick<NextImageProps, 'src'>> &
   Omit<NextImageProps, 'src'> &
   Partial<FrontasticImage>;
-
-/*
- * Type
- * { media: { media: MediaObject; ratio?: string; gravity?: Gravity; }; }
- * is not assignable to type
- * MediaObject | { media: MediaObject; ratio?: string; gravity?: Gravity; }'.
- */
