@@ -54,8 +54,17 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
                 </p>
               )}
             </div>
-            <Price price={lineItem.price} className="mt-1 text-sm font-medium text-gray-900 dark:text-light-100" />
-
+            <div className="flex">
+              <Price
+                price={lineItem.price}
+                className={`${
+                  lineItem.discountedPrice && 'line-through'
+                } mt-1 text-sm font-medium text-gray-900 dark:text-light-100`}
+              />
+              {lineItem.discountedPrice && (
+                <Price price={lineItem.discountedPrice} className="mt-1 ml-2 text-sm font-medium text-accent-400" />
+              )}
+            </div>
             <div className=" h-8 w-28 pt-2 md:pt-24">
               <div className="relative mt-1 flex h-8 w-full flex-row rounded-lg bg-transparent">
                 <button

@@ -35,7 +35,17 @@ const List: React.FC<Props> = ({ products, filtering }) => {
               <h3 className="mt-4 overflow-hidden truncate text-lg font-bold text-gray-700 dark:text-light-100">
                 {product.name}
               </h3>
-              <Price price={product.variants[0].price} className="text-sm text-gray-900 dark:text-light-100" />
+              <div className="flex">
+                <Price
+                  price={product.variants[0].price}
+                  className={`${
+                    product.variants[0].discountedPrice && 'line-through'
+                  } text-sm text-gray-900 dark:text-light-100`}
+                />
+                {product.variants[0].discountedPrice && (
+                  <Price price={product.variants[0].discountedPrice} className="ml-2 text-sm text-accent-400" />
+                )}
+              </div>
             </a>
           </NextLink>
         ))}
