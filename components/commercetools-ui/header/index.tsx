@@ -5,7 +5,7 @@ import { Account } from '@Types/account/Account';
 import Typography from 'components/commercetools-ui/typography';
 import { headerNavigation } from 'helpers/mocks/mockData';
 import { Reference, ReferenceLink } from 'helpers/reference';
-import Image, { FrontasticImage } from 'frontastic/lib/image';
+import Image, { MediaItemWithMods } from 'frontastic/lib/image';
 import DarkModeWidget from '../darkmode-widget';
 import AccountButton from './account-button';
 import CartButton from './cart-button';
@@ -28,7 +28,7 @@ export interface HeaderProps {
   links: Link[];
   cartItemCount: number;
   wishlistItemCount?: number;
-  logo: FrontasticImage;
+  logo: MediaItemWithMods;
   logoLink: Reference;
   account: Account;
   accountLink: Reference;
