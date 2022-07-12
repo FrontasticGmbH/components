@@ -336,7 +336,7 @@ export const frontasticImage: NextFrontasticImage = {
     size: 123,
     tags: [],
     created: 'today',
-    _type: 'type'
+    _type: 'type',
   },
 };
 export const productItem = {

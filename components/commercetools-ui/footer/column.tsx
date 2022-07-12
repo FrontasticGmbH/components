@@ -30,7 +30,7 @@ const Column: React.FC<Props> = ({ column }) => {
       <ul role="list" className="mt-6 space-y-3 px-6">
         {column.links.map((item, i) => (
           <li key={i} className="text-sm">
-            <ReferenceLink target={item.reference} className="text-gray-700 hover:text-gray-800 dark:text-light-100">
+            <ReferenceLink target={item.reference} className="text-gray-500 hover:text-gray-700 dark:text-light-100">
               <Typography>{item.name}</Typography>
             </ReferenceLink>
           </li>

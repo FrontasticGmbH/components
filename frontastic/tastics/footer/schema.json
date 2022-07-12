@@ -41,7 +41,7 @@
         },
         {
           "label": "Icon",
-          "field": "icon",
+          "field": "iconCol1",
           "type": "enum",
           "default": "rocket",
           "values": [
@@ -110,7 +110,7 @@
         },
         {
           "label": "Icon",
-          "field": "icon",
+          "field": "iconCol2",
           "type": "enum",
           "default": "rocket",
           "values": [
@@ -179,7 +179,7 @@
         },
         {
           "label": "Icon",
-          "field": "icon",
+          "field": "iconCol3",
           "type": "enum",
           "default": "rocket",
           "values": [
@@ -248,7 +248,7 @@
         },
         {
           "label": "Icon",
-          "field": "icon",
+          "field": "iconCol4",
           "type": "enum",
           "default": "rocket",
           "values": [
