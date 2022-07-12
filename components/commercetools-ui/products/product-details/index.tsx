@@ -55,7 +55,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
   const [selectedColor, setSelectedColor] = useState<UIColor>(product?.colors[0]);
-  const [selectedSize, setSelectedSize] = useState<UISize>();
+  const [selectedSize, setSelectedSize] = useState<UISize>(product?.sizes[0]);
   const [loading, setLoading] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
@@ -79,10 +79,6 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
       setAdded(true);
     });
   };
-
-  useEffect(() => {
-    if (product?.colors) setSelectedColor(product.colors[0]);
-  }, [product]);
 
   useEffect(() => {
     if (added) {
@@ -244,7 +240,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           value={size}
                           className={({ active, checked }) =>
                             classNames(
-                              active || selectedSize?.key == size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
+                              active || selectedSize?.key === size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
                               checked
                                 ? 'bg-transparent text-gray-900 hover:bg-gray-50 dark:text-light-100'
                                 : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
