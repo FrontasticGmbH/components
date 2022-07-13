@@ -10,6 +10,10 @@ module.exports = {
   safelist: ['md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'md:grid-cols-4'],
   theme: {
     extend: {
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '3/4': '3 / 4',
+      },
       boxShadow: {
         '3xl': '0 4px 10px -5px rgba(255, 255, 255, 0.25)',
       },
