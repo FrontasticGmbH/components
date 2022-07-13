@@ -1,0 +1,42 @@
+{
+  "tasticType": "commercetools/ui/content/category-teasers",
+  "name": "commercetools UI Category Teasers",
+  "icon": "image",
+  "category": "Content",
+  "schema": [
+    {
+      "name": "Category Teaser",
+      "fields": [
+        {
+          "label": "Category Teaser",
+          "field": "categoryTeasers",
+          "type": "group",
+          "fields": [
+            {
+              "label": "Image",
+              "field": "image",
+              "type": "media",
+              "required": true
+            },
+            {
+              "label": "Link label",
+              "field": "linkLabel",
+              "translatable": true,
+              "type": "string",
+              "required": false,
+              "default": ""
+            },
+            {
+              "label": "Link",
+              "field": "linkReference",
+              "translatable": false,
+              "required": false,
+              "type": "reference",
+              "default": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
