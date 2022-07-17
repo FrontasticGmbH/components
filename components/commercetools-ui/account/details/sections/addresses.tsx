@@ -27,17 +27,6 @@ const Addresses = () => {
 
   return (
     <>
-      <style>
-        {`
-        form input[type='checkbox']:checked {
-          background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23CE3E72' xmlns='http://www.w3.org/2000/svg'><path d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/></svg>");
-          border-color: rgb(209 213 219 / var(--tw-border-opacity));
-        }
-        form input[type='checkbox']:checked:hover {
-          border-color: rgb(209 213 219 / var(--tw-border-opacity));
-        }
-        `}
-      </style>
       <div className="mt-10 divide-y divide-gray-200">
         <div className="space-y-1">
           <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">

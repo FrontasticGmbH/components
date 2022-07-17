@@ -13,7 +13,7 @@ export interface UpdateAddressProps {
 
 const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultValues }) => {
   //Darkmode
-  const { mode } = useDarkMode();
+  const { mode, theme } = useDarkMode();
 
   //i18n messages
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
@@ -48,7 +48,7 @@ const UpdateAddress: React.FC<UpdateAddressProps> = ({ open, onClose, defaultVal
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className={`${mode} fixed inset-0 z-10 overflow-y-auto`} onClose={onClose}>
+      <Dialog className={`${mode} ${theme} fixed inset-0 z-10 overflow-y-auto`} onClose={onClose}>
         <>
           <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-left sm:block sm:p-0">
             <Transition.Child
