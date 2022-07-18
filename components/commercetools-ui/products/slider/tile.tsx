@@ -6,9 +6,9 @@ import Price from '../../price';
 
 const Tile: React.FC<Product> = ({ variants, name, _url }) => {
   return (
-    <NextLink href={_url}>
+    <NextLink href={_url || ''}>
       <a className="relative w-full">
-        <Image src={variants[0].images[0]} alt={name} className="h-80 w-full object-cover group-hover:opacity-75" />
+        <Image src={variants[0].images?.[0]} alt={name} className="h-80 w-full object-cover group-hover:opacity-75" />
         <div>
           <h3 className="mt-4 overflow-hidden truncate text-sm font-bold text-neutral-700 dark:text-light-100">
             {name}

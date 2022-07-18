@@ -30,12 +30,12 @@ function ProductDetailsTastic({ data }) {
   const colors = [
     ...new Map(
       product.variants?.map((v: Variant) => [
-        v.attributes.color?.label,
+        v.attributes?.color?.label,
         {
-          name: v.attributes.color?.label,
-          key: v.attributes.color?.key,
-          bgColor: `bg-${grayFix(v.attributes.color?.key)}-500`,
-          selectedColor: `ring-${grayFix(v.attributes.color?.key)}-500`,
+          name: v.attributes?.color?.label,
+          key: v.attributes?.color?.key,
+          bgColor: `bg-${grayFix(v.attributes?.color?.key)}-500`,
+          selectedColor: `ring-${grayFix(v.attributes?.color?.key)}-500`,
         },
       ]),
     ).values(),
@@ -43,7 +43,7 @@ function ProductDetailsTastic({ data }) {
 
   const sizes = [
     ...new Map(
-      product.variants?.map((v: Variant) => [v.attributes.commonSize?.label, v.attributes.commonSize]),
+      product.variants?.map((v: Variant) => [v.attributes?.commonSize?.label, v.attributes?.commonSize]),
     ).values(),
   ] as UISize[];
 
@@ -83,9 +83,9 @@ function ProductDetailsTastic({ data }) {
         {
           name: 'Features',
           items: [
-            variant.attributes.designer && `Designer: ${variant.attributes.designer.label}`,
-            variant.attributes.gender && `Collection: ${variant.attributes.gender.label}`,
-            variant.attributes.madeInItaly && `Made in Italy`,
+            variant?.attributes?.designer && `Designer: ${variant.attributes.designer.label}`,
+            variant?.attributes?.gender && `Collection: ${variant.attributes.gender.label}`,
+            variant?.attributes?.madeInItaly && `Made in Italy`,
           ],
         },
       ],
@@ -100,6 +100,8 @@ function ProductDetailsTastic({ data }) {
   const handleAddToWishList = () => {
     addToWishlist(variant.sku, 1);
   };
+
+  if (!prod) return <></>;
 
   return (
     <ProductDetails

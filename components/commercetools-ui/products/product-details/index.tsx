@@ -23,23 +23,23 @@ export interface Props {
 export type UIProduct = {
   name: string;
   variants: Variant[];
-  price: Money;
-  images: UIImage[];
-  colors: UIColor[];
-  sizes: UISize[];
+  price?: Money;
+  images?: UIImage[];
+  colors?: UIColor[];
+  sizes?: UISize[];
   description: string;
-  details: UIDetail[];
+  details?: UIDetail[];
 };
 interface UIImage {
-  id: string;
-  src: string;
-  alt: string;
+  id?: string;
+  src?: string;
+  alt?: string;
 }
 export interface UIColor {
-  name: string;
-  key: string;
-  bgColor: string;
-  selectedColor: string;
+  name?: string;
+  key?: string;
+  bgColor?: string;
+  selectedColor?: string;
 }
 export interface UISize {
   label: string;
@@ -53,9 +53,8 @@ interface UIDetail {
 export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
-
-  const [selectedColor, setSelectedColor] = useState<UIColor>(product?.colors[0]);
-  const [selectedSize, setSelectedSize] = useState<UISize>(product?.sizes[0]);
+  const [selectedColor, setSelectedColor] = useState<UIColor | undefined>(product?.colors?.[0]);
+  const [selectedSize, setSelectedSize] = useState<UISize>();
   const [loading, setLoading] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
@@ -66,7 +65,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
   useEffect(() => {
     const idx = product?.variants.findIndex(
       (v: Variant) =>
-        v.attributes.color?.key === selectedColor?.key && v.attributes.commonSize?.key === selectedSize?.key,
+        v.attributes?.color?.key === selectedColor?.key && v.attributes?.commonSize?.key === selectedSize?.key,
     );
     onChangeVariantIdx(idx === -1 ? 0 : idx);
   }, [selectedColor, selectedSize, onChangeVariantIdx, product?.variants]);
@@ -191,39 +190,37 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 <RadioGroup value={selectedColor} onChange={(e) => setSelectedColor(e)} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
-                    {product?.colors?.map(
-                      (color: { name: string; bgColor: string; selectedColor: string; key: string }) => (
-                        <RadioGroup.Option
-                          key={color.name}
-                          value={color}
-                          className={({ active, checked }) =>
-                            classNames(
-                              color.selectedColor,
-                              (active && checked) || selectedColor?.key === color.key
-                                ? 'ring-2 ring-accent-400 ring-offset-1'
-                                : '',
-                              !active && checked ? 'ring-2 ring-accent-400 ring-offset-1' : '',
-                              'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
-                            )
-                          }
-                        >
-                          <RadioGroup.Label>
-                            <p className="sr-only">{color.name}</p>
-                          </RadioGroup.Label>
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              color.bgColor,
-                              'h-8 w-8 rounded-full border border-black border-opacity-10',
-                            )}
-                          />
-                        </RadioGroup.Option>
-                      ),
-                    )}
+                    {product?.colors?.map((color) => (
+                      <RadioGroup.Option
+                        key={color.name}
+                        value={color}
+                        className={({ active, checked }) =>
+                          classNames(
+                            color.selectedColor,
+                            (active && checked) || selectedColor?.key === color.key
+                              ? 'ring-2 ring-accent-400 ring-offset-1'
+                              : '',
+                            !active && checked ? 'ring-2 ring-accent-400 ring-offset-1' : '',
+                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
+                          )
+                        }
+                      >
+                        <RadioGroup.Label>
+                          <p className="sr-only">{color.name}</p>
+                        </RadioGroup.Label>
+                        <span
+                          aria-hidden="true"
+                          className={classNames(
+                            color.bgColor,
+                            'h-8 w-8 rounded-full border border-black border-opacity-10',
+                          )}
+                        />
+                      </RadioGroup.Option>
+                    ))}
                   </div>
                 </RadioGroup>
               </div>
-              {product?.sizes.length > 1 && (
+              {product.sizes?.length && product.sizes.length > 1 && (
                 <div className="mt-8">
                   <div className="flex items-center justify-between">
                     <h2 className="text-sm font-medium text-gray-900 dark:text-light-100">
@@ -302,7 +299,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                 {formatProductMessage({ id: 'details.additional', defaultMessage: 'Additional details' })}
               </h2>
 
-              {product?.details?.length > 0 && (
+              {product.details?.length && product.details.length > 0 && (
                 <div className="divide-y divide-gray-200 border-t">
                   {product?.details?.map((detail) => (
                     <Disclosure key={detail.name}>

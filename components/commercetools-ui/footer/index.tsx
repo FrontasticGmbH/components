@@ -12,13 +12,15 @@ export interface Props {
 const Footer: React.FC<Props> = ({ columns, copyright, copyrightLinks }) => {
   return (
     <footer aria-labelledby="footer-heading">
-      <div className="mx-auto w-full bg-gray-100 px-6 dark:bg-transparent lg:px-8">
+      <div className="mx-2 w-full bg-gray-100 px-4 dark:bg-transparent md:mx-0 lg:px-4">
         <div className="mx-auto max-w-5xl py-10 px-2 xl:grid xl:grid-cols-2 xl:gap-8">
           <div
-            className={`grid grid-cols-1 gap-10 md:gap-4 md:grid-cols-${(columns.length + 1).toString()} xl:col-span-2`}
+            className={`grid grid-cols-1 gap-10 md:gap-10 md:grid-cols-${(
+              columns.length + 1
+            ).toString()} xl:col-span-2`}
           >
             {columns?.map((column, index) => (
-              <div key={index} className="md:flex md:justify-center">
+              <div key={index} className="md:mx-6 md:flex md:justify-center">
                 <Column column={column} />
               </div>
             ))}
