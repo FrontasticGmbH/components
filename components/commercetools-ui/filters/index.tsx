@@ -7,6 +7,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams, URLParam } from 'helpers/utils/updateURLParams';
 import PriceFilterDisclosure from './PriceFilterDisclosure';
 import SortingDisclosure from './SortingDisclosure';
+import SizeFilterDisclosure from './SizeFilterDisclosure';
 
 type FiltersProps = {
   facets: Facet[];
@@ -18,6 +19,7 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
   const { formatMessage } = useFormat({ name: 'product' });
   const [priceFilteringParams, setPriceFilteringParams] = useState<URLParam[]>([]);
   const [sortingParam, setSortingParam] = useState<URLParam>();
+  const [sizeFilteringParams, setSizeFilteringParams] = useState<URLParam[]>([]);
 
   const updatePriceFilteringParams = (params: URLParam[]) => {
     setPriceFilteringParams(params);
@@ -25,6 +27,10 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
 
   const updateSortingParams = (param: URLParam) => {
     setSortingParam(param);
+  };
+
+  const updateSizeFilteringParams = (params: URLParam[]) => {
+    setSizeFilteringParams(params);
   };
 
   const handleFiltersSubmit = (e) => {
@@ -44,19 +50,24 @@ const Filters: FC<FiltersProps> = ({ facets, products }) => {
       params.push(sortingParam);
     }
 
+    if (sizeFilteringParams) {
+      params.push(...sizeFilteringParams);
+    }
+
     const currentURL = updateURLParams(params);
 
     router.push(currentURL);
   };
 
   return (
-    <form onSubmit={handleFiltersSubmit}>
+    <form onSubmit={handleFiltersSubmit} className="mb-5">
       <SortingDisclosure updateSortingParams={updateSortingParams} />
       <PriceFilterDisclosure
         products={products}
         facets={facets}
         updatePriceFilteringParams={updatePriceFilteringParams}
       />
+      <SizeFilterDisclosure products={products} facets={facets} updateSizeFilteringParams={updateSizeFilteringParams} />
       <div className="mt-8 flex justify-between gap-3">
         <NextLink href={router?.asPath.split('?')[0] || ''}>
           <a className="w-full rounded border border-accent-400 py-2.5 text-center text-accent-400">
