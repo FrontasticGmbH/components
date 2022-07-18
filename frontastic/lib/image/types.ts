@@ -7,7 +7,7 @@ export type Gravity = {
   coordinates?: { x: number; y: number };
 };
 
-export type MediaItem = {
+export interface MediaItem {
   mediaId: string;
   file: string;
   format: string;
@@ -20,14 +20,13 @@ export type MediaItem = {
   tags: string[];
   created: string;
   _type: string;
-};
+}
 
-export type MediaItemWithMods = {
+export interface MediaItemWithMods {
   media: MediaItem;
   ratio?: Ratio;
   gravity?: Gravity;
-};
-
+}
 // old api vs new api
 export type FrontasticImage = { media: MediaItemWithMods; ratio?: Ratio; gravity?: Gravity } | MediaItemWithMods;
 
