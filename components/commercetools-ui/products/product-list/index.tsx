@@ -69,14 +69,13 @@ export default function ProductList({ products, totalProducts, previousCursor, n
                 {formatProductMessage({ id: 'sortAndFilter', defaultMessage: 'Sort & Filter' })}
               </h6>
             </div>
-
             <h6 className="col-span-2 block text-right dark:text-light-100 lg:hidden">
-              {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })}`}
+              {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })} ${totalProducts}`}
             </h6>
           </button>
         )}
         <h6 className="col-span-2 hidden text-right dark:text-light-100 lg:block">
-          {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })} ${totalProducts}`}
+          {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })} ${totalProducts}`}
         </h6>
       </div>
 
