@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
-const localeMap = {
-  en: 'en_GB',
-  de: 'de_CH',
-};
+import { localeMap } from '../../next-project.config';
 
 type Languages = keyof typeof localeMap;
 type Translation = Record<Languages, string>;
