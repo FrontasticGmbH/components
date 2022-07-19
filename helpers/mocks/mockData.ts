@@ -14977,7 +14977,7 @@ export const getMockCart: (numberOfLineitems?: number) => Cart = (numberOfLineit
   if (numberOfLineitems > 25) {
     console.info('Mock cart returned with only 16 lineitems, only 16 available');
   }
-  let cart: Cart = {
+  const cart: Cart = {
     cartId: 'cf2200af-5891-41f1-aa04-099866ec348a',
     lineItems: products.slice(0, numberOfLineitems).map((product, n) => ({
       lineItemId: `${n.toString(16)}f2200af-5891-41f1-aa04-099866ec348${n.toString(16)}`,
