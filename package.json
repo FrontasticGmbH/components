@@ -10,7 +10,7 @@
     "debug": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_OPTIONS='--inspect' next dev\" \"yarn ts --watch\"",
     "build": "next build",
     "start": "next start",
-    "test": "next build",
+    "test": "echo \"TODO: set up tests\"",
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
     "prettify": "prettier --write \"**/*.{ts,tsx}\"",
