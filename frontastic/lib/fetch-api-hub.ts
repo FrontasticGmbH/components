@@ -4,7 +4,7 @@ import ServerCookies from 'cookies';
 import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from 'helpers/errorLogger';
-import mapLocale from './../../next-project.config';
+import { mapLanguage } from '../../project.config';
 export class LocaleStorage {
   static locale: string = '';
 }
@@ -81,7 +81,7 @@ const performFetchApiHub = async (
       ...(init.headers || {}),
       'X-Frontastic-Access-Token': 'APIKEY',
       ...frontasticSessionHeaders,
-      'Frontastic-Locale': mapLocale(LocaleStorage.locale),
+      'Frontastic-Locale': mapLanguage(LocaleStorage.locale),
     },
   };
 
