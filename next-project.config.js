@@ -1,10 +1,15 @@
-//Default backend locale
-export const defaultLocale = 'en_GB';
-
 //Mapping locales from frontend to backend
-export const localeMap = { en: 'en_GB', de: 'de_CH' };
+export const localeMap = {
+  en: 'en_GB', 
+  de: 'de_CH',
+};
 
 //Function to map given locale
 export default (locale) => {
-  return localeMap[locale] ?? defaultLocale;
+  if (!localeMap[locale]) {
+    console.error(`Locale mapper is missing locale ${locale}`);
+  }
+
+  //If locale is not defined then select first locale
+  return localeMap[locale] || localeMap[Object.keys(localeMap)[0]];
 };
