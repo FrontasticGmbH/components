@@ -6,8 +6,8 @@ import { Facet } from '@Types/result/Facet';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { updateURLParams, URLParam } from 'helpers/utils/updateURLParams';
 import PriceFilterDisclosure from './PriceFilterDisclosure';
-import SortingDisclosure from './SortingDisclosure';
 import SizeFilterDisclosure from './SizeFilterDisclosure';
+import SortingDisclosure from './SortingDisclosure';
 
 type FiltersProps = {
   facets: Facet[];

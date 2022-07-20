@@ -1,10 +1,10 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
-import { useFormat } from 'helpers/hooks/useFormat';
+import { Product } from '@Types/product/Product';
 import { Facet } from '@Types/result/Facet';
 import { TermFacet } from '@Types/result/TermFacet';
-import { Product } from '@Types/product/Product';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { URLParam } from 'helpers/utils/updateURLParams';
 
 type SizeFilterDisclosureProps = {
