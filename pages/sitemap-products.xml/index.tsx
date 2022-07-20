@@ -4,6 +4,7 @@ import { fetchApiHubServerSide } from 'frontastic';
 import { Result } from '@Types/product/Result';
 import { Product } from '@Types/product/Product';
 import { siteUrl } from 'next-sitemap.config';
+import { mapLanguage } from 'project.config';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const fields = [] as ISitemapField[];
@@ -11,10 +12,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let nextCursor: string;
 
   do {
-    const products = (await fetchApiHubServerSide(`/action/product/query?cursor=${nextCursor}&limit=128&locale=en_GB`, {
-      req: context.req,
-      res: context.res,
-    })) as Result;
+    const products = (await fetchApiHubServerSide(
+      `/action/product/query?cursor=${nextCursor}&limit=128&locale=${mapLanguage(context.locale)}`,
+      {
+        req: context.req,
+        res: context.res,
+      },
+    )) as Result;
 
     fields.push(
       ...(products.items as Product[]).map((product) => ({

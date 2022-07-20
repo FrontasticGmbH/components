@@ -4,6 +4,7 @@ import { fetchApiHubServerSide } from 'frontastic';
 import { Result } from '@Types/product/Result';
 import { Category } from '@Types/product/Category';
 import { siteUrl } from 'next-sitemap.config';
+import { mapLanguage } from 'project.config';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const fields = [] as ISitemapField[];
@@ -12,7 +13,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   do {
     const categories = (await fetchApiHubServerSide(
-      `/action/product/queryCategories?cursor=${nextCursor}&limit=128&locale=en_GB`,
+      `/action/product/queryCategories?cursor=${nextCursor}&limit=128&locale=${mapLanguage(context.locale)}`,
       {
         req: context.req,
         res: context.res,

@@ -10,4 +10,4 @@ export const mapLanguage = (lang) => {
 
   //If language is not defined in languageMapper then select first locale
   return languageMapper[lang] || languageMapper[Object.keys(languageMapper)[0]];
-}
+};
