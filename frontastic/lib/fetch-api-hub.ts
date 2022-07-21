@@ -5,7 +5,9 @@ import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from 'helpers/errorLogger';
 import { mapLanguage } from '../../project.config';
-import * as localStorageKeys from 'helpers/constants/localStorage';
+export class LocaleStorage {
+  static locale: string = '';
+}
 
 function resolveApiHubUrl(): string {
   if (process.env['NEXT_PUBLIC_FRONTASTIC_HOST'] === undefined) {
@@ -79,7 +81,7 @@ const performFetchApiHub = async (
       ...(init.headers || {}),
       'X-Frontastic-Access-Token': 'APIKEY',
       ...frontasticSessionHeaders,
-      'Frontastic-Locale': mapLanguage(window.localStorage.getItem(localStorageKeys.LOCALE)),
+      'Frontastic-Locale': mapLanguage(LocaleStorage.locale),
     },
   };
 
