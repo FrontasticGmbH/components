@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { GetServerSideProps, Redirect } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { createClient, ResponseError, LocaleStorage, useDarkMode } from 'frontastic';
+import { createClient, ResponseError, useDarkMode } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
+import * as localStorageKeys from 'helpers/constants/localStorage';
 
 type SlugProps = {
   // This needs an overhaul. Can be too many things in my opinion (*Marcel)
@@ -16,13 +17,15 @@ type SlugProps = {
 };
 
 export default function Slug({ data, locale }: SlugProps) {
-  LocaleStorage.locale = locale;
-
   const { applyTheme } = useDarkMode();
 
   useEffect(() => {
     applyTheme(data?.pageFolder?.configuration?.theme);
   }, [data?.pageFolder?.configuration]);
+
+  useEffect(() => {
+    window.localStorage.setItem(localStorageKeys.LOCALE, locale);
+  }, [locale]);
 
   if (!data || typeof data === 'string') {
     return (
