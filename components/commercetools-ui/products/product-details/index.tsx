@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
@@ -7,6 +7,7 @@ import { Variant } from '@Types/product/Variant';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Price from '../../price';
 import WishlistButton from './wishlist-button';
+import { useRouter } from 'next/router';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -21,6 +22,7 @@ export interface Props {
 }
 
 export type UIProduct = {
+  productId: string;
   name: string;
   variants: Variant[];
   price?: Money;
@@ -51,10 +53,13 @@ interface UIDetail {
 }
 
 export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
+  //next/router
+  const router = useRouter();
+
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
   const [selectedColor, setSelectedColor] = useState<UIColor | undefined>(product?.colors?.[0]);
-  const [selectedSize, setSelectedSize] = useState<UISize>();
+  const [selectedSize, setSelectedSize] = useState<UISize>(product?.sizes?.[0]);
   const [loading, setLoading] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
@@ -69,6 +74,27 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
     );
     onChangeVariantIdx(idx === -1 ? 0 : idx);
   }, [selectedColor, selectedSize, onChangeVariantIdx, product?.variants]);
+
+  const lastProductId = useRef('');
+
+  useEffect(() => {
+    if (product?.colors && product?.sizes && product.productId !== lastProductId.current) {
+      setSelectedColor(product.colors.find((c) => c.key === router.query.c) || product.colors[0]);
+      setSelectedSize(product.sizes.find((s) => s.key === router.query.s) || product.sizes[0]);
+      lastProductId.current = product.productId;
+    }
+  }, [product, router.query]);
+
+  useEffect(() => {
+    if (selectedColor && selectedSize)
+      router.replace(
+        { pathname: router.asPath.split('?')[0], query: { c: selectedColor.key, s: selectedSize.key } },
+        undefined,
+        {
+          shallow: true,
+        },
+      );
+  }, [selectedColor, selectedSize]);
 
   const handleAddToCart = (variant: Variant, quantity: number) => {
     if (!variant.isOnStock) return;
