@@ -97,7 +97,7 @@ const Editable: React.FC<EditableProps> = ({
 
   return (
     <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
-      {label && <dt className="text-sm font-medium text-gray-500 dark:text-light-100">{label}</dt>}
+      {label && <dt className="text-sm font-medium capitalize text-gray-500 dark:text-light-100">{label}</dt>}
       <dd className="mt-1 flex items-center text-sm text-gray-900 sm:col-span-2 sm:mt-0">
         {isEdit ? (
           <form id="editable-form" className="grow" onSubmit={handleSubmit}>
