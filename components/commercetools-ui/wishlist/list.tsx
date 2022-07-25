@@ -40,12 +40,12 @@ const List: React.FC<Props> = ({ items, removeLineItems }) => {
         <ul role="list" className="divide-y divide-gray-200 border-y border-gray-200">
           {items.map((item) => (
             <li key={item.lineItemId} className="flex py-6">
-              <div className="shrink-0  cursor-pointer">
+              <div className="shrink-1 sm:min-w-24 relative w-24 cursor-pointer">
                 <Image
-                  alt="Front side of charcoal cotton t-shirt."
-                  width={100}
-                  height={13}
-                  className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
+                  alt={item.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-md"
                   src={item.variant.images[0]}
                   onClick={() => goToProductPage(item._url)}
                 />
