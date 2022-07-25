@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@adyen/adyen-web": "^5.16.1",
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.12.1",
     "@emotion/react": "^11.9.0",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
@@ -64,8 +66,8 @@
     "@svgr/webpack": "^6.2.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.1",
-    "@tailwindcss/typography": "^0.5.2",
     "@types/jest": "^28.1.6",
+    "@tailwindcss/typography": "^0.5.4",
     "@types/react": "^17.0.37",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
