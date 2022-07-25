@@ -10,7 +10,7 @@ function ProductDetailsTastic({ data }) {
   const router = useRouter();
   const { product }: { product: Product } = data.data.dataSource;
 
-  const [currentVariantIdx, setCurrentVariantIdx] = useState<number>();
+  const [currentVariantIdx, setCurrentVariantIdx] = useState<number>(0);
   const [variant, setVariant] = useState<Variant>(product.variants[0]);
   const { addItem } = useCart();
 
@@ -63,6 +63,7 @@ function ProductDetailsTastic({ data }) {
 
   const prod = useMemo<UIProduct>(
     () => ({
+      productId: product.productId,
       name: product.name,
       // add variants as well, so we can select and filter
       variants: product.variants,
