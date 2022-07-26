@@ -18,11 +18,13 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
 
   return (
     <li className="flex py-6 sm:py-10">
-      <div className="shrink-0">
+      <div className="shrink-1 sm:min-w-36 relative w-36 cursor-pointer">
         <Image
           src={lineItem.variant.images[0]}
           alt={lineItem.name}
-          className="h-24 w-24 cursor-pointer rounded-md object-cover object-center sm:h-48 sm:w-48"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-md"
           onClick={() => goToProductPage(lineItem._url)}
         />
       </div>
@@ -65,39 +67,36 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
                 <Price price={lineItem.discountedPrice} className="mt-1 ml-2 text-sm font-medium text-accent-400" />
               )}
             </div>
-            <div className=" h-8 w-28 pt-2 md:pt-24">
-              <div className="relative mt-1 flex h-8 w-full flex-row rounded-lg bg-transparent">
-                <button
-                  type="button"
-                  onClick={() => {
-                    editItemQuantity(lineItem.lineItemId, lineItem.count - 1);
-                  }}
-                  disabled={lineItem.count <= 1 ? true : false}
-                  className={`h-full w-20 cursor-pointer ${
-                    lineItem.count <= 1 ? 'cursor-not-allowed' : 'cursor-pointer'
-                  } rounded-l bg-gray-300 text-gray-900 outline-none hover:bg-gray-400 disabled:opacity-50`}
-                >
-                  <span className="m-auto text-2xl font-thin">−</span>
-                </button>
-                <div className="flex w-full items-center justify-center bg-gray-300 text-center text-base font-semibold text-gray-800  outline-none hover:text-black focus:text-black  focus:outline-none">
-                  {lineItem.count}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    editItemQuantity(lineItem.lineItemId, lineItem.count + 1);
-                  }}
-                  disabled={lineItem.variant.isOnStock ? false : true}
-                  className={`h-full w-20 cursor-pointer ${
-                    lineItem.variant.isOnStock ? 'cursor-pointer' : 'cursor-not-allowed'
-                  } rounded-r bg-gray-300 text-gray-900 hover:bg-gray-400`}
-                >
-                  <span className="m-auto text-2xl font-thin">+</span>
-                </button>
-              </div>
+            <div className="mt-8 flex h-8 w-28 flex-row rounded-lg bg-transparent md:relative md:mt-16 ">
+              <button
+                type="button"
+                onClick={() => {
+                  editItemQuantity(lineItem.lineItemId, lineItem.count - 1);
+                }}
+                disabled={lineItem.count <= 1 ? true : false}
+                className={`h-full w-20 cursor-pointer ${
+                  lineItem.count <= 1 ? 'cursor-not-allowed' : 'cursor-pointer'
+                } rounded-l bg-gray-300 text-gray-900 outline-none hover:bg-gray-400 disabled:opacity-50`}
+              >
+                <span className="text-2xl font-thin">-</span>
+              </button>
+              <span className="flex w-full items-center justify-center bg-gray-300 text-center text-base font-semibold text-gray-800  outline-none hover:text-black focus:text-black  focus:outline-none">
+                {lineItem.count}
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  editItemQuantity(lineItem.lineItemId, lineItem.count + 1);
+                }}
+                disabled={lineItem.variant.isOnStock ? false : true}
+                className={`h-full w-20 cursor-pointer ${
+                  lineItem.variant.isOnStock ? 'cursor-pointer' : 'cursor-not-allowed'
+                } rounded-r bg-gray-300 text-gray-900 hover:bg-gray-400`}
+              >
+                <span className="text-2xl font-thin">+</span>
+              </button>
             </div>
           </div>
-
           <div className="mt-4 sm:mt-0 sm:pr-9">
             <div className="absolute top-0 right-0">
               <button
