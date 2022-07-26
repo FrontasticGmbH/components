@@ -24,12 +24,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       ...(products.items as Product[]).map((product) => ({
         loc: `${siteUrl}${product._url}`,
         lastmod: new Date().toISOString(),
-        changefreq: 'always' as const,
+        changefreq: 'daily' as const,
       })),
     );
 
     nextCursor = products.nextCursor;
   } while (nextCursor);
+
+  context.res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
 
   return getServerSideSitemap(context, fields);
 };
