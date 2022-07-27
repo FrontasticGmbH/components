@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/products/slider",
-  "name": "commercetools UI product slider",
+  "tasticType": "default-ui/products/slider",
+  "name": "Default product slider",
   "icon": "menu",
   "category": "Products",
   "schema": [

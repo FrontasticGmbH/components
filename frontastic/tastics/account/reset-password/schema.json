@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/account/reset-password",
-  "name": "commercetools UI account reset password",
+  "tasticType": "default-ui/account/reset-password",
+  "name": "Default account reset password",
   "category": "Account",
   "icon": "account_circle",
   "schema": [

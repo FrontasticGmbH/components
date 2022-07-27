@@ -1,5 +1,5 @@
 import React from 'react';
-import Showcase, { Props as ShowcaseProps } from 'components/commercetools-ui/showcase';
+import Showcase, { Props as ShowcaseProps } from 'components/default-ui/showcase';
 
 interface Props {
   data: ShowcaseProps;

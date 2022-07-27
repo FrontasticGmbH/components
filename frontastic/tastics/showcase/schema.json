@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/content/showcase",
-  "name": "commercetools UI Show Case",
+  "tasticType": "default-ui/content/showcase",
+  "name": "Default Show Case",
   "category": "Content",
   "icon": "wrap_text",
   "schema": [

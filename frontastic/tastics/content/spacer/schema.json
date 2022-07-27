@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/content/spacer",
-  "name": "commercetools UI spacer",
+  "tasticType": "default-ui/content/spacer",
+  "name": "Default spacer",
   "category": "Content",
   "icon": "favorite",
   "schema": [

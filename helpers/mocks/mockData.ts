@@ -9,7 +9,7 @@ import { Product } from '@Types/product/Product';
 import { Variant } from '@Types/product/Variant';
 import { LineItem } from '@Types/wishlist/LineItem';
 import { Wishlist } from '@Types/wishlist/Wishlist';
-import { Link } from 'components/commercetools-ui/footer/column';
+import { Link } from 'components/default-ui/footer/column';
 import { NextFrontasticImage } from 'frontastic/lib/image';
 
 export const accordionMockItems = [
