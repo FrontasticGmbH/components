@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineItem } from '@Types/wishlist/LineItem';
-import WishList from 'components/commercetools-ui/wishlist';
+import WishList from 'components/default-ui/wishlist';
 import { useWishlist } from 'frontastic/provider';
 
 const WishlistTastic = ({ data }) => {

@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/account/login",
-  "name": "commercetools UI account login",
+  "tasticType": "default-ui/account/login",
+  "name": "Default account login",
   "category": "Account",
   "icon": "account_circle",
   "schema": [

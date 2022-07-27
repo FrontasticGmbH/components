@@ -1,5 +1,5 @@
 import React from 'react';
-import Register, { RegisterProps } from 'components/commercetools-ui/account/register';
+import Register, { RegisterProps } from 'components/default-ui/account/register';
 
 export interface Props {
   data: RegisterProps;

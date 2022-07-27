@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/content/contentful/blog",
-  "name": "Commercetools UI contentful blog",
+  "tasticType": "default-ui/content/contentful/blog",
+  "name": "Default contentful blog",
   "category": "Content",
   "icon": "favorite",
   "schema": [

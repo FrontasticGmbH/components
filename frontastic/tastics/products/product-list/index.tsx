@@ -1,4 +1,4 @@
-import ProductList from 'components/commercetools-ui/products/product-list';
+import ProductList from 'components/default-ui/products/product-list';
 
 function ProductListTastic({ data }) {
   if (!data) return <></>;

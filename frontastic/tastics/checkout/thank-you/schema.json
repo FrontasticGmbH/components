@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/thank-you",
-  "name": "commercetools UI thank you",
+  "tasticType": "default-ui/thank-you",
+  "name": "Default thank you",
   "icon": "done",
   "category": "Checkout",
   "schema": []

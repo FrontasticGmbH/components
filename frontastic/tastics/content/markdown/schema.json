@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/content/markdown",
-  "name": "commercetools UI markdown",
+  "tasticType": "default-ui/content/markdown",
+  "name": "Default markdown",
   "icon": "wrap_text",
   "category": "Content",
   "schema": [
