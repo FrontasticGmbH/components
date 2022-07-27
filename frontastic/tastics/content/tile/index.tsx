@@ -1,5 +1,5 @@
 import React from 'react';
-import Tile from 'components/default-ui/content/tile';
+import Tile from 'components/commercetools-ui/content/tile';
 
 const TileTastic = ({ data }) => {
   return (

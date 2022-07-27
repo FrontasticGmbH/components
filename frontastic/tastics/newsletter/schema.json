@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/content/newsletter",
-  "name": "Default newsletter",
+  "tasticType": "commercetools/ui/content/newsletter",
+  "name": "commercetools UI newsletter",
   "category": "Content",
   "icon": "email",
   "schema": [

@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/account/details",
-  "name": "Default account details",
+  "tasticType": "commercetools/ui/account/details",
+  "name": "commercetools UI account details",
   "icon": "account_circle",
   "category": "Account",
   "schema": [

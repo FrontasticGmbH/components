@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/account/test",
-  "name": "Default account test",
+  "tasticType": "commercetools/ui/account/test",
+  "name": "commercetools UI account test",
   "icon": "menu",
   "category": "Account",
   "schema": []

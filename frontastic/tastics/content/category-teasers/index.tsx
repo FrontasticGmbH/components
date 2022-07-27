@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryTeasers, { CategoryTeaser } from 'components/default-ui/category-teasers';
+import CategoryTeasers, { CategoryTeaser } from 'components/commercetools-ui/category-teasers';
 
 type Props = {
   categoryTeaser: Array<CategoryTeaser>;
