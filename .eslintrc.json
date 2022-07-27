@@ -7,10 +7,30 @@
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended"
   ],
+  "overrides": [
+    {
+      "files": [
+        "*.test.ts",
+        "*.test.tsx"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["tailwindcss", "import", "@typescript-eslint"],
+  "plugins": [
+    "tailwindcss",
+    "import",
+    "@typescript-eslint"
+  ],
   "rules": {
-    "tailwindcss/classnames-order": ["warn", {"officialSorting": true}],
+    "tailwindcss/classnames-order": [
+      "warn",
+      {
+        "officialSorting": true
+      }
+    ],
     "tailwindcss/enforces-negative-arbitrary-values": "warn",
     "tailwindcss/enforces-shorthand": "warn",
     "tailwindcss/migration-from-tailwind-2": "warn",
@@ -22,7 +42,11 @@
     "import/order": [
       "warn",
       {
-        "groups": ["builtin", "external", "internal"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal"
+        ],
         "pathGroups": [
           {
             "pattern": "react",
@@ -50,7 +74,9 @@
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
         "newlines-between": "never",
         "alphabetize": {
           "order": "asc",
