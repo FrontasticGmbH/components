@@ -281,7 +281,6 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                                   id: 'address.setDefault.billing',
                                   defaultMessage: 'Set as default billing address',
                                 })}
-                                ;
                               </label>
                             </div>
                           </div>
