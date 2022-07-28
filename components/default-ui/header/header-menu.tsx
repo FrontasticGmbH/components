@@ -18,7 +18,7 @@ interface HeaderMenuProps {
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, links }) => {
   //Darkmode
-  const { mode } = useDarkMode();
+  const { mode, theme } = useDarkMode();
 
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
@@ -35,7 +35,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className={`${mode} fixed inset-0 z-40 flex lg:hidden`} onClose={closeMenu}>
+      <Dialog className={`${mode} ${theme} fixed inset-0 z-40 flex lg:hidden`} onClose={closeMenu}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
