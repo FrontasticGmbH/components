@@ -6,6 +6,7 @@ import { Facet } from '@Types/result/Facet';
 import { TermFacet } from '@Types/result/TermFacet';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { URLParam } from 'helpers/utils/updateURLParams';
+import TermFilter, { TermFilterParams } from '../term-filter';
 
 type SizeFilterDisclosureProps = {
   facets: Facet[];
@@ -16,44 +17,20 @@ type SizeFilterDisclosureProps = {
 const SizeFilterDisclosure: FC<SizeFilterDisclosureProps> = ({ facets, updateSizeFilteringParams }) => {
   const { formatMessage } = useFormat({ name: 'product' });
 
-  const sizeFacet = useMemo<TermFacet>(
+  const sizeFacet = useMemo(
     () => facets.find((facet) => facet.identifier === 'variants.attributes.size') as TermFacet,
     [facets],
   );
 
-  const [params, setParams] = useState<URLParam[]>([]);
-  const [selected, setSelected] = useState<ReturnType<typeof Object.fromEntries>>({});
-
-  useEffect(() => {
-    setSelected(Object.fromEntries(sizeFacet?.terms?.map((term) => [term.key, term.selected])));
-    setParams(
-      sizeFacet?.terms
-        ?.map((term, index) => ({
-          key: `facets[variants.attributes.size][terms][${index}]`,
-          value: term.key,
-          selected: term.selected,
-        }))
-        .filter((term) => term.selected) || [],
-    );
-  }, [sizeFacet]);
-
   const handleChange = useCallback(
-    (index: number, checked: boolean) => {
-      if (!sizeFacet?.terms) return;
-
-      let newParams = [...params];
-
-      const key = `facets[variants.attributes.size][terms][${index}]`;
-
-      if (!checked) newParams = newParams.filter((param) => param.key !== key);
-      else newParams = [...newParams, { key, value: sizeFacet.terms[index].key }];
-
-      setSelected({ ...selected, [sizeFacet.terms[index].key]: checked });
-
-      setParams(newParams);
-      updateSizeFilteringParams(newParams);
-    },
-    [updateSizeFilteringParams, sizeFacet, params, selected],
+    (values: Array<TermFilterParams>) =>
+      updateSizeFilteringParams(
+        values.map(({ index, value }) => ({
+          key: `facets[variants.attributes.size][terms][${index.toString()}]`,
+          value,
+        })),
+      ),
+    [updateSizeFilteringParams],
   );
 
   if (!sizeFacet?.terms?.length) return <></>;
@@ -76,25 +53,7 @@ const SizeFilterDisclosure: FC<SizeFilterDisclosureProps> = ({ facets, updateSiz
               </span>
             </Disclosure.Button>
             <Disclosure.Panel className="pt-6">
-              <div className="flex flex-col gap-6">
-                {sizeFacet.terms.map((term, index) => (
-                  <div className="relative flex items-start" key={term.identifier}>
-                    <div className="flex h-5 items-center">
-                      <input
-                        type="checkbox"
-                        className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
-                        onChange={(e) => handleChange(index, e.target.checked)}
-                        checked={selected[term.key]}
-                      />
-                    </div>
-                    <div className="ml-3 text-sm">
-                      <label htmlFor="comments" className="font-medium text-gray-700 dark:text-light-100">
-                        {term.label}
-                      </label>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <TermFilter facet={sizeFacet} onChange={handleChange} />
             </Disclosure.Panel>
           </>
         )}
