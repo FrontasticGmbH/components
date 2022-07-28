@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/products/similar-products",
-  "name": "Default similar products",
+  "tasticType": "commercetools/ui/products/similar-products",
+  "name": "commercetools UI similar products",
   "icon": "menu",
   "category": "Products",
   "schema": [

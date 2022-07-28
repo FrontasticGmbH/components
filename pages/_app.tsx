@@ -1,7 +1,7 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
-import Toaster from 'components/default-ui/toaster';
+import Toaster from 'components/commercetools-ui/toaster';
 import { FrontasticProvider } from 'frontastic';
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';

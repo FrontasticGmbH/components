@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/content/category-teasers",
-  "name": "Default Category Teasers",
+  "tasticType": "commercetools/ui/content/category-teasers",
+  "name": "commercetools UI Category Teasers",
   "icon": "image",
   "category": "Content",
   "schema": [

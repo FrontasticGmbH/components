@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/products/product-list",
-  "name": "Default product list",
+  "tasticType": "commercetools/ui/products/product-list",
+  "name": "commercetools UI product list",
   "icon": "list",
   "category": "Products",
   "schema": [

@@ -1,5 +1,5 @@
 import React from 'react';
-import AdyenCheckout from 'components/default-ui/adyen-checkout';
+import AdyenCheckout from 'components/commercetools-ui/adyen-checkout';
 
 const CheckoutTastic = ({ data }) => {
   return (

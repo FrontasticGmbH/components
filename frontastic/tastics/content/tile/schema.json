@@ -1,6 +1,6 @@
 {
-  "tasticType": "default-ui/content/tile",
-  "name": "Default tile",
+  "tasticType": "commercetools/ui/content/tile",
+  "name": "commercetools UI tile",
   "icon": "image",
   "category": "Content",
   "schema": [
