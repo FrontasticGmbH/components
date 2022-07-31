@@ -19,4 +19,8 @@ tsconfig.tsbuildinfo
 /public/workbox-*.js
 /public/workbox-*.js.map
 
+/public/robots.txt
+/public/sitemap.xml
+/public/sitemap-*.xml
+
 .tool-versions
