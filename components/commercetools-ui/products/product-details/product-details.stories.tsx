@@ -22,3 +22,8 @@ const Template: Story<ProductDetailsProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
+
+export const WithQuickBuy = Template.bind({});
+WithQuickBuy.args = {
+  quickBuyEnabled: true,
+};

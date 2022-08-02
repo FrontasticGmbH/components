@@ -347,21 +347,21 @@ export const productItem = {
   colors: [
     {
       name: 'Red',
-      key: '0',
-      bgColor: '#ff4d4d',
-      selectedColor: '#4dc3ff',
+      key: 'red',
+      bgColor: 'bg-red-400',
+      selectedColor: 'ring-red-400',
     },
     {
       name: 'Blue',
-      key: '1',
-      bgColor: '#3333cc',
-      selectedColor: '#4dc3ff',
+      key: 'blue',
+      bgColor: 'bg-blue-400',
+      selectedColor: 'ring-blue-400',
     },
     {
       name: 'Green',
-      key: '2',
-      bgColor: '#00cc99',
-      selectedColor: '#4dc3ff',
+      key: 'green',
+      bgColor: 'bg-green-400',
+      selectedColor: 'ring-green-400',
     },
   ],
   sizes: [
@@ -417,6 +417,7 @@ export const productItem = {
       sku: 'M0E20000000E4QP',
       images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
       groupId: '80123',
+      isOnStock: true,
       attributes: {
         articleNumberManufacturer: 'FAVOLA BMAT NER',
         articleNumberMax: '80123',

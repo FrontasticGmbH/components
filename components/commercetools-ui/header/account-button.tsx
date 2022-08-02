@@ -39,7 +39,7 @@ const AccountButton: React.FC<AccountButtonProps> = ({ accountLink, account }) =
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 top-6 z-50 mt-2 w-fit origin-top-right rounded-md bg-white shadow-sm ring-1 ring-black/5 focus:outline-none dark:bg-primary-400 dark:shadow-3xl">
+            <Menu.Items className="ring-black/5 absolute right-0 top-6 z-50 mt-2 w-fit origin-top-right rounded-md bg-white shadow-sm ring-1 focus:outline-none dark:bg-primary-400 dark:shadow-3xl">
               <div className="py-1 ">
                 <Menu.Item>
                   <ReferenceLink

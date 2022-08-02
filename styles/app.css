@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './themes/default.css';
+@import './themes/theme1.css';
+@import './themes/theme2.css';
+@import './themes/theme3.css';
+
 html {
-  @apply p-0;; /* For tailwind Dialog styling override */
+  @apply p-0; /* For tailwind Dialog styling override */
 }
 
 body {

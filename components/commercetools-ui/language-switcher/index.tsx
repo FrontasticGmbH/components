@@ -31,7 +31,7 @@ const LanguageSwitcher: React.FC<Props> = ({ className }) => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 left-28 bottom-4 z-50 mt-2 w-full origin-top-right rounded-md shadow-sm ring-1 ring-black/5 focus:outline-none dark:bg-primary-400 dark:text-light-100 dark:shadow-3xl">
+          <Menu.Items className="ring-black/5 absolute right-0 left-28 bottom-4 z-50 mt-2 w-full origin-top-right rounded-md shadow-sm ring-1 focus:outline-none dark:bg-primary-400 dark:text-light-100 dark:shadow-3xl">
             <div className="py-1">
               {router?.locales.map((locale, index) => (
                 <Menu.Item key={index}>

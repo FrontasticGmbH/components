@@ -11,7 +11,7 @@ export interface Props {
 
 const Footer: React.FC<Props> = ({ columns, copyright, copyrightLinks }) => {
   return (
-    <footer aria-labelledby="footer-heading">
+    <footer aria-label="footer">
       <div className="mx-2 w-full bg-gray-100 px-4 dark:bg-transparent md:mx-0 lg:px-4">
         <div className="mx-auto max-w-5xl py-10 px-2 xl:grid xl:grid-cols-2 xl:gap-8">
           <div

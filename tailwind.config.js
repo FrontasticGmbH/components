@@ -7,7 +7,7 @@ module.exports = {
     './frontastic/**/*.{js,ts,jsx,tsx}',
     './stories/**/*.{js,ts,jsx,tsx}',
   ],
-  safelist: ['md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'md:grid-cols-4'],
+  safelist: [{ pattern: /grid-cols-(\d)+/ }, { pattern: /^(ring|bg|text)-.+/ }],
   theme: {
     extend: {
       aspectRatio: {
@@ -64,6 +64,17 @@ module.exports = {
         },
         light: {
           100: 'var(--light-100)',
+        },
+        black: {
+          100: '#000000',
+          200: '#000000',
+          300: '#000000',
+          400: '#000000',
+          500: '#000000',
+          600: '#000000',
+          700: '#000000',
+          800: '#000000',
+          900: '#000000',
         },
       },
       letterSpacing: {
