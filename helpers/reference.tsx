@@ -13,6 +13,7 @@ interface PageFolderReference {
   pageFolder: {
     pageFolderId: string;
     name: string;
+    live: boolean;
     _urls: {
       [locale: string]: string;
     };
