@@ -14,9 +14,10 @@ interface HeaderMenuProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   navigation: any;
   links: Link[];
+  previewId?: string;
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, links }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, links, previewId }) => {
   //Darkmode
   const { mode, theme } = useDarkMode();
 
@@ -168,7 +169,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
             <div className="space-y-6 border-t border-gray-200 py-6 px-4">
               {links
-                .filter((link) => isLiveReference(link.reference))
+                .filter((link) => previewId || isLiveReference(link.reference))
                 .map((link) => (
                   <div key={link.name} className="flow-root" onClick={closeMenu}>
                     <ReferenceLink

@@ -34,6 +34,7 @@ export interface HeaderProps {
   accountLink: Reference;
   wishlistLink?: Reference;
   cartLink: Reference;
+  previewId: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -47,13 +48,14 @@ const Header: React.FC<HeaderProps> = ({
   accountLink,
   wishlistLink,
   cartLink,
+  previewId,
 }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="fixed-screen-width lg:relative-width">
       {/* Mobile menu */}
-      <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={headerNavigation} />
+      <HeaderMenu open={open} setOpen={setOpen} links={links} navigation={headerNavigation} previewId={previewId} />
 
       <header className="relative">
         {tagline && (
@@ -127,7 +129,7 @@ const Header: React.FC<HeaderProps> = ({
                   ))}
 
                   {links
-                    .filter((link) => isLiveReference(link.reference))
+                    .filter((link) => previewId || isLiveReference(link.reference))
                     .map((link, id) => (
                       <ReferenceLink
                         key={id}
