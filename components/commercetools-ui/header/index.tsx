@@ -4,7 +4,7 @@ import { MenuIcon } from '@heroicons/react/outline';
 import { Account } from '@Types/account/Account';
 import Typography from 'components/commercetools-ui/typography';
 import { headerNavigation } from 'helpers/mocks/mockData';
-import { Reference, ReferenceLink } from 'helpers/reference';
+import { isLiveReference, Reference, ReferenceLink } from 'helpers/reference';
 import Image, { MediaItemWithMods } from 'frontastic/lib/image';
 import DarkModeWidget from '../darkmode-widget';
 import AccountButton from './account-button';
@@ -126,15 +126,17 @@ const Header: React.FC<HeaderProps> = ({
                     </Popover>
                   ))}
 
-                  {links.map((link, id) => (
-                    <ReferenceLink
-                      key={id}
-                      target={link.reference}
-                      className="flex items-center text-base font-medium text-primary-400 hover:text-primary-500 dark:text-light-100"
-                    >
-                      <Typography>{link.name}</Typography>
-                    </ReferenceLink>
-                  ))}
+                  {links
+                    .filter((link) => isLiveReference(link.reference))
+                    .map((link, id) => (
+                      <ReferenceLink
+                        key={id}
+                        target={link.reference}
+                        className="flex items-center text-base font-medium text-primary-400 hover:text-primary-500 dark:text-light-100"
+                      >
+                        <Typography>{link.name}</Typography>
+                      </ReferenceLink>
+                    ))}
                 </div>
               </Popover.Group>
 

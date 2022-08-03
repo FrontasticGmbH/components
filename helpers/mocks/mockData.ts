@@ -15062,6 +15062,7 @@ export const headerButtonLink = {
   pageFolder: {
     pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
     name: 'Start',
+    live: true,
     _urls: { de_CH: '/', fr_CH: '/', it_CH: '/', de_LI: '/' },
     _url: '/',
   },
@@ -15082,6 +15083,7 @@ export const headerLinks = [
       pageFolder: {
         pageFolderId: 'b27378fbe05639798e9b23399a373bc0',
         name: 'Men',
+        live: true,
         _urls: { de_CH: '/men', fr_CH: '/men', it_CH: '/men', de_LI: '/men' },
         _url: '/men',
       },
@@ -15095,6 +15097,7 @@ export const headerLinks = [
       pageFolder: {
         pageFolderId: 'b27378fbe05639798e9b23399a373bc0',
         name: 'Men',
+        live: true,
         _urls: { de_CH: '/men', fr_CH: '/men', it_CH: '/men', de_LI: '/men' },
         _url: '/men',
       },
@@ -15116,6 +15119,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15134,6 +15138,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15152,6 +15157,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15170,6 +15176,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15194,6 +15201,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15212,6 +15220,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15236,6 +15245,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15254,6 +15264,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15272,6 +15283,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15290,6 +15302,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15313,6 +15326,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15331,6 +15345,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15349,6 +15364,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            live: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15372,6 +15388,7 @@ export const footerCopyrightLinks: Link[] = [
       pageFolder: {
         pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
         name: 'Start',
+        live: true,
         _url: '/',
         _urls: {
           de_CH: '/',
@@ -15390,6 +15407,7 @@ export const footerCopyrightLinks: Link[] = [
       pageFolder: {
         pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
         name: 'Start',
+        live: true,
         _url: '/',
         _urls: {
           de_CH: '/',
@@ -15408,6 +15426,7 @@ export const footerCopyrightLinks: Link[] = [
       pageFolder: {
         pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
         name: 'Start',
+        live: true,
         _url: '/',
         _urls: {
           de_CH: '/',

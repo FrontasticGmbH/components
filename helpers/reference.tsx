@@ -47,6 +47,13 @@ export function getTargetProps(target: LinkReference | PageFolderReference) {
   return {};
 }
 
+export function isLiveReference(reference: LinkReference | PageFolderReference) {
+  if (reference.type == 'page-folder') {
+    return reference.pageFolder.live;
+  }
+  return true;
+}
+
 interface Props {
   className?: string;
   target: Reference;
