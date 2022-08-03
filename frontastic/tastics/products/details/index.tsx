@@ -8,7 +8,7 @@ import { addToWishlist } from 'frontastic/actions/wishlist';
 
 function ProductDetailsTastic({ data }) {
   const router = useRouter();
-  const { product }: { product: Product } = data.data.dataSource;
+  const { product }: { product: Product } = data?.data?.dataSource;
 
   const [currentVariantIdx, setCurrentVariantIdx] = useState<number>(0);
   const [variant, setVariant] = useState<Variant>(product.variants[0]);

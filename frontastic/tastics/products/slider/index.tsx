@@ -5,7 +5,7 @@ function ProductSliderTastic({ data }) {
 
   return (
     <ProductSlider
-      products={data.data.dataSource.items}
+      products={data?.data?.dataSource?.items}
       title={data.title}
       ctaLabel={data.ctaLabel}
       ctaLink={data.ctaLink}
