@@ -20,7 +20,7 @@ body {
  * workaround.
  */
 @media (min-width: 768px) {
-  .md\:grid-template-columns-5 {
+  .md\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
