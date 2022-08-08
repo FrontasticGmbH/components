@@ -11,7 +11,7 @@ const initialState: FrontasticState = {
   useAdyen: {} as any,
 };
 
-const FrontasticContext = React.createContext<FrontasticState>(initialState);
+export const FrontasticContext = React.createContext<FrontasticState>(initialState);
 
 export const FrontasticProvider: React.FC = ({ children }) => {
   const state: FrontasticState = getFrontasticState();
