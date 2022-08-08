@@ -6,6 +6,8 @@ import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
+import { useFormat } from 'helpers/hooks/useFormat';
+import Head from 'next/head';
 
 type SlugProps = {
   // This needs an overhaul. Can be too many things in my opinion (*Marcel)
@@ -23,6 +25,8 @@ export default function Slug({ data, locale }: SlugProps) {
   useEffect(() => {
     applyTheme(data?.pageFolder?.configuration?.theme);
   }, [data?.pageFolder?.configuration]);
+
+  const { formatMessage } = useFormat({ name: 'common' });
 
   if (!data || typeof data === 'string') {
     return (
@@ -44,7 +48,17 @@ export default function Slug({ data, locale }: SlugProps) {
     );
   }
 
-  return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
+  return (
+    <>
+      <Head>
+        <meta
+          name="description"
+          content={formatMessage({ id: 'meta.desc', defaultMessage: 'Find largest shopping collections here!' })}
+        />
+      </Head>
+      <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {

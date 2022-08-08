@@ -4,8 +4,7 @@ const withPWA = require('next-pwa');
 module.exports = withPWA({
   pwa: {
     dest: 'public',
-    disable: true,
-    register: false,
+    disable: process.env.NODE_ENV === 'development',
   },
   i18n,
   localePath,

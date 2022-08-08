@@ -1,10 +1,10 @@
 import next, { GetServerSideProps } from 'next';
-import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
-import { fetchApiHubServerSide } from 'frontastic';
-import { Result } from '@Types/product/Result';
 import { Category } from '@Types/product/Category';
+import { Result } from '@Types/product/Result';
+import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 import { siteUrl } from 'next-sitemap.config';
 import { mapLanguage } from 'project.config';
+import { fetchApiHubServerSide } from 'frontastic';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const fields = [] as ISitemapField[];

@@ -45,7 +45,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
+          <Dialog.Overlay className="bg-black fixed inset-0 opacity-25" />
         </Transition.Child>
 
         <Transition.Child

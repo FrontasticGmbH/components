@@ -53,7 +53,7 @@ export function Errors() {
 
   return (
     <div className="relative z-10">
-      <div className="fixed inset-0 z-10 overflow-y-auto bg-black/50 text-center">
+      <div className="bg-black/50 fixed inset-0 z-10 overflow-y-auto text-center">
         <span className="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">
           &#8203;
         </span>

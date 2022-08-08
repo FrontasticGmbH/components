@@ -80,7 +80,7 @@ const Item = ({ lineItem, goToProductPage, editItemQuantity, removeItem }: Props
               >
                 <span className="text-2xl font-thin">-</span>
               </button>
-              <span className="flex w-full items-center justify-center bg-gray-300 text-center text-base font-semibold text-gray-800  outline-none hover:text-black focus:text-black  focus:outline-none">
+              <span className="hover:text-black focus:text-black flex w-full items-center justify-center bg-gray-300 text-center text-base  font-semibold text-gray-800 outline-none  focus:outline-none">
                 {lineItem.count}
               </span>
               <button
