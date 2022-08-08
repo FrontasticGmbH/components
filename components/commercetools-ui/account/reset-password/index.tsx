@@ -79,12 +79,12 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
           <form className="space-y-7" onSubmit={handleSubmit}>
             <div className="py-6 text-center">
               <h2 className="text-3xl font-extrabold text-neutral-700">
-                {formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Become a member' })}
+                {formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })}
               </h2>
               <h3 className="text-md mt-6 text-neutral-600">
                 {formatAccountMessage({
                   id: 'password.reset.desc',
-                  defaultMessage: 'Don’t miss out on deals, offers, discounts and bonus vouchers.',
+                  defaultMessage: 'Fill the fields below to complete your password reset',
                 })}
               </h3>
             </div>

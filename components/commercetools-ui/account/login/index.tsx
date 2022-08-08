@@ -143,11 +143,15 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
           <form className="space-y-7" onSubmit={handleSubmit}>
             <div className="py-6 text-center">
               <h2 className="text-3xl font-extrabold text-neutral-700">
-                {formatAccountMessage({ id: 'account.sign.in', defaultMessage: 'Sign in to your account' })}
+                {resendPasswordReset
+                  ? formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })
+                  : formatAccountMessage({ id: 'account.sign.in', defaultMessage: 'Sign in to your account' })}
               </h2>
-              <h3 className="text-md mt-6 text-neutral-600">
-                {formatAccountMessage({ id: 'details.enter', defaultMessage: 'Please enter your details' })}
-              </h3>
+              {!subModal && (
+                <h3 className="text-md mt-6 text-neutral-600">
+                  {formatAccountMessage({ id: 'details.enter', defaultMessage: 'Please enter your details' })}
+                </h3>
+              )}
             </div>
             {success && <p className="text-sm text-green-600">{success}</p>}
             {error && <p className="text-sm text-accent-400">{error}</p>}
