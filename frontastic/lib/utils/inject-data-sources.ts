@@ -27,7 +27,11 @@ export function injectDataSources(
         // @TODO:
         // * Better error formatting
         // * Log request ID (even link to a Kibana search right away during dev?)
-        Log.error('Data source error: ' + dataSources[value].message);
+        if (dataSources[value].context) {
+          Log.error('Data source error: ' + dataSources[value].message, dataSources[value].context);
+        } else {
+          Log.error('Data source error: ' + dataSources[value].message);
+        }
       }
       return { ...acc, [key]: value, dataSource: dataSources[value] };
     } else {
