@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({
                   onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
-                  <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                  <MenuIcon className="h-7 w-7" aria-hidden="true" />
                 </button>
               </div>
 
