@@ -34,14 +34,21 @@ const Security = () => {
     try {
       const response = await changePassword(data.oldPassword, data.password);
       if (response.accountId) {
-        setSuccess('Password successfully changed!');
+        setSuccess(
+          formatAccountMessage({ id: 'password.change.success', defaultMessage: 'Password successfully changed!' }),
+        );
         setError('');
       } else {
-        setError("Sorry, we couldn't fulfill your request");
+        setError(
+          formatAccountMessage({
+            id: 'password.change.exception',
+            defaultMessage: "Sorry, we couldn't fulfill your request",
+          }),
+        );
         setSuccess('');
       }
     } catch (err) {
-      setError('Wrong password entered');
+      setError(formatAccountMessage({ id: 'password.change.wrong', defaultMessage: 'Wrong password entered' }));
       setSuccess('');
     } finally {
       setProcessing(false);
@@ -58,7 +65,7 @@ const Security = () => {
       <div className="mt-10 divide-y divide-gray-200">
         <div className="space-y-1">
           <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-light-100">Password</h3>
-          <p className="max-w-2xl text-sm text-gray-500">
+          <p className="max-w-2xl py-4 text-sm text-gray-500">
             {formatAccountMessage({
               id: 'account.security.warning',
               defaultMessage: 'Be careful when using this setting',
@@ -66,15 +73,16 @@ const Security = () => {
           </p>
         </div>
       </div>
-      <form className="mt-6" onSubmit={handleSubmit}>
+      <form className="mt-4" onSubmit={handleSubmit}>
         {success && <p className="text-sm text-green-600">{success}</p>}
         {error && <p className="text-sm text-accent-400">{error}</p>}
         <div className="mt-3 max-w-sm">
           <input
+            aria-label="old password"
             id="old-password"
             name="oldPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
+            className="block w-full rounded-sm border-gray-300 p-3 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password.old',
               defaultMessage: 'Old password',
@@ -86,10 +94,11 @@ const Security = () => {
         </div>
         <div className="mt-3 max-w-sm">
           <input
+            aria-label="new password"
             id="password"
             name="password"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
+            className="block w-full rounded-sm border-gray-300 p-3 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password',
               defaultMessage: 'Password',
@@ -101,10 +110,11 @@ const Security = () => {
         </div>
         <div className="mt-3 max-w-sm">
           <input
+            aria-label="confirm new password"
             id="confirm-password"
             name="confirmPassword"
             type="password"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
+            className="block w-full rounded-sm border-gray-300 p-3 shadow-sm focus:border-accent-400 focus:ring-accent-400 sm:text-sm"
             placeholder={formatAccountMessage({
               id: 'password.confirm',
               defaultMessage: 'Confirm password',
@@ -116,7 +126,7 @@ const Security = () => {
         </div>
         <button
           type="submit"
-          className="mt-4 w-20 items-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-center text-sm font-medium text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
+          className="mt-4 w-20 items-center rounded-sm border border-transparent bg-accent-400 py-2 px-4 text-center text-sm font-medium text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300"
           disabled={submitDisabled || processing}
         >
           Save

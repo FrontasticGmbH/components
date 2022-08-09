@@ -49,7 +49,7 @@ export function FrontasticRenderer({
         ))}
       </Grid>
       <Grid
-        gridClassName={gridClassName}
+        gridClassName={`${gridClassName} min-h-[90vh]`}
         wrapperClassName={`${wrapperClassName} w-full grow ${highlightClassNames(currentHighlight === 'main')}`}
       >
         {data?.page?.sections?.main?.layoutElements.map((layoutElement: LayoutElementType) => (

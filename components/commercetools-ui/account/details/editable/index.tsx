@@ -111,7 +111,7 @@ const Editable: React.FC<EditableProps> = ({
             <span className="ml-4 shrink-0">
               <button
                 type="submit"
-                className="rounded-md font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+                className="rounded-md font-medium text-accent-400 transition hover:text-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
                 form="editable-form"
               >
                 {formatMessage({ id: 'save', defaultMessage: 'Save' })}
@@ -120,7 +120,7 @@ const Editable: React.FC<EditableProps> = ({
             <span className="ml-4 shrink-0">
               <button
                 type="button"
-                className="rounded-md font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+                className="rounded-md font-medium text-accent-400 transition hover:text-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
                 onClick={stopEdit}
               >
                 {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
@@ -132,7 +132,7 @@ const Editable: React.FC<EditableProps> = ({
             <span className="ml-4 shrink-0">
               <button
                 type="button"
-                className="rounded-md font-medium text-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+                className="rounded-md font-medium text-accent-400 transition hover:text-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
                 onClick={startEdit}
               >
                 {formatMessage({ id: 'update', defaultMessage: 'Update' })}

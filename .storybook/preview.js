@@ -1,4 +1,4 @@
-import { RouterContext } from "next/dist/shared/lib/router-context";
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import '../styles/app.css';
 import DarkModeProvider from '../frontastic/provider/DarkMode';
 
@@ -13,7 +13,7 @@ export const parameters = {
   nextRouter: {
     Provider: RouterContext.Provider,
     locales: ['en', 'de'],
-    locale: 'en'
+    locale: 'en',
   },
 };
 

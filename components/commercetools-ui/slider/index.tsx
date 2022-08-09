@@ -16,6 +16,7 @@ export type SliderProps = {
   fitToSlides?: boolean;
   slideWidth?: number;
   withThumbs?: boolean;
+  overlapDots?: boolean;
 } & SwiperProps;
 
 const Slider: FC<SliderProps> = ({
@@ -26,6 +27,7 @@ const Slider: FC<SliderProps> = ({
   arrows = false,
   dots = true,
   spaceBetween = 20,
+  overlapDots = false,
   withThumbs,
   children,
   ...props
@@ -62,7 +64,7 @@ const Slider: FC<SliderProps> = ({
       slidesPerView={slidesPerView ?? 'auto'}
       spaceBetween={spaceBetween}
       navigation={arrows}
-      style={{ width: sliderWidth }}
+      style={{ width: sliderWidth, paddingBottom: overlapDots ? 0 : 40 }}
       {...props}
     >
       {slides}

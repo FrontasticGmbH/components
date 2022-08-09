@@ -17,7 +17,7 @@ export default function CategoryTeasers({ items }) {
           item.image && (
             <div key={item.image.media.mediaId} className="group relative aspect-3/4 flex-1 overflow-hidden">
               <div className="absolute inset-0">
-                <p className="absolute inset-0 z-10 bg-black/0 text-white group-hover:bg-black/70">
+                <p className="bg-black/0 group-hover:bg-black/70 absolute inset-0 z-10 text-white">
                   <a href="#" className="absolute top-1/2 hidden w-full -translate-y-1/2 text-center group-hover:block">
                     &gt; {t(item.linkLabel)}
                   </a>

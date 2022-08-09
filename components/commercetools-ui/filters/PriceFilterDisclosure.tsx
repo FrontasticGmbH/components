@@ -1,13 +1,31 @@
-import { FC } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
-import PriceRange, { PriceRangeProps } from 'components/commercetools-ui/price-range';
+import { Product } from '@Types/product/Product';
+import { Facet } from '@Types/result/Facet';
+import { RangeFacet } from '@Types/result/RangeFacet';
+import PriceRange from 'components/commercetools-ui/range-filter';
 import { useFormat } from 'helpers/hooks/useFormat';
+import { URLParam } from 'helpers/utils/updateURLParams';
 
-type PriceFilterDisclosureProps = PriceRangeProps;
+type PriceFilterDisclosureProps = {
+  facets: Facet[];
+  products: Product[];
+  updatePriceFilteringParams: (params: URLParam[]) => void;
+};
 
 const PriceFilterDisclosure: FC<PriceFilterDisclosureProps> = ({ products, facets, updatePriceFilteringParams }) => {
   const { formatMessage } = useFormat({ name: 'product' });
+
+  const facet = useMemo(() => facets?.find((facet) => facet.identifier === 'variants.price') as RangeFacet, [facets]);
+
+  const handleChange = useCallback((values: [number, number]) => {
+    const params = [
+      { key: 'facets[variants.price][min]', value: values[0].toString() },
+      { key: 'facets[variants.price][max]', value: values[1].toString() },
+    ];
+    updatePriceFilteringParams(params);
+  }, []);
 
   return (
     <div className="border-b border-gray-200 py-6">
@@ -27,7 +45,11 @@ const PriceFilterDisclosure: FC<PriceFilterDisclosureProps> = ({ products, facet
               </span>
             </Disclosure.Button>
             <Disclosure.Panel className="pt-6">
-              <PriceRange products={products} facets={facets} updatePriceFilteringParams={updatePriceFilteringParams} />
+              <PriceRange
+                facet={facet}
+                currency={products?.[0]?.variants?.[0]?.price?.currencyCode}
+                onChange={handleChange}
+              />
             </Disclosure.Panel>
           </>
         )}
