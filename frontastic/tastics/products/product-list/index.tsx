@@ -1,7 +1,7 @@
 import ProductList from 'components/commercetools-ui/products/product-list';
 
 function ProductListTastic({ data }) {
-  if (!data) return <></>;
+  if (!data?.data?.dataSource) return <></>;
 
   const { items, facets, category, previousCursor, nextCursor, totalItems } = data.data.dataSource;
 

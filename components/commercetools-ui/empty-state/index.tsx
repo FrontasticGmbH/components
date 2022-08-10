@@ -22,11 +22,9 @@ export const EmptyState: React.FC<Props> = ({
   return (
     <div className="mx-auto max-w-2xl px-2 pt-16 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
       {pageTitle && (
-        <div className="mx-28 mt-4 text-left">
-          <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
-            {pageTitle}
-          </h1>
-        </div>
+        <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
+          {pageTitle}
+        </h1>
       )}
 
       {image && (

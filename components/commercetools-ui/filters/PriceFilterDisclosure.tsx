@@ -1,12 +1,12 @@
 import { FC, useCallback, useMemo } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
+import { Product } from '@Types/product/Product';
+import { Facet } from '@Types/result/Facet';
+import { RangeFacet } from '@Types/result/RangeFacet';
 import PriceRange from 'components/commercetools-ui/range-filter';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { Facet } from '@Types/result/Facet';
-import { Product } from '@Types/product/Product';
 import { URLParam } from 'helpers/utils/updateURLParams';
-import { RangeFacet } from '@Types/result/RangeFacet';
 
 type PriceFilterDisclosureProps = {
   facets: Facet[];

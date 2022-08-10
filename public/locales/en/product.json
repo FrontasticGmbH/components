@@ -18,5 +18,7 @@
   "noProductsFound": "No products found.",
   "items": "Items out of ",
   "product": "Product",
-  "product.view": "View product"
+  "product.view": "View product",
+  "color.select": "Select color",
+  "size.select": "Select size"
 }

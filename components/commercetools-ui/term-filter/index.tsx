@@ -1,5 +1,5 @@
-import { TermFacet } from '@Types/result/TermFacet';
 import React, { useCallback, useEffect, useState } from 'react';
+import { TermFacet } from '@Types/result/TermFacet';
 
 export type TermFilterParams = {
   index: number;

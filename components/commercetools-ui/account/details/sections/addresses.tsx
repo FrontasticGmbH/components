@@ -27,29 +27,38 @@ const Addresses = () => {
 
   return (
     <>
-      <div className="mt-10 divide-y divide-gray-200">
-        <div className="space-y-1">
-          <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+      <div className="mt-10">
+        <div>
+          <h3 className="text-lg font-medium leading-6 text-gray-900">
             {formatAccountMessage({ id: 'address.myAddresses', defaultMessage: 'My Addresses' })}
           </h3>
-          <p className="max-w-2xl text-sm text-gray-500">
+          <p className="max-w-2xl pt-4 text-sm text-gray-500">
             {formatAccountMessage({
               id: 'address.desc',
-              defaultMessage: 'Here you can add different delivery addresses for your account',
+              defaultMessage: 'Manage or add delivery addresses for your account',
             })}
           </p>
+          <div className="flex justify-end">
+            <button
+              type="button"
+              className="hidden rounded-sm border border-transparent bg-accent-400 px-4 py-2 text-center text-sm font-medium tracking-wide text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-300 lg:block"
+              onClick={openCreateModal}
+            >
+              {formatAccountMessage({ id: 'address.add', defaultMessage: 'Add an address' })}
+            </button>
+          </div>
         </div>
-        <div className="mt-6">
-          <dl className="divide-y divide-gray-200">
+        <div className="mt-4">
+          <dl className="flex flex-col items-stretch lg:gap-4">
             {addresses?.map((address) => (
               <Address key={address.addressId} address={address} />
             ))}
           </dl>
         </div>
-        <div className="py-4 sm:py-8">
+        <div className="block border-t border-gray-200 pt-7 lg:hidden">
           <button
             type="button"
-            className="mt-4 w-full items-center rounded-md border border-transparent bg-accent-400 px-0 py-2 text-center text-sm font-medium text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-300 sm:w-fit sm:px-24"
+            className="w-full rounded-sm border border-transparent bg-accent-400 px-4 py-3 text-center text-sm font-medium tracking-wide text-white shadow-sm transition-colors duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-300 lg:block"
             onClick={openCreateModal}
           >
             {formatAccountMessage({ id: 'address.add', defaultMessage: 'Add an address' })}

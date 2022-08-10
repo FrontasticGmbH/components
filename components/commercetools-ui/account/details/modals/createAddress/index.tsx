@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Address } from '@Types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
@@ -20,13 +20,17 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
   const { formatMessage } = useFormat({ name: 'common' });
 
   //account data
-  const { addAddress } = useAccount();
+  const { addAddress, account } = useAccount();
 
   //I18n info
   const { country } = useI18n();
 
   //new address data
-  const [data, setData] = useState({ country } as Address);
+  const [data, setData] = useState({
+    country,
+    isDefaultBillingAddress: account.addresses.length == 0,
+    isDefaultShippingAddress: account.addresses.length == 0,
+  } as Address);
 
   //input change handler
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,7 +118,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="firstName"
                               id="first-name"
                               autoComplete="given-name"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -133,7 +137,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="lastName"
                               id="last-name"
                               autoComplete="family-name"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -151,7 +155,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               type="text"
                               name="streetNumber"
                               id="street-number"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -170,7 +174,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="streetName"
                               type="text"
                               autoComplete="address-line1"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -189,7 +193,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="phone"
                               id="phone"
                               autoComplete="tel"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -208,7 +212,7 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="postalCode"
                               id="postal-code"
                               autoComplete="postal-code"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
@@ -224,67 +228,71 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                               name="city"
                               id="city"
                               autoComplete="country"
-                              className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
+                              className="block w-full rounded-sm border-gray-300 py-3 px-4 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                               onChange={handleChange}
                             />
                           </div>
                         </div>
-                        <div>
-                          <legend className="sr-only">
-                            {formatAccountMessage({
-                              id: 'address.setDefault.delivery',
-                              defaultMessage: 'Set as default delivery address',
-                            })}
-                          </legend>
-                          <div className="relative flex items-start">
-                            <div className="flex h-5 items-center">
-                              <input
-                                id="is-default-shipping-address"
-                                aria-describedby="Set as default shipping address"
-                                name="isDefaultShippingAddress"
-                                type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
-                                onChange={handleCheckboxChange}
-                              />
-                            </div>
-                            <div className="ml-3 text-base">
-                              <label htmlFor="is-default-shipping-address" className="text-gray-400">
+                        {account.addresses.length > 0 && (
+                          <>
+                            <div>
+                              <legend className="sr-only">
                                 {formatAccountMessage({
                                   id: 'address.setDefault.delivery',
                                   defaultMessage: 'Set as default delivery address',
                                 })}
-                              </label>
+                              </legend>
+                              <div className="relative flex items-start">
+                                <div className="flex h-5 items-center">
+                                  <input
+                                    id="is-default-shipping-address"
+                                    aria-describedby="Set as default shipping address"
+                                    name="isDefaultShippingAddress"
+                                    type="checkbox"
+                                    className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
+                                    onChange={handleCheckboxChange}
+                                  />
+                                </div>
+                                <div className="ml-3 text-base">
+                                  <label htmlFor="is-default-shipping-address" className="text-gray-400">
+                                    {formatAccountMessage({
+                                      id: 'address.setDefault.delivery',
+                                      defaultMessage: 'Set as default delivery address',
+                                    })}
+                                  </label>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                        <div>
-                          <legend className="sr-only">
-                            {formatAccountMessage({
-                              id: 'address.setDefault.billing',
-                              defaultMessage: 'Set as default billing address',
-                            })}
-                          </legend>
-                          <div className="relative flex items-start">
-                            <div className="flex h-5 items-center">
-                              <input
-                                id="is-default-billing-address"
-                                aria-describedby="Set as default billing addaress"
-                                name="isDefaultBillingAddress"
-                                type="checkbox"
-                                className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
-                                onChange={handleCheckboxChange}
-                              />
-                            </div>
-                            <div className="ml-3 text-base">
-                              <label htmlFor="is-default-billing-address" className="text-gray-400">
+                            <div>
+                              <legend className="sr-only">
                                 {formatAccountMessage({
                                   id: 'address.setDefault.billing',
                                   defaultMessage: 'Set as default billing address',
                                 })}
-                              </label>
+                              </legend>
+                              <div className="relative flex items-start">
+                                <div className="flex h-5 items-center">
+                                  <input
+                                    id="is-default-billing-address"
+                                    aria-describedby="Set as default billing addaress"
+                                    name="isDefaultBillingAddress"
+                                    type="checkbox"
+                                    className="h-6 w-6 rounded border-gray-300 text-white focus:ring-accent-400"
+                                    onChange={handleCheckboxChange}
+                                  />
+                                </div>
+                                <div className="ml-3 text-base">
+                                  <label htmlFor="is-default-billing-address" className="text-gray-400">
+                                    {formatAccountMessage({
+                                      id: 'address.setDefault.billing',
+                                      defaultMessage: 'Set as default billing address',
+                                    })}
+                                  </label>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
+                          </>
+                        )}
                         <div className="text-center sm:col-span-2">
                           <p className="mt-4 text-sm leading-6 text-gray-400">
                             {formatAccountMessage({
@@ -297,14 +305,14 @@ const CreateAddress: React.FC<CreateAddressProps> = ({ open, onClose }) => {
                         <div className="mt-4 flex gap-4 sm:col-span-2 sm:gap-8">
                           <button
                             type="button"
-                            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gray-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                            className="inline-flex w-full items-center justify-center rounded-sm border border-transparent bg-gray-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                             onClick={onClose}
                           >
                             {formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                           </button>
                           <button
                             type="submit"
-                            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
+                            className="inline-flex w-full items-center justify-center rounded-sm border border-transparent bg-accent-400 py-3 px-6 text-base font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2"
                           >
                             {formatMessage({ id: 'save', defaultMessage: 'Save' })}
                           </button>

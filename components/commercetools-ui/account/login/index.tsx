@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Redirect from 'helpers/redirect';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import { useAccount } from 'frontastic';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 
 export interface LoginProps {
-  logo?: NextFrontasticImage;
   registerLink?: Reference;
   accountLink?: Reference;
 }
 
-const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
+const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
   //i18n messages
   const { formatMessage: formatErrorMessage } = useFormat({ name: 'error' });
   const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
@@ -41,6 +41,12 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
 
   //not on default login modal
   const subModal = resendVerification || resendPasswordReset;
+
+  //Password is visible while typing
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  //Toggles password visibility
+  const togglePasswordVisibility = useCallback(() => setIsPasswordVisible(!isPasswordVisible), [isPasswordVisible]);
 
   //get back to login modal
   const backToLogin = () => {
@@ -131,101 +137,102 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
   if (loggedIn) return <Redirect target={accountLink} />;
 
   return (
-    <>
-      <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="relative h-12 dark:invert">
-            <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
-          </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-light-100">
-            {formatAccountMessage({ id: 'account.sign.in', defaultMessage: 'Sign in to your account' })}
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            {formatAccountMessage({ id: 'account.doNotHave', defaultMessage: "Don't have an account?" })}{' '}
-            <ReferenceLink
-              target={registerLink}
-              className="font-medium text-accent-400 underline hover:text-accent-500"
-            >
-              {formatAccountMessage({ id: 'account.register.here', defaultMessage: 'Register here' })}
-            </ReferenceLink>
-          </p>
-        </div>
+    <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="mt-8">
+        <div className="mx-auto w-full max-w-[500px] rounded-sm bg-white px-6 pb-32 pt-16 shadow-2xl dark:bg-primary-200 lg:px-12">
+          <form className="space-y-7" onSubmit={handleSubmit}>
+            <div className="py-6 text-center">
+              <h2 className="text-3xl font-extrabold text-neutral-700">
+                {resendPasswordReset
+                  ? formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })
+                  : formatAccountMessage({ id: 'account.sign.in', defaultMessage: 'Sign in to your account' })}
+              </h2>
+              {!subModal && (
+                <h3 className="text-md mt-6 text-neutral-600">
+                  {formatAccountMessage({ id: 'details.enter', defaultMessage: 'Please enter your details' })}
+                </h3>
+              )}
+            </div>
+            {success && <p className="text-sm text-green-600">{success}</p>}
+            {error && <p className="text-sm text-accent-400">{error}</p>}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-neutral-700">
+                {formatMessage({ id: 'email', defaultMessage: 'Email' })}
+              </label>
+              <div className="mt-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder={formatAccountMessage({ id: 'email.enter', defaultMessage: 'Enter your email' })}
+                  required
+                  className="block w-full appearance-none rounded-sm border border-gray-300 px-3 py-2 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow dark:bg-primary-200 sm:rounded-lg sm:px-10">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              {success && <p className="text-sm text-green-600">{success}</p>}
-              {error && <p className="text-sm text-accent-400">{error}</p>}
+            {!resendPasswordReset && (
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-light-100">
-                  {formatMessage({ id: 'emailAddress', defaultMessage: 'Email Address' })}
+                <label htmlFor="password" className="block text-sm font-medium text-neutral-700">
+                  {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
                 </label>
-                <div className="mt-1">
+                <div className="relative mt-1">
                   <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
+                    id="password"
+                    name="password"
+                    type={isPasswordVisible ? 'text' : 'password'}
+                    autoComplete="current-password"
+                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                    className="block w-full appearance-none rounded-sm border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
                     onChange={handleChange}
                   />
+                  <span
+                    className="absolute right-3 top-1/2 block h-4 w-4 -translate-y-1/2 text-neutral-600"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {!isPasswordVisible ? <EyeOffIcon /> : <EyeIcon />}
+                  </span>
                 </div>
               </div>
+            )}
 
-              {!resendPasswordReset && (
-                <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-light-100">
-                    {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
-                  </label>
-                  <div className="mt-1">
+            {subModal ? (
+              <div>
+                <ArrowLeftIcon
+                  className="w-4 cursor-pointer text-accent-400 hover:text-accent-500"
+                  onClick={backToLogin}
+                />
+              </div>
+            ) : (
+              <div className="mt-2 space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
                     <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
-                      onChange={handleChange}
+                      id="remember-me"
+                      name="rememberMe"
+                      type="checkbox"
+                      className="h-5 w-5 rounded-sm border-gray-300 text-transparent focus:ring-accent-500"
+                      onChange={handleCheckboxChange}
                     />
-                  </div>
-                </div>
-              )}
-
-              {subModal ? (
-                <div>
-                  <ArrowLeftIcon
-                    className="w-4 cursor-pointer text-accent-400 hover:text-accent-500"
-                    onClick={backToLogin}
-                  />
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <input
-                        id="remember-me"
-                        name="rememberMe"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-accent-400 focus:ring-accent-500"
-                        onChange={handleCheckboxChange}
-                      />
-                      <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900 dark:text-light-100">
-                        {formatMessage({ id: 'rememberMe', defaultMessage: 'Remember me' })}
-                      </label>
-                    </div>
-
-                    <div className="text-sm">
-                      <span
-                        className="cursor-pointer font-medium text-accent-400 hover:text-accent-500"
-                        onClick={toResendPassword}
-                      >
-                        {formatAccountMessage({ id: 'password.forgot', defaultMessage: 'Forgot your password?' })}
-                      </span>
-                    </div>
+                    <label htmlFor="remember-me" className="ml-2 block whitespace-nowrap text-sm text-neutral-600">
+                      {formatMessage({ id: 'rememberMe', defaultMessage: 'Remember me' })}
+                    </label>
                   </div>
 
-                  <div className="flex items-center justify-end">
+                  <div className="text-right text-sm">
+                    <span
+                      className="cursor-pointer text-neutral-600 underline transition hover:text-accent-400"
+                      onClick={toResendPassword}
+                    >
+                      {formatAccountMessage({ id: 'password.forgot', defaultMessage: 'Forgot your password?' })}
+                    </span>
+                  </div>
+                </div>
+
+                {/* <div className="flex items-center justify-end">
                     <div className="text-sm">
                       <span
                         className="cursor-pointer font-medium text-accent-400 hover:text-accent-500"
@@ -237,25 +244,33 @@ const Login: React.FC<LoginProps> = ({ logo, registerLink, accountLink }) => {
                         })}
                       </span>
                     </div>
-                  </div>
-                </div>
-              )}
-              <div>
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
-                  disabled={loading}
-                >
-                  {resendVerification
-                    ? formatMessage({ id: 'submit', defaultMessage: 'Submit' })
-                    : formatAccountMessage({ id: 'sign.in', defaultMessage: 'Sign in' })}
-                </button>
+                  </div> */}
               </div>
-            </form>
-          </div>
+            )}
+            <div>
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-sm border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
+                disabled={loading}
+              >
+                {subModal
+                  ? formatMessage({ id: 'submit', defaultMessage: 'Submit' })
+                  : formatAccountMessage({ id: 'sign.in', defaultMessage: 'Sign in' })}
+              </button>
+              <p className="mt-4 text-center text-sm text-neutral-600">
+                {formatAccountMessage({ id: 'account.doNotHave', defaultMessage: "Don't have an account?" })}{' '}
+                <ReferenceLink
+                  target={registerLink}
+                  className="font-medium text-accent-400 underline hover:text-accent-500"
+                >
+                  {formatAccountMessage({ id: 'account.register.here', defaultMessage: 'Register here' })}
+                </ReferenceLink>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

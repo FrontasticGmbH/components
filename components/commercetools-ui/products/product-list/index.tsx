@@ -70,7 +70,7 @@ export default function ProductList({ products, totalProducts, previousCursor, n
               </h6>
             </div>
             <h6 className="col-span-2 block text-right dark:text-light-100 lg:hidden">
-              {`${products.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })} ${totalProducts}`}
+              {`${products?.length} ${formatProductMessage({ id: 'items', defaultMessage: 'Items' })} ${totalProducts}`}
             </h6>
           </button>
         )}

@@ -2,12 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './themes/default.css';
+@import './themes/theme1.css';
+@import './themes/theme2.css';
+@import './themes/theme3.css';
+
 html {
-  @apply p-0;; /* For tailwind Dialog styling override */
+  @apply p-0; /* For tailwind Dialog styling override */
 }
 
 body {
   color: #2d3748;
+}
+
+/* This style corresponds to 
+ * the footer component due to 
+ * a bug in TailwindCSS not 
+ * recognizing template columns 
+ * with more than 4 columns.
+ * see components/commercetools-ui/footer/index.tsx 
+ * This is a hardcoded and messy 
+ * workaround.
+ */
+@media (min-width: 768px) {
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 form input[type='checkbox']:checked {
@@ -16,6 +36,10 @@ form input[type='checkbox']:checked {
 }
 form input[type='checkbox']:checked:hover {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.select-accent {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCAyMCAyMCc+PHBhdGggc3Ryb2tlPScjY2UzZTcyJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIHN0cm9rZS13aWR0aD0nMS41JyBkPSdNNiA4bDQgNCA0LTQnLz48L3N2Zz4K');
 }
 
 @layer utilities {

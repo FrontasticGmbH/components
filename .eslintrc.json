@@ -9,21 +9,14 @@
   ],
   "overrides": [
     {
-      "files": [
-        "*.test.ts",
-        "*.test.tsx"
-      ],
+      "files": ["*.test.ts", "*.test.tsx"],
       "env": {
         "jest": true
       }
     }
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "tailwindcss",
-    "import",
-    "@typescript-eslint"
-  ],
+  "plugins": ["tailwindcss", "import", "@typescript-eslint"],
   "rules": {
     "tailwindcss/classnames-order": [
       "warn",
@@ -39,14 +32,11 @@
     "tailwindcss/no-contradicting-classname": "error",
     "prettier/prettier": "error",
     "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-empty-function": "off",
     "import/order": [
       "warn",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal"
-        ],
+        "groups": ["builtin", "external", "internal"],
         "pathGroups": [
           {
             "pattern": "react",
@@ -74,9 +64,7 @@
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": [
-          "react"
-        ],
+        "pathGroupsExcludedImportTypes": ["react"],
         "newlines-between": "never",
         "alphabetize": {
           "order": "asc",

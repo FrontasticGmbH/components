@@ -54,20 +54,23 @@ export function isLiveReference(reference: LinkReference | PageFolderReference) 
 interface Props {
   className?: string;
   target: Reference;
+  ariaLabel?: string;
 }
 
-export const ReferenceLink: React.FC<Props> = ({ target, className, children }) => {
+export const ReferenceLink: React.FC<Props> = ({ target, className, ariaLabel, children }) => {
   //no valid target for next/link
   if (!target)
     return (
       <NextLink href="#">
-        <a className={className}>{children}</a>
+        <a aria-label={ariaLabel} className={className}>
+          {children}
+        </a>
       </NextLink>
     );
 
   return (
     <NextLink href={getReferenceTarget(target)}>
-      <a className={className} {...getTargetProps(target)}>
+      <a aria-label={ariaLabel} className={className} {...getTargetProps(target)}>
         {children}
       </a>
     </NextLink>

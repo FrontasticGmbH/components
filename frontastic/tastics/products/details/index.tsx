@@ -3,19 +3,18 @@ import { useRouter } from 'next/router';
 import { Product } from '@Types/product/Product';
 import { Variant } from '@Types/product/Variant';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/commercetools-ui/products/product-details';
-import { useCart } from 'frontastic';
+import { useCart, useWishlist } from 'frontastic';
 import { addToWishlist } from 'frontastic/actions/wishlist';
+import Head from 'next/head';
 
 function ProductDetailsTastic({ data }) {
   const router = useRouter();
-  const { product }: { product: Product } = data.data.dataSource;
+  const { product }: { product: Product } = data?.data?.dataSource;
 
   const [currentVariantIdx, setCurrentVariantIdx] = useState<number>(0);
   const [variant, setVariant] = useState<Variant>(product.variants[0]);
   const { addItem } = useCart();
-
-  if (!product || !variant) return null;
-
+  const { data: wishlist } = useWishlist();
   // 🙈
   // feel free to add a map if there are later
   // more colors missing (or add to tailwind conf)
@@ -29,7 +28,7 @@ function ProductDetailsTastic({ data }) {
   // features..
   const colors = [
     ...new Map(
-      product.variants?.map((v: Variant) => [
+      product?.variants?.map((v: Variant) => [
         v.attributes?.color?.label,
         {
           name: v.attributes?.color?.label,
@@ -43,7 +42,7 @@ function ProductDetailsTastic({ data }) {
 
   const sizes = [
     ...new Map(
-      product.variants?.map((v: Variant) => [v.attributes?.commonSize?.label, v.attributes?.commonSize]),
+      product?.variants?.map((v: Variant) => [v.attributes?.commonSize?.label, v.attributes?.commonSize]),
     ).values(),
   ] as UISize[];
 
@@ -54,19 +53,20 @@ function ProductDetailsTastic({ data }) {
 
   useEffect(() => {
     if (!currentVariantIdx && currentVariantIdx !== 0) {
-      const currentVariantSKU = router.asPath.split('/')[3];
+      const currentVariantSKU = router.asPath.split('/')[3].split('?')[0];
       const currentVariantIndex = product?.variants.findIndex(({ sku }) => sku == currentVariantSKU);
 
-      setVariant(product.variants[currentVariantIndex]);
-    } else setVariant(product.variants[currentVariantIdx]);
+      setVariant(product?.variants[currentVariantIndex]);
+    } else setVariant(product?.variants[currentVariantIdx]);
   }, [product, currentVariantIdx]);
 
   const prod = useMemo<UIProduct>(
     () => ({
-      productId: product.productId,
-      name: product.name,
+      productId: product?.productId,
+      name: product?.name,
+      _url: product?._url,
       // add variants as well, so we can select and filter
-      variants: product.variants,
+      variants: product?.variants,
       price: variant.price,
       // rating: 4,
       images: variant.images?.map((img: string, id: number) => ({
@@ -76,8 +76,11 @@ function ProductDetailsTastic({ data }) {
       })),
       colors,
       sizes,
+      isOnWishlist: !!wishlist?.lineItems?.find((lineItem) =>
+        product?.variants.find((variant) => variant.sku === lineItem.variant.sku),
+      ),
       description: `
-      <p>${product.description || ''}</p>
+      <p>${product?.description || ''}</p>
     `,
 
       details: [
@@ -102,16 +105,22 @@ function ProductDetailsTastic({ data }) {
     addToWishlist(variant.sku, 1);
   };
 
-  if (!prod) return <></>;
+  if (!product || !variant || !prod) return <></>;
 
   return (
-    <ProductDetails
-      product={prod}
-      onAddToCart={handleAddToCart}
-      variant={variant}
-      onChangeVariantIdx={setCurrentVariantIdx}
-      onAddToWishlist={handleAddToWishList}
-    />
+    <>
+      <Head>
+        <title>{product.name}</title>
+      </Head>
+      <ProductDetails
+        product={prod}
+        onAddToCart={handleAddToCart}
+        variant={variant}
+        onChangeVariantIdx={setCurrentVariantIdx}
+        onAddToWishlist={handleAddToWishList}
+        quickBuyEnabled={data.quickBuyEnabled}
+      />
+    </>
   );
 }
 

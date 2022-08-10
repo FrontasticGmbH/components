@@ -98,21 +98,23 @@ export default function Newsletter({
           </div>
           <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
             <form action="#" className="mt-4 sm:mx-auto sm:flex sm:max-w-xl xl:px-4" onSubmit={onSubmit}>
-              <label htmlFor="cta-email" className="sr-only">
-                <Typography>{inputPlaceholder || fallbackPlaceholder}</Typography>
-              </label>
-              <input
-                id="cta-email"
-                name="email"
-                type="email"
-                className="block w-full rounded-md border border-transparent py-3 px-5 text-sm leading-5 text-gray-600 shadow-sm placeholder:text-gray-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-accent-400"
-                placeholder={inputPlaceholder}
-                onChange={onChange}
-              />
-              <div className="mt-4 sm:mt-0 sm:ml-3">
+              <div className="grow">
+                <label htmlFor="cta-email" className="sr-only">
+                  <Typography>{inputPlaceholder || fallbackPlaceholder}</Typography>
+                </label>
+                <input
+                  id="cta-email"
+                  name="email"
+                  type="email"
+                  className="block w-full rounded-md border border-transparent py-3 px-5 text-sm leading-5 text-gray-600 shadow-sm placeholder:text-gray-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-accent-400"
+                  placeholder={inputPlaceholder}
+                  onChange={onChange}
+                />
+              </div>
+              <div className="mt-4 shrink-0 sm:mt-0 sm:ml-3">
                 <button
                   type="submit"
-                  className="block w-full rounded-md bg-accent-400 py-3 px-6 text-base font-bold leading-5 text-white hover:bg-accent-500 sm:px-11"
+                  className="block w-full rounded-md bg-accent-400 py-3 px-6 text-base font-bold leading-5 text-white hover:bg-accent-500 sm:px-6"
                 >
                   <Typography>{ctaLabel || fallbackCta}</Typography>
                 </button>

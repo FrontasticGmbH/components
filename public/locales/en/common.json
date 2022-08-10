@@ -1,7 +1,7 @@
 {
   "firstName": "First name",
   "lastName": "Last name",
-  "phone": "Phone number",
+  "phone": "Phone",
   "email": "Email",
   "emailAddress": "Email Address",
   "address": "Address",
@@ -52,5 +52,7 @@
   "privacy.policy": "Privacy policy",
   "terms.conditions": "Terms and conditions",
   "rememberMe": "Remember me",
-  "search": "Search"
+  "search": "Search",
+  "meta.desc": "Find largest shopping collections here!",
+  "delete": "Delete"
 }

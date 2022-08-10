@@ -37,49 +37,51 @@ const DiscountForm: React.FC<Props> = ({ className, cart }) => {
 
   return (
     <div className={`${className}`}>
-      <div className="w-full rounded border-b-2 bg-gray-200 py-4 px-6">
-        <div className="flex justify-between">
-          <p className={`font-medium transition`}>
-            {formatCartMessage({ id: 'cart.discount', defaultMessage: 'Discounts' })}
-          </p>
-        </div>
-      </div>
-      <div className="bg-gray-200 px-5 pb-5">
-        <div className="flex w-full justify-between">
-          <div className=" pr-3">
-            <input
-              className=" w-full appearance-none rounded border-none py-3 px-4 leading-tight text-gray-700 shadow focus:border-accent-400"
-              type="text"
-              value={code}
-              placeholder={formatCartMessage({
-                id: 'cart.discount.code',
-                defaultMessage: 'code',
-              })}
-              onChange={(e) => setCode(e.target.value)}
-            />
+      <div className="rounded border-b-2 bg-gray-200 p-5">
+        <div className="w-full">
+          <div>
+            <p className="font-medium text-neutral-800 transition">
+              {formatCartMessage({ id: 'cart.discount', defaultMessage: 'Discounts' })}
+            </p>
           </div>
-          <button
-            type="button"
-            onClick={onApplyDiscount}
-            disabled={code === '' ? true : false}
-            className="w-24 cursor-pointer content-center rounded border-2 border-accent-400 bg-white p-2 font-bold text-accent-400 hover:bg-accent-400 hover:text-white focus:outline-none disabled:cursor-not-allowed disabled:border-none disabled:bg-gray-300 disabled:text-gray-500"
-          >
-            {formatCartMessage({
-              id: 'cart.apply',
-              defaultMessage: 'Apply',
-            })}
-          </button>
         </div>
-
-        <div className={`flex flex-wrap justify-items-start ${discounts?.length === 0 ? 'pt-0' : 'pt-4'}`}>
-          {discounts?.map((discount) => (
-            <div key={discount.discountId} className="mr-2 mt-3 flex w-fit justify-between rounded bg-gray-400">
-              <label className="px-4 py-1 text-white">{discount.code}</label>
-              <button type="button" onClick={() => handleRemove(discount)} className="py-1 pr-3">
-                <XIcon className="h-6 w-5 text-white" />
-              </button>
+        <div className="mt-5">
+          <div className="flex w-full justify-between gap-3">
+            <div>
+              <input
+                className=" w-full appearance-none rounded border-none py-3 px-4 leading-tight text-gray-700 shadow focus:border-accent-400"
+                type="text"
+                value={code}
+                placeholder={formatCartMessage({
+                  id: 'cart.discount.code',
+                  defaultMessage: 'code',
+                })}
+                onChange={(e) => setCode(e.target.value)}
+              />
             </div>
-          ))}
+            <button
+              type="button"
+              onClick={onApplyDiscount}
+              disabled={code === '' ? true : false}
+              className="min-w-24 cursor-pointer content-center rounded border-2 border-accent-400 bg-white p-2 font-bold text-accent-400 hover:bg-accent-400 hover:text-white focus:outline-none disabled:cursor-not-allowed disabled:border-none disabled:bg-gray-300 disabled:text-gray-500"
+            >
+              {formatCartMessage({
+                id: 'cart.apply',
+                defaultMessage: 'Apply',
+              })}
+            </button>
+          </div>
+
+          <div className={`flex flex-wrap gap-3 ${discounts?.length === 0 ? 'mt-0' : 'mt-7'}`}>
+            {discounts?.map((discount) => (
+              <div key={discount.discountId} className="flex w-fit justify-between rounded bg-gray-400">
+                <label className="px-4 py-1 text-white">{discount.code}</label>
+                <button type="button" onClick={() => handleRemove(discount)} className="py-1 pr-3">
+                  <XIcon className="h-6 w-5 text-white" />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
