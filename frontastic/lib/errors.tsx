@@ -67,9 +67,9 @@ export function Errors() {
                 <h3 className="text-lg font-medium leading-6 text-gray-900">Errors communicating with the API hub</h3>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Some errors occured when communicating with the API hub. Check the sandbox logs (s) of your
-                    Frontastic CLI and find the error messages either in the browser console (F12) or the last five
-                    below:
+                    Some errors occured when communicating with the API hub. Check the sandbox logs of your Frontastic
+                    CLI (press <kbd>s</kbd> there) and find the error messages either in the browser console (press{' '}
+                    <kbd>F12</kbd> in the browser) or the last five below:
                   </p>
                 </div>
               </div>
@@ -96,6 +96,11 @@ export function Errors() {
                         <p className="whitespace-pre-wrap text-base text-gray-500">
                           {JSON.stringify(error.data, null, 2)}
                         </p>
+                        {error.data[1].frontasticRequestId && (
+                          <p>
+                            Frontastic Request ID: <pre>{error.data[1].frontasticRequestId}</pre>
+                          </p>
+                        )}
                       </Disclosure.Panel>
                     </div>
                   )}
