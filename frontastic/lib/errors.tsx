@@ -57,7 +57,7 @@ export function Errors() {
         <span className="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">
           &#8203;
         </span>
-        <div className="relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
+        <div className="relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:align-middle">
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="sm:flex sm:items-start">
               <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -68,8 +68,8 @@ export function Errors() {
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
                     Some errors occured when communicating with the API hub. Check the sandbox logs of your Frontastic
-                    CLI (press <kbd>s</kbd> there) and find the error messages either in the browser console (press{' '}
-                    <kbd>F12</kbd> in the browser) or the last five below:
+                    CLI for details and possibly a stack trace (press <kbd>s</kbd> there) and find the error messages
+                    either in the browser console (press <kbd>F12</kbd> in the browser) or the last five below:
                   </p>
                 </div>
               </div>
@@ -92,10 +92,10 @@ export function Errors() {
                           </span>
                         </Disclosure.Button>
                       </dt>
-                      <Disclosure.Panel className="mt-2 pr-12">
-                        <p className="whitespace-pre-wrap text-base text-gray-500">
-                          {JSON.stringify(error.data, null, 2)}
-                        </p>
+                      <Disclosure.Panel className="mt-2">
+                        <div className="rounded bg-gray-100 p-2">
+                          <code className="whitespace-pre-wrap text-sm">{JSON.stringify(error.data, null, 2)}</code>
+                        </div>
                         {error.data[1].frontasticRequestId && (
                           <p>
                             Frontastic Request ID: <pre>{error.data[1].frontasticRequestId}</pre>
