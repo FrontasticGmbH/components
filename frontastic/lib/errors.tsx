@@ -96,7 +96,7 @@ export function Errors() {
                         <div className="rounded bg-gray-100 p-2">
                           <code className="whitespace-pre-wrap text-sm">{JSON.stringify(error.data, null, 2)}</code>
                         </div>
-                        {error.data[1].frontasticRequestId && (
+                        {error.data[1]?.frontasticRequestId && (
                           <p>
                             Frontastic Request ID: <pre>{error.data[1].frontasticRequestId}</pre>
                           </p>
