@@ -20,9 +20,16 @@ export class CurrencyHelpers {
   };
 
   private static formatMoneyCurrency = function (price: Money) {
-    return Intl.NumberFormat('de-DE', { style: 'currency', currency: price?.currencyCode ?? 'EUR' }).format(
-      (price?.centAmount ?? 0) / Math.pow(10, price?.fractionDigits ?? 2),
-    );
+    let locale = 'de-DE';
+
+    if (typeof window !== 'undefined') {
+      locale = window.navigator.language;
+    }
+
+    return Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: price?.currencyCode ?? 'EUR',
+    }).format((price?.centAmount ?? 0) / Math.pow(10, price?.fractionDigits ?? 2));
   };
 
   /**
@@ -52,6 +59,7 @@ export class CurrencyHelpers {
           `Value 1: ${value1.currencyCode}, value 2: ${value2.currencyCode}`,
       );
     }
+
     return {
       fractionDigits: value1.fractionDigits || value2.fractionDigits,
       centAmount: value1.centAmount + value2.centAmount,

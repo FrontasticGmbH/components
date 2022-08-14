@@ -38,7 +38,7 @@ const OrderSummary = ({
 
   const submitButtonClassName = `${disableSubmitButton ? 'opacity-75 pointer-events-none' : ''} ${
     !showDiscountsForm ? 'mt-7' : ''
-  } w-full rounded-md border border-transparent py-3 px-4 text-base shadow-sm font-medium text-white bg-accent-400 hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50`;
+  } w-full rounded-sm border border-transparent py-3 px-4 text-base shadow-sm font-medium text-white bg-accent-400 hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-gray-50`;
 
   const interpolatedComponents = [
     <ReferenceLink key={0} className="cursor-pointer font-medium text-accent-500 hover:underline" target={termsLink} />,
@@ -77,12 +77,8 @@ const OrderSummary = ({
   return (
     <section
       aria-labelledby="summary-heading"
-      className="rounded-lg bg-gray-50 py-6 px-4 dark:bg-primary-200 sm:col-span-8 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+      className="rounded-sm bg-gray-50 py-6 px-8 dark:bg-primary-200 sm:col-span-8 sm:p-6 lg:col-span-5 lg:mt-0 lg:px-10 lg:pt-3 lg:pb-8"
     >
-      <h2 id="summary-heading" className="text-lg font-medium text-gray-900 dark:text-light-100">
-        {formatCartMessage({ id: 'order.summary', defaultMessage: 'Order Summary' })}
-      </h2>
-
       <dl className="mt-6 space-y-4">
         <div className="flex items-center justify-between">
           <dt className="text-sm text-gray-600 dark:text-light-100">
@@ -150,7 +146,7 @@ const OrderSummary = ({
       {showSubmitButton && (
         <div>
           <button type="submit" onClick={onSubmit} className={submitButtonClassName}>
-            {submitButtonLabel || formatCartMessage({ id: 'checkout', defaultMessage: 'Checkout' })}
+            {submitButtonLabel || formatCartMessage({ id: 'checkout.go', defaultMessage: 'Go to checkout' })}
           </button>
 
           {submitButtonLabel === formatCartMessage({ id: 'ContinueAndPay', defaultMessage: 'Continue and pay' }) && (
