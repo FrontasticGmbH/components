@@ -13,6 +13,7 @@ interface PageFolderReference {
   pageFolder: {
     pageFolderId: string;
     name: string;
+    hasLivePage: boolean;
     _urls: {
       [locale: string]: string;
     };
@@ -44,6 +45,10 @@ export function getTargetProps(target: LinkReference | PageFolderReference) {
   }
 
   return {};
+}
+
+export function isLiveReference(reference: LinkReference | PageFolderReference) {
+  return reference.type !== 'page-folder' || (reference.type === 'page-folder' && reference.pageFolder?.hasLivePage);
 }
 
 interface Props {

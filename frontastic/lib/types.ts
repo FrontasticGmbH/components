@@ -111,6 +111,7 @@ export type TasticWrapperProps = {
   data: TasticData;
   pageFolder: PageFolder;
   highlight?: boolean;
+  previewId?: string;
 };
 export interface DataSourceConfiguration {
   dataSourceId: string;

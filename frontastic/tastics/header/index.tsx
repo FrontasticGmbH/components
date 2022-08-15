@@ -3,7 +3,7 @@ import Header from 'components/commercetools-ui/header';
 import { calculateCartCount } from 'helpers/utils/calculateCartCount';
 import { useCart, useWishlist, useAccount } from 'frontastic/provider';
 
-const HeaderTastic = ({ data }) => {
+const HeaderTastic = ({ data, previewId }) => {
   const { data: cart } = useCart();
   const { data: wishlist } = useWishlist();
   const { account } = useAccount();
@@ -20,6 +20,7 @@ const HeaderTastic = ({ data }) => {
       accountLink={data.accountLink}
       wishlistLink={data.wishlistLink}
       cartLink={data.cartLink}
+      previewId={previewId}
     />
   );
 };

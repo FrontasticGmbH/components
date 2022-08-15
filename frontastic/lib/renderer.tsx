@@ -1,11 +1,11 @@
 import React from 'react';
+import useMediaQuery from 'helpers/hooks/useMediaQuery';
+import * as screenSizes from 'helpers/utils/screensizes';
 import { Cell as LayoutElement } from './cell';
 import { highlightClassNames, TasticWrapper } from './component';
 import { Errors } from './errors';
 import { Grid } from './grid';
-import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse } from './types';
-import useMediaQuery from 'helpers/hooks/useMediaQuery';
-import * as screenSizes from 'helpers/utils/screensizes';
+import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse, PagePreviewDataResponse } from './types';
 
 export function FrontasticRenderer({
   data,
@@ -14,7 +14,7 @@ export function FrontasticRenderer({
   wrapperClassName,
   currentHighlight,
 }: {
-  data: PageDataResponse;
+  data: PageDataResponse & PagePreviewDataResponse;
   tastics: TasticRegistry;
   gridClassName?: string;
   wrapperClassName?: string;
@@ -43,6 +43,7 @@ export function FrontasticRenderer({
                 dataSources={data.data.dataSources}
                 pageFolder={data.pageFolder}
                 highlight={currentHighlight === t.tasticId}
+                previewId={data?.previewId}
               />
             ))}
           </LayoutElement>
@@ -66,6 +67,7 @@ export function FrontasticRenderer({
                 dataSources={data.data.dataSources}
                 pageFolder={data.pageFolder}
                 highlight={currentHighlight === t.tasticId}
+                previewId={data?.previewId}
               />
             ))}
           </LayoutElement>
@@ -89,6 +91,7 @@ export function FrontasticRenderer({
                 dataSources={data.data.dataSources}
                 pageFolder={data.pageFolder}
                 highlight={currentHighlight === t.tasticId}
+                previewId={data?.previewId}
               />
             ))}
           </LayoutElement>
