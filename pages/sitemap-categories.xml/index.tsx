@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     fields.push(
       ...(categories.items as Category[]).map((category) => ({
-        loc: `${siteUrl}${category.path}`,
+        loc: `${siteUrl}${category._url}`,
         lastmod: new Date().toISOString(),
         changefreq: 'daily' as const,
       })),
