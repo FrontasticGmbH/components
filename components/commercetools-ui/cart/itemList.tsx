@@ -1,6 +1,6 @@
+import { Fragment } from 'react';
 import { Cart } from '@Types/cart/Cart';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { Fragment } from 'react';
 import Item from './item';
 
 interface Props {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import AccountDetails from './index';
 import { FrontasticContext } from 'frontastic';
-import { UseAccount } from 'frontastic/provider/Frontastic/UseAccount';
 import { FrontasticState } from 'frontastic/provider/Frontastic/FrontasticState';
+import { UseAccount } from 'frontastic/provider/Frontastic/UseAccount';
+import AccountDetails from './index';
 
 export default {
   title: 'Frontastic/Account Details',

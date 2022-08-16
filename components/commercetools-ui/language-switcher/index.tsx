@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { formatLocaleName } from 'helpers/utils/formatLocaleName';
 import Dropdown, { DropdownProps } from 'components/commercetools-ui/dropdown';
+import { formatLocaleName } from 'helpers/utils/formatLocaleName';
 
 interface Props {
   className: string;

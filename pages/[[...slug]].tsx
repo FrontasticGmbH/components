@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { GetServerSideProps, Redirect } from 'next';
+import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { createClient, ResponseError, LocaleStorage, useDarkMode } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
-import { useFormat } from 'helpers/hooks/useFormat';
-import Head from 'next/head';
 
 type SlugProps = {
   // This needs an overhaul. Can be too many things in my opinion (*Marcel)

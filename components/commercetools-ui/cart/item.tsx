@@ -1,10 +1,10 @@
 import React from 'react';
 import { MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/outline';
 import { LineItem } from '@Types/cart/LineItem';
+import Dropdown, { DropdownProps } from 'components/commercetools-ui/dropdown';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Image from 'frontastic/lib/image';
 import Price from '../price';
-import Dropdown, { DropdownProps } from 'components/commercetools-ui/dropdown';
 
 interface Props {
   lineItem: LineItem;

@@ -54,7 +54,7 @@ const DeleteConfirmationModal: React.FC<Props> = ({ open, onClose, onConfirm }) 
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="absolute top-1/2 left-1/2 w-[90%] max-w-[400px] -translate-x-1/2 -translate-y-1/2 transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:p-6">
+              <div className="absolute top-1/2 left-1/2 w-[90%] max-w-[400px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:p-6">
                 <div>
                   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100">
                     <WarningIcon className="h-6 w-6 text-yellow-600" aria-hidden="true" />

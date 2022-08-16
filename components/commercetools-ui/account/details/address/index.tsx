@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { PencilAltIcon as EditIcon } from '@heroicons/react/outline';
 import { StarIcon } from '@heroicons/react/solid';
 import type { Address as AddressType } from '@Types/account/Address';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { useAccount } from 'frontastic';
-import UpdateAddressModal from '../modals/updateAddress';
 import DeleteConfirmationModal from '../modals/deleteConfirmation';
-import { PencilAltIcon as EditIcon } from '@heroicons/react/outline';
+import UpdateAddressModal from '../modals/updateAddress';
 
 export interface AddressProps {
   address: AddressType;

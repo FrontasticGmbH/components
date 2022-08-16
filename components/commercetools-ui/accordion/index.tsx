@@ -4,24 +4,29 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 
 export interface AccordionProps {
   index?: number;
-
   accordionListLength?: number;
   className?: string;
-  sectionTitle: string;
+  openSectionTitle: string;
+  closedSectionTitle: string;
+  iconColor?: string;
 }
 
-const AccordionBtn: React.FC<AccordionProps> = ({ sectionTitle, children, className }) => {
+const AccordionBtn: React.FC<AccordionProps> = ({
+  openSectionTitle,
+  closedSectionTitle,
+  iconColor,
+  children,
+  className,
+}) => {
   return (
     <div className={`${className}`}>
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className={`${open ? 'border-b-2' : ''}  w-full py-2 px-4`}>
+            <Disclosure.Button className="w-full py-2 px-4 text-sm">
               <div className="flex justify-between">
-                <p className={`${open ? 'text-accent-400' : ''} transition`}>{sectionTitle}</p>
-                <ChevronDownIcon
-                  className={`${open ? 'rotate-180 transform text-accent-400' : ''} h-7 w-7 transition`}
-                />
+                <p className="transition"> {open ? openSectionTitle : closedSectionTitle}</p>
+                <ChevronDownIcon className={`${open ? 'rotate-180 transform' : ''} h-7 w-7 ${iconColor} transition`} />
               </div>
             </Disclosure.Button>
             <Transition

@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Redirect from 'helpers/redirect';
 import { Reference, ReferenceLink } from 'helpers/reference';
 import { useAccount } from 'frontastic';
 import Image, { NextFrontasticImage } from 'frontastic/lib/image';
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 
 export interface LoginProps {
   registerLink?: Reference;
