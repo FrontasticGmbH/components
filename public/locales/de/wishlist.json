@@ -4,5 +4,7 @@
   "wishlist.items.in.view": "Artikel in der Wunschliste, Wunschliste ansehen",
   "wishlist.oops": "Hoppla...",
   "wishlist.empty": "Ihre Wunschliste scheint leer zu sein",
-  "wishlist.add.items": "Elemente hinzufügen"
+  "wishlist.add.items": "Elemente hinzufügen",
+  "wishlist.add.to.bag": "Zum Warenkorb hinzufügen",
+  "wishlist.remove": "Entfernen"
 }

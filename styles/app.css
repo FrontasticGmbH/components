@@ -15,13 +15,13 @@ body {
   color: #2d3748;
 }
 
-/* This style corresponds to 
- * the footer component due to 
- * a bug in TailwindCSS not 
- * recognizing template columns 
+/* This style corresponds to
+ * the footer component due to
+ * a bug in TailwindCSS not
+ * recognizing template columns
  * with more than 4 columns.
- * see components/commercetools-ui/footer/index.tsx 
- * This is a hardcoded and messy 
+ * see components/commercetools-ui/footer/index.tsx
+ * This is a hardcoded and messy
  * workaround.
  */
 @media (min-width: 768px) {

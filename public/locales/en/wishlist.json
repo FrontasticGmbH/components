@@ -4,5 +4,7 @@
   "wishlist.items.in.view": "items in wishlist, view wishlist",
   "wishlist.oops": "Oops...",
   "wishlist.empty": "It seems that your wishlist is empty",
-  "wishlist.add.items": "Add items"
+  "wishlist.add.items": "Add items",
+  "wishlist.add.to.bag": "Add to bag",
+  "wishlist.remove": "Remove"
 }

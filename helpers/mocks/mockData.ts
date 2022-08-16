@@ -120,8 +120,9 @@ const lineItems: LineItem[] = [
     name: 'Some Article of clothing 1',
     type: 'Clothes',
     variant: {
-      sku: 'SKU',
+      sku: 'SKU1',
       images: ['https://tailwindui.com/img/ecommerce-images/checkout-page-03-product-04.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
     },
   },
   {
@@ -132,8 +133,9 @@ const lineItems: LineItem[] = [
     name: 'Some Article of clothing 2',
     type: 'Clothes',
     variant: {
-      sku: 'SKU',
+      sku: 'SKU2',
       images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
     },
   },
   {
@@ -144,8 +146,22 @@ const lineItems: LineItem[] = [
     name: 'Some Article of clothing 3',
     type: 'Clothes',
     variant: {
-      sku: 'SKU',
+      sku: 'SKU3',
       images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
+    },
+  },
+  {
+    lineItemId: '3',
+    _url: '/',
+    addedAt: new Date(),
+    count: 5,
+    name: 'Some Article of clothing 3',
+    type: 'Clothes',
+    variant: {
+      sku: 'SKU4',
+      images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
     },
   },
 ];
@@ -1019,7 +1035,7 @@ export const products: Product[] = [
     variants: [
       {
         id: '1',
-        sku: 'M0E20000000E72G',
+        sku: 'SKU1',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080367_1_medium.jpg'],
         groupId: '80367',
         attributes: {
@@ -1071,7 +1087,7 @@ export const products: Product[] = [
         attributes: {
           articleNumberManufacturer: 'LREP02 TAUPE',
           articleNumberMax: '80367',
-          matrixId: 'M0E20000000E72H',
+          matrixId: 'SKU2',
           baseId: '80367',
           designer: {
             key: 'serafini',
@@ -1111,7 +1127,7 @@ export const products: Product[] = [
       },
       {
         id: '3',
-        sku: 'M0E20000000E72I',
+        sku: 'SKU3',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080367_1_medium.jpg'],
         groupId: '80367',
         attributes: {
@@ -2188,7 +2204,7 @@ export const products: Product[] = [
     variants: [
       {
         id: '1',
-        sku: 'A0E20000000251J',
+        sku: 'SKU2',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081072_1_medium.jpg'],
         groupId: '81072',
         attributes: {
@@ -2255,7 +2271,7 @@ export const products: Product[] = [
     variants: [
       {
         id: '1',
-        sku: 'A0E2000000021XO',
+        sku: 'SKU3',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079413_1_medium.jpg'],
         groupId: '79413',
         attributes: {
