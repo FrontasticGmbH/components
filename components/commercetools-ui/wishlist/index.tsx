@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LineItem } from '@Types/wishlist/LineItem';
 import { Variant } from '@Types/wishlist/Variant';
 import { Wishlist } from '@Types/wishlist/Wishlist';
@@ -6,6 +6,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
 import EmptyWishlist from './empty_wishlist';
 import List from './list';
+import Spinner from '../spinner';
 
 export interface Props {
   pageTitle?: string;
@@ -32,7 +33,20 @@ const WishList: React.FC<Props> = ({
 }) => {
   const { formatMessage: formatWishlistMessage } = useFormat({ name: 'wishlist' });
 
-  if (!items?.lineItems?.length)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (items?.lineItems) setLoading(false);
+  }, [items]);
+
+  if (loading)
+    return (
+      <div className="flex h-[75vh] items-center justify-center">
+        <Spinner />
+      </div>
+    );
+
+  if (items.lineItems.length === 0)
     return (
       <EmptyWishlist
         pageTitle={pageTitle}
@@ -49,7 +63,7 @@ const WishList: React.FC<Props> = ({
       <h1 className="py-6 text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         {formatWishlistMessage({ id: 'wishlist', defaultMessage: 'Wishlist' })}
       </h1>
-      {items?.lineItems && <List items={items.lineItems} removeLineItems={removeLineItems} addToCart={addToCart} />}
+      <List items={items.lineItems} removeLineItems={removeLineItems} addToCart={addToCart} />
     </main>
   );
 };
