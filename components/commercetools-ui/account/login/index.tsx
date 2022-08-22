@@ -22,7 +22,7 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
   const { login, loggedIn, requestConfirmationEmail, requestPasswordReset } = useAccount();
 
   //login data
-  const [data, setData] = useState({ email: '', password: '' });
+  const [data, setData] = useState({ email: '', password: '', rememberMe: false });
 
   //error
   const [error, setError] = useState('');
@@ -88,7 +88,7 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
   };
 
   //resend verification email for user
-  const requestConfirmationEmailForUser = async () => {
+  const resendVerificationEmailForUser = async () => {
     try {
       await requestConfirmationEmail(data.email, data.password);
       setSuccess(
@@ -125,7 +125,7 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
     //processing starts
     setLoading(true);
     //if user is attempting to resend verification email
-    if (resendVerification) requestConfirmationEmailForUser();
+    if (resendVerification) resendVerificationEmailForUser();
     //if user is attempting tor equest a password reset
     else if (resendPasswordReset) resendPasswordResetForUser();
     //if user wants to login
