@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { FrontasticContext } from 'frontastic';
-import { FrontasticState } from 'frontastic/provider/Frontastic/FrontasticState';
-import { UseAccount } from 'frontastic/provider/Frontastic/UseAccount';
+import { FrontasticState } from 'frontastic/provider/frontastic/FrontasticState';
+import { UseAccount } from 'frontastic/provider/frontastic/UseAccount';
 import AccountDetails from './index';
 
 export default {
