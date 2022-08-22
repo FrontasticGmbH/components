@@ -3,11 +3,11 @@ import { Address } from '@Types/account/Address';
 import { GetAccountResult, RegisterAccount, UpdateAccount } from 'frontastic/actions/account';
 
 export interface UseAccount extends GetAccountResult {
-  login: (email: string, password: string, remember?: boolean) => Promise<Account>;
+  login: (email: string, password: string) => Promise<Account>;
   logout: () => Promise<void>;
   register: (account: RegisterAccount) => Promise<Account>;
   confirm: (token: string) => Promise<Account>;
-  resendVerificationEmail: (email: string, password: string) => Promise<void>;
+  requestConfirmationEmail: (email: string, password: string) => Promise<void>;
   changePassword: (oldPassword: string, newPassword: string) => Promise<Account>;
   requestPasswordReset: (email: string) => Promise<void>;
   resetPassword: (token: string, newPassword: string) => Promise<Account>;
