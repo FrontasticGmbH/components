@@ -1,5 +1,6 @@
-const { i18n, localePath } = require('./next-i18next.config');
+const executeProcess = require('child_process');
 const withPWA = require('next-pwa');
+const { i18n, localePath } = require('./next-i18next.config');
 
 module.exports = withPWA({
   productionBrowserSourceMaps: true,
@@ -23,5 +24,8 @@ module.exports = withPWA({
     });
 
     return config;
+  },
+  generateBuildId: () => {
+    return executeProcess.execSync('git rev-parse HEAD').toString();
   },
 });
