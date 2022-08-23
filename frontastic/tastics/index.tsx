@@ -12,7 +12,7 @@ import AccountOrdersHistory from './account/orders';
 import AccountRegister from './account/register';
 import ResetPassword from './account/reset-password';
 import AccountTest from './account/test';
-// import Cart from './cart';
+import Cart from './cart';
 import Checkout from './checkout';
 import ThankYou from './checkout/thank-you';
 import Markdown from './content/markdown';
@@ -30,11 +30,6 @@ import Showcase from './showcase';
 import Wishlist from './wishlist';
 import ContentfulBlogTastic from './contentful-blog';
 import CategoryTeasers from './content/category-teasers';
-import dynamic from 'next/dynamic';
-
-const Cart = dynamic(() => import('./cart'), {
-  loading: () => <h1>Loading cart...</h1>,
-})
 
 export const tastics = {
   // Doc Examples
