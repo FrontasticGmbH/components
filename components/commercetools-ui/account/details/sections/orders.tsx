@@ -6,7 +6,7 @@ import Price from 'components/commercetools-ui/price';
 import Spinner from 'components/commercetools-ui/spinner';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
-import { tablet } from 'helpers/utils/screensizes';
+import { tablet, mobile } from 'helpers/utils/screensizes';
 import { useCart } from 'frontastic';
 import Image from 'frontastic/lib/image';
 
@@ -18,6 +18,7 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
   const [accountOrdersState, setAccountOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [isTabletSize] = useMediaQuery(tablet);
+  const [isMobileSize] = useMediaQuery(mobile);
   //account data
   const { orderHistory } = useCart();
 
@@ -73,8 +74,26 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                         :
                       </dt>
                       <dd className="inline text-sm text-gray-700 sm:mt-1">{order.orderId}</dd>
+                      <time
+                        className="hidden text-sm text-gray-500 sm:mt-1 sm:block"
+                        dateTime={order.createdAt.toString()}
+                      >
+                        {order.createdAt.toString().substring(0, 10)}
+                      </time>
                     </div>
                     <div className="text-sm sm:pt-0">
+                      <div className="inline sm:hidden">
+                        <dt className="mr-2 inline font-medium text-gray-900">
+                          {formatAccountMessage({
+                            id: 'date',
+                            defaultMessage: 'Date',
+                          })}
+                          :
+                        </dt>
+                        <time className="mr-6 inline text-sm text-gray-700" dateTime={order.createdAt.toString()}>
+                          {order.createdAt.toString().substring(0, 10)}
+                        </time>
+                      </div>
                       <dt className="mr-2 inline font-medium text-gray-900 sm:block">
                         <span>
                           {formatAccountMessage({
