@@ -19,7 +19,7 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
   const { formatMessage } = useFormat({ name: 'common' });
 
   //account actions
-  const { login, loggedIn, resendVerificationEmail, requestPasswordReset } = useAccount();
+  const { login, loggedIn, requestConfirmationEmail, requestPasswordReset } = useAccount();
 
   //login data
   const [data, setData] = useState({ email: '', password: '', rememberMe: false });
@@ -79,7 +79,7 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
   //login user
   const loginUser = async () => {
     try {
-      const response = await login(data.email, data.password, data.rememberMe);
+      const response = await login(data.email, data.password);
       if (!response.accountId)
         setError(formatErrorMessage({ id: 'auth.wrong', defaultMessage: 'Wrong email address or password' }));
     } catch (err) {
@@ -90,7 +90,7 @@ const Login: React.FC<LoginProps> = ({ registerLink, accountLink }) => {
   //resend verification email for user
   const resendVerificationEmailForUser = async () => {
     try {
-      await resendVerificationEmail(data.email, data.password);
+      await requestConfirmationEmail(data.email, data.password);
       setSuccess(
         formatAccountMessage({
           id: 'verification.resent',
