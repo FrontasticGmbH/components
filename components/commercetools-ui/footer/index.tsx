@@ -1,9 +1,9 @@
 import React from 'react';
 import LanguageSwitcher from 'components/commercetools-ui/language-switcher';
 import Typography from 'components/commercetools-ui/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
 import Column, { Link, Column as FooterColumn } from './column';
 import { renderIcon } from './renderIcon';
-import { useFormat } from 'helpers/hooks/useFormat';
 export interface Props {
   columns: FooterColumn[];
   copyright?: string;
