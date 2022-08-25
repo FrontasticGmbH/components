@@ -27,9 +27,11 @@ const Tile: React.FC<TileProps> = ({
 }) => {
   return (
     <div className="relative flex justify-center overflow-hidden p-2 align-middle">
-      <div className="w-full">
-        <Image media={image} className="opacity-70 md:opacity-100" alt={title} />
-      </div>
+      {image && (
+        <div className="w-full">
+          <Image media={image} className="opacity-70 md:opacity-100" alt={title} />
+        </div>
+      )}
 
       <div className="absolute top-1/2 flex max-w-md -translate-y-1/2 flex-col justify-center text-center md:left-10 md:max-w-xl md:text-left">
         <div className={`text-md mb-2 md:font-medium ${subtitleFont} ${subtitleColor}`}>
