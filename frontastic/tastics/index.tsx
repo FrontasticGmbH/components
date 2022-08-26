@@ -20,6 +20,7 @@ import Spacer from './content/spacer';
 import Tile from './content/tile';
 import Footer from './footer';
 import Header from './header';
+import Hero from './hero';
 import Newsletter from './newsletter';
 import NotFound from './not-found';
 import ProductDetails from './products/details';
@@ -63,5 +64,6 @@ export const tastics = {
   'commercetools/ui/account/reset-password': ResetPassword,
   'commercetools/ui/content/contentful/blog': ContentfulBlogTastic,
   'commercetools/ui/content/category-teasers': CategoryTeasers,
+  'commercetools/ui/hero': Hero,
   default: NotFound,
 };
