@@ -17,12 +17,15 @@ type PriceFilterDisclosureProps = {
 const PriceFilterDisclosure: FC<PriceFilterDisclosureProps> = ({ products, facets, updatePriceFilteringParams }) => {
   const { formatMessage } = useFormat({ name: 'product' });
 
-  const facet = useMemo(() => facets?.find((facet) => facet.identifier === 'variants.price') as RangeFacet, [facets]);
+  const facet = useMemo(
+    () => facets?.find((facet) => facet.identifier === 'variants.scopedPrice.value') as RangeFacet,
+    [facets],
+  );
 
   const handleChange = useCallback((values: [number, number]) => {
     const params = [
-      { key: 'facets[variants.price][min]', value: values[0].toString() },
-      { key: 'facets[variants.price][max]', value: values[1].toString() },
+      { key: 'facets[variants.scopedPrice.value][min]', value: values[0].toString() },
+      { key: 'facets[variants.scopedPrice.value][max]', value: values[1].toString() },
     ];
     updatePriceFilteringParams(params);
   }, []);
