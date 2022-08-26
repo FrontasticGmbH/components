@@ -17,7 +17,7 @@ export default function Cta({ label, reference, color, isButton = false }: Props
           href="#"
           className={`text-white ${
             isButton ? 'bg' : 'text'
-          }-${color}-600 mt-6 rounded py-3 px-4 text-base font-semibold`}
+          }-black-700 mt-8 rounded py-2 px-12 text-base tracking-wider`}
         >
           {label}
         </ReferenceLink>

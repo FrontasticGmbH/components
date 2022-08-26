@@ -150,14 +150,16 @@ const Hero = ({
     <>
       {headline && (
         <h2
-          className={`${themeToTextColor[theme]} ${fontSizeClass[headlineSize]} ${isHeadlineBold ? 'font-bold' : ''}`}
+          className={`mb-6 ${themeToTextColor[theme]} ${fontSizeClass[headlineSize]} ${
+            isHeadlineBold ? 'font-bold' : ''
+          }`}
         >
           {headline}
         </h2>
       )}
       {subhead && (
         <h3
-          className={`${themeToTextColor[theme]} ${fontSizeClass[subheadSize]} ${
+          className={`mb-6 ${themeToTextColor[theme]} ${fontSizeClass[subheadSize]} ${
             isSubheadBold ? 'font-bold' : ''
           } leading-tight`}
         >
@@ -186,7 +188,7 @@ const Hero = ({
        */}
       <div className={`absolute top-0 left-0 flex ${fgPosCss[contentPos]} h-full w-full overflow-hidden`}>
         <div
-          className={`relative inline-block ${fgIsFullWidth ? 'w-full' : ''} flex flex-col p-3 md:p-8 ${
+          className={`relative inline-block ${fgIsFullWidth ? 'w-full' : ''} flex flex-col p-3 md:p-8 md:px-24 ${
             fgAlignToFlex[fgAlign]
           } text-${fgAlign}`}
           style={{ height: fgSize }}
