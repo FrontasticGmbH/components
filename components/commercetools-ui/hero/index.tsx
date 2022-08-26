@@ -174,7 +174,7 @@ const Hero = ({
     <DivOrReference
       className="relative block overflow-hidden"
       style={{ backgroundColor: bgColor }}
-      reference={reference || undefined}
+      target={reference || undefined}
     >
       {/*
        * Background

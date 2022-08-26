@@ -294,6 +294,14 @@
             {
               "name": "neutral",
               "value": "neutral"
+            },
+            {
+              "name": "gray",
+              "value": "gray"
+            },
+            {
+              "name": "black",
+              "value": "black"
             }
           ]
         },
