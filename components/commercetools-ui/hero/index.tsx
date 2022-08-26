@@ -3,7 +3,7 @@ import React from 'react';
 import useBackgroundImageUrl from '@frontastic/catwalk/src/js/helper/hooks/useBackgroundImageUrl';
 import { ReferenceLink, type Reference } from 'helpers/reference';
 import Image from 'frontastic/lib/image';
-import { MediaItemWithMods as MediaItem } from 'frontastic/lib/image/types';
+import { MediaItemWithMods, MediaItem } from 'frontastic/lib/image/types';
 
 import Cta from './components/CallToAction';
 // types
@@ -24,9 +24,9 @@ type Ordering = typeof OrderingEnum[keyof typeof OrderingEnum];
 
 export interface TileTasticData {
   bgColor?: string;
-  bgImage?: { media: MediaItem };
+  bgImage?: MediaItemWithMods;
   contentPos: FgPos;
-  fgImage?: { media: MediaItem };
+  fgImage?: MediaItemWithMods;
   fgAlign: Align;
   fgSize: FgSize;
   fgIsFullWidth: boolean;
