@@ -11,8 +11,13 @@ function ProductDetailsTastic({ data }) {
   const router = useRouter();
   const { product }: { product: Product } = data?.data?.dataSource;
 
-  const [currentVariantIdx, setCurrentVariantIdx] = useState<number>(0);
-  const [variant, setVariant] = useState<Variant>(product.variants[0]);
+  const currentVariantIdx = useMemo<number>(() => {
+    const currentVariantSKU = router.asPath.split('/')[3];
+    return product?.variants.findIndex(({ sku }) => sku === currentVariantSKU) ?? 0;
+  }, [product, router.asPath]);
+
+  const variant = useMemo<Variant>(() => product?.variants[currentVariantIdx], [product, currentVariantIdx]);
+
   const { addItem } = useCart();
   const { data: wishlist } = useWishlist();
   // 🙈
@@ -51,15 +56,6 @@ function ProductDetailsTastic({ data }) {
   // stay decoupled.
   // TODO: properly type
 
-  useEffect(() => {
-    if (!currentVariantIdx && currentVariantIdx !== 0) {
-      const currentVariantSKU = router.asPath.split('/')[3].split('?')[0];
-      const currentVariantIndex = product?.variants.findIndex(({ sku }) => sku == currentVariantSKU);
-
-      setVariant(product?.variants[currentVariantIndex]);
-    } else setVariant(product?.variants[currentVariantIdx]);
-  }, [product, currentVariantIdx]);
-
   const prod = useMemo<UIProduct>(
     () => ({
       productId: product?.productId,
@@ -67,12 +63,12 @@ function ProductDetailsTastic({ data }) {
       _url: product?._url,
       // add variants as well, so we can select and filter
       variants: product?.variants,
-      price: variant.price,
+      price: variant?.price,
       // rating: 4,
-      images: variant.images?.map((img: string, id: number) => ({
-        id: `${variant.sku}-${id}`,
+      images: variant?.images?.map((img: string, id: number) => ({
+        id: `${variant?.sku}-${id}`,
         src: img,
-        alt: variant.sku,
+        alt: variant?.sku,
       })),
       colors,
       sizes,
@@ -105,6 +101,12 @@ function ProductDetailsTastic({ data }) {
     addToWishlist(variant.sku, 1);
   };
 
+  const handleVariantIdxChange = (idx: number) => {
+    const variant = product?.variants[idx];
+    const url = `${router.asPath.split('/').slice(0, 3).join('/')}/${variant.sku}`;
+    router.replace(url, undefined, { shallow: true });
+  };
+
   if (!product || !variant || !prod) return <></>;
 
   return (
@@ -116,7 +118,7 @@ function ProductDetailsTastic({ data }) {
         product={prod}
         onAddToCart={handleAddToCart}
         variant={variant}
-        onChangeVariantIdx={setCurrentVariantIdx}
+        onChangeVariantIdx={handleVariantIdxChange}
         onAddToWishlist={handleAddToWishList}
         quickBuyEnabled={data.quickBuyEnabled}
       />
