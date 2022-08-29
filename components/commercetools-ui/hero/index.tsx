@@ -1,6 +1,5 @@
 import React from 'react';
 // import Reference from '@frontastic/catwalk/src/js/component/reference';
-import useBackgroundImageUrl from '@frontastic/catwalk/src/js/helper/hooks/useBackgroundImageUrl';
 import { ReferenceLink, type Reference } from 'helpers/reference';
 import Image from 'frontastic/lib/image';
 import { MediaItemWithMods, MediaItem } from 'frontastic/lib/image/types';
