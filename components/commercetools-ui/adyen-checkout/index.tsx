@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { ShippingMethod } from '@Types/cart/ShippingMethod';
-import toast from 'react-hot-toast';
 import Address from 'components/commercetools-ui/adyen-checkout/panels/address';
 import Checkout from 'components/commercetools-ui/adyen-checkout/panels/checkout';
 import Overview from 'components/commercetools-ui/adyen-checkout/panels/overview';
 import OrderSummary from 'components/commercetools-ui/cart/orderSummary';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { countryBasedShippingRateIndex } from 'helpers/utils/flattenShippingMethod';
 import { useCart } from 'frontastic';
 import { mapToCartStructure, mapToFormStructure } from './mapFormData';
 import { requiredDataIsValid } from './requiredDataIsValid';
@@ -29,8 +27,9 @@ export type FormData = {
 const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
   const { data: cartList, updateCart, setShippingMethod } = useCart();
   const { formatMessage } = useFormat({ name: 'cart' });
-  const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
+
   const containerRef = useRef();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [disableSubmitButton, setDisableSubmitButton] = useState<boolean>(true);
   const [billingIsSameAsShipping, setBillingIsSameAsShipping] = useState<boolean>(true);
@@ -90,20 +89,13 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
   };
 
   const updateCartData = () => {
-    if (countryBasedShippingRateIndex[data.shippingCountry] == undefined) {
-      toast.error(
-        formatCheckoutMessage({
-          id: 'taxesNotSupported',
-          defaultMessage: 'Taxes are not defined for this country in commercetools',
-        }),
-      );
-      updateData({ ...data, shippingCountry: '' });
-      return;
-    }
-
     if (dataIsValid) {
       const updatedData = mapToCartStructure(data, billingIsSameAsShipping);
-      updateCart(updatedData);
+
+      setIsLoading(true);
+      updateCart(updatedData).finally(() => {
+        setIsLoading(false);
+      });
     }
   };
 
@@ -200,7 +192,7 @@ const AdyenCheckout = ({ termsLink, cancellationLink, privacyLink }) => {
         <OrderSummary
           cart={cartList}
           submitButtonLabel={submitButtonLabel[currentStepIndex]}
-          disableSubmitButton={disableSubmitButton}
+          disableSubmitButton={isLoading || disableSubmitButton}
           showDiscountsForm={currentStepIndex < 2}
           showSubmitButton={currentStepIndex < 2}
           onSubmit={gotToNextStep}

@@ -1,7 +1,6 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import { Cart as CartType } from '@Types/cart/Cart';
-import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
 import { NextFrontasticImage } from 'frontastic/lib/image';
@@ -20,14 +19,12 @@ export interface Props {
   cart: CartType;
   editItemQuantity: (lineItemId: string, newQuantity: number) => Promise<void>;
   removeItem: (lineItemId: string) => void;
-  shippingMethods: ShippingMethod[];
 }
 
 const Cart = ({
   cart,
   editItemQuantity,
   removeItem,
-  shippingMethods,
   pageTitle,
   emptyStateImage,
   emptyStateTitle,

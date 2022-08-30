@@ -88,7 +88,7 @@ const OrderSummary = ({
             <Price
               price={{
                 centAmount: productPrice,
-                currencyCode: cart?.sum.currencyCode,
+                currencyCode: cart?.sum?.currencyCode,
               }}
               className="text-sm font-medium text-gray-900 dark:text-light-100"
             />
@@ -115,7 +115,13 @@ const OrderSummary = ({
           </dt>
           <dd>
             <Price
-              price={{ fractionDigits: 0, centAmount: -discountPrice, currencyCode: cart?.sum.currencyCode } || {}}
+              price={
+                {
+                  fractionDigits: 0,
+                  centAmount: discountPrice == 0 ? 0 : -discountPrice,
+                  currencyCode: cart?.sum?.currencyCode,
+                } || {}
+              }
               className="text-sm font-medium text-gray-900 dark:text-light-100"
             />
           </dd>

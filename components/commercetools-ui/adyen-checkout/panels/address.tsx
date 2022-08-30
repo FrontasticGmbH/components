@@ -15,36 +15,30 @@ type AddressProps = {
 };
 
 const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShipping, toggleBillingAddressOption }) => {
-  const [projectSettingsCountries, setProjectSettingsCountries] = useState<ProjectSettings>(null);
-  const [shippingMethodsData, setShippingMethodsData] = useState<ShippingMethod[]>(null);
-  const [availableCountryOptions, setAvailableCountryOptions] = useState<CountryOption[]>(null);
-  const { getProjectSettings, shippingMethods } = useCart();
+  const [projectSettings, setProjectSettings] = useState<ProjectSettings>(null);
+  const [shippingMethods, setShippingMethods] = useState<ShippingMethod[]>(null);
+  const [availableCountryOptions, setAvailableCountryOptions] = useState<string[]>(null);
+  const { getProjectSettings, getShippingMethods } = useCart();
   const { formatMessage } = useFormat({ name: 'checkout' });
   const { formatMessage: formatCommonMessage } = useFormat({ name: 'common' });
 
   useEffect(() => {
+    getShippingMethods().then((data) => {
+      setShippingMethods(data);
+    });
+
     getProjectSettings().then((data) => {
-      setProjectSettingsCountries(data);
-      setShippingMethodsData(shippingMethods.data);
+      setProjectSettings(data);
     });
   }, []);
 
   useEffect(() => {
-    if (!shippingMethods.data || !projectSettingsCountries) {
-      const showMessageInDropdown = {
-        data: '',
-        display: `${formatMessage({
-          id: 'no.countries.available.for.shipping',
-          defaultMessage: 'Currently there are no countries available for shipping',
-        })}`,
-      };
-      setAvailableCountryOptions([showMessageInDropdown]);
-    } else {
-      const totalCountries = getTaxedCountries(shippingMethods?.data, projectSettingsCountries?.countries);
+    if (shippingMethods && projectSettings) {
+      const totalCountries = getTaxedCountries(shippingMethods, projectSettings?.countries);
 
       setAvailableCountryOptions(totalCountries);
     }
-  }, [shippingMethods, projectSettingsCountries, shippingMethodsData]);
+  }, [shippingMethods, projectSettings]);
 
   const handleChange = (e: ChangeEvent) => {
     const updatedData = {
@@ -178,9 +172,9 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
             onChange={handleChange}
             value={data.shippingCountry}
           >
-            {availableCountryOptions?.map(({ display, data }, index) => (
-              <option key={index} value={data}>
-                {formatCommonMessage({ id: `country.${data}`, defaultMessage: display })}
+            {availableCountryOptions?.map((code, i) => (
+              <option key={i} value={code}>
+                {formatCommonMessage({ id: `country.${code}` })}
               </option>
             ))}
           </select>
@@ -263,9 +257,9 @@ const Address: React.FC<AddressProps> = ({ data, updateData, billingIsSameAsShip
                 value={data.billingCountry}
               >
                 <option value=""></option>
-                {countryOptions.map(({ display, data }, index) => (
-                  <option key={index} value={data}>
-                    {formatCommonMessage({ id: `country.${data}`, defaultMessage: display })}
+                {availableCountryOptions?.map((code, i) => (
+                  <option key={i} value={code}>
+                    {formatCommonMessage({ id: `country.${code}` })}
                   </option>
                 ))}
               </select>

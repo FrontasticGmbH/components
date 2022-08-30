@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { cart, shippingMethods } from '../../../helpers/mocks/mockData';
+import { cart } from 'helpers/mocks/mockData';
 import CartPage, { Props } from './index';
 
 export default {
@@ -16,7 +16,6 @@ const Template: Story<Props> = (args) => (
     cart={cart}
     editItemQuantity={() => console.log('Clicked')}
     removeItem={() => console.log('Clicked')}
-    shippingMethods={shippingMethods}
     {...args}
   />
 );
