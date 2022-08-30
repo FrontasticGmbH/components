@@ -107,6 +107,20 @@ function ProductDetailsTastic({ data }) {
     router.replace(url, undefined, { shallow: true });
   };
 
+  //For SSR render when going back
+  useEffect(() => {
+    router.beforePopState(({ as }) => {
+      if (as !== router.asPath) {
+        router.replace(as, undefined);
+        return false;
+      }
+
+      return true;
+    });
+
+    return () => router.beforePopState(() => true);
+  }, []);
+
   if (!product || !variant || !prod) return <></>;
 
   return (
