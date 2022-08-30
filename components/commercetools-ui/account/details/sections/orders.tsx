@@ -120,6 +120,7 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                       </dt>
                       <dd className="inline text-gray-700 sm:mt-1 sm:block ">{order.orderState}</dd>
                     </div>
+                    {/* 
                     <button
                       type="button"
                       className="h-[40px] w-[110px] content-center self-start rounded-sm bg-accent-400 text-xs text-white transition-colors duration-150 ease-out focus:outline-none disabled:bg-gray-300 sm:self-center md:w-[150px] md:text-sm"
@@ -128,7 +129,7 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                       }}
                     >
                       {formatAccountMessage({ id: 'view.invoice', defaultMessage: 'View invoice' })}
-                    </button>
+                    </button> */}
                   </dl>
 
                   <div className="mt-2 w-full text-gray-500">
