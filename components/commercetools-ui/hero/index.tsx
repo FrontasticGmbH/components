@@ -3,7 +3,6 @@ import React from 'react';
 import { ReferenceLink, type Reference } from 'helpers/reference';
 import Image from 'frontastic/lib/image';
 import { MediaItemWithMods, MediaItem } from 'frontastic/lib/image/types';
-
 import Cta from './components/CallToAction';
 // types
 

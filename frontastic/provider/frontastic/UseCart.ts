@@ -9,7 +9,7 @@ import { ProjectSettings } from '@Types/ProjectSettings';
 export interface UseCart {
   data?: Order;
   addItem: (variant: Variant, quantity: number) => Promise<void>;
-  updateCart: (payload: CartDetails) => Promise<Cart>;  
+  updateCart: (payload: CartDetails) => Promise<Cart>;
   removeItem: (lineItemId: string) => Promise<void>;
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;
   removeDiscountCode?: (discount: Discount) => Promise<void>;
