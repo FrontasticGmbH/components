@@ -111,7 +111,7 @@ export default function ProductDetail({
   );
 
   const handleAddToCart = async () => {
-    if (!variant.isOnStock) return;
+    if (loading || !variant.isOnStock) return;
     setLoading(true);
     await onAddToCart(variant, 1);
     setLoading(false);
