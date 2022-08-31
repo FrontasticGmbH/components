@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import AdyenCheckout from '@adyen/adyen-web';
+import toast from 'react-hot-toast';
 import { useCart, useAdyen } from 'frontastic';
 import '@adyen/adyen-web/dist/adyen.css';
+import { cart } from 'helpers/mocks/mockData';
 
 type Session = {
   id: string;
@@ -17,8 +19,8 @@ type SessionConfig = {
 
 const Checkout = () => {
   const router = useRouter();
-  const { data: cartList } = useCart();
-  const { createSession, adyenCheckout } = useAdyen();
+  const { data: cartList, checkout } = useCart();
+  const { createSession } = useAdyen();
   const [session, setSession] = useState<Session>();
 
   const initializeSession = async (sessionConfiguration: SessionConfig) => {
@@ -27,34 +29,32 @@ const Checkout = () => {
   };
 
   useEffect(() => {
-    const host = typeof window !== 'undefined' ? window.location.origin : '';
+    if (!cartList.orderId) {
+      const host = typeof window !== 'undefined' ? window.location.origin : '';
 
-    createSession(cartList.sum.centAmount, cartList.sum.currencyCode, `${host}/thank-you`).then((res) => {
-      const { id, sessionData } = res;
+      createSession(cartList.sum?.centAmount, cartList.sum?.currencyCode, `${host}/thank-you`).then((res) => {
+        const { id, sessionData } = res;
 
-      setSession({ id, sessionData });
-    });
+        setSession({ id, sessionData });
+      });
+    }
   }, [cartList, createSession]);
 
   useEffect(() => {
     if (session) {
       const sessionConfiguration = {
-        //For demo swiss we allways set to test environment
-        environment: 'test',
-        //environment: process.env.NODE_ENV === 'production' ? 'live' : 'test',
-        clientKey: 'test_VDRCU3ALS5GMDC45GLZGUF6ANM3P75ZK',
+        environment: 'test', //process.env.NODE_ENV === 'production' ? 'live' : 'test',
+        clientKey: 'test_7KZ5EUGTIRGTXP3JVBPKV43YW4MQ7MLZ',
         session,
-        onPaymentCompleted: (result, component) => {
-          console.log(session, result, component);
-
+        onPaymentCompleted: (result) => {
           if (result.resultCode === 'Authorised' || result.resultCode === 'Received') {
-            //adyenCheckout(session.id, result.sessionData).then(() => {
-            //router.push('/thank-you');
-            //});
+            checkout().finally(() => {
+              router.push('/thank-you');
+            });
           }
         },
-        onError: (error, component) => {
-          console.log(error, component);
+        onError: (error: Error) => {
+          toast.error(error.message);
         },
       };
 

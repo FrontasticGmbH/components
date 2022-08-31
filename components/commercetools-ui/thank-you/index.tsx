@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { useAdyen } from 'frontastic';
+import { useCart } from 'frontastic';
 import Image from 'frontastic/lib/image';
 
 const ThankYou = () => {
   //i18n messages
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
 
-  const { adyenCheckout } = useAdyen();
   const router = useRouter();
+  const { checkout } = useCart();
 
   useEffect(() => {
     const { sessionId, redirectResult } = router.query;
 
-    adyenCheckout(sessionId, redirectResult);
+    if (sessionId && redirectResult) {
+      checkout();
+    }
   }, []);
 
   return (

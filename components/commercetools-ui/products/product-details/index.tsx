@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
@@ -67,64 +67,51 @@ export default function ProductDetail({
 
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
-  const [selectedColor, setSelectedColor] = useState<UIColor | undefined>(product?.colors?.[0]);
-  const [selectedSize, setSelectedSize] = useState<UISize>(product?.sizes?.[0]);
+
+  //Variant attributes
+  const selectedColor = useMemo<UIColor | undefined>(
+    () => product?.colors?.find((c) => c.key === variant?.attributes?.color?.key) ?? product?.colors?.[0],
+    [product, variant],
+  );
+
+  const selectedSize = useMemo<UISize>(
+    () => product?.sizes?.find((s) => s.key === variant?.attributes?.commonSize?.key) ?? product?.sizes?.[0],
+    [product, variant],
+  );
+
+  //Component states
   const [loading, setLoading] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
-  // changes the selected variant whenever
-  // one of the attributes changes and
-  // notifies the wrapping tastic via
-  // the onChangeVariantIdx handler
-  useEffect(() => {
-    const idx = product?.variants.findIndex(
-      (v: Variant) =>
-        v.attributes?.color?.key === selectedColor?.key && v.attributes?.commonSize?.key === selectedSize?.key,
-    );
-    onChangeVariantIdx(idx === -1 ? 0 : idx);
-  }, [selectedColor, selectedSize, onChangeVariantIdx, product?.variants]);
-
-  const lastProductId = useRef('');
-
-  useEffect(() => {
-    if (product?.colors && product?.sizes && product.productId !== lastProductId.current) {
-      setSelectedColor(product.colors.find((c) => c.key === router.query.c) || product.colors[0]);
-      setSelectedSize(product.sizes.find((s) => s.key === router.query.s) || product.sizes[0]);
-      lastProductId.current = product.productId;
-    }
-  }, [product, router.query]);
-
-  const updateInteractiveQueryParams = (color: string, size: string) => {
-    router.replace({ pathname: router.asPath.split('?')[0], query: { c: color, s: size } }, undefined, {
-      shallow: true,
-    });
-  };
-
   const selectSize = (size: UISize) => {
-    setSelectedSize(size);
-    updateInteractiveQueryParams(selectedColor.key, size.key);
+    onChangeVariantIdx(
+      product?.variants?.findIndex(
+        (variant) =>
+          variant?.attributes?.color?.key === selectedColor.key && variant?.attributes?.commonSize?.key === size.key,
+      ) ?? 0,
+    );
   };
 
   const selectColor = (color: UIColor) => {
-    setSelectedColor(color);
-    updateInteractiveQueryParams(color.key, selectedSize.key);
+    onChangeVariantIdx(
+      product?.variants?.findIndex(
+        (variant) =>
+          variant?.attributes?.color?.key === color.key && variant?.attributes?.commonSize?.key === selectedSize.key,
+      ) ?? 0,
+    );
   };
 
-  const invalidateSahllowData = useCallback(
-    (url: string) => {
-      const pathname = url.split('?')[0];
-      if (pathname !== product._url) router.replace(url, undefined, { shallow: false }); //Refetch data for a shallowed route
+  const variantExistsFor = useCallback(
+    (color: UIColor, size: UISize) => {
+      return !!product?.variants?.find(
+        (v) => v.attributes?.color?.key === color?.key && v.attributes?.commonSize?.key === size?.key,
+      );
     },
     [product],
   );
 
-  useEffect(() => {
-    router.events.on('routeChangeComplete', invalidateSahllowData);
-    return () => router.events.off('routeChangeComplete', invalidateSahllowData);
-  }, [invalidateSahllowData]);
-
   const handleAddToCart = async () => {
-    if (!variant.isOnStock) return;
+    if (loading || !variant.isOnStock) return;
     setLoading(true);
     await onAddToCart(variant, 1);
     setLoading(false);
@@ -290,22 +277,24 @@ export default function ProductDetail({
                   <RadioGroup value={selectedSize} onChange={(e) => selectSize(e)} className="mt-4 hidden lg:block">
                     <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                      {product.sizes.map((size) => (
-                        <RadioGroup.Option
-                          key={size.key}
-                          value={size}
-                          className={({ active, checked }) =>
-                            classNames(
-                              active || selectedSize?.key === size.key || checked ? 'ring-1 ring-primary-400' : '',
-                              'cursor-pointer rounded-sm bg-neutral-200 py-2 px-4 text-center font-light text-gray-900 transition duration-150 ease-out hover:bg-neutral-300',
-                            )
-                          }
-                        >
-                          <RadioGroup.Label className="cursor-pointer">
-                            <p>{size.label}</p>
-                          </RadioGroup.Label>
-                        </RadioGroup.Option>
-                      ))}
+                      {product.sizes
+                        .filter((size) => variantExistsFor(selectedColor, size))
+                        .map((size) => (
+                          <RadioGroup.Option
+                            key={size.key}
+                            value={size}
+                            className={({ active, checked }) =>
+                              classNames(
+                                active || selectedSize?.key === size.key || checked ? 'ring-1 ring-primary-400' : '',
+                                'cursor-pointer rounded-sm bg-neutral-200 py-2 px-4 text-center font-light text-gray-900 transition duration-150 ease-out hover:bg-neutral-300',
+                              )
+                            }
+                          >
+                            <RadioGroup.Label className="cursor-pointer">
+                              <p>{size.label}</p>
+                            </RadioGroup.Label>
+                          </RadioGroup.Option>
+                        ))}
                     </div>
                   </RadioGroup>
 

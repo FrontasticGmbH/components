@@ -15,24 +15,7 @@ export const cartItems = () => {
   return useSWR('/action/cart/getCart', fetchApiHub, revalidateOptions);
 };
 
-export const addItem = async (variant: Variant, quantity: number) => {
-  const payload = {
-    variant: {
-      sku: variant.sku,
-      count: quantity,
-    },
-  };
-  const res = await fetchApiHub(
-    '/action/cart/addToCart',
-    {
-      method: 'POST',
-    },
-    payload,
-  );
-  mutate('/action/cart/getCart', res);
-};
-
-export const orderCart = async () => {
+export const checkout = async () => {
   const res = await fetchApiHub('/action/cart/checkout', {
     method: 'POST',
   });
@@ -47,6 +30,27 @@ export const getProjectSettings = async () => {
   return await fetchApiHub('/action/project/getProjectSettings');
 };
 
+export const getShippingMethods = async () => {
+  return await fetchApiHub('/action/cart/getShippingMethods');
+};
+
+export const addItem = async (variant: Variant, quantity: number) => {
+  const payload = {
+    variant: {
+      sku: variant.sku,
+      count: quantity,
+    },
+  };
+  const res = await fetchApiHub(
+    '/action/cart/addToCart',
+    {
+      method: 'POST',
+    },
+    payload,
+  );
+  mutate('/action/cart/getCart', res, { revalidate: false });
+};
+
 export const removeItem = async (lineItemId: string) => {
   const payload = {
     lineItem: { id: lineItemId },
@@ -59,11 +63,7 @@ export const removeItem = async (lineItemId: string) => {
     },
     payload,
   );
-  mutate('/action/cart/getCart', res);
-};
-
-export const shippingMethods = () => {
-  return useSWR('/action/cart/getShippingMethods', fetchApiHub, revalidateOptions);
+  mutate('/action/cart/getCart', res, { revalidate: false });
 };
 
 export const updateItem = async (lineItemId: string, newQuantity: number) => {
@@ -80,7 +80,7 @@ export const updateItem = async (lineItemId: string, newQuantity: number) => {
     },
     payload,
   );
-  mutate('/action/cart/getCart', res);
+  mutate('/action/cart/getCart', res, { revalidate: false });
 };
 
 export const updateCart = async (payload: CartDetails): Promise<Cart> => {
@@ -95,7 +95,7 @@ export const updateCart = async (payload: CartDetails): Promise<Cart> => {
     },
     payload,
   );
-  mutate('/action/cart/getCart', res);
+  mutate('/action/cart/getCart', res, { revalidate: false });
   return res;
 };
 
@@ -117,7 +117,7 @@ export const setShippingMethod = async (shippingMethodId: string) => {
     },
     payload,
   );
-  mutate('/action/cart/getCart', res);
+  mutate('/action/cart/getCart', res, { revalidate: false });
 };
 
 export const redeemDiscountCode = async (code: string) => {
@@ -135,7 +135,7 @@ export const redeemDiscountCode = async (code: string) => {
     },
     payload,
   );
-  mutate('/action/cart/getCart', res);
+  mutate('/action/cart/getCart', res, { revalidate: false });
 };
 
 export const removeDiscountCode = async (discount: Discount) => {
@@ -153,5 +153,5 @@ export const removeDiscountCode = async (discount: Discount) => {
     },
     payload,
   );
-  mutate('/action/cart/getCart', res);
+  mutate('/action/cart/getCart', res, { revalidate: false });
 };

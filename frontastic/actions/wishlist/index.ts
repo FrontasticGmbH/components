@@ -7,7 +7,7 @@ export const getWishlist = () => {
 
 export const addToWishlist = async (sku: string, count = 1) => {
   const res = await fetchApiHub('/action/wishlist/addToWishlist', { method: 'POST' }, { variant: { sku }, count });
-  mutate('/action/wishlist/getWishlist', res);
+  mutate('/action/wishlist/getWishlist', res, { revalidate: false });
 };
 
 export const removeLineItem = async (lineItemId: string) => {
@@ -16,7 +16,7 @@ export const removeLineItem = async (lineItemId: string) => {
     { method: 'POST' },
     { lineItem: { id: lineItemId } },
   );
-  mutate('/action/wishlist/getWishlist', res);
+  mutate('/action/wishlist/getWishlist', res, { revalidate: false });
 };
 
 export const updateLineItem = async (lineItemId: string, count = 1) => {
@@ -25,5 +25,5 @@ export const updateLineItem = async (lineItemId: string, count = 1) => {
     { method: 'POST' },
     { lineItem: { id: lineItemId }, count },
   );
-  mutate('/action/wishlist/getWishlist', res);
+  mutate('/action/wishlist/getWishlist', res, { revalidate: false });
 };

@@ -1,4 +1,5 @@
 import { Account } from '@Types/account/Account';
+import { AccountToken } from '@Types/account/AccountToken';
 import { Address } from '@Types/account/Address';
 import { Group } from '@Types/account/Group';
 import { Cart } from '@Types/cart/Cart';
@@ -174,6 +175,10 @@ export const wishlist: Wishlist = {
   lineItems: lineItems,
 };
 
+export const accountToken: AccountToken = {
+  token: 'token',
+};
+
 export const addresses: Address[] = [
   {
     addressId: 'adrs-1',
@@ -208,7 +213,7 @@ export const account: Account = {
   password: '123456789',
   birthday: new Date('1995, 11, 17'),
   apiToken: 'token',
-  confirmationToken: 'token',
+  confirmationToken: accountToken,
   confirmed: true,
   salutation: 'Salutations',
   groups: groups,

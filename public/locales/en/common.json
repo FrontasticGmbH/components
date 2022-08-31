@@ -17,6 +17,7 @@
   "update": "Update",
   "cancel": "Cancel",
   "save": "Save",
+  "date": "Date",
   "country.DE": "Germany",
   "country.AT": "Austria",
   "country.PL": "Poland",
@@ -54,5 +55,6 @@
   "rememberMe": "Remember me",
   "search": "Search",
   "meta.desc": "Find largest shopping collections here!",
-  "delete": "Delete"
+  "delete": "Delete",
+  "language": "Language"
 }

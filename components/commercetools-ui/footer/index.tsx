@@ -1,6 +1,7 @@
 import React from 'react';
 import LanguageSwitcher from 'components/commercetools-ui/language-switcher';
 import Typography from 'components/commercetools-ui/typography';
+import { useFormat } from 'helpers/hooks/useFormat';
 import Column, { Link, Column as FooterColumn } from './column';
 import { renderIcon } from './renderIcon';
 export interface Props {
@@ -10,6 +11,8 @@ export interface Props {
 }
 
 const Footer: React.FC<Props> = ({ columns, copyright, copyrightLinks }) => {
+  const { formatMessage } = useFormat({ name: 'common' });
+
   return (
     <footer aria-label="footer">
       <div className="mx-2 w-full bg-gray-100 px-4 dark:bg-transparent md:mx-0 lg:px-4">
@@ -28,7 +31,7 @@ const Footer: React.FC<Props> = ({ columns, copyright, copyrightLinks }) => {
               <div className="flex space-x-2 md:justify-start">
                 {renderIcon('speaker')}
                 <h3 className="text-sm font-medium text-gray-800 dark:text-light-100">
-                  <Typography>Language</Typography>
+                  <Typography>{formatMessage({ id: 'language', defaultMessage: 'Language' })}</Typography>
                 </h3>
               </div>
               <LanguageSwitcher className="p-4 md:px-8" />

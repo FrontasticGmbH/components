@@ -6,7 +6,7 @@ import { useFormat } from 'helpers/hooks/useFormat';
 
 const CartTastic = ({ data }) => {
   const { formatMessage } = useFormat({ name: 'cart' });
-  const { data: cartList, removeItem, updateItem, shippingMethods } = useCart();
+  const { data: cartList, removeItem, updateItem } = useCart();
   const editItemQuantity = (lineItemId: string, newQuantity: number) => updateItem(lineItemId, newQuantity);
 
   return (
@@ -19,7 +19,6 @@ const CartTastic = ({ data }) => {
         cart={cartList}
         removeItem={removeItem}
         editItemQuantity={editItemQuantity}
-        shippingMethods={shippingMethods?.data}
         pageTitle={data.pageTitle}
         emptyStateImage={data.emptyStateImage}
         emptyStateTitle={data.emptyStateTitle}

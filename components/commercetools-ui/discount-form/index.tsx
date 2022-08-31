@@ -54,7 +54,7 @@ const DiscountForm: React.FC<Props> = ({ className, cart }) => {
                 value={code}
                 placeholder={formatCartMessage({
                   id: 'cart.discount.code',
-                  defaultMessage: 'code',
+                  defaultMessage: 'Code',
                 })}
                 onChange={(e) => setCode(e.target.value)}
               />

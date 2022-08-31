@@ -77,12 +77,12 @@ export const confirm = async (token: string): Promise<Account> => {
   return res;
 };
 
-export const resendVerificationEmail = async (email: string, password: string): Promise<void> => {
+export const requestConfirmationEmail = async (email: string, password: string): Promise<void> => {
   const payload = {
     email,
     password,
   };
-  const res = await fetchApiHub('/action/account/resendVerificationEmail', { method: 'POST' }, payload);
+  const res = await fetchApiHub('/action/account/requestConfirmationEmail', { method: 'POST' }, payload);
   return res;
 };
 

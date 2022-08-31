@@ -4,9 +4,9 @@ import { Variant } from '@Types/wishlist/Variant';
 import { Wishlist } from '@Types/wishlist/Wishlist';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
+import Spinner from '../spinner';
 import EmptyWishlist from './empty_wishlist';
 import List from './list';
-import Spinner from '../spinner';
 
 export interface Props {
   pageTitle?: string;
