@@ -8,6 +8,7 @@ import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
 import styles from './slug.module.css';
+import Error404 from './404';
 
 type SlugProps = {
   // This needs an overhaul. Can be too many things in my opinion (*Marcel)
@@ -38,14 +39,18 @@ export default function Slug({ data, locale }: SlugProps) {
     );
   }
 
-  if (!data?.ok && data?.message) {
-    return (
-      <>
-        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
-        <p className="mt-2 text-lg">{data.message}</p>
-        <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
-      </>
-    );
+  if (!data!.ok && data!.message) {
+    if (data!.message === "Could not resolve page from path") {
+      return <Error404 />
+    } else {
+      return (
+        <>
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
+          <p className="mt-2 text-lg">{data!.message}</p>
+          <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
+        </>
+      );
+    }
   }
 
   return (
