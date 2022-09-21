@@ -7,8 +7,8 @@ import { createClient, ResponseError, LocaleStorage, useDarkMode } from 'frontas
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
-import styles from './slug.module.css';
 import Error404 from './404';
+import styles from './slug.module.css';
 
 type SlugProps = {
   // This needs an overhaul. Can be too many things in my opinion (*Marcel)
