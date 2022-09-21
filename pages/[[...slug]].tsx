@@ -40,8 +40,8 @@ export default function Slug({ data, locale }: SlugProps) {
   }
 
   if (!data!.ok && data!.message) {
-    if (data!.message === "Could not resolve page from path") {
-      return <Error404 />
+    if (data!.message === 'Could not resolve page from path') {
+      return <Error404 />;
     } else {
       return (
         <>
