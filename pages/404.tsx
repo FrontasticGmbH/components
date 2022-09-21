@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useFormat } from 'helpers/hooks/useFormat';
 import CableCut from 'public/images/cable-cut.png';
+import Logo from 'public/images/Logo.svg';
 
 const Error404 = () => {
   const { formatMessage } = useFormat({ name: 'common' });
@@ -10,6 +11,7 @@ const Error404 = () => {
 
   return (
     <div className="relative h-screen p-6">
+      <Logo />
       <div className="absolute top-1/2 left-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center p-6">
         <Image src={CableCut} loader={(options) => options.src} alt="Cable cut" />
         <div className="mt-5 text-center">
