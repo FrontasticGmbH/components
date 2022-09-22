@@ -7,7 +7,6 @@ import { createClient, ResponseError, LocaleStorage, useDarkMode } from 'frontas
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
 import { Log } from '../helpers/errorLogger';
-import Error404 from './404';
 import styles from './slug.module.css';
 
 type SlugProps = {
@@ -40,17 +39,13 @@ export default function Slug({ data, locale }: SlugProps) {
   }
 
   if (!data!.ok && data!.message) {
-    if (data!.message === 'Could not resolve page from path') {
-      return <Error404 />;
-    } else {
-      return (
-        <>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
-          <p className="mt-2 text-lg">{data!.message}</p>
-          <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
-        </>
-      );
-    }
+    return (
+      <>
+        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
+        <p className="mt-2 text-lg">{data!.message}</p>
+        <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
+      </>
+    );
   }
 
   return (
@@ -101,6 +96,12 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
         data: { error: data },
         error: data,
       },
+    };
+  }
+
+  if ((data as any)!.message === 'Could not resolve page from path') {
+    return {
+      notFound: true,
     };
   }
 
