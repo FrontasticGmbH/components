@@ -33,7 +33,8 @@
   "password.reset.headline": "Setze dein Passwort zurück",
   "password.reset.desc": "Füllen Sie die Felder unten aus, um Ihr Passwort zurückzusetzen",
   "account.security.warning": "Seien Sie vorsichtig, wenn Sie diese Einstellung verwenden.",
-  "orders.history": "Meine Bestellhistorie",
+  "my.orders.history": "Meine Bestellhistorie",
+  "orders.id": "Auftragsnummer",
   "orders.desc": "Überprüfen Sie den Status der letzten Bestellungen, verwalten Sie Rücksendungen und laden Sie Rechnungen herunter.",
   "orders.number": "Bestellnummer",
   "orders.total.amount": "Gesamtsumme",
@@ -47,5 +48,5 @@
   "hello": "Hallo, ",
   "account.button": "Anmelden / Konto erstellen",
   "signout": "Abmelden",
-  "user":"Benutzer / Benutzerin"
+  "user": "Benutzer / Benutzerin"
 }

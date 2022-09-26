@@ -64,10 +64,10 @@ export const logout = async () => {
 };
 
 export const register = async (account: RegisterAccount): Promise<Account> => {
-  const host = typeof window !== 'undefined' ? window.location.origin : '';
-  const acc = { ...account, host };
-
-  const response = await fetchApiHub('/action/account/register', { method: 'POST' }, acc);
+  const payload = {
+    account,
+  };
+  const response = await fetchApiHub('/action/account/register', { method: 'POST' }, payload);
   return response;
 };
 
@@ -77,15 +77,12 @@ export const confirm = async (token: string): Promise<Account> => {
   return res;
 };
 
-export const resendVerificationEmail = async (email: string, password: string): Promise<void> => {
-  const host = typeof window !== 'undefined' ? window.location.origin : '';
-
+export const requestConfirmationEmail = async (email: string, password: string): Promise<void> => {
   const payload = {
     email,
     password,
-    host,
   };
-  const res = await fetchApiHub('/action/account/resendVerificationEmail', { method: 'POST' }, payload);
+  const res = await fetchApiHub('/action/account/requestConfirmationEmail', { method: 'POST' }, payload);
   return res;
 };
 
@@ -94,11 +91,8 @@ export const changePassword = async (oldPassword: string, newPassword: string): 
 };
 
 export const requestPasswordReset = async (email: string): Promise<void> => {
-  const host = typeof window !== 'undefined' ? window.location.origin : '';
-
   const payload = {
     email,
-    host,
   };
 
   return await fetchApiHub('/action/account/requestReset', { method: 'POST' }, payload);

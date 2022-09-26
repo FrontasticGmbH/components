@@ -10,28 +10,7 @@ export const createSession = async (value: number, currency: string, returnUrl: 
     returnUrl,
   };
 
-  const res = await fetchApiHub('/action/adyen/createSession', { method: 'POST' }, payload);
-  await mutate('/action/adyen/createSession', res);
-  return res;
-};
-
-export const adyenCheckout = async (sessionId: string, redirectResult: string): Promise<void> => {
-  const payload = {
-    sessionId: sessionId,
-    redirectResult: redirectResult,
-  };
-
-  const res = await fetchApiHub(
-    '/action/adyen/checkout',
-    {
-      headers: {
-        accept: 'application/json',
-      },
-      credentials: 'include',
-      method: 'POST',
-    },
-    payload,
-  );
-  mutate('/action/cart/getCart', null);
+  const res = await fetchApiHub('/action/payment/createSession', { method: 'POST' }, payload);
+  await mutate('/action/payment/createSession', res);
   return res;
 };

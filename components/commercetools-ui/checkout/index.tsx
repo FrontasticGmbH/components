@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Address } from '@Types/account/Address';
+import { ShippingMethod } from '@Types/cart/ShippingMethod';
 import * as yup from 'yup';
 import { ObjectShape } from 'yup/lib/object';
 import EmptyCart from 'components/commercetools-ui/cart/emptyCart';
@@ -28,7 +29,9 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
   const { loggedIn } = useAccount();
 
   //cart data
-  const { data, removeItem, shippingMethods, setShippingMethod, updateCart, orderCart } = useCart();
+  const { data, removeItem, getShippingMethods, setShippingMethod, updateCart, checkout } = useCart();
+
+  const [shippingMethods, setShippingMethods] = useState<ShippingMethod[]>(null);
 
   //i18n data
   const { country } = useI18n();
@@ -41,6 +44,12 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
 
   //some products are out of stock?
   const someOutOfStock = !!data?.lineItems?.find((item) => !item.variant.isOnStock);
+
+  useEffect(() => {
+    getShippingMethods().then((data) => {
+      setShippingMethods(data);
+    });
+  }, []);
 
   //checkout data
   const [checkoutData, setCheckoutData] = useState({
@@ -188,8 +197,8 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
       billing: billingAddress,
       shipping: shippingAddress || billingAddress,
     });
-    await setShippingMethod(shippingMethods.data?.[0].shippingMethodId);
-    await orderCart();
+    await setShippingMethod(shippingMethods?.[0].shippingMethodId);
+    await checkout();
     //TODO: figure out logic here
     router.push('/thank-you');
   };
@@ -207,7 +216,7 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
         editCartItem={editLineItem}
         goToProductPage={goToProductPage}
         removeCartItem={removeLineItem}
-        selectedShipping={shippingMethods.data?.[0]}
+        selectedShipping={shippingMethods?.[0]}
         someOutOfStock={someOutOfStock}
       />
       <DesktopOrderSummary
@@ -215,7 +224,7 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
         editCartItem={editLineItem}
         goToProductPage={goToProductPage}
         removeCartItem={removeLineItem}
-        selectedShipping={shippingMethods.data?.[0]}
+        selectedShipping={shippingMethods?.[0]}
         someOutOfStock={someOutOfStock}
       />
 
@@ -231,7 +240,7 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
                 id: 'pay',
                 defaultMessage: 'Pay',
               })} ${CurrencyHelpers.formatForCurrency(
-                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0]?.price || {}),
+                CurrencyHelpers.addCurrency(data.sum, shippingMethods?.[0]?.rates?.[0]?.price || {}),
               )}`}
               updateFormInput={updateFormInput}
               submitForm={submitForm}
@@ -247,7 +256,7 @@ const Checkout = ({ shippingCountryOptions }: Props) => {
                 id: 'pay',
                 defaultMessage: 'Pay',
               })} ${CurrencyHelpers.formatForCurrency(
-                CurrencyHelpers.addCurrency(data.sum, shippingMethods.data?.[0]?.rates?.[0]?.price || {}),
+                CurrencyHelpers.addCurrency(data.sum, shippingMethods?.[0]?.rates?.[0]?.price || {}),
               )}`}
               updateFormInput={updateFormInput}
               submitForm={submitForm}

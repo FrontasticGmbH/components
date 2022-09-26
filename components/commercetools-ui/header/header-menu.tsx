@@ -5,7 +5,7 @@ import { XIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 import Typography from 'components/commercetools-ui/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
-import { ReferenceLink } from 'helpers/reference';
+import { isLiveReference, ReferenceLink } from 'helpers/reference';
 import { useDarkMode } from 'frontastic';
 import { Link } from './index';
 
@@ -14,11 +14,12 @@ interface HeaderMenuProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   navigation: any;
   links: Link[];
+  previewId?: string;
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, links }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, links, previewId }) => {
   //Darkmode
-  const { mode } = useDarkMode();
+  const { mode, theme } = useDarkMode();
 
   //i18n messages
   const { formatMessage } = useFormat({ name: 'common' });
@@ -35,7 +36,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className={`${mode} fixed inset-0 z-40 flex lg:hidden`} onClose={closeMenu}>
+      <Dialog className={`${mode} ${theme} fixed inset-0 z-40 flex lg:hidden`} onClose={closeMenu}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
@@ -45,7 +46,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
+          <Dialog.Overlay className="bg-black fixed inset-0 opacity-25" />
         </Transition.Child>
 
         <Transition.Child
@@ -167,16 +168,18 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ open, setOpen, navigation, link
             </Tab.Group>
 
             <div className="space-y-6 border-t border-gray-200 py-6 px-4">
-              {links.map((link) => (
-                <div key={link.name} className="flow-root" onClick={closeMenu}>
-                  <ReferenceLink
-                    target={link.reference}
-                    className="-m-2 block p-2 font-medium text-gray-900 dark:text-light-100"
-                  >
-                    <Typography>{link.name}</Typography>
-                  </ReferenceLink>
-                </div>
-              ))}
+              {links
+                .filter((link) => previewId || isLiveReference(link.reference))
+                .map((link) => (
+                  <div key={link.name} className="flow-root" onClick={closeMenu}>
+                    <ReferenceLink
+                      target={link.reference}
+                      className="-m-2 block p-2 font-medium text-gray-900 dark:text-light-100"
+                    >
+                      <Typography>{link.name}</Typography>
+                    </ReferenceLink>
+                  </div>
+                ))}
             </div>
           </div>
         </Transition.Child>

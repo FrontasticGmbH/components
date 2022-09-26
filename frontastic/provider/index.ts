@@ -1,2 +1,2 @@
-export * from './Frontastic';
-export * from './DarkMode';
+export * from './frontastic';
+export * from './dark-mode';

@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { fetchApiHubServerSide } from '../fetch-api-hub';
 import { PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
+import { mapLanguage } from '../../../project.config';
 
 type UrlParams = {
   slug?: Array<string>;
@@ -40,11 +41,11 @@ export const getRouteData =
 
     const slug = urlParams.slug?.join('/') || '';
     query.path = `/${slug !== 'index' ? slug : ''}`;
-    query.locale = locale;
+    query.locale = mapLanguage(locale);
 
     const headers = {
       'Frontastic-Path': query.path,
-      'Frontastic-Locale': locale,
+      'Frontastic-Locale': mapLanguage(locale),
     };
     const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
 

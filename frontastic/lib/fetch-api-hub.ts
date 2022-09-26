@@ -5,6 +5,7 @@ import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from 'helpers/errorLogger';
 import { mapLanguage } from '../../project.config';
+
 export class LocaleStorage {
   static locale: string = '';
 }

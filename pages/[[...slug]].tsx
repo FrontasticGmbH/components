@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { GetServerSideProps, Redirect } from 'next';
+import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useFormat } from 'helpers/hooks/useFormat';
 import { createClient, ResponseError, LocaleStorage, useDarkMode } from 'frontastic';
 import { FrontasticRenderer } from 'frontastic/lib/renderer';
 import { tastics } from 'frontastic/tastics';
@@ -24,6 +26,8 @@ export default function Slug({ data, locale }: SlugProps) {
     applyTheme(data?.pageFolder?.configuration?.theme);
   }, [data?.pageFolder?.configuration]);
 
+  const { formatMessage } = useFormat({ name: 'common' });
+
   if (!data || typeof data === 'string') {
     return (
       <>
@@ -34,17 +38,27 @@ export default function Slug({ data, locale }: SlugProps) {
     );
   }
 
-  if (!data?.ok && data?.message) {
+  if (!data!.ok && data!.message) {
     return (
       <>
         <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900">Internal Error</h1>
-        <p className="mt-2 text-lg">{data.message}</p>
+        <p className="mt-2 text-lg">{data!.message}</p>
         <p className="mt-2 text-lg">Check the logs of your Frontastic CLI for more details.</p>
       </>
     );
   }
 
-  return <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />;
+  return (
+    <>
+      <Head>
+        <meta
+          name="description"
+          content={formatMessage({ id: 'meta.desc', defaultMessage: 'Find largest shopping collections here!' })}
+        />
+      </Head>
+      <FrontasticRenderer data={data} tastics={tastics} wrapperClassName={styles.gridWrapper} />
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {
@@ -82,6 +96,12 @@ export const getServerSideProps: GetServerSideProps | Redirect = async ({ params
         data: { error: data },
         error: data,
       },
+    };
+  }
+
+  if ((data as any)!.message === 'Could not resolve page from path') {
+    return {
+      notFound: true,
     };
   }
 

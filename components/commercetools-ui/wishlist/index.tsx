@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LineItem } from '@Types/wishlist/LineItem';
+import { Variant } from '@Types/wishlist/Variant';
 import { Wishlist } from '@Types/wishlist/Wishlist';
 import { useFormat } from 'helpers/hooks/useFormat';
 import { Reference } from 'helpers/reference';
+import Spinner from '../spinner';
 import EmptyWishlist from './empty_wishlist';
 import List from './list';
 
@@ -15,6 +17,7 @@ export interface Props {
   emptyStateCTALink?: Reference;
   items?: Wishlist;
   removeLineItems: (item: LineItem) => Promise<void>;
+  addToCart: (variant: Variant) => Promise<void>;
 }
 
 const WishList: React.FC<Props> = ({
@@ -26,10 +29,24 @@ const WishList: React.FC<Props> = ({
   emptyStateCTALink,
   items,
   removeLineItems,
+  addToCart,
 }) => {
   const { formatMessage: formatWishlistMessage } = useFormat({ name: 'wishlist' });
 
-  if (!items?.lineItems?.length)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (items?.lineItems) setLoading(false);
+  }, [items]);
+
+  if (loading)
+    return (
+      <div className="flex h-[75vh] items-center justify-center">
+        <Spinner />
+      </div>
+    );
+
+  if (items.lineItems.length === 0)
     return (
       <EmptyWishlist
         pageTitle={pageTitle}
@@ -42,11 +59,11 @@ const WishList: React.FC<Props> = ({
     );
 
   return (
-    <main className="mx-auto max-w-2xl px-2 pt-20 pb-24 sm:px-4 lg:max-w-7xl lg:px-8">
-      <h1 className="pb-12 text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100 sm:text-4xl">
-        {formatWishlistMessage({ id: 'wishlist.items', defaultMessage: 'Wishlist Items' })}
+    <main className="mx-auto w-full pb-12">
+      <h1 className="py-6 text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        {formatWishlistMessage({ id: 'wishlist', defaultMessage: 'Wishlist' })}
       </h1>
-      {items?.lineItems && <List items={items.lineItems} removeLineItems={removeLineItems} />}
+      <List items={items.lineItems} removeLineItems={removeLineItems} addToCart={addToCart} />
     </main>
   );
 };

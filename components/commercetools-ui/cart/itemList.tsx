@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Cart } from '@Types/cart/Cart';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Item from './item';
@@ -14,20 +15,22 @@ const ItemList = ({ cart, editItemQuantity, goToProductPage, removeItem }: Props
   const { formatMessage: formatCartMessage } = useFormat({ name: 'cart' });
 
   return (
-    <section aria-labelledby="cart-heading" className="lg:col-span-7">
+    <section aria-labelledby="cart-heading" className="mb-5 md:mb-0 lg:col-span-7">
       <h2 id="cart-heading" className="sr-only">
         {formatCartMessage({ id: 'cart.shopping.items', defaultMessage: 'Items in your shopping cart' })}
       </h2>
 
-      <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
+      <ul className="grid md:gap-5" role="list">
         {cart.lineItems.map((lineItem, i) => (
-          <Item
-            key={i}
-            lineItem={lineItem}
-            editItemQuantity={editItemQuantity}
-            goToProductPage={goToProductPage}
-            removeItem={removeItem}
-          />
+          <li key={i}>
+            {i < cart.lineItems.length && <hr className="md:hidden" />}
+            <Item
+              lineItem={lineItem}
+              editItemQuantity={editItemQuantity}
+              goToProductPage={goToProductPage}
+              removeItem={removeItem}
+            />
+          </li>
         ))}
       </ul>
     </section>

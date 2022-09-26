@@ -3,19 +3,23 @@ import { useRouter } from 'next/router';
 import { Product } from '@Types/product/Product';
 import { Variant } from '@Types/product/Variant';
 import ProductDetails, { UIProduct, UIColor, UISize } from 'components/commercetools-ui/products/product-details';
-import { useCart } from 'frontastic';
+import { useCart, useWishlist } from 'frontastic';
 import { addToWishlist } from 'frontastic/actions/wishlist';
+import Head from 'next/head';
 
 function ProductDetailsTastic({ data }) {
   const router = useRouter();
-  const { product }: { product: Product } = data.data.dataSource;
+  const { product }: { product: Product } = data?.data?.dataSource;
 
-  const [currentVariantIdx, setCurrentVariantIdx] = useState<number>();
-  const [variant, setVariant] = useState<Variant>(product.variants[0]);
+  const currentVariantIdx = useMemo<number>(() => {
+    const currentVariantSKU = router.asPath.split('/')[3];
+    return product?.variants.findIndex(({ sku }) => sku === currentVariantSKU) ?? 0;
+  }, [product, router.asPath]);
+
+  const variant = useMemo<Variant>(() => product?.variants[currentVariantIdx], [product, currentVariantIdx]);
+
   const { addItem } = useCart();
-
-  if (!product || !variant) return null;
-
+  const { data: wishlist } = useWishlist();
   // 🙈
   // feel free to add a map if there are later
   // more colors missing (or add to tailwind conf)
@@ -29,7 +33,7 @@ function ProductDetailsTastic({ data }) {
   // features..
   const colors = [
     ...new Map(
-      product.variants?.map((v: Variant) => [
+      product?.variants?.map((v: Variant) => [
         v.attributes?.color?.label,
         {
           name: v.attributes?.color?.label,
@@ -43,7 +47,7 @@ function ProductDetailsTastic({ data }) {
 
   const sizes = [
     ...new Map(
-      product.variants?.map((v: Variant) => [v.attributes?.commonSize?.label, v.attributes?.commonSize]),
+      product?.variants?.map((v: Variant) => [v.attributes?.commonSize?.label, v.attributes?.commonSize]),
     ).values(),
   ] as UISize[];
 
@@ -52,31 +56,27 @@ function ProductDetailsTastic({ data }) {
   // stay decoupled.
   // TODO: properly type
 
-  useEffect(() => {
-    if (!currentVariantIdx && currentVariantIdx !== 0) {
-      const currentVariantSKU = router.asPath.split('/')[3];
-      const currentVariantIndex = product?.variants.findIndex(({ sku }) => sku == currentVariantSKU);
-
-      setVariant(product.variants[currentVariantIndex]);
-    } else setVariant(product.variants[currentVariantIdx]);
-  }, [product, currentVariantIdx]);
-
   const prod = useMemo<UIProduct>(
     () => ({
-      name: product.name,
+      productId: product?.productId,
+      name: product?.name,
+      _url: product?._url,
       // add variants as well, so we can select and filter
-      variants: product.variants,
-      price: variant.price,
+      variants: product?.variants,
+      price: variant?.price,
       // rating: 4,
-      images: variant.images?.map((img: string, id: number) => ({
-        id: `${variant.sku}-${id}`,
+      images: variant?.images?.map((img: string, id: number) => ({
+        id: `${variant?.sku}-${id}`,
         src: img,
-        alt: variant.sku,
+        alt: variant?.sku,
       })),
       colors,
       sizes,
+      isOnWishlist: !!wishlist?.lineItems?.find((lineItem) =>
+        product?.variants.find((variant) => variant.sku === lineItem.variant.sku),
+      ),
       description: `
-      <p>${product.description || ''}</p>
+      <p>${product?.description || ''}</p>
     `,
 
       details: [
@@ -101,16 +101,42 @@ function ProductDetailsTastic({ data }) {
     addToWishlist(variant.sku, 1);
   };
 
-  if (!prod) return <></>;
+  const handleVariantIdxChange = (idx: number) => {
+    const variant = product?.variants[idx];
+    const url = `${router.asPath.split('/').slice(0, 3).join('/')}/${variant.sku}`;
+    router.replace(url, undefined, { shallow: true });
+  };
+
+  //For SSR render when going back
+  useEffect(() => {
+    router.beforePopState(({ as }) => {
+      if (as !== router.asPath) {
+        router.replace(as, undefined);
+        return false;
+      }
+
+      return true;
+    });
+
+    return () => router.beforePopState(() => true);
+  }, []);
+
+  if (!product || !variant || !prod) return <></>;
 
   return (
-    <ProductDetails
-      product={prod}
-      onAddToCart={handleAddToCart}
-      variant={variant}
-      onChangeVariantIdx={setCurrentVariantIdx}
-      onAddToWishlist={handleAddToWishList}
-    />
+    <>
+      <Head>
+        <title>{product.name}</title>
+      </Head>
+      <ProductDetails
+        product={prod}
+        onAddToCart={handleAddToCart}
+        variant={variant}
+        onChangeVariantIdx={handleVariantIdxChange}
+        onAddToWishlist={handleAddToWishList}
+        quickBuyEnabled={data.quickBuyEnabled}
+      />
+    </>
   );
 }
 

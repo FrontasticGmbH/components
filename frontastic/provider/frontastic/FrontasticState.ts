@@ -2,7 +2,7 @@ import {
   getAccount,
   changePassword,
   confirm,
-  resendVerificationEmail,
+  requestConfirmationEmail,
   login,
   logout,
   register,
@@ -18,10 +18,10 @@ import {
 import {
   cartItems,
   addItem,
-  orderCart,
+  checkout,
   orderHistory,
   removeItem,
-  shippingMethods,
+  getShippingMethods,
   setShippingMethod,
   updateCart,
   updateItem,
@@ -30,7 +30,7 @@ import {
   getProjectSettings,
 } from '../../actions/cart';
 import { getWishlist, addToWishlist, removeLineItem, updateLineItem } from '../../actions/wishlist';
-import { createSession, adyenCheckout } from '../../actions/adyen';
+import { createSession } from '../../actions/adyen';
 import { UseAccount } from './UseAccount';
 import { UseCart } from './UseCart';
 import { UseWishlist } from './UseWishlist';
@@ -49,11 +49,11 @@ export const getFrontasticState = (): FrontasticState => {
       ...cartItems(),
       addItem,
       updateCart,
-      setShippingMethod,
       removeItem,
       updateItem,
-      shippingMethods: shippingMethods(),
-      orderCart,
+      getShippingMethods,
+      setShippingMethod,
+      checkout,
       orderHistory,
       getProjectSettings,
       redeemDiscountCode,
@@ -65,7 +65,7 @@ export const getFrontasticState = (): FrontasticState => {
       logout,
       register,
       confirm,
-      resendVerificationEmail,
+      requestConfirmationEmail,
       changePassword,
       requestPasswordReset,
       resetPassword,
@@ -84,7 +84,6 @@ export const getFrontasticState = (): FrontasticState => {
     },
     useAdyen: {
       createSession,
-      adyenCheckout,
     },
   };
 };

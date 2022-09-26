@@ -12,7 +12,12 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args) => (
-  <WishList items={wishlist} removeLineItems={() => console.log('CLICK')} {...args} />
+  <WishList
+    items={wishlist}
+    addToCart={() => alert('Item added to cart')}
+    removeLineItems={() => alert('Item removed from wishlist')}
+    {...args}
+  />
 );
 
 export const Primary = Template.bind({});

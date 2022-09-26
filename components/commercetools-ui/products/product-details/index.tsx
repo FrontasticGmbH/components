@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react';
-import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ChevronUpIcon, HeartIcon } from '@heroicons/react/outline';
 import { Money } from '@Types/product/Money';
 import { Variant } from '@Types/product/Variant';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Price from '../../price';
-import WishlistButton from './wishlist-button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -18,9 +18,11 @@ export interface Props {
   onAddToWishlist: () => void;
   variant: Variant;
   onChangeVariantIdx: (idx: number) => void;
+  quickBuyEnabled?: boolean;
 }
 
 export type UIProduct = {
+  productId: string;
   name: string;
   variants: Variant[];
   price?: Money;
@@ -29,6 +31,8 @@ export type UIProduct = {
   sizes?: UISize[];
   description: string;
   details?: UIDetail[];
+  isOnWishlist?: boolean;
+  _url: string;
 };
 interface UIImage {
   id?: string;
@@ -50,33 +54,73 @@ interface UIDetail {
   items: string[];
 }
 
-export default function ProductDetail({ product, onAddToCart, onAddToWishlist, variant, onChangeVariantIdx }: Props) {
+export default function ProductDetail({
+  product,
+  onAddToCart,
+  onAddToWishlist,
+  variant,
+  onChangeVariantIdx,
+  quickBuyEnabled,
+}: Props) {
+  //next/router
+  const router = useRouter();
+
   //i18n messages
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
-  const [selectedColor, setSelectedColor] = useState<UIColor | undefined>(product?.colors?.[0]);
-  const [selectedSize, setSelectedSize] = useState<UISize>();
+
+  //Variant attributes
+  const selectedColor = useMemo<UIColor | undefined>(
+    () => product?.colors?.find((c) => c.key === variant?.attributes?.color?.key) ?? product?.colors?.[0],
+    [product, variant],
+  );
+
+  const selectedSize = useMemo<UISize>(
+    () => product?.sizes?.find((s) => s.key === variant?.attributes?.commonSize?.key) ?? product?.sizes?.[0],
+    [product, variant],
+  );
+
+  //Component states
   const [loading, setLoading] = useState<boolean>(false);
   const [added, setAdded] = useState<boolean>(false);
 
-  // changes the selected variant whenever
-  // one of the attributes changes and
-  // notifies the wrapping tastic via
-  // the onChangeVariantIdx handler
-  useEffect(() => {
-    const idx = product?.variants.findIndex(
-      (v: Variant) =>
-        v.attributes?.color?.key === selectedColor?.key && v.attributes?.commonSize?.key === selectedSize?.key,
+  const selectSize = (size: UISize) => {
+    onChangeVariantIdx(
+      product?.variants?.findIndex(
+        (variant) =>
+          variant?.attributes?.color?.key === selectedColor.key && variant?.attributes?.commonSize?.key === size.key,
+      ) ?? 0,
     );
-    onChangeVariantIdx(idx === -1 ? 0 : idx);
-  }, [selectedColor, selectedSize, onChangeVariantIdx, product?.variants]);
+  };
 
-  const handleAddToCart = (variant: Variant, quantity: number) => {
-    if (!variant.isOnStock) return;
+  const selectColor = (color: UIColor) => {
+    onChangeVariantIdx(
+      product?.variants?.findIndex(
+        (variant) =>
+          variant?.attributes?.color?.key === color.key && variant?.attributes?.commonSize?.key === selectedSize.key,
+      ) ?? 0,
+    );
+  };
+
+  const variantExistsFor = useCallback(
+    (color: UIColor, size: UISize) => {
+      return !!product?.variants?.find(
+        (v) => v.attributes?.color?.key === color?.key && v.attributes?.commonSize?.key === size?.key,
+      );
+    },
+    [product],
+  );
+
+  const handleAddToCart = async () => {
+    if (loading || !variant.isOnStock) return;
     setLoading(true);
-    onAddToCart(variant, quantity).then(() => {
-      setLoading(false);
-      setAdded(true);
-    });
+    await onAddToCart(variant, 1);
+    setLoading(false);
+    setAdded(true);
+  };
+
+  const handleQuickBuy = async () => {
+    await onAddToCart(variant, 1);
+    router.push('/checkout');
   };
 
   useEffect(() => {
@@ -105,7 +149,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                       {({ selected }) => (
                         <>
                           <span className="sr-only">{image.alt}</span>
-                          <span className="absolute inset-0 overflow-hidden rounded-md">
+                          <span className="absolute inset-0 overflow-hidden">
                             <Image
                               loader={({ src }) => src}
                               layout="fill"
@@ -117,8 +161,8 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           </span>
                           <span
                             className={classNames(
-                              selected ? 'ring-accent-400' : 'ring-transparent',
-                              'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2',
+                              selected ? 'ring-primary-400' : 'ring-transparent',
+                              'pointer-events-none absolute inset-0 ring-2 ring-offset-2',
                             )}
                             aria-hidden="true"
                           />
@@ -148,10 +192,16 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
           {/* Product info */}
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-light-100">
-              {product?.name}
-            </h1>
-
+            <div className="flex justify-between gap-4">
+              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product?.name}</h1>
+              <HeartIcon
+                className={`mt-1 h-7 w-7 shrink-0 cursor-pointer ${
+                  product.isOnWishlist ? 'fill-black-500' : 'fill-white'
+                } transition duration-150 ease-out hover:fill-black-500`}
+                onClick={onAddToWishlist}
+                aria-hidden="true"
+              />
+            </div>
             <div className="mt-3">
               <h2 className="sr-only">
                 {formatProductMessage({ id: 'product?.info', defaultMessage: 'Product information' })}
@@ -159,9 +209,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               <div className="flex pb-6">
                 <Price
                   price={product?.price}
-                  className={`${
-                    variant.discountedPrice && 'line-through'
-                  } dark:text-light-300 text-2xl text-neutral-600 md:text-3xl`}
+                  className={`${variant.discountedPrice ? 'line-through' : ''} text-2xl text-gray-900 md:text-3xl`}
                 />
                 {variant.discountedPrice && (
                   <Price price={variant?.discountedPrice} className="pl-6 text-2xl text-accent-400 md:text-3xl" />
@@ -175,7 +223,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </h3>
 
               <div
-                className="space-y-6 text-base text-gray-700 dark:text-light-100"
+                className="space-y-6 text-base text-gray-700"
                 dangerouslySetInnerHTML={{ __html: product?.description }}
               />
             </div>
@@ -183,11 +231,11 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
             <form className="mt-6">
               {/* Colors */}
               <div>
-                <h3 className="text-sm font-medium text-gray-900 dark:text-light-100">
-                  {formatProductMessage({ id: 'color', defaultMessage: 'Color' })}
+                <h3 className="text-sm text-gray-900">
+                  {formatProductMessage({ id: 'color.select', defaultMessage: 'Select color' })}
                 </h3>
 
-                <RadioGroup value={selectedColor} onChange={(e) => setSelectedColor(e)} className="mt-2">
+                <RadioGroup value={selectedColor} onChange={(e) => selectColor(e)} className="mt-4">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
                     {product?.colors?.map((color) => (
@@ -196,12 +244,10 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                         value={color}
                         className={({ active, checked }) =>
                           classNames(
-                            color.selectedColor,
                             (active && checked) || selectedColor?.key === color.key
-                              ? 'ring-2 ring-accent-400 ring-offset-1'
+                              ? `ring-2 ring-offset-2 ${color.selectedColor}`
                               : '',
-                            !active && checked ? 'ring-2 ring-accent-400 ring-offset-1' : '',
-                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
+                            'relative flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
                           )
                         }
                       >
@@ -212,7 +258,7 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                           aria-hidden="true"
                           className={classNames(
                             color.bgColor,
-                            'h-8 w-8 rounded-full border border-black border-opacity-10',
+                            'border-black h-6 w-6 rounded-full border border-opacity-10',
                           )}
                         />
                       </RadioGroup.Option>
@@ -223,43 +269,72 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               {product.sizes?.length && product.sizes.length > 1 && (
                 <div className="mt-8">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-sm font-medium text-gray-900 dark:text-light-100">
-                      {formatProductMessage({ id: 'size', defaultMessage: 'Size' })}
+                    <h2 className="text-sm text-gray-900">
+                      {formatProductMessage({ id: 'size.select', defaultMessage: 'Select size' })}
                     </h2>
                   </div>
 
-                  <RadioGroup value={selectedSize} onChange={(e) => setSelectedSize(e)} className="mt-2">
+                  <RadioGroup value={selectedSize} onChange={(e) => selectSize(e)} className="mt-4 hidden lg:block">
                     <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                      {product?.sizes?.map((size: { label: string; key: string }) => (
-                        <RadioGroup.Option
-                          key={size.label}
-                          value={size}
-                          className={({ active, checked }) =>
-                            classNames(
-                              active || selectedSize?.key === size.key ? 'ring-2 ring-accent-400 ring-offset-2' : '',
-                              checked
-                                ? 'bg-transparent text-gray-900 hover:bg-gray-50 dark:text-light-100'
-                                : 'border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
-                              'flex cursor-pointer items-center justify-center rounded-md border py-3 px-3 text-sm font-medium uppercase sm:flex-1',
-                            )
-                          }
-                        >
-                          <RadioGroup.Label>
-                            <p>{size.label}</p>
-                          </RadioGroup.Label>
-                        </RadioGroup.Option>
-                      ))}
+                      {product.sizes
+                        .filter((size) => variantExistsFor(selectedColor, size))
+                        .map((size) => (
+                          <RadioGroup.Option
+                            key={size.key}
+                            value={size}
+                            className={({ active, checked }) =>
+                              classNames(
+                                active || selectedSize?.key === size.key || checked ? 'ring-1 ring-primary-400' : '',
+                                'cursor-pointer rounded-sm bg-neutral-200 py-2 px-4 text-center font-light text-gray-900 transition duration-150 ease-out hover:bg-neutral-300',
+                              )
+                            }
+                          >
+                            <RadioGroup.Label className="cursor-pointer">
+                              <p>{size.label}</p>
+                            </RadioGroup.Label>
+                          </RadioGroup.Option>
+                        ))}
                     </div>
                   </RadioGroup>
+
+                  <select
+                    onChange={(e) => selectSize(product.sizes.find((size) => size.key === e.target.value))}
+                    className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm lg:hidden"
+                    defaultValue="Canada"
+                    value={selectedSize.key}
+                  >
+                    {product.sizes.map((size) => (
+                      <option key={size.key} value={size.key}>
+                        {size.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               )}
 
-              <div className="mt-10 flex sm:flex-1">
+              <div className="align-stretch mt-10 flex flex-col gap-4">
+                {quickBuyEnabled && (
+                  <button
+                    type="button"
+                    onClick={handleQuickBuy}
+                    className={classNames(
+                      'flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-8  text-base font-medium text-white transition duration-150 ease-out hover:bg-accent-500 focus:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400',
+                    )}
+                    disabled={!variant.isOnStock}
+                  >
+                    Buy Now
+                  </button>
+                )}
                 <button
                   type="button"
-                  onClick={() => handleAddToCart(variant, 1)}
-                  className="flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-accent-400 py-3 px-8 text-base font-medium text-white hover:bg-accent-500 focus:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400"
+                  onClick={handleAddToCart}
+                  className={classNames(
+                    'flex w-full flex-1 items-center justify-center rounded-md border py-3 px-8 text-base font-medium  transition duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-gray-50 disabled:bg-gray-400',
+                    !quickBuyEnabled
+                      ? 'border-transparent bg-accent-400 fill-white text-white hover:bg-accent-500 focus:bg-accent-500'
+                      : 'border-accent-400 bg-white fill-accent-400 text-accent-400 hover:bg-accent-400 hover:fill-white hover:text-white',
+                  )}
                   disabled={!variant.isOnStock}
                 >
                   {!loading && !added && (
@@ -272,14 +347,11 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
 
                   {loading && (
                     <svg className="h-6 w-6 animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-                      <path
-                        d="M8,8.5A3.5,3.5,0,1,1,4.5,5,3.5,3.5,0,0,1,8,8.5ZM4.5,14A3.5,3.5,0,1,0,8,17.5,3.5,3.5,0,0,0,4.5,14Zm16-2A3.5,3.5,0,1,0,17,8.5,3.5,3.5,0,0,0,20.5,12Zm0,2A3.5,3.5,0,1,0,24,17.5,3.5,3.5,0,0,0,20.5,14Zm-8,4A3.5,3.5,0,1,0,16,21.5,3.5,3.5,0,0,0,12.5,18Zm0-18A3.5,3.5,0,1,0,16,3.5,3.5,3.5,0,0,0,12.5,0Z"
-                        fill="#fff"
-                      />
+                      <path d="M8,8.5A3.5,3.5,0,1,1,4.5,5,3.5,3.5,0,0,1,8,8.5ZM4.5,14A3.5,3.5,0,1,0,8,17.5,3.5,3.5,0,0,0,4.5,14Zm16-2A3.5,3.5,0,1,0,17,8.5,3.5,3.5,0,0,0,20.5,12Zm0,2A3.5,3.5,0,1,0,24,17.5,3.5,3.5,0,0,0,20.5,14Zm-8,4A3.5,3.5,0,1,0,16,21.5,3.5,3.5,0,0,0,12.5,18Zm0-18A3.5,3.5,0,1,0,16,3.5,3.5,3.5,0,0,0,12.5,0Z" />
                     </svg>
                   )}
                   {!loading && added && (
-                    <svg className="h-6 w-6" fill="#fff" viewBox="0 0 80.588 61.158">
+                    <svg className="h-6 w-6" viewBox="0 0 80.588 61.158">
                       <path
                         d="M29.658,61.157c-1.238,0-2.427-0.491-3.305-1.369L1.37,34.808c-1.826-1.825-1.826-4.785,0-6.611
                      c1.825-1.826,4.786-1.827,6.611,0l21.485,21.481L72.426,1.561c1.719-1.924,4.674-2.094,6.601-0.374
@@ -289,8 +361,6 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
                     </svg>
                   )}
                 </button>
-
-                <WishlistButton variant={variant} onAddToWishlist={onAddToWishlist} />
               </div>
             </form>
 
@@ -300,48 +370,43 @@ export default function ProductDetail({ product, onAddToCart, onAddToWishlist, v
               </h2>
 
               {product.details?.length && product.details.length > 0 && (
-                <div className="divide-y divide-gray-200 border-t">
-                  {product?.details?.map((detail) => (
-                    <Disclosure key={detail.name}>
-                      {({ open }) => (
-                        <>
-                          <h3>
-                            <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
-                              <span
-                                className={classNames(
-                                  open ? 'text-accent-400' : 'text-gray-900 dark:text-light-100',
-                                  'text-sm font-medium',
-                                )}
-                              >
-                                {detail.name}
-                              </span>
-                              <span className="ml-6 flex items-center">
-                                {open ? (
-                                  <MinusSmIcon
-                                    className="block h-6 w-6 text-accent-400 group-hover:text-accent-500"
-                                    aria-hidden="true"
-                                  />
-                                ) : (
-                                  <PlusSmIcon
-                                    className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                                    aria-hidden="true"
-                                  />
-                                )}
-                              </span>
-                            </Disclosure.Button>
-                          </h3>
-                          <Disclosure.Panel>
-                            <div className="prose prose-sm py-6 dark:text-light-100">
-                              <ul role="list">
-                                {detail.items?.map((item, index) => (
-                                  <li key={index}>{item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          </Disclosure.Panel>
-                        </>
-                      )}
-                    </Disclosure>
+                <div>
+                  {product.details.map((detail) => (
+                    <div className="border-t" key={detail.name}>
+                      <Disclosure key={detail.name}>
+                        {({ open }) => (
+                          <>
+                            <h3>
+                              <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
+                                <span className="font-medium text-gray-900">{detail.name}</span>
+                                <span className="ml-6 flex items-center">
+                                  {open ? (
+                                    <ChevronUpIcon
+                                      className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                                      aria-hidden="true"
+                                    />
+                                  ) : (
+                                    <ChevronDownIcon
+                                      className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                </span>
+                              </Disclosure.Button>
+                            </h3>
+                            <Disclosure.Panel>
+                              <div className="prose prose-sm py-6">
+                                <ul role="list">
+                                  {detail.items?.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </Disclosure.Panel>
+                          </>
+                        )}
+                      </Disclosure>
+                    </div>
                   ))}
                 </div>
               )}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SWRConfig } from 'swr';
 import { fetchApiHub } from '../../lib/fetch-api-hub';
-import DarkModeProvider from '../DarkMode';
+import DarkModeProvider from '../dark-mode';
 import { FrontasticState, getFrontasticState } from './FrontasticState';
 
 const initialState: FrontasticState = {
@@ -11,7 +11,7 @@ const initialState: FrontasticState = {
   useAdyen: {} as any,
 };
 
-const FrontasticContext = React.createContext<FrontasticState>(initialState);
+export const FrontasticContext = React.createContext<FrontasticState>(initialState);
 
 export const FrontasticProvider: React.FC = ({ children }) => {
   const state: FrontasticState = getFrontasticState();

@@ -22,8 +22,8 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
   //account actions
   const { resetPassword } = useAccount();
 
-  //register data
-  const [data, setData] = useState({ email: '', password: '', confirmPassword: '' });
+  //reset password data data
+  const [data, setData] = useState({ password: '', confirmPassword: '' });
 
   //error
   const [error, setError] = useState('');
@@ -60,9 +60,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
     try {
       const response = await resetPassword(token as string, data.password);
       if (!response.accountId) {
-        setError(
-          formatErrorMessage({ id: 'account.create.fail', defaultMessage: "Sorry. We couldn't create your account.." }),
-        );
+        setError(formatErrorMessage({ id: 'wentWrong', defaultMessage: 'Sorry. Something went wrong..' }));
       } else {
         setError('');
         router?.push(getReferenceTarget(accountLink));
@@ -75,77 +73,70 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ logo, token, accountLink 
   };
 
   return (
-    <>
-      <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="relative h-12 dark:invert">
-            <Image {...logo} alt="Logo" layout="fill" objectFit="contain" />
-          </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-light-100">
-            {formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })}
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            {formatAccountMessage({
-              id: 'password.reset.desc',
-              defaultMessage: 'Fill the fields below to complete your password reset',
-            })}
-          </p>
-        </div>
+    <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="mt-8">
+        <div className="mx-auto w-full max-w-[500px] rounded-sm bg-white px-6 pb-32 pt-16 shadow-2xl dark:bg-primary-200 lg:px-12">
+          <form className="space-y-7" onSubmit={handleSubmit}>
+            <div className="py-6 text-center">
+              <h2 className="text-3xl font-extrabold text-neutral-700">
+                {formatAccountMessage({ id: 'password.reset.headline', defaultMessage: 'Reset your password' })}
+              </h2>
+              <h3 className="text-md mt-6 text-neutral-600">
+                {formatAccountMessage({
+                  id: 'password.reset.desc',
+                  defaultMessage: 'Fill the fields below to complete your password reset',
+                })}
+              </h3>
+            </div>
+            {error && <p className="text-sm text-accent-400">{error}</p>}
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-neutral-700">
+                {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
+              </label>
+              <div className="relative mt-2">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="new-password"
+                  placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                  required
+                  className="block w-full appearance-none rounded-sm border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow dark:bg-primary-200 sm:rounded-lg sm:px-10">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              {error && <p className="text-sm text-accent-400">{error}</p>}
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-light-100">
-                  {formatAccountMessage({ id: 'password', defaultMessage: 'Password' })}
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
-                    onChange={handleChange}
-                  />
-                </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-neutral-700">
+                {formatAccountMessage({ id: 'password.confirm', defaultMessage: 'Confirm Password' })}
+              </label>
+              <div className="relative mt-2">
+                <input
+                  id="confirm-password"
+                  name="confirmPassword"
+                  type="password"
+                  autoComplete="new-password"
+                  placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                  required
+                  className="block w-full appearance-none rounded-sm border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
+                  onChange={handleChange}
+                />
               </div>
-
-              <div>
-                <label
-                  htmlFor="confirm-password"
-                  className="block text-sm font-medium text-gray-700 dark:text-light-100"
-                >
-                  {formatAccountMessage({ id: 'password.confirm', defaultMessage: 'Confirm Password' })}
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="confirm-password"
-                    name="confirmPassword"
-                    type="password"
-                    autoComplete="current-password"
-                    required
-                    className="block w-full appearance-none rounded-md border border-gray-300 py-2 px-3 shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:outline-none focus:ring-accent-400 sm:text-sm"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
-                  disabled={loading}
-                >
-                  {formatAccountMessage({ id: 'submit', defaultMessage: 'Submit' })}
-                </button>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-sm border border-transparent bg-accent-400 py-2 px-4 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-out hover:bg-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 disabled:bg-gray-200"
+                disabled={loading}
+              >
+                {formatAccountMessage({ id: 'password.reset', defaultMessage: 'Reset password' })}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

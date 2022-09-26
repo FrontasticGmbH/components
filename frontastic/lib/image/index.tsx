@@ -11,11 +11,12 @@ export default function Image({
   gravity,
   layout = 'responsive',
   alt = '',
+  loading = 'lazy',
   ...props
 }: NextFrontasticImage) {
   // if src is provided, we need to render a normal img
   // eslint-disable-next-line @next/next/no-img-element
-  if (src) return <img src={src as string} alt={alt} {...props} />; //not a frontastic image
+  if (src) return <img src={src as string} alt={alt} loading={loading} {...props} />; //not a frontastic image
 
   // The api used to be that we supply the media object,
   // ratio and gravity seperately. But, it's more elegant
@@ -66,7 +67,14 @@ export default function Image({
   //layout fill doesn't make use of width and height
   if (layout === 'fill')
     return (
-      <NextImage {...props} loader={frontasticCloudinaryLoader} layout={layout} src={parameterizedSrc} alt={alt} />
+      <NextImage
+        {...props}
+        loader={frontasticCloudinaryLoader}
+        layout={layout}
+        src={parameterizedSrc}
+        alt={alt}
+        loading={loading}
+      />
     );
 
   return (
@@ -78,6 +86,7 @@ export default function Image({
       src={parameterizedSrc}
       layout={layout}
       alt={alt}
+      loading={loading}
     />
   );
 }

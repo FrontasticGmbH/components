@@ -1,4 +1,5 @@
 import { Account } from '@Types/account/Account';
+import { AccountToken } from '@Types/account/AccountToken';
 import { Address } from '@Types/account/Address';
 import { Group } from '@Types/account/Group';
 import { Cart } from '@Types/cart/Cart';
@@ -120,8 +121,9 @@ const lineItems: LineItem[] = [
     name: 'Some Article of clothing 1',
     type: 'Clothes',
     variant: {
-      sku: 'SKU',
+      sku: 'SKU1',
       images: ['https://tailwindui.com/img/ecommerce-images/checkout-page-03-product-04.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
     },
   },
   {
@@ -132,8 +134,9 @@ const lineItems: LineItem[] = [
     name: 'Some Article of clothing 2',
     type: 'Clothes',
     variant: {
-      sku: 'SKU',
+      sku: 'SKU2',
       images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
     },
   },
   {
@@ -144,8 +147,22 @@ const lineItems: LineItem[] = [
     name: 'Some Article of clothing 3',
     type: 'Clothes',
     variant: {
-      sku: 'SKU',
+      sku: 'SKU3',
       images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
+    },
+  },
+  {
+    lineItemId: '3',
+    _url: '/',
+    addedAt: new Date(),
+    count: 5,
+    name: 'Some Article of clothing 3',
+    type: 'Clothes',
+    variant: {
+      sku: 'SKU4',
+      images: ['https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg'],
+      price: { fractionDigits: 2, centAmount: 20800, currencyCode: 'EUR' },
     },
   },
 ];
@@ -156,6 +173,10 @@ export const wishlist: Wishlist = {
   accountId: 'Acc-12-43',
   wishlistVersion: 'v 1.0',
   lineItems: lineItems,
+};
+
+export const accountToken: AccountToken = {
+  token: 'token',
 };
 
 export const addresses: Address[] = [
@@ -192,7 +213,7 @@ export const account: Account = {
   password: '123456789',
   birthday: new Date('1995, 11, 17'),
   apiToken: 'token',
-  confirmationToken: 'token',
+  confirmationToken: accountToken,
   confirmed: true,
   salutation: 'Salutations',
   groups: groups,
@@ -347,21 +368,21 @@ export const productItem = {
   colors: [
     {
       name: 'Red',
-      key: '0',
-      bgColor: '#ff4d4d',
-      selectedColor: '#4dc3ff',
+      key: 'red',
+      bgColor: 'bg-red-400',
+      selectedColor: 'ring-red-400',
     },
     {
       name: 'Blue',
-      key: '1',
-      bgColor: '#3333cc',
-      selectedColor: '#4dc3ff',
+      key: 'blue',
+      bgColor: 'bg-blue-400',
+      selectedColor: 'ring-blue-400',
     },
     {
       name: 'Green',
-      key: '2',
-      bgColor: '#00cc99',
-      selectedColor: '#4dc3ff',
+      key: 'green',
+      bgColor: 'bg-green-400',
+      selectedColor: 'ring-green-400',
     },
   ],
   sizes: [
@@ -417,6 +438,7 @@ export const productItem = {
       sku: 'M0E20000000E4QP',
       images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080123_1_large.jpg'],
       groupId: '80123',
+      isOnStock: true,
       attributes: {
         articleNumberManufacturer: 'FAVOLA BMAT NER',
         articleNumberMax: '80123',
@@ -1018,7 +1040,7 @@ export const products: Product[] = [
     variants: [
       {
         id: '1',
-        sku: 'M0E20000000E72G',
+        sku: 'SKU1',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080367_1_medium.jpg'],
         groupId: '80367',
         attributes: {
@@ -1070,7 +1092,7 @@ export const products: Product[] = [
         attributes: {
           articleNumberManufacturer: 'LREP02 TAUPE',
           articleNumberMax: '80367',
-          matrixId: 'M0E20000000E72H',
+          matrixId: 'SKU2',
           baseId: '80367',
           designer: {
             key: 'serafini',
@@ -1110,7 +1132,7 @@ export const products: Product[] = [
       },
       {
         id: '3',
-        sku: 'M0E20000000E72I',
+        sku: 'SKU3',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/080367_1_medium.jpg'],
         groupId: '80367',
         attributes: {
@@ -2187,7 +2209,7 @@ export const products: Product[] = [
     variants: [
       {
         id: '1',
-        sku: 'A0E20000000251J',
+        sku: 'SKU2',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081072_1_medium.jpg'],
         groupId: '81072',
         attributes: {
@@ -2254,7 +2276,7 @@ export const products: Product[] = [
     variants: [
       {
         id: '1',
-        sku: 'A0E2000000021XO',
+        sku: 'SKU3',
         images: ['https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079413_1_medium.jpg'],
         groupId: '79413',
         attributes: {
@@ -15062,6 +15084,7 @@ export const headerButtonLink = {
   pageFolder: {
     pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
     name: 'Start',
+    hasLivePage: true,
     _urls: { de_CH: '/', fr_CH: '/', it_CH: '/', de_LI: '/' },
     _url: '/',
   },
@@ -15082,6 +15105,7 @@ export const headerLinks = [
       pageFolder: {
         pageFolderId: 'b27378fbe05639798e9b23399a373bc0',
         name: 'Men',
+        hasLivePage: true,
         _urls: { de_CH: '/men', fr_CH: '/men', it_CH: '/men', de_LI: '/men' },
         _url: '/men',
       },
@@ -15095,6 +15119,7 @@ export const headerLinks = [
       pageFolder: {
         pageFolderId: 'b27378fbe05639798e9b23399a373bc0',
         name: 'Men',
+        hasLivePage: true,
         _urls: { de_CH: '/men', fr_CH: '/men', it_CH: '/men', de_LI: '/men' },
         _url: '/men',
       },
@@ -15116,6 +15141,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15134,6 +15160,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15152,6 +15179,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15170,6 +15198,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15194,6 +15223,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15212,6 +15242,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15236,6 +15267,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15254,6 +15286,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15272,6 +15305,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15290,6 +15324,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15313,6 +15348,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15331,6 +15367,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15349,6 +15386,7 @@ export const footerColumns = [
           pageFolder: {
             pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
             name: 'Start',
+            hasLivePage: true,
             _url: '/',
             _urls: {
               de_CH: '/',
@@ -15372,6 +15410,7 @@ export const footerCopyrightLinks: Link[] = [
       pageFolder: {
         pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
         name: 'Start',
+        hasLivePage: true,
         _url: '/',
         _urls: {
           de_CH: '/',
@@ -15390,6 +15429,7 @@ export const footerCopyrightLinks: Link[] = [
       pageFolder: {
         pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
         name: 'Start',
+        hasLivePage: true,
         _url: '/',
         _urls: {
           de_CH: '/',
@@ -15408,6 +15448,7 @@ export const footerCopyrightLinks: Link[] = [
       pageFolder: {
         pageFolderId: '595b5c44de02a8957bc5821913e58fa2',
         name: 'Start',
+        hasLivePage: true,
         _url: '/',
         _urls: {
           de_CH: '/',

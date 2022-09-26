@@ -7,16 +7,16 @@ import { CartDetails } from 'frontastic/actions/cart';
 import { ProjectSettings } from '@Types/ProjectSettings';
 
 export interface UseCart {
-  data?: Cart;
+  data?: Order;
   addItem: (variant: Variant, quantity: number) => Promise<void>;
   updateCart: (payload: CartDetails) => Promise<Cart>;
-  setShippingMethod: (shippingMethodId: string) => Promise<void>;
   removeItem: (lineItemId: string) => Promise<void>;
   updateItem: (lineItemId: string, newQuantity: number) => Promise<void>;
   removeDiscountCode?: (discount: Discount) => Promise<void>;
   redeemDiscountCode?: (code: string) => Promise<void>;
-  shippingMethods: { data?: ShippingMethod[] };
-  orderCart: () => Promise<void>;
+  setShippingMethod: (shippingMethodId: string) => Promise<void>;
+  getShippingMethods: () => Promise<ShippingMethod[]>;
+  checkout: () => Promise<void>;
   orderHistory?: () => Promise<Order[]>;
   getProjectSettings?: () => Promise<ProjectSettings>;
 }
