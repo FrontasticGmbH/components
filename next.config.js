@@ -33,6 +33,13 @@ module.exports = withPWA({
     return config;
   },
   generateBuildId: () => {
-    return executeProcess.execSync('git rev-parse HEAD').toString();
+    var buildId = 'dev';
+    try {
+      buildId = executeProcess.execSync('git rev-parse HEAD 2>&1').toString();
+    } catch (e) {
+      console.error('Cannot define build id: ', e);
+    }
+
+    return buildId;
   },
 });
