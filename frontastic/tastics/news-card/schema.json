@@ -11,7 +11,7 @@
           "label": "Blog",
           "field": "data",
           "type": "dataSource",
-          "dataSourceType": "contentful/entry"
+          "dataSourceType": "contentful/content"
         }
       ]
     }
