@@ -7,7 +7,7 @@ import { Log } from 'helpers/errorLogger';
 import { mapLanguage } from '../../project.config';
 
 export class LocaleStorage {
-  static locale: string = '';
+  static locale = '';
 }
 
 function resolveApiHubUrl(): string {
@@ -80,7 +80,7 @@ const performFetchApiHub = async (
       'Content-Type': 'application/json',
       Accept: 'application/json',
       ...(init.headers || {}),
-      'X-Frontastic-Access-Token': 'APIKEY',
+      'X-Frontastic-Access-Token': process.env.BUILD_ID,
       ...frontasticSessionHeaders,
       'Frontastic-Locale': mapLanguage(LocaleStorage.locale),
     },
