@@ -62,6 +62,8 @@ export default function Slug({ data, locale }: SlugProps) {
 }
 
 export const getServerSideProps: GetServerSideProps | Redirect = async ({ params, locale, query, req, res }) => {
+  LocaleStorage.locale = locale;
+
   const frontastic = createClient();
   const data = await frontastic.getRouteData(params, locale, query, req, res);
 
