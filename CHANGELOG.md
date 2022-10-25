@@ -1,4 +1,19 @@
 
+## Version 1.1.0 (2022-10-25)
+
+** New Features and Improvements **
+
+- Released MVP component for contentful
+
+- User can set up frontend locale mapper to backend locales in project.config.js file
+
+
+** Bug fixes **
+
+- Account bug fixes
+
+- Localization fix
+
 ## Version 1.0.1 (2022-07-05)
 
 ** New Features and Improvements **
