@@ -22,6 +22,31 @@ export function FrontasticRenderer({
 }) {
   const [isBiggerThanMobile] = useMediaQuery(screenSizes.mobile);
 
+  if (data?.page?.sections?.kit) {
+    return (
+      <Grid wrapperClassName="w-full">
+        {data?.page?.sections?.kit?.layoutElements.map((layoutElement: LayoutElementType) => (
+          <LayoutElement
+            size={layoutElement.configuration.size}
+            className={highlightClassNames(currentHighlight === layoutElement.layoutElementId)}
+            key={layoutElement.layoutElementId}
+          >
+            {layoutElement.tastics.map((t) => (
+              <TasticWrapper
+                tastics={tastics}
+                key={t.tasticId}
+                data={t}
+                dataSources={data.data.dataSources}
+                pageFolder={data.pageFolder}
+                highlight={currentHighlight === t.tasticId}
+                previewId={data?.previewId}
+              />
+            ))}
+          </LayoutElement>
+        ))}
+      </Grid>
+    );
+  }
   return (
     <div className="flex min-h-screen flex-col items-stretch justify-start">
       {process && process.env.NODE_ENV !== 'production' && <Errors />}

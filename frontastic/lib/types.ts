@@ -29,6 +29,7 @@ type Regions2 = {
   footer: Footer2;
   main: Main2;
   head: Head2;
+  kit: Kit2;
 };
 type Footer = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Region';
@@ -52,6 +53,10 @@ type Head2 = {
 };
 type Main2 = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Region';
+  layoutElements: Cell[];
+};
+type Kit2 = {
+  _type: 'FrontasticCatwalkNextJsBundleDomainApiSection';
   layoutElements: Cell[];
 };
 export type Cell = {
