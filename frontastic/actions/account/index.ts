@@ -64,10 +64,7 @@ export const logout = async () => {
 };
 
 export const register = async (account: RegisterAccount): Promise<Account> => {
-  const payload = {
-    account,
-  };
-  const response = await fetchApiHub('/action/account/register', { method: 'POST' }, payload);
+  const response = await fetchApiHub('/action/account/register', { method: 'POST' }, account);
   return response;
 };
 
