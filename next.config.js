@@ -18,6 +18,10 @@ module.exports = withPWA({
     // path: `https://res.cloudinary.com/dlwdq84ig/image/upload/`,
   },
   webpack(config, { webpack, buildId }) {
+    if (!buildId || buildId === 'development') {
+      buildId = process.env.BUILD_ID ? process.env.BUILD_ID : undefined;
+    }
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
