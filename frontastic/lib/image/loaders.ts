@@ -17,12 +17,15 @@ export function frontasticCloudinaryLoader({ src, width }: NextImageProps): stri
   const y = queries.get('y__coord'); //y coordinate for custom gravity
 
   //cloudinary transformations
-  const params = [
-    ...['f_auto', 'c_limit', 'g_' + (gravity ?? 'auto')],
-    ...(ratio ? ['w_' + width, 'q_' + 'auto', 'c_fill'] : []),
-    ...(gravity === 'custom' ? ['x_' + x, 'y_' + y] : []),
-    ...(ratio ? ['ar_' + ratio] : []),
-  ];
+  const params = ratio
+    ? [
+        ...['f_auto', 'c_limit', 'g_' + (gravity ?? 'auto')],
+        ...(width ? ['w_' + width, 'q_' + 'auto', 'c_crop'] : []),
+        ...(gravity === 'custom' ? ['x_' + x, 'y_' + y] : []),
+        ...(ratio ? ['ar_' + ratio] : []),
+      ]
+    : [...(width ? ['w_' + width, 'q_' + 'auto', 'c_scale'] : [])];
+
   const transformations = params.join(',');
 
   //image source with the query paremeters removed
