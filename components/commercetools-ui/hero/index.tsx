@@ -86,7 +86,6 @@ const Hero = ({
   isFullWidth,
 }: TileTasticData) => {
   //const DivOrReference = isClickable && reference ? Reference : 'div';
-  console.log('reference', reference);
   const DivOrReference = isClickable && reference ? ReferenceLink : 'div';
 
   // this could've gone easily as values into the schema,
@@ -126,7 +125,6 @@ const Hero = ({
   // technically need it's own render function,
   // but this way we have all the elements in one place
   const renderImage = () => {
-    console.log('fg', fgImage);
     return (
       fgImage && (
         <div className="relative w-full">
