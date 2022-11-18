@@ -1,4 +1,4 @@
-import next, { GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { Product } from '@Types/product/Product';
 import { Result } from '@Types/product/Result';
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
