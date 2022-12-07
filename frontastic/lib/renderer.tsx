@@ -1,11 +1,19 @@
 import React from 'react';
+import cx from 'classnames';
 import useMediaQuery from 'helpers/hooks/useMediaQuery';
 import * as screenSizes from 'helpers/utils/screensizes';
 import { Cell as LayoutElement } from './cell';
 import { highlightClassNames, TasticWrapper } from './component';
 import { Errors } from './errors';
 import { Grid } from './grid';
-import { Cell as LayoutElementType, Tastic, TasticRegistry, PageDataResponse, PagePreviewDataResponse } from './types';
+import {
+  Cell as LayoutElementType,
+  CellConfiguration,
+  Tastic,
+  TasticRegistry,
+  PageDataResponse,
+  PagePreviewDataResponse,
+} from './types';
 
 export function FrontasticRenderer({
   data,
@@ -21,6 +29,12 @@ export function FrontasticRenderer({
   currentHighlight?: string;
 }) {
   const [isBiggerThanMobile] = useMediaQuery(screenSizes.mobile);
+
+  function deviceVisibility(conf: CellConfiguration) {
+    return `${conf.mobile ? 'block' : 'hidden'} ${conf.tablet ? 'md:block' : 'md:hidden'} ${
+      conf.desktop ? 'lg:block' : 'lg:hidden'
+    }`;
+  }
 
   if (data?.page?.sections?.kit) {
     return (
@@ -57,7 +71,10 @@ export function FrontasticRenderer({
         {data?.page?.sections?.head?.layoutElements.map((layoutElement: LayoutElementType) => (
           <LayoutElement
             size={layoutElement.configuration.size}
-            className={highlightClassNames(currentHighlight === layoutElement.layoutElementId)}
+            className={cx(
+              highlightClassNames(currentHighlight === layoutElement.layoutElementId),
+              deviceVisibility(layoutElement.configuration),
+            )}
             key={layoutElement.layoutElementId}
           >
             {layoutElement.tastics.map((t) => (
@@ -78,25 +95,30 @@ export function FrontasticRenderer({
         gridClassName={`${gridClassName} min-h-[90vh]`}
         wrapperClassName={`${wrapperClassName} w-full grow ${highlightClassNames(currentHighlight === 'main')}`}
       >
-        {data?.page?.sections?.main?.layoutElements.map((layoutElement: LayoutElementType) => (
-          <LayoutElement
-            size={isBiggerThanMobile ? layoutElement.configuration.size : 12}
-            className={highlightClassNames(currentHighlight === layoutElement.layoutElementId)}
-            key={layoutElement.layoutElementId}
-          >
-            {layoutElement.tastics.map((t: Tastic) => (
-              <TasticWrapper
-                tastics={tastics}
-                key={t.tasticId}
-                data={t}
-                dataSources={data.data.dataSources}
-                pageFolder={data.pageFolder}
-                highlight={currentHighlight === t.tasticId}
-                previewId={data?.previewId}
-              />
-            ))}
-          </LayoutElement>
-        ))}
+        {data?.page?.sections?.main?.layoutElements.map((layoutElement: LayoutElementType) => {
+          return (
+            <LayoutElement
+              size={isBiggerThanMobile ? layoutElement.configuration.size : 12}
+              className={cx(
+                highlightClassNames(currentHighlight === layoutElement.layoutElementId),
+                deviceVisibility(layoutElement.configuration),
+              )}
+              key={layoutElement.layoutElementId}
+            >
+              {layoutElement.tastics.map((t: Tastic) => (
+                <TasticWrapper
+                  tastics={tastics}
+                  key={t.tasticId}
+                  data={t}
+                  dataSources={data.data.dataSources}
+                  pageFolder={data.pageFolder}
+                  highlight={currentHighlight === t.tasticId}
+                  previewId={data?.previewId}
+                />
+              ))}
+            </LayoutElement>
+          );
+        })}
       </Grid>
       <Grid
         gridClassName={gridClassName}
@@ -105,7 +127,10 @@ export function FrontasticRenderer({
         {data?.page?.sections?.footer?.layoutElements.map((layoutElement: LayoutElementType) => (
           <LayoutElement
             size={layoutElement.configuration.size}
-            className={highlightClassNames(currentHighlight === layoutElement.layoutElementId)}
+            className={cx(
+              highlightClassNames(currentHighlight === layoutElement.layoutElementId),
+              deviceVisibility(layoutElement.configuration),
+            )}
             key={layoutElement.layoutElementId}
           >
             {layoutElement.tastics.map((t: Tastic) => (

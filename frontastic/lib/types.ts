@@ -65,7 +65,7 @@ export type Cell = {
   configuration: CellConfiguration;
   tastics: Tastic[];
 };
-type CellConfiguration = {
+export type CellConfiguration = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Cell\\Configuration';
   size: number;
   mobile: boolean;
