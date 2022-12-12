@@ -156,10 +156,27 @@ export const rawFetchApiHubServerSide = async (
   const cookies = new ServerCookies(expressMessages.req, expressMessages.res);
   return await performFetchApiHub(endpointPath, { headers }, null, {
     getCookie: (cookieIdentifier) => {
-      return cookies.get(cookieIdentifier);
+      const cookieResult = cookies.get(cookieIdentifier);
+      // When doing multiple calls to API Hub endpoints from the server side,
+      // the library to store cookies *reads* from the /request/ but *writes* to
+      // the /response/. So a session will be lost between the subsequent calls
+      // in the same *client* request (it is always read from the request, so
+      // modifications by the backend aren't taken into consideration until the
+      // response is actually sent back to the client). We can mitigate that by
+      // storing the session in the response header and also reading it from
+      // there.
+      if (cookieResult == undefined && cookieIdentifier == 'frontastic-session') {
+        return expressMessages.res.getHeader('Frontastic-Session');
+      }
+      return cookieResult;
     },
-    setCookie: () => {
-      // Do nothing. Only actions are eligible to set the session.
+    setCookie: (cookieIdentifier, value) => {
+      cookies.set(cookieIdentifier, value);
+      // Storing session in header to able to receive it on subsequent calls on
+      // server-site (see comment above).
+      if (cookieIdentifier == 'frontastic-session') {
+        expressMessages.res.setHeader('Frontastic-Session', value);
+      }
     },
   });
 };
