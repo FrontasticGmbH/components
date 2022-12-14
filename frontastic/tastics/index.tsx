@@ -15,6 +15,7 @@ import AccountTest from './account/test';
 import Cart from './cart';
 import Checkout from './checkout';
 import ThankYou from './checkout/thank-you';
+import Blog from './content/blog';
 import Markdown from './content/markdown';
 import Spacer from './content/spacer';
 import Tile from './content/tile';
@@ -29,7 +30,6 @@ import ProductSlider from './products/slider';
 import SimilarProducts from './products/similar-products';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
-import ContentfulBlogTastic from './contentful-blog';
 import CategoryTeasers from './content/category-teasers';
 import NewsCardTastic from './news-card';
 
@@ -47,6 +47,7 @@ export const tastics = {
   'commercetools/ui/cart': Cart,
   'commercetools/ui/footer': Footer,
   'commercetools/ui/header': Header,
+  'commercetools/ui/content/blog': Blog,
   'commercetools/ui/content/tile': Tile,
   'commercetools/ui/content/spacer': Spacer,
   'commercetools/ui/content/showcase': Showcase,
@@ -63,7 +64,6 @@ export const tastics = {
   'commercetools/ui/account/register': AccountRegister,
   'commercetools/ui/account/orders': AccountOrdersHistory,
   'commercetools/ui/account/reset-password': ResetPassword,
-  'commercetools/ui/content/contentful/blog': ContentfulBlogTastic,
   'commercetools/ui/content/category-teasers': CategoryTeasers,
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
