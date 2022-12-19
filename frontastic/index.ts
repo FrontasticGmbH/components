@@ -1,9 +1,10 @@
-import { getRouteData, getPreview } from './lib/server/get-route-data';
+import { getRouteData, getPreview, getStructure } from './lib/server/get-route-data';
 
 export function createClient() {
   return {
     getRouteData: getRouteData(),
     getPreview: getPreview(),
+    getStructure: getStructure(),
   };
 }
 

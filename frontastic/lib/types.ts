@@ -124,6 +124,11 @@ export interface DataSourceConfiguration {
   name: string;
   configuration: any;
 }
+export interface PageFolderBreadcrumb {
+  pageFolderId: string;
+  pathTranslations: any;
+  ancestorIdsMaterializedPath: string;
+}
 export interface PageFolder {
   pageFolderId: string;
   isDynamic: boolean;
@@ -143,11 +148,37 @@ export interface PageFolder {
    * Sort order in the page folder tree.
    */
   sort: number;
+  breadcrumbs: PageFolderBreadcrumb[];
+}
+export interface PageFolderStructureValue {
+  pageFolderId: string;
+  pageFolderType: string;
+  configuration: any;
+  dataSourceConfigurations: DataSourceConfiguration[];
+  name?: string;
+  /**
+   * Materialized path of IDs of ancestor page folders.
+   */
+  ancestorIdsMaterializedPath: string;
+  /**
+   * Depth of this page folder in the page folder tree.
+   */
+  depth: number;
+  /**
+   * Sort order in the page folder tree.
+   */
+  sort: number;
+  breadcrumbs: PageFolderBreadcrumb[];
+  _urls: string[];
+  _url: string;
 }
 export interface PageDataResponse {
   pageFolder: PageFolder;
   page: Page2;
   data: ViewData;
+}
+export interface PageFolderStructureResponse {
+  pageFolderStructure: PageFolderStructureValue[];
 }
 export interface PagePreviewDataResponse extends PageDataResponse {
   previewId: string;

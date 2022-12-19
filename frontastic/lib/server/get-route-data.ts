@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { fetchApiHubServerSide } from '../fetch-api-hub';
-import { PageDataResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
+import { PageDataResponse, PageFolderStructureResponse, PagePreviewDataResponse, RedirectResponse } from '../types';
 import { mapLanguage } from '../../../project.config';
 
 type UrlParams = {
@@ -75,5 +75,31 @@ export const getPreview =
       req: nextJsReq,
       res: nextJsRes,
     })) as PagePreviewDataResponse;
+    return data;
+  };
+
+export const getStructure =
+  () =>
+  async (
+    path: string,
+    depth: string,
+    locale: string,
+    nextJsReq: IncomingMessage,
+    nextJsRes: ServerResponse,
+  ): Promise<PageFolderStructureResponse> => {
+    const endpoint = `/structure?locale=${locale}`;
+
+    if (path) {
+      endpoint.concat(`&path=${path}`);
+    }
+
+    if (depth) {
+      endpoint.concat(`&depth=${depth}`);
+    }
+
+    const data: PageFolderStructureResponse = (await fetchApiHubServerSide(endpoint, {
+      req: nextJsReq,
+      res: nextJsRes,
+    })) as PageFolderStructureResponse;
     return data;
   };
