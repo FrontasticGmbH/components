@@ -9,7 +9,6 @@
     "prod": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_ENV=production next dev\" \"yarn ts --watch\"",
     "debug": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_OPTIONS='--inspect' next dev\" \"yarn ts --watch\"",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "test": "jest",
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
