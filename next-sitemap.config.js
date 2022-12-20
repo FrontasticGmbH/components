@@ -7,7 +7,7 @@ const siteUrl = process.env.SITE_URL;
 /** @type {import('next-sitemap').IConfig} */
 const config = {
   siteUrl,
-  exclude: ['/sitemap.xml', '/sitemap-categories.xml', '/sitemap-products.xml', '/verify', '/__preview'],
+  exclude: ['/sitemap-categories.xml', '/sitemap-products.xml', '/verify', '/__preview'],
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
@@ -24,11 +24,7 @@ const config = {
         disallow: ['/__preview'],
       },
     ],
-    additionalSitemaps: [
-      `${siteUrl}/sitemap.xml`,
-      `${siteUrl}/sitemap-categories.xml`,
-      `${siteUrl}/sitemap-products.xml`,
-    ],
+    additionalSitemaps: [`${siteUrl}/sitemap-categories.xml`, `${siteUrl}/sitemap-products.xml`],
   },
   alternateRefs: [
     { href: `${siteUrl}/en`, hreflang: 'en' },
