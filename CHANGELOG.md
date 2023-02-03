@@ -1,4 +1,21 @@
 
+## Version 1.2.0 (2023-02-03)
+
+** New Features and Improvements **
+
+- Implemented index and session storage for Pages
+- Added usage example for Sitemap Api
+- Moved contentful component to content folder
+- Enable session storage for subsequent server-side calls
+- Allow usage of buildId from environment
+- Sendgrid integrations
+- Render kit type
+
+** Bug fixes **
+
+- Fixed sitemap build error, added dynamic languages
+- Fix image loader scaling
+
 ## Version 1.1.0 (2022-10-25)
 
 ** New Features and Improvements **
