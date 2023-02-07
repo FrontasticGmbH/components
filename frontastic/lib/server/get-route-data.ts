@@ -71,10 +71,18 @@ export const getPreview =
   ): Promise<PagePreviewDataResponse> => {
     const endpoint = `/preview?previewId=${previewId}&locale=${locale}`;
 
-    const data: PagePreviewDataResponse = (await fetchApiHubServerSide(endpoint, {
+    const headers = {
+      'Frontastic-Locale': mapLanguage(locale),
+    };
+
+    const data: PagePreviewDataResponse = (await fetchApiHubServerSide(
+      endpoint,
+      {
       req: nextJsReq,
       res: nextJsRes,
-    })) as PagePreviewDataResponse;
+    },
+      headers
+    )) as PagePreviewDataResponse;
     return data;
   };
 
