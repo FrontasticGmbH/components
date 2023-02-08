@@ -1,4 +1,11 @@
 
+## Version 1.2.1 (2023-02-08)
+
+** Bug fixes **
+
+- Use short commit hash on frontend
+- Allow passing of locale to preview page as Frontastic-Locale
+
 ## Version 1.2.0 (2023-02-03)
 
 ** New Features and Improvements **
