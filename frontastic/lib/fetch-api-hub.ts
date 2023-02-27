@@ -80,7 +80,7 @@ const performFetchApiHub = async (
       'Content-Type': 'application/json',
       Accept: 'application/json',
       ...(init.headers || {}),
-      'X-Frontastic-Access-Token': process.env.BUILD_ID ? process.env.BUILD_ID : 'dev',
+      'X-Frontastic-Access-Token': process.env.NEXT_PUBLIC_EXT_BUILD_ID ?? 'dev',
       ...frontasticSessionHeaders,
       'Frontastic-Locale': mapLanguage(LocaleStorage.locale),
     },
