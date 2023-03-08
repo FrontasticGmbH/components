@@ -1,4 +1,10 @@
 
+## Version 1.3.0 (2023-03-08)
+
+** New Features and Improvements **
+
+- Use NEXT_PUBLIC_EXT_BUILD_ID instead of BUILD_ID
+
 ## Version 1.2.1 (2023-02-08)
 
 ** Bug fixes **
