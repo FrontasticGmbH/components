@@ -1,16 +1,5 @@
-const executeProcess = require('child_process');
 const withPWA = require('next-pwa');
 const { i18n, localePath } = require('./next-i18next.config');
-
-const getCommitHash = () => {
-  let result = undefined;
-  try {
-    result = executeProcess.execSync('git rev-parse --short HEAD 2>&1').toString().trim();
-  } catch (e) {
-    console.error('Cannot define build id: ', e);
-  }
-  return result;
-};
 
 if (process.env.NODE_ENV !== 'development') {
   process.env.NEXT_PUBLIC_EXT_BUILD_ID = getCommitHash();
@@ -40,15 +29,12 @@ module.exports = withPWA({
       config.plugins.push(
         new webpack.DefinePlugin({
           'process.env': {
-            NEXT_PUBLIC_EXT_BUILD_ID: JSON.stringify(buildId),
+            NEXT_PUBLIC_EXT_BUILD_ID: JSON.stringify(process.env.NEXT_PUBLIC_EXT_BUILD_ID),
           },
         }),
       );
     }
 
     return config;
-  },
-  generateBuildId: () => {
-    return getCommitHash();
   },
 });
