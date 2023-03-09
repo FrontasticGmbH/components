@@ -1,9 +1,6 @@
 const withPWA = require('next-pwa');
 const { i18n, localePath } = require('./next-i18next.config');
 
-if (process.env.NODE_ENV !== 'development') {
-  process.env.NEXT_PUBLIC_EXT_BUILD_ID = getCommitHash();
-}
 module.exports = withPWA({
   productionBrowserSourceMaps: true,
   pwa: {
