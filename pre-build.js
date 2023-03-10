@@ -25,7 +25,7 @@ const checkBackend = async () => {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      'X-Frontastic-Access-Token': getCommitHash(),
+      'Commercetools-Frontend-Extension-Version': getCommitHash(),
     },
   };
 
