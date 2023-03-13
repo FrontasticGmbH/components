@@ -4,7 +4,6 @@ import AdyenCheckout from '@adyen/adyen-web';
 import toast from 'react-hot-toast';
 import { useCart, useAdyen } from 'frontastic';
 import '@adyen/adyen-web/dist/adyen.css';
-import { cart } from 'helpers/mocks/mockData';
 
 type Session = {
   id: string;
@@ -22,6 +21,7 @@ const Checkout = () => {
   const { data: cartList, checkout } = useCart();
   const { createSession } = useAdyen();
   const [session, setSession] = useState<Session>();
+  const [isSessionCreated, setIsSessionCreated] = useState<boolean>(false);
 
   const initializeSession = async (sessionConfiguration: SessionConfig) => {
     const checkout = await AdyenCheckout(sessionConfiguration);
@@ -29,8 +29,10 @@ const Checkout = () => {
   };
 
   useEffect(() => {
-    if (!cartList.orderId) {
+    if (!isSessionCreated) {
       const host = typeof window !== 'undefined' ? window.location.origin : '';
+
+      setIsSessionCreated(true);
 
       createSession(cartList.sum?.centAmount, cartList.sum?.currencyCode, `${host}/thank-you`).then((res) => {
         const { id, sessionData } = res;
