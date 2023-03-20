@@ -1,5 +1,5 @@
 const languageMapper = {
-  en: 'en_GB',
+  en: 'en_GB@GBP',
   de: 'de_CH',
 };
 
