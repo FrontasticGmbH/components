@@ -1,7 +1,7 @@
 {
-  "tasticType": "frontastic/ui/campaign",
+  "tasticType": "frontastic/ui/dynamicyield/campaign",
   "name": "Campaign",
-  "category": "Dynamicyield Component",
+  "category": "Content",
   "icon": "image",
   "schema": [
     {
@@ -11,7 +11,7 @@
           "label": "Campaign ID",
           "field": "campaignId",
           "type": "dataSource",
-          "dataSourceType": "frontastic/campaign"
+          "dataSourceType": "frontastic/dynamicyield/campaign"
         }
       ]
     }
