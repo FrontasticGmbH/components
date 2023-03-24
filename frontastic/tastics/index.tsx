@@ -32,6 +32,7 @@ import Showcase from './showcase';
 import Wishlist from './wishlist';
 import CategoryTeasers from './content/category-teasers';
 import NewsCardTastic from './news-card';
+import Campaign from "./campaign";
 
 export const tastics = {
   // Doc Examples
@@ -41,6 +42,7 @@ export const tastics = {
   'example/star-wars/character-search': StarWarsCharacterSearch,
   'example/star-wars/character-filter': StarWarsCharacterFilter,
   //'contentful/blog': ContentfulBlog,
+
 
   'commercetools/ui/checkout': Checkout,
   'commercetools/ui/thank-you': ThankYou,
@@ -67,5 +69,6 @@ export const tastics = {
   'commercetools/ui/content/category-teasers': CategoryTeasers,
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
+  'frontastic/ui/campaign' : Campaign,
   default: NotFound,
 };
