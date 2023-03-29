@@ -69,6 +69,6 @@ export const tastics = {
   'commercetools/ui/content/category-teasers': CategoryTeasers,
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
-  'frontastic/ui/campaign' : Campaign,
+  'frontastic/ui/dynamicyield/campaign' : Campaign,
   default: NotFound,
 };
