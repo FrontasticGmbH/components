@@ -1,9 +1,12 @@
 import React from 'react';
+import Blog, { Props } from 'components/commercetools-ui/content/blog';
 
-const Blog = ({ data }) => {
-  const title = data.data?.dataSource?.name;
+const BlogTastic = ({ data }) => {
+  const blog = data?.data?.dataSource as Props;
 
-  return <div>Blog's title is "{title}"</div>;
+  if (!blog) return <></>;
+
+  return <Blog {...blog} />;
 };
 
-export default Blog;
+export default BlogTastic;
