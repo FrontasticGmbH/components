@@ -33,6 +33,7 @@ import SimilarProducts from './products/similar-products';
 import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
+import ContentstackBlogTastic from "./content/contentstack-blog";
 
 export const tastics = {
   // Doc Examples
@@ -50,6 +51,7 @@ export const tastics = {
   'commercetools/ui/header': Header,
   'commercetools/ui/content/blog': BlogTastic,
   'commercetools/ui/content/blog-list': BlogListTastic,
+  'commercetools/ui/content/contentstack-blog': ContentstackBlogTastic,
   'commercetools/ui/content/tile': Tile,
   'commercetools/ui/content/spacer': Spacer,
   'commercetools/ui/content/showcase': Showcase,
