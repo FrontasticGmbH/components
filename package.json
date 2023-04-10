@@ -8,8 +8,7 @@
     "dev": "concurrently -n NEXT,TSC -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "prod": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_ENV=production next dev\" \"yarn ts --watch\"",
     "debug": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_OPTIONS='--inspect' next dev\" \"yarn ts --watch\"",
-    "build": "node pre-build.js && yarn run next-build",
-    "next-build": "next build",
+    "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "test": "jest",
@@ -22,6 +21,7 @@
   },
   "dependencies": {
     "@adyen/adyen-web": "^5.16.1",
+    "@commercetools/frontend-netlify-plugin": "^0.0.4",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@emotion/react": "^11.9.0",
     "@headlessui/react": "^1.4.3",
