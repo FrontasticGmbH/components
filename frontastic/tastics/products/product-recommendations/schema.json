@@ -1,0 +1,20 @@
+{
+  "tasticType": "frontastic/ui/dynamicyield/product-recommendations",
+  "name": "Dynamicyield product recommendations",
+  "category": "Content",
+  "icon": "list",
+  "schema": [
+    {
+      "name": "Configuration",
+      "fields": [
+        {
+          "label": "Dynamicyield product recommendations campaign",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "frontastic/dynamicyield/product-recommendations-campaign",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

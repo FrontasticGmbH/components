@@ -32,7 +32,7 @@ import Showcase from './showcase';
 import Wishlist from './wishlist';
 import CategoryTeasers from './content/category-teasers';
 import NewsCardTastic from './news-card';
-import Campaign from "./campaign";
+import ProductRecommendationsTastic from "./products/product-recommendations";
 
 export const tastics = {
   // Doc Examples
@@ -69,6 +69,6 @@ export const tastics = {
   'commercetools/ui/content/category-teasers': CategoryTeasers,
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
-  'frontastic/ui/dynamicyield/campaign' : Campaign,
+  'frontastic/ui/dynamicyield/product-recommendations' : ProductRecommendationsTastic,
   default: NotFound,
 };
