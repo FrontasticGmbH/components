@@ -8,8 +8,8 @@ import AccountTest from './account/test';
 import Cart from './cart';
 import Checkout from './checkout';
 import ThankYou from './checkout/thank-you';
-import BlogTastic from './content/blog';
-import BlogListTastic from './content/blog-list';
+import BlogTastic from './content/amplience-blog';
+import BlogListTastic from './content/amplience-blog-list';
 import CategoryTeasers from './content/category-teasers';
 import Markdown from './content/markdown';
 import Spacer from './content/spacer';
@@ -48,8 +48,8 @@ export const tastics = {
   'commercetools/ui/cart': Cart,
   'commercetools/ui/footer': Footer,
   'commercetools/ui/header': Header,
-  'commercetools/ui/content/blog': BlogTastic,
-  'commercetools/ui/content/blog-list': BlogListTastic,
+  'commercetools/ui/content/amplience-blog': BlogTastic,
+  'commercetools/ui/content/amplience-blog-list': BlogListTastic,
   'commercetools/ui/content/tile': Tile,
   'commercetools/ui/content/spacer': Spacer,
   'commercetools/ui/content/showcase': Showcase,
