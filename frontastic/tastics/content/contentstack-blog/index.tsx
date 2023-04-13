@@ -12,7 +12,7 @@ const ContentstackBlogTastic = ({ data }) => {
 
   if (!blog) return <></>;
 
-  return <Blog title={blog.title} summary={blog.single_line}/>;
+  return <Blog title={blog.title} summary={blog.single_line} banner={''}/>;
 };
 
 export default ContentstackBlogTastic;

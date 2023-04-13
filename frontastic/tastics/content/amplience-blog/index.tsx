@@ -7,7 +7,7 @@ const BlogTastic = ({ data }) => {
 
   if (!blog) return <></>;
 
-  return <Blog {...blog} imageLoader={AmplienceLoader} />;
+  return <Blog {...blog}  imageLoader={AmplienceLoader} />;
 };
 
 export default BlogTastic;
