@@ -1,6 +1,6 @@
 {
   "tasticType": "commercetools/ui/content/contentstack-blog-list",
-  "name": "commercetools UI Blog List",
+  "name": "commercetools UI Contentstack Blog List",
   "icon": "bookmark",
   "category": "Content",
   "schema": [
