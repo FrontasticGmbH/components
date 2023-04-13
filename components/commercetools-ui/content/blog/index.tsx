@@ -2,7 +2,7 @@ import React from 'react';
 import { AmplienceScheme } from 'types/Amplience';
 import Image from './Image';
 
-export interface Props extends AmplienceScheme {
+export interface Props {
   title: string;
   summary: string;
   banner: string;
