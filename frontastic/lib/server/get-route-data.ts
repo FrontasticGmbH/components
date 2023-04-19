@@ -43,10 +43,22 @@ export const getRouteData =
     query.path = `/${slug !== 'index' ? slug : ''}`;
     query.locale = mapLanguage(locale);
 
-    const headers = {
+    let headers: HeadersInit = [];
+
+    for (const key of Object.keys(nextJsReq.headers)) {
+      headers[key] = nextJsReq.headers[key];
+    }
+
+    // The host value needs to be removed to avoid issues matching
+    // the certificate's altnames when working in dev environment.
+    delete headers['host'];
+
+    headers = {
+      ...headers,
       'Frontastic-Path': query.path,
       'Frontastic-Locale': mapLanguage(locale),
     };
+
     const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
 
     const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(
@@ -78,10 +90,10 @@ export const getPreview =
     const data: PagePreviewDataResponse = (await fetchApiHubServerSide(
       endpoint,
       {
-      req: nextJsReq,
-      res: nextJsRes,
-    },
-      headers
+        req: nextJsReq,
+        res: nextJsRes,
+      },
+      headers,
     )) as PagePreviewDataResponse;
     return data;
   };
