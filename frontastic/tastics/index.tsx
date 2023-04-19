@@ -32,7 +32,7 @@ import Showcase from './showcase';
 import Wishlist from './wishlist';
 import CategoryTeasers from './content/category-teasers';
 import NewsCardTastic from './news-card';
-import ProductRecommendationsTastic from "./products/product-recommendations";
+import ProductRecommendationsTastic from "../../../../../saas/project-libraries/components-nextjs/frontastic/tastics/content/product-recommendations";
 
 export const tastics = {
   // Doc Examples
