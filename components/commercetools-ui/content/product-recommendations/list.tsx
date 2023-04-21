@@ -37,7 +37,12 @@ const List: React.FC<Props> = ({ products, filtering }) => {
                 <h3 className="mt-4 w-52 overflow-hidden truncate text-lg font-bold text-gray-700 dark:text-light-100">
                   {product.name}
                 </h3>
-
+                <div className="flex">
+                  <Price
+                    price={product.price}
+                    className={`text-sm text-gray-900 dark:text-light-100`}
+                  />
+                </div>
               </a>
             </NextLink>
           </li>
