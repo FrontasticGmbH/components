@@ -32,7 +32,8 @@ import Showcase from './showcase';
 import Wishlist from './wishlist';
 import CategoryTeasers from './content/category-teasers';
 import NewsCardTastic from './news-card';
-import ProductRecommendationsTastic from "../../../../../saas/project-libraries/components-nextjs/frontastic/tastics/content/product-recommendations";
+import ProductRecommendationsTastic from "./content/product-recommendations";
+import DemoTastic from "./demo";
 
 export const tastics = {
   // Doc Examples
@@ -69,6 +70,7 @@ export const tastics = {
   'commercetools/ui/content/category-teasers': CategoryTeasers,
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
-  'frontastic/ui/dynamicyield/product-recommendations' : ProductRecommendationsTastic,
+  'commercetools/ui/content/dynamicyield/product-recommendations' : ProductRecommendationsTastic,
+  'commercetools/ui/demo/onboarding-demo': DemoTastic,
   default: NotFound,
 };
