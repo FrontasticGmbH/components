@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Product } from '@Types/content/dynamicyield/Product';
 import  List  from './list';
 import { useFormat } from 'helpers/hooks/useFormat';
