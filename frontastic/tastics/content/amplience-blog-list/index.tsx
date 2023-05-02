@@ -1,6 +1,6 @@
 import React from 'react';
 import Blog, { Props } from 'components/commercetools-ui/content/blog';
-import { AmplienceScheme } from 'types/Amplience'
+import { AmplienceScheme } from 'types/Amplience';
 import { AmplienceLoader } from 'frontastic/lib/image';
 
 const BlogListTastic = ({ data }) => {

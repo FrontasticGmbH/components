@@ -33,8 +33,8 @@ import SimilarProducts from './products/similar-products';
 import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
-import ContentstackBlogTastic from "./content/contentstack-blog";
-import ContentstackBlogListTastic from "./content/contentstack-blog-list";
+import ContentstackBlogTastic from './content/contentstack-blog';
+import ContentstackBlogListTastic from './content/contentstack-blog-list';
 
 export const tastics = {
   // Doc Examples

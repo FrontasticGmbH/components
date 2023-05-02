@@ -78,10 +78,10 @@ export const getPreview =
     const data: PagePreviewDataResponse = (await fetchApiHubServerSide(
       endpoint,
       {
-      req: nextJsReq,
-      res: nextJsRes,
-    },
-      headers
+        req: nextJsReq,
+        res: nextJsRes,
+      },
+      headers,
     )) as PagePreviewDataResponse;
     return data;
   };

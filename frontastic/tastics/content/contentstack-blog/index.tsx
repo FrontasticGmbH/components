@@ -1,10 +1,12 @@
 import React from 'react';
 import Blog from 'components/commercetools-ui/content/blog';
+import { ContentstackLoader } from 'frontastic/lib/image';
 
 export interface Contentstack {
-    uid: string;
-    single_line: string;
-    title: string;
+  uid: string;
+  summary: string;
+  title: string;
+  banner: string;
 }
 
 const ContentstackBlogTastic = ({ data }) => {
@@ -12,7 +14,7 @@ const ContentstackBlogTastic = ({ data }) => {
 
   if (!blog) return <></>;
 
-  return <Blog title={blog.title} summary={blog.single_line} banner={'test'} imageLoader={({src}) => src} />;
+  return <Blog {...blog} imageLoader={ContentstackLoader} />;
 };
 
 export default ContentstackBlogTastic;
