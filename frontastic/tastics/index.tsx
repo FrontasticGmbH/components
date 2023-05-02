@@ -22,6 +22,7 @@ import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
 import Footer from './footer';
 import Header from './header';
 import Hero from './hero';
+import NewsCardTastic from './news-card';
 import Newsletter from './newsletter';
 import NotFound from './not-found';
 import ProductDetails from './products/details';
@@ -30,8 +31,6 @@ import SimilarProducts from './products/similar-products';
 import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
-import CategoryTeasers from './content/category-teasers';
-import NewsCardTastic from './news-card';
 import ProductRecommendationsTastic from "./content/product-recommendations";
 
 export const tastics = {
