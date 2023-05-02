@@ -1,0 +1,20 @@
+{
+  "tasticType": "commercetools/ui/demo/onboarding-demo",
+  "name": "commercetools UI onboarding demo",
+  "icon": "bookmark",
+  "category": "Content",
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Onboarding demo configuration",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "frontastic/demo/presenter",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "tasticType": "commercetools/ui/content/amplience-blog",
+  "name": "commercetools UI Amplience Blog",
+  "icon": "bookmark",
+  "category": "Content",
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Amplience Content",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "amplience/content",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

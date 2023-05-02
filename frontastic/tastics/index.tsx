@@ -1,11 +1,4 @@
 // Doc Examples
-import SimpleButton from './doc-examples/simple-button';
-import HelloWorld from './doc-examples/hello-world';
-import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
-import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
-import StarWarsCharacterFilter from './doc-examples/star-wars/character-filter';
-//import ContentfulBlog from './doc-examples/contentful/blog';
-
 import AccountDetails from './account/details';
 import AccountLogin from './account/login';
 import AccountOrdersHistory from './account/orders';
@@ -15,10 +8,17 @@ import AccountTest from './account/test';
 import Cart from './cart';
 import Checkout from './checkout';
 import ThankYou from './checkout/thank-you';
-import Blog from './content/blog';
+import BlogTastic from './content/amplience-blog';
+import BlogListTastic from './content/amplience-blog-list';
+import CategoryTeasers from './content/category-teasers';
 import Markdown from './content/markdown';
 import Spacer from './content/spacer';
 import Tile from './content/tile';
+import HelloWorld from './doc-examples/hello-world';
+import SimpleButton from './doc-examples/simple-button';
+import StarWarsCharacterFilter from './doc-examples/star-wars/character-filter';
+import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
+import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
 import Footer from './footer';
 import Header from './header';
 import Hero from './hero';
@@ -26,14 +26,13 @@ import Newsletter from './newsletter';
 import NotFound from './not-found';
 import ProductDetails from './products/details';
 import ProductList from './products/product-list';
-import ProductSlider from './products/slider';
 import SimilarProducts from './products/similar-products';
+import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
 import CategoryTeasers from './content/category-teasers';
 import NewsCardTastic from './news-card';
 import ProductRecommendationsTastic from "./content/product-recommendations";
-import DemoTastic from "./demo";
 
 export const tastics = {
   // Doc Examples
@@ -42,15 +41,13 @@ export const tastics = {
   'example/star-wars/movie': StarWarsOpeningCrawl,
   'example/star-wars/character-search': StarWarsCharacterSearch,
   'example/star-wars/character-filter': StarWarsCharacterFilter,
-  //'contentful/blog': ContentfulBlog,
-
-
   'commercetools/ui/checkout': Checkout,
   'commercetools/ui/thank-you': ThankYou,
   'commercetools/ui/cart': Cart,
   'commercetools/ui/footer': Footer,
   'commercetools/ui/header': Header,
-  'commercetools/ui/content/blog': Blog,
+  'commercetools/ui/content/amplience-blog': BlogTastic,
+  'commercetools/ui/content/amplience-blog-list': BlogListTastic,
   'commercetools/ui/content/tile': Tile,
   'commercetools/ui/content/spacer': Spacer,
   'commercetools/ui/content/showcase': Showcase,
@@ -71,6 +68,5 @@ export const tastics = {
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
   'commercetools/ui/content/dynamicyield/product-recommendations' : ProductRecommendationsTastic,
-  'commercetools/ui/demo/onboarding-demo': DemoTastic,
   default: NotFound,
 };

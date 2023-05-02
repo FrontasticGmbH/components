@@ -43,10 +43,20 @@ export const getRouteData =
     query.path = `/${slug !== 'index' ? slug : ''}`;
     query.locale = mapLanguage(locale);
 
-    const headers = {
+    // The 'host' needs to be removed to avoid issues matching the certificate's altnames when working in
+    // dev environment. The 'cookie' will be also removed to reduce the headers size since it'll be sent
+    // as part of the 'Frontastic-Session'.
+    const headers: HeadersInit = {
       'Frontastic-Path': query.path,
       'Frontastic-Locale': mapLanguage(locale),
+      ...Object.entries(nextJsReq.headers)
+        .filter(([key]) => key !== 'host' && key !== 'cookie')
+        .reduce((header, [key, value]) => {
+          header[key] = value;
+          return header;
+        }, {}),
     };
+
     const endpoint = `/page?${encodeQueryParams(query).join('&')}`;
 
     const data: RedirectResponse | PageDataResponse = (await fetchApiHubServerSide(
@@ -78,10 +88,10 @@ export const getPreview =
     const data: PagePreviewDataResponse = (await fetchApiHubServerSide(
       endpoint,
       {
-      req: nextJsReq,
-      res: nextJsRes,
-    },
-      headers
+        req: nextJsReq,
+        res: nextJsRes,
+      },
+      headers,
     )) as PagePreviewDataResponse;
     return data;
   };
