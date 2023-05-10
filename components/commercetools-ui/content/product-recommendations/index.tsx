@@ -1,6 +1,6 @@
 import { Product } from '@Types/content/dynamicyield/Product';
-import  List  from './list';
 import { useFormat } from 'helpers/hooks/useFormat';
+import List from './list';
 
 export interface Props {
   products: Product[];
@@ -8,7 +8,6 @@ export interface Props {
 }
 
 export default function ProductList({ products, totalProducts }: Props) {
-
   const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
 
   return (

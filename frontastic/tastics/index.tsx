@@ -31,7 +31,7 @@ import SimilarProducts from './products/similar-products';
 import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
-import ProductRecommendationsTastic from "./content/product-recommendations";
+import ProductRecommendationsTastic from './content/product-recommendations';
 
 export const tastics = {
   // Doc Examples
@@ -66,6 +66,6 @@ export const tastics = {
   'commercetools/ui/content/category-teasers': CategoryTeasers,
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
-  'commercetools/ui/content/dynamicyield/product-recommendations' : ProductRecommendationsTastic,
+  'commercetools/ui/content/dynamicyield/product-recommendations': ProductRecommendationsTastic,
   default: NotFound,
 };
