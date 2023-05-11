@@ -33,6 +33,8 @@ import SimilarProducts from './products/similar-products';
 import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
+import ContentstackBlogTastic from './content/contentstack-blog';
+import ContentstackBlogListTastic from './content/contentstack-blog-list';
 
 export const tastics = {
   // Doc Examples
@@ -50,6 +52,10 @@ export const tastics = {
   'commercetools/ui/header': Header,
   'commercetools/ui/content/amplience-blog': BlogTastic,
   'commercetools/ui/content/amplience-blog-list': BlogListTastic,
+  'commercetools/ui/content/blog': BlogTastic,
+  'commercetools/ui/content/blog-list': BlogListTastic,
+  'commercetools/ui/content/contentstack-blog': ContentstackBlogTastic,
+  'commercetools/ui/content/contentstack-blog-list': ContentstackBlogListTastic,
   'commercetools/ui/content/tile': Tile,
   'commercetools/ui/content/spacer': Spacer,
   'commercetools/ui/content/showcase': Showcase,

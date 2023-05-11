@@ -37,3 +37,7 @@ export function frontasticCloudinaryLoader({ src, width }: ImageLoaderProps): st
 export function AmplienceLoader({ src, width, quality }: ImageLoaderProps) {
   return `${src}?w=${width}&fmt=auto&qlt=${quality ?? 'default'}`;
 }
+
+export function ContentstackLoader({ src, width, quality }: ImageLoaderProps) {
+  return `${src}?w=${width}&fmt=auto&qlt=${quality ?? 'default'}`;
+}
