@@ -24,7 +24,7 @@ const List: React.FC<Props> = ({ products, filtering }) => {
       >
         {products?.map((product) => (
           <li key={product.sku} className="mb-8 flex justify-center self-end md:mb-0">
-            <NextLink href="https://commercetools.com">
+            <NextLink href={product.url}>
               <a className="group">
                 <div className="relative w-52 rounded-lg transition-shadow hover:shadow-xl">
                   <Image src={product.imageUrl || ''} alt={product.name} layout="fill" className="rounded-lg" />
