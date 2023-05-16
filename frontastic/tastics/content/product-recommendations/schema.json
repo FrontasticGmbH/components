@@ -15,6 +15,20 @@
           "required": true
         }
       ]
+    },
+    {
+      "name": "Layout",
+      "fields": [
+        {
+          "label": "Dynamicyield product recommendations page title",
+          "field": "pageTitle",
+          "translatable": true,
+          "type": "string",
+          "required": false,
+          "default": ""
+        }
+      ]
     }
+
   ]
 }
