@@ -1,4 +1,4 @@
-import { Product } from '@Types/content/dynamicyield/Product';
+import { Product } from '@Types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
 import List from './list';
 

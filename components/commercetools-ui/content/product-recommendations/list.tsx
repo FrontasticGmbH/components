@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Product } from '@Types/content/dynamicyield/Product';
+import { Product } from '@Types/product/Product';
 import { useFormat } from 'helpers/hooks/useFormat';
 import Image from 'frontastic/lib/image';
 import Price from '../../price';
@@ -23,17 +23,22 @@ const List: React.FC<Props> = ({ products, filtering }) => {
         }`}
       >
         {products?.map((product) => (
-          <li key={product.sku} className="mb-8 flex justify-center self-end md:mb-0">
-            <NextLink href={product.url}>
+          <li key={product.variants[0].sku} className="mb-8 flex justify-center self-end md:mb-0">
+            <NextLink href={product._url}>
               <a className="group">
                 <div className="relative w-52 rounded-lg transition-shadow hover:shadow-xl">
-                  <Image src={product.imageUrl || ''} alt={product.name} layout="fill" className="rounded-lg" />
+                  <Image
+                    src={product.variants[0].images[0] || ''}
+                    alt={product.name}
+                    layout="fill"
+                    className="rounded-lg"
+                  />
                 </div>
                 <h3 className="mt-4 w-52 overflow-hidden truncate text-lg font-bold text-gray-700 dark:text-light-100">
                   {product.name}
                 </h3>
                 <div className="flex">
-                  <Price price={product.price} className={`text-sm text-gray-900 dark:text-light-100`} />
+                  <Price price={product.variants[0].price} className={`text-sm text-gray-900 dark:text-light-100`} />
                 </div>
               </a>
             </NextLink>
