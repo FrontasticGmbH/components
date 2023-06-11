@@ -56,23 +56,18 @@ const OrderSummary = ({
 
   const totalTaxes = cart?.taxed?.taxPortions?.reduce((a, b) => a + b.amount.centAmount, 0);
 
-  const productPrice = cart?.lineItems?.reduce((a, b: LineItem) => {
-    if (b.discountedPrice) {
-      return a + b.discountedPrice.centAmount * b.count;
-    } else {
-      return a + b.price.centAmount * b.count;
-    }
-  }, 0);
+  const productPrice = cart?.lineItems?.reduce((a, b: LineItem) => a + b.totalPrice.centAmount, 0);
 
-  const discountPrice = cart?.lineItems?.reduce((a, b) => {
-    return (
-      a +
-      b.count *
-        b.discounts.reduce((x, y) => {
-          return x + y.discountedAmount.centAmount;
-        }, 0)
-    );
-  }, 0);
+  const discountPrice =
+    cart?.lineItems?.reduce((a, b) => {
+      return (
+        a +
+        b.count *
+          b.discounts.reduce((x, y) => {
+            return x + y.discountedAmount.centAmount;
+          }, 0)
+      );
+    }, 0) + (cart?.shippingInfo?.discounts?.reduce((a, b) => a + b.centAmount, 0) ?? 0);
 
   return (
     <section
@@ -118,7 +113,7 @@ const OrderSummary = ({
               price={
                 {
                   fractionDigits: 0,
-                  centAmount: discountPrice == 0 ? 0 : -discountPrice,
+                  centAmount: discountPrice == 0 ? 0 : -discountPrice / 100,
                   currencyCode: cart?.sum?.currencyCode,
                 } || {}
               }

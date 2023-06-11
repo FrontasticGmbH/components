@@ -1,8 +1,8 @@
-import useSWR, { mutate } from 'swr';
 import { Address } from '@Types/account/Address';
 import { Cart } from '@Types/cart/Cart';
 import { Discount } from '@Types/cart/Discount';
 import { Variant } from '@Types/product/Variant';
+import useSWR, { mutate } from 'swr';
 import { fetchApiHub, revalidateOptions } from 'frontastic';
 
 export type CartDetails = {
@@ -136,6 +136,22 @@ export const redeemDiscountCode = async (code: string) => {
     payload,
   );
   mutate('/action/cart/getCart', res, { revalidate: false });
+};
+
+export const redeemPromoCouponCode = async (code: string) => {
+  const res = await fetchApiHub(
+    '/action/cart/redeemPromoCouponCode',
+    {
+      headers: {
+        accept: 'application/json',
+      },
+      credentials: 'include',
+      method: 'POST',
+    },
+    { code },
+  );
+
+  mutate('/action/cart/redeemPromoCouponCode', res, { revalidate: false });
 };
 
 export const removeDiscountCode = async (discount: Discount) => {
