@@ -32,6 +32,7 @@ import ProductSlider from './products/slider';
 import Showcase from './showcase';
 import Wishlist from './wishlist';
 import ProductRecommendationsTastic from './content/product-recommendations';
+import NostoProductRecommendationsTastic from './content/nosto-product-recommendations';
 import ContentstackBlogTastic from './content/contentstack-blog';
 import ContentstackBlogListTastic from './content/contentstack-blog-list';
 
@@ -73,5 +74,6 @@ export const tastics = {
   'commercetools/ui/content/news-card': NewsCardTastic,
   'commercetools/ui/hero': Hero,
   'commercetools/ui/content/dynamicyield/product-recommendations': ProductRecommendationsTastic,
+  'commercetools/ui/content/nosto/product-recommendations': NostoProductRecommendationsTastic,
   default: NotFound,
 };
