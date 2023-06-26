@@ -3,6 +3,11 @@ const languageMapper = {
   de: 'de_CH',
 };
 
+const currencyMapper = {
+  en: 'EUR',
+  de: 'EUR',
+};
+
 const mapLanguage = (lang) => {
   if (!languageMapper[lang]) {
     console.error(`Language mapper is missing language ${lang}`);
@@ -12,4 +17,13 @@ const mapLanguage = (lang) => {
   return languageMapper[lang] || languageMapper[Object.keys(languageMapper)[0]];
 };
 
-module.exports = { languageMapper, mapLanguage }
+const mapCurrency = (lang) => {
+  if (!currencyMapper[lang]) {
+    console.error(`Currency mapper is missing language ${lang}`);
+  }
+
+  //If language is not defined in currency then select first currency
+  return currencyMapper[lang] || currencyMapper[Object.keys(currencyMapper)[0]];
+};
+
+module.exports = { languageMapper, mapLanguage, mapCurrency };
