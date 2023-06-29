@@ -4,7 +4,7 @@ import ServerCookies from 'cookies';
 import { SESSION_PERSISTENCE } from 'helpers/constants/auth';
 import { REMEMBER_ME } from 'helpers/constants/localStorage';
 import { Log } from 'helpers/errorLogger';
-import { mapLanguage } from '../../project.config';
+import { mapLanguage, mapCurrency } from '../../project.config';
 
 export class LocaleStorage {
   static locale = '';
@@ -83,6 +83,7 @@ const performFetchApiHub = async (
       'Commercetools-Frontend-Extension-Version': process.env.NEXT_PUBLIC_EXT_BUILD_ID ?? 'dev',
       ...frontasticSessionHeaders,
       'Frontastic-Locale': mapLanguage(LocaleStorage.locale),
+      'Frontastic-Currency': mapCurrency(LocaleStorage.locale),
     },
   };
 
