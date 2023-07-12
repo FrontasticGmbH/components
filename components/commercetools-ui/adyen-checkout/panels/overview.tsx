@@ -48,7 +48,7 @@ const Overview: React.FC<OverviewProps> = ({ shippingMethods, currentShippingMet
                   <span className="text-xs text-neutral-600">{description}</span>
                 </div>
                 <span className="ml-auto text-base font-bold">
-                  <Price price={rates?.[0]?.price} className=" " />
+                  {rates?.[0]?.price && <Price price={rates?.[0]?.price} className=" " />}
                 </span>
               </label>
             ))}

@@ -22,8 +22,8 @@ const List: React.FC<Props> = ({ products, filtering }) => {
           filtering ? '3' : '4'
         }`}
       >
-        {products?.map((product) => (
-          <li key={product.productId} className="mb-8 flex justify-center self-end md:mb-0">
+        {products?.map((product, i) => (
+          <li key={`${product.productId}-${i}`} className="mb-8 flex justify-center self-end md:mb-0">
             <NextLink href={product._url || ''}>
               <a className="group">
                 <div className="relative w-52 rounded-lg transition-shadow hover:shadow-xl">
@@ -38,12 +38,14 @@ const List: React.FC<Props> = ({ products, filtering }) => {
                   {product.name}
                 </h3>
                 <div className="flex">
-                  <Price
-                    price={product.variants[0].price}
-                    className={`${
-                      product.variants[0].discountedPrice && 'line-through'
-                    } text-sm text-gray-900 dark:text-light-100`}
-                  />
+                  {product.variants[0].price && (
+                    <Price
+                      price={product.variants[0].price}
+                      className={`${
+                        product.variants[0].discountedPrice && 'line-through'
+                      } text-sm text-gray-900 dark:text-light-100`}
+                    />
+                  )}
                   {product.variants[0].discountedPrice && (
                     <Price price={product.variants[0].discountedPrice} className="ml-2 text-sm text-accent-400" />
                   )}
