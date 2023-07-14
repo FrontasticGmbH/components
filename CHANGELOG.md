@@ -1,4 +1,23 @@
 
+## Version 1.4.0 (2023-07-14)
+
+** New Features and Improvements **
+
+- Added missing currency header in components
+- Implement ProductPageRecommendationApi and the user interface
+- Add Nosto extension
+- Add translatable page title
+- Remove hardcoded link for product detail page
+- Simplify the datasource checking for recommended product list
+- Add content-dynamicyield into webpack
+- Add user interface to list out product recommendations
+-  Add Product Recommendations UI component
+- Implement getDyContext function in CampaignApi
+
+** Bug fixes **
+
+- Resolve undefined price error
+
 ## Version 1.3.0 (2023-03-08)
 
 ** New Features and Improvements **
