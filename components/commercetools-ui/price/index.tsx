@@ -7,7 +7,12 @@ export interface PriceProps {
   className?: string;
 }
 
-const Price: React.FC<PriceProps> = ({ price: { currencyCode = 'EUR', ...price }, className }) => {
+const Price: React.FC<PriceProps> = ({ price, className }) => {
+  price = {
+    currencyCode: 'EUR',
+    ...price,
+  };
+
   return (
     <div className={className || 'mt-1 text-sm font-medium text-gray-900 dark:text-light-100'}>
       <Typography>{CurrencyHelpers.formatForCurrency(price)}</Typography>
