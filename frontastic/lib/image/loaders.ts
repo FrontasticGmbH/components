@@ -41,3 +41,7 @@ export function AmplienceLoader({ src, width, quality }: ImageLoaderProps) {
 export function ContentstackLoader({ src, width, quality }: ImageLoaderProps) {
   return `${src}?w=${width}&fmt=auto&qlt=${quality ?? 'default'}`;
 }
+
+export function BloomreachLoader({ src, width, quality }: ImageLoaderProps) {
+  return `${src}?w=${width}&fmt=auto&qlt=${quality ?? 'default'}`;
+}
