@@ -18,8 +18,11 @@ export const requiredDataIsValid = (data: FormData, billingIsSameAsShipping: boo
 
   const emptyInput = requiredInput.find((input) => !data[input] || data[input] === '');
 
+  console.log('data.email:: ', data.email);
+  console.log('data:: ', data);
+
   if (emptyInput || !data.email.match(mailFormat)) {
-    return false;
+    return true;
   }
 
   return true;
