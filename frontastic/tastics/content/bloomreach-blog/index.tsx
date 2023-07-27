@@ -1,18 +1,22 @@
 import React from 'react';
-import axios from "axios";
-// import { Context } from 'frontastic/extension-types';
-import { BrPage } from "@bloomreach/react-sdk";
-import {ContentPage} from "./contentPage";
+import Blog from "../../../../components/commercetools-ui/content/blog";
+import { BloomreachLoader } from "../../../lib/image";
 
-const BloomreachBlogTastic = () => {
-  // const deliveryApiUrl = frontasticContext.project?.configuration?.bloomreach.deliveryApiUrl;
-  const deliveryApiUrl = 'https://sandbox-commercetools.bloomreach.io/delivery/site/v1/';
+export interface Bloomreach {
+  uid: string;
+  summary: string;
+  title: string;
+  banner: string;
+}
 
-  return <BrPage configuration={{
-    endpoint: `${deliveryApiUrl}/channels/commercetools/pages`,
-    httpClient: axios
-  }} mapping={{ ContentPage }}>
-  </BrPage>
+const BloomreachBlogTastic = ({ data }) => {
+
+  console.log(data)
+  const blog = data?.data?.dataSource as Bloomreach;
+  console.log('bloomreach');
+  if (!blog) return <></>;
+
+  return <Blog {...blog} imageLoader={BloomreachLoader} />;
 };
 
 export default BloomreachBlogTastic;
