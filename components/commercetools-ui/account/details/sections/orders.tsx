@@ -158,7 +158,9 @@ const OrdersHistory: FC<Props> = ({ orders }) => {
                                   />
                                 </div>
                                 <div className="mt-2 hidden font-medium text-neutral-700 sm:block">{product.name}</div>
-                                <Price price={product.price} className="mt-2 hidden text-gray-500 sm:block" />
+                                {product.price && (
+                                  <Price price={product.price} className="mt-2 hidden text-gray-500 sm:block" />
+                                )}
                                 <div className="mt-2 hidden text-xs text-gray-500 sm:block">
                                   {formatProductMessage({
                                     id: 'size',

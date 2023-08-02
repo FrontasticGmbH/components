@@ -69,7 +69,9 @@ const MobileOrderSummary = ({
                             {lineItem.name}
                           </h3>
                           <div className="flex space-x-4">
-                            <Price price={lineItem.price} className="text-gray-900" />
+                            {lineItem.price && (
+                              <Price key={lineItem.lineItemId} price={lineItem.price} className="text-gray-900" />
+                            )}
                             {lineItem.count && <p className="text-gray-900">{`x${lineItem.count}`}</p>}
                           </div>
                           {lineItem.variant.attributes?.color && (

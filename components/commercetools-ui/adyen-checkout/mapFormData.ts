@@ -14,7 +14,7 @@ export const mapToCartStructure = (data: FormData, billingIsSameAsShipping: bool
     },
     shipping: {
       ...commonData,
-      addressId: '1st-shipping-address',
+      // addressId: '1st-shipping-address',
       streetName: data.shippingStreetName,
       postalCode: data.shippingPostalCode,
       city: data.shippingCity,

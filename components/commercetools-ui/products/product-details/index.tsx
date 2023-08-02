@@ -207,10 +207,12 @@ export default function ProductDetail({
                 {formatProductMessage({ id: 'product?.info', defaultMessage: 'Product information' })}
               </h2>
               <div className="flex pb-6">
-                <Price
-                  price={product?.price}
-                  className={`${variant.discountedPrice ? 'line-through' : ''} text-2xl text-gray-900 md:text-3xl`}
-                />
+                {product?.price && (
+                  <Price
+                    price={product?.price}
+                    className={`${variant.discountedPrice ? 'line-through' : ''} text-2xl text-gray-900 md:text-3xl`}
+                  />
+                )}
                 {variant.discountedPrice && (
                   <Price price={variant?.discountedPrice} className="pl-6 text-2xl text-accent-400 md:text-3xl" />
                 )}
