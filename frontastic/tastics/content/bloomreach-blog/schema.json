@@ -1,7 +1,20 @@
 {
-  "tasticType": "commercetools/ui/content/bloomreach-blog",
-  "name": "commercetools UI Bloomreach Blog",
+  "tasticType": "commercetools/ui/content/contentstack-blog",
+  "name": "commercetools UI Contentstack Blog",
   "icon": "bookmark",
   "category": "Content",
-  "schema": []
+  "schema": [
+    {
+      "name": "Content",
+      "fields": [
+        {
+          "label": "Contentstack Content",
+          "field": "data",
+          "type": "dataSource",
+          "dataSourceType": "bloomreach/content",
+          "required": true
+        }
+      ]
+    }
+  ]
 }

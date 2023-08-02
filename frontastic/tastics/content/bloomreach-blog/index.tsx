@@ -1,6 +1,6 @@
 import React from 'react';
 import Blog from "../../../../components/commercetools-ui/content/blog";
-import { BloomreachLoader } from "../../../lib/image";
+import {BloomreachLoader} from "../../../lib/image";
 
 export interface Bloomreach {
   uid: string;
@@ -10,10 +10,7 @@ export interface Bloomreach {
 }
 
 const BloomreachBlogTastic = ({ data }) => {
-
-  console.log(data)
   const blog = data?.data?.dataSource as Bloomreach;
-  console.log('bloomreach');
   if (!blog) return <></>;
 
   return <Blog {...blog} imageLoader={BloomreachLoader} />;
