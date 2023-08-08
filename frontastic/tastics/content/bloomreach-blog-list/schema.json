@@ -1,6 +1,6 @@
 {
-  "tasticType": "commercetools/ui/content/bloomreach-blog",
-  "name": "commercetools UI Bloomreach Blog",
+  "tasticType": "commercetools/ui/content/bloomreach-blog-list",
+  "name": "commercetools UI Bloomreach Blog List",
   "icon": "bookmark",
   "category": "Content",
   "schema": [
@@ -11,7 +11,7 @@
           "label": "Bloomreach Content",
           "field": "data",
           "type": "dataSource",
-          "dataSourceType": "bloomreach/content",
+          "dataSourceType": "bloomreach/content-list",
           "required": true
         }
       ]

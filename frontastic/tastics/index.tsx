@@ -35,7 +35,8 @@ import ProductRecommendationsTastic from './content/product-recommendations';
 import NostoProductRecommendationsTastic from './content/nosto-product-recommendations';
 import ContentstackBlogTastic from './content/contentstack-blog';
 import ContentstackBlogListTastic from './content/contentstack-blog-list';
-import BloomreachBlogTastic from "./content/bloomreach-blog";
+import BloomreachBlogTastic from './content/bloomreach-blog';
+import BloomreachBlogListTastic from './content/bloomreach-blog-list';
 
 export const tastics = {
   // Doc Examples
@@ -56,6 +57,7 @@ export const tastics = {
   'commercetools/ui/content/contentstack-blog': ContentstackBlogTastic,
   'commercetools/ui/content/contentstack-blog-list': ContentstackBlogListTastic,
   'commercetools/ui/content/bloomreach-blog': BloomreachBlogTastic,
+  'commercetools/ui/content/bloomreach-blog-list': BloomreachBlogListTastic,
   'commercetools/ui/content/tile': Tile,
   'commercetools/ui/content/spacer': Spacer,
   'commercetools/ui/content/showcase': Showcase,
