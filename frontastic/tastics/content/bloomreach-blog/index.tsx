@@ -1,6 +1,6 @@
 import React from 'react';
-import Blog from "../../../../components/commercetools-ui/content/blog";
-import {BloomreachLoader} from "../../../lib/image";
+import Blog from '../../../../components/commercetools-ui/content/blog';
+import { BloomreachLoader } from '../../../lib/image';
 
 export interface Bloomreach {
   uid: string;

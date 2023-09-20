@@ -70,12 +70,12 @@ export default function ProductDetail({
 
   //Variant attributes
   const selectedColor = useMemo<UIColor | undefined>(
-    () => product?.colors?.find((c) => c.key === variant?.attributes?.color?.key) ?? product?.colors?.[0],
+    () => product?.colors?.find((c) => c?.key === variant?.attributes?.color?.key) ?? product?.colors?.[0],
     [product, variant],
   );
 
   const selectedSize = useMemo<UISize>(
-    () => product?.sizes?.find((s) => s.key === variant?.attributes?.commonSize?.key) ?? product?.sizes?.[0],
+    () => product?.sizes?.find((s) => s?.key === variant?.attributes?.commonSize?.key) ?? product?.sizes?.[0],
     [product, variant],
   );
 
