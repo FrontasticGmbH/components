@@ -23,12 +23,13 @@ module.exports = withPWA({
     });
 
     if (buildId !== 'development') {
+      const commitHash = process.env.NETLIFY ? process.env.COMMIT_REF.substring(0, 7) : 'staging';
       config.plugins.push(
         new webpack.DefinePlugin({
-          'process.env': {
-            NEXT_PUBLIC_EXT_BUILD_ID: JSON.stringify(process.env.NEXT_PUBLIC_EXT_BUILD_ID),
-          },
-        }),
+            'process.env': {
+                NEXT_PUBLIC_EXT_BUILD_ID: JSON.stringify(commitHash),
+             },
+         }), 
       );
     }
 
