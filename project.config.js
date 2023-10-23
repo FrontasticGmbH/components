@@ -1,10 +1,10 @@
 const languageMapper = {
-  en: 'en_GB',
+  en: 'en_US',
   de: 'de_CH',
 };
 
 const currencyMapper = {
-  en: 'EUR',
+  en: 'USD',
   de: 'EUR',
 };
 
