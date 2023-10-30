@@ -7,7 +7,7 @@ import useClassNames from 'helpers/hooks/useClassNames';
 import HeaderDropdownTile from './header-menu-tile';
 
 export interface Props {
-  show: boolean;
+  show: boolean | undefined;
   links: Category[];
   tileContent?: Tile;
   onClick?: () => void;
@@ -34,13 +34,14 @@ const MenuDropdown: FC<Props> = ({ show, links, tileContent, onClick }) => {
                     <Typography className="text-14">{link.name}</Typography>
                   </Link>
                 </div>
-                {link.subCategories.map((field) => (
-                  <div key={field.categoryId} onClick={onClick} className="w-min pb-8">
-                    <Link link={field?._url} variant="menu-item" className="whitespace-nowrap">
-                      <Typography className="text-14">{field.name}</Typography>
-                    </Link>
-                  </div>
-                ))}
+                {link.subCategories &&
+                  link.subCategories.map((field) => (
+                    <div key={field.categoryId} onClick={onClick} className="w-min pb-8">
+                      <Link link={field?._url} variant="menu-item" className="whitespace-nowrap">
+                        <Typography className="text-14">{field.name}</Typography>
+                      </Link>
+                    </div>
+                  ))}
               </>
             ) : (
               <Link key={link.categoryId} link={link?._url} variant="menu-header">

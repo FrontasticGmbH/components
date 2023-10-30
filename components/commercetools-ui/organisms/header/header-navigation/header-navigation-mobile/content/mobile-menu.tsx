@@ -47,7 +47,7 @@ const MobileMenu: FC<Props> = ({ links, categoriesNavigator, insertCategory, hid
       ) : (
         <>
           {categoriesNavigator &&
-            categoriesNavigator[categoriesNavigator.length - 1].subCategories.map((nav) => (
+            categoriesNavigator[categoriesNavigator.length - 1].subCategories?.map((nav) => (
               <MobileMenuNavButton
                 key={nav.categoryId}
                 categoriesNavigator={categoriesNavigator}

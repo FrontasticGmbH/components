@@ -1081,7 +1081,7 @@ export const moneyMock: Required<Money> = { centAmount: 71820, currencyCode: 'EU
 export const shippingInfoMock: ShippingInfo = {
   shippingMethodId: 'shipping-method-mock-id',
   price: moneyMock,
-  //discountedPrice: moneyMock,  
+  //discountedPrice: moneyMock,
 };
 
 const lineItems: LineItem[] = [
