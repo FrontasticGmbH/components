@@ -1,21 +1,18 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { languageMapper } from '../../project.config';
-
-type Languages = keyof typeof languageMapper;
-type Translation = Record<Languages, string>;
+import { useParams } from 'next/navigation';
+import { getLocalizationInfo } from 'project.config';
 
 const useI18n = () => {
-  const router = useRouter();
-  const [country] = useState('DE');
+  const { locale } = useParams();
 
-  const locale = languageMapper[router.locale || router.defaultLocale];
+  const config = getLocalizationInfo(locale);
 
-  function translate(input: Translation | string): string {
-    return typeof input === 'string' ? input : input[locale];
-  }
+  const country = config.countryCode;
 
-  return { country, t: translate };
+  const currency = config.currency;
+
+  const currencySymbol = config.currencyCode;
+
+  return { country, currency, currencySymbol };
 };
 
 export default useI18n;

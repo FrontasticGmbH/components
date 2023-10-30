@@ -1,8 +1,14 @@
 import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { sdk } from '../sdk';
+import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
-import DarkModeProvider from '../frontastic/provider/DarkMode';
+import 'react-loading-skeleton/dist/skeleton.css';
+import theme from './theme';
 
 export const parameters = {
+  docs: {
+    theme: theme,
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
@@ -12,15 +18,21 @@ export const parameters = {
   },
   nextRouter: {
     Provider: RouterContext.Provider,
-    locales: ['en', 'de'],
-    locale: 'en',
+    locales: ['en_GB', 'de_DE'],
+    locale: 'en_GB',
+  },
+  options: {
+    storySort: {
+      order: ['Style guide', '*'],
+    },
+    showPanel: false,
   },
 };
 
-export const decorators = [
-  (Story) => (
-    <DarkModeProvider>
-      <Story />
-    </DarkModeProvider>
-  ),
-];
+const StoryWrapper = ({ Story }) => {
+  sdk.configureForNext('en');
+
+  return <Story />;
+};
+
+export const decorators = [(Story) => <StoryWrapper Story={Story} />];

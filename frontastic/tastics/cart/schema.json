@@ -5,43 +5,38 @@
   "category": "Cart",
   "schema": [
     {
-      "name": "Empty State Data",
+      "name": "Payment Methods",
       "fields": [
         {
-          "label": "Page Title",
-          "field": "pageTitle",
-          "translatable": true,
+          "label": "Payment Method",
+          "field": "paymentMethods",
+          "type": "group",
+          "itemLabelField": "name",
+          "min": 0,
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "type": "string",
+              "required": true
+            },
+            {
+              "label": "Image",
+              "field": "image",
+              "type": "media",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Empty State",
+      "fields": [
+        {
+          "label": "Description",
+          "field": "emptyStateDescription",
           "type": "string"
-        },
-        {
-          "label": "Empty State Image",
-          "field": "emptyStateImage",
-          "type": "media",
-          "required": true
-        },
-        {
-          "label": "Empty State Title",
-          "field": "emptyStateTitle",
-          "translatable": true,
-          "type": "string"
-        },
-        {
-          "label": "Empty State Subtitle",
-          "field": "emptyStateSubtitle",
-          "translatable": true,
-          "type": "string"
-        },
-        {
-          "label": "Call to Action Label",
-          "field": "emptyStateCTALabel",
-          "translatable": true,
-          "type": "string"
-        },
-        {
-          "label": "Call to Action Link",
-          "field": "emptyStateCTALink",
-          "type": "reference",
-          "required": true
         }
       ]
     }

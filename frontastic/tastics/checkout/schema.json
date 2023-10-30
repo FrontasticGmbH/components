@@ -5,28 +5,58 @@
   "category": "Checkout",
   "schema": [
     {
-      "name": "Content",
+      "name": "Media",
       "fields": [
         {
-          "label": "Login link",
-          "field": "loginLink",
-          "type": "reference",
+          "label": "Logo",
+          "field": "logo",
+          "type": "media",
           "required": true
+        }
+      ]
+    },
+    {
+      "name": "Empty Cart",
+      "fields": [
+        {
+          "label": "Title",
+          "field": "emptyCartTitle",
+          "translatable": true,
+          "type": "string"
         },
         {
-          "label": "Terms & conditions link",
-          "field": "termsLink",
-          "type": "reference"
+          "label": "Subtitle",
+          "field": "emptyCartSubtitle",
+          "translatable": true,
+          "type": "string"
         },
         {
-          "label": "Cancellation policy link",
-          "field": "cancellationLink",
-          "type": "reference"
+          "label": "Image",
+          "field": "emptyCartImage",
+          "type": "media",
+          "required": true,
+          "options": {}
         },
         {
-          "label": "Privacy policy link",
-          "field": "privacyLink",
-          "type": "reference"
+          "label": "Categories",
+          "field": "emptyCartCategories",
+          "type": "group",
+          "min": 1,
+          "fields": [
+            {
+              "label": "Name",
+              "field": "name",
+              "translatable": true,
+              "required": true,
+              "type": "string"
+            },
+            {
+              "label": "Link",
+              "field": "reference",
+              "type": "reference",
+              "required": true
+            }
+          ]
         }
       ]
     }

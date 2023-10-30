@@ -1,24 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 const useHash = () => {
-  //next/router
-  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  //current window hash
-  const [hash, setHash] = useState(typeof window === 'undefined' ? '#' : window.location.hash || '#');
+  const hash = searchParams.get('hash') ?? '';
 
-  //update window hash
-  const updateWindowHash = useCallback(() => {
-    setHash(window.location.hash || '#');
-  }, []);
+  const id = searchParams.get('id');
 
-  useEffect(() => {
-    window.addEventListener('hashchange', updateWindowHash);
-    return () => window.removeEventListener('hashchange', updateWindowHash);
-  }, [updateWindowHash, router.events]);
-
-  return hash;
+  return [hash, id] as const;
 };
 
 export default useHash;

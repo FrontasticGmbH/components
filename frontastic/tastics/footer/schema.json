@@ -38,38 +38,6 @@
               "type": "reference"
             }
           ]
-        },
-        {
-          "label": "Icon",
-          "field": "iconCol1",
-          "type": "enum",
-          "default": "rocket",
-          "values": [
-            {
-              "name": "Rocket",
-              "value": "rocket"
-            },
-            {
-              "name": "Loop",
-              "value": "loop"
-            },
-            {
-              "name": "Lock",
-              "value": "lock"
-            },
-            {
-              "name": "Question Mark",
-              "value": "question"
-            },
-            {
-              "name": "Inbox",
-              "value": "inbox"
-            },
-            {
-              "name": "Speaker",
-              "value": "speaker"
-            }
-          ]
         }
       ]
     },
@@ -105,38 +73,6 @@
               "field": "reference",
               "required": true,
               "type": "reference"
-            }
-          ]
-        },
-        {
-          "label": "Icon",
-          "field": "iconCol2",
-          "type": "enum",
-          "default": "rocket",
-          "values": [
-            {
-              "name": "Rocket",
-              "value": "rocket"
-            },
-            {
-              "name": "Loop",
-              "value": "loop"
-            },
-            {
-              "name": "Lock",
-              "value": "lock"
-            },
-            {
-              "name": "Question Mark",
-              "value": "question"
-            },
-            {
-              "name": "Inbox",
-              "value": "inbox"
-            },
-            {
-              "name": "Speaker",
-              "value": "speaker"
             }
           ]
         }
@@ -176,38 +112,6 @@
               "type": "reference"
             }
           ]
-        },
-        {
-          "label": "Icon",
-          "field": "iconCol3",
-          "type": "enum",
-          "default": "rocket",
-          "values": [
-            {
-              "name": "Rocket",
-              "value": "rocket"
-            },
-            {
-              "name": "Loop",
-              "value": "loop"
-            },
-            {
-              "name": "Lock",
-              "value": "lock"
-            },
-            {
-              "name": "Question Mark",
-              "value": "question"
-            },
-            {
-              "name": "Inbox",
-              "value": "inbox"
-            },
-            {
-              "name": "Speaker",
-              "value": "speaker"
-            }
-          ]
         }
       ]
     },
@@ -245,67 +149,39 @@
               "type": "reference"
             }
           ]
-        },
-        {
-          "label": "Icon",
-          "field": "iconCol4",
-          "type": "enum",
-          "default": "rocket",
-          "values": [
-            {
-              "name": "Rocket",
-              "value": "rocket"
-            },
-            {
-              "name": "Loop",
-              "value": "loop"
-            },
-            {
-              "name": "Lock",
-              "value": "lock"
-            },
-            {
-              "name": "Question Mark",
-              "value": "question"
-            },
-            {
-              "name": "Inbox",
-              "value": "inbox"
-            },
-            {
-              "name": "Speaker",
-              "value": "speaker"
-            }
-          ]
         }
       ]
     },
     {
-      "name": "Copyright",
+      "name": "Logo",
       "fields": [
         {
-          "label": "Copyright",
-          "field": "copyright",
-          "translatable": false,
-          "required": false,
-          "type": "string"
-        },
+          "label": "Logo",
+          "field": "logo",
+          "type": "media"
+        }
+      ]
+    },
+    {
+      "name": "Social Media",
+      "fields": [
         {
-          "label": "Links",
-          "field": "copyrightLinks",
+          "label": "Social Media",
+          "field": "socialMedia",
           "type": "group",
           "fields": [
             {
-              "label": "Copyright",
-              "field": "name",
-              "translatable": true,
-              "required": false,
-              "type": "string"
+              "label": "Logo Icon",
+              "field": "logo",
+              "type": "media"
+            },
+            {
+              "type": "description",
+              "text": "External links must include the hypertext transfer protocol (http://)"
             },
             {
               "label": "Link",
               "field": "reference",
-              "required": true,
               "type": "reference"
             }
           ]

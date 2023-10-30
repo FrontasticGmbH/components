@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon, ExclamationIcon } from '@heroicons/react/outline';
+import { ChevronDownIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import { Log } from 'helpers/errorLogger';
+import { Log, LogError } from 'helpers/errorLogger';
 import { isDevelopment } from 'helpers/utils/environment';
 
-const getErrorMessage = (error) => {
+const getErrorMessage = (error: LogError) => {
   if (typeof error?.data[0] === 'string') {
     return error.data[0];
   }
@@ -35,7 +35,7 @@ export function Errors() {
   // errors happening exactly in parallel.
   //
   // If somebody has a better solution for this, please fix:
-  Log.setErrorLogger((error) => {
+  Log.setErrorLogger((error: LogError) => {
     if (typeof window !== 'undefined') {
       window.setTimeout(() => {
         setErrors([error, ...errors].slice(0, 5));
@@ -53,23 +53,23 @@ export function Errors() {
 
   return (
     <div className="relative z-10">
-      <div className="bg-black/50 fixed inset-0 z-10 overflow-y-auto text-center">
+      <div className="fixed inset-0 z-10 overflow-y-auto bg-black/50 text-center">
         <span className="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">
           &#8203;
         </span>
-        <div className="relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:align-middle">
-          <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div className="relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
+          <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
             <div className="sm:flex sm:items-start">
               <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                <ExclamationIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+                <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
               </div>
-              <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">Errors communicating with the API hub</h3>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Some errors occured when communicating with the API hub. Check the sandbox logs of your Frontastic
-                    CLI for details and possibly a stack trace (press <kbd>s</kbd> there) and find the error messages
-                    either in the browser console (press <kbd>F12</kbd> in the browser) or the last five below:
+                    Some errors occured when communicating with the API hub. Check the sandbox logs (s) of your
+                    Frontastic CLI and find the error messages either in the browser console (F12) or the last five
+                    below:
                   </p>
                 </div>
               </div>
@@ -92,15 +92,10 @@ export function Errors() {
                           </span>
                         </Disclosure.Button>
                       </dt>
-                      <Disclosure.Panel className="mt-2">
-                        <div className="rounded bg-gray-100 p-2">
-                          <code className="whitespace-pre-wrap text-sm">{JSON.stringify(error.data, null, 2)}</code>
-                        </div>
-                        {error.data[1]?.frontasticRequestId && (
-                          <p>
-                            Frontastic Request ID: <pre>{error.data[1].frontasticRequestId}</pre>
-                          </p>
-                        )}
+                      <Disclosure.Panel className="mt-2 pr-12">
+                        <p className="whitespace-pre-wrap text-base text-gray-500">
+                          {JSON.stringify(error.data, null, 2)}
+                        </p>
                       </Disclosure.Panel>
                     </div>
                   )}

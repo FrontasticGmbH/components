@@ -1,3 +1,6 @@
+import { InstantSearchServerState } from 'react-instantsearch-hooks';
+import { Category } from 'shared/types/product/Category';
+
 type ViewData = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\ViewData';
   dataSources: DataSources | null;
@@ -29,7 +32,7 @@ type Regions2 = {
   footer: Footer2;
   main: Main2;
   head: Head2;
-  kit: Kit2;
+  kit: Kit;
 };
 type Footer = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Region';
@@ -55,8 +58,8 @@ type Main2 = {
   _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Region';
   layoutElements: Cell[];
 };
-type Kit2 = {
-  _type: 'FrontasticCatwalkNextJsBundleDomainApiSection';
+type Kit = {
+  _type: 'Frontastic\\Catwalk\\FrontendBundle\\Domain\\Region';
   layoutElements: Cell[];
 };
 export type Cell = {
@@ -114,8 +117,11 @@ export type TasticWrapperProps = {
   dataSources: DataSources | null;
   tastics: TasticRegistry;
   data: TasticData;
+  categories: Category[];
   pageFolder: PageFolder;
   highlight?: boolean;
+  serverState?: InstantSearchServerState;
+  serverUrl: string;
   previewId?: string;
 };
 export interface DataSourceConfiguration {
@@ -123,11 +129,6 @@ export interface DataSourceConfiguration {
   type: string;
   name: string;
   configuration: any;
-}
-export interface PageFolderBreadcrumb {
-  pageFolderId: string;
-  pathTranslations: any;
-  ancestorIdsMaterializedPath: string;
 }
 export interface PageFolder {
   pageFolderId: string;
@@ -148,7 +149,17 @@ export interface PageFolder {
    * Sort order in the page folder tree.
    */
   sort: number;
-  breadcrumbs: PageFolderBreadcrumb[];
+}
+
+export interface PageDataResponse {
+  pageFolder: PageFolder;
+  page: Page2;
+  data: ViewData;
+}
+export interface PageFolderBreadcrumb {
+  pageFolderId: string;
+  pathTranslations: any;
+  ancestorIdsMaterializedPath: string;
 }
 export interface PageFolderStructureValue {
   pageFolderId: string;
@@ -172,11 +183,7 @@ export interface PageFolderStructureValue {
   _urls: string[];
   _url: string;
 }
-export interface PageDataResponse {
-  pageFolder: PageFolder;
-  page: Page2;
-  data: ViewData;
-}
+
 export interface PageFolderStructureResponse {
   pageFolderStructure: PageFolderStructureValue[];
 }

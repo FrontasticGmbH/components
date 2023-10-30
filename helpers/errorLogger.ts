@@ -1,24 +1,30 @@
+export interface LogError {
+  type: string;
+  date: Date;
+  data: Error[];
+}
+
 export class Log {
   static readonly WARNING = 'Warning';
   static readonly ERROR = 'Error';
 
-  static errors = [];
+  static errors: Array<LogError> = [];
 
-  static errorLogger = null;
+  static errorLogger: CallableFunction;
 
-  static warn = (...errorData: any[]) => {
+  static warn = (...errorData: Error[]) => {
     Log.log(Log.WARNING, errorData);
   };
 
-  static warning = (...errorData: any[]) => {
+  static warning = (...errorData: Error[]) => {
     Log.log(Log.WARNING, errorData);
   };
 
-  static error = (...errorData: any[]) => {
+  static error = (...errorData: Error[]) => {
     Log.log(Log.ERROR, errorData);
   };
 
-  private static log = (type: string, errorData: any[]) => {
+  private static log = (type: string, errorData: Error[]) => {
     // @TODO: Do not log on production
     console.error(type + ':', ...errorData);
 
@@ -39,7 +45,7 @@ export class Log {
     }
   };
 
-  static setErrorLogger = (errorLogger: Function) => {
+  static setErrorLogger = (errorLogger: CallableFunction) => {
     Log.errorLogger = errorLogger;
   };
 
@@ -48,6 +54,6 @@ export class Log {
   };
 
   static getErrors = () => {
-    return Log.errors.sort((a, b) => a.date - b.date);
+    return Log.errors.sort((a, b) => a.date.getTime() - b.date.getTime());
   };
 }

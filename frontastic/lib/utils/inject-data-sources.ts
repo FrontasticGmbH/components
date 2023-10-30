@@ -1,5 +1,5 @@
+import { Log } from 'helpers/errorLogger';
 import { TasticConfiguration, DataSources } from '../types';
-import { Log } from '../../../helpers/errorLogger';
 
 // injects the data sources from the root level into the node
 // where it is used inside the tree. the data becomes available
@@ -27,11 +27,7 @@ export function injectDataSources(
         // @TODO:
         // * Better error formatting
         // * Log request ID (even link to a Kibana search right away during dev?)
-        if (dataSources[value].context) {
-          Log.error('Data source error: ' + dataSources[value].message, dataSources[value].context);
-        } else {
-          Log.error('Data source error: ' + dataSources[value].message);
-        }
+        Log.error(new Error('Data source error: ' + dataSources[value].message));
       }
       return { ...acc, [key]: value, dataSource: dataSources[value] };
     } else {

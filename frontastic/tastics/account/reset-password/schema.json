@@ -5,22 +5,17 @@
   "icon": "account_circle",
   "schema": [
     {
-      "name": "Media",
-      "fields": [
-        {
-          "label": "Logo",
-          "field": "logo",
-          "type": "media",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "Content",
+      "name": "Redirecting",
       "fields": [
         {
           "label": "Account link",
           "field": "accountLink",
+          "type": "reference",
+          "required": true
+        },
+        {
+          "label": "Sign in link",
+          "field": "signInLink",
           "type": "reference",
           "required": true
         }

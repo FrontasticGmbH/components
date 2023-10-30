@@ -1,5 +1,6 @@
 {
   "shipping": "Versand",
+  "billing": "Abrechnung",
   "payment": "Bezahlung",
   "overview": "Übersicht",
   "nextPayment": "Weiter zur Zahlung",
@@ -43,5 +44,17 @@
   "taxesNotSupported": "Steuern sind für dieses Land in nicht definiert commercetools",
   "overview.order": "IHRE BESTELLUNG",
   "disclaimer": "Mit dem Klick auf \"Fortfahren und bezahlen\" erkläre ich mich mit den <0>Allgemeinen Geschäftsbedingungen</0> einverstanden. Ich habe die <1>Widerrufsbelehrung</1> und die <2>Datenschutzbestimmungen</2> zur Kenntnis genommen.",
-  "no.countries.available.for.shipping": "Derzeit sind keine Länder für den Versand verfügbar"
+  "no.countries.available.for.shipping": "Derzeit sind keine Länder für den Versand verfügbar",
+  "for.other.updates": "für andere Updates",
+  "add.adress": "Fügen Sie eine weitere Adresszeile hinzu",
+  "update.addresses.error": "Ihre Adressinformationen konnten nicht aktualisiert werden. Bitte versuchen Sie es später erneut.",
+  "secure.checkout": "Sichere Kasse",
+  "enter.associated.address.with.payment": "Geben Sie die Adresse ein, die Ihrer Zahlungsmethode zugeordnet ist",
+  "card.holder": "Kartenhalter",
+  "card.number": "Kartennummer",
+  "card.securityNumber": "Sicherheitsnummer",
+  "items.outOfStock": "Die folgenden Artikel sind nicht vorrätig",
+  "payment.failed": "Wir konnten Ihre Zahlung nicht verarbeiten. Bitte versuchen Sie es später noch einmal.",
+  "discount.apply": "Wenden Sie einen Rabatt an",
+  "expiry.date": "Verfallsdatum"
 }

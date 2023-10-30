@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 type Props = {
   className?: string;
+  pathClassName?: string;
+  fill?: string;
+  onClick?: () => void;
 };
 
-const Icon: React.FC<Props> = ({ className }: Props) => (
-  <svg className={className} width="22" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+const Icon: FC<Props> = ({ className, onClick, pathClassName = '' }) => (
+  <svg
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 26 26"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    onClick={onClick}
+  >
     <path
-      d="M11.76 1.76a6 6 0 018.48 8.48l-8.53 8.54a1 1 0 01-1.42 0l-8.53-8.54a6 6 0 018.48-8.48l.76.75.76-.75zm7.07 7.07a4.002 4.002 0 10-5.66-5.66l-1.46 1.47a.999.999 0 01-1.42 0L8.83 3.17a4.002 4.002 0 00-5.66 5.66L11 16.66l7.83-7.83z"
-      fill="#2D3748"
+      d="M25.0005 7.54545C25.0005 3.93091 22.2018 1 18.7498 1C16.1698 1 13.9538 2.63782 13.0005 4.97527C12.0472 2.63782 9.83116 1 7.24982 1C3.80049 1 1.00049 3.93091 1.00049 7.54545C1.00049 18.0473 13.0005 25 13.0005 25C13.0005 25 25.0005 18.0473 25.0005 7.54545Z"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={pathClassName}
     />
   </svg>
 );

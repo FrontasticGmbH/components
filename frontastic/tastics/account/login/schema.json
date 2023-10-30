@@ -8,8 +8,8 @@
       "name": "Content",
       "fields": [
         {
-          "label": "Registration link",
-          "field": "registerLink",
+          "label": "Sign in link",
+          "field": "signInLink",
           "type": "reference",
           "required": true
         },

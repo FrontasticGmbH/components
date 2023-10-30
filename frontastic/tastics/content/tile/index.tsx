@@ -1,18 +1,17 @@
-import React from 'react';
-import Tile from 'components/commercetools-ui/content/tile';
+'use client';
 
-const TileTastic = ({ data }) => {
+import React from 'react';
+import Tile, { TileProps } from 'components/commercetools-ui/organisms/content/tile';
+import { TasticProps } from 'frontastic/tastics/types';
+
+const TileTastic = ({ data }: TasticProps<TileProps>) => {
   return (
     <Tile
       image={data.image}
       title={data.title}
-      titleColor={data.titleColor}
       subtitle={data.subtitle}
-      subtitleColor={data.subtitleColor}
       ctaLabel={data.ctaLabel}
       ctaReference={data.ctaReference}
-      titleFont={data.titleFont}
-      subtitleFont={data.subtitleFont}
     />
   );
 };

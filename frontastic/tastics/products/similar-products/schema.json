@@ -14,6 +14,22 @@
           "required": true
         },
         {
+          "label": "Title Variant",
+          "field": "titleVariant",
+          "type": "enum",
+          "default": "lg",
+          "values": [
+            {
+              "name": "Small",
+              "value": "sm"
+            },
+            {
+              "name": "Large",
+              "value": "lg"
+            }
+          ]
+        },
+        {
           "label": "products",
           "field": "data",
           "type": "dataSource",

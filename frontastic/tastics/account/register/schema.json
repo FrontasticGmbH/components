@@ -8,8 +8,8 @@
       "name": "Content",
       "fields": [
         {
-          "label": "Login link",
-          "field": "loginLink",
+          "label": "Terms of Use Link",
+          "field": "termsOfUseLink",
           "type": "reference",
           "required": true
         }

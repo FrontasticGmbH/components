@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import Newsletter, { NewsletterProps } from 'components/commercetools-ui/newsletter';
+import Newsletter, { NewsletterProps } from 'components/commercetools-ui/organisms/newsletter';
 
 interface Props {
   data: NewsletterProps;

@@ -1,86 +1,164 @@
 module.exports = {
   mode: 'jit',
   darkMode: 'class',
+  relative: true,
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
+    './context/**/*.{js,ts,jsx,tsx}',
     './frontastic/**/*.{js,ts,jsx,tsx}',
-    './stories/**/*.{js,ts,jsx,tsx}',
+    './stories/**/*.{js,ts,jsx,tsx,mdx}',
+    './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  safelist: [{ pattern: /grid-cols-(\d)+/ }, { pattern: /^(ring|bg|text)-.+/ }],
+  safelist: [{ pattern: /bg-(white|neutral-200)/ }],
   theme: {
     extend: {
-      aspectRatio: {
-        '4/3': '4 / 3',
-        '3/4': '3 / 4',
+      keyframes: {
+        appearDropdown: {
+          '0%': {
+            opacity: 0,
+            scale: 0,
+          },
+          '50%': {
+            opacity: 0.5,
+            scale: 0.5,
+          },
+          '100%': {
+            opacity: 1,
+            scale: 1,
+          },
+        },
+        appearSelect: {
+          '0%': {
+            opacity: 0,
+            height: 0,
+          },
+          '50%': {
+            opacity: 0.5,
+            height: 50,
+          },
+          '100%': {
+            opacity: 1,
+            height: 100,
+          },
+        },
+      },
+      animation: {
+        appearDropdown: 'appearDropdown 0.15s ease-in-out',
+        appearSelect: 'appearSelect 0.5s ease-in-out',
+      },
+      fontFamily: {
+        body: 'var(--font-inter)',
+        heading: 'var(--font-libre)',
+      },
+      fontSize: Object.fromEntries(
+        Array(100)
+          .fill(0)
+          .map((_, i) => [i + 1, `${i + 1}px`]),
+      ),
+      lineHeight: {
+        tight: '100%',
+        normal: '125%',
+        loose: '150%',
+      },
+      fontWeight: {
+        light: 300,
+        regular: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+      },
+      screens: {
+        sm: '480px',
+        md: '744px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1440px',
+        '3xl': '1666px',
+      },
+      borderRadius: {
+        sm: '2px',
+        md: '4px',
+        lg: '8px',
       },
       boxShadow: {
-        '3xl': '0 4px 10px -5px rgba(255, 255, 255, 0.25)',
+        100: '0px 2px 2px rgba(25, 40, 81, 0.05)',
+        200: '0px 4px 4px rgba(25, 40, 81, 0.05)',
+        300: '0px 8px 8px rgba(25, 40, 81, 0.05)',
+        400: '0px 16px 16px rgba(25, 40, 81, 0.05)',
+        dark: '0px 1px 6px rgba(0, 0, 0, 0.25)',
+        button: '1px 1px 1px rgba(0, 0, 0, 0.15), -1px -1px 1px rgba(25, 40, 81, 0.15)',
+        inset: 'inset 0px 30px 16px rgba(127, 127, 127, 0.2)',
+        bottom: '0px 0px 3px rgba(71, 71, 71, 1)',
+      },
+      textUnderlineOffset: {
+        default: '0.25em',
       },
       colors: {
         primary: {
-          100: 'var(--primary-100)',
-          200: 'var(--primary-200)',
-          300: 'var(--primary-300)',
-          400: 'var(--primary-400)',
-          500: 'var(--primary-500)',
-          600: 'var(--primary-600)',
-          700: 'var(--primary-700)',
-          800: 'var(--primary-800)',
-          900: 'var(--primary-900)',
-        },
-        accent: {
-          100: 'var(--accent-100)',
-          200: 'var(--accent-200)',
-          300: 'var(--accent-300)',
-          400: 'var(--accent-400)',
-          500: 'var(--accent-500)',
-          600: 'var(--accent-600)',
-          700: 'var(--accent-700)',
-          800: 'var(--accent-800)',
-          900: 'var(--accent-900)',
+          black: '#212121',
+          dark: '#343434',
         },
         secondary: {
-          100: 'var(--secondary-100)',
-          200: 'var(--secondary-200)',
-          300: 'var(--secondary-300)',
-          400: 'var(--secondary-400)',
-          500: 'var(--secondary-500)',
-          600: 'var(--secondary-600)',
-          700: 'var(--secondary-700)',
-          800: 'var(--secondary-800)',
-          900: 'var(--secondary-900)',
+          black: '#494949',
+          grey: '#474747',
+        },
+        accent: {
+          red: '#D14253',
+        },
+        gray: {
+          400: '#7F7F7F',
+          500: '#767676',
+          700: '#1A1A1A',
         },
         neutral: {
-          100: 'var(--neutral-100)',
-          200: 'var(--neutral-200)',
-          300: 'var(--neutral-300)',
-          400: 'var(--neutral-400)',
-          500: 'var(--neutral-500)',
-          600: 'var(--neutral-600)',
-          700: 'var(--neutral-700)',
-          800: 'var(--neutral-800)',
-          900: 'var(--neutral-900)',
+          100: '#FFFFFF',
+          150: '#F7F9FC',
+          200: '#F8F8F8',
+          300: '#EFF0F5',
+          400: '#DCE0EB',
+          500: '#959595',
         },
-        light: {
-          100: 'var(--light-100)',
+        green: {
+          100: '#ECF5F3',
+          300: '#A8DBCD',
+          500: '#00853D',
+          600: '#229575',
+          700: '#1D6E5E',
         },
-        black: {
-          100: '#000000',
-          200: '#000000',
-          300: '#000000',
-          400: '#000000',
-          500: '#000000',
-          600: '#000000',
-          700: '#000000',
-          800: '#000000',
-          900: '#000000',
+        yellow: {
+          100: '#FCEFD4',
+          300: '#F6C669',
+          500: '#F2AE29',
+          600: '#C28B21',
+          700: '#916819',
+        },
+        red: {
+          100: '#F6E5E7',
+          300: '#E0919A',
+          500: '#CD3F50',
+          600: '#AE1D32',
+          700: '#8A182A',
+        },
+        blue: {
+          100: '#ECF0FB',
+          300: '#7A97E4',
+          500: '#416BD8',
+          600: '#2A4DA8',
+          700: '#274082',
         },
       },
-      letterSpacing: {
-        modest: '0.01em',
-      },
+      spacing: Object.fromEntries(
+        Array(400)
+          .fill(0)
+          .map((_, i) => [i + 1, `${i + 1}px`]),
+      ),
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar-hide'),
+  ],
 };

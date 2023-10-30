@@ -28,87 +28,11 @@
           "required": false
         },
         {
-          "label": "Title color",
-          "field": "titleColor",
-          "type": "enum",
-          "values": [
-            {
-              "name": "White",
-              "value": "text-white"
-            },
-            {
-              "name": "Grey",
-              "value": "text-gray-400"
-            },
-            {
-              "name": "Black",
-              "value": "text-black"
-            }
-          ]
-        },
-        {
-          "label": "Title font family",
-          "field": "titleFont",
-          "type": "enum",
-          "values": [
-            {
-              "name": "Sans-serif",
-              "value": "font-sans"
-            },
-            {
-              "name": "Serif",
-              "value": "font-serif"
-            },
-            {
-              "name": "Mono",
-              "value": "font-mono"
-            }
-          ]
-        },
-        {
           "label": "Subtitle",
           "field": "subtitle",
           "type": "string",
           "translatable": true,
           "required": false
-        },
-        {
-          "label": "Subtitle color",
-          "field": "subtitleColor",
-          "type": "enum",
-          "values": [
-            {
-              "name": "White",
-              "value": "text-white"
-            },
-            {
-              "name": "Grey",
-              "value": "text-gray-400"
-            },
-            {
-              "name": "Black",
-              "value": "text-black"
-            }
-          ]
-        },
-        {
-          "label": "Subtitle font family",
-          "field": "subtitleFont",
-          "type": "enum",
-          "values": [
-            {
-              "name": "Sans-serif",
-              "value": "font-sans"
-            },
-            {
-              "name": "Serif",
-              "value": "font-serif"
-            },
-            {
-              "name": "Mono",
-              "value": "font-mono"
-            }
-          ]
         }
       ]
     },
@@ -131,6 +55,18 @@
           "required": false,
           "type": "reference",
           "default": null
+        }
+      ]
+    },
+    {
+      "name": "Style",
+      "helpText": "Customize your styling",
+      "fields": [
+        {
+          "label": "Enable rounded borders?",
+          "field": "roundedBorders",
+          "type": "boolean",
+          "default": true
         }
       ]
     }

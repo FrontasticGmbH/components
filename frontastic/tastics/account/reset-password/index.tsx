@@ -1,31 +1,21 @@
+'use client';
+
 import React from 'react';
-import { useRouter } from 'next/router';
-import ResetPassword, { ResetPasswordProps } from 'components/commercetools-ui/account/reset-password';
-import Head from 'next/head';
-import { useFormat } from 'helpers/hooks/useFormat';
+import { useSearchParams } from 'next/navigation';
+import ResetPassword, { ResetPasswordProps } from 'components/commercetools-ui/organisms/authentication/reset-password';
+import Redirect from 'helpers/redirect';
+import { TasticProps } from 'frontastic/tastics/types';
 
-export interface Props {
-  data: ResetPasswordProps;
-}
-
-const ResetPasswordTastic: React.FC<Props> = ({ data }) => {
-  //I18n messages
-  const { formatMessage: formatAccountMessage } = useFormat({ name: 'account' });
-
-  //next/router
-  const router = useRouter();
+const ResetPasswordTastic = ({ data }: TasticProps<ResetPasswordProps>) => {
+  //next/navigation
+  const searchParams = useSearchParams();
 
   //reset password token
-  const { token } = router.query;
+  const token = searchParams.get('token');
 
-  return (
-    <>
-      <Head>
-        <title>{formatAccountMessage({ id: 'password.reset', defaultMessage: 'Reset password' })}</title>
-      </Head>
-      <ResetPassword token={token} {...data} />
-    </>
-  );
+  if (!token) return <Redirect target="/login" />;
+
+  return <ResetPassword token={token} {...data} />;
 };
 
 export default ResetPasswordTastic;

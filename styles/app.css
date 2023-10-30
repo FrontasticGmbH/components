@@ -2,79 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './themes/default.css';
-@import './themes/theme1.css';
-@import './themes/theme2.css';
-@import './themes/theme3.css';
-
-html {
-  @apply p-0; /* For tailwind Dialog styling override */
-}
+@import url('./components/slider.css');
+@import url('./components/default-loader.css');
+@import url('./components/quick-search.css');
+@import url('./components/modal.css');
 
 body {
-  color: #2d3748;
+  width: 100%;
+
+  @apply font-body;
+  @apply text-primary-black;
 }
 
-/* This style corresponds to
- * the footer component due to
- * a bug in TailwindCSS not
- * recognizing template columns
- * with more than 4 columns.
- * see components/commercetools-ui/footer/index.tsx
- * This is a hardcoded and messy
- * workaround.
- */
-@media (min-width: 768px) {
-  .md\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading;
 }
 
-form input[type='checkbox']:checked {
-  background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23CE3E72' xmlns='http://www.w3.org/2000/svg'><path d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/></svg>");
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-form input[type='checkbox']:checked:hover {
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  @apply underline-offset-[0.25em];
 }
 
-.select-accent {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCAyMCAyMCc+PHBhdGggc3Ryb2tlPScjY2UzZTcyJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIHN0cm9rZS13aWR0aD0nMS41JyBkPSdNNiA4bDQgNCA0LTQnLz48L3N2Zz4K');
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
 }
 
-@layer base {
-  html {
-    font-family: 'Open Sans';
-  }
+input:focus {
+  box-shadow: none !important;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  display: none;
 }
 
 @layer utilities {
-  .relative-width {
-    width: 100%;
-    left: 0;
-    right: 0;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .fixed-screen-width {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-  }
-
-  .markdown {
-    @apply max-w-none overflow-x-hidden;
-    @apply mx-auto pb-10 text-neutral-800 prose-h1:text-neutral-800 prose-h2:text-neutral-800 prose-h3:text-neutral-800 prose-h4:text-neutral-800 lg:prose-lg;
-    @apply prose-a:text-accent-600 prose-blockquote:text-neutral-700;
-    @apply prose-code:rounded prose-code:bg-neutral-200 prose-code:p-1 prose-code:text-accent-600 prose-pre:bg-neutral-200;
-    @apply prose-img:rounded-sm;
-    @apply prose-strong:font-bold prose-strong:text-neutral-800;
-    @apply prose-ol:list-decimal;
-    @apply prose-ul:list-disc;
-    @apply prose-li:text-neutral-800;
+  .text-shadow {
+    text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
   }
 }

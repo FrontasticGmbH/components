@@ -1,20 +1,148 @@
-import ProductList from 'components/commercetools-ui/products/product-list';
+'use client';
 
-function ProductListTastic({ data }) {
-  if (!data?.data?.dataSource) return <></>;
+import React, { useEffect, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Product } from 'shared/types/product/Product';
+import { Facet } from 'shared/types/result/Facet';
+import NotFound from 'components/commercetools-ui/organisms/not-found';
+import ProductList, { Props as ProductListProps } from 'components/commercetools-ui/organisms/product/product-list';
+import ProductListProvider, {
+  useProductList,
+} from 'components/commercetools-ui/organisms/product/product-list/context';
+import {
+  TermFacet,
+  FacetConfiguration,
+  PriceConfiguration,
+} from 'components/commercetools-ui/organisms/product/product-list/types';
+import { useFormat } from 'helpers/hooks/useFormat';
+import { DataSource } from 'types/datasource';
+import { TasticProps } from 'frontastic/tastics/types';
 
-  const { items, facets, category, previousCursor, nextCursor, total, totalItems } = data.data.dataSource;
-
-  return (
-    <ProductList
-      products={items}
-      totalProducts={total}
-      facets={facets}
-      category={category}
-      previousCursor={previousCursor}
-      nextCursor={nextCursor}
-    />
-  );
+interface Props {
+  facetsConfiguration: FacetConfiguration[];
+  pricesConfiguration: PriceConfiguration[];
 }
 
+interface DataSourceProps {
+  items: Product[];
+  category: string;
+  facets: Facet[];
+  previousCursor?: string;
+  nextCursor?: string;
+  total: number;
+  totalItems: number;
+}
+
+const ProductListWrapped = ({
+  data,
+  categories,
+}: TasticProps<DataSource<DataSourceProps> & Props & ProductListProps>) => {
+  const { formatMessage: formatProductMessage } = useFormat({ name: 'product' });
+
+  const { updatePricesConfiguration, updateFacetsConfiguration, slug, searchQuery } = useProductList();
+
+  const externalFacetsConfiguration = useMemo<Record<string, FacetConfiguration>>(() => {
+    return (data.facetsConfiguration ?? []).reduce(
+      (acc, configuration) => ({
+        ...acc,
+        [configuration.key]: configuration as FacetConfiguration,
+      }),
+      {},
+    );
+  }, [data.facetsConfiguration]);
+
+  const pricesConfiguration = useMemo<Record<string, PriceConfiguration>>(() => {
+    return (data.pricesConfiguration ?? []).reduce(
+      (acc, configuration) => ({
+        ...acc,
+        [configuration.key]: {
+          ranges: configuration.ranges,
+        } as PriceConfiguration,
+      }),
+      {},
+    );
+  }, [data.pricesConfiguration]);
+
+  useEffect(() => {
+    updatePricesConfiguration(pricesConfiguration);
+  }, [pricesConfiguration, updatePricesConfiguration]);
+
+  const facetsConfiguration = useMemo<Record<string, FacetConfiguration>>(() => {
+    const facets = data.data?.dataSource?.facets ?? [];
+
+    const keys = Object.keys(externalFacetsConfiguration);
+
+    facets.sort((a, b) => keys.indexOf(a.key) - keys.indexOf(b.key));
+
+    return facets
+      .filter((facet) => facet.key in externalFacetsConfiguration)
+      .map((facet) => {
+        if (facet.key === 'categories.id') {
+          (facet as TermFacet).terms = (facet as TermFacet).terms.map((term) => ({
+            ...term,
+            label: categories.find((c) => c.categoryId === term.key)?.name ?? '',
+          }));
+        } else if (facet.type === 'boolean') {
+          (facet as TermFacet).terms = (facet as TermFacet).terms.map((term) => ({
+            ...term,
+            label:
+              term.key === 'T'
+                ? externalFacetsConfiguration[facet.key].label
+                : formatProductMessage({ id: 'regular', defaultMessage: 'Regular' }),
+          }));
+        }
+
+        return facet;
+      })
+      .reduce(
+        (acc, configuration) => ({
+          ...acc,
+          [configuration.key]: {
+            ...configuration,
+            label: externalFacetsConfiguration[configuration.key].label,
+            type: externalFacetsConfiguration[configuration.key].type,
+          } as FacetConfiguration,
+        }),
+        {},
+      );
+  }, [data.data?.dataSource?.facets, externalFacetsConfiguration, categories, formatProductMessage]);
+
+  useEffect(() => {
+    updateFacetsConfiguration(facetsConfiguration);
+  }, [facetsConfiguration, updateFacetsConfiguration]);
+
+  const isValidCategoryOrSearchQuery = useMemo(() => {
+    if (searchQuery) return true;
+
+    return slug && !!categories.find((c) => c.slug === slug);
+  }, [searchQuery, slug, categories]);
+
+  if (!data?.data) return <></>;
+
+  if (!isValidCategoryOrSearchQuery) return <NotFound />;
+
+  return <ProductList products={data.data.dataSource?.items ?? []} categories={categories} />;
+};
+
+const ProductListTastic = ({ data, ...props }: TasticProps<DataSource<DataSourceProps> & Props & ProductListProps>) => {
+  const searchParams = useSearchParams();
+
+  const searchQuery = searchParams.get('query') as string;
+
+  if (!data?.data?.dataSource) return <></>;
+
+  return (
+    <ProductListProvider
+      uiState={{
+        searchQuery,
+        slug: data.data.dataSource.category?.split('/').at(-1),
+        previousCursor: data.data.dataSource.previousCursor,
+        nextCursor: data.data.dataSource.nextCursor,
+        totalItems: data.data.dataSource.total ?? data.data.dataSource.totalItems,
+      }}
+    >
+      <ProductListWrapped data={data} {...props} />
+    </ProductListProvider>
+  );
+};
 export default ProductListTastic;

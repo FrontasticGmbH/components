@@ -5,17 +5,6 @@
   "category": "Products",
   "schema": [
     {
-      "name": "Basic Options",
-      "fields": [
-        {
-          "label": "Enable quick buy",
-          "field": "quickBuyEnabled",
-          "type": "boolean",
-          "default": false
-        }
-      ]
-    },
-    {
       "name": "Configuration",
       "fields": [
         {

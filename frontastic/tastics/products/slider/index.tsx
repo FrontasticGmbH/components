@@ -1,16 +1,17 @@
-import ProductSlider from 'components/commercetools-ui/products/slider';
+'use client';
 
-function ProductSliderTastic({ data }) {
+import { Product } from 'shared/types/product/Product';
+import ProductSlider, { ProductSliderProps } from 'components/commercetools-ui/organisms/product/product-slider';
+import { DataSource } from 'types/datasource';
+import { TasticProps } from 'frontastic/tastics/types';
+
+function ProductSliderTastic({ data }: TasticProps<DataSource<{ items: Product[] }> & ProductSliderProps>) {
   if (!data?.data?.dataSource?.items) return <p>No products found.</p>;
 
-  return (
-    <ProductSlider
-      products={data?.data?.dataSource?.items}
-      title={data.title}
-      ctaLabel={data.ctaLabel}
-      ctaLink={data.ctaLink}
-    />
-  );
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { mobile, tablet, desktop, ...props } = data;
+
+  return <ProductSlider {...props} products={data.data.dataSource.items} />;
 }
 
 export default ProductSliderTastic;

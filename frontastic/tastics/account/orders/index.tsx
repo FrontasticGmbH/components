@@ -1,7 +1,9 @@
-import React from 'react';
-import OrdersHistory from 'components/commercetools-ui/account/details/sections/orders';
+'use client';
 
-const AccountOrdersHistoryTastic: React.FC = () => {
+import React from 'react';
+import OrdersHistory from 'components/commercetools-ui/organisms/account/sections/orders';
+
+const AccountOrdersHistoryTastic = () => {
   return <OrdersHistory />;
 };
 

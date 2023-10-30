@@ -1,83 +1,58 @@
-// Doc Examples
-import AccountDetails from './account/details';
-import AccountLogin from './account/login';
-import AccountOrdersHistory from './account/orders';
-import AccountRegister from './account/register';
-import ResetPassword from './account/reset-password';
-import AccountTest from './account/test';
-import Cart from './cart';
-import Checkout from './checkout';
-import ThankYou from './checkout/thank-you';
-import BlogTastic from './content/amplience-blog';
-import BlogListTastic from './content/amplience-blog-list';
-import CategoryTeasers from './content/category-teasers';
-import Markdown from './content/markdown';
-import Spacer from './content/spacer';
+import dynamic from 'next/dynamic';
+import AnnouncementBarTastic from './bar/announcment';
+import CategorySliderTastic from './category-slider';
+import HeroTastic from './content/hero';
 import Tile from './content/tile';
-import HelloWorld from './doc-examples/hello-world';
-import SimpleButton from './doc-examples/simple-button';
-import StarWarsCharacterFilter from './doc-examples/star-wars/character-filter';
-import StarWarsCharacterSearch from './doc-examples/star-wars/character-search';
-import StarWarsOpeningCrawl from './doc-examples/star-wars/movies';
+import TilesGroupTastic from './content/tiles-group';
+import ContentSliderTastic from './content-slider';
 import Footer from './footer';
 import Header from './header';
-import Hero from './hero';
-import NewsCardTastic from './news-card';
-import Newsletter from './newsletter';
-import NotFound from './not-found';
-import ProductDetails from './products/details';
-import ProductList from './products/product-list';
-import SimilarProducts from './products/similar-products';
+import NotFoundTastic from './not-found';
 import ProductSlider from './products/slider';
-import Showcase from './showcase';
-import Wishlist from './wishlist';
-import ProductRecommendationsTastic from './content/product-recommendations';
-import NostoProductRecommendationsTastic from './content/nosto-product-recommendations';
-import ContentstackBlogTastic from './content/contentstack-blog';
-import ContentstackBlogListTastic from './content/contentstack-blog-list';
-import BloomreachBlogTastic from './content/bloomreach-blog';
-import BloomreachBlogListTastic from './content/bloomreach-blog-list';
+import SpacerTastic from './spacer';
+import { TasticRegistry } from './types';
+
+const Markdown = dynamic(() => import('./markdown'));
+const AccountDetails = dynamic(() => import('./account/details'));
+const AccountLogin = dynamic(() => import('./account/login'));
+const AccountOrdersHistory = dynamic(() => import('./account/orders'));
+const AccountRegister = dynamic(() => import('./account/register'));
+const ResetPassword = dynamic(() => import('./account/reset-password'));
+const Checkout = dynamic(() => import('./checkout'));
+const ThankYou = dynamic(() => import('./thank-you'));
+const ProductDetails = dynamic(() => import('./products/details'));
+const ProductList = dynamic(() => import('./products/product-list'));
+const ProductListAlgolia = dynamic(() => import('./products/product-list-algolia'));
+const SimilarProducts = dynamic(() => import('./products/similar-products'));
+const OtherProducts = dynamic(() => import('./products/other-products'));
+const Showcase = dynamic(() => import('./showcase'));
+const Cart = dynamic(() => import('./cart'));
 
 export const tastics = {
-  // Doc Examples
-  'example/simple-button': SimpleButton,
-  'example/hello-world': HelloWorld,
-  'example/star-wars/movie': StarWarsOpeningCrawl,
-  'example/star-wars/character-search': StarWarsCharacterSearch,
-  'example/star-wars/character-filter': StarWarsCharacterFilter,
   'commercetools/ui/checkout': Checkout,
   'commercetools/ui/thank-you': ThankYou,
-  'commercetools/ui/cart': Cart,
   'commercetools/ui/footer': Footer,
   'commercetools/ui/header': Header,
-  'commercetools/ui/content/amplience-blog': BlogTastic,
-  'commercetools/ui/content/amplience-blog-list': BlogListTastic,
-  'commercetools/ui/content/blog': BlogTastic,
-  'commercetools/ui/content/blog-list': BlogListTastic,
-  'commercetools/ui/content/contentstack-blog': ContentstackBlogTastic,
-  'commercetools/ui/content/contentstack-blog-list': ContentstackBlogListTastic,
-  'commercetools/ui/content/bloomreach-blog': BloomreachBlogTastic,
-  'commercetools/ui/content/bloomreach-blog-list': BloomreachBlogListTastic,
   'commercetools/ui/content/tile': Tile,
-  'commercetools/ui/content/spacer': Spacer,
+  'commercetools/ui/content/hero': HeroTastic,
+  'commercetools/ui/content/spacer': SpacerTastic,
   'commercetools/ui/content/showcase': Showcase,
   'commercetools/ui/content/markdown': Markdown,
-  'commercetools/ui/content/newsletter': Newsletter,
+  'commercetools/ui/cart': Cart,
   'commercetools/ui/products/details': ProductDetails,
   'commercetools/ui/products/product-list': ProductList,
+  'commercetools/ui/products/product-list-algolia': ProductListAlgolia,
   'commercetools/ui/products/slider': ProductSlider,
   'commercetools/ui/products/similar-products': SimilarProducts,
-  'commercetools/ui/wishlist': Wishlist,
-  'commercetools/ui/account/test': AccountTest,
+  'commercetools/ui/products/other-products': OtherProducts,
   'commercetools/ui/account/details': AccountDetails,
   'commercetools/ui/account/login': AccountLogin,
   'commercetools/ui/account/register': AccountRegister,
   'commercetools/ui/account/orders': AccountOrdersHistory,
   'commercetools/ui/account/reset-password': ResetPassword,
-  'commercetools/ui/content/category-teasers': CategoryTeasers,
-  'commercetools/ui/content/news-card': NewsCardTastic,
-  'commercetools/ui/hero': Hero,
-  'commercetools/ui/content/dynamicyield/product-recommendations': ProductRecommendationsTastic,
-  'commercetools/ui/content/nosto/product-recommendations': NostoProductRecommendationsTastic,
-  default: NotFound,
-};
+  'commercetools/ui/category-slider': CategorySliderTastic,
+  'commercetools/ui/content/announcement-bar': AnnouncementBarTastic,
+  'commercetools/ui/content/content-slider': ContentSliderTastic,
+  'commercetools/ui/content/tiles-group': TilesGroupTastic,
+  'commercetools/ui/not-found': NotFoundTastic,
+} as TasticRegistry;

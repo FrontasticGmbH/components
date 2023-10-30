@@ -155,4 +155,4 @@ To run linter with `--fix` flag and also prettify your code, you can run
 yarn fix
 ```
 
-This is typically equivalent to running `yarn lint --fix` and `yarn prettify`
+This is typically equivalent to running `yarn lint --fix` and `yarn prettify` 

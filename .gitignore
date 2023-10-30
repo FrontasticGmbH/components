@@ -1,7 +1,6 @@
 .next
 .netlify
 
-.env
 .env.build
 .env.local
 .env.production
@@ -18,9 +17,6 @@ tsconfig.tsbuildinfo
 /public/sw.js.map
 /public/workbox-*.js
 /public/workbox-*.js.map
-
-/public/robots.txt
 /public/sitemap.xml
 /public/sitemap-*.xml
-
-.tool-versions
+/public/storybook/

@@ -1,5 +1,5 @@
 //import { FetcherError } from '@commerce/utils/errors'
-import { FrontasticError } from './FrontasticError';
+import { FrontasticError } from './frontastic-error';
 
 export function getError(errors: any[], status: number) {
   //return new FetcherError({ errors, status })

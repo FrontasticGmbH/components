@@ -6,8 +6,8 @@ type Props = {
 
 const Icon: React.FC<Props> = ({ className }: Props) => (
   <svg
-    width="100%"
-    height="100%"
+    width="24"
+    height="24"
     className={className}
     viewBox="0 0 24 24"
     fill="#2D3748"
