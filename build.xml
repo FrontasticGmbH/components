@@ -15,7 +15,32 @@
     <!--
         Import main target defintions (extension points)
     -->
-    <import file="${integration_dir}/main.xml" />    
+    <import file="${integration_dir}/main.xml" />
+
+    <!--
+        Custom initialize, test and build
+    -->
+    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
+        <tool-exists executable="yarn" />
+
+        <exec executable="n" failonerror="true" dir="${basedir}">
+            <env key="CI" value="true" />
+
+            <arg value="exec" />
+            <arg value="18" />
+            <arg value="yarn" />
+            <arg value="--network-timeout" />
+            <arg value="1000000000" />
+
+            <!-- This is a workaround for ENOENT errors: https://github.com/yarnpkg/yarn/issues/2629 -->
+            <arg value="--mutex" />
+            <arg value="network" />
+            <arg value="--network-concurrency" />
+            <arg value="1" />
+
+            <arg value="install" />
+        </exec>
+    </target>
 
     <!--<target name="components nextjs:test" unless="${production}" extensionOf="-test-unit:main~hook">
         <tool-exists executable="yarn" />
