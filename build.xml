@@ -22,20 +22,10 @@
     -->
     <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
         <tool-exists executable="yarn" />
-        <tool-exists executable="n" />
 
-        <exec executable="n" dir="${basedir}">
-            <env key="N_PREFIX" value="/opt/n"/>
-            <arg value="install" />
-            <arg value="18" />
-        </exec>
-
-        <exec executable="n" failonerror="true" dir="${basedir}">
+        <exec executable="yarn" failonerror="true" dir="${basedir}">
             <env key="CI" value="true" />
 
-            <arg value="exec" />
-            <arg value="18" />
-            <arg value="yarn" />
             <arg value="--network-timeout" />
             <arg value="1000000000" />
 
@@ -46,12 +36,6 @@
             <arg value="1" />
 
             <arg value="install" />
-        </exec>
-
-        <exec executable="n" dir="${basedir}">
-            <env key="N_PREFIX" value="/opt/n"/>
-            <arg value="uninstall" />
-            <arg value="18" />
         </exec>
     </target>
 
@@ -72,7 +56,7 @@
     <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
         <tool-exists executable="yarn" />
 
-        <exec executable="yarn" dir="${basedir}" failonerror="false">
+        <exec executable="yarn" dir="${basedir}" failonerror="true">
             <arg value="run" />
             <arg value="build" />
         </exec>
