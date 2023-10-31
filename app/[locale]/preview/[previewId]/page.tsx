@@ -1,3 +1,4 @@
+import { Result } from 'shared/types/product/Result';
 import { getTranslations } from 'helpers/i18n/get-translations';
 import getServerOptions from 'helpers/server/get-server-options';
 import { Providers } from 'providers';
@@ -17,10 +18,17 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   if (response.isError) return <></>;
 
-  const categoriesResult = await sdk.composableCommerce.product.queryCategories(
+  const categoriesResult = await sdk.callAction<Result>({
+    actionName: 'product/queryCategories',
+    payload: { limit: 99 },
+    query: { format: 'tree' },
+    ...getServerOptions(),
+  });
+
+  /*const categoriesResult = await sdk.composableCommerce.product.queryCategories(
     { limit: 99 },
     { ...getServerOptions() },
-  );
+  );*/
 
   const translations = await getTranslations(
     [locale],

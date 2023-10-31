@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Result } from 'shared/types/product/Result';
 import GASnippet from 'components/headless/GASnippet';
 import { getTranslations } from 'helpers/i18n/get-translations';
 import getServerOptions from 'helpers/server/get-server-options';
@@ -46,10 +47,17 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   const accountResult = await sdk.composableCommerce.account.getAccount({ ...getServerOptions() });
 
-  const categoriesResult = await sdk.composableCommerce.product.queryCategories(
+  const categoriesResult = await sdk.callAction<Result>({
+    actionName: 'product/queryCategories',
+    payload: { limit: 99 },
+    query: { format: 'tree' },
+    ...getServerOptions(),
+  });
+
+  /*const categoriesResult = await sdk.composableCommerce.product.queryCategories(
     { limit: 99 },
     { ...getServerOptions() },
-  );
+  );*/
 
   const translations = await getTranslations(
     [locale],

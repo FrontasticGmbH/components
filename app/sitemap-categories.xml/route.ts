@@ -1,4 +1,5 @@
 import { Category } from 'shared/types/product/Category';
+import { Result } from 'shared/types/product/Result';
 import { SiteMapField, generateSiteMap } from 'helpers/sitemap';
 import { sdk } from 'sdk';
 
@@ -16,7 +17,13 @@ export async function GET() {
   const extensions = sdk.composableCommerce;
 
   do {
-    const response = await extensions.product.queryCategories({ cursor: nextCursor, limit: 12 });
+    const response = await sdk.callAction<Result>({
+      actionName: 'product/queryCategories',
+      payload: { cursor: nextCursor, limit: 12 },
+      query: { format: 'tree' },
+    });
+
+    //const response = await extensions.product.queryCategories({ cursor: nextCursor, limit: 12 });
 
     const items = ((response.isError ? [] : response.data.items) ?? []) as Category[];
 
