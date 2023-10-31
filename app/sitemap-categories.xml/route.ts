@@ -14,13 +14,12 @@ export async function GET() {
 
   let nextCursor: string | undefined;
 
-  const extensions = sdk.composableCommerce;
+  //const extensions = sdk.composableCommerce;
 
   do {
     const response = await sdk.callAction<Result>({
       actionName: 'product/queryCategories',
       payload: { cursor: nextCursor, limit: 12 },
-      query: { format: 'tree' },
     });
 
     //const response = await extensions.product.queryCategories({ cursor: nextCursor, limit: 12 });
