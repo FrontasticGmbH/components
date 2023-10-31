@@ -1,19 +1,19 @@
-//import { Product } from 'shared/types/product/Product';
+import { Product } from 'shared/types/product/Product';
 import { SiteMapField, generateSiteMap } from 'helpers/sitemap';
-//import { sdk } from 'sdk';
+import { sdk } from 'sdk';
 
 export async function GET() {
-  //const locale = 'en';
+  const locale = 'en';
 
-  //const siteUrl = process.env.SITE_URL;
+  const siteUrl = process.env.SITE_URL;
 
-  //sdk.configureForNext(locale);
+  sdk.configureForNext(locale);
 
   const fields = [] as SiteMapField[];
 
-  //let nextCursor: string | undefined;
+  let nextCursor: string | undefined;
 
-  /*do {
+  do {
     const extensions = sdk.composableCommerce;
 
     const response = await extensions.product.query({ cursor: nextCursor, limit: 12 });
@@ -29,7 +29,7 @@ export async function GET() {
     );
 
     nextCursor = !response.isError ? response.data.nextCursor : undefined;
-  } while (nextCursor);*/
+  } while (nextCursor);
 
   return new Response(generateSiteMap(fields), {
     headers: {

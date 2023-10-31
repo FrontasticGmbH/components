@@ -1,16 +1,16 @@
 import { SiteMapField, generateSiteMap } from 'helpers/sitemap';
-//import { sdk } from 'sdk';
+import { sdk } from 'sdk';
 
 export async function GET() {
-  //const locale = 'en';
+  const locale = 'en';
 
-  //const siteUrl = process.env.SITE_URL;
+  const siteUrl = process.env.SITE_URL;
 
-  //sdk.configureForNext(locale);
+  sdk.configureForNext(locale);
 
   const fields = [] as SiteMapField[];
 
-  /*const path = '/';
+  const path = '/';
   const depth = 1;
 
   const res = await sdk.page.getPages({ path, depth });
@@ -27,7 +27,7 @@ export async function GET() {
         changefreq: 'daily' as const,
       })),
     );
-  }*/
+  }
 
   return new Response(generateSiteMap(fields), {
     status: 200,
