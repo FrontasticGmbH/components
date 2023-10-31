@@ -23,7 +23,9 @@
     <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
         <tool-exists executable="yarn" />
         <tool-exists executable="n" />
+
         <exec executable="n" dir="${basedir}">
+            <env key="N_PREFIX" value="/opt/n"/>
             <arg value="install" />
             <arg value="18" />
         </exec>
@@ -47,6 +49,7 @@
         </exec>
 
         <exec executable="n" dir="${basedir}">
+            <env key="N_PREFIX" value="/opt/n"/>
             <arg value="uninstall" />
             <arg value="18" />
         </exec>
@@ -70,6 +73,7 @@
         <tool-exists executable="yarn" />
 
         <exec executable="yarn" dir="${basedir}" failonerror="false">
+            <env key="N_PREFIX" value="/opt/n"/>
             <arg value="run" />
             <arg value="build" />
         </exec>
