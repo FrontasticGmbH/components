@@ -1,4 +1,4 @@
-import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { sdk } from '../sdk';
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
