@@ -31,13 +31,13 @@
         </exec>
     </target>-->
 
-    <!--<target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
+    <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
         <tool-exists executable="yarn" />
 
-        <exec executable="yarn" dir="${basedir}" failonerror="true">
+        <exec executable="yarn" dir="${basedir}" failonerror="false">
             <arg value="run" />
             <arg value="build" />
         </exec>
-    </target>-->
+    </target>
 
 </project>
