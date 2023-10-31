@@ -22,6 +22,11 @@
     -->
     <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
         <tool-exists executable="yarn" />
+        <tool-exists executable="n" />
+        <exec executable="n" dir="${basedir}">
+            <arg value="install" />
+            <arg value="18" />
+        </exec>
 
         <exec executable="n" failonerror="true" dir="${basedir}">
             <env key="CI" value="true" />
@@ -39,6 +44,11 @@
             <arg value="1" />
 
             <arg value="install" />
+        </exec>
+
+        <exec executable="n" dir="${basedir}">
+            <arg value="uninstall" />
+            <arg value="18" />
         </exec>
     </target>
 
