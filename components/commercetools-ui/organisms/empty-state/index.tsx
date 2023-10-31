@@ -39,7 +39,7 @@ export const EmptyState: React.FC<Props> = ({
         <Typography as="h6" className="text-center">
           {subtitle}
         </Typography>
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <li key={category.name} onClick={handleCategoryClick}>
             <Link link={category.reference}>
               <Button
