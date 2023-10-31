@@ -1,4 +1,4 @@
-import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { sdk } from '../sdk';
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
@@ -18,8 +18,8 @@ export const parameters = {
   },
   nextRouter: {
     Provider: RouterContext.Provider,
-    locales: ['en_GB', 'de_DE'],
-    locale: 'en_GB',
+    locales: ['en_US', 'de_DE'],
+    locale: 'en_US',
   },
   options: {
     storySort: {

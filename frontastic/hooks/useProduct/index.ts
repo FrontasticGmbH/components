@@ -3,19 +3,16 @@ import { Category } from 'shared/types/product';
 import { ProductQuery } from 'shared/types/query/ProductQuery';
 import useSWR from 'swr';
 import { sdk } from 'sdk';
-import { revalidateOptions } from 'frontastic';
+import { Result } from 'shared/types/product/Result';
+//import { revalidateOptions } from 'frontastic';
 import { UseProductReturn } from './types';
 
 const useProduct = (): UseProductReturn => {
-  const extensions = sdk.composableCommerce;
-
-  const categoriesResults = useSWR(
-    '/action/product/queryCategories',
-    () => extensions.product.queryCategories({ limit: 99 }),
-    revalidateOptions,
+  const { data } = useSWR('/action/product/queryCategories', () =>
+    sdk.callAction<Result>({ actionName: 'product/queryCategories', query: { format: 'tree' } }),
   );
 
-  const categories = (categoriesResults.data?.isError ? [] : (categoriesResults.data?.data?.items as Category[])) ?? [];
+  const categories = (data?.isError ? [] : (data?.data?.items as Category[])) ?? [];
 
   const query = useCallback(async (productQuery: ProductQuery) => {
     /* To Do: Use SDK instead of current workaround */
