@@ -73,7 +73,6 @@
         <tool-exists executable="yarn" />
 
         <exec executable="yarn" dir="${basedir}" failonerror="false">
-            <env key="N_PREFIX" value="/opt/n"/>
             <arg value="run" />
             <arg value="build" />
         </exec>
