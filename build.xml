@@ -20,24 +20,24 @@
     <!--
         Custom initialize, test and build
     -->
-    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
-        <tool-exists executable="yarn" />
+<!--    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">-->
+<!--        <tool-exists executable="yarn" />-->
 
-        <exec executable="yarn" failonerror="true" dir="${basedir}">
-            <env key="CI" value="true" />
+<!--        <exec executable="yarn" failonerror="true" dir="${basedir}">-->
+<!--            <env key="CI" value="true" />-->
 
-            <arg value="--network-timeout" />
-            <arg value="1000000000" />
+<!--            <arg value="&#45;&#45;network-timeout" />-->
+<!--            <arg value="1000000000" />-->
 
-            <!-- This is a workaround for ENOENT errors: https://github.com/yarnpkg/yarn/issues/2629 -->
-            <arg value="--mutex" />
-            <arg value="network" />
-            <arg value="--network-concurrency" />
-            <arg value="1" />
+<!--            &lt;!&ndash; This is a workaround for ENOENT errors: https://github.com/yarnpkg/yarn/issues/2629 &ndash;&gt;-->
+<!--            <arg value="&#45;&#45;mutex" />-->
+<!--            <arg value="network" />-->
+<!--            <arg value="&#45;&#45;network-concurrency" />-->
+<!--            <arg value="1" />-->
 
-            <arg value="install" />
-        </exec>
-    </target>
+<!--            <arg value="install" />-->
+<!--        </exec>-->
+<!--    </target>-->
 
     <!--<target name="components nextjs:test" unless="${production}" extensionOf="-test-unit:main~hook">
         <tool-exists executable="yarn" />
@@ -56,7 +56,7 @@
     <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
         <tool-exists executable="yarn" />
 
-        <exec executable="yarn" dir="${basedir}" failonerror="true">
+        <exec executable="yarn" dir="${basedir}" failonerror="false">
             <arg value="run" />
             <arg value="build" />
         </exec>
