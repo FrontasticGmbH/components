@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import { PaymentResponse } from 'components/commercetools-ui/organisms/checkout/provider/payment/types';
-//import * as uuid from 'uuid';
+import * as uuid from 'uuid';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useI18n from 'helpers/hooks/useI18n';
-//import { Guid } from 'helpers/utils/guid';
-//import { getLocalizationInfo } from 'project.config';
+import { Guid } from 'helpers/utils/guid';
+import { getLocalizationInfo } from 'project.config';
 import { sdk } from 'sdk';
 import { useAccount, useCart } from 'frontastic';
 import { useCheckout } from '../provider';
@@ -15,8 +15,9 @@ const usePurchase = () => {
   const { formatMessage: formatCheckoutMessage } = useFormat({ name: 'checkout' });
 
   const router = useRouter();
-  //const { country } = useI18n();
-  //const { account } = useAccount();
+  const { locale } = useParams();
+  const { country } = useI18n();
+  const { account } = useAccount();
   const { transaction, data, hasOutOfStockItems, orderCart } = useCart();
   const { makePayment, makeKlarnaPayment, paymentData, paymentDataIsValid, handleThreeDS2Action, setProcessing } =
     useCheckout();
@@ -84,88 +85,75 @@ const usePurchase = () => {
 
     setProcessing(true);
 
-    // const orderNumber = Guid.newGuid(false, ['', 'xxxx-xxxx-yxxx']);
+    const orderNumber = Guid.newGuid(false, ['', 'xxxx-xxxx-yxxx']);
 
-    // let response = {} as PaymentResponse;
+    let response = {} as PaymentResponse;
 
-    // if (paymentData?.type === 'scheme') {
-    //   response = await makePayment({
-    //     amount: { currency: transaction.total.currencyCode, value: transaction.total.centAmount },
-    //     returnUrl: `${window.location.origin}/thank-you?orderId=${orderNumber}`,
-    //     reference: orderNumber as string,
-    //     channel: 'web',
-    //     origin: window.location.origin,
-    //     countryCode: country,
-    //     shopperLocale: getLocalizationInfo(router.locale).locale,
-    //     authenticationData: {
-    //       threeDSRequestData: {
-    //         nativeThreeDS: 'preferred',
-    //       },
-    //     },
-    //     browserInfo: {
-    //       acceptHeader: '*/*',
-    //       colorDepth: screen.colorDepth,
-    //       javaEnabled: false,
-    //       language: navigator.language,
-    //       screenHeight: screen.availHeight,
-    //       screenWidth: screen.availWidth,
-    //       timeZoneOffset: new Date().getTimezoneOffset(),
-    //       userAgent: navigator.userAgent,
-    //     },
-    //     metadata: { cartId: data.cartId },
-    //   });
-    // }
-
-    // if (paymentData?.type === 'klarna_paynow') {
-    //   response = await makeKlarnaPayment({
-    //     amount: { currency: transaction.total.currencyCode, value: transaction.total.centAmount },
-    //     returnUrl: `${window.location.origin}/thank-you?orderId=${orderNumber}`,
-    //     reference: orderNumber as string,
-    //     shopperReference: account?.accountId ?? uuid.v4(),
-    //     countryCode: country,
-    //     shopperLocale: getLocalizationInfo(router.locale).locale,
-    //     lineItems: (data?.lineItems ?? []).map((lineItem) => ({
-    //       id: lineItem.lineItemId as string,
-    //       quantity: (lineItem.count ?? 1).toString() as string,
-    //       description: lineItem.name as string,
-    //       amountIncludingTax: lineItem.taxedPrice?.centAmount as number,
-    //       productUrl: lineItem._url,
-    //       imageUrl: lineItem.variant?.images?.[0],
-    //     })),
-    //     metadata: { cartId: data.cartId },
-    //   });
-    // }
-
-    // handlePaymentResponse(response, orderNumber);
-
-    const response = await orderCart();
-
-    if (response.orderId) {
-      router.push(`/thank-you?orderId=${response.orderId}`);
-    } else {
-      toast.error(
-        `${formatCheckoutMessage({
-          id: 'payment.failed',
-          defaultMessage: 'We could not process your payment, please try again later.',
-        })}`,
-      );
+    if (paymentData?.type === 'scheme') {
+      response = await makePayment({
+        amount: { currency: transaction.total.currencyCode, value: transaction.total.centAmount },
+        returnUrl: `${window.location.origin}/thank-you?orderId=${orderNumber}`,
+        reference: orderNumber as string,
+        channel: 'web',
+        origin: window.location.origin,
+        countryCode: country,
+        shopperLocale: getLocalizationInfo(locale).locale,
+        authenticationData: {
+          threeDSRequestData: {
+            nativeThreeDS: 'preferred',
+          },
+        },
+        browserInfo: {
+          acceptHeader: '*/*',
+          colorDepth: screen.colorDepth,
+          javaEnabled: false,
+          language: navigator.language,
+          screenHeight: screen.availHeight,
+          screenWidth: screen.availWidth,
+          timeZoneOffset: new Date().getTimezoneOffset(),
+          userAgent: navigator.userAgent,
+        },
+        metadata: { cartId: data.cartId },
+      });
     }
+
+    if (paymentData?.type === 'klarna_paynow') {
+      response = await makeKlarnaPayment({
+        amount: { currency: transaction.total.currencyCode, value: transaction.total.centAmount },
+        returnUrl: `${window.location.origin}/thank-you?orderId=${orderNumber}`,
+        reference: orderNumber as string,
+        shopperReference: account?.accountId ?? uuid.v4(),
+        countryCode: country,
+        shopperLocale: getLocalizationInfo(locale).locale,
+        lineItems: (data?.lineItems ?? []).map((lineItem) => ({
+          id: lineItem.lineItemId as string,
+          quantity: (lineItem.count ?? 1).toString() as string,
+          description: lineItem.name as string,
+          amountIncludingTax: lineItem.totalPrice?.centAmount as number,
+          productUrl: lineItem._url,
+          imageUrl: lineItem.variant?.images?.[0],
+        })),
+        metadata: { cartId: data.cartId },
+      });
+    }
+
+    handlePaymentResponse(response, orderNumber);
 
     setProcessing(false);
   }, [
     setProcessing,
-    // makePayment,
+    makePayment,
     hasOutOfStockItems,
     transaction.total,
-    router,
-    // paymentData?.type,
-    // makeKlarnaPayment,
-    // account?.accountId,
-    // country,
+    locale,
+    paymentData?.type,
+    makeKlarnaPayment,
+    account?.accountId,
+    country,
     data,
     orderCart,
     paymentDataIsValid,
-    // handlePaymentResponse,
+    handlePaymentResponse,
     formatCheckoutMessage,
   ]);
 
