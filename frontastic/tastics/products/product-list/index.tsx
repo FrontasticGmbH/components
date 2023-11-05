@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import { Product } from 'shared/types/product/Product';
 import { Facet } from 'shared/types/result/Facet';
 import NotFound from 'components/commercetools-ui/organisms/not-found';
@@ -125,6 +125,8 @@ const ProductListWrapped = ({
 };
 
 const ProductListTastic = ({ data, ...props }: TasticProps<DataSource<DataSourceProps> & Props & ProductListProps>) => {
+  const { slug } = useParams();
+
   const searchParams = useSearchParams();
 
   const searchQuery = searchParams.get('query') as string;
@@ -135,10 +137,10 @@ const ProductListTastic = ({ data, ...props }: TasticProps<DataSource<DataSource
     <ProductListProvider
       uiState={{
         searchQuery,
-        slug: data.data.dataSource.category?.split('/').at(-1),
+        slug: (slug as string)?.split('/').at(-1),
         previousCursor: data.data.dataSource.previousCursor,
         nextCursor: data.data.dataSource.nextCursor,
-        totalItems: data.data.dataSource.total ?? data.data.dataSource.totalItems,
+        totalItems: data.data.dataSource.total,
       }}
     >
       <ProductListWrapped data={data} {...props} />
