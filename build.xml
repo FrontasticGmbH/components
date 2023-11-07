@@ -17,27 +17,37 @@
     -->
     <import file="${integration_dir}/main.xml" />
 
+    <target name="components-nextjs:setup-node" extensionOf="-initialize:before~hook">
+        <exec executable="n">
+            <env key="N_PREFIX" value="/opt/n-for-ci" />
+            <arg value="18" />
+        </exec>
+    </target>
+
     <!--
         Custom initialize, test and build
     -->
-<!--    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">-->
-<!--        <tool-exists executable="yarn" />-->
+    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">-->
+        <exec executable="n" failonerror="true" dir="${basedir}">
+            <env key="N_PREFIX" value="/opt/n-for-ci" />
+            <env key="CI" value="true" />
 
-<!--        <exec executable="yarn" failonerror="true" dir="${basedir}">-->
-<!--            <env key="CI" value="true" />-->
+            <arg value="run" />
+            <arg value="18" />
 
-<!--            <arg value="&#45;&#45;network-timeout" />-->
-<!--            <arg value="1000000000" />-->
+            <arg value="yarn" />
+            <arg value="--network-timeout" />
+            <arg value="1000000000" />
 
-<!--            &lt;!&ndash; This is a workaround for ENOENT errors: https://github.com/yarnpkg/yarn/issues/2629 &ndash;&gt;-->
-<!--            <arg value="&#45;&#45;mutex" />-->
-<!--            <arg value="network" />-->
-<!--            <arg value="&#45;&#45;network-concurrency" />-->
-<!--            <arg value="1" />-->
+    <!--     This is a workaround for ENOENT errors: https://github.com/yarnpkg/yarn/issues/2629-->
+            <arg value="--mutex" />
+            <arg value="network" />
+            <arg value="--network-concurrency" />
+            <arg value="1" />
 
-<!--            <arg value="install" />-->
-<!--        </exec>-->
-<!--    </target>-->
+            <arg value="install" />
+        </exec>
+    </target>
 
     <!--<target name="components nextjs:test" unless="${production}" extensionOf="-test-unit:main~hook">
         <tool-exists executable="yarn" />
@@ -52,13 +62,6 @@
             <env key="CI" value="true" />
         </exec>
     </target>-->
-
-    <target name="components-nextjs:setup-node" extensionOf="-initialize:before~hook">
-        <exec executable="n">
-            <env key="N_PREFIX" value="/opt/n-for-ci" />
-            <arg value="18" />
-        </exec>
-    </target>
 
     <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
         <exec executable="n" failonerror="true" dir="${basedir}">
