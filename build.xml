@@ -53,13 +53,34 @@
         </exec>
     </target>-->
 
+    <target name="components-nextjs:setup-node" extensionOf="-initialize:before~hook">
+        <exec executable="n">
+            <env key="N_PREFIX" value="/opt/n-for-ci" />
+            <arg value="18" />
+        </exec>
+    </target>
+
     <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
+        <exec executable="n" failonerror="true" dir="${basedir}">
+            <env key="N_PREFIX" value="/opt/n-for-ci" />
+            <env key="CI" value="true" />
+
+            <arg value="run" />
+            <arg value="18" />
+
+            <arg value="yarn" />
+            <arg value="run" />
+            <arg value="build" />
+        </exec>
+    
+        <!--
         <tool-exists executable="yarn" />
 
         <exec executable="yarn" dir="${basedir}" failonerror="false">
             <arg value="run" />
             <arg value="build" />
         </exec>
+        -->
     </target>
 
 </project>
