@@ -27,7 +27,7 @@
     <!--
         Custom initialize, test and build
     -->
-    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">-->
+    <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
         <exec executable="n" failonerror="true" dir="${basedir}">
             <env key="N_PREFIX" value="/opt/n-for-ci" />
             <env key="CI" value="true" />
