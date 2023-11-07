@@ -28,6 +28,8 @@
         Custom initialize, test and build
     -->
     <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
+        <tool-exists executable="yarn" />
+        
         <exec executable="n" failonerror="true" dir="${basedir}">
             <env key="N_PREFIX" value="/opt/n-for-ci" />
             <env key="CI" value="true" />
@@ -64,6 +66,8 @@
     </target>-->
 
     <target name="components nextjs:package" depends="initialize" extensionOf="-package:before~hook">
+        <tool-exists executable="yarn" />
+
         <exec executable="n" failonerror="true" dir="${basedir}">
             <env key="N_PREFIX" value="/opt/n-for-ci" />
             <env key="CI" value="true" />
