@@ -72,8 +72,7 @@
             <arg value="run" />
             <arg value="build" />
         </exec>
-    
-    
+
         <!--
         <tool-exists executable="yarn" />
 
