@@ -35,7 +35,7 @@
             <arg value="run" />
             <arg value="18" />
 
-            <arg value="yarn" />
+            <arg value="/usr/bin/yarn" />
             <arg value="--network-timeout" />
             <arg value="1000000000" />
 
@@ -71,7 +71,7 @@
             <arg value="run" />
             <arg value="18" />
 
-            <arg value="yarn" />
+            <arg value="/usr/bin/yarn" />
             <arg value="run" />
             <arg value="build" />
         </exec>
