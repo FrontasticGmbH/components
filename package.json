@@ -10,15 +10,15 @@
     "debug": "concurrently -n NEXT,TSC -c magenta,cyan \"NODE_OPTIONS='--inspect' next dev\" \"yarn ts --watch\"",
     "build": "yarn run next_build",
     "next_build": "next build",
-    "postbuild": "rm -rf ./public/storybook && build-storybook --output-dir ./public/storybook",
     "build:analyze": "ANALYZE=true yarn run build",
     "start": "next start",
     "test": "next build",
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
     "prettify": "prettier --write \"**/*.{ts,tsx}\"",
-    "fix": "yarn lint --fix --ext .js --ext .jsx --ext ts --ext tsx && yarn prettify",
-    "storybook": "start-storybook -p 6006"
+    "lint:fix": "yarn lint --fix && yarn prettify",    
+    "storybook": "start-storybook -p 6006",
+    "postbuild": "rm -rf ./public/storybook && build-storybook --output-dir ./public/storybook",
   },
   "dependencies": {
     "@adyen/adyen-web": "^5.33.0",
