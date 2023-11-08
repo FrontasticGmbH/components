@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { PaymentResponse } from 'components/commercetools-ui/organisms/checkout/provider/payment/types';
 import * as uuid from 'uuid';
+import { PaymentResponse } from 'components/commercetools-ui/organisms/checkout/provider/payment/types';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useI18n from 'helpers/hooks/useI18n';
 import { Guid } from 'helpers/utils/guid';
