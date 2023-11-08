@@ -73,7 +73,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
-    "@commercetools/frontend-netlify-plugin": "^0.2.0",
     "@netlify/plugin-nextjs": "^4.40.1",
     "@storybook/addon-actions": "^6.5.4",
     "@storybook/addon-essentials": "^6.5.4",

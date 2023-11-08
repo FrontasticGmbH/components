@@ -32,8 +32,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 /** @type {import('next').NextConfig} */
 const config = {
-  reactStrictMode: true,
-  productionBrowserSourceMaps: true,
+  reactStrictMode: true,  
   trailingSlash: true,
   images: {
     loader: 'custom',
@@ -41,6 +40,9 @@ const config = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
   productionBrowserSourceMaps: true,
+  env: {
+    NEXT_PUBLIC_EXT_BUILD_ID: process.env.NEXT_PUBLIC_EXT_BUILD_ID ?? JSON.stringify(process.env.NETLIFY ? process.env.COMMIT_REF.substring(0, 7) : 'staging'),
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
