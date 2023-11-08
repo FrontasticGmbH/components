@@ -18,7 +18,7 @@
     "prettify": "prettier --write \"**/*.{ts,tsx}\"",
     "lint:fix": "yarn lint --fix && yarn prettify",    
     "storybook": "start-storybook -p 6006",
-    "postbuild": "rm -rf ./public/storybook && build-storybook --output-dir ./public/storybook",
+    "postbuild": "rm -rf ./public/storybook && build-storybook --output-dir ./public/storybook"
   },
   "dependencies": {
     "@adyen/adyen-web": "^5.33.0",
