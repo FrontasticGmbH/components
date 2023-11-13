@@ -6,5 +6,5 @@ export const useResolvedLocalizedObject = (localized: object | string) => {
 
   const { locale } = getLocalizationInfo(nextLocale);
 
-  return localized[locale as keyof typeof localized] ?? '';
+  return localized[locale as keyof typeof localized] ?? localized ?? '';
 };
