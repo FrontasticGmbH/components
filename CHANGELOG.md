@@ -1,4 +1,10 @@
 
+## Version 1.5.0 (2023-11-16)
+
+** New Features and Improvements **
+
+- Added new set of components 
+
 ## Version 1.0.1 (2022-07-05)
 
 ** New Features and Improvements **
