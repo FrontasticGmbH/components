@@ -5,6 +5,8 @@
 .env.local
 .env.production
 
+!.env
+
 node_modules/
 
 npm-debug.log*
