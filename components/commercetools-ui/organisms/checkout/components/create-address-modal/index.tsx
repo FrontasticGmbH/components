@@ -5,7 +5,9 @@ import Dropdown from 'components/commercetools-ui/atoms/dropdown';
 import Modal from 'components/commercetools-ui/atoms/modal';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useGeo from 'helpers/hooks/useGeo';
+import useI18n from 'helpers/hooks/useI18n';
 import useProcessing from 'helpers/hooks/useProcessing';
+import countryStates from 'static/states.json';
 import { useAccount } from 'frontastic';
 import AddressForm from '../steps/sections/addresses/components/address-form';
 import { Fields, FieldsOptions } from '../steps/sections/addresses/components/address-form/types';
@@ -24,6 +26,10 @@ const CreateAddressModal = () => {
   const { addressToAccountAddress } = useMappers();
 
   const { addShippingAddress, addBillingAddress, loggedIn } = useAccount();
+
+  const { country } = useI18n();
+
+  const states = countryStates[country as keyof typeof countryStates] ?? [];
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -167,6 +173,21 @@ const CreateAddressModal = () => {
         <div className="mx-auto w-[90%] max-w-[600px] rounded-sm bg-white p-32 pt-24">
           <h4 className="text-24">{formatAccountMessage({ id: 'address.add', defaultMessage: 'Add new address' })}</h4>
           <AddressForm className="mt-32" address={data} fields={fields} onChange={handleChange} onSubmit={handleSubmit}>
+            {states.length > 0 && (
+              <div className="mt-12">
+                <Dropdown
+                  name="state"
+                  value={data.state ?? ''}
+                  items={[{ label: '', value: '' }, ...states.map(({ name, code }) => ({ label: name, value: code }))]}
+                  className="w-full border-neutral-500"
+                  onChange={handleChange}
+                  label={formatMessage({
+                    id: 'state',
+                    defaultMessage: 'State',
+                  })}
+                />
+              </div>
+            )}
             <div className="mt-12">
               <Dropdown
                 name="addressType"

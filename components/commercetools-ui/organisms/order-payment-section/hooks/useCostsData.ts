@@ -53,8 +53,7 @@ const useCostsData: UseCostsData = ({ dataReference = 'cart', order }) => {
   ) as CostRef[];
 
   const costsToRender = useMemo(() => {
-    const dataIsHydrated =
-      (dataReference === 'order' && order) || (dataReference === 'cart' && transaction.total.centAmount > 0);
+    const dataIsHydrated = (dataReference === 'order' && order) || (dataReference === 'cart' && !!transaction.total);
 
     if (!dataIsHydrated) return [];
 
@@ -81,7 +80,7 @@ const useCostsData: UseCostsData = ({ dataReference = 'cart', order }) => {
     value: dataReference === 'cart' ? transaction.total : (order?.sum as Money),
   };
 
-  return { loading, costsToRender: costsToRender.length ? costsToRender : skeletonCosts, total };
+  return { loading, costsToRender: loading ? skeletonCosts : costsToRender, total };
 };
 
 export default useCostsData;

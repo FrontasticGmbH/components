@@ -10,6 +10,7 @@ import Typography from 'components/commercetools-ui/atoms/typography';
 import { useFormat } from 'helpers/hooks/useFormat';
 import useI18n from 'helpers/hooks/useI18n';
 import useValidate from 'helpers/hooks/useValidate';
+import countryStates from 'static/states.json';
 import { useAccount } from 'frontastic';
 import DeleteModal from './deleteModal';
 import usePropsToAddressType from './mapPropsToAddressType';
@@ -47,6 +48,8 @@ const AddressForm: React.FC<AddressFormProps> = ({ editedAddressId }) => {
   const { discardForm } = useDiscardForm();
   const { notifyDataUpdated, notifyWentWrong } = useFeedbackToasts();
   const { country } = useI18n();
+
+  const states = countryStates[country as keyof typeof countryStates] ?? [];
 
   const [loading, setLoading] = useState(false);
   const [loadingDelete, setLoadingDelete] = useState(false);
@@ -223,6 +226,20 @@ const AddressForm: React.FC<AddressFormProps> = ({ editedAddressId }) => {
           />
         </div>
       </div>
+
+      {states.length > 0 && (
+        <Dropdown
+          name="state"
+          value={data.state ?? ''}
+          items={[{ label: '', value: '' }, ...states.map(({ name, code }) => ({ label: name, value: code }))]}
+          className="w-full border-neutral-500"
+          onChange={handleChange}
+          label={formatMessage({
+            id: 'state',
+            defaultMessage: 'State',
+          })}
+        />
+      )}
 
       <Dropdown
         name="addressType"
