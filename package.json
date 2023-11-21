@@ -16,14 +16,13 @@
     "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "lint": "next lint",
     "prettify": "prettier --write \"**/*.{ts,tsx}\"",
-    "lint:fix": "yarn lint --fix && yarn prettify",    
+    "lint:fix": "yarn lint --fix && yarn prettify",
     "storybook": "start-storybook -p 6006",
     "postbuild": "rm -rf ./public/storybook && build-storybook --output-dir ./public/storybook"
   },
   "dependencies": {
     "@adyen/adyen-web": "^5.33.0",
     "@commercetools/checkout-browser-sdk": "^0.2.0",
-    "@commercetools/frontend-composable-commerce": "^1.2.5",
     "@commercetools/frontend-sdk": "^1.7.5",
     "@emotion/react": "^11.9.0",
     "@headlessui/react": "^1.7.17",
