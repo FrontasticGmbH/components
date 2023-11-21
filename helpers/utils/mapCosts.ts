@@ -43,6 +43,8 @@ const mapCosts: MapCosts = ({ reference = 'order', cart, order, currency }) => {
       ? data.shippingInfo?.price?.centAmount ?? data.availableShippingMethods?.[0]?.rates?.[0]?.price?.centAmount ?? 0
       : 0;
 
+  const isEstimatedShipping = !data.shippingInfo?.price?.centAmount;
+
   return {
     subtotal: {
       centAmount: subTotalAmount,
@@ -65,7 +67,7 @@ const mapCosts: MapCosts = ({ reference = 'order', cart, order, currency }) => {
       fractionDigits,
     },
     total: {
-      centAmount: totalAmount + totalTax,
+      centAmount: totalAmount + totalTax + (isEstimatedShipping ? totalShipping : 0),
       currencyCode,
       fractionDigits,
     },
