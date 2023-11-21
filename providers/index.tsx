@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { GetAccountActionReturn } from '@commercetools/frontend-composable-commerce/lib/types/actions/AccountActions';
+import { GetAccountActionReturn } from '../sdk/composable-commerce/types/actions/AccountActions';
 import { SDKResponse } from '@commercetools/frontend-sdk';
 import Toaster from 'components/commercetools-ui/atoms/toaster';
 import AddToCartOverlayProvider from 'context/add-to-cart-overlay';

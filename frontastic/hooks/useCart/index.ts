@@ -52,6 +52,8 @@ const useCart = (): UseCartReturn => {
   }, []);
 
   const orderCart = useCallback(async () => {
+    const extensions = sdk.composableCommerce;
+
     const res = await sdk.callAction({ actionName: 'cart/checkout' });
     mutate('/action/cart/getCart');
 
@@ -59,6 +61,7 @@ const useCart = (): UseCartReturn => {
   }, []);
 
   const getOrder = useCallback(async (orderId: Order['orderId']) => {
+    const extensions = sdk.composableCommerce;
     const res = await sdk.callAction({ actionName: 'cart/getOrder', payload: { orderId: orderId } });
     mutate('/action/cart/getCart');
 
@@ -68,9 +71,9 @@ const useCart = (): UseCartReturn => {
   const orderHistory = useCallback(async () => {
     const extensions = sdk.composableCommerce;
 
-    const res = await extensions.cart.getOrderHistory();
+    const res = await extensions.cart.queryOrders();
 
-    return res.isError ? ([] as Order[]) : (res.data as Order[]);
+    return res.isError ? ([] as Order[]) : (res.data.items as Order[]);
   }, []);
 
   const getProjectSettings = useCallback(async () => {

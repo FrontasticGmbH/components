@@ -1,4 +1,4 @@
-import { ComposableCommerce, ComposableCommerceEvents } from '@commercetools/frontend-composable-commerce';
+import { ComposableCommerce, ComposableCommerceEvents } from './composable-commerce';
 import { SDK } from '@commercetools/frontend-sdk';
 import { getLocalizationInfo } from 'project.config';
 // Add other extension's custom events to the SDK's generic type here,
@@ -7,10 +7,12 @@ import { getLocalizationInfo } from 'project.config';
 class CommercetoolsSDK extends SDK<ComposableCommerceEvents> {
   composableCommerce!: ComposableCommerce;
   // Add your other extensions here.
+
   constructor() {
     super();
     this.composableCommerce = new ComposableCommerce(this);
     // Initialise your other extensions here.
+
     this.on('errorCaught', (event) => {
       // Globally handle any errors caught by the SDK from your
       // extensions. Log error, fire notification etc...
@@ -31,8 +33,10 @@ class CommercetoolsSDK extends SDK<ComposableCommerceEvents> {
     });
   }
 }
+
 // Create a single instance of the sdk.
 const sdk = new CommercetoolsSDK();
+
 // Export only the instance to serve as a singleton throughout
 // the project.
 export { sdk };
