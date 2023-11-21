@@ -11,6 +11,7 @@
   "country": "Country",
   "street.number": "Street number",
   "street.name": "Street name",
+  "state": "State",
   "stateOrProvince": "State or province",
   "fieldIsRequired": "This field is required",
   "field.required": "* required field",

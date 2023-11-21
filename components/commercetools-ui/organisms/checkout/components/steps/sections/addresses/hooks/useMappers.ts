@@ -20,6 +20,7 @@ const useMappers = () => {
         line2: address.additionalAddressInfo,
         postalCode: address.postalCode ?? '',
         city: address.city ?? '',
+        state: address.state,
       } as Address;
     },
     [account],
@@ -36,6 +37,7 @@ const useMappers = () => {
         postalCode: address.postalCode,
         city: address.city,
         country,
+        state: address.state,
       } as AccountAddress;
     },
     [country],

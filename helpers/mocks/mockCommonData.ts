@@ -48,7 +48,7 @@ export const lineItems: LineItem[] = [
       price: {
         fractionDigits: 2,
         centAmount: 2799,
-        currencyCode: 'dUSD',
+        currencyCode: 'USD',
       },
     },
   },
@@ -78,7 +78,7 @@ export const lineItems: LineItem[] = [
       price: {
         fractionDigits: 2,
         centAmount: 1999,
-        currencyCode: 'dUSD',
+        currencyCode: 'USD',
       },
       isOnStock: true,
     },
@@ -111,12 +111,12 @@ export const lineItems: LineItem[] = [
       price: {
         fractionDigits: 2,
         centAmount: 239900,
-        currencyCode: 'dUSD',
+        currencyCode: 'USD',
       },
       discountedPrice: {
         fractionDigits: 2,
         centAmount: 215910,
-        currencyCode: 'dUSD',
+        currencyCode: 'USD',
       },
       isOnStock: true,
     },
@@ -147,7 +147,7 @@ export const lineItems: LineItem[] = [
       price: {
         fractionDigits: 2,
         centAmount: 75000,
-        currencyCode: 'dUSD',
+        currencyCode: 'USD',
       },
       isOnStock: true,
     },
@@ -179,7 +179,7 @@ export const lineItems: LineItem[] = [
       price: {
         fractionDigits: 2,
         centAmount: 12000,
-        currencyCode: 'dUSD',
+        currencyCode: 'USD',
       },
       isOnStock: true,
     },
@@ -207,7 +207,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 12000,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -227,7 +227,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 4999,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -252,7 +252,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 75000,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -279,12 +279,12 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 239900,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         discountedPrice: {
           fractionDigits: 2,
           centAmount: 215910,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -309,7 +309,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 1999,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -329,7 +329,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 1999,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -349,7 +349,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 1999,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
         isOnStock: true,
       },
@@ -373,7 +373,7 @@ export const products: Product[] = [
         price: {
           fractionDigits: 2,
           centAmount: 2799,
-          currencyCode: 'dUSD',
+          currencyCode: 'USD',
         },
       },
     ],

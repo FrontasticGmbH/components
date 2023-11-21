@@ -66,7 +66,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({
   const isLoading = useMemo(() => !!verify, [verify]);
 
   const handleLogout = () => {
-    logout().then(() => router.push('login'));
+    logout().then(() => router.push('/login'));
   };
 
   const tabs = useMemo<AccountTab[]>(() => {

@@ -8,5 +8,6 @@ export interface Address {
   line2?: string;
   postalCode: string;
   city: string;
+  state?: string;
   addressType?: 'shipping' | 'billing';
 }
