@@ -35,7 +35,7 @@ export interface UseCartReturn {
   redeemDiscountCode?: (code: string) => Promise<void>;
   shippingMethods: { data?: ShippingMethod[] };
   orderCart: () => Promise<Order>;
-  getOrder: (orderId: Order['orderId']) => Promise<Order>;
+  getOrder: (orderId: string) => Promise<Order>;
   orderHistory?: () => Promise<Order[]>;
   getProjectSettings?: () => Promise<ProjectSettings>;
 }

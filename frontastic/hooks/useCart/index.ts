@@ -60,12 +60,12 @@ const useCart = (): UseCartReturn => {
     return (res.isError ? {} : res.data) as Order;
   }, []);
 
-  const getOrder = useCallback(async (orderId: Order['orderId']) => {
+  const getOrder = useCallback(async (orderId: string) => {
     const extensions = sdk.composableCommerce;
-    const res = await sdk.callAction({ actionName: 'cart/getOrder', payload: { orderId: orderId } });
-    mutate('/action/cart/getCart');
 
-    return (res.isError ? {} : res.data) as Order;
+    const res = await extensions.cart.queryOrders({ orderIds: [orderId] });
+
+    return (res.isError ? {} : res.data.items?.[0]) as Order;
   }, []);
 
   const orderHistory = useCallback(async () => {
