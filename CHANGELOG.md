@@ -1,4 +1,15 @@
 
+## Version 1.6.0 (2023-11-22)
+
+** New Features and Improvements **
+
+- Updated B2C SDK integration
+
+** Bug fixes **
+
+- Redirect to login fix
+- Add estimated shipping to cart total
+
 ## Version 1.5.0 (2023-11-16)
 
 ** New Features and Improvements **
