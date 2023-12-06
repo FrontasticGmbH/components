@@ -1,5 +1,5 @@
 export const revalidateOptions = {
-  revalidateIfStale: false,
+  revalidateIfStale: true,
   revalidateOnFocus: false,
   revalidateOnReconnect: true,
 };

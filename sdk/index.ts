@@ -1,5 +1,3 @@
-import { sdk } from "./CommercetoolsSDK";
+import { sdk } from './CommercetoolsSDK';
 
-export {
-  sdk
-}
+export { sdk };

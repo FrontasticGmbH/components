@@ -1,5 +1,5 @@
 import {
-	rememberMeCookie,
+	rememberMeCookieAsync,
 	Event,
 	SDK,
 	ServerOptions,
@@ -129,7 +129,10 @@ export const getAccountActions = (
 
 			if (response.isError === false) {
 				if (remember) {
-					rememberMeCookie.set(true, options.serverOptions);
+					await rememberMeCookieAsync.set(
+						true,
+						options.serverOptions
+					);
 				}
 				sdk.trigger(
 					new Event({
@@ -150,7 +153,7 @@ export const getAccountActions = (
 			});
 
 			if (response.isError === false) {
-				rememberMeCookie.remove(options.serverOptions);
+				await rememberMeCookieAsync.remove(options.serverOptions);
 				sdk.trigger(
 					new Event({
 						eventName: "userLoggedOut",

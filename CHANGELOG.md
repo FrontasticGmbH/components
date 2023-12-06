@@ -1,4 +1,13 @@
 
+## Version 1.7.0 (2023-12-06)
+
+
+** New Features and Improvements **
+
+- Remove adyen
+- Checkout imporvements
+- Remove nextjs caching from preview and enabled in production only for page
+
 ## Version 1.6.0 (2023-11-22)
 
 ** New Features and Improvements **
