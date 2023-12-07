@@ -57,6 +57,12 @@ const CommercetoolsCheckout = ({ logo, ...emptyState }: CheckoutWrappedProps) =>
       cartId: cart.cartId,
       accessToken,
       locale,
+      styles: {
+        '--font-family': "'Inter', sans-serif",
+        '--button': '#212121',
+        '--radio': '#343434',
+        '--checkbox': '#343434',
+      },
     });
   }, [projectKey, cart, locale, accessToken, applicationId, pushRoute]);
 
@@ -75,7 +81,7 @@ const CommercetoolsCheckout = ({ logo, ...emptyState }: CheckoutWrappedProps) =>
   return (
     <div className="min-h-screen lg:bg-neutral-200">
       <Header logo={logo} {...emptyState} />
-      <div className="relative">
+      <div className="relative pt-6">
         {/* eslint-disable-next-line tailwindcss/no-custom-classname*/}
         <div data-ctc className="checkout-Container" />
       </div>

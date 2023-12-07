@@ -1,4 +1,16 @@
 
+## Version 1.8.3 (2023-12-07)
+
+** Features and Improvements **
+
+- Checkout style customizations
+
+
+** Bug Fixes **
+
+- Fix verify route stuck
+- 
+
 ## Version 1.8.1 (2023-12-07)
 
 ** Features and Improvements **
