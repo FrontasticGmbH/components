@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { checkout, init } from '@commercetools/checkout-browser-sdk';
 import { useCart, useProjectSettings, useCheckoutToken } from 'frontastic';
 import { CheckoutWrappedProps } from '..';
 import Header from '../components/header';
 
 const CommercetoolsCheckout = ({ logo, ...emptyState }: CheckoutWrappedProps) => {
+  const { push: pushRoute } = useRouter();
+
   const initiatedCheckout = useRef(false);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +38,14 @@ const CommercetoolsCheckout = ({ logo, ...emptyState }: CheckoutWrappedProps) =>
     init({
       checkoutConfig: {},
       onInfo: (message) => {
-        if (message.code === 'checkout_loaded') setIsLoading(false);
+        switch (message.code) {
+          case 'checkout_cancelled':
+            pushRoute('/cart');
+            break;
+          case 'checkout_loaded':
+            setIsLoading(false);
+            break;
+        }
       },
     });
 
@@ -49,7 +58,7 @@ const CommercetoolsCheckout = ({ logo, ...emptyState }: CheckoutWrappedProps) =>
       accessToken,
       locale,
     });
-  }, [projectKey, cart, locale, accessToken, applicationId]);
+  }, [projectKey, cart, locale, accessToken, applicationId, pushRoute]);
 
   const handleGoingBack = useCallback(() => {
     const checkoutIframe = document.getElementById('ctc-wrapper');

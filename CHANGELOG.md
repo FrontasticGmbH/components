@@ -1,4 +1,10 @@
 
+## Version 1.8.1 (2023-12-07)
+
+** Features and Improvements **
+
+- Add leave checkout handler
+
 ## Version 1.8.0 (2023-12-07)
 
 ** Bug Fixes **
