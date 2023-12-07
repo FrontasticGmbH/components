@@ -15,7 +15,10 @@ const useCart = (): UseCartReturn => {
 
   const { currency } = useI18n();
 
-  const result = useSWR('/action/cart/getCart', extensions.cart.getCart, revalidateOptions);
+  const result = useSWR('/action/cart/getCart', extensions.cart.getCart, {
+    ...revalidateOptions,
+    revalidateIfStale: true,
+  });
 
   const shippingMethodsResults = useSWR(
     '/action/cart/getShippingMethods',

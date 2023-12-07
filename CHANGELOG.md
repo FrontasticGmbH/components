@@ -1,4 +1,10 @@
 
+## Version 1.8.0 (2023-12-07)
+
+** Bug Fixes **
+
+- Fix cart disappearing bug
+
 ## Version 1.7.0 (2023-12-06)
 
 
