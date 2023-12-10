@@ -1,4 +1,11 @@
 
+## Version 1.8.4 (2023-12-10)
+
+
+** Features and Imporvements **
+
+- Pass `showTaxes` to ct checkout
+
 ## Version 1.8.3 (2023-12-07)
 
 ** Features and Improvements **

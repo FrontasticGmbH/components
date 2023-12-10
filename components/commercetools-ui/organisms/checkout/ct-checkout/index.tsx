@@ -57,6 +57,7 @@ const CommercetoolsCheckout = ({ logo, ...emptyState }: CheckoutWrappedProps) =>
       cartId: cart.cartId,
       accessToken,
       locale,
+      showTaxes: locale === 'en',
       styles: {
         '--font-family': "'Inter', sans-serif",
         '--button': '#212121',
