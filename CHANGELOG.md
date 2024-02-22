@@ -1,4 +1,17 @@
 
+## Version 1.10.0 (2024-02-22)
+
+** New Features and Improvements **
+
+- Handle request verification & password reset errors
+- Fix fetching category for preview
+- Add tasticId to div element id attribute
+- Added tasticId to component tastic
+
+** Bug fixes **
+
+-  Fix broken links in my account section
+
 ## Version 1.9.0 (2023-12-18)
 
 ** New Features and Improvements **

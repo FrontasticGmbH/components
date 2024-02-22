@@ -1,6 +1,6 @@
 {
   "name": "@frontastic/components",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "license": "MIT",
   "main": "index.js",
   "private": true,
@@ -72,7 +72,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
-    "@netlify/plugin-nextjs": "^4.40.1",
     "@storybook/addon-actions": "^6.5.4",
     "@storybook/addon-essentials": "^6.5.4",
     "@storybook/addon-interactions": "^6.5.4",
