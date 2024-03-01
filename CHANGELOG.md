@@ -1,4 +1,16 @@
 
+## Version 1.11.0 (2024-03-01)
+
+** New Features and Improvements **
+- Hardcoded payment methods were removed
+
+
+** Bug fixes **
+- User could not create accounts fixed
+- User can change passwords without any issues
+- User can edit account information without issues
+- Fixed multiple broken links in pages
+
 ## Version 1.10.0 (2024-02-22)
 
 ** New Features and Improvements **
