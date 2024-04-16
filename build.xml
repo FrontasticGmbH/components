@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Components nextjs" basedir="./" default="test">
 
-    <property name="frontastic_basedir" value="${basedir}/../../.." />
+    <property name="frontastic_basedir" value="${basedir}/../../../../../.." />
     <property name="integration_dir" value="${frontastic_basedir}/paas/integration" />
 
     <!--
@@ -29,7 +29,7 @@
     -->
     <target name="components nextjs:bootstrap" extensionOf="-initialize:main~hook">
         <tool-exists executable="yarn" />
-        
+
         <exec executable="n" failonerror="true" dir="${basedir}">
             <env key="N_PREFIX" value="/opt/n-for-ci" />
             <env key="CI" value="true" />
