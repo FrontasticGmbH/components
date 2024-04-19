@@ -1,4 +1,10 @@
 
+## Version 1.11.3 (2024-04-19)
+
+** New Features and Improvements **
+
+- Upgraded checkout version
+
 ## Version 1.11.2 (2024-04-17)
 
 ** New Features and Improvements **
