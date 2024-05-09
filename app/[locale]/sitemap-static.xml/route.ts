@@ -1,8 +1,10 @@
+import { NextRequest } from 'next/server';
 import { SiteMapField, generateSiteMap } from 'helpers/sitemap';
+import { i18nConfig } from 'project.config';
 import { sdk } from 'sdk';
 
-export async function GET() {
-  const locale = 'en';
+export async function GET(request: NextRequest, { params }: { params: { locale: string } }) {
+  const locale = params.locale ?? i18nConfig.defaultLocale;
 
   const siteUrl = process.env.SITE_URL;
 
