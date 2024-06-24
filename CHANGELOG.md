@@ -1,4 +1,23 @@
 
+## Version 1.13.0 (2024-06-24)
+
+** New Features and Improvements **
+
+- Better error messages for discount form
+- Move theme application to layout
+- Updated @commercetools/frontend-sdk dependency to 1.13.1
+- Update checkout
+- Multiple themes support
+
+** Bug fixes **
+
+- Move theme application to layout
+- Remove unneeded redirection on PLP
+- Fix breakpoints gap between header and body
+- Fix slider buggy loading
+- PDP image sizes
+- Truncates order uuid
+
 ## Version 1.12.1 (2024-06-06)
 
 ** New Features and Improvements **
