@@ -1,4 +1,21 @@
 
+## Version 2.1.0 (2024-12-16)
+
+** New Features & Improvements **
+
+- PLP Sort facet redesign
+- Size images properly
+
+
+** Bug Fixes **
+
+- Map and pass shipping state correctly
+- Used correct attribute in product variant component
+- Quantity selector disabled wrong color
+- Sort widget + quantity selector mini refactor
+- Consider max quantity to be added to cart
+- Fix active sort not showing in plp
+
 ## Version 2.0.0 (2024-11-20)
 
 
