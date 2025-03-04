@@ -12,7 +12,7 @@ interface LocalizationMapping {
 
 const localizationMapper = {
   en: {
-    locale: 'en_US',
+    locale: 'en-US',
     localeName: 'English',
     currency: 'USD',
     currencyCode: '$',
@@ -21,7 +21,7 @@ const localizationMapper = {
     countries: ['US'],
   },
   de: {
-    locale: 'de_DE',
+    locale: 'de-DE',
     localeName: 'German',
     currency: 'EUR',
     currencyCode: '€',

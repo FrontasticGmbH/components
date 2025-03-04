@@ -1,4 +1,16 @@
-## Version 3.2.0 (2025-03-03)
+
+## Version 3.2.1 (2025-03-04)
+
+** New Features & Improvements **
+
+* Refactor localiation issue in map category
+* Adjust disabled button styles and refactor return statement.
+
+
+** Bug Fixes **
+
+* Update disabled button styles for improved consistency
+
 
 ** New Features & Improvements **
 
