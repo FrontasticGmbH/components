@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { ProjectSettings } from 'shared/types/ProjectSettings';
+import { useRouter } from 'i18n/routing';
 import { Category } from 'types/entity/category';
 import { ContextShape, Option, Location } from './types';
 import usePath from '../../helpers/hooks/usePath';
@@ -59,7 +60,7 @@ const ShipAndLanguageProvider = ({
 
     if (correctPath && path !== correctPath) pathToGo = correctPath;
 
-    router.push(`/${language}${pathToGo}`);
+    router.push(pathToGo, { locale: language });
   };
 
   const onLocationSelect = (location: string) => {

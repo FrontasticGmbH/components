@@ -30,7 +30,7 @@ const useButtonClassNames: UseButtonClassNames = ({
     'hover:bg-gray-500',
     'active:shadow-button active:disabled:shadow-none active:bg-gray-600',
     'focus-visible:outline focus-visible:outline-gray-700 border-gray-700 focus-visible:border focus-visible:outline-offset-[3px]',
-    'disabled:bg-neutral-300 disabled:text-gray-400 border-gray-300',
+    'disabled:bg-neutral-300 disabled:text-gray-400 disabled:border-neutral-300',
   ]);
 
   const secondaryClassName = useClassNames([
