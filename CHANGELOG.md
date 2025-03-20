@@ -1,4 +1,15 @@
 
+## Version 4.0.1 (2025-03-20)
+** New Features & Improvements **
+
+* B2C end to end tests update
+* change text tags for buttons
+* remove Typography component
+
+** Bug Fixes **
+
+* added googleapis as a trusted domain for B2C images
+
 ## Version 4.0.0 (2025-03-17)
 
 
