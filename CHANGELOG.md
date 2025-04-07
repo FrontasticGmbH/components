@@ -1,68 +1,31 @@
 
-## Version 4.0.1 (2025-04-04)
-
-
-** New Features & Improvements **
-
-* update translations
-* adds a 2 min cache
-* reduces e2e output, continues on error (for now)
-* testing upload artifacts
-* ci trigger
-* more e2e pipeline improvements
-* playwright conf updates
-* improves b2c e2e workflow
-* tries to speed up e2e tests
-* prettierfix
-* renames prettierrc
-* added files modified by format command
-* rename
-* explicit prettier-tailwind plugin loading
-* clean workflow file
-* tailwind debug
-* debug prettier CI
-* CI bump
-* migrate prettier to mjs
-* storybook upgrade
-* updates typescript-eslint & fixes lint errors
-* updates more minor deps
-* updates storybook, playwright, testing & ui deps
-* Upate core dependencies (next, ts, eslint)
-* Eslint, typescript, dev dependencies update
-* Optimize the Hero component
-* Add accessibility documentation and update Storybook configuration
-* Fix for image issue in add to cart overlay
-* E2E updates
-* Implement product filters and update product detail page structure
-* Add GTM implementation
-* Update ShippingInfo structure to replace taxIncludedInPrice with taxRate, and enhance CartMapper for shipping rate handling
-* Group gitignore files
-* B2B end to end tests update
-* Upgrade nextjs to 15.2.3
-
-
-** Bug Fixes **
-
-* Fix type issues in gmail helper
-* Fix gallery LCP optimization (work in progress, testing)
-* Fix e2e run commands in workflows
-* Fix CI build upload paths
-* Clean up prettier config
-* Fix screenreader a11y
-* Fix drawer a11y issues B2C
-
+## Version 4.1.0 (2025-04-07)
 
 ** New Features & Improvements **
 
-- B2C end to end tests update
-- change text tags for buttons
-- remove Typography component
+- Upate core dependencies (next, ts, eslint)
+- Eslint, typescript, dev dependencies update
+- Optimize the Hero component
+- Add accessibility documentation and update Storybook configuration
+- Fix for image issue in add to cart overlay
+- E2E updates
+- Implement product filters and update product detail page structure
+- Add GTM implementation
+- Update ShippingInfo structure to replace taxIncludedInPrice with taxRate, and enhance CartMapper for shipping rate handling
+- Group gitignore files
+- B2B end to end tests update
+- Upgrade nextjs to 15.2.3
 
 ** Bug Fixes **
 
-- added googleapis as a trusted domain for B2C images
+- Fix type issues in gmail helper
+- Fix gallery LCP optimization (work in progress, testing)
+- Fix e2e run commands in workflows
+- Fix CI build upload paths
+- Clean up prettier config
+- Fix screenreader a11y
+- Fix drawer a11y issues B2C
 
-## Version 4.0.0 (2025-03-17)
 
 ** New Features & Improvements **
 
