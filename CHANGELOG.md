@@ -1,5 +1,19 @@
 
-## Version 4.1.0 (2025-04-07)
+## Version 4.2.0 (2025-04-15)
+
+
+** New Features & Improvements **
+
+* Enhance regex used for email fields verification
+* Implement feedback messages
+* Introduce React Hook Form`
+
+
+** Bug Fixes **
+
+* Fix overlay layering issue
+* Fix alt text set in studio not taking effect
+
 
 ** New Features & Improvements **
 
@@ -25,7 +39,6 @@
 - Clean up prettier config
 - Fix screenreader a11y
 - Fix drawer a11y issues B2C
-
 
 ** New Features & Improvements **
 
