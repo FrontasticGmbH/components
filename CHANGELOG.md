@@ -1,19 +1,33 @@
 
-## Version 4.2.0 (2025-04-15)
+## Version 4.3.0 (2025-05-12)
+
+** New Features & Improvements **
+
+- Renamed account version field to align with common types
+- UI/UX enhancement for checkout
+- B2C Redesign addresses
+- Update e2e tests to support locales and add DE locale test to checkout
+- Add toggle for saved addresses func.
+- Add category banner component to B2C
+
+** Bug Fixes **
+
+- Replace hardcoded shipping method description with vvalue from MC
+- Fix border radius for banner component
 
 
 ** New Features & Improvements **
 
-* Enhance regex used for email fields verification
-* Implement feedback messages
-* Introduce React Hook Form`
-
+- Enhance regex used for email fields verification
+- Implement feedback messages
+- Introduce React Hook Form`
 
 ** Bug Fixes **
 
-* Fix overlay layering issue
-* Fix alt text set in studio not taking effect
+- Fix overlay layering issue
+- Fix alt text set in studio not taking effect
 
+## Version 4.1.0 (2025-04-07)
 
 ** New Features & Improvements **
 
@@ -39,6 +53,8 @@
 - Clean up prettier config
 - Fix screenreader a11y
 - Fix drawer a11y issues B2C
+
+## Version 4.0.0 (2025-03-17)
 
 ** New Features & Improvements **
 
@@ -140,6 +156,22 @@
 - Adapted german translations and fixed on label
 - Set correct name for discount code id
 - Differenciated discounted amount and value for product and cart discounts
+
+** New Features & Improvements **
+
+- Fixing static folder warning and deployment error
+- Category page locale switching handling on frontend
+- Upgrade Node JS version
+- Update Storybook to v8.5.0 and add accessibility addon
+- Ignore .env file frontend
+
+** Bug Fixes **
+
+- Nextjs15 upgraded
+- Close Popover on value select
+- Allow locales with region and language and multiple languages per country
+
+## Version 3.0.0 (2025-02-03)
 
 ** New Features & Improvements **
 
