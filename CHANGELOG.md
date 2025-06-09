@@ -1,5 +1,18 @@
 
-## Version 4.4.0 (2025-05-27)
+## Version 4.5.0 (2025-06-09)
+
+** New Features & Improvements **
+
+- Upgrade Node to version 24
+- Improved storybook config
+
+
+** Bug Fixes **
+
+- Fiix price filter
+- Refactor AddressForm to use react-hook-form for form handling
+- Address rendering with improved callback formatting
+- Refactor imports in shipping-section and address-form components
 
 
 ** New Features & Improvements **
@@ -23,7 +36,6 @@
 - Refactor Input component
 - Add react hook form
 
-
 ** Bug Fixes **
 
 - Width for default address badge
@@ -31,7 +43,6 @@
 - Use correct term key for boolean facet
 - Empty billing address when selecting same shipping address in checkout
 - proper link for thank you page
-
 
 ** New Features & Improvements **
 
