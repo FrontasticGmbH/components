@@ -166,7 +166,8 @@
     "totalSum": "Total sum",
     "voucher-max-usage-plural": "Theses discount codes can no longer be redeemed as the maximum application has been reached. {codes}",
     "voucher-max-usage-singular": "This discount code can no longer be redeemed as the maximum application has been reached. {codes}",
-    "we-accept": "We accept"
+    "we-accept": "We accept",
+    "items-out-of-stock": "One of the items in your cart is no longer available and must be removed to continue."
   },
   "checkout": {
     "add-address": "Add another address line",
@@ -200,8 +201,9 @@
     "freeShipping": "Free",
     "fullsummary-hide": "Hide full summary",
     "fullsummary-show": "Show full summary",
+    "invalidAddressError": "Invalid address. Please edit this address or choose another to continue.",
     "invoice": "Invoice",
-    "items-outOfStock": "The following items are out of stock",
+    "items-outOfStock": "There are items that are out of stock. Please remove them from your cart and try again.",
     "nextOverview": "Continue to overview",
     "nextPayment": "Continue to payment",
     "no-countries-available-for-shipping": "Currently there are no countries available for shipping",
@@ -234,7 +236,10 @@
     "wentWrong": "Something went wrong during payment",
     "your-token-has-expired": "Your token has expired, please login again to continue.",
     "yourOrder": "Your order",
-    "yourOrderId": "Order id: "
+    "yourOrderId": "Order id: ",
+    "update-needed-before-checkout": "Update needed before checkout",
+    "items-in-cart-out-of-stock": "One of the items in your cart is no longer available and must be removed to continue. To finish your purchase, you’ll need to adjust your cart.",
+    "go-to-cart": "Go to cart"
   },
   "common": {
     "address": "Address",
@@ -426,6 +431,7 @@
     "clear": "Clear",
     "clear-all": "Clear All",
     "color": "Color",
+    "color-label": "Color",
     "currently-unavailable": "Currently unavailable",
     "desc": "Descending",
     "details-additional": "Additional details",
@@ -434,6 +440,7 @@
     "expected-in-days": "Expected availability: {days} days",
     "expected-in-weeks": "Expected availability: {weeks} weeks",
     "finish": "Finish",
+    "finish-label": "Finish",
     "found-products": "We found {count} products",
     "go": "Go",
     "items": "Items",
